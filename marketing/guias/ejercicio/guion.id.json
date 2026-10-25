@@ -20,6 +20,7 @@
     {
       "id": "adaptacion",
       "titulo": "Apa yang terjadi di tubuhmu saat berlatih",
+      "respuesta": "Kamu memberi stres yang terkendali, lalu tubuhmu jadi lebih kuat sesudahnya, saat kamu istirahat dan tubuh memulihkan diri.",
       "lineas": [
         {
           "id": "gancho",
@@ -100,6 +101,7 @@
     {
       "id": "historia",
       "titulo": "Sejarah singkat olahraga",
+      "respuesta": "Dari firasat ke sains: tahun 1953, Morris melihat kondektur bus London yang terus bergerak lebih jarang kena serangan jantung.",
       "lineas": [
         {
           "id": "titulo",
@@ -183,6 +185,7 @@
     {
       "id": "capacidades",
       "titulo": "Empat kemampuan yang perlu kamu latih",
+      "respuesta": "Daya tahan, kekuatan, mobilitas, dan keseimbangan: 150–300 menit aktivitas sedang per minggu, plus latihan kekuatan dua hari.",
       "lineas": [
         {
           "id": "titulo",
@@ -256,6 +259,7 @@
     {
       "id": "intensidad",
       "titulo": "Ukur intensitasmu seperti seorang profesional",
+      "respuesta": "Dengan skala 1 sampai 10, repetisi cadangan, dan detak jantung: kalau bisa mengobrol tapi tak bisa bernyanyi, itu sedang.",
       "lineas": [
         {
           "id": "titulo",
@@ -320,6 +324,7 @@
     {
       "id": "progresion",
       "titulo": "Cara berkembang dari minggu ke minggu",
+      "respuesta": "Dengan progresi ganda: begitu bisa 12 repetisi di semua set, naikkan beban dan mulai lagi dari 8.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +402,7 @@
     {
       "id": "recuperacion",
       "titulo": "Pemulihan: di sinilah kamu benar-benar berkembang",
+      "respuesta": "Kamu berkembang saat istirahat: tidur tujuh jam atau lebih dan bagi 1,2–2 gram protein per kilo sehari.",
       "lineas": [
         {
           "id": "titulo",

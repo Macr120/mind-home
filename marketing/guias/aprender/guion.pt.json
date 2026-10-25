@@ -12,6 +12,7 @@
     {
       "id": "olvido",
       "titulo": "Por que você esquece o que estuda?",
+      "respuesta": "Porque o que você não volta a usar vai embora rápido: em uma hora, Ebbinghaus já tinha esquecido mais da metade.",
       "lineas": [
         {
           "id": "gancho",
@@ -90,6 +91,7 @@
     {
       "id": "tecnicas",
       "titulo": "Quais técnicas funcionam de verdade?",
+      "respuesta": "Se testar e espaçar o estudo no tempo: de dez técnicas, só essas duas tiraram a nota mais alta.",
       "lineas": [
         {
           "id": "titulo",
@@ -170,6 +172,7 @@
     {
       "id": "prueba",
       "titulo": "Por que se testar vale mais do que reler?",
+      "respuesta": "Porque lembrar fixa o que você aprendeu: uma semana depois, quem se testou lembrava 61%, e quem releu, 40%.",
       "lineas": [
         {
           "id": "titulo",
@@ -241,6 +244,7 @@
     {
       "id": "repasar",
       "titulo": "Quando revisar para não esquecer?",
+      "respuesta": "No dia seguinte, depois de uma semana e de um mês: distribuir o estudo quase sempre vence estudar tudo na véspera.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "entender",
       "titulo": "Como entender em vez de decorar?",
+      "respuesta": "Aprenda como se fosse ensinar e explique de um jeito simples: onde você trava está o que ainda não entende.",
       "lineas": [
         {
           "id": "titulo",
@@ -403,6 +408,7 @@
     {
       "id": "dormir",
       "titulo": "O que o sono faz com o que você aprende?",
+      "respuesta": "Revisa e guarda melhor: quem dorme poucas horas depois de estudar lembra mais, mesmo dias depois.",
       "lineas": [
         {
           "id": "titulo",
@@ -481,6 +487,7 @@
     {
       "id": "continuar",
       "titulo": "Como seguir? O seu plano para continuar",
+      "respuesta": "Se teste sem olhar, agende revisões no dia seguinte, em uma semana e em um mês, e conte o que lembra, não as horas.",
       "lineas": [
         {
           "id": "titulo",

@@ -12,6 +12,7 @@
     {
       "id": "agenda",
       "titulo": "¿Quién decide lo que ves cada día?",
+      "respuesta": "Los medios, en buena parte: como mostraron McCombs y Shaw, no siempre te dicen qué pensar, pero sí sobre qué pensar.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "bly",
       "titulo": "¿Quién se hizo pasar por loca para contar la verdad?",
+      "respuesta": "Nellie Bly, en 1887: pasó diez días en un manicomio de Nueva York y su reportaje logró más dinero para los enfermos.",
       "lineas": [
         {
           "id": "titulo",
@@ -182,6 +184,7 @@
     {
       "id": "negatividad",
       "titulo": "¿Por qué las malas noticias venden más?",
+      "respuesta": "Porque tu cerebro atiende más a lo malo: cada palabra negativa de más en un titular sube los clics más de un 2 %.",
       "lineas": [
         {
           "id": "titulo",
@@ -257,6 +260,7 @@
     {
       "id": "mentira",
       "titulo": "¿Por qué la mentira corre más rápido?",
+      "respuesta": "Porque lo falso es más novedoso y sorprende: en Twitter llegaba seis veces más rápido, y no por bots, sino por personas.",
       "lineas": [
         {
           "id": "titulo",
@@ -336,6 +340,7 @@
     {
       "id": "verificar",
       "titulo": "¿Cómo leer como un verificador?",
+      "respuesta": "Lee de lado: sal del sitio y busca qué dicen otros de esa fuente, como hacen los verificadores profesionales.",
       "lineas": [
         {
           "id": "titulo",
@@ -425,6 +430,7 @@
     {
       "id": "belleza",
       "titulo": "¿Cómo crear contenido verdadero y bello?",
+      "respuesta": "Verifica antes de publicar, di de dónde sacaste el dato y cuéntalo como una historia, con buena imagen y palabras claras.",
       "lineas": [
         {
           "id": "titulo",
@@ -521,6 +527,7 @@
     {
       "id": "dieta",
       "titulo": "¿Cuántas noticias son demasiadas?",
+      "respuesta": "Quien vio seis horas al día acabó con más estrés que muchos testigos: ponles hora fija, un límite y apaga las notificaciones.",
       "lineas": [
         {
           "id": "titulo",
@@ -596,6 +603,7 @@
     {
       "id": "continuar",
       "titulo": "¿Cómo seguir? Tu plan para continuar",
+      "respuesta": "Anota de dónde te informas, suma fuentes distintas, elige una hora fija y lee de lado antes de compartir.",
       "lineas": [
         {
           "id": "titulo",

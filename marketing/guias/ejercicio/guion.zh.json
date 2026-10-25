@@ -20,6 +20,7 @@
     {
       "id": "adaptacion",
       "titulo": "训练时，你的身体里发生了什么",
+      "respuesta": "训练是给身体可控的压力，真正变强是在之后：你休息时，身体修复并超越从前。",
       "lineas": [
         {
           "id": "gancho",
@@ -100,6 +101,7 @@
     {
       "id": "historia",
       "titulo": "运动简史",
+      "respuesta": "从直觉到科学：1953年，莫里斯发现总在走动的伦敦公交售票员心脏病发作更少。",
       "lineas": [
         {
           "id": "titulo",
@@ -183,6 +185,7 @@
     {
       "id": "capacidades",
       "titulo": "你需要训练的四种能力",
+      "respuesta": "耐力、力量、灵活性和平衡：每周150到300分钟中等强度活动，外加两天力量训练。",
       "lineas": [
         {
           "id": "titulo",
@@ -256,6 +259,7 @@
     {
       "id": "intensidad",
       "titulo": "像专业人士一样衡量强度",
+      "respuesta": "用1到10的自觉用力程度、保留次数和心率来衡量：能说话但唱不了歌，就是中等强度。",
       "lineas": [
         {
           "id": "titulo",
@@ -320,6 +324,7 @@
     {
       "id": "progresion",
       "titulo": "如何一周一周地进步",
+      "respuesta": "用双重递进：每组都能做满12次时，就加重量，再从8次重新开始。",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +402,7 @@
     {
       "id": "recuperacion",
       "titulo": "恢复：你真正进步的时候",
+      "respuesta": "你在休息时进步：睡够七小时以上，每天每公斤体重摄入1.2到2克蛋白质，分几餐吃。",
       "lineas": [
         {
           "id": "titulo",

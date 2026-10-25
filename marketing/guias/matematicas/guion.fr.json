@@ -12,6 +12,7 @@
     {
       "id": "universo",
       "titulo": "Pourquoi l’univers parle-t-il en nombres ?",
+      "respuesta": "Parce que les maths décrivent comment le monde bouge : rien qu’avec des calculs, Le Verrier a trouvé Neptune sans regarder le ciel.",
       "lineas": [
         {
           "id": "gancho",
@@ -70,6 +71,7 @@
     {
       "id": "origen",
       "titulo": "D’où viennent les nombres ?",
+      "respuesta": "On naît avec un sens de la quantité ; ce qu’on a inventé, c’est de l’écrire, des entailles sur un os jusqu’au zéro.",
       "lineas": [
         {
           "id": "titulo",
@@ -121,6 +123,7 @@
     {
       "id": "miedo",
       "titulo": "Pourquoi les maths font-elles peur ?",
+      "respuesta": "Parce que ton cerveau réagit comme à une douleur avant même de commencer, mais être doué en maths n’est pas un don : c’est de la pratique.",
       "lineas": [
         {
           "id": "titulo",
@@ -166,6 +169,7 @@
     {
       "id": "resolver",
       "titulo": "Comment résoudre n’importe quel problème ?",
+      "respuesta": "Avec les quatre étapes de Pólya : comprendre, concevoir un plan, l’exécuter et vérifier ; et estime avant de calculer.",
       "lineas": [
         {
           "id": "titulo",
@@ -217,6 +221,7 @@
     {
       "id": "ver",
       "titulo": "Comment voir une équation ?",
+      "respuesta": "Trace-la sur deux axes, comme l’a proposé Descartes : tu verras d’un coup d’œil où elle monte, où elle descend et où elle coupe le zéro.",
       "lineas": [
         {
           "id": "titulo",
@@ -261,6 +266,7 @@
     {
       "id": "vida",
       "titulo": "Comment utiliser les nombres dans ta vie ?",
+      "respuesta": "Remplace les pourcentages par des personnes : imagine-en cent et compte combien sont dans chaque cas, et le problème s’éclaire.",
       "lineas": [
         {
           "id": "titulo",
@@ -305,6 +311,7 @@
     {
       "id": "continuar",
       "titulo": "Comment continuer ? Ton plan pour la suite.",
+      "respuesta": "Cherche les nombres de ta journée, estime avant de calculer et résous chaque jour un petit problème avec les étapes de Pólya.",
       "lineas": [
         {
           "id": "titulo",

@@ -18,6 +18,12 @@ export const POSES: Record<string, { escena: string; cara: ExpresionId }> = {
   // No son de un meme: el primer plano de las miniaturas de los videos (señalando la pregunta, con cara de sorpresa).
   pensando: { escena: 'pensando', cara: 'neutral' },
   miniatura: { escena: 'senala', cara: 'sorpresa' },
+  // Tampoco: las plantillas de cada parte para Facebook e Instagram (plantillas.mjs), una pose distinta por parte.
+  pulgar: { escena: 'aprueba', cara: 'sonrisa' },
+  explica: { escena: 'senala', cara: 'serio' },
+  ternura: { escena: 'habla', cara: 'ternura' },
+  // En Pep@ «relajado» es tumbarse: en su lugar se estira de pie.
+  estira: { escena: 'estira', cara: 'feliz' },
 }
 
 type Formato = 'drake' | 'arribaAbajo' | 'unico'
@@ -114,6 +120,12 @@ export const MEMES: Record<string, DefMeme> = {
   ducha: { formato: 'unico', poses: ['confundido'], sonido: 'wow' },
   reunion: { formato: 'arribaAbajo', poses: ['orgulloso', 'cansado'], sonido: 'bruh' },
   hoja: { formato: 'arribaAbajo', poses: ['relajado', 'orgulloso'], sonido: 'jeje-boy' },
+  // Viajes (las poses son del osito piloto, el narrador).
+  maleta: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
+  expectativa: { formato: 'arribaAbajo', poses: ['orgulloso', 'cansado'], sonido: 'bruh' },
+  itinerario: { formato: 'unico', poses: ['cansado'], sonido: 'bruh' },
+  presupuesto: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
+  fotos: { formato: 'arribaAbajo', poses: ['orgulloso', 'confundido'], sonido: 'jeje-boy' },
 }
 
 export function Meme({ id, tema, t }: { id: string; tema: string; t: T }) {

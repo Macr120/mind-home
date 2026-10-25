@@ -12,6 +12,7 @@
     {
       "id": "miedo",
       "titulo": "Warum nimmt dir Schreiben die Angst?",
+      "respuesta": "Weil du die Sorge aus dem Kopf holst und aufs Papier legst: Zehn Minuten Schreiben vor einer Prüfung verbessern dein Ergebnis.",
       "lineas": [
         {
           "id": "gancho",
@@ -107,6 +108,7 @@
     {
       "id": "blanco",
       "titulo": "Warum macht das leere Blatt so viel Angst?",
+      "respuesta": "Weil du willst, dass es beim ersten Mal perfekt wird: Schreib zehn Minuten ohne Pause und ohne Löschen, und korrigier später.",
       "lineas": [
         {
           "id": "titulo",
@@ -198,6 +200,7 @@
     {
       "id": "orden",
       "titulo": "Warum ordnet Schreiben deinen Kopf?",
+      "respuesta": "Weil sich lose Gedanken anstellen müssen: Was in deinem Kopf ein Knoten war, wird auf dem Papier zu einer Liste.",
       "lineas": [
         {
           "id": "titulo",
@@ -273,6 +276,7 @@
     {
       "id": "bitacora",
       "titulo": "Warum schreibt die Menschheit seit fünftausend Jahren?",
+      "respuesta": "Weil Schreiben der Weg ist, nichts zu vergessen: Es begann mit Gerste und Schafen, und heute helfen alte Logbücher, das Klima zu erforschen.",
       "lineas": [
         {
           "id": "titulo",
@@ -349,6 +353,7 @@
     {
       "id": "historias",
       "titulo": "Warum bleibt eine Geschichte im Kopf?",
+      "respuesta": "Weil sie verbindet, was du behalten willst: Wer aus zehn Wörtern eine Geschichte erfand, erinnerte sich an etwa siebenmal so viele.",
       "lineas": [
         {
           "id": "titulo",
@@ -416,6 +421,7 @@
     {
       "id": "trama",
       "titulo": "Wie baut man eine gute Geschichte?",
+      "respuesta": "Mit jemandem, der etwas will, etwas, das ihn aufhält, und einem Ende, an dem er sich verändert; und: zeigen, nicht erzählen.",
       "lineas": [
         {
           "id": "titulo",
@@ -493,6 +499,7 @@
     {
       "id": "diario",
       "titulo": "Wie schreibst du jeden Tag besser?",
+      "respuesta": "Mit einem täglichen Termin mit dem Blatt statt Warten auf Inspiration, und lautem Überarbeiten: Das Gute entsteht beim Überarbeiten.",
       "lineas": [
         {
           "id": "titulo",
@@ -569,6 +576,7 @@
     {
       "id": "continuar",
       "titulo": "Wie geht es weiter? Dein Plan zum Weitermachen",
+      "respuesta": "Fang mit zehn Minuten freiem Schreiben am Tag an und schließ im ersten Monat ein kleines Projekt ab, das du laut überarbeitest.",
       "lineas": [
         {
           "id": "titulo",

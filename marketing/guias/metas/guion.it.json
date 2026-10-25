@@ -12,6 +12,7 @@
     {
       "id": "querer",
       "titulo": "Perché volere non basta?",
+      "respuesta": "Perché quasi la metà di chi ha l'intenzione poi non agisce: progetta il tuo obiettivo perché non dipenda dalla voglia.",
       "lineas": [
         {
           "id": "gancho",
@@ -124,6 +125,7 @@
     {
       "id": "buena",
       "titulo": "Cosa rende buono un obiettivo?",
+      "respuesta": "Che sia concreto, un po' difficile, in positivo e con un perché che ti sta a cuore: così batte «farò del mio meglio».",
       "lineas": [
         {
           "id": "titulo",
@@ -200,6 +202,7 @@
     {
       "id": "pasos",
       "titulo": "Come si trasforma un obiettivo in passi?",
+      "respuesta": "Decidi quando e dove con una frase «se…, allora…»: con quella, il 91% ha fatto esercizio invece del 35%.",
       "lineas": [
         {
           "id": "titulo",
@@ -267,6 +270,7 @@
     {
       "id": "ganas",
       "titulo": "Perché la voglia finisce?",
+      "respuesta": "Perché sale quando vedi l'obiettivo vicino: i piccoli progressi di ogni giorno sono il suo carburante.",
       "lineas": [
         {
           "id": "titulo",
@@ -348,6 +352,7 @@
     {
       "id": "casa",
       "titulo": "Perché aiuta avere tutto in una casa mentale?",
+      "respuesta": "Perché il cervello ricorda benissimo i luoghi, e quando ogni obiettivo ha il suo posto, smette di intrufolarsi nei pensieri.",
       "lineas": [
         {
           "id": "titulo",
@@ -434,6 +439,7 @@
     {
       "id": "medir",
       "titulo": "Come capire se stai andando avanti?",
+      "respuesta": "Controlla spesso i tuoi progressi e annotali: in 138 esperimenti, chi lo faceva si avvicinava di più all'obiettivo.",
       "lineas": [
         {
           "id": "titulo",
@@ -509,6 +515,7 @@
     {
       "id": "fallar",
       "titulo": "Cosa fare quando sbagli?",
+      "respuesta": "Riprendi il giorno dopo: puoi saltare una volta, ma non due di fila, e un giorno perso non cancella i progressi.",
       "lineas": [
         {
           "id": "titulo",
@@ -598,6 +605,7 @@
     {
       "id": "continuar",
       "titulo": "Come andare avanti? Il tuo piano per continuare",
+      "respuesta": "Scegli un obiettivo con il suo «se…, allora…», inizia con due minuti, rivedi la tua serie ogni domenica e, se sbagli, riprendi.",
       "lineas": [
         {
           "id": "titulo",

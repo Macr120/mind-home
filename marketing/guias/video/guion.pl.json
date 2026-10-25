@@ -12,6 +12,7 @@
     {
       "id": "video",
       "titulo": "Czym jest wideo",
+      "respuesta": "To nieruchome zdjęcia tak szybko po sobie, że mózg łączy je w ruch: przy 24 na sekundę, prędkości kina, ruch jest płynny.",
       "lineas": [
         {
           "id": "gancho",
@@ -123,6 +124,7 @@
     {
       "id": "historia",
       "titulo": "Krótka historia wideo",
+      "respuesta": "Od dwunastu aparatów Muybridge’a w 1878 roku do dzisiejszego telefonu: to, co wymagało ekipy filmowej, mieści się w kieszeni.",
       "lineas": [
         {
           "id": "titulo",
@@ -223,6 +225,7 @@
     {
       "id": "encuadre",
       "titulo": "Kadr",
+      "respuesta": "Kadrowanie to decyzja, co wchodzi w obraz: umieść to, co ważne, na linii trójpodziału, a nie pośrodku, i pokierujesz wzrokiem.",
       "lineas": [
         {
           "id": "titulo",
@@ -307,6 +310,7 @@
     {
       "id": "luzSonido",
       "titulo": "Światło i dźwięk",
+      "respuesta": "Stań przodem lub bokiem do okna i przysuń mikrofon na odległość dłoni: widzowie wybaczą przeciętny obraz, ale nie zły dźwięk.",
       "lineas": [
         {
           "id": "titulo",
@@ -388,6 +392,7 @@
     {
       "id": "edicion",
       "titulo": "Montaż",
+      "respuesta": "Wybierz najlepsze ujęcia, ułóż je i ustal, ile trwa każde: jak pokazał Kuleshov, znaczenie tkwi w tym, co zestawiasz obok siebie.",
       "lineas": [
         {
           "id": "titulo",
@@ -471,6 +476,7 @@
     {
       "id": "historiaContar",
       "titulo": "Jak opowiedzieć historię",
+      "respuesta": "Przyciągnij uwagę w pierwszych sekundach pytaniem, zbuduj początek, zawiązanie akcji i zakończenie, i pokaż, nie mów.",
       "lineas": [
         {
           "id": "titulo",
@@ -566,6 +572,7 @@
     {
       "id": "plan",
       "titulo": "Twój plan na start",
+      "respuesta": "Rób jeden minutowy film tygodniowo, nawet jeśli nie wyjdzie idealnie: to 52 w roku, a każdy uczy cię czegoś na następny.",
       "lineas": [
         {
           "id": "titulo",

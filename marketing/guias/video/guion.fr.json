@@ -12,6 +12,7 @@
     {
       "id": "video",
       "titulo": "Ce qu'est une vidéo",
+      "respuesta": "Ce sont des photos fixes si rapprochées que ton cerveau les relie : à 24 par seconde, la vitesse du cinéma, tout devient fluide.",
       "lineas": [
         {
           "id": "gancho",
@@ -123,6 +124,7 @@
     {
       "id": "historia",
       "titulo": "Une brève histoire de la vidéo",
+      "respuesta": "Des douze appareils de Muybridge en 1878 au téléphone d’aujourd’hui : ce qui demandait une équipe de cinéma tient dans ta poche.",
       "lineas": [
         {
           "id": "titulo",
@@ -223,6 +225,7 @@
     {
       "id": "encuadre",
       "titulo": "Le cadrage",
+      "respuesta": "Cadrer, c’est choisir ce qui entre dans l’image : place l’essentiel sur une ligne des tiers, pas au centre, et tu guides le regard.",
       "lineas": [
         {
           "id": "titulo",
@@ -307,6 +310,7 @@
     {
       "id": "luzSonido",
       "titulo": "La lumière et le son",
+      "respuesta": "Mets-toi face ou de côté à une fenêtre et rapproche le micro à une main : le public pardonne une image moyenne, pas un mauvais son.",
       "lineas": [
         {
           "id": "titulo",
@@ -388,6 +392,7 @@
     {
       "id": "edicion",
       "titulo": "Le montage",
+      "respuesta": "Choisis tes meilleurs plans, mets-les en ordre et règle leur durée : comme l’a montré Kuleshov, le sens naît de ce que tu mets côte à côte.",
       "lineas": [
         {
           "id": "titulo",
@@ -471,6 +476,7 @@
     {
       "id": "historiaContar",
       "titulo": "Comment raconter une histoire",
+      "respuesta": "Accroche dès les premières secondes avec une question, construis un début, un nœud et une fin, et montre au lieu de dire.",
       "lineas": [
         {
           "id": "titulo",
@@ -566,6 +572,7 @@
     {
       "id": "plan",
       "titulo": "Ton plan pour commencer",
+      "respuesta": "Fais une vidéo d’une minute par semaine, même imparfaite : ça fait 52 par an, et chacune t’apprend quelque chose pour la suivante.",
       "lineas": [
         {
           "id": "titulo",

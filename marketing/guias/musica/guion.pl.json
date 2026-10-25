@@ -12,6 +12,7 @@
     {
       "id": "musica",
       "titulo": "Czym jest muzyka",
+      "respuesta": "To zorganizowany dźwięk: rytm, melodia i harmonia, a nauka gry zmienia nawet twój mózg, choć maszyna już komponuje.",
       "lineas": [
         {
           "id": "gancho",
@@ -136,6 +137,7 @@
     {
       "id": "historia",
       "titulo": "Krótka historia muzyki",
+      "respuesta": "Od fletu z kości sprzed 40 000 lat po nagrania i MIDI: dziś keyboard i komputer to całe studio nagraniowe.",
       "lineas": [
         {
           "id": "titulo",
@@ -236,6 +238,7 @@
     {
       "id": "ritmo",
       "titulo": "Rytm",
+      "respuesta": "To sposób, w jaki muzyka rozkłada się w czasie: równy puls zgrupowany w takty i synkopa, która porywa do tańca.",
       "lineas": [
         {
           "id": "titulo",
@@ -330,6 +333,7 @@
     {
       "id": "melodia",
       "titulo": "Melodia",
+      "respuesta": "To szereg dźwięków, który możesz zaśpiewać: poznajesz go po kształcie, w górę lub w dół, a wpada w ucho, bo się powtarza.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +401,7 @@
     {
       "id": "armonia",
       "titulo": "Harmonia",
+      "respuesta": "To dźwięki naraz: akord durowy brzmi jasno, molowy melancholijnie, a z trzema akordami zagrasz już akompaniament do piosenek.",
       "lineas": [
         {
           "id": "titulo",
@@ -477,6 +482,7 @@
     {
       "id": "mezcla",
       "titulo": "Jak miksuje się muzykę",
+      "respuesta": "Miksowanie to nadanie każdej ścieżce głośności, częstotliwości i miejsca, żeby bas nie zagłuszył melodii.",
       "lineas": [
         {
           "id": "titulo",
@@ -543,6 +549,7 @@
     {
       "id": "plan",
       "titulo": "Twój plan na start",
+      "respuesta": "Słuchaj warstwami, ćwicz 15 minut dziennie, czyli ponad 90 godzin rocznie, i nagrywaj się od pierwszego dnia.",
       "lineas": [
         {
           "id": "titulo",

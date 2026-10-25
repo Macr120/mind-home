@@ -18,6 +18,7 @@
     {
       "id": "cuerpo",
       "titulo": "What food does in your body",
+      "respuesta": "It's fuel to breathe, think and move, and the building material you use to repair muscle, bone, skin and blood.",
       "lineas": [
         {
           "id": "gancho",
@@ -97,6 +98,7 @@
     {
       "id": "historia",
       "titulo": "A short history of what we eat",
+      "respuesta": "From fire to food labels: Lind's oranges cured scurvy, and Atwater measured the calories we still read today.",
       "lineas": [
         {
           "id": "titulo",
@@ -185,6 +187,7 @@
     {
       "id": "energia",
       "titulo": "How much energy you need",
+      "respuesta": "About two thirds of what you burn just keeps you alive; to lose weight, eat about 15% less than you burn.",
       "lineas": [
         {
           "id": "titulo",
@@ -252,6 +255,7 @@
     {
       "id": "calidad",
       "titulo": "The quality of what you eat",
+      "respuesta": "Choose fresh food: on ultra-processed food, people ate about 500 more calories a day without noticing.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "plato",
       "titulo": "How to build your plate and your week",
+      "respuesta": "Fill half your plate with vegetables and fruit, a quarter with whole grains and a quarter with protein, and plan your week's menu.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +402,7 @@
     {
       "id": "habitos",
       "titulo": "Water, hunger and consistency",
+      "respuesta": "Drink about two liters of water a day, eat slowly and screen-free, and log what you eat for a few days to spot patterns.",
       "lineas": [
         {
           "id": "titulo",

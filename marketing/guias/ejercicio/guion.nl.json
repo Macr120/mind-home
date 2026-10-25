@@ -20,6 +20,7 @@
     {
       "id": "adaptacion",
       "titulo": "Wat er in je lichaam gebeurt als je traint",
+      "respuesta": "Je geeft je lichaam gecontroleerde stress, en het wordt daarna sterker, terwijl je rust en het zich herstelt.",
       "lineas": [
         {
           "id": "gancho",
@@ -100,6 +101,7 @@
     {
       "id": "historia",
       "titulo": "Een korte geschiedenis van het sporten",
+      "respuesta": "Van gevoel naar wetenschap: in 1953 zag Morris dat Londense conducteurs, altijd in beweging, minder hartaanvallen kregen.",
       "lineas": [
         {
           "id": "titulo",
@@ -183,6 +185,7 @@
     {
       "id": "capacidades",
       "titulo": "De vier vaardigheden die je moet trainen",
+      "respuesta": "Uithoudingsvermogen, kracht, mobiliteit en balans: 150 tot 300 minuten matig bewegen per week en twee dagen kracht.",
       "lineas": [
         {
           "id": "titulo",
@@ -256,6 +259,7 @@
     {
       "id": "intensidad",
       "titulo": "Meet je intensiteit als een prof",
+      "respuesta": "Met de schaal van 1 tot 10, herhalingen in reserve en je hartslag: kun je praten maar niet zingen, dan zit je op matig.",
       "lineas": [
         {
           "id": "titulo",
@@ -320,6 +324,7 @@
     {
       "id": "progresion",
       "titulo": "Zo word je week na week beter",
+      "respuesta": "Met dubbele progressie: haal je 12 herhalingen in elke set, verhoog dan het gewicht en begin weer bij 8.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +402,7 @@
     {
       "id": "recuperacion",
       "titulo": "Herstel: daar word je echt beter",
+      "respuesta": "Je wordt beter terwijl je rust: slaap zeven uur of meer en verdeel 1,2 tot 2 gram eiwit per kilo over de dag.",
       "lineas": [
         {
           "id": "titulo",

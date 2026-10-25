@@ -12,6 +12,7 @@
     {
       "id": "musica",
       "titulo": "Was Musik ist",
+      "respuesta": "Organisierter Klang aus Rhythmus, Melodie und Harmonie, und ein Instrument zu lernen verändert sogar dein Gehirn.",
       "lineas": [
         {
           "id": "gancho",
@@ -136,6 +137,7 @@
     {
       "id": "historia",
       "titulo": "Eine kurze Geschichte der Musik",
+      "respuesta": "Von einer 40.000 Jahre alten Knochenflöte bis zu Aufnahme und MIDI: Heute sind Keyboard und Computer ein komplettes Studio.",
       "lineas": [
         {
           "id": "titulo",
@@ -236,6 +238,7 @@
     {
       "id": "ritmo",
       "titulo": "Der Rhythmus",
+      "respuesta": "Wie sich Musik über die Zeit verteilt: ein gleichmäßiger Puls, gebündelt in Takte, und die Synkope, die dich tanzen lässt.",
       "lineas": [
         {
           "id": "titulo",
@@ -330,6 +333,7 @@
     {
       "id": "melodia",
       "titulo": "Die Melodie",
+      "respuesta": "Töne, die du singen kannst: Du erkennst sie an ihrer Linie, auf oder ab, und sie bleibt hängen, weil sie sich wiederholt.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +401,7 @@
     {
       "id": "armonia",
       "titulo": "Die Harmonie",
+      "respuesta": "Töne, die gleichzeitig klingen: Dur klingt hell, Moll wehmütig, und mit drei Akkorden begleitest du schon ganze Lieder.",
       "lineas": [
         {
           "id": "titulo",
@@ -477,6 +482,7 @@
     {
       "id": "mezcla",
       "titulo": "Wie Musik gemischt wird",
+      "respuesta": "Mischen heißt, jeder Spur ihre Lautstärke, ihre Frequenzen und ihren Platz zu geben, damit der Bass die Melodie nicht verdeckt.",
       "lineas": [
         {
           "id": "titulo",
@@ -543,6 +549,7 @@
     {
       "id": "plan",
       "titulo": "Dein Plan für den Einstieg",
+      "respuesta": "Hör in Schichten, übe 15 Minuten am Tag, das sind über 90 Stunden im Jahr, und nimm dich vom ersten Tag an auf.",
       "lineas": [
         {
           "id": "titulo",

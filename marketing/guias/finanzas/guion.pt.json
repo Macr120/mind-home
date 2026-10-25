@@ -23,6 +23,7 @@
     {
       "id": "dinero",
       "titulo": "Para que serve o dinheiro",
+      "respuesta": "Serve para trocar, medir e guardar valor, mas o que conta não é quanto você ganha, e sim o que entra menos o que sai.",
       "lineas": [
         {
           "id": "gancho",
@@ -109,6 +110,7 @@
     {
       "id": "historia",
       "titulo": "Uma breve história do dinheiro",
+      "respuesta": "Das primeiras moedas da Lídia ao papel-moeda chinês de 1024; desde 1971, o dinheiro vale pela confiança, não pelo ouro.",
       "lineas": [
         {
           "id": "titulo",
@@ -189,6 +191,7 @@
     {
       "id": "presupuesto",
       "titulo": "Para onde vai o seu dinheiro",
+      "respuesta": "Anote tudo o que gasta por um mês, divida a renda com a regra 50/30/20 e pague a si mesmo primeiro no dia do pagamento.",
       "lineas": [
         {
           "id": "titulo",
@@ -259,6 +262,7 @@
     {
       "id": "deudas",
       "titulo": "A sua reserva e as suas dívidas",
+      "respuesta": "Junte de três a seis meses de gastos básicos como reserva e saia primeiro das dívidas caras, sem pagar só o mínimo.",
       "lineas": [
         {
           "id": "titulo",
@@ -348,6 +352,7 @@
     {
       "id": "invertir",
       "titulo": "Coloque o seu dinheiro para trabalhar",
+      "respuesta": "Comece cedo, porque o tempo vale mais que a quantia: a 6% ao ano, seu dinheiro dobra em uns 12 anos.",
       "lineas": [
         {
           "id": "titulo",
@@ -440,6 +445,7 @@
     {
       "id": "plan",
       "titulo": "O seu plano para começar",
+      "respuesta": "Dê valor e data à sua meta, automatize a poupança no dia do pagamento e revise dez minutos por mês quanto avançou.",
       "lineas": [
         {
           "id": "titulo",

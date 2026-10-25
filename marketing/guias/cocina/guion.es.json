@@ -18,6 +18,7 @@
     {
       "id": "cuerpo",
       "titulo": "Qué hace la comida en tu cuerpo",
+      "respuesta": "Te da energía para respirar, pensar y moverte, y es el material con que reparas músculo, hueso, piel y sangre.",
       "lineas": [
         {
           "id": "gancho",
@@ -67,6 +68,7 @@
     {
       "id": "historia",
       "titulo": "Una breve historia de lo que comemos",
+      "respuesta": "Del fuego a la etiqueta: las naranjas de Lind curaron el escorbuto y Atwater midió las calorías que aún leemos hoy.",
       "lineas": [
         {
           "id": "titulo",
@@ -123,6 +125,7 @@
     {
       "id": "energia",
       "titulo": "Cuánta energía necesitas",
+      "respuesta": "Unos dos tercios de tu gasto se van en mantenerte vivo; para bajar de peso, come un 15 % menos de lo que gastas.",
       "lineas": [
         {
           "id": "titulo",
@@ -171,6 +174,7 @@
     {
       "id": "calidad",
       "titulo": "La calidad de lo que comes",
+      "respuesta": "Prefiere comida fresca: con ultraprocesados, la gente comió unas 500 calorías más al día sin darse cuenta.",
       "lineas": [
         {
           "id": "titulo",
@@ -220,6 +224,7 @@
     {
       "id": "plato",
       "titulo": "Cómo armar tu plato y tu semana",
+      "respuesta": "Llena medio plato con verduras y frutas, un cuarto con integrales y otro con proteína, y planea el menú de la semana.",
       "lineas": [
         {
           "id": "titulo",
@@ -271,6 +276,7 @@
     {
       "id": "habitos",
       "titulo": "Agua, hambre y constancia",
+      "respuesta": "Bebe unos dos litros de agua al día, come despacio y sin pantallas, y apunta lo que comes unos días para ver patrones.",
       "lineas": [
         {
           "id": "titulo",

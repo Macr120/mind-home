@@ -12,6 +12,7 @@
     {
       "id": "miedo",
       "titulo": "Por que escrever tira o seu medo?",
+      "respuesta": "Porque você tira a preocupação da cabeça e a deixa no papel: dez minutos escrevendo antes de uma prova melhoram o seu resultado.",
       "lineas": [
         {
           "id": "gancho",
@@ -107,6 +108,7 @@
     {
       "id": "blanco",
       "titulo": "Por que a página em branco dá tanto medo?",
+      "respuesta": "Porque você quer que saia perfeito de primeira: escreva dez minutos sem parar nem apagar, e corrija depois.",
       "lineas": [
         {
           "id": "titulo",
@@ -198,6 +200,7 @@
     {
       "id": "orden",
       "titulo": "Por que escrever organiza a sua cabeça?",
+      "respuesta": "Porque as ideias soltas têm que fazer fila: o que na sua cabeça era um nó, no papel vira uma lista.",
       "lineas": [
         {
           "id": "titulo",
@@ -273,6 +276,7 @@
     {
       "id": "bitacora",
       "titulo": "Por que a humanidade escreve há cinco mil anos?",
+      "respuesta": "Porque escrever é a forma de não esquecer: nasceu para contar cevada e ovelhas, e hoje velhos diários de bordo ajudam a estudar o clima.",
       "lineas": [
         {
           "id": "titulo",
@@ -349,6 +353,7 @@
     {
       "id": "historias",
       "titulo": "Por que uma história fica gravada em você?",
+      "respuesta": "Porque une o que você quer lembrar: quem inventou uma história com dez palavras lembrou cerca de sete vezes mais.",
       "lineas": [
         {
           "id": "titulo",
@@ -416,6 +421,7 @@
     {
       "id": "trama",
       "titulo": "Como se monta uma boa história?",
+      "respuesta": "Com alguém que quer algo, algo que o impede e um final em que ele muda; e mostre, não conte.",
       "lineas": [
         {
           "id": "titulo",
@@ -493,6 +499,7 @@
     {
       "id": "diario",
       "titulo": "Como escrever melhor a cada dia?",
+      "respuesta": "Com um encontro diário com a folha em vez de esperar a inspiração, e revisando em voz alta: o bom sai na revisão.",
       "lineas": [
         {
           "id": "titulo",
@@ -569,6 +576,7 @@
     {
       "id": "continuar",
       "titulo": "Como seguir? Seu plano para continuar",
+      "respuesta": "Comece com dez minutos de escrita livre por dia e, no primeiro mês, termine um projeto pequeno revisando-o em voz alta.",
       "lineas": [
         {
           "id": "titulo",

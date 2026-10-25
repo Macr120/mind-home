@@ -12,6 +12,7 @@
     {
       "id": "porque",
       "titulo": "Po co ci hobby?",
+      "respuesta": "Bo dobrze ci robi: wśród ponad 93 tys. seniorów z 16 krajów osoby z hobby miały mniej objawów depresji i były szczęśliwsze.",
       "lineas": [
         {
           "id": "gancho",
@@ -88,6 +89,7 @@
     {
       "id": "encontrar",
       "titulo": "Jak znaleźć swoje?",
+      "respuesta": "Nie czekaj na gotową pasję: próbuj różnych rzeczy, zostań przy tym, co cię ciekawi, i daj temu czas, żeby urosło.",
       "lineas": [
         {
           "id": "titulo",
@@ -163,6 +165,7 @@
     {
       "id": "sirve",
       "titulo": "Dlaczego nie musi do niczego służyć?",
+      "respuesta": "Bo jego jedynym zadaniem jest sprawiać ci frajdę: kto uważa wolny czas za stracony, mniej się nim cieszy i bardziej stresuje.",
       "lineas": [
         {
           "id": "titulo",
@@ -245,6 +248,7 @@
     {
       "id": "tiempo",
       "titulo": "Skąd wziąć na nie czas?",
+      "respuesta": "Z krótkich chwil o stałej porze: 20 minut cztery dni w tygodniu daje prawie 70 godzin rocznie.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "proyectos",
       "titulo": "Dlaczego to, co tworzysz własnymi rękami, wciąga bardziej?",
+      "respuesta": "Bo to, co zrobisz sam, jest dla ciebie więcej warte: kto złożył pudełko z IKEA, oferował za nie więcej niż inni za gotowe.",
       "lineas": [
         {
           "id": "titulo",
@@ -395,6 +400,7 @@
     {
       "id": "mantener",
       "titulo": "Jak go nie porzucić?",
+      "respuesta": "Wyznacz cel tygodniowy, nie dzienny, np. cztery dni z siedmiu: jeśli jeden dzień odpadnie, tydzień nadal się liczy.",
       "lineas": [
         {
           "id": "titulo",
@@ -474,6 +480,7 @@
     {
       "id": "otros",
       "titulo": "Dlaczego robić to z innymi?",
+      "respuesta": "Bo grupa daje stały termin, towarzystwo i chęć powrotu; na zajęciach śpiewu ludzie zżyli się dużo szybciej.",
       "lineas": [
         {
           "id": "titulo",
@@ -537,6 +544,7 @@
     {
       "id": "continuar",
       "titulo": "Jak iść dalej? Twój plan na ciąg dalszy",
+      "respuesta": "W tym tygodniu spróbuj jednego przez 20 minut; w pierwszym miesiącu daj mu cel tygodniowy i mały projekt, a potem dziel się nim z kimś.",
       "lineas": [
         {
           "id": "titulo",

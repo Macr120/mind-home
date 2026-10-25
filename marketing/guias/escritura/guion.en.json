@@ -12,6 +12,7 @@
     {
       "id": "miedo",
       "titulo": "Why does writing take away your fear?",
+      "respuesta": "Because you move worry out of your head and onto the paper: ten minutes of writing before an exam improves your results.",
       "lineas": [
         {
           "id": "gancho",
@@ -107,6 +108,7 @@
     {
       "id": "blanco",
       "titulo": "Why is the blank page so scary?",
+      "respuesta": "Because you want it perfect on the first try: freewrite for ten minutes without stopping or deleting, and revise later.",
       "lineas": [
         {
           "id": "titulo",
@@ -198,6 +200,7 @@
     {
       "id": "orden",
       "titulo": "Why does writing put your thoughts in order?",
+      "respuesta": "Because loose ideas have to line up: what was a knot in your head becomes a list on paper.",
       "lineas": [
         {
           "id": "titulo",
@@ -273,6 +276,7 @@
     {
       "id": "bitacora",
       "titulo": "Why has humanity been writing for five thousand years?",
+      "respuesta": "Because writing is how we don’t forget: it began as a way to count barley and sheep, and old logbooks now help study the climate.",
       "lineas": [
         {
           "id": "titulo",
@@ -349,6 +353,7 @@
     {
       "id": "historias",
       "titulo": "Why does a story stick with you?",
+      "respuesta": "Because it ties together what you want to remember: people who made up a story with ten words recalled about seven times more.",
       "lineas": [
         {
           "id": "titulo",
@@ -416,6 +421,7 @@
     {
       "id": "trama",
       "titulo": "How do you build a good story?",
+      "respuesta": "With someone who wants something, something in the way and an ending where they change; and show, don’t tell.",
       "lineas": [
         {
           "id": "titulo",
@@ -493,6 +499,7 @@
     {
       "id": "diario",
       "titulo": "How do you write better every day?",
+      "respuesta": "With a daily appointment with the page instead of waiting for inspiration, and revising out loud: the good stuff comes in revision.",
       "lineas": [
         {
           "id": "titulo",
@@ -569,6 +576,7 @@
     {
       "id": "continuar",
       "titulo": "How do you keep going? Your plan to continue",
+      "respuesta": "Start with ten minutes of freewriting a day, and in your first month, finish a small project by revising it out loud.",
       "lineas": [
         {
           "id": "titulo",

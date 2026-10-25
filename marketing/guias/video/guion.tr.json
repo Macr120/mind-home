@@ -12,6 +12,7 @@
     {
       "id": "video",
       "titulo": "Video nedir",
+      "respuesta": "Art arda öyle hızlı geçen durağan fotoğraflardır ki beynin onları birleştirir: saniyede 24’te, sinemanın hızında, hareket akıcıdır.",
       "lineas": [
         {
           "id": "gancho",
@@ -123,6 +124,7 @@
     {
       "id": "historia",
       "titulo": "Videonun kısa tarihi",
+      "respuesta": "Muybridge’in 1878’deki on iki makinesinden bugünün telefonuna: eskiden sinema ekibi gerektiren iş artık cebine sığıyor.",
       "lineas": [
         {
           "id": "titulo",
@@ -223,6 +225,7 @@
     {
       "id": "encuadre",
       "titulo": "Kadraj",
+      "respuesta": "Kadraj, görüntüye neyin gireceğine karar vermektir: önemli olanı ortaya değil, üçler kuralının bir çizgisine koy ve bakışı yönlendir.",
       "lineas": [
         {
           "id": "titulo",
@@ -307,6 +310,7 @@
     {
       "id": "luzSonido",
       "titulo": "Işık ve ses",
+      "respuesta": "Pencereye yüzünü ya da yanını dön ve mikrofonu bir karış yaklaştır: seyirci vasat bir görüntüyü affeder, kötü sesi affetmez.",
       "lineas": [
         {
           "id": "titulo",
@@ -388,6 +392,7 @@
     {
       "id": "edicion",
       "titulo": "Kurgu",
+      "respuesta": "En iyi çekimlerini seç, sırala ve her birinin süresine karar ver: Kuleshov’un gösterdiği gibi anlam, yan yana koyduğun şeydedir.",
       "lineas": [
         {
           "id": "titulo",
@@ -471,6 +476,7 @@
     {
       "id": "historiaContar",
       "titulo": "Bir hikâye nasıl anlatılır",
+      "respuesta": "İlk saniyelerde bir soruyla yakala, başlangıç, düğüm ve son kur, ve söyleme, göster.",
       "lineas": [
         {
           "id": "titulo",
@@ -566,6 +572,7 @@
     {
       "id": "plan",
       "titulo": "Başlamak için planın",
+      "respuesta": "Mükemmel olmasa da haftada bir dakikalık bir video yap: yılda 52 eder ve her biri sana bir sonraki için bir şey öğretir.",
       "lineas": [
         {
           "id": "titulo",

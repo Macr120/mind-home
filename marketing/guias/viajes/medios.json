@@ -1,0 +1,379 @@
+{
+  "fotos": {},
+  "laminas": {
+    "maleta": {
+      "archivo": "laminas/maleta.mp4",
+      "tipo": "video",
+      "autor": "Vlada Karpovich",
+      "fuente": "https://www.pexels.com/video/lady-packing-her-luggage-7429314/",
+      "licencia": "Licencia Pexels"
+    },
+    "aeropuerto": {
+      "archivo": "laminas/aeropuerto.mp4",
+      "tipo": "video",
+      "autor": "Ramazan Ataş",
+      "fuente": "https://www.pexels.com/video/bustling-airport-terminal-at-sunrise-36840856/",
+      "licencia": "Licencia Pexels"
+    },
+    "regreso": {
+      "archivo": "laminas/regreso.mp4",
+      "tipo": "video",
+      "autor": "Gustavo Fring",
+      "fuente": "https://www.pexels.com/video/man-and-woman-hugging-outside-airport-7423652/",
+      "licencia": "Licencia Pexels"
+    },
+    "oficina": {
+      "archivo": "laminas/oficina.mp4",
+      "tipo": "video",
+      "autor": "olia danilevich",
+      "fuente": "https://www.pexels.com/video/woman-using-laptop-6325839/",
+      "licencia": "Licencia Pexels"
+    },
+    "amigosViaje": {
+      "archivo": "laminas/amigosViaje.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-moving-truck-loaded-with-happy-group-of-friends-on-road-trip-5329615/",
+      "licencia": "Licencia Pexels"
+    },
+    "compras": {
+      "archivo": "laminas/compras.mp4",
+      "tipo": "video",
+      "autor": "Ron Lach",
+      "fuente": "https://www.pexels.com/video/a-salesperson-handing-shopping-bags-to-a-customer-9595330/",
+      "licencia": "Licencia Pexels"
+    },
+    "grandTour": {
+      "archivo": "laminas/grandTour.webp",
+      "tipo": "foto",
+      "autor": "Pompeo Batoni y taller",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Pompeo_Girolamo_Batoni_-_Portrait_of_Joseph_Henry_of_Straffan_-_Walters_371932.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "roma": {
+      "archivo": "laminas/roma.mp4",
+      "tipo": "video",
+      "autor": "Maurice Supple",
+      "fuente": "https://www.pexels.com/video/majestic-view-of-the-roman-colosseum-in-rome-31553695/",
+      "licencia": "Licencia Pexels"
+    },
+    "cook": {
+      "archivo": "laminas/cook.webp",
+      "tipo": "foto",
+      "autor": "Autor desconocido (National Library of Wales)",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Portrait_of_Thomas_Cook_(4674343).jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "trenVapor": {
+      "archivo": "laminas/trenVapor.webp",
+      "tipo": "foto",
+      "autor": "John Cooke Bourne",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Frontispiece_by_John_Cooke_Bourne_(1a).jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "avion": {
+      "archivo": "laminas/avion.mp4",
+      "tipo": "video",
+      "autor": "Teju",
+      "fuente": "https://www.pexels.com/video/passenger-plane-flying-in-clear-blue-sky-28873691/",
+      "licencia": "Licencia Pexels"
+    },
+    "celularMapa": {
+      "archivo": "laminas/celularMapa.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-person-holding-a-cell-phone-with-a-map-on-it-4546853/",
+      "licencia": "Licencia Pexels"
+    },
+    "bicicleta": {
+      "archivo": "laminas/bicicleta.mp4",
+      "tipo": "video",
+      "autor": "Matthias Groeneveld",
+      "fuente": "https://www.pexels.com/video/a-person-riding-a-bike-on-a-road-15308535/",
+      "licencia": "Licencia Pexels"
+    },
+    "europa": {
+      "archivo": "laminas/europa.mp4",
+      "tipo": "video",
+      "autor": "Alyona Nagel",
+      "fuente": "https://www.pexels.com/video/charming-medieval-street-in-rothenburg-36622252/",
+      "licencia": "Licencia Pexels"
+    },
+    "lluviaViaje": {
+      "archivo": "laminas/lluviaViaje.mp4",
+      "tipo": "video",
+      "autor": "Nereid Ndreu",
+      "fuente": "https://www.pexels.com/video/a-man-walking-down-a-sidewalk-in-the-rain-27690364/",
+      "licencia": "Licencia Pexels"
+    },
+    "fila": {
+      "archivo": "laminas/fila.mp4",
+      "tipo": "video",
+      "autor": "Ebahir",
+      "fuente": "https://www.pexels.com/video/crowd-boarding-a-ferry-in-sunny-weather-37739155/",
+      "licencia": "Licencia Pexels"
+    },
+    "planeando": {
+      "archivo": "laminas/planeando.mp4",
+      "tipo": "video",
+      "autor": "Lara Jameson",
+      "fuente": "https://www.pexels.com/video/a-person-putting-pins-on-the-notebook-8828772/",
+      "licencia": "Licencia Pexels"
+    },
+    "guiaViaje": {
+      "archivo": "laminas/guiaViaje.mp4",
+      "tipo": "video",
+      "autor": "Gülsüm Sarıcalı",
+      "fuente": "https://www.pexels.com/video/reading-a-book-on-a-ferry-ride-29154934/",
+      "licencia": "Licencia Pexels"
+    },
+    "aguaFria": {
+      "archivo": "laminas/aguaFria.webp",
+      "tipo": "foto",
+      "autor": "Maksim Romashkin",
+      "fuente": "https://www.pexels.com/photo/crop-person-admiring-view-of-cold-ocean-6151867/",
+      "licencia": "Licencia Pexels"
+    },
+    "hielo": {
+      "archivo": "laminas/hielo.mp4",
+      "tipo": "video",
+      "autor": "Timur Weber",
+      "fuente": "https://www.pexels.com/video/refreshing-cold-drink-8676989/",
+      "licencia": "Licencia Pexels"
+    },
+    "atardecer": {
+      "archivo": "laminas/atardecer.mp4",
+      "tipo": "video",
+      "autor": "Vika ZVIERIEV",
+      "fuente": "https://www.pexels.com/video/sunset-drive-on-city-highway-32676398/",
+      "licencia": "Licencia Pexels"
+    },
+    "aeropuertoPrisa": {
+      "archivo": "laminas/aeropuertoPrisa.mp4",
+      "tipo": "video",
+      "autor": "K",
+      "fuente": "https://www.pexels.com/video/a-man-walking-with-luggage-through-an-airport-17551136/",
+      "licencia": "Licencia Pexels"
+    },
+    "cafeCalle": {
+      "archivo": "laminas/cafeCalle.mp4",
+      "tipo": "video",
+      "autor": "Eugenia Remark",
+      "fuente": "https://www.pexels.com/video/a-street-with-people-walking-and-a-restaurant-18045438/",
+      "licencia": "Licencia Pexels"
+    },
+    "mapaPapel": {
+      "archivo": "laminas/mapaPapel.mp4",
+      "tipo": "video",
+      "autor": "Ahmed",
+      "fuente": "https://www.pexels.com/video/woman-reading-map-next-to-city-tram-33532634/",
+      "licencia": "Licencia Pexels"
+    },
+    "playa": {
+      "archivo": "laminas/playa.mp4",
+      "tipo": "video",
+      "autor": "Kindel Media",
+      "fuente": "https://www.pexels.com/video/couple-walking-at-the-beach-7893149/",
+      "licencia": "Licencia Pexels"
+    },
+    "hamaca": {
+      "archivo": "laminas/hamaca.mp4",
+      "tipo": "video",
+      "autor": "Peggy Anke",
+      "fuente": "https://www.pexels.com/video/woman-laid-in-a-hammock-6628063/",
+      "licencia": "Licencia Pexels"
+    },
+    "escapada": {
+      "archivo": "laminas/escapada.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/a-couple-talking-while-sitting-in-front-of-a-car-8865621/",
+      "licencia": "Licencia Pexels"
+    },
+    "carretera": {
+      "archivo": "laminas/carretera.mp4",
+      "tipo": "video",
+      "autor": "Teju",
+      "fuente": "https://www.pexels.com/video/a-car-is-driving-on-a-highway-with-a-view-of-the-sky-18684571/",
+      "licencia": "Licencia Pexels"
+    },
+    "maletaCasa": {
+      "archivo": "laminas/maletaCasa.mp4",
+      "tipo": "video",
+      "autor": "Timur Weber",
+      "fuente": "https://www.pexels.com/video/woman-sitting-on-a-luggage-9141847/",
+      "licencia": "Licencia Pexels"
+    },
+    "reserva": {
+      "archivo": "laminas/reserva.mp4",
+      "tipo": "video",
+      "autor": "Mikhail Nilov",
+      "fuente": "https://www.pexels.com/video/woman-taking-selfie-at-the-reception-area-7820494/",
+      "licencia": "Licencia Pexels"
+    },
+    "monedero": {
+      "archivo": "laminas/monedero.mp4",
+      "tipo": "video",
+      "autor": "Jakub Zerdzicki",
+      "fuente": "https://www.pexels.com/video/counting-polish-zloty-banknotes-indoors-34839404/",
+      "licencia": "Licencia Pexels"
+    },
+    "boletos": {
+      "archivo": "laminas/boletos.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/person-holding-passport-above-small-globe-7009542/",
+      "licencia": "Licencia Pexels"
+    },
+    "celularFoto": {
+      "archivo": "laminas/celularFoto.mp4",
+      "tipo": "video",
+      "autor": "Naro K",
+      "fuente": "https://www.pexels.com/video/capturing-historic-architecture-with-smartphone-39706387/",
+      "licencia": "Licencia Pexels"
+    },
+    "detalleArte": {
+      "archivo": "laminas/detalleArte.mp4",
+      "tipo": "video",
+      "autor": "Vero Lova",
+      "fuente": "https://www.pexels.com/video/art-enthusiast-in-gallery-viewing-masterpiece-33377697/",
+      "licencia": "Licencia Pexels"
+    },
+    "mirador": {
+      "archivo": "laminas/mirador.mp4",
+      "tipo": "video",
+      "autor": "Airam Dato-on",
+      "fuente": "https://www.pexels.com/video/traveler-enjoying-scenic-view-over-prague-34900829/",
+      "licencia": "Licencia Pexels"
+    },
+    "diarioViaje": {
+      "archivo": "laminas/diarioViaje.mp4",
+      "tipo": "video",
+      "autor": "Ahmed",
+      "fuente": "https://www.pexels.com/video/young-woman-journaling-outdoors-on-a-bench-29706163/",
+      "licencia": "Licencia Pexels"
+    },
+    "cafeLibreta": {
+      "archivo": "laminas/cafeLibreta.mp4",
+      "tipo": "video",
+      "autor": "Saliha Büyükkaya Gülhan",
+      "fuente": "https://www.pexels.com/video/person-writing-in-a-notepad-with-a-fountain-pen-12614912/",
+      "licencia": "Licencia Pexels"
+    },
+    "estudiantes": {
+      "archivo": "laminas/estudiantes.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/group-of-students-walking-outdoors-7683346/",
+      "licencia": "Licencia Pexels"
+    },
+    "mochila": {
+      "archivo": "laminas/mochila.mp4",
+      "tipo": "video",
+      "autor": "George Pak",
+      "fuente": "https://www.pexels.com/video/a-couple-waiting-to-cross-the-road-7823726/",
+      "licencia": "Licencia Pexels"
+    },
+    "mercado": {
+      "archivo": "laminas/mercado.mp4",
+      "tipo": "video",
+      "autor": "Airam Dato-on",
+      "fuente": "https://www.pexels.com/video/vibrant-market-scene-in-metro-manila-36066721/",
+      "licencia": "Licencia Pexels"
+    },
+    "conversacion": {
+      "archivo": "laminas/conversacion.mp4",
+      "tipo": "video",
+      "autor": "George Pak",
+      "fuente": "https://www.pexels.com/video/a-man-and-woman-standing-in-front-of-a-souvenir-shop-7823350/",
+      "licencia": "Licencia Pexels"
+    },
+    "comidaCalle": {
+      "archivo": "laminas/comidaCalle.mp4",
+      "tipo": "video",
+      "autor": "George Pak",
+      "fuente": "https://www.pexels.com/video/couple-eating-food-7824465/",
+      "licencia": "Licencia Pexels"
+    },
+    "plaza": {
+      "archivo": "laminas/plaza.mp4",
+      "tipo": "video",
+      "autor": "Deek Van der aa",
+      "fuente": "https://www.pexels.com/video/charming-european-square-on-a-sunny-day-37268264/",
+      "licencia": "Licencia Pexels"
+    },
+    "mapaPared": {
+      "archivo": "laminas/mapaPared.mp4",
+      "tipo": "video",
+      "autor": "Marina Leonova",
+      "fuente": "https://www.pexels.com/video/marking-a-cork-board-map-with-a-flag-7606514/",
+      "licencia": "Licencia Pexels"
+    },
+    "pulgar": {
+      "archivo": "laminas/pulgar.mp4",
+      "tipo": "video",
+      "autor": "Kevin Malik",
+      "fuente": "https://www.pexels.com/video/a-hand-giving-a-thumbs-up-9017832/",
+      "licencia": "Licencia Pexels"
+    },
+    "libreta": {
+      "archivo": "laminas/libreta.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/writing-to-do-list-on-a-notebook-for-reminders-3832194/",
+      "licencia": "Licencia Pexels"
+    },
+    "cumbre": {
+      "archivo": "laminas/cumbre.mp4",
+      "tipo": "video",
+      "autor": "Canan İldeniz",
+      "fuente": "https://www.pexels.com/video/group-of-hikers-celebrating-on-mountain-peak-38242686/",
+      "licencia": "Licencia Pexels"
+    },
+    "billetes": {
+      "archivo": "laminas/billetes.mp4",
+      "tipo": "video",
+      "autor": "https://kaboompics.com/",
+      "fuente": "https://www.pexels.com/video/a-person-counting-money-7710775/",
+      "licencia": "Licencia Pexels"
+    },
+    "tarjeta": {
+      "archivo": "laminas/tarjeta.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/paying-with-credit-card-for-online-purchase-4872944/",
+      "licencia": "Licencia Pexels"
+    },
+    "alcancia": {
+      "archivo": "laminas/alcancia.webp",
+      "tipo": "foto",
+      "autor": "Ann H",
+      "fuente": "https://www.pexels.com/photo/a-pink-piggy-bank-11427659/",
+      "licencia": "Licencia Pexels"
+    },
+    "museo": {
+      "archivo": "laminas/museo.mp4",
+      "tipo": "video",
+      "autor": "Greta Hoffman",
+      "fuente": "https://www.pexels.com/video/people-looking-at-a-painting-7857475/",
+      "licencia": "Licencia Pexels"
+    },
+    "calendarioPared": {
+      "archivo": "laminas/calendarioPared.mp4",
+      "tipo": "video",
+      "autor": "Nadezhda Moryak",
+      "fuente": "https://www.pexels.com/video/calendar-with-circle-marks-on-the-date-7479663/",
+      "licencia": "Licencia Pexels"
+    },
+    "app-plan": {
+      "archivo": "laminas/app-plan.{idioma}.mp4",
+      "tipo": "video",
+      "autor": "MindHaOS",
+      "fuente": "https://app.mindhaos.com",
+      "credito": ""
+    }
+  }
+}

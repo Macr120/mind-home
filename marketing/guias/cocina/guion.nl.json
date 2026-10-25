@@ -18,6 +18,7 @@
     {
       "id": "cuerpo",
       "titulo": "Wat eten in je lichaam doet",
+      "respuesta": "Het is brandstof om te ademen, denken en bewegen, en bouwmateriaal waarmee je spieren, botten, huid en bloed herstelt.",
       "lineas": [
         {
           "id": "gancho",
@@ -97,6 +98,7 @@
     {
       "id": "historia",
       "titulo": "Een korte geschiedenis van wat we eten",
+      "respuesta": "Van vuur tot etiket: Linds sinaasappels genazen scheurbuik en Atwater mat de calorieën die we nu nog lezen.",
       "lineas": [
         {
           "id": "titulo",
@@ -185,6 +187,7 @@
     {
       "id": "energia",
       "titulo": "Hoeveel energie je nodig hebt",
+      "respuesta": "Zo'n twee derde van je verbruik gaat op aan in leven blijven; om af te vallen eet je zo'n 15% minder dan je verbruikt.",
       "lineas": [
         {
           "id": "titulo",
@@ -252,6 +255,7 @@
     {
       "id": "calidad",
       "titulo": "De kwaliteit van wat je eet",
+      "respuesta": "Kies vers eten: met ultrabewerkt eten aten mensen ongemerkt zo'n 500 calorieën per dag meer.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "plato",
       "titulo": "Hoe je je bord en je week samenstelt",
+      "respuesta": "Vul je bord voor de helft met groente en fruit, een kwart volkoren en een kwart eiwit, en plan het menu van de week.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +402,7 @@
     {
       "id": "habitos",
       "titulo": "Water, honger en volhouden",
+      "respuesta": "Drink zo'n twee liter water per dag, eet langzaam en zonder schermen, en schrijf een paar dagen op wat je eet om patronen te zien.",
       "lineas": [
         {
           "id": "titulo",

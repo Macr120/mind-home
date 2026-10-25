@@ -12,6 +12,7 @@
     {
       "id": "prevenir",
       "titulo": "Pourquoi l’entretenir avant la panne ?",
+      "respuesta": "Parce que presque tout prévient avant de lâcher, et dans plus d’un tiers des accidents dus au véhicule, ce sont les pneus qui ont cédé.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "bertha",
       "titulo": "Qui a été le premier mécanicien de l’histoire ?",
+      "respuesta": "C’était Bertha Benz : en 1888, elle a fait le premier long trajet en voiture, plus de 100 km, en la réparant elle-même en route.",
       "lineas": [
         {
           "id": "titulo",
@@ -182,6 +184,7 @@
     {
       "id": "llantas",
       "titulo": "Pourquoi commencer par les pneus ?",
+      "respuesta": "Parce que plus d’une voiture sur quatre a un pneu très sous-gonflé, qui freine moins bien, s’use plus vite et fait consommer plus.",
       "lineas": [
         {
           "id": "titulo",
@@ -258,6 +261,7 @@
     {
       "id": "aceite",
       "titulo": "À quelle fréquence faire la vidange ?",
+      "respuesta": "Quand le manuel de ta voiture le dit, pas tous les 5 000 km par habitude ; et vérifie le niveau toutes les deux semaines.",
       "lineas": [
         {
           "id": "titulo",
@@ -333,6 +337,7 @@
     {
       "id": "manejo",
       "titulo": "Ta façon de conduire, c’est aussi de l’entretien ?",
+      "respuesta": "Oui : accélérer et freiner brusquement peut augmenter la consommation jusqu’à 40 % en ville et user plus vite plaquettes et pneus.",
       "lineas": [
         {
           "id": "titulo",
@@ -417,6 +422,7 @@
     {
       "id": "bici",
       "titulo": "Et le vélo ?",
+      "respuesta": "Avant de partir, vérifie l’air, les freins et la chaîne, et huile-la d’une goutte par maillon : l’excès d’huile attire la saleté.",
       "lineas": [
         {
           "id": "titulo",
@@ -497,6 +503,7 @@
     {
       "id": "olvido",
       "titulo": "Pourquoi est-ce qu’on oublie ?",
+      "respuesta": "Parce que ça ne fait pas mal aujourd’hui, alors on repousse ; un simple rappel a fait plus que doubler les rendez-vous pris.",
       "lineas": [
         {
           "id": "titulo",
@@ -575,6 +582,7 @@
     {
       "id": "continuar",
       "titulo": "Comment continuer ? Ton plan pour la suite",
+      "respuesta": "Cette semaine, vérifie tes pneus ; ce mois-ci, lis le manuel, planifie tes entretiens et trouve un garage de confiance.",
       "lineas": [
         {
           "id": "titulo",

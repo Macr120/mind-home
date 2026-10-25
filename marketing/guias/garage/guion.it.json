@@ -12,6 +12,7 @@
     {
       "id": "prevenir",
       "titulo": "Perché prendersene cura prima che si guasti?",
+      "respuesta": "Perché quasi tutto avvisa prima di guastarsi, e in oltre un terzo degli incidenti dovuti al veicolo la colpa era delle gomme.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "bertha",
       "titulo": "Chi è stato il primo meccanico della storia?",
+      "respuesta": "Fu Bertha Benz: nel 1888 fece il primo lungo viaggio in auto, oltre 100 km, riparandola da sola lungo la strada.",
       "lineas": [
         {
           "id": "titulo",
@@ -182,6 +184,7 @@
     {
       "id": "llantas",
       "titulo": "Perché cominciare dalle gomme?",
+      "respuesta": "Perché più di un'auto su quattro ha una gomma molto sgonfia, che frena peggio, si consuma prima e ti fa spendere più benzina.",
       "lineas": [
         {
           "id": "titulo",
@@ -258,6 +261,7 @@
     {
       "id": "aceite",
       "titulo": "Ogni quanto cambiare l'olio?",
+      "respuesta": "Quando lo dice il manuale della tua auto, non ogni 5000 km per abitudine; e controlla il livello ogni paio di settimane.",
       "lineas": [
         {
           "id": "titulo",
@@ -333,6 +337,7 @@
     {
       "id": "manejo",
       "titulo": "Anche il tuo modo di guidare è manutenzione?",
+      "respuesta": "Sì: accelerare e frenare di colpo può far salire i consumi fino al 40% in città e consuma prima pastiglie e gomme.",
       "lineas": [
         {
           "id": "titulo",
@@ -417,6 +422,7 @@
     {
       "id": "bici",
       "titulo": "E la bici?",
+      "respuesta": "Prima di uscire controlla aria, freni e catena, e lubrificala con una goccia per maglia: l'olio in più raccoglie solo sporco.",
       "lineas": [
         {
           "id": "titulo",
@@ -497,6 +503,7 @@
     {
       "id": "olvido",
       "titulo": "Perché ce ne dimentichiamo?",
+      "respuesta": "Perché oggi non fa male e lo rimandiamo; con un semplice promemoria, più del doppio dei pazienti ha prenotato la visita.",
       "lineas": [
         {
           "id": "titulo",
@@ -575,6 +582,7 @@
     {
       "id": "continuar",
       "titulo": "Come andare avanti? Il tuo piano per continuare",
+      "respuesta": "Questa settimana controlla le gomme; questo mese leggi il manuale, fissa i tagliandi e trova un'officina di fiducia.",
       "lineas": [
         {
           "id": "titulo",

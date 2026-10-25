@@ -12,6 +12,7 @@
     {
       "id": "elegir",
       "titulo": "Kenapa memilih butuh waktu lama?",
+      "respuesta": "Karena memilih kini butuh 10,5 menit: siapkan daftar tontonan, dan kalau lima menit belum memilih, putar yang pertama.",
       "lineas": [
         {
           "id": "gancho",
@@ -107,6 +108,7 @@
     {
       "id": "scroll",
       "titulo": "Kenapa scroll tidak membuatmu istirahat?",
+      "respuesta": "Karena scroll medsos tanpa ikut berinteraksi memperburuk suasana hati; sebelum membuka, tanya apa yang kamu cari, lalu tutup setelahnya.",
       "lineas": [
         {
           "id": "titulo",
@@ -181,6 +183,7 @@
     {
       "id": "maraton",
       "titulo": "Maraton atau satu episode sehari?",
+      "respuesta": "Satu episode sehari: kalau maraton, kamu kurang menikmatinya, lebih cepat lupa, dan tidurmu juga lebih buruk.",
       "lineas": [
         {
           "id": "titulo",
@@ -253,6 +256,7 @@
     {
       "id": "pausas",
       "titulo": "Kenapa jeda dan spoiler tidak merusak apa pun?",
+      "respuesta": "Karena jeda menyegarkan lagi rasa senang yang memudar, dan cerita yang akhirnya sudah dibocorkan malah lebih disukai.",
       "lineas": [
         {
           "id": "titulo",
@@ -329,6 +333,7 @@
     {
       "id": "videojuegos",
       "titulo": "Apakah video game baik atau buruk untukmu?",
+      "respuesta": "Tergantung alasannya: pada hampir 39.000 orang dewasa, jumlah jam nyaris tak berpengaruh; main karena suka baik, karena terpaksa buruk.",
       "lineas": [
         {
           "id": "titulo",
@@ -400,6 +405,7 @@
     {
       "id": "otros",
       "titulo": "Kenapa bermain bersama orang lain?",
+      "respuesta": "Karena yang dialami bersama terasa lebih kuat, dan yang lebih sering main board game dan kartu lebih sedikit kehilangan ingatan.",
       "lineas": [
         {
           "id": "titulo",
@@ -468,6 +474,7 @@
     {
       "id": "leer",
       "titulo": "Dan membaca, apakah dihitung?",
+      "respuesta": "Ya: yang membaca buku hidup rata-rata hampir dua tahun lebih lama; sebelum tidur, pilih buku alih-alih satu episode lagi.",
       "lineas": [
         {
           "id": "titulo",
@@ -543,6 +550,7 @@
     {
       "id": "durar",
       "titulo": "Bagaimana agar terasa lebih lama?",
+      "respuesta": "Setelah selesai, catat bintangmu, satu kalimat tentang kesannya, dan dengan siapa kamu menontonnya: membacanya lagi lebih seru dari dugaanmu.",
       "lineas": [
         {
           "id": "titulo",
@@ -621,6 +629,7 @@
     {
       "id": "continuar",
       "titulo": "Bagaimana melanjutkan? Rencanamu untuk terus maju",
+      "respuesta": "Susun daftar tontonanmu, maksimal dua episode per malam, dan seminggu sekali ganti layar dengan board game atau buku bersama seseorang.",
       "lineas": [
         {
           "id": "titulo",

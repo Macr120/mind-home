@@ -12,6 +12,7 @@
     {
       "id": "mente",
       "titulo": "Gdzie jest teraz twój umysł?",
+      "respuesta": "Gdzie indziej przez prawie połowę czasu, i to nie odpoczynek: gdy błądzi, czujesz się gorzej, niż kiedy uważasz.",
       "lineas": [
         {
           "id": "gancho",
@@ -104,6 +105,7 @@
     {
       "id": "que",
       "titulo": "Czym jest uważność i skąd się wzięła?",
+      "respuesta": "To celowe zwracanie uwagi na chwilę obecną, bez oceniania; pochodzi od buddyjskiego „sati” sprzed około 2500 lat.",
       "lineas": [
         {
           "id": "titulo",
@@ -197,6 +199,7 @@
     {
       "id": "respirar",
       "titulo": "Co dzieje się z twoim ciałem, gdy oddychasz powoli?",
+      "respuesta": "Uspokaja się: około sześciu oddechów na minutę je hamuje, a codzienne cykliczne westchnienie poprawia nastrój.",
       "lineas": [
         {
           "id": "titulo",
@@ -281,6 +284,7 @@
     {
       "id": "rapido",
       "titulo": "Dlaczego zwalniając, docierasz szybciej?",
+      "respuesta": "Bo kilka minut treningu uwagi dziennie sprawia, że mniej się rozpraszasz, i chroni pamięć roboczą, nawet w stresie.",
       "lineas": [
         {
           "id": "titulo",
@@ -363,6 +367,7 @@
     {
       "id": "ciencia",
       "titulo": "Co mówi nauka, a czego nie?",
+      "respuesta": "Że medytacja umiarkowanie łagodzi lęk, depresję i ból, ale nie jest magią i nie zastąpi specjalisty.",
       "lineas": [
         {
           "id": "titulo",
@@ -451,6 +456,7 @@
     {
       "id": "meditar",
       "titulo": "Jak medytować, gdy nie możesz przestać myśleć?",
+      "respuesta": "Rozproszenie to nie porażka: za każdym razem, gdy to zauważasz i wracasz do oddechu, trenujesz uwagę.",
       "lineas": [
         {
           "id": "titulo",
@@ -545,6 +551,7 @@
     {
       "id": "continuar",
       "titulo": "Jak iść dalej? Twój plan na ciąg dalszy",
+      "respuesta": "Doczep kilka minut praktyki do czegoś, co już robisz, wydłużaj je stopniowo, a jeśli opuścisz dzień, po prostu wróć.",
       "lineas": [
         {
           "id": "titulo",

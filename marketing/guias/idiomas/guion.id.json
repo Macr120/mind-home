@@ -25,6 +25,7 @@
     {
       "id": "saber",
       "titulo": "Mengapa mempelajarinya dan apa artinya menguasainya",
+      "respuesta": "Karena berbicara dalam bahasa itu mengubah otakmu dan mendekatkanmu dengan orang lain; menguasainya berarti empat keterampilan, dari A1 hingga C2.",
       "lineas": [
         {
           "id": "gancho",
@@ -142,6 +143,7 @@
     {
       "id": "historia",
       "titulo": "Sejarah singkat belajar bahasa",
+      "respuesta": "Dari Comenius dengan gambarnya hingga Berlitz dengan kelas tanpa terjemahan, pelajarannya sama: belajarlah lewat gambar dan dalam bahasa itu sendiri.",
       "lineas": [
         {
           "id": "titulo",
@@ -210,6 +212,7 @@
     {
       "id": "cerebro",
       "titulo": "Cara otakmu belajar dan cara ia lupa",
+      "respuesta": "Kamu belajar saat memahami hal yang sedikit di atas tingkatmu, dan memperlambat lupa dengan mengulang berjarak sambil menguji diri.",
       "lineas": [
         {
           "id": "titulo",
@@ -285,6 +288,7 @@
     {
       "id": "palabras",
       "titulo": "Kata-kata yang paling berguna",
+      "respuesta": "Yang paling sering dipakai: dalam bahasa Inggris, seribu kata teratas mencakup sekitar 8 dari 10 kata dalam teks; pelajari dalam kalimat.",
       "lineas": [
         {
           "id": "titulo",
@@ -369,6 +373,7 @@
     {
       "id": "hablar",
       "titulo": "Berbicaralah sejak hari pertama",
+      "respuesta": "Karena saat berbicara kamu tahu apa yang belum bisa kamu ucapkan: lakukan shadowing, banyaklah salah, dan bicaralah tiap hari, di usia berapa pun.",
       "lineas": [
         {
           "id": "titulo",
@@ -453,6 +458,7 @@
     {
       "id": "plan",
       "titulo": "Rencanamu untuk mulai",
+      "respuesta": "Tentukan untuk apa, level, dan tanggalnya, lalu beri 20 menit sehari: itu lebih dari 120 jam setahun.",
       "lineas": [
         {
           "id": "titulo",

@@ -12,6 +12,7 @@
     {
       "id": "video",
       "titulo": "什么是视频",
+      "respuesta": "视频是一张张静止照片，快到大脑把它们连成动作：每秒24张，也就是电影的速度，动作就流畅了。",
       "lineas": [
         {
           "id": "gancho",
@@ -123,6 +124,7 @@
     {
       "id": "historia",
       "titulo": "视频简史",
+      "respuesta": "从1878年的十二台相机到今天的手机：过去要一整个摄制组才能做的事，现在装进了你的口袋。",
       "lineas": [
         {
           "id": "titulo",
@@ -223,6 +225,7 @@
     {
       "id": "encuadre",
       "titulo": "构图",
+      "respuesta": "构图就是决定画面里放什么：把重要的东西放在三分法的线上，而不是正中间，就能引导观众的目光。",
       "lineas": [
         {
           "id": "titulo",
@@ -307,6 +310,7 @@
     {
       "id": "luzSonido",
       "titulo": "光与声音",
+      "respuesta": "面朝或侧对窗户，把麦克风拿到离嘴一拃远：观众能原谅普通的画面，却不能原谅糟糕的声音。",
       "lineas": [
         {
           "id": "titulo",
@@ -388,6 +392,7 @@
     {
       "id": "edicion",
       "titulo": "剪辑",
+      "respuesta": "挑出最好的镜头，排好顺序，定好长度：正如Kuleshov所示，意义在于你把什么放在一起。",
       "lineas": [
         {
           "id": "titulo",
@@ -471,6 +476,7 @@
     {
       "id": "historiaContar",
       "titulo": "怎样讲故事",
+      "respuesta": "前几秒用一个问题抓住观众，搭好开头、冲突和结尾，记住：要展示，不要直说。",
       "lineas": [
         {
           "id": "titulo",
@@ -566,6 +572,7 @@
     {
       "id": "plan",
       "titulo": "你的起步计划",
+      "respuesta": "每周做一个一分钟的视频，不完美也没关系：一年就是52个，每一个都会教你点什么。",
       "lineas": [
         {
           "id": "titulo",

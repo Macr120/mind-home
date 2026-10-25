@@ -12,6 +12,7 @@
     {
       "id": "miedo",
       "titulo": "Waarom neemt schrijven je angst weg?",
+      "respuesta": "Omdat je je zorgen uit je hoofd haalt en op papier zet: tien minuten schrijven vóór een examen verbetert je resultaat.",
       "lineas": [
         {
           "id": "gancho",
@@ -107,6 +108,7 @@
     {
       "id": "blanco",
       "titulo": "Waarom is het lege vel zo eng?",
+      "respuesta": "Omdat je wilt dat het in één keer perfect is: schrijf tien minuten zonder te stoppen of te wissen, en verbeter later.",
       "lineas": [
         {
           "id": "titulo",
@@ -198,6 +200,7 @@
     {
       "id": "orden",
       "titulo": "Waarom ordent schrijven je hoofd?",
+      "respuesta": "Omdat losse ideeën in de rij moeten gaan staan: wat in je hoofd een knoop was, wordt op papier een lijstje.",
       "lineas": [
         {
           "id": "titulo",
@@ -273,6 +276,7 @@
     {
       "id": "bitacora",
       "titulo": "Waarom schrijft de mensheid al vijfduizend jaar?",
+      "respuesta": "Omdat je door te schrijven niets vergeet: het begon met gerst en schapen tellen, en oude logboeken helpen nu bij klimaatonderzoek.",
       "lineas": [
         {
           "id": "titulo",
@@ -349,6 +353,7 @@
     {
       "id": "historias",
       "titulo": "Waarom blijft een verhaal je bij?",
+      "respuesta": "Omdat het verbindt wat je wilt onthouden: wie een verhaal verzon met tien woorden, onthield er ongeveer zeven keer zoveel.",
       "lineas": [
         {
           "id": "titulo",
@@ -416,6 +421,7 @@
     {
       "id": "trama",
       "titulo": "Hoe bouw je een goed verhaal?",
+      "respuesta": "Met iemand die iets wil, iets wat hem tegenhoudt en een einde waarin hij verandert; en laat zien, vertel niet.",
       "lineas": [
         {
           "id": "titulo",
@@ -493,6 +499,7 @@
     {
       "id": "diario",
       "titulo": "Hoe schrijf je elke dag beter?",
+      "respuesta": "Met een dagelijkse afspraak met het vel in plaats van te wachten op inspiratie, en hardop verbeteren: het goede ontstaat bij het verbeteren.",
       "lineas": [
         {
           "id": "titulo",
@@ -569,6 +576,7 @@
     {
       "id": "continuar",
       "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "respuesta": "Begin met tien minuten vrij schrijven per dag en maak in je eerste maand een klein project af door het hardop te verbeteren.",
       "lineas": [
         {
           "id": "titulo",

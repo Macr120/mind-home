@@ -12,6 +12,7 @@
     {
       "id": "querer",
       "titulo": "Why isn’t wanting enough?",
+      "respuesta": "Because almost half of people who intend to act never do: design your goal so it doesn’t depend on motivation.",
       "lineas": [
         {
           "id": "gancho",
@@ -124,6 +125,7 @@
     {
       "id": "buena",
       "titulo": "What makes a goal a good one?",
+      "respuesta": "Make it concrete, a little hard, positive and with a why you care about: that beats “I’ll do my best.”",
       "lineas": [
         {
           "id": "titulo",
@@ -200,6 +202,7 @@
     {
       "id": "pasos",
       "titulo": "How do you turn a goal into steps?",
+      "respuesta": "Decide when and where with an “if…, then…” sentence: with it, 91% exercised instead of 35%.",
       "lineas": [
         {
           "id": "titulo",
@@ -267,6 +270,7 @@
     {
       "id": "ganas",
       "titulo": "Why does motivation run out?",
+      "respuesta": "Because it rises when the goal looks close: small daily progress is the fuel that keeps it going.",
       "lineas": [
         {
           "id": "titulo",
@@ -348,6 +352,7 @@
     {
       "id": "casa",
       "titulo": "Why does it help to keep everything in a mental house?",
+      "respuesta": "Because your brain remembers places very well, and once each goal has its place, it stops sneaking into your head.",
       "lineas": [
         {
           "id": "titulo",
@@ -434,6 +439,7 @@
     {
       "id": "medir",
       "titulo": "How do you know if you’re making progress?",
+      "respuesta": "Check your progress often and write it down: across 138 experiments, people who did got closer to their goal.",
       "lineas": [
         {
           "id": "titulo",
@@ -509,6 +515,7 @@
     {
       "id": "fallar",
       "titulo": "What do you do when you slip?",
+      "respuesta": "Come back the next day: you can slip once, but never twice in a row, and one missed day doesn’t erase your progress.",
       "lineas": [
         {
           "id": "titulo",
@@ -598,6 +605,7 @@
     {
       "id": "continuar",
       "titulo": "How do you keep going? Your plan to continue",
+      "respuesta": "Pick one goal with its “if…, then…”, start with two minutes, review your streak every Sunday, and if you slip, come back.",
       "lineas": [
         {
           "id": "titulo",

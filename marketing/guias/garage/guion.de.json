@@ -12,6 +12,7 @@
     {
       "id": "prevenir",
       "titulo": "Warum es pflegen, bevor es kaputtgeht?",
+      "respuesta": "Weil sich fast alles vorher meldet, und bei über einem Drittel der vom Fahrzeug verursachten Unfälle waren die Reifen schuld.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "bertha",
       "titulo": "Wer war der erste Mechaniker der Geschichte?",
+      "respuesta": "Bertha Benz: 1888 machte sie die erste lange Autofahrt der Geschichte, über 100 km, und reparierte den Wagen unterwegs selbst.",
       "lineas": [
         {
           "id": "titulo",
@@ -182,6 +184,7 @@
     {
       "id": "llantas",
       "titulo": "Warum mit den Reifen anfangen?",
+      "respuesta": "Weil mehr als jedes vierte Auto einen Reifen mit viel zu wenig Druck hat, der schlechter bremst, schneller verschleißt und mehr Benzin kostet.",
       "lineas": [
         {
           "id": "titulo",
@@ -258,6 +261,7 @@
     {
       "id": "aceite",
       "titulo": "Wie oft das Öl wechseln?",
+      "respuesta": "Wenn es das Handbuch deines Autos sagt, nicht aus Gewohnheit alle 5000 km; und prüf den Ölstand alle paar Wochen.",
       "lineas": [
         {
           "id": "titulo",
@@ -333,6 +337,7 @@
     {
       "id": "manejo",
       "titulo": "Ist dein Fahrstil auch Wartung?",
+      "respuesta": "Ja: Hartes Gasgeben und Bremsen kann den Verbrauch in der Stadt um bis zu 40 % erhöhen und Bremsbeläge und Reifen schneller abnutzen.",
       "lineas": [
         {
           "id": "titulo",
@@ -417,6 +422,7 @@
     {
       "id": "bici",
       "titulo": "Und das Fahrrad?",
+      "respuesta": "Prüf vor der Fahrt Luft, Bremsen und Kette, und öl sie mit einem Tropfen pro Glied: Zu viel Öl sammelt nur Schmutz.",
       "lineas": [
         {
           "id": "titulo",
@@ -497,6 +503,7 @@
     {
       "id": "olvido",
       "titulo": "Warum vergessen wir es?",
+      "respuesta": "Weil es heute nicht wehtut und wir es aufschieben; eine einfache Erinnerung brachte mehr als doppelt so viele Patienten zum Termin.",
       "lineas": [
         {
           "id": "titulo",
@@ -575,6 +582,7 @@
     {
       "id": "continuar",
       "titulo": "Wie geht es weiter? Dein Plan zum Weitermachen",
+      "respuesta": "Prüf diese Woche deine Reifen; lies diesen Monat das Handbuch, plane deine Wartungen und such dir eine Werkstatt deines Vertrauens.",
       "lineas": [
         {
           "id": "titulo",

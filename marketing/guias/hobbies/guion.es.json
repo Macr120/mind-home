@@ -12,6 +12,7 @@
     {
       "id": "porque",
       "titulo": "¿Por qué necesitas un pasatiempo?",
+      "respuesta": "Porque te hace bien: en más de 93 000 mayores de 16 países, quien tenía uno sufría menos depresión y era más feliz.",
       "lineas": [
         {
           "id": "gancho",
@@ -88,6 +89,7 @@
     {
       "id": "encontrar",
       "titulo": "¿Cómo encontrar el tuyo?",
+      "respuesta": "No esperes encontrar tu pasión ya hecha: prueba varias cosas, quédate con la que te dé curiosidad y dale tiempo para crecer.",
       "lineas": [
         {
           "id": "titulo",
@@ -163,6 +165,7 @@
     {
       "id": "sirve",
       "titulo": "¿Por qué no tiene que servir para nada?",
+      "respuesta": "Porque su único trabajo es que te guste: ver el tiempo libre como perdido te hace disfrutarlo menos y estresarte más.",
       "lineas": [
         {
           "id": "titulo",
@@ -245,6 +248,7 @@
     {
       "id": "tiempo",
       "titulo": "¿De dónde sacas el tiempo?",
+      "respuesta": "De ratos cortos con hora fija: 20 minutos, cuatro días a la semana, suman casi 70 horas al año.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "proyectos",
       "titulo": "¿Por qué lo que haces tú te engancha más?",
+      "respuesta": "Porque lo hecho con tus manos vale más para ti: quien armó su caja de IKEA ofrecía más por ella que otros por una ya armada.",
       "lineas": [
         {
           "id": "titulo",
@@ -395,6 +400,7 @@
     {
       "id": "mantener",
       "titulo": "¿Cómo no abandonarlo?",
+      "respuesta": "Ponle una meta por semana y no por día, como cuatro de siete: si un día fallas, la semana sigue en pie.",
       "lineas": [
         {
           "id": "titulo",
@@ -474,6 +480,7 @@
     {
       "id": "otros",
       "titulo": "¿Por qué hacerlo con otros?",
+      "respuesta": "Porque un grupo te da cita fija, compañía y ganas de volver; en clases de canto, la gente se unió mucho más rápido.",
       "lineas": [
         {
           "id": "titulo",
@@ -537,6 +544,7 @@
     {
       "id": "continuar",
       "titulo": "¿Cómo seguir? Tu plan para continuar",
+      "respuesta": "Prueba uno 20 minutos esta semana; en un mes, ponle meta semanal y un proyecto pequeño, y luego compártelo con alguien.",
       "lineas": [
         {
           "id": "titulo",

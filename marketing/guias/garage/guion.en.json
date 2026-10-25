@@ -12,6 +12,7 @@
     {
       "id": "prevenir",
       "titulo": "Why take care of it before it breaks?",
+      "respuesta": "Because almost everything warns you first, and in over a third of crashes caused by the vehicle, the tires were to blame.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "bertha",
       "titulo": "Who was the first mechanic in history?",
+      "respuesta": "Bertha Benz: in 1888 she made the first long car trip in history, over 100 km, fixing the car herself along the way.",
       "lineas": [
         {
           "id": "titulo",
@@ -182,6 +184,7 @@
     {
       "id": "llantas",
       "titulo": "Why start with the tires?",
+      "respuesta": "Because over one in four cars has a badly underinflated tire, and it brakes worse, wears out sooner and burns more gas.",
       "lineas": [
         {
           "id": "titulo",
@@ -258,6 +261,7 @@
     {
       "id": "aceite",
       "titulo": "How often should you change the oil?",
+      "respuesta": "Whenever your car’s manual says, not every 5,000 km out of habit; and check the oil level every couple of weeks.",
       "lineas": [
         {
           "id": "titulo",
@@ -333,6 +337,7 @@
     {
       "id": "manejo",
       "titulo": "Is the way you drive maintenance too?",
+      "respuesta": "Yes: hard acceleration and braking can raise fuel use by up to 40% in the city and wear out brake pads and tires sooner.",
       "lineas": [
         {
           "id": "titulo",
@@ -417,6 +422,7 @@
     {
       "id": "bici",
       "titulo": "What about the bike?",
+      "respuesta": "Before you ride, check air, brakes and chain, and oil it with one drop per link: extra oil just collects dirt.",
       "lineas": [
         {
           "id": "titulo",
@@ -497,6 +503,7 @@
     {
       "id": "olvido",
       "titulo": "Why do we forget?",
+      "respuesta": "Because it doesn’t hurt today, so we keep putting it off; a simple reminder got more than twice as many patients to book.",
       "lineas": [
         {
           "id": "titulo",
@@ -575,6 +582,7 @@
     {
       "id": "continuar",
       "titulo": "What’s next? Your plan to keep going",
+      "respuesta": "This week, check your tires; this month, read the manual, schedule your services and find a mechanic you trust.",
       "lineas": [
         {
           "id": "titulo",

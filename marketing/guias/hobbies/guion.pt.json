@@ -12,6 +12,7 @@
     {
       "id": "porque",
       "titulo": "Por que você precisa de um passatempo?",
+      "respuesta": "Porque te faz bem: em mais de 93 mil idosos de 16 países, quem tinha um passatempo tinha menos depressão e era mais feliz.",
       "lineas": [
         {
           "id": "gancho",
@@ -88,6 +89,7 @@
     {
       "id": "encontrar",
       "titulo": "Como encontrar o seu?",
+      "respuesta": "Não espere achar sua paixão pronta: experimente várias coisas, fique com a que te der curiosidade e dê tempo para ela crescer.",
       "lineas": [
         {
           "id": "titulo",
@@ -163,6 +165,7 @@
     {
       "id": "sirve",
       "titulo": "Por que ele não precisa servir para nada?",
+      "respuesta": "Porque o único trabalho dele é te dar prazer: ver o tempo livre como perdido faz você aproveitá-lo menos e se estressar mais.",
       "lineas": [
         {
           "id": "titulo",
@@ -245,6 +248,7 @@
     {
       "id": "tiempo",
       "titulo": "De onde tirar o tempo?",
+      "respuesta": "De momentos curtos com horário fixo: 20 minutos, quatro dias por semana, somam quase 70 horas por ano.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "proyectos",
       "titulo": "Por que o que você mesmo faz te prende mais?",
+      "respuesta": "Porque o que você faz com as mãos vale mais para você: quem montou sua caixa da IKEA pagava mais por ela que outros por uma pronta.",
       "lineas": [
         {
           "id": "titulo",
@@ -395,6 +400,7 @@
     {
       "id": "mantener",
       "titulo": "Como não abandoná-lo?",
+      "respuesta": "Coloque uma meta por semana, não por dia, como quatro de sete: se falhar um dia, a semana continua de pé.",
       "lineas": [
         {
           "id": "titulo",
@@ -474,6 +480,7 @@
     {
       "id": "otros",
       "titulo": "Por que fazer com outras pessoas?",
+      "respuesta": "Porque um grupo te dá encontro fixo, companhia e vontade de voltar; nas aulas de canto, as pessoas se uniram bem mais rápido.",
       "lineas": [
         {
           "id": "titulo",
@@ -537,6 +544,7 @@
     {
       "id": "continuar",
       "titulo": "Como seguir? Seu plano para continuar",
+      "respuesta": "Experimente um por 20 minutos esta semana; em um mês, dê a ele uma meta semanal e um projeto pequeno, e depois compartilhe com alguém.",
       "lineas": [
         {
           "id": "titulo",

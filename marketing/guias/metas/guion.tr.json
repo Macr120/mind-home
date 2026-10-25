@@ -12,6 +12,7 @@
     {
       "id": "querer",
       "titulo": "Sadece istemek neden yetmez?",
+      "respuesta": "Çünkü niyet edenlerin neredeyse yarısı harekete geçmez: hedefini hevese bağlı kalmayacak şekilde tasarla.",
       "lineas": [
         {
           "id": "gancho",
@@ -124,6 +125,7 @@
     {
       "id": "buena",
       "titulo": "Bir hedefi iyi yapan nedir?",
+      "respuesta": "Somut, biraz zor, olumlu ve senin için önemli bir nedeni olan hedef, “elimden geleni yapacağım”ı her zaman yener.",
       "lineas": [
         {
           "id": "titulo",
@@ -200,6 +202,7 @@
     {
       "id": "pasos",
       "titulo": "Bir hedef nasıl adımlara dönüşür?",
+      "respuesta": "Ne zaman ve nerede olacağını “eğer…, o zaman…” cümlesiyle belirle: bununla egzersiz yapanlar %35’ten %91’e çıktı.",
       "lineas": [
         {
           "id": "titulo",
@@ -267,6 +270,7 @@
     {
       "id": "ganas",
       "titulo": "Heves neden tükenir?",
+      "respuesta": "Çünkü heves, hedefi yakın gördüğünde artar: her günkü küçük ilerlemeler onun yakıtıdır.",
       "lineas": [
         {
           "id": "titulo",
@@ -348,6 +352,7 @@
     {
       "id": "casa",
       "titulo": "Her şeyi zihinsel bir evde toplamak neden işe yarar?",
+      "respuesta": "Çünkü beynin yerleri çok iyi hatırlar ve her hedefin bir yeri olunca, aklına izinsiz girmeyi bırakır.",
       "lineas": [
         {
           "id": "titulo",
@@ -434,6 +439,7 @@
     {
       "id": "medir",
       "titulo": "İlerlediğini nasıl anlarsın?",
+      "respuesta": "İlerlemeni sık sık kontrol et ve not al: 138 deneyde bunu yapanlar hedeflerine daha çok yaklaştı.",
       "lineas": [
         {
           "id": "titulo",
@@ -509,6 +515,7 @@
     {
       "id": "fallar",
       "titulo": "Aksattığında ne yapmalı?",
+      "respuesta": "Ertesi gün geri dön: bir kez aksatabilirsin ama iki kez üst üste değil, ve kaçan bir gün ilerlemeni silmez.",
       "lineas": [
         {
           "id": "titulo",
@@ -598,6 +605,7 @@
     {
       "id": "continuar",
       "titulo": "Nasıl devam etmeli? Devam etmek için planın",
+      "respuesta": "“Eğer…, o zaman…” cümlesiyle tek bir hedef seç, iki dakikayla başla, her pazar serine bak ve aksatırsan geri dön.",
       "lineas": [
         {
           "id": "titulo",

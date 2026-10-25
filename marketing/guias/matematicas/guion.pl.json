@@ -12,6 +12,7 @@
     {
       "id": "universo",
       "titulo": "Dlaczego wszechświat mówi liczbami?",
+      "respuesta": "Bo matematyka opisuje, jak porusza się świat: samymi rachunkami Le Verrier znalazł Neptuna, nie patrząc w niebo.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "origen",
       "titulo": "Skąd się wzięły liczby?",
+      "respuesta": "Poczucie liczby mamy od urodzenia; wymyśliliśmy tylko zapis, od nacięć na kości aż po zero.",
       "lineas": [
         {
           "id": "titulo",
@@ -195,6 +197,7 @@
     {
       "id": "miedo",
       "titulo": "Dlaczego matematyka budzi strach?",
+      "respuesta": "Bo mózg reaguje jak na ból, zanim zaczniesz, ale talent do matematyki to nie dar: to praktyka, jak z językiem.",
       "lineas": [
         {
           "id": "titulo",
@@ -272,6 +275,7 @@
     {
       "id": "resolver",
       "titulo": "Jak rozwiązać każdy problem?",
+      "respuesta": "Czterema krokami Pólyi: zrozum problem, ułóż plan, wykonaj go i sprawdź; a zanim policzysz, oszacuj.",
       "lineas": [
         {
           "id": "titulo",
@@ -357,6 +361,7 @@
     {
       "id": "ver",
       "titulo": "Jak zobaczyć równanie?",
+      "respuesta": "Narysuj je na dwóch osiach, jak zaproponował Kartezjusz: od razu zobaczysz, gdzie rośnie, gdzie maleje i gdzie przecina zero.",
       "lineas": [
         {
           "id": "titulo",
@@ -433,6 +438,7 @@
     {
       "id": "vida",
       "titulo": "Jak używać liczb w życiu?",
+      "respuesta": "Zamień procenty na ludzi: wyobraź sobie sto osób i policz, ile jest w każdej sytuacji, a problem stanie się jasny.",
       "lineas": [
         {
           "id": "titulo",
@@ -509,6 +515,7 @@
     {
       "id": "continuar",
       "titulo": "Jak iść dalej? Twój plan na ciąg dalszy.",
+      "respuesta": "Szukaj liczb w swoim dniu, szacuj, zanim policzysz, i rozwiązuj codziennie krótkie zadanie według kroków Pólyi.",
       "lineas": [
         {
           "id": "titulo",

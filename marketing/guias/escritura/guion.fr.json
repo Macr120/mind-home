@@ -12,6 +12,7 @@
     {
       "id": "miedo",
       "titulo": "Pourquoi écrire t’enlève la peur ?",
+      "respuesta": "Parce que tu sors l’inquiétude de ta tête pour la poser sur le papier : dix minutes d’écriture avant un examen améliorent ton résultat.",
       "lineas": [
         {
           "id": "gancho",
@@ -107,6 +108,7 @@
     {
       "id": "blanco",
       "titulo": "Pourquoi la page blanche fait-elle si peur ?",
+      "respuesta": "Parce que tu veux que ce soit parfait du premier coup : écris dix minutes sans t’arrêter ni effacer, et corrige après.",
       "lineas": [
         {
           "id": "titulo",
@@ -198,6 +200,7 @@
     {
       "id": "orden",
       "titulo": "Pourquoi écrire range ta tête ?",
+      "respuesta": "Parce que les idées en vrac doivent faire la queue : ce qui était un nœud dans ta tête devient une liste sur le papier.",
       "lineas": [
         {
           "id": "titulo",
@@ -273,6 +276,7 @@
     {
       "id": "bitacora",
       "titulo": "Pourquoi l’humanité écrit-elle depuis cinq mille ans ?",
+      "respuesta": "Parce qu’écrire évite d’oublier : c’est né pour compter l’orge et les moutons, et de vieux journaux de bord servent à étudier le climat.",
       "lineas": [
         {
           "id": "titulo",
@@ -349,6 +353,7 @@
     {
       "id": "historias",
       "titulo": "Pourquoi une histoire reste-t-elle gravée en toi ?",
+      "respuesta": "Parce qu’elle relie ce que tu veux retenir : ceux qui ont inventé une histoire avec dix mots s’en sont souvenus environ sept fois plus.",
       "lineas": [
         {
           "id": "titulo",
@@ -416,6 +421,7 @@
     {
       "id": "trama",
       "titulo": "Comment construire une bonne histoire ?",
+      "respuesta": "Avec quelqu’un qui veut quelque chose, un obstacle et une fin où il change ; et montre, ne raconte pas.",
       "lineas": [
         {
           "id": "titulo",
@@ -493,6 +499,7 @@
     {
       "id": "diario",
       "titulo": "Comment mieux écrire chaque jour ?",
+      "respuesta": "Avec un rendez-vous quotidien avec la feuille au lieu d’attendre l’inspiration, et en corrigeant à voix haute : le bon vient en corrigeant.",
       "lineas": [
         {
           "id": "titulo",
@@ -569,6 +576,7 @@
     {
       "id": "continuar",
       "titulo": "Comment continuer ? Ton plan pour la suite",
+      "respuesta": "Commence par dix minutes d’écriture libre par jour et, le premier mois, termine un petit projet en le corrigeant à voix haute.",
       "lineas": [
         {
           "id": "titulo",

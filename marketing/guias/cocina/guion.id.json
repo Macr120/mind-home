@@ -18,6 +18,7 @@
     {
       "id": "cuerpo",
       "titulo": "Apa yang dilakukan makanan di tubuhmu",
+      "respuesta": "Makanan adalah bahan bakar untuk bernapas, berpikir, dan bergerak, sekaligus bahan untuk memperbaiki otot, tulang, kulit, dan darah.",
       "lineas": [
         {
           "id": "gancho",
@@ -67,6 +68,7 @@
     {
       "id": "historia",
       "titulo": "Sejarah singkat tentang apa yang kita makan",
+      "respuesta": "Dari api sampai label: jeruk Lind menyembuhkan skorbut, dan Atwater mengukur kalori yang masih kita baca hari ini.",
       "lineas": [
         {
           "id": "titulo",
@@ -123,6 +125,7 @@
     {
       "id": "energia",
       "titulo": "Berapa banyak energi yang kamu butuhkan",
+      "respuesta": "Sekitar dua pertiga energimu habis hanya untuk bertahan hidup; untuk turun berat badan, makanlah sekitar 15% lebih sedikit.",
       "lineas": [
         {
           "id": "titulo",
@@ -171,6 +174,7 @@
     {
       "id": "calidad",
       "titulo": "Kualitas dari apa yang kamu makan",
+      "respuesta": "Pilih makanan segar: dengan makanan ultra-olahan, orang makan sekitar 500 kalori lebih banyak sehari tanpa sadar.",
       "lineas": [
         {
           "id": "titulo",
@@ -220,6 +224,7 @@
     {
       "id": "plato",
       "titulo": "Cara menyusun piring dan minggumu",
+      "respuesta": "Isi setengah piring dengan sayur dan buah, seperempat biji-bijian utuh, seperempat protein, lalu rencanakan menu seminggu.",
       "lineas": [
         {
           "id": "titulo",
@@ -271,6 +276,7 @@
     {
       "id": "habitos",
       "titulo": "Air, rasa lapar, dan konsistensi",
+      "respuesta": "Minum sekitar dua liter air sehari, makan pelan tanpa layar, dan catat makananmu beberapa hari untuk melihat polanya.",
       "lineas": [
         {
           "id": "titulo",

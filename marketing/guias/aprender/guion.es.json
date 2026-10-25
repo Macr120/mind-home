@@ -12,6 +12,7 @@
     {
       "id": "olvido",
       "titulo": "¿Por qué se te olvida lo que estudias?",
+      "respuesta": "Porque lo que no vuelves a usar se va rápido: en una hora, Ebbinghaus ya había olvidado más de la mitad.",
       "lineas": [
         {
           "id": "gancho",
@@ -64,6 +65,7 @@
     {
       "id": "tecnicas",
       "titulo": "¿Qué técnicas funcionan de verdad?",
+      "respuesta": "Ponerte a prueba y repartir el estudio en el tiempo: de diez técnicas, solo esas dos sacaron la nota más alta.",
       "lineas": [
         {
           "id": "titulo",
@@ -109,6 +111,7 @@
     {
       "id": "prueba",
       "titulo": "¿Por qué ponerte a prueba vale más que releer?",
+      "respuesta": "Porque recordar fija lo aprendido: una semana después, quien se puso a prueba recordaba un 61 % y quien releyó, un 40 %.",
       "lineas": [
         {
           "id": "titulo",
@@ -152,6 +155,7 @@
     {
       "id": "repasar",
       "titulo": "¿Cuándo repasar para no olvidar?",
+      "respuesta": "Al día siguiente, a la semana y al mes: repartir el estudio en varios días gana casi siempre a la maratón de una noche.",
       "lineas": [
         {
           "id": "titulo",
@@ -204,6 +208,7 @@
     {
       "id": "entender",
       "titulo": "¿Cómo entender en vez de memorizar?",
+      "respuesta": "Estudia como si fueras a enseñarlo y explícalo sencillo: donde te trabas está justo lo que aún no entiendes.",
       "lineas": [
         {
           "id": "titulo",
@@ -248,6 +253,7 @@
     {
       "id": "dormir",
       "titulo": "¿Qué hace el sueño con lo que aprendes?",
+      "respuesta": "Lo repasa y lo guarda mejor: quien duerme pocas horas después de estudiar recuerda más, incluso días después.",
       "lineas": [
         {
           "id": "titulo",
@@ -291,6 +297,7 @@
     {
       "id": "continuar",
       "titulo": "¿Cómo seguir? Tu plan para continuar",
+      "respuesta": "Ponte a prueba sin mirar, agenda repasos al día, a la semana y al mes, y mide tu avance por lo que recuerdas, no por horas.",
       "lineas": [
         {
           "id": "titulo",

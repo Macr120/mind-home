@@ -12,6 +12,7 @@
     {
       "id": "universo",
       "titulo": "¿Por qué el universo habla en números?",
+      "respuesta": "Porque las matemáticas describen cómo se mueve el mundo: con puras cuentas, Le Verrier encontró Neptuno sin mirar al cielo.",
       "lineas": [
         {
           "id": "gancho",
@@ -70,6 +71,7 @@
     {
       "id": "origen",
       "titulo": "¿De dónde salieron los números?",
+      "respuesta": "Ya nacemos con un sentido de la cantidad; lo que inventamos fue escribirlo, desde muescas en un hueso hasta el cero.",
       "lineas": [
         {
           "id": "titulo",
@@ -121,6 +123,7 @@
     {
       "id": "miedo",
       "titulo": "¿Por qué las matemáticas dan miedo?",
+      "respuesta": "Porque tu cerebro lo vive como dolor antes de empezar, pero ser de matemáticas no es un don: es práctica, como un idioma.",
       "lineas": [
         {
           "id": "titulo",
@@ -166,6 +169,7 @@
     {
       "id": "resolver",
       "titulo": "¿Cómo resolver cualquier problema?",
+      "respuesta": "Con los cuatro pasos de Pólya: entiende el problema, idea un plan, llévalo a cabo y revisa; y estima antes de calcular.",
       "lineas": [
         {
           "id": "titulo",
@@ -217,6 +221,7 @@
     {
       "id": "ver",
       "titulo": "¿Cómo ver una ecuación?",
+      "respuesta": "Dibújala sobre dos ejes, como propuso Descartes: verás de un vistazo dónde crece, dónde baja y dónde corta el cero.",
       "lineas": [
         {
           "id": "titulo",
@@ -261,6 +266,7 @@
     {
       "id": "vida",
       "titulo": "¿Cómo usar los números en tu vida?",
+      "respuesta": "Cambia los porcentajes por personas: imagina a cien y cuenta cuántas hay en cada caso, y el problema se aclara.",
       "lineas": [
         {
           "id": "titulo",
@@ -305,6 +311,7 @@
     {
       "id": "continuar",
       "titulo": "¿Cómo seguir? Tu plan para continuar.",
+      "respuesta": "Busca los números de tu día, estima antes de calcular y resuelve cada día un problema corto con los pasos de Pólya.",
       "lineas": [
         {
           "id": "titulo",

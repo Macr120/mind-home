@@ -25,6 +25,7 @@
     {
       "id": "arte",
       "titulo": "Ce qu'est l'art",
+      "respuesta": "Ce qu’on fait pour qu’un autre le regarde et le ressente, et en faire fait du bien : le stress baisse chez 3 personnes sur 4.",
       "lineas": [
         {
           "id": "gancho",
@@ -156,6 +157,7 @@
     {
       "id": "historia",
       "titulo": "Une brève histoire de l'art visuel",
+      "respuesta": "Des grottes peintes il y a 51 000 ans à la perspective, la photo et les écrans : l’outil change, ce que tu veux dire, non.",
       "lineas": [
         {
           "id": "titulo",
@@ -253,6 +255,7 @@
     {
       "id": "elementos",
       "titulo": "Les éléments d'une œuvre",
+      "respuesta": "Ligne, forme, valeur, couleur, texture et espace ; et si ton œuvre rend bien en noir et blanc, elle rendra bien en couleur.",
       "lineas": [
         {
           "id": "titulo",
@@ -336,6 +339,7 @@
     {
       "id": "mirar",
       "titulo": "Comment regarder une œuvre",
+      "respuesta": "En quatre étapes : décris ce que tu vois, analyse comment c’est fait, interprète ce que ça dit et, à la fin, décide si ça te plaît.",
       "lineas": [
         {
           "id": "titulo",
@@ -406,6 +410,7 @@
     {
       "id": "hacer",
       "titulo": "Comment commencer à faire de l'art",
+      "respuesta": "Dessine ce que tu vois, pas ce que tu sais : copie à l’envers, croque des gestes rapides, copie les maîtres et remplis un carnet.",
       "lineas": [
         {
           "id": "titulo",
@@ -499,6 +504,7 @@
     {
       "id": "plan",
       "titulo": "Ton plan pour commencer",
+      "respuesta": "Fixe-toi un objectif qu’on peut compter, comme 100 dessins en 100 jours : 15 minutes par jour font plus de 90 heures par an.",
       "lineas": [
         {
           "id": "titulo",

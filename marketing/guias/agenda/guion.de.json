@@ -12,6 +12,7 @@
     {
       "id": "tiempo",
       "titulo": "Warum reicht deine Zeit nie?",
+      "respuesta": "Weil wir uns verschätzen: Studierende dachten, ihre Abschlussarbeit dauere 34 Tage, und brauchten 55.",
       "lineas": [
         {
           "id": "gancho",
@@ -121,6 +122,7 @@
     {
       "id": "cabeza",
       "titulo": "Warum ist dein Kopf kein guter Terminplaner?",
+      "respuesta": "Weil Offenes im Kopf kreist: Schreib alles an einem Ort auf, und wenn etwas unter zwei Minuten dauert, erledige es sofort.",
       "lineas": [
         {
           "id": "titulo",
@@ -211,6 +213,7 @@
     {
       "id": "primero",
       "titulo": "Was kommt zuerst?",
+      "respuesta": "Das Wichtige vor dem Dringenden: Was beides ist, erledige heute, und gib dem Wichtigen, das nicht drängt, eine Uhrzeit.",
       "lineas": [
         {
           "id": "titulo",
@@ -284,6 +287,7 @@
     {
       "id": "una",
       "titulo": "Warum bremst dich Multitasking?",
+      "respuesta": "Weil dich jeder Wechsel zwischen Aufgaben Zeit kostet und Aufmerksamkeit zurücklässt: Beende eine, bevor du die nächste beginnst.",
       "lineas": [
         {
           "id": "titulo",
@@ -356,6 +360,7 @@
     {
       "id": "hora",
       "titulo": "Wie gibst du dem Wichtigen eine Uhrzeit?",
+      "respuesta": "Gib jeder wichtigen Sache ihren Block im Kalender: Studierende mit verteilten Fristen bekamen bessere Noten.",
       "lineas": [
         {
           "id": "titulo",
@@ -440,6 +445,7 @@
     {
       "id": "pausas",
       "titulo": "Warum macht dich Ausruhen leistungsfähiger?",
+      "respuesta": "Weil Pausen unter zehn Minuten dir mehr Energie und weniger Müdigkeit geben, so eine Auswertung von 22 Studien.",
       "lineas": [
         {
           "id": "titulo",
@@ -514,6 +520,7 @@
     {
       "id": "acumula",
       "titulo": "Was tun, wenn sich alles staut?",
+      "respuesta": "Teil die Aufgabe in Schritte, um besser zu schätzen, plane einen Puffer ein, und passt nichts mehr: verschieben, abgeben oder Nein sagen.",
       "lineas": [
         {
           "id": "titulo",
@@ -590,6 +597,7 @@
     {
       "id": "continuar",
       "titulo": "Wie geht es weiter? Dein Plan zum Dranbleiben",
+      "respuesta": "Hol alles aus deinem Kopf, wähl jeden Tag drei wichtige Dinge, gib ihnen eine Uhrzeit und prüfe deine Woche in 15 Minuten.",
       "lineas": [
         {
           "id": "titulo",

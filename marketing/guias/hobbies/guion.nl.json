@@ -12,6 +12,7 @@
     {
       "id": "porque",
       "titulo": "Waarom heb je een hobby nodig?",
+      "respuesta": "Omdat het je goeddoet: bij ruim 93.000 ouderen in 16 landen waren mensen met een hobby minder depressief en gelukkiger.",
       "lineas": [
         {
           "id": "gancho",
@@ -88,6 +89,7 @@
     {
       "id": "encontrar",
       "titulo": "Hoe vind je de jouwe?",
+      "respuesta": "Wacht niet op een kant-en-klare passie: probeer van alles, houd vast wat je nieuwsgierig maakt en geef het tijd om te groeien.",
       "lineas": [
         {
           "id": "titulo",
@@ -163,6 +165,7 @@
     {
       "id": "sirve",
       "titulo": "Waarom hoeft hij nergens goed voor te zijn?",
+      "respuesta": "Omdat het alleen maar leuk hoeft te zijn: wie vrije tijd als verspild ziet, geniet er minder van en heeft meer stress.",
       "lineas": [
         {
           "id": "titulo",
@@ -245,6 +248,7 @@
     {
       "id": "tiempo",
       "titulo": "Waar haal je de tijd vandaan?",
+      "respuesta": "Uit korte, vaste momenten: 20 minuten, vier dagen per week, is samen bijna 70 uur per jaar.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "proyectos",
       "titulo": "Waarom grijpt wat je zelf maakt je meer?",
+      "respuesta": "Omdat wat je zelf maakt je meer waard is: wie een IKEA-doos zelf in elkaar zette, bood er meer voor dan anderen voor een kant-en-klare.",
       "lineas": [
         {
           "id": "titulo",
@@ -395,6 +400,7 @@
     {
       "id": "mantener",
       "titulo": "Hoe haak je niet af?",
+      "respuesta": "Kies een doel per week in plaats van per dag, zoals vier van de zeven: mis je een dag, dan staat de week nog overeind.",
       "lineas": [
         {
           "id": "titulo",
@@ -474,6 +480,7 @@
     {
       "id": "otros",
       "titulo": "Waarom samen met anderen?",
+      "respuesta": "Omdat een groep je een vaste afspraak, gezelschap en zin om terug te komen geeft; bij zangles groeide de band veel sneller.",
       "lineas": [
         {
           "id": "titulo",
@@ -537,6 +544,7 @@
     {
       "id": "continuar",
       "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "respuesta": "Probeer er deze week één 20 minuten; geef hem binnen een maand een weekdoel en een klein project, en deel hem daarna met iemand.",
       "lineas": [
         {
           "id": "titulo",

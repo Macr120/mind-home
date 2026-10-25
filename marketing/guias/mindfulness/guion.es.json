@@ -12,6 +12,7 @@
     {
       "id": "mente",
       "titulo": "¿Dónde está tu mente ahora mismo?",
+      "respuesta": "En otra cosa casi la mitad del tiempo, y no es descanso: mientras divaga, te sientes peor que cuando pones atención.",
       "lineas": [
         {
           "id": "gancho",
@@ -71,6 +72,7 @@
     {
       "id": "que",
       "titulo": "¿Qué es el mindfulness y de dónde viene?",
+      "respuesta": "Es prestar atención, a propósito, al momento presente y sin juzgar; viene del «sati» budista de hace unos 2500 años.",
       "lineas": [
         {
           "id": "titulo",
@@ -122,6 +124,7 @@
     {
       "id": "respirar",
       "titulo": "¿Qué le pasa a tu cuerpo cuando respiras lento?",
+      "respuesta": "Se calma: respirar unas seis veces por minuto lo frena, y practicar el suspiro cíclico a diario mejora tu ánimo.",
       "lineas": [
         {
           "id": "titulo",
@@ -172,6 +175,7 @@
     {
       "id": "rapido",
       "titulo": "¿Por qué frenar te hace llegar más rápido?",
+      "respuesta": "Porque entrenar la atención unos minutos al día te ayuda a distraerte menos y protege tu memoria de trabajo, aun con estrés.",
       "lineas": [
         {
           "id": "titulo",
@@ -223,6 +227,7 @@
     {
       "id": "ciencia",
       "titulo": "¿Qué dice la ciencia, y qué no?",
+      "respuesta": "Que la meditación mejora de forma moderada la ansiedad, la depresión y el dolor, pero no es magia ni sustituye a un especialista.",
       "lineas": [
         {
           "id": "titulo",
@@ -273,6 +278,7 @@
     {
       "id": "meditar",
       "titulo": "¿Cómo meditar si no puedes dejar de pensar?",
+      "respuesta": "Distraerte no es fallar: cada vez que notas que te fuiste y vuelves a la respiración, entrenas tu atención.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +330,7 @@
     {
       "id": "continuar",
       "titulo": "¿Cómo seguir? Tu plan para continuar",
+      "respuesta": "Pega unos minutos de práctica a algo que ya haces, súbelos poco a poco y, si un día fallas, solo vuelve.",
       "lineas": [
         {
           "id": "titulo",

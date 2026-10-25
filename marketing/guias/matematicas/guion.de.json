@@ -12,6 +12,7 @@
     {
       "id": "universo",
       "titulo": "Warum spricht das Universum in Zahlen?",
+      "respuesta": "Weil Mathematik beschreibt, wie sich die Welt bewegt: Allein mit Rechnungen fand Le Verrier Neptun, ohne in den Himmel zu schauen.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "origen",
       "titulo": "Woher kommen die Zahlen?",
+      "respuesta": "Ein Gespür für Mengen bringen wir mit; erfunden haben wir das Aufschreiben, von Kerben in einem Knochen bis zur Null.",
       "lineas": [
         {
           "id": "titulo",
@@ -195,6 +197,7 @@
     {
       "id": "miedo",
       "titulo": "Warum macht Mathe Angst?",
+      "respuesta": "Weil dein Gehirn schon vorher wie auf Schmerz reagiert, aber gut in Mathe zu sein ist keine Gabe: Es ist Übung, wie bei einer Sprache.",
       "lineas": [
         {
           "id": "titulo",
@@ -272,6 +275,7 @@
     {
       "id": "resolver",
       "titulo": "Wie löst du jedes Problem?",
+      "respuesta": "Mit Pólyas vier Schritten: das Problem verstehen, einen Plan ausdenken, ihn ausführen und prüfen; und schätze, bevor du rechnest.",
       "lineas": [
         {
           "id": "titulo",
@@ -357,6 +361,7 @@
     {
       "id": "ver",
       "titulo": "Wie siehst du eine Gleichung?",
+      "respuesta": "Zeichne sie auf zwei Achsen, wie Descartes vorschlug: Du siehst auf einen Blick, wo sie steigt, wo sie fällt und wo sie die Null schneidet.",
       "lineas": [
         {
           "id": "titulo",
@@ -433,6 +438,7 @@
     {
       "id": "vida",
       "titulo": "Wie nutzt du Zahlen in deinem Leben?",
+      "respuesta": "Tausch Prozente gegen Menschen: Stell dir hundert vor und zähl, wie viele in jedem Fall stecken, und das Problem wird klar.",
       "lineas": [
         {
           "id": "titulo",
@@ -509,6 +515,7 @@
     {
       "id": "continuar",
       "titulo": "Wie geht es weiter? Dein Plan, um dranzubleiben",
+      "respuesta": "Such die Zahlen deines Tages, schätze, bevor du rechnest, und löse jeden Tag eine kurze Aufgabe mit Pólyas Schritten.",
       "lineas": [
         {
           "id": "titulo",

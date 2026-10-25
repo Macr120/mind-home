@@ -12,6 +12,7 @@
     {
       "id": "mente",
       "titulo": "Dov'è la tua mente in questo momento?",
+      "respuesta": "Altrove quasi metà del tempo, e non è riposo: mentre vaga, ti senti peggio di quando presti attenzione.",
       "lineas": [
         {
           "id": "gancho",
@@ -104,6 +105,7 @@
     {
       "id": "que",
       "titulo": "Cos'è la mindfulness e da dove viene?",
+      "respuesta": "È prestare attenzione, intenzionalmente, al momento presente e senza giudicare; viene dal «sati» buddhista di circa 2500 anni fa.",
       "lineas": [
         {
           "id": "titulo",
@@ -197,6 +199,7 @@
     {
       "id": "respirar",
       "titulo": "Cosa succede al tuo corpo quando respiri lentamente?",
+      "respuesta": "Si calma: respirare circa sei volte al minuto lo rallenta, e praticare ogni giorno il sospiro ciclico migliora il tuo umore.",
       "lineas": [
         {
           "id": "titulo",
@@ -281,6 +284,7 @@
     {
       "id": "rapido",
       "titulo": "Perché rallentare ti fa arrivare prima?",
+      "respuesta": "Perché allenare l'attenzione qualche minuto al giorno ti aiuta a distrarti meno e protegge la memoria di lavoro, anche sotto stress.",
       "lineas": [
         {
           "id": "titulo",
@@ -363,6 +367,7 @@
     {
       "id": "ciencia",
       "titulo": "Cosa dice la scienza, e cosa no?",
+      "respuesta": "Che la meditazione migliora in modo moderato ansia, depressione e dolore, ma non è magia e non sostituisce uno specialista.",
       "lineas": [
         {
           "id": "titulo",
@@ -451,6 +456,7 @@
     {
       "id": "meditar",
       "titulo": "Come meditare se non riesci a smettere di pensare?",
+      "respuesta": "Distrarti non è fallire: ogni volta che te ne accorgi e torni al respiro, alleni la tua attenzione.",
       "lineas": [
         {
           "id": "titulo",
@@ -545,6 +551,7 @@
     {
       "id": "continuar",
       "titulo": "Come andare avanti? Il tuo piano per continuare",
+      "respuesta": "Aggancia qualche minuto di pratica a qualcosa che fai già, aumenta pian piano e, se un giorno salti, torna e basta.",
       "lineas": [
         {
           "id": "titulo",

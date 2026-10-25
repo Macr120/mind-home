@@ -23,6 +23,7 @@
     {
       "id": "dinero",
       "titulo": "Wozu Geld da ist",
+      "respuesta": "Zum Tauschen, Messen und Aufbewahren von Wert, aber entscheidend ist nicht, wie viel du verdienst, sondern Einnahmen minus Ausgaben.",
       "lineas": [
         {
           "id": "gancho",
@@ -109,6 +110,7 @@
     {
       "id": "historia",
       "titulo": "Eine kurze Geschichte des Geldes",
+      "respuesta": "Von den ersten Münzen Lydiens bis zum chinesischen Papiergeld von 1024; seit 1971 zählt beim Geld Vertrauen, nicht Gold.",
       "lineas": [
         {
           "id": "titulo",
@@ -189,6 +191,7 @@
     {
       "id": "presupuesto",
       "titulo": "Wohin dein Geld fließt",
+      "respuesta": "Schreib einen Monat lang jede Ausgabe auf, teil dein Einkommen nach der 50/30/20-Regel und bezahl dich am Zahltag selbst zuerst.",
       "lineas": [
         {
           "id": "titulo",
@@ -259,6 +262,7 @@
     {
       "id": "deudas",
       "titulo": "Dein Polster und deine Schulden",
+      "respuesta": "Leg dir ein Polster von drei bis sechs Monatsausgaben an und tilge zuerst teure Schulden, ohne nur das Minimum zu zahlen.",
       "lineas": [
         {
           "id": "titulo",
@@ -348,6 +352,7 @@
     {
       "id": "invertir",
       "titulo": "Lass dein Geld für dich arbeiten",
+      "respuesta": "Fang früh an, denn Zeit zählt mehr als der Betrag: Bei 6 % im Jahr verdoppelt sich dein Geld in etwa 12 Jahren.",
       "lineas": [
         {
           "id": "titulo",
@@ -440,6 +445,7 @@
     {
       "id": "plan",
       "titulo": "Dein Plan für den Anfang",
+      "respuesta": "Gib deinem Ziel Betrag und Datum, automatisiere das Sparen am Zahltag und prüf jeden Monat zehn Minuten lang, wie weit du bist.",
       "lineas": [
         {
           "id": "titulo",

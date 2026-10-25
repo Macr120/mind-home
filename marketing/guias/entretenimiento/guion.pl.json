@@ -12,6 +12,7 @@
     {
       "id": "elegir",
       "titulo": "Dlaczego tak długo wybierasz?",
+      "respuesta": "Bo wybór zajmuje nam już 10,5 minuty: miej listę do obejrzenia, a jeśli w pięć minut nie wybierzesz, włącz pierwszą pozycję.",
       "lineas": [
         {
           "id": "gancho",
@@ -107,6 +108,7 @@
     {
       "id": "scroll",
       "titulo": "Dlaczego scrollowanie nie daje ci odpocząć?",
+      "respuesta": "Bo bierne przeglądanie sociali psuje nastrój; zanim je otworzysz, zapytaj się, czego szukasz, i zamknij, gdy skończysz.",
       "lineas": [
         {
           "id": "titulo",
@@ -181,6 +183,7 @@
     {
       "id": "maraton",
       "titulo": "Maraton czy jeden odcinek dziennie?",
+      "respuesta": "Jeden odcinek dziennie: w maratonie serial mniej cię cieszy, po miesiącach gorzej go pamiętasz, a do tego gorzej śpisz.",
       "lineas": [
         {
           "id": "titulo",
@@ -253,6 +256,7 @@
     {
       "id": "pausas",
       "titulo": "Dlaczego przerwy i spoilery niczego nie psują?",
+      "respuesta": "Bo przerwa odnawia przyjemność, która się zużywa, a opowiadania ze zdradzonym zakończeniem podobały się nawet bardziej.",
       "lineas": [
         {
           "id": "titulo",
@@ -329,6 +333,7 @@
     {
       "id": "videojuegos",
       "titulo": "Czy gry wideo ci służą, czy szkodzą?",
+      "respuesta": "Zależy, po co grasz: u blisko 39 tys. dorosłych godziny prawie nie miały znaczenia; gra dla frajdy pomagała, z przymusu szkodziła.",
       "lineas": [
         {
           "id": "titulo",
@@ -400,6 +405,7 @@
     {
       "id": "otros",
       "titulo": "Dlaczego grać z innymi?",
+      "respuesta": "Bo to, co przeżywasz z innymi, czujesz mocniej, a kto częściej grał w planszówki i karty, tracił mniej pamięci.",
       "lineas": [
         {
           "id": "titulo",
@@ -468,6 +474,7 @@
     {
       "id": "leer",
       "titulo": "A czytanie się liczy?",
+      "respuesta": "Tak: osoby czytające książki żyły średnio prawie dwa lata dłużej; przed snem sięgnij po książkę zamiast kolejnego odcinka.",
       "lineas": [
         {
           "id": "titulo",
@@ -543,6 +550,7 @@
     {
       "id": "durar",
       "titulo": "Jak sprawić, żeby zostało na dłużej?",
+      "respuesta": "Gdy coś skończysz, zapisz gwiazdki, zdanie o tym, co ci dało, i z kim to było: powrót do notatek ucieszy cię bardziej, niż myślisz.",
       "lineas": [
         {
           "id": "titulo",
@@ -621,6 +629,7 @@
     {
       "id": "continuar",
       "titulo": "Jak iść dalej? Twój plan na ciąg dalszy",
+      "respuesta": "Zrób listę do obejrzenia, maks dwa odcinki na wieczór, a raz w tygodniu planszówka albo książka, najlepiej z kimś.",
       "lineas": [
         {
           "id": "titulo",

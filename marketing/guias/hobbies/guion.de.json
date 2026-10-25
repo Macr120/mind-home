@@ -12,6 +12,7 @@
     {
       "id": "porque",
       "titulo": "Warum brauchst du ein Hobby?",
+      "respuesta": "Weil es dir guttut: Bei über 93.000 Älteren in 16 Ländern waren Menschen mit Hobby seltener depressiv und glücklicher.",
       "lineas": [
         {
           "id": "gancho",
@@ -88,6 +89,7 @@
     {
       "id": "encontrar",
       "titulo": "Wie findest du deins?",
+      "respuesta": "Warte nicht auf die fertige Leidenschaft: Probier vieles aus, bleib bei dem, was dich neugierig macht, und gib ihm Zeit zu wachsen.",
       "lineas": [
         {
           "id": "titulo",
@@ -163,6 +165,7 @@
     {
       "id": "sirve",
       "titulo": "Warum muss es zu nichts nützen?",
+      "respuesta": "Weil seine einzige Aufgabe ist, dir Spaß zu machen: Wer Freizeit für verschwendet hält, genießt sie weniger und ist gestresster.",
       "lineas": [
         {
           "id": "titulo",
@@ -245,6 +248,7 @@
     {
       "id": "tiempo",
       "titulo": "Woher nimmst du die Zeit?",
+      "respuesta": "Aus kurzen, festen Zeitfenstern: 20 Minuten an vier Tagen pro Woche ergeben fast 70 Stunden im Jahr.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "proyectos",
       "titulo": "Warum packt dich Selbstgemachtes mehr?",
+      "respuesta": "Weil Selbstgemachtes dir mehr wert ist: Wer seine IKEA-Box selbst aufbaute, bot mehr dafür als andere für eine fertige.",
       "lineas": [
         {
           "id": "titulo",
@@ -395,6 +400,7 @@
     {
       "id": "mantener",
       "titulo": "Wie bleibst du dran?",
+      "respuesta": "Setz dir ein Wochenziel statt eines Tagesziels, etwa vier von sieben: Fällt ein Tag aus, steht die Woche trotzdem.",
       "lineas": [
         {
           "id": "titulo",
@@ -474,6 +480,7 @@
     {
       "id": "otros",
       "titulo": "Warum mit anderen?",
+      "respuesta": "Weil eine Gruppe dir einen festen Termin, Gesellschaft und Lust aufs Wiederkommen gibt; im Gesangskurs wuchs sie viel schneller zusammen.",
       "lineas": [
         {
           "id": "titulo",
@@ -537,6 +544,7 @@
     {
       "id": "continuar",
       "titulo": "Wie geht es weiter? Dein Plan zum Weitermachen",
+      "respuesta": "Probier diese Woche eins für 20 Minuten aus; gib ihm im ersten Monat ein Wochenziel und ein kleines Projekt, und teil es dann mit jemandem.",
       "lineas": [
         {
           "id": "titulo",

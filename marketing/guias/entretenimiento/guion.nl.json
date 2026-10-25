@@ -12,6 +12,7 @@
     {
       "id": "elegir",
       "titulo": "Waarom doe je zo lang over kiezen?",
+      "respuesta": "Omdat we al 10,5 minuut over kiezen doen: hou een lijst bij van wat je nog wilt zien, en kies je niet binnen vijf, zet de eerste op.",
       "lineas": [
         {
           "id": "gancho",
@@ -107,6 +108,7 @@
     {
       "id": "scroll",
       "titulo": "Waarom rust je niet uit van scrollen?",
+      "respuesta": "Omdat passief scrollen je humeur verslechtert; vraag je voor het openen af wat je zoekt, en sluit het als je klaar bent.",
       "lineas": [
         {
           "id": "titulo",
@@ -181,6 +183,7 @@
     {
       "id": "maraton",
       "titulo": "Bingewatchen of één aflevering per dag?",
+      "respuesta": "Eén aflevering per dag: bij bingewatchen geniet je minder, onthoud je de serie slechter en slaap je ook nog slechter.",
       "lineas": [
         {
           "id": "titulo",
@@ -253,6 +256,7 @@
     {
       "id": "pausas",
       "titulo": "Waarom verpesten pauzes en spoilers niets?",
+      "respuesta": "Omdat een pauze het plezier dat slijt opnieuw opstart, en verhalen met een verklapt einde vielen zelfs beter in de smaak.",
       "lineas": [
         {
           "id": "titulo",
@@ -329,6 +333,7 @@
     {
       "id": "videojuegos",
       "titulo": "Zijn games goed of slecht voor je?",
+      "respuesta": "Het hangt af van waarom: bij bijna 39.000 volwassenen maakten de uren weinig uit; spelen voor je plezier hielp, uit dwang niet.",
       "lineas": [
         {
           "id": "titulo",
@@ -400,6 +405,7 @@
     {
       "id": "otros",
       "titulo": "Waarom samen met anderen spelen?",
+      "respuesta": "Omdat wat je samen beleeft sterker voelt, en wie vaker bord- en kaartspellen speelde, ging minder achteruit in geheugen.",
       "lineas": [
         {
           "id": "titulo",
@@ -468,6 +474,7 @@
     {
       "id": "leer",
       "titulo": "En lezen, telt dat?",
+      "respuesta": "Ja: wie boeken las, leefde gemiddeld bijna twee jaar langer; pak voor het slapen een boek in plaats van nog een aflevering.",
       "lineas": [
         {
           "id": "titulo",
@@ -543,6 +550,7 @@
     {
       "id": "durar",
       "titulo": "Hoe heb je er langer iets aan?",
+      "respuesta": "Als je iets uit hebt, noteer je sterren, een zin over wat het je bracht en met wie: teruglezen is leuker dan je denkt.",
       "lineas": [
         {
           "id": "titulo",
@@ -621,6 +629,7 @@
     {
       "id": "continuar",
       "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "respuesta": "Maak je lijst met wat je nog wilt zien, max twee afleveringen per avond en één avond per week een bordspel of boek, liefst samen.",
       "lineas": [
         {
           "id": "titulo",

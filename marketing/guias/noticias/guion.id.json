@@ -12,6 +12,7 @@
     {
       "id": "agenda",
       "titulo": "Siapa yang menentukan apa yang kamu lihat setiap hari?",
+      "respuesta": "Sebagian besar media: seperti ditunjukkan McCombs dan Shaw, media tak selalu bilang apa yang harus kamu pikirkan, tapi tentang apa.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "bly",
       "titulo": "Siapa yang berpura-pura gila demi mengungkap kebenaran?",
+      "respuesta": "Nellie Bly, pada 1887: ia menghabiskan sepuluh hari di rumah sakit jiwa di New York, dan liputannya mendatangkan lebih banyak dana bagi pasien.",
       "lineas": [
         {
           "id": "titulo",
@@ -182,6 +184,7 @@
     {
       "id": "negatividad",
       "titulo": "Kenapa berita buruk lebih laku?",
+      "respuesta": "Karena otakmu lebih memperhatikan hal buruk: tiap tambahan satu kata negatif di judul menaikkan klik lebih dari 2%.",
       "lineas": [
         {
           "id": "titulo",
@@ -257,6 +260,7 @@
     {
       "id": "mentira",
       "titulo": "Kenapa kebohongan berlari lebih cepat?",
+      "respuesta": "Karena kebohongan lebih baru dan mengejutkan: di Twitter ia menyebar enam kali lebih cepat, dan yang membagikannya manusia, bukan bot.",
       "lineas": [
         {
           "id": "titulo",
@@ -336,6 +340,7 @@
     {
       "id": "verificar",
       "titulo": "Bagaimana membaca seperti pemeriksa fakta?",
+      "respuesta": "Lakukan membaca lateral: keluar dari situsnya dan lihat apa kata orang lain tentang sumber itu, seperti pemeriksa fakta profesional.",
       "lineas": [
         {
           "id": "titulo",
@@ -425,6 +430,7 @@
     {
       "id": "belleza",
       "titulo": "Bagaimana membuat konten yang benar dan indah?",
+      "respuesta": "Periksa sebelum mengunggah, sebutkan dari mana datanya, dan ceritakan seperti kisah, dengan gambar yang bagus dan kata-kata jelas.",
       "lineas": [
         {
           "id": "titulo",
@@ -521,6 +527,7 @@
     {
       "id": "dieta",
       "titulo": "Berapa banyak berita yang terlalu banyak?",
+      "respuesta": "Yang menonton enam jam sehari lebih stres daripada banyak orang di lokasi: tetapkan jam tetap dan batas, lalu matikan notifikasi.",
       "lineas": [
         {
           "id": "titulo",
@@ -596,6 +603,7 @@
     {
       "id": "continuar",
       "titulo": "Bagaimana selanjutnya? Rencanamu untuk melanjutkan",
+      "respuesta": "Catat dari mana beritamu berasal, tambah sumber yang beragam, pilih jam tetap, dan lakukan membaca lateral sebelum membagikan.",
       "lineas": [
         {
           "id": "titulo",

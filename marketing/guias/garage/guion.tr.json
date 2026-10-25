@@ -12,6 +12,7 @@
     {
       "id": "prevenir",
       "titulo": "Neden bozulmadan önce bakmalı?",
+      "respuesta": "Çünkü neredeyse her şey bozulmadan önce uyarır ve araçtan kaynaklanan kazaların üçte birinden fazlasında suçlu lastiklerdi.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "bertha",
       "titulo": "Tarihin ilk tamircisi kimdi?",
+      "respuesta": "Bertha Benz: 1888’de 100 km’yi aşan ilk uzun otomobil yolculuğunu yaptı ve arabayı yol boyunca kendisi tamir etti.",
       "lineas": [
         {
           "id": "titulo",
@@ -182,6 +184,7 @@
     {
       "id": "llantas",
       "titulo": "Neden lastiklerden başlamalı?",
+      "respuesta": "Çünkü her dört arabadan birinden fazlasında çok düşük bir lastik var; daha kötü fren yapar, çabuk aşınır ve daha çok benzin yakar.",
       "lineas": [
         {
           "id": "titulo",
@@ -258,6 +261,7 @@
     {
       "id": "aceite",
       "titulo": "Yağ ne sıklıkla değişmeli?",
+      "respuesta": "Arabanın kullanım kılavuzu ne diyorsa o zaman, alışkanlıkla her 5000 km’de değil; ve seviyesini birkaç haftada bir kontrol et.",
       "lineas": [
         {
           "id": "titulo",
@@ -333,6 +337,7 @@
     {
       "id": "manejo",
       "titulo": "Sürüş tarzın da bakım mı?",
+      "respuesta": "Evet: sert hızlanıp fren yapmak şehirde benzini %40’a kadar artırabilir ve balatalarla lastikleri daha çabuk aşındırır.",
       "lineas": [
         {
           "id": "titulo",
@@ -417,6 +422,7 @@
     {
       "id": "bici",
       "titulo": "Peki ya bisiklet?",
+      "respuesta": "Çıkmadan önce havayı, frenleri ve zinciri kontrol et; her baklaya bir damla yağ yeter, fazlası sadece toz toplar.",
       "lineas": [
         {
           "id": "titulo",
@@ -497,6 +503,7 @@
     {
       "id": "olvido",
       "titulo": "Neden unutuyoruz?",
+      "respuesta": "Çünkü bugün acıtmıyor ve erteliyoruz; basit bir hatırlatma, randevu alan hasta sayısını iki katından fazlasına çıkardı.",
       "lineas": [
         {
           "id": "titulo",
@@ -575,6 +582,7 @@
     {
       "id": "continuar",
       "titulo": "Nasıl devam etmeli? Devam etmek için planın",
+      "respuesta": "Bu hafta lastiklerini kontrol et; bu ay kılavuzu oku, bakımlarını planla ve güvendiğin bir servis bul.",
       "lineas": [
         {
           "id": "titulo",

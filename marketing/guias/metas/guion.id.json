@@ -12,6 +12,7 @@
     {
       "id": "querer",
       "titulo": "Mengapa keinginan saja tidak cukup?",
+      "respuesta": "Karena hampir separuh orang yang berniat akhirnya tidak bertindak: rancang targetmu agar tidak bergantung pada semangat.",
       "lineas": [
         {
           "id": "gancho",
@@ -124,6 +125,7 @@
     {
       "id": "buena",
       "titulo": "Apa yang membuat target itu baik?",
+      "respuesta": "Target yang konkret, agak sulit, positif, dan punya alasan yang penting bagimu selalu mengalahkan “akan kulakukan sebisanya”.",
       "lineas": [
         {
           "id": "titulo",
@@ -200,6 +202,7 @@
     {
       "id": "pasos",
       "titulo": "Bagaimana mengubah target menjadi langkah?",
+      "respuesta": "Tentukan kapan dan di mana dengan kalimat “jika…, maka…”: dengannya, 91% berolahraga, bukan 35%.",
       "lineas": [
         {
           "id": "titulo",
@@ -267,6 +270,7 @@
     {
       "id": "ganas",
       "titulo": "Mengapa semangat bisa habis?",
+      "respuesta": "Karena semangat naik saat kamu melihat target sudah dekat: kemajuan kecil setiap hari adalah bahan bakarnya.",
       "lineas": [
         {
           "id": "titulo",
@@ -348,6 +352,7 @@
     {
       "id": "casa",
       "titulo": "Mengapa menyimpan semuanya di rumah pikiran itu membantu?",
+      "respuesta": "Karena otakmu sangat pandai mengingat tempat, dan saat tiap target punya tempatnya, ia berhenti mengganggu pikiranmu.",
       "lineas": [
         {
           "id": "titulo",
@@ -434,6 +439,7 @@
     {
       "id": "medir",
       "titulo": "Bagaimana tahu kamu sudah maju?",
+      "respuesta": "Sering cek kemajuanmu dan catat: dalam 138 eksperimen, yang melakukannya lebih dekat ke targetnya.",
       "lineas": [
         {
           "id": "titulo",
@@ -509,6 +515,7 @@
     {
       "id": "fallar",
       "titulo": "Apa yang dilakukan saat kamu gagal?",
+      "respuesta": "Kembalilah keesokan harinya: boleh bolong sekali, tapi jangan dua kali berturut-turut, dan sehari terlewat tak menghapus kemajuanmu.",
       "lineas": [
         {
           "id": "titulo",
@@ -598,6 +605,7 @@
     {
       "id": "continuar",
       "titulo": "Bagaimana melanjutkan? Rencanamu untuk terus maju",
+      "respuesta": "Pilih satu target dengan “jika…, maka…”-nya, mulai dari dua menit, cek runtunanmu tiap Minggu, dan kalau gagal, kembalilah.",
       "lineas": [
         {
           "id": "titulo",

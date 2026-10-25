@@ -23,6 +23,7 @@
     {
       "id": "dinero",
       "titulo": "À quoi sert l'argent",
+      "respuesta": "Il sert à échanger, mesurer et garder de la valeur, mais ce qui compte n’est pas ce que tu gagnes : c’est ce qui entre moins ce qui sort.",
       "lineas": [
         {
           "id": "gancho",
@@ -109,6 +110,7 @@
     {
       "id": "historia",
       "titulo": "Une brève histoire de l'argent",
+      "respuesta": "Des premières pièces de Lydie au papier-monnaie chinois de 1024 ; depuis 1971, l’argent vaut par la confiance, pas par l’or.",
       "lineas": [
         {
           "id": "titulo",
@@ -189,6 +191,7 @@
     {
       "id": "presupuesto",
       "titulo": "Où part ton argent",
+      "respuesta": "Note toutes tes dépenses pendant un mois, répartis avec la règle 50/30/20 et paie-toi en premier le jour de la paie.",
       "lineas": [
         {
           "id": "titulo",
@@ -259,6 +262,7 @@
     {
       "id": "deudas",
       "titulo": "Ton matelas et tes dettes",
+      "respuesta": "Mets de côté trois à six mois de dépenses de base comme matelas et sors d’abord des dettes chères, sans payer que le minimum.",
       "lineas": [
         {
           "id": "titulo",
@@ -348,6 +352,7 @@
     {
       "id": "invertir",
       "titulo": "Fais travailler ton argent",
+      "respuesta": "Commence tôt, car le temps vaut plus que le montant : à 6 % par an, ton argent double en environ 12 ans.",
       "lineas": [
         {
           "id": "titulo",
@@ -440,6 +445,7 @@
     {
       "id": "plan",
       "titulo": "Ton plan pour commencer",
+      "respuesta": "Donne un montant et une date à ton objectif, automatise ton épargne le jour de la paie et fais le point dix minutes par mois.",
       "lineas": [
         {
           "id": "titulo",

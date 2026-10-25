@@ -12,6 +12,7 @@
     {
       "id": "mente",
       "titulo": "Zihnin şu anda nerede?",
+      "respuesta": "Zamanın neredeyse yarısında başka bir yerde, ve bu dinlenmek değil: zihnin dağıldığında, dikkatli olduğundan daha kötü hissedersin.",
       "lineas": [
         {
           "id": "gancho",
@@ -104,6 +105,7 @@
     {
       "id": "que",
       "titulo": "Farkındalık nedir ve nereden gelir?",
+      "respuesta": "Bilerek, şu ana ve yargılamadan dikkat etmektir; kökü yaklaşık 2500 yıllık Budist “sati” kavramına dayanır.",
       "lineas": [
         {
           "id": "titulo",
@@ -197,6 +199,7 @@
     {
       "id": "respirar",
       "titulo": "Yavaş nefes aldığında bedenine ne olur?",
+      "respuesta": "Sakinleşir: dakikada altı kez kadar nefes almak onu yavaşlatır, her gün döngüsel iç çekiş yapmak da ruh halini iyileştirir.",
       "lineas": [
         {
           "id": "titulo",
@@ -281,6 +284,7 @@
     {
       "id": "rapido",
       "titulo": "Frene basmak seni neden daha hızlı vardırır?",
+      "respuesta": "Çünkü günde birkaç dakika dikkat çalışmak daha az dağılmanı sağlar ve stres altında bile çalışma belleğini korur.",
       "lineas": [
         {
           "id": "titulo",
@@ -363,6 +367,7 @@
     {
       "id": "ciencia",
       "titulo": "Bilim ne diyor, ne demiyor?",
+      "respuesta": "Meditasyonun kaygıyı, depresyonu ve ağrıyı orta düzeyde iyileştirdiğini, ama sihir olmadığını ve bir uzmanın yerini tutmadığını.",
       "lineas": [
         {
           "id": "titulo",
@@ -451,6 +456,7 @@
     {
       "id": "meditar",
       "titulo": "Düşünmeyi bırakamıyorsan nasıl meditasyon yaparsın?",
+      "respuesta": "Dikkatinin dağılması başarısızlık değil: bunu fark edip nefesine her döndüğünde dikkatini çalıştırırsın.",
       "lineas": [
         {
           "id": "titulo",
@@ -545,6 +551,7 @@
     {
       "id": "continuar",
       "titulo": "Nasıl devam etmeli? Devam etmek için planın",
+      "respuesta": "Birkaç dakikalık pratiği zaten yaptığın bir şeye bağla, yavaş yavaş artır; bir gün kaçırırsan sadece geri dön.",
       "lineas": [
         {
           "id": "titulo",

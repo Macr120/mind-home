@@ -12,6 +12,7 @@
     {
       "id": "miedo",
       "titulo": "Dlaczego pisanie odbiera strach?",
+      "respuesta": "Bo wyjmujesz zmartwienie z głowy i zostawiasz je na papierze: dziesięć minut pisania przed egzaminem poprawia twój wynik.",
       "lineas": [
         {
           "id": "gancho",
@@ -107,6 +108,7 @@
     {
       "id": "blanco",
       "titulo": "Dlaczego pusta kartka tak przeraża?",
+      "respuesta": "Bo chcesz, żeby wyszło idealnie za pierwszym razem: pisz dziesięć minut bez przerwy i kasowania, a popraw potem.",
       "lineas": [
         {
           "id": "titulo",
@@ -198,6 +200,7 @@
     {
       "id": "orden",
       "titulo": "Dlaczego pisanie porządkuje myśli?",
+      "respuesta": "Bo luźne myśli muszą ustawić się w kolejce: to, co w głowie było supłem, na papierze staje się listą.",
       "lineas": [
         {
           "id": "titulo",
@@ -273,6 +276,7 @@
     {
       "id": "bitacora",
       "titulo": "Dlaczego ludzkość pisze od pięciu tysięcy lat?",
+      "respuesta": "Bo pisanie chroni przed zapomnieniem: zaczęło się od liczenia jęczmienia i owiec, a stare dzienniki pokładowe pomagają dziś badać klimat.",
       "lineas": [
         {
           "id": "titulo",
@@ -349,6 +353,7 @@
     {
       "id": "historias",
       "titulo": "Dlaczego historia zostaje w pamięci?",
+      "respuesta": "Bo łączy to, co chcesz zapamiętać: ci, którzy wymyślili historię z dziesięciu słów, zapamiętali ich około siedem razy więcej.",
       "lineas": [
         {
           "id": "titulo",
@@ -416,6 +421,7 @@
     {
       "id": "trama",
       "titulo": "Jak zbudować dobrą historię?",
+      "respuesta": "Ktoś czegoś chce, coś mu przeszkadza, a na końcu się zmienia; i pamiętaj: pokazuj, nie opowiadaj.",
       "lineas": [
         {
           "id": "titulo",
@@ -493,6 +499,7 @@
     {
       "id": "diario",
       "titulo": "Jak pisać lepiej każdego dnia?",
+      "respuesta": "Codziennym spotkaniem z kartką zamiast czekania na natchnienie i poprawianiem na głos: to, co dobre, rodzi się przy poprawkach.",
       "lineas": [
         {
           "id": "titulo",
@@ -569,6 +576,7 @@
     {
       "id": "continuar",
       "titulo": "Jak iść dalej? Twój plan na ciąg dalszy",
+      "respuesta": "Zacznij od dziesięciu minut swobodnego pisania dziennie, a w pierwszym miesiącu skończ mały projekt, poprawiając go na głos.",
       "lineas": [
         {
           "id": "titulo",

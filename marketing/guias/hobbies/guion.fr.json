@@ -12,6 +12,7 @@
     {
       "id": "porque",
       "titulo": "Pourquoi as-tu besoin d’un loisir ?",
+      "respuesta": "Parce qu’il te fait du bien : chez plus de 93 000 seniors de 16 pays, ceux qui en avaient un étaient moins déprimés et plus heureux.",
       "lineas": [
         {
           "id": "gancho",
@@ -88,6 +89,7 @@
     {
       "id": "encontrar",
       "titulo": "Comment trouver le tien ?",
+      "respuesta": "N’attends pas de trouver ta passion toute faite : essaie plusieurs choses, garde celle qui t’intrigue et laisse-lui le temps de grandir.",
       "lineas": [
         {
           "id": "titulo",
@@ -163,6 +165,7 @@
     {
       "id": "sirve",
       "titulo": "Pourquoi il n’a pas besoin de servir à quelque chose ?",
+      "respuesta": "Parce que son seul rôle est de te plaire : voir le temps libre comme du temps perdu te le fait moins apprécier et te stresse plus.",
       "lineas": [
         {
           "id": "titulo",
@@ -245,6 +248,7 @@
     {
       "id": "tiempo",
       "titulo": "Où trouver le temps ?",
+      "respuesta": "De petits moments à heure fixe : 20 minutes, quatre jours par semaine, font presque 70 heures par an.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "proyectos",
       "titulo": "Pourquoi ce que tu fais toi-même t’accroche davantage ?",
+      "respuesta": "Parce que ce que tu fais de tes mains vaut plus à tes yeux : qui a monté sa boîte IKEA en offrait plus que d’autres pour une toute prête.",
       "lineas": [
         {
           "id": "titulo",
@@ -395,6 +400,7 @@
     {
       "id": "mantener",
       "titulo": "Comment ne pas l’abandonner ?",
+      "respuesta": "Fixe-toi un objectif par semaine, pas par jour, comme quatre sur sept : si tu rates un jour, la semaine tient toujours.",
       "lineas": [
         {
           "id": "titulo",
@@ -474,6 +480,7 @@
     {
       "id": "otros",
       "titulo": "Pourquoi le faire avec d’autres ?",
+      "respuesta": "Parce qu’un groupe t’offre un rendez-vous fixe, de la compagnie et l’envie de revenir ; en cours de chant, le groupe s’est soudé bien plus vite.",
       "lineas": [
         {
           "id": "titulo",
@@ -537,6 +544,7 @@
     {
       "id": "continuar",
       "titulo": "Comment continuer ? Ton plan pour la suite",
+      "respuesta": "Essaie-en un 20 minutes cette semaine ; d’ici un mois, donne-lui un objectif hebdo et un petit projet, puis partage-le avec quelqu’un.",
       "lineas": [
         {
           "id": "titulo",

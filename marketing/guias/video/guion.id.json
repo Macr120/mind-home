@@ -12,6 +12,7 @@
     {
       "id": "video",
       "titulo": "Apa itu video",
+      "respuesta": "Video adalah foto diam yang begitu cepat berganti sampai otakmu menyatukannya: dengan 24 per detik, kecepatan bioskop, gerakannya mulus.",
       "lineas": [
         {
           "id": "gancho",
@@ -123,6 +124,7 @@
     {
       "id": "historia",
       "titulo": "Sejarah singkat video",
+      "respuesta": "Dari dua belas kamera Muybridge pada 1878 sampai ponsel hari ini: yang dulu butuh satu kru film kini muat di sakumu.",
       "lineas": [
         {
           "id": "titulo",
@@ -223,6 +225,7 @@
     {
       "id": "encuadre",
       "titulo": "Framing",
+      "respuesta": "Framing berarti memutuskan apa yang masuk gambar: taruh yang penting di garis aturan sepertiga, bukan di tengah, dan kamu menuntun mata.",
       "lineas": [
         {
           "id": "titulo",
@@ -307,6 +310,7 @@
     {
       "id": "luzSonido",
       "titulo": "Cahaya dan suara",
+      "respuesta": "Hadap atau berdiri di samping jendela, dan dekatkan mikrofon sejengkal: penonton memaafkan gambar biasa saja, tapi tidak suara buruk.",
       "lineas": [
         {
           "id": "titulo",
@@ -388,6 +392,7 @@
     {
       "id": "edicion",
       "titulo": "Penyuntingan",
+      "respuesta": "Pilih shot terbaikmu, susun, dan tentukan durasi masing-masing: seperti ditunjukkan Kuleshov, makna ada pada apa yang kamu sandingkan.",
       "lineas": [
         {
           "id": "titulo",
@@ -471,6 +476,7 @@
     {
       "id": "historiaContar",
       "titulo": "Cara bercerita",
+      "respuesta": "Pikat di detik-detik pertama dengan pertanyaan, susun awal, konflik, dan akhir, lalu tunjukkan, jangan katakan.",
       "lineas": [
         {
           "id": "titulo",
@@ -566,6 +572,7 @@
     {
       "id": "plan",
       "titulo": "Rencanamu untuk memulai",
+      "respuesta": "Buat satu video satu menit setiap minggu, walau belum sempurna: itu 52 setahun, dan tiap video mengajarimu sesuatu untuk berikutnya.",
       "lineas": [
         {
           "id": "titulo",

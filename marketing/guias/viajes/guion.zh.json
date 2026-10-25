@@ -1,0 +1,823 @@
+{
+  "idioma": "zh",
+  "tema": "viajes",
+  "plantillaId": "sala",
+  "numero": 20,
+  "nombre": "旅行",
+  "pregunta": "怎样更好地旅行？",
+  "corta": "怎样更好地旅行？",
+  "subtitulo": "为什么旅行最美好的部分在出发前就来了，跟团游是怎么诞生的，旅行真正从什么时候开始，怎样安排一份好行程，旅行该多长，怎样花钱才不毁掉旅行，拍照能不能帮你记住，旅行会不会改变你，以及一个继续下去的计划。",
+  "aviso": "本指南仅提供一般性信息。文中引用的研究测量的是特定人群的幸福感和记忆，你的结果可能会有所不同。",
+  "partes": [
+    {
+      "id": "feliz",
+      "titulo": "为什么旅行让你快乐？",
+      "respuesta": "主要靠期待：出发前你最快乐，而且经历带来的快乐比买东西更多。",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "怎样更好地旅行？旅行中最快乐的时光，往往在出发之前就来了。而回来以后，这份快乐几天就消散了。如果能把它从头到尾都拉长呢？今天你会用数据看清楚，还会带走一个继续下去的计划。"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "对了，这是我在MindHaOS里的家，今天它要起飞了：它是一架飞机。我是机上那只爱旅行的小熊，这是我的旅行房间：我去过的地方和还没去的地方，都在这张地图上。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第一部分。为什么旅行让你快乐？"
+        },
+        {
+          "id": "nawijn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "anticipacion"
+          },
+          "lamina": [
+            "maleta",
+            "aeropuerto"
+          ],
+          "destacada": true,
+          "texto": "2010年，由耶伦·纳韦恩带领的荷兰团队测量了一千五百三十个人的幸福感。准备去度假的人比其他人更快乐……但那是在旅行之前，而不是之后。"
+        },
+        {
+          "id": "regreso",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antes",
+              "durante",
+              "despues"
+            ]
+          },
+          "lamina": [
+            "regreso",
+            "oficina"
+          ],
+          "texto": "回来以后，几乎所有人都和没去旅行的人一样了。只有那些回来时非常放松的人，快乐才多持续了一阵。旅行不是到家就结束，而是慢慢熄灭。"
+        },
+        {
+          "id": "gilovich",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "gilovich"
+          },
+          "lamina": [
+            "amigosViaje",
+            "compras"
+          ],
+          "meme": "maleta",
+          "texto": "即便如此，旅行还是值得的：2003年，利夫·范博文和托马斯·吉洛维奇发现，把钱花在经历上，比花在东西上更让人快乐。东西会用旧，经历却会变成你故事的一部分。"
+        },
+        {
+          "id": "mapa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pinApp",
+              "visitadosApp",
+              "porConocerApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "所以在我的世界地图上，每个去过的地方都有一枚图钉，还没去的地方用另一种颜色。"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "我们从什么时候开始为了乐趣而旅行？",
+      "respuesta": "从十八世纪富家子弟的壮游开始；而对大多数人来说，是从1841年托马斯·库克的跟团游开始。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第二部分。我们从什么时候开始为了乐趣而旅行？"
+        },
+        {
+          "id": "grandTour",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1700",
+            "clave": "grandTour"
+          },
+          "lamina": [
+            "grandTour",
+            "roma"
+          ],
+          "destacada": true,
+          "texto": "十八世纪，英国的富家子弟会去壮游：花上几个月，有时几年，游历法国和意大利，去看艺术和古代遗迹。为了乐趣而旅行，是极少数人的事。"
+        },
+        {
+          "id": "cook",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1841",
+            "clave": "cook"
+          },
+          "lamina": [
+            "cook",
+            "trenVapor"
+          ],
+          "texto": "直到1841年，一位英国木匠托马斯·库克，组织了一趟火车旅行，大约五百人，从莱斯特到拉夫堡，每人一先令。跟团游就这样诞生了。"
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tren",
+              "avion",
+              "telefono"
+            ]
+          },
+          "lamina": [
+            "avion",
+            "celularMapa"
+          ],
+          "texto": "后来有了飞机、口袋旅行指南，现在又有了手机：今天谁都能坐在沙发上计划旅行。难的不再是到达，而是旅行得好。"
+        },
+        {
+          "id": "rutas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rutaApp",
+              "ordenApp",
+              "distanciaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在我的路线里，我把地点按顺序排好，在地图上看到它们连在一起，应用还会告诉我要走多少公里。"
+        }
+      ]
+    },
+    {
+      "id": "espera",
+      "titulo": "旅行从什么时候开始？",
+      "respuesta": "从你决定出发的那天开始：出发前的期待和回来后的回忆，往往比旅行本身更美好。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第三部分。旅行从什么时候开始？"
+        },
+        {
+          "id": "mitchell",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rosa"
+          },
+          "lamina": [
+            "bicicleta",
+            "europa"
+          ],
+          "destacada": true,
+          "texto": "1997年，特伦斯·米切尔和他的团队跟踪了去欧洲旅行、在加利福尼亚骑车旅行，以及过感恩节假期的人。他们在旅行前和旅行后的评价，都比旅行当中更高。"
+        },
+        {
+          "id": "rosa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ilusion",
+              "molestias",
+              "recuerdo"
+            ]
+          },
+          "lamina": [
+            "lluviaViaje",
+            "fila"
+          ],
+          "meme": "expectativa",
+          "texto": "旅行中，下雨、排队和疲惫都让人吃不消。可是在出发前的期待和回来后的回忆里，这些烦恼几乎都消失了。研究者把这叫作玫瑰色视角。"
+        },
+        {
+          "id": "saborear",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cuentaRegresiva"
+          },
+          "lamina": [
+            "planeando",
+            "guiaViaje"
+          ],
+          "texto": "所以，旅行从你决定出发的那天就开始了。早点计划，定下日期，好好享受等待：读读那个地方，看看照片，学几句当地话。看看它能送你多少天的期待。"
+        },
+        {
+          "id": "itinerario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diaApp",
+              "hospedajeApp",
+              "calendarioApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "我的日本之旅，做成了一份每天的计划：从哪里出发，去哪里，住哪里，做什么。而且每个日期都会自动出现在我的日历里。"
+        }
+      ]
+    },
+    {
+      "id": "itinerario",
+      "titulo": "怎样安排一份好行程？",
+      "respuesta": "把最好的留到最后，再留些空白：你记住的主要是最精彩的时刻和结尾。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第四部分。怎样安排一份好行程？"
+        },
+        {
+          "id": "kahneman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "picoFinal"
+          },
+          "lamina": [
+            "aguaFria",
+            "hielo"
+          ],
+          "destacada": true,
+          "texto": "1993年，丹尼尔·卡尼曼和他的团队请一些人把手伸进冰水里。其中一次更长，但最后没那么冷，结果几乎所有人都选择重来这一次。我们记住的是最强烈的时刻和结尾，而不是总量。"
+        },
+        {
+          "id": "pico",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pico",
+              "final",
+              "duracion"
+            ]
+          },
+          "lamina": [
+            "atardecer",
+            "aeropuertoPrisa"
+          ],
+          "texto": "旅行也是一样：你带走的，是最精彩的时刻和它怎样结束。最后一天赶着冲去机场，可能会给整段回忆都染上颜色。"
+        },
+        {
+          "id": "huecos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "finalViaje"
+          },
+          "lamina": [
+            "cafeCalle",
+            "mapaPapel"
+          ],
+          "meme": "itinerario",
+          "texto": "所以，把特别的安排留到最后，留些没有计划的空白给意外的惊喜，也别一天塞五个博物馆：一个好的就够了。在这里排排你的行程，看看你会怎样记住它。"
+        },
+        {
+          "id": "guardados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "actividadesApp",
+              "guardarApp",
+              "compartirApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在计划的每一天里，我会写下活动和交通。排得满意了，就保存下来，分享给和我一起旅行的人。"
+        }
+      ]
+    },
+    {
+      "id": "duracion",
+      "titulo": "旅行该多长？",
+      "respuesta": "不用太长：心情在第八天左右最好，一周就消散，所以要更常出去走走。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第五部分。旅行该多长？"
+        },
+        {
+          "id": "bloom",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "dia8"
+          },
+          "lamina": [
+            "playa",
+            "hamaca"
+          ],
+          "destacada": true,
+          "texto": "2013年，杰西卡·德布卢姆每天跟踪员工度假时的健康和心情。他们很快变好，在第八天左右达到最高点……而回去上班的第一周，就已经消散了。"
+        },
+        {
+          "id": "seguido",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "corto",
+              "seguido",
+              "ilusionNueva"
+            ]
+          },
+          "lamina": [
+            "escapada",
+            "carretera"
+          ],
+          "texto": "结论不是少旅行，而是更常旅行：一年几次短途出游，比一次超长的大旅行，带来更多期待的时光，也带来更多休息充分的归来。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoViajes"
+          },
+          "lamina": "pulgar",
+          "texto": "如果你喜欢这份指南，请点赞，订阅，免得错过下一期，再分享给那个你总跟他说「我们一定要去」的人。"
+        },
+        {
+          "id": "volver",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "colchon",
+              "vueltaSuave",
+              "siguiente"
+            ]
+          },
+          "lamina": [
+            "maletaCasa",
+            "calendarioPared"
+          ],
+          "texto": "回来以后，上班前给自己留一天缓冲，再计划下一次出游：这样期待又重新开始了。"
+        },
+        {
+          "id": "porConocer",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pinPendiente",
+              "fechaApp",
+              "yaFuiApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在我的地图上，想去的地方都有自己的日期；等我终于去了，轻轻一点，就变成去过的地方。"
+        }
+      ]
+    },
+    {
+      "id": "dinero",
+      "titulo": "怎样花钱才不毁掉旅行？",
+      "respuesta": "大钱出发前付清，再定一个每日预算：每次花钱就没那么心疼，旅行也更开心。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第六部分。怎样花钱才不毁掉旅行？"
+        },
+        {
+          "id": "prelec",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1998",
+            "clave": "prelec"
+          },
+          "lamina": [
+            "billetes",
+            "tarjeta"
+          ],
+          "destacada": true,
+          "texto": "1998年，德拉任·普雷莱茨和乔治·勒文斯坦研究了付钱的痛苦：每花一笔钱都会有点心疼，而这种心疼会减少你买到的东西带来的乐趣。所以大多数人都更愿意提前付清假期的费用。"
+        },
+        {
+          "id": "adelantado",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "presupuestoViaje"
+          },
+          "lamina": [
+            "reserva",
+            "monedero"
+          ],
+          "texto": "所以，大钱要在出发前付：机票、住宿和门票。旅行中，给其他开销带一个每日预算，就不用每买一样东西都纠结了。在这里做出你的预算吧。"
+        },
+        {
+          "id": "ahorro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "quincena",
+              "boleto"
+            ]
+          },
+          "lamina": [
+            "alcancia",
+            "boletos"
+          ],
+          "meme": "presupuesto",
+          "texto": "如果钱不够，就把它变成一个有日期的储蓄目标：每两周存一点，等到买票那天，就不心疼了。"
+        },
+        {
+          "id": "presupuestoApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "presupuestoDia",
+              "metaFinanzas",
+              "totalApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在我的计划里，每一天都有自己的预算，总额会自动变成我财务里的一个储蓄目标。"
+        }
+      ]
+    },
+    {
+      "id": "fotos",
+      "titulo": "拍照还是回忆？",
+      "respuesta": "先看，再少拍、有心地拍：只拍不看的东西你记得更差；每晚再写两行字。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第七部分。拍照还是回忆？"
+        },
+        {
+          "id": "henkel",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "fotos"
+          },
+          "lamina": [
+            "museo",
+            "celularFoto"
+          ],
+          "destacada": true,
+          "texto": "2014年，琳达·亨克尔带学生去参观博物馆。他们拍过照的作品，比只是看过的作品记得更少，细节也更模糊。相机替你记住了……你就不再记了。"
+        },
+        {
+          "id": "detalle",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mira",
+              "acercate",
+              "pocas"
+            ]
+          },
+          "lamina": [
+            "detalleArte",
+            "mirador"
+          ],
+          "texto": "不过，当他们用变焦拍下某个细节时，记忆就保住了。所以，先好好看，再有心地拍几张就好。"
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "noche",
+              "sentiste",
+              "conQuien"
+            ]
+          },
+          "lamina": [
+            "diarioViaje",
+            "cafeLibreta"
+          ],
+          "meme": "fotos",
+          "texto": "每天晚上写两行字：发生了什么，你有什么感受，和谁在一起。十年后，这一句话会比一百张一样的照片更珍贵。"
+        },
+        {
+          "id": "bitacora",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "albumApp",
+              "fotoApp",
+              "anecdotaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在我的旅行日志里，每个国家是一本相册，每个地方我都会存下照片和它的小故事。"
+        }
+      ]
+    },
+    {
+      "id": "cambio",
+      "titulo": "旅行会改变你吗？",
+      "respuesta": "会：出国留学的学生，比留下的学生变得更开放、更友善，也更少焦虑。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第八部分。旅行会改变你吗？"
+        },
+        {
+          "id": "zimmermann",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "personalidad"
+          },
+          "lamina": [
+            "estudiantes",
+            "mochila"
+          ],
+          "destacada": true,
+          "texto": "2013年，尤利娅·齐默尔曼和弗朗茨·奈尔跟踪了一千多名德国学生。出国留学的人，比留下的人变得更开放、更友善，也更少焦虑。"
+        },
+        {
+          "id": "costumbre",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abierto",
+              "amable",
+              "calma"
+            ]
+          },
+          "lamina": [
+            "mercado",
+            "conversacion"
+          ],
+          "texto": "关键不在于看名胜古迹，而在于走出你的习惯：尝尝别的食物，迷一次路，用另一种语言向人求助。"
+        },
+        {
+          "id": "local",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "local",
+              "gracias",
+              "sinPrisa"
+            ]
+          },
+          "lamina": [
+            "comidaCalle",
+            "plaza"
+          ],
+          "texto": "所以，每次旅行都像当地人一样做点什么：去当地人吃饭的地方吃饭，学会说谢谢，在同一个地方不慌不忙地待一会儿。"
+        },
+        {
+          "id": "estados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "paisesApp",
+              "estadosApp",
+              "colorApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "打开州/省之后，我去过的每个地方都会涂上自己的颜色：我好喜欢看着地图一点点被填满。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "接下来怎么做？你的继续计划",
+      "respuesta": "把去过的地方标在地图上，选一个定下日期并存钱，回来后再计划下一次出游。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第九部分。接下来怎么做？你的继续计划。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planViajes"
+          },
+          "lamina": [
+            "mapaPared",
+            "libreta"
+          ],
+          "texto": "这个星期，把你去过的地方，和三个你想去的地方，标在一张地图上。"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "fecha",
+              "ahorra"
+            ]
+          },
+          "lamina": [
+            "calendarioPared",
+            "alcancia"
+          ],
+          "destacada": true,
+          "texto": "第一个月，从中选一个地方，定下日期，开始为它存钱。"
+        },
+        {
+          "id": "cadaViaje",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pagaAntes",
+              "mejorFinal",
+              "escribeNoche"
+            ]
+          },
+          "lamina": [
+            "aeropuerto",
+            "atardecer"
+          ],
+          "texto": "每次旅行：大钱提前付，最好的留到最后，每晚写一写，回来后再计划下一次出游。"
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mapaFin",
+              "planFin",
+              "bitacoraFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "如果你不知道从哪里开始，就去应用里看看我的日本之旅：从地图到旅行日志，一应俱全。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "总结一下：享受等待；把最好的留到最后；更常去旅行；出发前付钱；多看，少拍。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "在MindHaOS的旅行里，你可以把去过的地方标在世界地图上，安排每天的行程，再用照片和小故事写下你的旅行日志。你可以自己来，也可以请AI帮忙。今天就免费搭建你的心灵之家。链接在视频简介里。下一期指南：怎样留住你最美好的回忆？",
+    "boton": "打开旅行",
+    "lamina": "app-plan",
+    "anclas": {
+      "mapa": "世界地图",
+      "itinerario": "每天的行程",
+      "bitacora": "旅行日志"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "nawijn-2010",
+      "texto": "Nawijn J., Marchand M. A., Veenhoven R., Vingerhoets A. J. Vacationers happier, but most not happier after a holiday. Applied Research in Quality of Life 5(1), 35-47 (2010).",
+      "url": "https://doi.org/10.1007/s11482-009-9091-9"
+    },
+    {
+      "id": "vanboven-2003",
+      "texto": "Van Boven L., Gilovich T. To do or to have? That is the question. Journal of Personality and Social Psychology 85(6), 1193-1202 (2003).",
+      "url": "https://doi.org/10.1037/0022-3514.85.6.1193"
+    },
+    {
+      "id": "grand-tour",
+      "texto": "壮游（Grand Tour）。维基百科。",
+      "url": "https://en.wikipedia.org/wiki/Grand_Tour"
+    },
+    {
+      "id": "thomas-cook",
+      "texto": "托马斯·库克与从莱斯特到拉夫堡的旅行（1841年）。维基百科。",
+      "url": "https://en.wikipedia.org/wiki/Thomas_Cook"
+    },
+    {
+      "id": "mitchell-1997",
+      "texto": "Mitchell T. R., Thompson L., Peterson E., Cronk R. Temporal adjustments in the evaluation of events: the «rosy view». Journal of Experimental Social Psychology 33(4), 421-448 (1997).",
+      "url": "https://doi.org/10.1006/jesp.1997.1333"
+    },
+    {
+      "id": "kahneman-1993",
+      "texto": "Kahneman D., Fredrickson B. L., Schreiber C. A., Redelmeier D. A. When more pain is preferred to less: adding a better end. Psychological Science 4(6), 401-405 (1993).",
+      "url": "https://doi.org/10.1111/j.1467-9280.1993.tb00589.x"
+    },
+    {
+      "id": "debloom-2013",
+      "texto": "de Bloom J., Geurts S. A. E., Kompier M. A. J. Vacation (after-) effects on employee health and well-being, and the role of vacation activities, experiences and sleep. Journal of Happiness Studies 14(2), 613-633 (2013).",
+      "url": "https://doi.org/10.1007/s10902-012-9345-3"
+    },
+    {
+      "id": "prelec-1998",
+      "texto": "Prelec D., Loewenstein G. The red and the black: mental accounting of savings and debt. Marketing Science 17(1), 4-28 (1998).",
+      "url": "https://doi.org/10.1287/mksc.17.1.4"
+    },
+    {
+      "id": "henkel-2014",
+      "texto": "Henkel L. A. Point-and-shoot memories: the influence of taking photos on memory for a museum tour. Psychological Science 25(2), 396-402 (2014).",
+      "url": "https://doi.org/10.1177/0956797613504438"
+    },
+    {
+      "id": "zimmermann-2013",
+      "texto": "Zimmermann J., Neyer F. J. Do we become a different person when hitting the road? Personality development of sojourners. Journal of Personality and Social Psychology 105(3), 515-530 (2013).",
+      "url": "https://doi.org/10.1037/a0033019"
+    }
+  ]
+}

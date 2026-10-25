@@ -12,6 +12,7 @@
     {
       "id": "olvido",
       "titulo": "Pourquoi oublies-tu ce que tu étudies ?",
+      "respuesta": "Parce que ce que tu ne réutilises pas s’en va vite : en une heure, Ebbinghaus en avait déjà oublié plus de la moitié.",
       "lineas": [
         {
           "id": "gancho",
@@ -90,6 +91,7 @@
     {
       "id": "tecnicas",
       "titulo": "Quelles techniques marchent vraiment ?",
+      "respuesta": "Te tester et espacer ton étude dans le temps : sur dix techniques, seules ces deux-là ont obtenu la meilleure note.",
       "lineas": [
         {
           "id": "titulo",
@@ -170,6 +172,7 @@
     {
       "id": "prueba",
       "titulo": "Pourquoi te tester vaut-il mieux que relire ?",
+      "respuesta": "Parce que se souvenir fixe ce qu’on apprend : une semaine après, ceux qui s’étaient testés retenaient 61 %, contre 40 %.",
       "lineas": [
         {
           "id": "titulo",
@@ -241,6 +244,7 @@
     {
       "id": "repasar",
       "titulo": "Quand réviser pour ne pas oublier ?",
+      "respuesta": "Le lendemain, au bout d’une semaine puis d’un mois : répartir ton étude bat presque toujours tout réviser la veille.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "entender",
       "titulo": "Comment comprendre au lieu de mémoriser ?",
+      "respuesta": "Apprends comme si tu allais l’enseigner et explique-le simplement : là où tu bloques, c’est ce que tu ne comprends pas encore.",
       "lineas": [
         {
           "id": "titulo",
@@ -403,6 +408,7 @@
     {
       "id": "dormir",
       "titulo": "Que fait le sommeil de ce que tu apprends ?",
+      "respuesta": "Il le repasse et le range mieux : dormir quelques heures après avoir étudié t’aide à retenir plus, même des jours après.",
       "lineas": [
         {
           "id": "titulo",
@@ -481,6 +487,7 @@
     {
       "id": "continuar",
       "titulo": "Comment continuer ? Ton plan pour la suite",
+      "respuesta": "Teste-toi sans regarder, révise le lendemain, à une semaine et à un mois, et compte ce que tu retiens, pas les heures.",
       "lineas": [
         {
           "id": "titulo",

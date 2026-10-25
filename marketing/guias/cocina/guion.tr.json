@@ -18,6 +18,7 @@
     {
       "id": "cuerpo",
       "titulo": "Yemek vücudunda ne yapar",
+      "respuesta": "Nefes almak, düşünmek ve hareket etmek için yakıttır; kasını, kemiğini, derini ve kanını onaran yapı malzemesidir.",
       "lineas": [
         {
           "id": "gancho",
@@ -97,6 +98,7 @@
     {
       "id": "historia",
       "titulo": "Ne yediğimizin kısa tarihi",
+      "respuesta": "Ateşten etikete: Lind'in portakalları iskorbütü iyileştirdi, Atwater da bugün hâlâ okuduğumuz kalorileri ölçtü.",
       "lineas": [
         {
           "id": "titulo",
@@ -185,6 +187,7 @@
     {
       "id": "energia",
       "titulo": "Ne kadar enerjiye ihtiyacın var",
+      "respuesta": "Harcamanın üçte ikisi seni hayatta tutmaya gider; kilo vermek için harcadığından yaklaşık %15 az ye.",
       "lineas": [
         {
           "id": "titulo",
@@ -252,6 +255,7 @@
     {
       "id": "calidad",
       "titulo": "Yediklerinin kalitesi",
+      "respuesta": "Taze yiyecekleri seç: ultra işlenmiş gıdayla insanlar farkına varmadan günde yaklaşık 500 kalori fazla yedi.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "plato",
       "titulo": "Tabağını ve haftanı nasıl düzenlersin",
+      "respuesta": "Tabağının yarısını sebze ve meyveyle, çeyreğini tam tahılla, çeyreğini proteinle doldur ve haftanın menüsünü planla.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +402,7 @@
     {
       "id": "habitos",
       "titulo": "Su, açlık ve süreklilik",
+      "respuesta": "Günde iki litre kadar su iç, yavaş ve ekransız ye, birkaç gün ne yediğini yazıp alışkanlıklarını gör.",
       "lineas": [
         {
           "id": "titulo",

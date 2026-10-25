@@ -12,6 +12,7 @@
     {
       "id": "tiempo",
       "titulo": "Kenapa waktumu tak pernah cukup?",
+      "respuesta": "Karena kita meremehkan waktu: mahasiswa mengira skripsinya selesai dalam 34 hari, ternyata butuh 55.",
       "lineas": [
         {
           "id": "gancho",
@@ -121,6 +122,7 @@
     {
       "id": "cabeza",
       "titulo": "Kenapa kepalamu bukan agenda yang baik?",
+      "respuesta": "Karena urusan yang tertunda terus berputar di kepala: catat semuanya di satu tempat, dan kalau butuh kurang dari dua menit, kerjakan sekarang.",
       "lineas": [
         {
           "id": "titulo",
@@ -211,6 +213,7 @@
     {
       "id": "primero",
       "titulo": "Apa yang didahulukan?",
+      "respuesta": "Yang penting sebelum yang mendesak: kerjakan hari ini yang dua-duanya, dan beri jam untuk yang penting tapi tak mendesak.",
       "lineas": [
         {
           "id": "titulo",
@@ -284,6 +287,7 @@
     {
       "id": "una",
       "titulo": "Kenapa mengerjakan banyak hal sekaligus memperlambatmu?",
+      "respuesta": "Karena setiap lompatan antartugas memakan waktu dan meninggalkan perhatianmu di tugas sebelumnya: selesaikan satu sebelum memulai yang lain.",
       "lineas": [
         {
           "id": "titulo",
@@ -356,6 +360,7 @@
     {
       "id": "hora",
       "titulo": "Bagaimana memberi jam untuk hal yang penting?",
+      "respuesta": "Beri setiap hal penting bloknya sendiri di kalender: mahasiswa dengan tenggat yang tersebar mendapat nilai lebih baik.",
       "lineas": [
         {
           "id": "titulo",
@@ -440,6 +445,7 @@
     {
       "id": "pausas",
       "titulo": "Kenapa istirahat membuatmu lebih produktif?",
+      "respuesta": "Karena jeda kurang dari sepuluh menit memberimu lebih banyak energi dan mengurangi lelah, menurut tinjauan atas 22 studi.",
       "lineas": [
         {
           "id": "titulo",
@@ -514,6 +520,7 @@
     {
       "id": "acumula",
       "titulo": "Apa yang dilakukan saat semuanya menumpuk?",
+      "respuesta": "Pecah tugas jadi beberapa langkah agar perkiraanmu lebih tepat, sisakan cadangan waktu, dan kalau tak muat lagi, pindahkan, serahkan, atau tolak.",
       "lineas": [
         {
           "id": "titulo",
@@ -590,6 +597,7 @@
     {
       "id": "continuar",
       "titulo": "Bagaimana melanjutkan? Rencanamu ke depan",
+      "respuesta": "Keluarkan semua dari kepalamu, pilih tiga hal penting tiap hari, beri mereka jam, dan tinjau minggumu dalam 15 menit.",
       "lineas": [
         {
           "id": "titulo",

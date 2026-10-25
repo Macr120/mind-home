@@ -12,6 +12,7 @@
     {
       "id": "agenda",
       "titulo": "Quem decide o que você vê todos os dias?",
+      "respuesta": "A imprensa, em boa parte: como mostraram McCombs e Shaw, ela nem sempre diz o que pensar, mas diz sobre o que pensar.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "bly",
       "titulo": "Quem se fingiu de louca para contar a verdade?",
+      "respuesta": "Nellie Bly, em 1887: passou dez dias num manicômio de Nova York, e sua reportagem conseguiu mais dinheiro para os doentes.",
       "lineas": [
         {
           "id": "titulo",
@@ -182,6 +184,7 @@
     {
       "id": "negatividad",
       "titulo": "Por que as más notícias vendem mais?",
+      "respuesta": "Porque o cérebro presta mais atenção ao que é ruim: cada palavra negativa a mais num título aumenta os cliques em mais de 2%.",
       "lineas": [
         {
           "id": "titulo",
@@ -257,6 +260,7 @@
     {
       "id": "mentira",
       "titulo": "Por que a mentira corre mais rápido?",
+      "respuesta": "Porque o falso é mais novo e surpreende: no Twitter chegava seis vezes mais rápido, e quem compartilhava eram pessoas, não bots.",
       "lineas": [
         {
           "id": "titulo",
@@ -336,6 +340,7 @@
     {
       "id": "verificar",
       "titulo": "Como ler como um checador de fatos?",
+      "respuesta": "Faça a leitura lateral: saia do site e veja o que outros dizem dessa fonte, como fazem os checadores profissionais.",
       "lineas": [
         {
           "id": "titulo",
@@ -425,6 +430,7 @@
     {
       "id": "belleza",
       "titulo": "Como criar conteúdo verdadeiro e belo?",
+      "respuesta": "Verifique antes de publicar, diga de onde tirou o dado e conte como uma história, com uma boa imagem e palavras claras.",
       "lineas": [
         {
           "id": "titulo",
@@ -521,6 +527,7 @@
     {
       "id": "dieta",
       "titulo": "Quantas notícias são demais?",
+      "respuesta": "Quem viu seis horas por dia ficou mais estressado que muitos que estavam lá: defina horário e limite e desligue as notificações.",
       "lineas": [
         {
           "id": "titulo",
@@ -596,6 +603,7 @@
     {
       "id": "continuar",
       "titulo": "Como seguir? O seu plano para continuar",
+      "respuesta": "Anote de onde vêm suas notícias, some fontes diferentes, escolha um horário fixo e faça leitura lateral antes de compartilhar.",
       "lineas": [
         {
           "id": "titulo",

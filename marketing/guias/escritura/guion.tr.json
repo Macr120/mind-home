@@ -12,6 +12,7 @@
     {
       "id": "miedo",
       "titulo": "Yazmak korkunu neden alır?",
+      "respuesta": "Çünkü endişeyi kafandan çıkarıp kâğıda bırakırsın: sınavdan önce on dakika yazmak sonucunu iyileştirir.",
       "lineas": [
         {
           "id": "gancho",
@@ -107,6 +108,7 @@
     {
       "id": "blanco",
       "titulo": "Boş sayfa neden bu kadar korkutur?",
+      "respuesta": "Çünkü ilk seferde kusursuz olsun istersin: on dakika durmadan ve silmeden yaz, sonra düzelt.",
       "lineas": [
         {
           "id": "titulo",
@@ -198,6 +200,7 @@
     {
       "id": "orden",
       "titulo": "Yazmak kafanı neden toparlar?",
+      "respuesta": "Çünkü dağınık fikirler sıraya girmek zorundadır: kafandaki düğüm, kâğıtta bir listeye dönüşür.",
       "lineas": [
         {
           "id": "titulo",
@@ -273,6 +276,7 @@
     {
       "id": "bitacora",
       "titulo": "İnsanlık neden beş bin yıldır yazıyor?",
+      "respuesta": "Çünkü yazmak unutmamanın yoludur: arpa ve koyun saymak için doğdu, bugün eski seyir defterleri iklimi incelemeye yardım ediyor.",
       "lineas": [
         {
           "id": "titulo",
@@ -349,6 +353,7 @@
     {
       "id": "historias",
       "titulo": "Bir hikâye neden aklında kalır?",
+      "respuesta": "Çünkü hatırlamak istediğini birbirine bağlar: on kelimeyle hikâye uyduranlar yaklaşık yedi kat daha fazlasını hatırladı.",
       "lineas": [
         {
           "id": "titulo",
@@ -416,6 +421,7 @@
     {
       "id": "trama",
       "titulo": "İyi bir hikâye nasıl kurulur?",
+      "respuesta": "Bir şey isteyen biri, ona engel olan bir şey ve onun değiştiği bir son; ve anlatma, göster.",
       "lineas": [
         {
           "id": "titulo",
@@ -493,6 +499,7 @@
     {
       "id": "diario",
       "titulo": "Her gün nasıl daha iyi yazılır?",
+      "respuesta": "İlham beklemek yerine sayfayla her gün bir randevuyla ve yüksek sesle düzelterek: iyi olan, düzeltirken çıkar.",
       "lineas": [
         {
           "id": "titulo",
@@ -569,6 +576,7 @@
     {
       "id": "continuar",
       "titulo": "Nasıl devam etmeli? Devam etmek için planın",
+      "respuesta": "Günde on dakika serbest yazmayla başla ve ilk ayında küçük bir projeyi yüksek sesle düzelterek bitir.",
       "lineas": [
         {
           "id": "titulo",

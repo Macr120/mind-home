@@ -12,6 +12,7 @@
     {
       "id": "prevenir",
       "titulo": "¿Por qué cuidarlo antes de que falle?",
+      "respuesta": "Porque casi todo avisa antes de fallar, y en más de un tercio de los choques por culpa del vehículo fallaron las llantas.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "bertha",
       "titulo": "¿Quién fue el primer mecánico de la historia?",
+      "respuesta": "Fue Bertha Benz: en 1888 hizo el primer viaje largo en coche, más de 100 km, y lo fue arreglando ella misma en el camino.",
       "lineas": [
         {
           "id": "titulo",
@@ -182,6 +184,7 @@
     {
       "id": "llantas",
       "titulo": "¿Por qué empezar por las llantas?",
+      "respuesta": "Porque más de uno de cada cuatro coches trae una muy baja, y así frena peor, se gasta antes y te hace gastar más gasolina.",
       "lineas": [
         {
           "id": "titulo",
@@ -258,6 +261,7 @@
     {
       "id": "aceite",
       "titulo": "¿Cada cuándo cambiar el aceite?",
+      "respuesta": "Cuando lo diga el manual de tu coche, no cada 5000 km por costumbre; y revisa el nivel cada par de semanas.",
       "lineas": [
         {
           "id": "titulo",
@@ -333,6 +337,7 @@
     {
       "id": "manejo",
       "titulo": "¿Tu forma de manejar también es mantenimiento?",
+      "respuesta": "Sí: acelerar y frenar de golpe sube hasta un 40 % la gasolina en ciudad y gasta antes las balatas y las llantas.",
       "lineas": [
         {
           "id": "titulo",
@@ -417,6 +422,7 @@
     {
       "id": "bici",
       "titulo": "¿Y la bici?",
+      "respuesta": "Antes de salir revisa aire, frenos y cadena, y lubrícala con una gota por eslabón: el aceite de más solo junta tierra.",
       "lineas": [
         {
           "id": "titulo",
@@ -497,6 +503,7 @@
     {
       "id": "olvido",
       "titulo": "¿Por qué se nos olvida?",
+      "respuesta": "Porque hoy no duele y lo vamos aplazando; con un simple recordatorio, más del doble de pacientes agendó su cita.",
       "lineas": [
         {
           "id": "titulo",
@@ -575,6 +582,7 @@
     {
       "id": "continuar",
       "titulo": "¿Cómo seguir? Tu plan para continuar",
+      "respuesta": "Esta semana revisa tus llantas; este mes lee el manual, agenda tus servicios y busca un taller de confianza.",
       "lineas": [
         {
           "id": "titulo",

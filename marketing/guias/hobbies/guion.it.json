@@ -12,6 +12,7 @@
     {
       "id": "porque",
       "titulo": "Perché ti serve un passatempo?",
+      "respuesta": "Perché ti fa bene: su oltre 93.000 over 65 in 16 paesi, chi aveva un passatempo era meno depresso e più felice.",
       "lineas": [
         {
           "id": "gancho",
@@ -88,6 +89,7 @@
     {
       "id": "encontrar",
       "titulo": "Come trovare il tuo?",
+      "respuesta": "Non aspettarti di trovare la passione già pronta: prova più cose, tieni quella che ti incuriosisce e dalle tempo per crescere.",
       "lineas": [
         {
           "id": "titulo",
@@ -163,6 +165,7 @@
     {
       "id": "sirve",
       "titulo": "Perché non deve servire a niente?",
+      "respuesta": "Perché il suo unico compito è piacerti: vedere il tempo libero come tempo perso te lo fa godere meno e ti stressa di più.",
       "lineas": [
         {
           "id": "titulo",
@@ -245,6 +248,7 @@
     {
       "id": "tiempo",
       "titulo": "Dove trovi il tempo?",
+      "respuesta": "Da brevi momenti a orario fisso: 20 minuti, quattro giorni a settimana, fanno quasi 70 ore all'anno.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "proyectos",
       "titulo": "Perché ciò che fai tu ti appassiona di più?",
+      "respuesta": "Perché ciò che fai con le tue mani vale di più per te: chi aveva montato la sua scatola IKEA offriva più di altri per una già pronta.",
       "lineas": [
         {
           "id": "titulo",
@@ -395,6 +400,7 @@
     {
       "id": "mantener",
       "titulo": "Come non abbandonarlo?",
+      "respuesta": "Datti un obiettivo a settimana, non al giorno, tipo quattro su sette: se salti un giorno, la settimana regge comunque.",
       "lineas": [
         {
           "id": "titulo",
@@ -474,6 +480,7 @@
     {
       "id": "otros",
       "titulo": "Perché farlo con altri?",
+      "respuesta": "Perché un gruppo ti dà un appuntamento fisso, compagnia e voglia di tornare; nei corsi di canto il legame è nato molto prima.",
       "lineas": [
         {
           "id": "titulo",
@@ -537,6 +544,7 @@
     {
       "id": "continuar",
       "titulo": "Come andare avanti? Il tuo piano per continuare",
+      "respuesta": "Provane uno per 20 minuti questa settimana; entro un mese dagli un obiettivo settimanale e un piccolo progetto, poi condividilo con qualcuno.",
       "lineas": [
         {
           "id": "titulo",

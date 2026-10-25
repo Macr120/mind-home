@@ -18,6 +18,7 @@
     {
       "id": "cuerpo",
       "titulo": "Uyurken neler olur",
+      "respuesta": "Beynin yaklaşık 90 dakikalık döngülerden geçer: derin uyku vücudu onarır, REM öğrendiklerini düzene sokar.",
       "lineas": [
         {
           "id": "gancho",
@@ -91,6 +92,7 @@
     {
       "id": "historia",
       "titulo": "Bilimin uyku hakkında keşfettikleri",
+      "respuesta": "İç bir saatin olduğunu: Kleitman bunu 1938'de bir mağarada kanıtladı, genlerinin keşfi de 2017'de Nobel kazandı.",
       "lineas": [
         {
           "id": "titulo",
@@ -163,6 +165,7 @@
     {
       "id": "cuanto",
       "titulo": "Ne kadar uyuman gerekir",
+      "respuesta": "Yetişkinsen yedi saat ya da fazlası: iki hafta altı saat uyumak, dikkati iki geceye kadar uykusuz kalmak kadar bozar.",
       "lineas": [
         {
           "id": "titulo",
@@ -224,6 +227,7 @@
     {
       "id": "reloj",
       "titulo": "İç saatin",
+      "respuesta": "Onu ışık ayarlar: sabah güneş al, gece ekranlardan uzak dur ve hep aynı saatlerde uyu.",
       "lineas": [
         {
           "id": "titulo",
@@ -299,6 +303,7 @@
     {
       "id": "noche",
       "titulo": "İyi bir geceye nasıl hazırlanırsın",
+      "respuesta": "Kafeini yatmadan altı saat önce kes, alkolden uzak dur, serin ve karanlıkta uyu, son saatte ekranları bırak.",
       "lineas": [
         {
           "id": "titulo",
@@ -389,6 +394,7 @@
     {
       "id": "insomnio",
       "titulo": "Uyuyamadığında",
+      "respuesta": "20 dakikada uyuyamazsan kalk, uykun gelince dön; haftalarca sürerse ilk tedavi bilişsel davranışçı terapidir.",
       "lineas": [
         {
           "id": "titulo",

@@ -12,6 +12,7 @@
     {
       "id": "video",
       "titulo": "Che cos'è un video",
+      "respuesta": "Sono foto ferme così ravvicinate che il tuo cervello le unisce: a 24 al secondo, la velocità del cinema, vedi un movimento fluido.",
       "lineas": [
         {
           "id": "gancho",
@@ -123,6 +124,7 @@
     {
       "id": "historia",
       "titulo": "Una breve storia del video",
+      "respuesta": "Dalle dodici fotocamere di Muybridge nel 1878 allo smartphone di oggi: ciò che chiedeva una troupe ora ti sta in tasca.",
       "lineas": [
         {
           "id": "titulo",
@@ -223,6 +225,7 @@
     {
       "id": "encuadre",
       "titulo": "L'inquadratura",
+      "respuesta": "Inquadrare è decidere cosa entra nell’immagine: metti ciò che conta su una linea della regola dei terzi, non al centro, e guidi lo sguardo.",
       "lineas": [
         {
           "id": "titulo",
@@ -307,6 +310,7 @@
     {
       "id": "luzSonido",
       "titulo": "La luce e il suono",
+      "respuesta": "Stai di fronte o di lato a una finestra e avvicina il microfono a un palmo: si perdona un’immagine mediocre, non un brutto audio.",
       "lineas": [
         {
           "id": "titulo",
@@ -388,6 +392,7 @@
     {
       "id": "edicion",
       "titulo": "Il montaggio",
+      "respuesta": "Scegli le riprese migliori, mettile in ordine e decidi quanto dura ognuna: come mostrò Kuleshov, il senso sta in ciò che accosti.",
       "lineas": [
         {
           "id": "titulo",
@@ -471,6 +476,7 @@
     {
       "id": "historiaContar",
       "titulo": "Come raccontare una storia",
+      "respuesta": "Aggancia nei primi secondi con una domanda, costruisci inizio, nodo e finale, e mostra invece di dire.",
       "lineas": [
         {
           "id": "titulo",
@@ -566,6 +572,7 @@
     {
       "id": "plan",
       "titulo": "Il tuo piano per iniziare",
+      "respuesta": "Fai un video di un minuto a settimana, anche se non viene perfetto: sono 52 all’anno, e ognuno ti insegna qualcosa per il successivo.",
       "lineas": [
         {
           "id": "titulo",

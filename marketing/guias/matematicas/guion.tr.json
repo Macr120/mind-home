@@ -12,6 +12,7 @@
     {
       "id": "universo",
       "titulo": "Evren neden sayılarla konuşur?",
+      "respuesta": "Çünkü matematik dünyanın nasıl hareket ettiğini anlatır: Le Verrier sadece hesaplarla, gökyüzüne bakmadan Neptün’ü buldu.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "origen",
       "titulo": "Sayılar nereden geldi?",
+      "respuesta": "Miktar duygusuyla doğarız; bizim icat ettiğimiz onu yazmaktı, bir kemikteki çentiklerden sıfıra kadar.",
       "lineas": [
         {
           "id": "titulo",
@@ -195,6 +197,7 @@
     {
       "id": "miedo",
       "titulo": "Matematik neden korkutur?",
+      "respuesta": "Çünkü beynin daha başlamadan acıya tepki verir gibi davranır, ama matematik kafası bir yetenek değil: dil gibi, pratik meselesi.",
       "lineas": [
         {
           "id": "titulo",
@@ -272,6 +275,7 @@
     {
       "id": "resolver",
       "titulo": "Herhangi bir problem nasıl çözülür?",
+      "respuesta": "Pólya’nın dört adımıyla: problemi anla, bir plan yap, uygula ve geriye bakıp kontrol et; ve hesaplamadan önce tahmin et.",
       "lineas": [
         {
           "id": "titulo",
@@ -357,6 +361,7 @@
     {
       "id": "ver",
       "titulo": "Bir denklem nasıl görülür?",
+      "respuesta": "Descartes’ın önerdiği gibi iki eksen üzerine çiz: nerede arttığını, nerede azaldığını ve sıfırı nerede kestiğini bir bakışta görürsün.",
       "lineas": [
         {
           "id": "titulo",
@@ -433,6 +438,7 @@
     {
       "id": "vida",
       "titulo": "Sayıları hayatında nasıl kullanırsın?",
+      "respuesta": "Yüzdeleri insanlarla değiştir: yüz kişi düşün ve her durumda kaç kişi olduğunu say, problem netleşir.",
       "lineas": [
         {
           "id": "titulo",
@@ -509,6 +515,7 @@
     {
       "id": "continuar",
       "titulo": "Nasıl devam etmeli? Devam etmek için planın.",
+      "respuesta": "Gününün sayılarını ara, hesaplamadan önce tahmin et ve her gün Pólya’nın adımlarıyla kısa bir problem çöz.",
       "lineas": [
         {
           "id": "titulo",

@@ -7427,6 +7427,7 @@ export const HI: Dict = {
   'guia.entretenimiento.titulo': "अपना मनोरंजन बेहतर तरीके से कैसे करें?",
   'guia.garage.titulo': "अपने वाहनों की देखभाल कैसे करें?",
   'guia.ideas.titulo': "बेहतर विचार कैसे पाएँ?",
+  'guia.viajes.titulo': "बेहतर यात्रा कैसे करें?",
   'guia.noticias.titulo': "सच और सुंदरता की तलाश में: पत्रकारिता और कंटेंट",
   'guia.matematicas.titulo': "ब्रह्मांड की भाषा क्या है?",
   'tut.esencial.titulo': 'ज़रूरी बातें',

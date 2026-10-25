@@ -12,6 +12,7 @@
     {
       "id": "cantidad",
       "titulo": "İyi fikirler nereden gelir?",
+      "respuesta": "Çok fikre sahip olmaktan: dahiler daha sık isabet ettirmiyordu, daha çok fikir üretiyordu; o yüzden hepsini not al.",
       "lineas": [
         {
           "id": "gancho",
@@ -107,6 +108,7 @@
     {
       "id": "postit",
       "titulo": "Yapıştırmayan bir yapıştırıcıdan hangi fikir doğdu?",
+      "respuesta": "Post-it notları: 1968’in “başarısız” yapıştırıcısı, biri onu hatırladığı için 1980’de büyük bir başarıya dönüştü.",
       "lineas": [
         {
           "id": "titulo",
@@ -183,6 +185,7 @@
     {
       "id": "ducha",
       "titulo": "Fikirler neden duşta gelir?",
+      "respuesta": "Çünkü sorunu basit bir şeyle bıraktığında zihnin arka planda onun üzerinde çalışmaya devam eder, ta ki fikir gelene kadar.",
       "lineas": [
         {
           "id": "titulo",
@@ -262,6 +265,7 @@
     {
       "id": "caminar",
       "titulo": "Yürümek seni daha yaratıcı yapar mı?",
+      "respuesta": "Evet: yürürken ortalama %60 daha fazla fikir gelir ve etki oturduktan sonra da bir süre devam eder.",
       "lineas": [
         {
           "id": "titulo",
@@ -340,6 +344,7 @@
     {
       "id": "lluvia",
       "titulo": "Beyin fırtınası grupta mı, tek başına mı?",
+      "respuesta": "Önce tek başına: aynı kişiler, herkes kendi başına, grupta olduğundan neredeyse iki kat fazla fikir çıkarır.",
       "lineas": [
         {
           "id": "titulo",
@@ -425,6 +430,7 @@
     {
       "id": "limites",
       "titulo": "Sınırlar seni neden daha yaratıcı yapar?",
+      "respuesta": "Çünkü seni yeni yollar aramaya zorlar: sadece 50 kelimeyle Dr. Seuss, Yeşil Yumurta ve Jambon’u yazdı.",
       "lineas": [
         {
           "id": "titulo",
@@ -505,6 +511,7 @@
     {
       "id": "decidir",
       "titulo": "Fikirlerin arasından nasıl seçim yaparsın?",
+      "respuesta": "Bir teraziyle, Benjamin Franklin gibi: lehte ve aleyhte gerekçeler, her biri kendi ağırlığıyla; ağır basan kazanır.",
       "lineas": [
         {
           "id": "titulo",
@@ -580,6 +587,7 @@
     {
       "id": "continuar",
       "titulo": "Nasıl devam etmeli? Devam etmek için planın",
+      "respuesta": "Her fikri not al, her hafta tek başına beyin fırtınası yap, tıkandığında yürü ve teraziyle karar ver.",
       "lineas": [
         {
           "id": "titulo",

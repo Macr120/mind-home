@@ -12,6 +12,7 @@
     {
       "id": "querer",
       "titulo": "Warum reicht Wollen nicht?",
+      "respuesta": "Weil fast die Hälfte derer, die etwas vorhaben, es nicht tut: Gestalte dein Ziel so, dass es nicht von der Lust abhängt.",
       "lineas": [
         {
           "id": "gancho",
@@ -124,6 +125,7 @@
     {
       "id": "buena",
       "titulo": "Was macht ein gutes Ziel aus?",
+      "respuesta": "Es ist konkret, etwas schwierig, positiv formuliert und hat ein Warum, das dir wichtig ist: Das schlägt „Ich gebe mein Bestes“.",
       "lineas": [
         {
           "id": "titulo",
@@ -200,6 +202,7 @@
     {
       "id": "pasos",
       "titulo": "Wie machst du aus einem Ziel Schritte?",
+      "respuesta": "Leg mit einem „Wenn…, dann…“-Satz fest, wann und wo: Damit trainierten 91 % statt 35 %.",
       "lineas": [
         {
           "id": "titulo",
@@ -267,6 +270,7 @@
     {
       "id": "ganas",
       "titulo": "Warum lässt die Lust nach?",
+      "respuesta": "Weil sie steigt, wenn das Ziel nah wirkt: Kleine Fortschritte jeden Tag sind ihr Treibstoff.",
       "lineas": [
         {
           "id": "titulo",
@@ -348,6 +352,7 @@
     {
       "id": "casa",
       "titulo": "Warum hilft es, alles in einem mentalen Haus zu haben?",
+      "respuesta": "Weil dein Gehirn sich Orte sehr gut merkt, und wenn jedes Ziel seinen Platz hat, schleicht es sich nicht mehr in deinen Kopf.",
       "lineas": [
         {
           "id": "titulo",
@@ -434,6 +439,7 @@
     {
       "id": "medir",
       "titulo": "Woran merkst du, dass du vorankommst?",
+      "respuesta": "Prüf deinen Fortschritt oft und schreib ihn auf: In 138 Experimenten kamen die, die das taten, ihrem Ziel näher.",
       "lineas": [
         {
           "id": "titulo",
@@ -509,6 +515,7 @@
     {
       "id": "fallar",
       "titulo": "Was tun, wenn du scheiterst?",
+      "respuesta": "Mach am nächsten Tag weiter: Einmal auslassen ist okay, zweimal hintereinander nicht, und ein verpasster Tag löscht nichts.",
       "lineas": [
         {
           "id": "titulo",
@@ -598,6 +605,7 @@
     {
       "id": "continuar",
       "titulo": "Wie geht es weiter? Dein Plan zum Dranbleiben",
+      "respuesta": "Wähl ein Ziel mit seinem „Wenn…, dann…“, fang mit zwei Minuten an, prüf sonntags deine Serie und komm nach einem Ausrutscher zurück.",
       "lineas": [
         {
           "id": "titulo",

@@ -12,6 +12,7 @@
     {
       "id": "agenda",
       "titulo": "Qui décide de ce que tu vois chaque jour ?",
+      "respuesta": "Les médias, en bonne partie : comme l’ont montré McCombs et Shaw, ils ne te disent pas toujours quoi penser, mais à quoi penser.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "bly",
       "titulo": "Qui s’est fait passer pour folle pour dire la vérité ?",
+      "respuesta": "Nellie Bly, en 1887 : elle a passé dix jours dans un asile de New York, et son reportage a obtenu plus d’argent pour les malades.",
       "lineas": [
         {
           "id": "titulo",
@@ -182,6 +184,7 @@
     {
       "id": "negatividad",
       "titulo": "Pourquoi les mauvaises nouvelles se vendent-elles mieux ?",
+      "respuesta": "Parce que ton cerveau prête plus attention au négatif : chaque mot négatif en plus dans un titre augmente les clics de plus de 2 %.",
       "lineas": [
         {
           "id": "titulo",
@@ -257,6 +260,7 @@
     {
       "id": "mentira",
       "titulo": "Pourquoi le mensonge va-t-il plus vite ?",
+      "respuesta": "Parce que le faux est plus nouveau et surprend : sur Twitter, il allait six fois plus vite, partagé par des gens, pas des bots.",
       "lineas": [
         {
           "id": "titulo",
@@ -336,6 +340,7 @@
     {
       "id": "verificar",
       "titulo": "Comment lire comme un fact-checkeur ?",
+      "respuesta": "Pratique la lecture latérale : quitte le site et regarde ce que d’autres disent de cette source, comme les fact-checkeurs pros.",
       "lineas": [
         {
           "id": "titulo",
@@ -425,6 +430,7 @@
     {
       "id": "belleza",
       "titulo": "Comment créer un contenu vrai et beau ?",
+      "respuesta": "Vérifie avant de publier, dis d’où vient l’info et raconte-la comme une histoire, avec une belle image et des mots clairs.",
       "lineas": [
         {
           "id": "titulo",
@@ -521,6 +527,7 @@
     {
       "id": "dieta",
       "titulo": "Combien d’infos, c’est trop ?",
+      "respuesta": "Six heures par jour ont plus stressé que bien des témoins sur place : fixe un horaire, une limite et coupe les notifications.",
       "lineas": [
         {
           "id": "titulo",
@@ -596,6 +603,7 @@
     {
       "id": "continuar",
       "titulo": "Comment continuer ? Ton plan pour la suite",
+      "respuesta": "Note d’où viennent tes infos, ajoute des sources variées, choisis une heure fixe et pratique la lecture latérale avant de partager.",
       "lineas": [
         {
           "id": "titulo",

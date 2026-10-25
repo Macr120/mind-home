@@ -25,6 +25,7 @@
     {
       "id": "saber",
       "titulo": "Por que aprender e o que é saber um idioma",
+      "respuesta": "Porque falar um idioma muda o seu cérebro e te aproxima das pessoas; e saber é ter quatro habilidades, do A1 ao C2.",
       "lineas": [
         {
           "id": "gancho",
@@ -142,6 +143,7 @@
     {
       "id": "historia",
       "titulo": "Uma breve história de aprender idiomas",
+      "respuesta": "De Comenius e seus desenhos a Berlitz e sua aula sem tradução, a lição se repete: aprenda com imagens e no próprio idioma, não traduzindo.",
       "lineas": [
         {
           "id": "titulo",
@@ -210,6 +212,7 @@
     {
       "id": "cerebro",
       "titulo": "Como o seu cérebro aprende e como esquece",
+      "respuesta": "Você aprende quando entende algo um pouco acima do seu nível, e freia o esquecimento revisando espaçado e se testando.",
       "lineas": [
         {
           "id": "titulo",
@@ -285,6 +288,7 @@
     {
       "id": "palabras",
       "titulo": "As palavras que mais rendem",
+      "respuesta": "As mais frequentes: em inglês, as mil mais usadas são cerca de 8 em cada 10 palavras de um texto; aprenda-as em frases.",
       "lineas": [
         {
           "id": "titulo",
@@ -369,6 +373,7 @@
     {
       "id": "hablar",
       "titulo": "Fale desde o primeiro dia",
+      "respuesta": "Porque, ao falar, você descobre o que ainda não sabe dizer: faça shadowing, erre muito e abra a boca todo dia, em qualquer idade.",
       "lineas": [
         {
           "id": "titulo",
@@ -453,6 +458,7 @@
     {
       "id": "plan",
       "titulo": "O seu plano para começar",
+      "respuesta": "Defina um porquê, um nível e uma data, e dedique 20 minutos por dia: são mais de 120 horas por ano.",
       "lineas": [
         {
           "id": "titulo",

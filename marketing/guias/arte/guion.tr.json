@@ -25,6 +25,7 @@
     {
       "id": "arte",
       "titulo": "Sanat nedir",
+      "respuesta": "Başkası baksın ve hissetsin diye yaptığın bir şeydir ve yapmak sana iyi gelir: her 4 kişiden 3'ünde stres düştü.",
       "lineas": [
         {
           "id": "gancho",
@@ -156,6 +157,7 @@
     {
       "id": "historia",
       "titulo": "Görsel sanatların kısa tarihi",
+      "respuesta": "51.000 yıl önce boyanmış mağaralardan perspektife, fotoğrafa ve ekranlara: araç değişir, ne söylemek istediğin değişmez.",
       "lineas": [
         {
           "id": "titulo",
@@ -253,6 +255,7 @@
     {
       "id": "elementos",
       "titulo": "Bir eserin öğeleri",
+      "respuesta": "Çizgi, biçim, değer, renk, doku ve mekân; eserin siyah beyazda iyi görünüyorsa, renkli de iyi görünür.",
       "lineas": [
         {
           "id": "titulo",
@@ -336,6 +339,7 @@
     {
       "id": "mirar",
       "titulo": "Bir esere nasıl bakılır",
+      "respuesta": "Yavaşça, dört adımda: gördüğünü betimle, nasıl yapıldığını çözümle, yorumla ve ancak en sonda beğenip beğenmediğine karar ver.",
       "lineas": [
         {
           "id": "titulo",
@@ -406,6 +410,7 @@
     {
       "id": "hacer",
       "titulo": "Sanat yapmaya nasıl başlanır",
+      "respuesta": "Bildiğini değil gördüğünü çiz: baş aşağı kopyala, hızlı jest çizimleri yap, ustaları kopyala ve bir eskiz defteri doldur.",
       "lineas": [
         {
           "id": "titulo",
@@ -499,6 +504,7 @@
     {
       "id": "plan",
       "titulo": "Başlamak için planın",
+      "respuesta": "Sayılabilen bir hedef koy, örneğin 100 günde 100 çizim: günde 15 dakika, yılda 90 saatten fazla eder.",
       "lineas": [
         {
           "id": "titulo",

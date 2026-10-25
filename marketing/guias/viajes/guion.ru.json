@@ -1,0 +1,823 @@
+{
+  "idioma": "ru",
+  "tema": "viajes",
+  "plantillaId": "sala",
+  "numero": 20,
+  "nombre": "Путешествия",
+  "pregunta": "Как путешествовать лучше?",
+  "corta": "Как путешествовать лучше?",
+  "subtitulo": "Почему лучшая часть поездки наступает ещё до отъезда, как появились организованные туры, когда на самом деле начинается путешествие, как составить хороший план поездки, сколько она должна длиться, как тратить и не испортить её, помогают ли фотографии помнить, меняют ли тебя путешествия и план на будущее.",
+  "aviso": "Это руководство носит информационный и общий характер. Цитируемые исследования измеряют счастье и воспоминания конкретных групп людей; твои результаты могут отличаться.",
+  "partes": [
+    {
+      "id": "feliz",
+      "titulo": "Почему путешествия делают тебя счастливым?",
+      "respuesta": "Прежде всего благодаря ожиданию: до отъезда ты счастливее, а впечатления радуют больше, чем покупки.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Как путешествовать лучше? Самая счастливая часть поездки почти всегда наступает ещё до отъезда. А после возвращения эта радость улетучивается за несколько дней. А что, если растянуть её от начала до конца? Сегодня ты увидишь это на данных и уйдёшь с планом на будущее."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Кстати, это мой дом в MindHaOS, и сегодня он взлетает: это самолёт. А я — плюшевый мишка-путешественник на борту, и это моя комната путешествий: здесь у меня карта всех мест, где я уже побывал, и тех, где ещё не был."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть первая. Почему путешествия делают тебя счастливым?"
+        },
+        {
+          "id": "nawijn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "anticipacion"
+          },
+          "lamina": [
+            "maleta",
+            "aeropuerto"
+          ],
+          "destacada": true,
+          "texto": "В 2010 году нидерландская команда во главе с Йеруном Навейном измерила счастье тысячи пятисот тридцати человек. Те, кто собирался в отпуск, были счастливее остальных… но до поездки, а не после."
+        },
+        {
+          "id": "regreso",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antes",
+              "durante",
+              "despues"
+            ]
+          },
+          "lamina": [
+            "regreso",
+            "oficina"
+          ],
+          "texto": "После возвращения почти все были такими же, как те, кто никуда не ездил. Чуть дольше эффект держался только у тех, кто вернулся очень отдохнувшим. Путешествие не заканчивается, когда ты возвращаешься домой: оно угасает."
+        },
+        {
+          "id": "gilovich",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "gilovich"
+          },
+          "lamina": [
+            "amigosViaje",
+            "compras"
+          ],
+          "meme": "maleta",
+          "texto": "И всё же оно того стоит: в 2003 году Лиф Ван Бовен и Томас Гилович выяснили, что траты на впечатления делают нас счастливее, чем траты на вещи. Вещи изнашиваются; пережитое становится частью твоей истории."
+        },
+        {
+          "id": "mapa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pinApp",
+              "visitadosApp",
+              "porConocerApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Поэтому на моей карте мира стоит метка на каждом месте, где я побывал, а другим цветом — те, где я ещё не был."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "С каких пор мы путешествуем ради удовольствия?",
+      "respuesta": "Со времён Гранд-тура богатой молодёжи XVIII века, а почти для всех — с 1841 года, с первого организованного тура Томаса Кука.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть вторая. С каких пор мы путешествуем ради удовольствия?"
+        },
+        {
+          "id": "grandTour",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1700",
+            "clave": "grandTour"
+          },
+          "lamina": [
+            "grandTour",
+            "roma"
+          ],
+          "destacada": true,
+          "texto": "В восемнадцатом веке богатые молодые англичане совершали Гранд-тур: месяцами, а иногда и годами ездили по Франции и Италии, чтобы смотреть на искусство и древние руины. Путешествовать ради удовольствия могли единицы."
+        },
+        {
+          "id": "cook",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1841",
+            "clave": "cook"
+          },
+          "lamina": [
+            "cook",
+            "trenVapor"
+          ],
+          "texto": "Пока в 1841 году английский столяр Томас Кук не организовал поездку на поезде примерно для пятисот человек, из Лестера в Лафборо, по шиллингу с каждого. Так родился организованный туризм."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tren",
+              "avion",
+              "telefono"
+            ]
+          },
+          "lamina": [
+            "avion",
+            "celularMapa"
+          ],
+          "texto": "Потом появились самолёты, карманные путеводители, а теперь и телефон: сегодня любой планирует поездку, не вставая с дивана. Трудно уже не добраться, а путешествовать хорошо."
+        },
+        {
+          "id": "rutas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rutaApp",
+              "ordenApp",
+              "distanciaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "В моих маршрутах я ставлю места по порядку, вижу их соединёнными на карте, и приложение говорит мне, сколько километров я проеду."
+        }
+      ]
+    },
+    {
+      "id": "espera",
+      "titulo": "Когда начинается путешествие?",
+      "respuesta": "В тот день, когда ты его решаешь: предвкушение до и воспоминание после обычно лучше самой поездки.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть третья. Когда начинается путешествие?"
+        },
+        {
+          "id": "mitchell",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rosa"
+          },
+          "lamina": [
+            "bicicleta",
+            "europa"
+          ],
+          "destacada": true,
+          "texto": "В 1997 году Теренс Митчелл и его команда наблюдали за людьми, которые ехали в Европу, в велопоход по Калифорнии и на каникулы в День благодарения. До и после поездки они оценивали её выше, чем во время."
+        },
+        {
+          "id": "rosa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ilusion",
+              "molestias",
+              "recuerdo"
+            ]
+          },
+          "lamina": [
+            "lluviaViaje",
+            "fila"
+          ],
+          "meme": "expectativa",
+          "texto": "Во время поездки давят дождь, очереди и усталость. Но в предвкушении и в воспоминании эти неудобства почти исчезают. Исследователи назвали это взглядом сквозь розовые очки."
+        },
+        {
+          "id": "saborear",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cuentaRegresiva"
+          },
+          "lamina": [
+            "planeando",
+            "guiaViaje"
+          ],
+          "texto": "Так что путешествие начинается в тот день, когда ты его решаешь. Планируй заранее, назначь дату и наслаждайся ожиданием: читай о месте, смотри фото, выучи пару фраз. Посмотри, сколько дней предвкушения оно тебе дарит."
+        },
+        {
+          "id": "itinerario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diaApp",
+              "hospedajeApp",
+              "calendarioApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Мою поездку в Японию я держу в плане по дням: откуда выезжаю, куда еду, где ночую и что делаю. И каждая дата сама появляется в моём календаре."
+        }
+      ]
+    },
+    {
+      "id": "itinerario",
+      "titulo": "Как составить хороший план поездки?",
+      "respuesta": "Оставь лучшее на конец и не заполняй всё время: запомнишь ты в основном лучший момент и то, как всё закончилось.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть четвёртая. Как составить хороший план поездки?"
+        },
+        {
+          "id": "kahneman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "picoFinal"
+          },
+          "lamina": [
+            "aguaFria",
+            "hielo"
+          ],
+          "destacada": true,
+          "texto": "В 1993 году Даниэль Канеман и его команда попросили людей опустить руку в ледяную воду. Одно испытание длилось дольше, но заканчивалось чуть менее холодной водой, и почти все предпочли повторить именно его. Мы запоминаем самый яркий момент и конец, а не всё целиком."
+        },
+        {
+          "id": "pico",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pico",
+              "final",
+              "duracion"
+            ]
+          },
+          "lamina": [
+            "atardecer",
+            "aeropuertoPrisa"
+          ],
+          "texto": "В поездке то же самое: с собой ты увозишь лучший момент и то, как всё закончилось. Последний день в спешке в аэропорт может окрасить всё воспоминание."
+        },
+        {
+          "id": "huecos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "finalViaje"
+          },
+          "lamina": [
+            "cafeCalle",
+            "mapaPapel"
+          ],
+          "meme": "itinerario",
+          "texto": "Так что прибереги что-то особенное на конец, оставь свободное время для неожиданностей и не втискивай пять музеев в один день: один хороший стоит большего. Составь здесь свою поездку и посмотри, какой ты её запомнишь."
+        },
+        {
+          "id": "guardados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "actividadesApp",
+              "guardarApp",
+              "compartirApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "В каждый день моего плана я записываю занятия и транспорт. А когда всё готово, сохраняю план и делюсь им с тем, кто едет со мной."
+        }
+      ]
+    },
+    {
+      "id": "duracion",
+      "titulo": "Сколько должна длиться поездка?",
+      "respuesta": "Ей не обязательно быть долгой: лучшее настроение приходит к восьмому дню и уходит за неделю, так что путешествуй чаще.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть пятая. Сколько должна длиться поездка?"
+        },
+        {
+          "id": "bloom",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "dia8"
+          },
+          "lamina": [
+            "playa",
+            "hamaca"
+          ],
+          "destacada": true,
+          "texto": "В 2013 году Джессика де Блум день за днём следила за здоровьем и настроением работников в отпуске. Они быстро улучшались, достигали пика примерно к восьмому дню… а за первую неделю после возвращения от этого ничего не оставалось."
+        },
+        {
+          "id": "seguido",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "corto",
+              "seguido",
+              "ilusionNueva"
+            ]
+          },
+          "lamina": [
+            "escapada",
+            "carretera"
+          ],
+          "texto": "Урок не в том, чтобы путешествовать меньше, а в том, чтобы чаще: несколько коротких поездок в год дают больше моментов предвкушения и больше отдохнувших возвращений, чем одно огромное путешествие."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoViajes"
+          },
+          "lamina": "pulgar",
+          "texto": "Если тебе нравится это руководство, нажми «Нравится», «Подписаться», чтобы не пропустить следующее, и «Поделиться» — с тем, кому ты всегда говоришь: «Надо туда съездить»."
+        },
+        {
+          "id": "volver",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "colchon",
+              "vueltaSuave",
+              "siguiente"
+            ]
+          },
+          "lamina": [
+            "maletaCasa",
+            "calendarioPared"
+          ],
+          "texto": "А после возвращения дай себе день запаса перед работой и запланируй следующую поездку: так предвкушение начнётся снова."
+        },
+        {
+          "id": "porConocer",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pinPendiente",
+              "fechaApp",
+              "yaFuiApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "На моей карте у мест «в планах» есть своя дата, а когда я наконец туда еду, одним касанием они становятся посещёнными."
+        }
+      ]
+    },
+    {
+      "id": "dinero",
+      "titulo": "Как тратить и не испортить поездку?",
+      "respuesta": "Крупное оплати до отъезда и возьми сумму на день: так каждая покупка меньше огорчает, а поездка радует больше.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть шестая. Как тратить и не испортить поездку?"
+        },
+        {
+          "id": "prelec",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1998",
+            "clave": "prelec"
+          },
+          "lamina": [
+            "billetes",
+            "tarjeta"
+          ],
+          "destacada": true,
+          "texto": "В 1998 году Дражен Прелец и Джордж Лёвенштейн изучали боль от оплаты: каждая трата причиняет немного боли, и эта боль отнимает удовольствие от покупки. Поэтому большинство предпочитало оплачивать отпуск заранее."
+        },
+        {
+          "id": "adelantado",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "presupuestoViaje"
+          },
+          "lamina": [
+            "reserva",
+            "monedero"
+          ],
+          "texto": "Так что крупное оплати до отъезда: перелёты, жильё и билеты. В поездке возьми сумму на день на всё остальное, и тебе не придётся думать о каждой покупке. Составь здесь свой бюджет."
+        },
+        {
+          "id": "ahorro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "quincena",
+              "boleto"
+            ]
+          },
+          "lamina": [
+            "alcancia",
+            "boletos"
+          ],
+          "meme": "presupuesto",
+          "texto": "А если денег не хватает, сделай это целью накоплений с датой: понемногу с каждой зарплаты, и в день покупки билета уже не больно."
+        },
+        {
+          "id": "presupuestoApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "presupuestoDia",
+              "metaFinanzas",
+              "totalApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "В моём плане у каждого дня свой бюджет, а итог сам становится целью накоплений в моих Финансах."
+        }
+      ]
+    },
+    {
+      "id": "fotos",
+      "titulo": "Фото или воспоминания?",
+      "respuesta": "Сначала смотри и снимай мало, но осознанно: то, что только фотографируешь, помнишь хуже; и каждый вечер пиши две строчки.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть седьмая. Фото или воспоминания?"
+        },
+        {
+          "id": "henkel",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "fotos"
+          },
+          "lamina": [
+            "museo",
+            "celularFoto"
+          ],
+          "destacada": true,
+          "texto": "В 2014 году Линда Хенкель привела студентов в музей. Произведения, которые они сфотографировали, они помнили хуже и менее подробно, чем те, на которые просто смотрели. Камера помнит за тебя… а ты перестаёшь."
+        },
+        {
+          "id": "detalle",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mira",
+              "acercate",
+              "pocas"
+            ]
+          },
+          "lamina": [
+            "detalleArte",
+            "mirador"
+          ],
+          "texto": "Но когда они приближали зумом какую-то деталь, воспоминание сохранялось. Так что сначала смотри, а потом делай мало снимков, и осознанно."
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "noche",
+              "sentiste",
+              "conQuien"
+            ]
+          },
+          "lamina": [
+            "diarioViaje",
+            "cafeLibreta"
+          ],
+          "meme": "fotos",
+          "texto": "И каждый вечер пиши две строчки: что случилось, что ты почувствовал и с кем ты был. Через десять лет эта фраза будет стоить больше, чем сто одинаковых фото."
+        },
+        {
+          "id": "bitacora",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "albumApp",
+              "fotoApp",
+              "anecdotaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "В моём дневнике каждая страна — это альбом, а в каждом месте я храню свои фото с их историей."
+        }
+      ]
+    },
+    {
+      "id": "cambio",
+      "titulo": "Меняют ли тебя путешествия?",
+      "respuesta": "Да: те, кто учился за границей, стали открытее, доброжелательнее и менее тревожными, чем те, кто остался.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть восьмая. Меняют ли тебя путешествия?"
+        },
+        {
+          "id": "zimmermann",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "personalidad"
+          },
+          "lamina": [
+            "estudiantes",
+            "mochila"
+          ],
+          "destacada": true,
+          "texto": "В 2013 году Юлия Циммерманн и Франц Нейер наблюдали за более чем тысячей немецких студентов. Те, кто уехал учиться за границу, стали открытее, доброжелательнее и менее тревожными, чем те, кто остался."
+        },
+        {
+          "id": "costumbre",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abierto",
+              "amable",
+              "calma"
+            ]
+          },
+          "lamina": [
+            "mercado",
+            "conversacion"
+          ],
+          "texto": "Дело не в осмотре памятников, а в том, чтобы выйти из привычного: попробовать другую еду, заблудиться, попросить помощи на чужом языке."
+        },
+        {
+          "id": "local",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "local",
+              "gracias",
+              "sinPrisa"
+            ]
+          },
+          "lamina": [
+            "comidaCalle",
+            "plaza"
+          ],
+          "texto": "Так что в каждой поездке делай что-то как местный: ешь там, где едят они, научись говорить «спасибо» и побудь немного без спешки в одном месте."
+        },
+        {
+          "id": "estados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "paisesApp",
+              "estadosApp",
+              "colorApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "А с включёнными регионами каждое место, где я побывал, окрашивается в свой цвет: обожаю смотреть, как заполняется карта."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Как продолжать? Твой план на будущее",
+      "respuesta": "Отметь свои места на карте, выбери одно с датой, копи на него, а после возвращения планируй следующую поездку.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть девятая. Как продолжать? Твой план на будущее."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planViajes"
+          },
+          "lamina": [
+            "mapaPared",
+            "libreta"
+          ],
+          "texto": "На этой неделе отметь на карте места, где ты бывал, и три места, куда хочешь поехать."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "fecha",
+              "ahorra"
+            ]
+          },
+          "lamina": [
+            "calendarioPared",
+            "alcancia"
+          ],
+          "destacada": true,
+          "texto": "В первый месяц выбери одно из этих мест, назначь дату и начни на него копить."
+        },
+        {
+          "id": "cadaViaje",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pagaAntes",
+              "mejorFinal",
+              "escribeNoche"
+            ]
+          },
+          "lamina": [
+            "aeropuerto",
+            "atardecer"
+          ],
+          "texto": "И в каждой поездке: крупное оплачивай заранее, лучшее оставляй на конец, пиши каждый вечер, а после возвращения планируй следующую поездку."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mapaFin",
+              "planFin",
+              "bitacoraFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "А если не знаешь, с чего начать, посмотри мою поездку в Японию в приложении: она полная, от карты до дневника."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Итак: наслаждайся ожиданием; оставляй лучшее на конец; путешествуй чаще; плати до отъезда; и смотри больше, чем фотографируешь."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "В «Путешествиях» MindHaOS ты отмечаешь свои места на карте мира, составляешь свой план поездки по дням и ведёшь свой дневник с фото и историями. Ты можешь делать это сам или с помощью ИИ. Построй свой мысленный дом бесплатно уже сегодня: ссылка в описании. А в следующем руководстве: как сохранить свои лучшие воспоминания?",
+    "boton": "Открыть Путешествия",
+    "lamina": "app-plan",
+    "anclas": {
+      "mapa": "карте мира",
+      "itinerario": "план поездки по дням",
+      "bitacora": "свой дневник"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "nawijn-2010",
+      "texto": "Nawijn J., Marchand M. A., Veenhoven R., Vingerhoets A. J. Vacationers happier, but most not happier after a holiday. Applied Research in Quality of Life 5(1), 35-47 (2010).",
+      "url": "https://doi.org/10.1007/s11482-009-9091-9"
+    },
+    {
+      "id": "vanboven-2003",
+      "texto": "Van Boven L., Gilovich T. To do or to have? That is the question. Journal of Personality and Social Psychology 85(6), 1193-1202 (2003).",
+      "url": "https://doi.org/10.1037/0022-3514.85.6.1193"
+    },
+    {
+      "id": "grand-tour",
+      "texto": "Гранд-тур. Википедия.",
+      "url": "https://en.wikipedia.org/wiki/Grand_Tour"
+    },
+    {
+      "id": "thomas-cook",
+      "texto": "Томас Кук и поездка из Лестера в Лафборо (1841). Википедия.",
+      "url": "https://en.wikipedia.org/wiki/Thomas_Cook"
+    },
+    {
+      "id": "mitchell-1997",
+      "texto": "Mitchell T. R., Thompson L., Peterson E., Cronk R. Temporal adjustments in the evaluation of events: the «rosy view». Journal of Experimental Social Psychology 33(4), 421-448 (1997).",
+      "url": "https://doi.org/10.1006/jesp.1997.1333"
+    },
+    {
+      "id": "kahneman-1993",
+      "texto": "Kahneman D., Fredrickson B. L., Schreiber C. A., Redelmeier D. A. When more pain is preferred to less: adding a better end. Psychological Science 4(6), 401-405 (1993).",
+      "url": "https://doi.org/10.1111/j.1467-9280.1993.tb00589.x"
+    },
+    {
+      "id": "debloom-2013",
+      "texto": "de Bloom J., Geurts S. A. E., Kompier M. A. J. Vacation (after-) effects on employee health and well-being, and the role of vacation activities, experiences and sleep. Journal of Happiness Studies 14(2), 613-633 (2013).",
+      "url": "https://doi.org/10.1007/s10902-012-9345-3"
+    },
+    {
+      "id": "prelec-1998",
+      "texto": "Prelec D., Loewenstein G. The red and the black: mental accounting of savings and debt. Marketing Science 17(1), 4-28 (1998).",
+      "url": "https://doi.org/10.1287/mksc.17.1.4"
+    },
+    {
+      "id": "henkel-2014",
+      "texto": "Henkel L. A. Point-and-shoot memories: the influence of taking photos on memory for a museum tour. Psychological Science 25(2), 396-402 (2014).",
+      "url": "https://doi.org/10.1177/0956797613504438"
+    },
+    {
+      "id": "zimmermann-2013",
+      "texto": "Zimmermann J., Neyer F. J. Do we become a different person when hitting the road? Personality development of sojourners. Journal of Personality and Social Psychology 105(3), 515-530 (2013).",
+      "url": "https://doi.org/10.1037/a0033019"
+    }
+  ]
+}

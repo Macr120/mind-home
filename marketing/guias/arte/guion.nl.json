@@ -25,6 +25,7 @@
     {
       "id": "arte",
       "titulo": "Wat kunst is",
+      "respuesta": "Iets wat je maakt zodat een ander ernaar kijkt en het voelt, en het maken doet je goed: bij 3 op de 4 mensen daalde de stress.",
       "lineas": [
         {
           "id": "gancho",
@@ -156,6 +157,7 @@
     {
       "id": "historia",
       "titulo": "Een korte geschiedenis van de beeldende kunst",
+      "respuesta": "Van 51.000 jaar oude grotschilderingen tot perspectief, foto en scherm: het gereedschap verandert, wat je wilt zeggen niet.",
       "lineas": [
         {
           "id": "titulo",
@@ -253,6 +255,7 @@
     {
       "id": "elementos",
       "titulo": "De elementen van een werk",
+      "respuesta": "Lijn, vorm, toonwaarde, kleur, textuur en ruimte; en als je werk er in zwart-wit goed uitziet, dan ook in kleur.",
       "lineas": [
         {
           "id": "titulo",
@@ -336,6 +339,7 @@
     {
       "id": "mirar",
       "titulo": "Hoe je naar een werk kijkt",
+      "respuesta": "In vier stappen: beschrijf wat je ziet, analyseer hoe het gemaakt is, interpreteer het en beslis pas dan of je het mooi vindt.",
       "lineas": [
         {
           "id": "titulo",
@@ -406,6 +410,7 @@
     {
       "id": "hacer",
       "titulo": "Hoe je begint met kunst maken",
+      "respuesta": "Teken wat je ziet, niet wat je weet: teken op zijn kop na, maak snelle gebaarschetsen, kopieer meesters en vul een schetsboek.",
       "lineas": [
         {
           "id": "titulo",
@@ -499,6 +504,7 @@
     {
       "id": "plan",
       "titulo": "Jouw plan om te beginnen",
+      "respuesta": "Stel een doel dat je kunt tellen, zoals 100 tekeningen in 100 dagen: 15 minuten per dag is meer dan 90 uur per jaar.",
       "lineas": [
         {
           "id": "titulo",

@@ -12,6 +12,7 @@
     {
       "id": "olvido",
       "titulo": "Why do you forget what you study?",
+      "respuesta": "Because what you don’t use again goes fast: within an hour, Ebbinghaus had already forgotten more than half.",
       "lineas": [
         {
           "id": "gancho",
@@ -90,6 +91,7 @@
     {
       "id": "tecnicas",
       "titulo": "Which techniques really work?",
+      "respuesta": "Testing yourself and spacing out your study over time: out of ten techniques, only those two got the top grade.",
       "lineas": [
         {
           "id": "titulo",
@@ -170,6 +172,7 @@
     {
       "id": "prueba",
       "titulo": "Why does testing yourself beat rereading?",
+      "respuesta": "Because recalling makes it stick: a week later, those who tested themselves remembered 61%, the rereaders 40%.",
       "lineas": [
         {
           "id": "titulo",
@@ -241,6 +244,7 @@
     {
       "id": "repasar",
       "titulo": "When should you review so you don’t forget?",
+      "respuesta": "The next day, after a week and after a month: spreading study over several days almost always beats cramming.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "entender",
       "titulo": "How do you understand instead of memorizing?",
+      "respuesta": "Learn as if you were going to teach it and explain it simply: where you get stuck is what you don’t understand yet.",
       "lineas": [
         {
           "id": "titulo",
@@ -403,6 +408,7 @@
     {
       "id": "dormir",
       "titulo": "What does sleep do with what you learn?",
+      "respuesta": "It goes over it and stores it better: sleeping a few hours after studying helps you remember more, even days later.",
       "lineas": [
         {
           "id": "titulo",
@@ -481,6 +487,7 @@
     {
       "id": "continuar",
       "titulo": "How do you keep going? Your plan to continue",
+      "respuesta": "Test yourself without looking, review the next day, after a week and after a month, and count what you remember, not hours.",
       "lineas": [
         {
           "id": "titulo",

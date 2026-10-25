@@ -26,6 +26,7 @@
     {
       "id": "musica",
       "titulo": "Qué es la música",
+      "respuesta": "Es sonido organizado en ritmo, melodía y armonía, y aprender a tocarla cambia hasta tu cerebro, aunque una máquina ya componga.",
       "lineas": [
         {
           "id": "gancho",
@@ -150,6 +151,7 @@
     {
       "id": "historia",
       "titulo": "Una breve historia de la música",
+      "respuesta": "De una flauta de hueso de hace 40 000 años a la grabación y el MIDI: hoy un teclado y una computadora son un estudio.",
       "lineas": [
         {
           "id": "titulo",
@@ -250,6 +252,7 @@
     {
       "id": "ritmo",
       "titulo": "El ritmo",
+      "respuesta": "Es cómo se reparte la música en el tiempo: un pulso parejo, agrupado en compases, y la síncopa que te hace bailar.",
       "lineas": [
         {
           "id": "titulo",
@@ -344,6 +347,7 @@
     {
       "id": "melodia",
       "titulo": "La melodía",
+      "respuesta": "Es una fila de notas que puedes cantar: la reconoces por su dibujo, si sube o baja, y se te pega porque se repite.",
       "lineas": [
         {
           "id": "titulo",
@@ -411,6 +415,7 @@
     {
       "id": "armonia",
       "titulo": "La armonía",
+      "respuesta": "Son notas a la vez: el acorde mayor suena luminoso, el menor melancólico, y con tres acordes ya acompañas canciones completas.",
       "lineas": [
         {
           "id": "titulo",
@@ -491,6 +496,7 @@
     {
       "id": "mezcla",
       "titulo": "Cómo se mezcla la música",
+      "respuesta": "Mezclar es darle a cada pista su volumen, su frecuencia y su lugar, para que, por ejemplo, el bajo no tape la melodía.",
       "lineas": [
         {
           "id": "titulo",
@@ -557,6 +563,7 @@
     {
       "id": "plan",
       "titulo": "Tu plan para empezar",
+      "respuesta": "Escucha por capas, practica 15 minutos al día, que son más de 90 horas al año, y grábate desde el primer día para mejorar.",
       "lineas": [
         {
           "id": "titulo",

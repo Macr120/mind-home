@@ -23,6 +23,7 @@
     {
       "id": "dinero",
       "titulo": "Do czego służą pieniądze",
+      "respuesta": "Do wymiany, mierzenia i przechowywania wartości, ale liczy się nie to, ile zarabiasz, tylko to, co wpływa, minus to, co wypływa.",
       "lineas": [
         {
           "id": "gancho",
@@ -109,6 +110,7 @@
     {
       "id": "historia",
       "titulo": "Krótka historia pieniądza",
+      "respuesta": "Od pierwszych monet Lidii po chiński pieniądz papierowy z 1024 roku; od 1971 pieniądz opiera się na zaufaniu, nie na złocie.",
       "lineas": [
         {
           "id": "titulo",
@@ -189,6 +191,7 @@
     {
       "id": "presupuesto",
       "titulo": "Gdzie uciekają twoje pieniądze",
+      "respuesta": "Przez miesiąc zapisuj każdy wydatek, dziel dochód według reguły 50/30/20 i w dzień wypłaty płać najpierw sobie.",
       "lineas": [
         {
           "id": "titulo",
@@ -259,6 +262,7 @@
     {
       "id": "deudas",
       "titulo": "Twoja poduszka i twoje długi",
+      "respuesta": "Zbuduj poduszkę z trzech do sześciu miesięcy podstawowych wydatków i najpierw spłacaj drogie długi, nie tylko minimum.",
       "lineas": [
         {
           "id": "titulo",
@@ -348,6 +352,7 @@
     {
       "id": "invertir",
       "titulo": "Niech twoje pieniądze pracują",
+      "respuesta": "Zacznij wcześnie, bo czas jest ważniejszy niż kwota: przy 6% rocznie twoje pieniądze podwoją się w około 12 lat.",
       "lineas": [
         {
           "id": "titulo",
@@ -440,6 +445,7 @@
     {
       "id": "plan",
       "titulo": "Twój plan na start",
+      "respuesta": "Nadaj celowi kwotę i datę, zautomatyzuj oszczędzanie w dzień wypłaty i raz w miesiącu poświęć dziesięć minut na przegląd.",
       "lineas": [
         {
           "id": "titulo",

@@ -25,6 +25,7 @@
     {
       "id": "saber",
       "titulo": "Waarom het loont en wat een taal kennen inhoudt",
+      "respuesta": "Omdat een taal spreken je brein verandert en je met mensen verbindt; en een taal kennen zijn vier vaardigheden, van A1 tot C2.",
       "lineas": [
         {
           "id": "gancho",
@@ -142,6 +143,7 @@
     {
       "id": "historia",
       "titulo": "Een korte geschiedenis van het talenleren",
+      "respuesta": "Van Comenius met zijn tekeningen tot Berlitz met zijn lessen zonder vertalen: leer met beelden en in de taal zelf, niet door te vertalen.",
       "lineas": [
         {
           "id": "titulo",
@@ -210,6 +212,7 @@
     {
       "id": "cerebro",
       "titulo": "Hoe je brein leert en vergeet",
+      "respuesta": "Je leert als je iets net boven je niveau begrijpt, en je remt het vergeten af door gespreid te herhalen en jezelf te overhoren.",
       "lineas": [
         {
           "id": "titulo",
@@ -285,6 +288,7 @@
     {
       "id": "palabras",
       "titulo": "De woorden die het meest opleveren",
+      "respuesta": "De meest gebruikte: in het Engels zijn de duizend meest gebruikte zo'n 8 op de 10 woorden van een tekst; leer ze in zinnen.",
       "lineas": [
         {
           "id": "titulo",
@@ -369,6 +373,7 @@
     {
       "id": "hablar",
       "titulo": "Spreek vanaf de eerste dag",
+      "respuesta": "Omdat je bij het spreken ontdekt wat je nog niet kunt zeggen: doe aan shadowing, maak veel fouten en spreek elke dag, op elke leeftijd.",
       "lineas": [
         {
           "id": "titulo",
@@ -453,6 +458,7 @@
     {
       "id": "plan",
       "titulo": "Jouw plan om te beginnen",
+      "respuesta": "Kies een waarom, een niveau en een datum, en geef het 20 minuten per dag: dat is meer dan 120 uur per jaar.",
       "lineas": [
         {
           "id": "titulo",

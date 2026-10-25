@@ -12,6 +12,7 @@
     {
       "id": "elegir",
       "titulo": "Seçmek neden bu kadar uzun sürüyor?",
+      "respuesta": "Çünkü seçmek artık 10,5 dakika sürüyor: bir izleme listesi tut ve beş dakikada seçemezsen ilkini aç.",
       "lineas": [
         {
           "id": "gancho",
@@ -107,6 +108,7 @@
     {
       "id": "scroll",
       "titulo": "Kaydırmak seni neden dinlendirmiyor?",
+      "respuesta": "Çünkü katılmadan sosyal medyada gezinmek moralini bozar; açmadan önce ne aradığını sor ve işin bitince kapat.",
       "lineas": [
         {
           "id": "titulo",
@@ -181,6 +183,7 @@
     {
       "id": "maraton",
       "titulo": "Maraton mu, günde bir bölüm mü?",
+      "respuesta": "Günde bir bölüm: maratonda diziden daha az keyif alırsın, aylar sonra daha kötü hatırlarsın ve daha kötü uyursun.",
       "lineas": [
         {
           "id": "titulo",
@@ -253,6 +256,7 @@
     {
       "id": "pausas",
       "titulo": "Aralar ve spoiler'lar neden hiçbir şeyi bozmuyor?",
+      "respuesta": "Çünkü ara, giderek azalan keyfi yeniden başlatır; sonu önceden söylenen öyküler ise daha da çok beğenildi.",
       "lineas": [
         {
           "id": "titulo",
@@ -329,6 +333,7 @@
     {
       "id": "videojuegos",
       "titulo": "Video oyunları sana iyi mi geliyor, kötü mü?",
+      "respuesta": "Neden oynadığına bağlı: yaklaşık 39 bin yetişkinde saatler pek fark etmedi; keyif için oynamak iyiydi, mecburiyetten kötü.",
       "lineas": [
         {
           "id": "titulo",
@@ -400,6 +405,7 @@
     {
       "id": "otros",
       "titulo": "Neden başkalarıyla oynamalı?",
+      "respuesta": "Çünkü birlikte yaşanan daha yoğun hissedilir; kutu ve kart oyunlarını daha çok oynayanlar da daha az hafıza kaybetti.",
       "lineas": [
         {
           "id": "titulo",
@@ -468,6 +474,7 @@
     {
       "id": "leer",
       "titulo": "Peki okumak sayılır mı?",
+      "respuesta": "Evet: kitap okuyanlar ortalama neredeyse iki yıl daha uzun yaşadı; yatmadan önce bir bölüm daha yerine kitabı seç.",
       "lineas": [
         {
           "id": "titulo",
@@ -543,6 +550,7 @@
     {
       "id": "durar",
       "titulo": "Aklında kalmasını nasıl sağlarsın?",
+      "respuesta": "Bir şeyi bitirince yıldızını, sana ne bıraktığını anlatan bir cümleyi ve kiminle izlediğini yaz: sonra okumak sandığından keyifli olacak.",
       "lineas": [
         {
           "id": "titulo",
@@ -621,6 +629,7 @@
     {
       "id": "continuar",
       "titulo": "Nasıl devam etmeli? Devam etmek için planın",
+      "respuesta": "Listeni hazırla, gecede en fazla iki bölüm izle ve haftada bir gece ekran yerine birileriyle kutu oyunu ya da kitap seç.",
       "lineas": [
         {
           "id": "titulo",

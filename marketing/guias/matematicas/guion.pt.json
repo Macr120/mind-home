@@ -12,6 +12,7 @@
     {
       "id": "universo",
       "titulo": "Por que o universo fala em números?",
+      "respuesta": "Porque a matemática descreve como o mundo se move: só com contas, Le Verrier encontrou Netuno sem olhar para o céu.",
       "lineas": [
         {
           "id": "gancho",
@@ -70,6 +71,7 @@
     {
       "id": "origen",
       "titulo": "De onde vieram os números?",
+      "respuesta": "Já nascemos com um senso de quantidade; o que inventamos foi escrevê-lo, das marcas num osso até o zero.",
       "lineas": [
         {
           "id": "titulo",
@@ -121,6 +123,7 @@
     {
       "id": "miedo",
       "titulo": "Por que a matemática dá medo?",
+      "respuesta": "Porque o seu cérebro reage como à dor antes mesmo de começar, mas ser bom de matemática não é um dom: é prática, como um idioma.",
       "lineas": [
         {
           "id": "titulo",
@@ -166,6 +169,7 @@
     {
       "id": "resolver",
       "titulo": "Como resolver qualquer problema?",
+      "respuesta": "Com os quatro passos de Pólya: entenda o problema, crie um plano, execute-o e revise; e estime antes de calcular.",
       "lineas": [
         {
           "id": "titulo",
@@ -217,6 +221,7 @@
     {
       "id": "ver",
       "titulo": "Como ver uma equação?",
+      "respuesta": "Desenhe-a sobre dois eixos, como propôs Descartes: você verá de relance onde ela sobe, onde desce e onde corta o zero.",
       "lineas": [
         {
           "id": "titulo",
@@ -261,6 +266,7 @@
     {
       "id": "vida",
       "titulo": "Como usar os números na sua vida?",
+      "respuesta": "Troque as porcentagens por pessoas: imagine cem e conte quantas estão em cada caso, e o problema fica claro.",
       "lineas": [
         {
           "id": "titulo",
@@ -305,6 +311,7 @@
     {
       "id": "continuar",
       "titulo": "Como seguir? O seu plano para continuar.",
+      "respuesta": "Procure os números do seu dia, estime antes de calcular e resolva um problema curto por dia com os passos de Pólya.",
       "lineas": [
         {
           "id": "titulo",

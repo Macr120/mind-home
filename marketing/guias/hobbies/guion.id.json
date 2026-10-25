@@ -12,6 +12,7 @@
     {
       "id": "porque",
       "titulo": "Kenapa kamu butuh hobi?",
+      "respuesta": "Karena hobi baik untukmu: dari lebih dari 93.000 lansia di 16 negara, yang punya hobi lebih jarang depresi dan lebih bahagia.",
       "lineas": [
         {
           "id": "gancho",
@@ -88,6 +89,7 @@
     {
       "id": "encontrar",
       "titulo": "Bagaimana menemukan hobimu?",
+      "respuesta": "Jangan menunggu passion yang sudah jadi: coba banyak hal, pilih yang bikin penasaran, dan beri waktu untuk tumbuh.",
       "lineas": [
         {
           "id": "titulo",
@@ -163,6 +165,7 @@
     {
       "id": "sirve",
       "titulo": "Kenapa hobi tidak harus berguna?",
+      "respuesta": "Karena tugasnya hanya membuatmu senang: yang menganggap waktu luang terbuang justru kurang menikmatinya dan lebih stres.",
       "lineas": [
         {
           "id": "titulo",
@@ -245,6 +248,7 @@
     {
       "id": "tiempo",
       "titulo": "Dari mana kamu mendapat waktunya?",
+      "respuesta": "Dari waktu singkat di jam tetap: 20 menit, empat hari seminggu, jadi hampir 70 jam setahun.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "proyectos",
       "titulo": "Kenapa yang kamu buat sendiri lebih memikat?",
+      "respuesta": "Karena buatan tanganmu terasa lebih berharga: yang merakit kotak IKEA sendiri menawar lebih tinggi daripada orang lain untuk yang sudah jadi.",
       "lineas": [
         {
           "id": "titulo",
@@ -395,6 +400,7 @@
     {
       "id": "mantener",
       "titulo": "Bagaimana agar tidak berhenti?",
+      "respuesta": "Pasang target mingguan, bukan harian, misalnya empat dari tujuh hari: kalau sehari terlewat, minggumu tetap aman.",
       "lineas": [
         {
           "id": "titulo",
@@ -474,6 +480,7 @@
     {
       "id": "otros",
       "titulo": "Kenapa melakukannya bersama orang lain?",
+      "respuesta": "Karena kelompok memberimu jadwal tetap, teman, dan alasan untuk kembali; di kelas menyanyi, orang jauh lebih cepat akrab.",
       "lineas": [
         {
           "id": "titulo",
@@ -537,6 +544,7 @@
     {
       "id": "continuar",
       "titulo": "Bagaimana melanjutkan? Rencanamu untuk terus maju",
+      "respuesta": "Coba satu hobi 20 menit minggu ini; di bulan pertama, beri target mingguan dan proyek kecil, lalu bagikan dengan seseorang.",
       "lineas": [
         {
           "id": "titulo",

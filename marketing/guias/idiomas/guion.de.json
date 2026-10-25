@@ -25,6 +25,7 @@
     {
       "id": "saber",
       "titulo": "Warum sie lernen und was es heißt, sie zu können",
+      "respuesta": "Weil sie dein Gehirn verändert und dich mit Menschen verbindet; und sie zu können heißt vier Fähigkeiten, von A1 bis C2.",
       "lineas": [
         {
           "id": "gancho",
@@ -142,6 +143,7 @@
     {
       "id": "historia",
       "titulo": "Eine kurze Geschichte des Sprachenlernens",
+      "respuesta": "Von Comenius mit seinen Bildern bis Berlitz mit seinem Unterricht ohne Übersetzen gilt: Lerne mit Bildern und in der Sprache selbst.",
       "lineas": [
         {
           "id": "titulo",
@@ -210,6 +212,7 @@
     {
       "id": "cerebro",
       "titulo": "Wie dein Gehirn lernt und vergisst",
+      "respuesta": "Du lernst, wenn du etwas knapp über deinem Niveau verstehst, und bremst das Vergessen mit verteilten Wiederholungen und Selbsttests.",
       "lineas": [
         {
           "id": "titulo",
@@ -285,6 +288,7 @@
     {
       "id": "palabras",
       "titulo": "Die Wörter, die am meisten bringen",
+      "respuesta": "Die häufigsten: Im Englischen machen die tausend häufigsten rund 8 von 10 Wörtern eines Textes aus; lerne sie in Sätzen.",
       "lineas": [
         {
           "id": "titulo",
@@ -369,6 +373,7 @@
     {
       "id": "hablar",
       "titulo": "Sprich vom ersten Tag an",
+      "respuesta": "Weil du beim Sprechen merkst, was du noch nicht sagen kannst: Mach Shadowing, mach viele Fehler und sprich täglich, in jedem Alter.",
       "lineas": [
         {
           "id": "titulo",
@@ -453,6 +458,7 @@
     {
       "id": "plan",
       "titulo": "Dein Plan für den Anfang",
+      "respuesta": "Setz dir ein Wofür, ein Niveau und ein Datum und gib ihr 20 Minuten am Tag: Das sind über 120 Stunden im Jahr.",
       "lineas": [
         {
           "id": "titulo",

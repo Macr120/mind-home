@@ -12,6 +12,7 @@
     {
       "id": "prevenir",
       "titulo": "Kenapa merawatnya sebelum rusak?",
+      "respuesta": "Karena hampir semuanya memberi tanda sebelum rusak, dan di lebih dari sepertiga kecelakaan akibat kendaraan, bannya yang bermasalah.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "bertha",
       "titulo": "Siapa montir pertama dalam sejarah?",
+      "respuesta": "Bertha Benz: pada 1888 ia melakukan perjalanan mobil jauh pertama, lebih dari 100 km, sambil memperbaikinya sendiri di jalan.",
       "lineas": [
         {
           "id": "titulo",
@@ -182,6 +184,7 @@
     {
       "id": "llantas",
       "titulo": "Kenapa mulai dari ban?",
+      "respuesta": "Karena lebih dari satu dari empat mobil punya ban yang sangat kempis, sehingga pengereman buruk, cepat aus, dan lebih boros bensin.",
       "lineas": [
         {
           "id": "titulo",
@@ -258,6 +261,7 @@
     {
       "id": "aceite",
       "titulo": "Kapan harus ganti oli?",
+      "respuesta": "Saat buku manual mobilmu bilang, bukan tiap 5.000 km karena kebiasaan; dan cek level oli setiap dua minggu.",
       "lineas": [
         {
           "id": "titulo",
@@ -333,6 +337,7 @@
     {
       "id": "manejo",
       "titulo": "Apakah caramu menyetir juga perawatan?",
+      "respuesta": "Ya: gas dan rem mendadak bisa menaikkan konsumsi bensin hingga 40% di kota dan membuat kampas rem serta ban cepat aus.",
       "lineas": [
         {
           "id": "titulo",
@@ -417,6 +422,7 @@
     {
       "id": "bici",
       "titulo": "Bagaimana dengan sepeda?",
+      "respuesta": "Sebelum berangkat, cek angin, rem, dan rantai, lalu beri satu tetes oli per mata rantai: oli berlebih cuma mengumpulkan debu.",
       "lineas": [
         {
           "id": "titulo",
@@ -497,6 +503,7 @@
     {
       "id": "olvido",
       "titulo": "Kenapa kita lupa?",
+      "respuesta": "Karena hari ini tidak terasa sakit, jadi kita menundanya; dengan pengingat sederhana, pasien yang membuat janji naik lebih dari dua kali.",
       "lineas": [
         {
           "id": "titulo",
@@ -575,6 +582,7 @@
     {
       "id": "continuar",
       "titulo": "Bagaimana selanjutnya? Rencanamu untuk melanjutkan",
+      "respuesta": "Minggu ini, cek banmu; bulan ini, baca manual, jadwalkan servis, dan cari bengkel yang kamu percaya.",
       "lineas": [
         {
           "id": "titulo",

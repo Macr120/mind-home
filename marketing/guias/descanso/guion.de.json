@@ -18,6 +18,7 @@
     {
       "id": "cuerpo",
       "titulo": "Was passiert, während du schläfst",
+      "respuesta": "Dein Gehirn durchläuft Zyklen von etwa 90 Minuten: Tiefschlaf repariert den Körper, REM-Schlaf ordnet das Gelernte.",
       "lineas": [
         {
           "id": "gancho",
@@ -91,6 +92,7 @@
     {
       "id": "historia",
       "titulo": "Was die Wissenschaft über den Schlaf herausgefunden hat",
+      "respuesta": "Dass du eine innere Uhr hast: Kleitman bewies es 1938 in einer Höhle, und die Entdeckung ihrer Gene brachte 2017 den Nobelpreis.",
       "lineas": [
         {
           "id": "titulo",
@@ -163,6 +165,7 @@
     {
       "id": "cuanto",
       "titulo": "Wie viel Schlaf du brauchst",
+      "respuesta": "Sieben Stunden oder mehr: Zwei Wochen mit sechs Stunden schaden der Aufmerksamkeit wie bis zu zwei Nächte ohne Schlaf.",
       "lineas": [
         {
           "id": "titulo",
@@ -224,6 +227,7 @@
     {
       "id": "reloj",
       "titulo": "Deine innere Uhr",
+      "respuesta": "Licht stellt sie: Hol dir morgens Sonne, meide abends Bildschirme und schlaf immer zu festen Zeiten.",
       "lineas": [
         {
           "id": "titulo",
@@ -299,6 +303,7 @@
     {
       "id": "noche",
       "titulo": "Wie du dich auf eine gute Nacht vorbereitest",
+      "respuesta": "Kein Koffein sechs Stunden vorher, kein Alkohol, kühl und dunkel schlafen und die letzte Stunde ohne Bildschirm.",
       "lineas": [
         {
           "id": "titulo",
@@ -389,6 +394,7 @@
     {
       "id": "insomnio",
       "titulo": "Wenn du nicht schlafen kannst",
+      "respuesta": "Schläfst du nach 20 Minuten nicht, steh auf und komm müde zurück; hält es Wochen an, hilft zuerst kognitive Verhaltenstherapie.",
       "lineas": [
         {
           "id": "titulo",

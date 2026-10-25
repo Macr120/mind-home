@@ -20,6 +20,7 @@
     {
       "id": "adaptacion",
       "titulo": "Antrenman yaptığında vücudunda neler olur",
+      "respuesta": "Vücuduna kontrollü bir stres verirsin; o da sonra, sen dinlenirken kendini onarıp güçlenir.",
       "lineas": [
         {
           "id": "gancho",
@@ -100,6 +101,7 @@
     {
       "id": "historia",
       "titulo": "Egzersizin kısa tarihi",
+      "respuesta": "Sezgiden bilime: 1953'te Morris, sürekli hareket eden Londra biletçilerinin daha az kalp krizi geçirdiğini gösterdi.",
       "lineas": [
         {
           "id": "titulo",
@@ -183,6 +185,7 @@
     {
       "id": "capacidades",
       "titulo": "Çalıştırman gereken dört yeti",
+      "respuesta": "Dayanıklılık, kuvvet, mobilite ve denge: haftada 150-300 dakika orta yoğunlukta aktivite ve iki gün kuvvet.",
       "lineas": [
         {
           "id": "titulo",
@@ -256,6 +259,7 @@
     {
       "id": "intensidad",
       "titulo": "Yoğunluğunu bir profesyonel gibi ölç",
+      "respuesta": "1-10 efor ölçeği, yedekte kalan tekrar ve nabızla: konuşabiliyor ama şarkı söyleyemiyorsan orta yoğunluktasın.",
       "lineas": [
         {
           "id": "titulo",
@@ -320,6 +324,7 @@
     {
       "id": "progresion",
       "titulo": "Hafta hafta nasıl gelişirsin",
+      "respuesta": "Çift ilerlemeyle: tüm setlerde 12 tekrara ulaşınca ağırlığı artır ve yeniden 8'den başla.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +402,7 @@
     {
       "id": "recuperacion",
       "titulo": "Toparlanma: asıl geliştiğin yer",
+      "respuesta": "Dinlenirken gelişirsin: yedi saat ya da daha fazla uyu, günde kilo başına 1,2-2 gram proteini öğünlere yay.",
       "lineas": [
         {
           "id": "titulo",

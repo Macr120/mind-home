@@ -12,6 +12,7 @@
     {
       "id": "universo",
       "titulo": "Perché l'universo parla in numeri?",
+      "respuesta": "Perché la matematica descrive come si muove il mondo: solo con i conti, Le Verrier trovò Nettuno senza guardare il cielo.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "origen",
       "titulo": "Da dove vengono i numeri?",
+      "respuesta": "Nasciamo con un senso della quantità; quello che abbiamo inventato è scriverlo, dalle tacche su un osso fino allo zero.",
       "lineas": [
         {
           "id": "titulo",
@@ -195,6 +197,7 @@
     {
       "id": "miedo",
       "titulo": "Perché la matematica fa paura?",
+      "respuesta": "Perché il cervello reagisce come al dolore ancora prima di iniziare, ma essere portati per la matematica non è un dono: è pratica.",
       "lineas": [
         {
           "id": "titulo",
@@ -272,6 +275,7 @@
     {
       "id": "resolver",
       "titulo": "Come risolvere qualsiasi problema?",
+      "respuesta": "Con i quattro passi di Pólya: capire il problema, ideare un piano, metterlo in atto e verificare; e stima prima di calcolare.",
       "lineas": [
         {
           "id": "titulo",
@@ -357,6 +361,7 @@
     {
       "id": "ver",
       "titulo": "Come vedere un'equazione?",
+      "respuesta": "Disegnala su due assi, come propose Cartesio: vedrai a colpo d’occhio dove sale, dove scende e dove taglia lo zero.",
       "lineas": [
         {
           "id": "titulo",
@@ -433,6 +438,7 @@
     {
       "id": "vida",
       "titulo": "Come usare i numeri nella tua vita?",
+      "respuesta": "Sostituisci le percentuali con le persone: immaginane cento e conta quante sono in ciascun caso, e il problema si chiarisce.",
       "lineas": [
         {
           "id": "titulo",
@@ -509,6 +515,7 @@
     {
       "id": "continuar",
       "titulo": "Come andare avanti? Il tuo piano per continuare",
+      "respuesta": "Cerca i numeri della tua giornata, stima prima di calcolare e risolvi ogni giorno un problema breve con i passi di Pólya.",
       "lineas": [
         {
           "id": "titulo",

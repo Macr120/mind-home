@@ -12,6 +12,7 @@
     {
       "id": "querer",
       "titulo": "Dlaczego samo chcenie nie wystarcza?",
+      "respuesta": "Bo prawie połowa tych, którzy coś zamierzają, w końcu tego nie robi: zaprojektuj cel tak, by nie zależał od zapału.",
       "lineas": [
         {
           "id": "gancho",
@@ -124,6 +125,7 @@
     {
       "id": "buena",
       "titulo": "Co sprawia, że cel jest dobry?",
+      "respuesta": "Jest konkretny, trochę trudny, pozytywny i ma ważne dla ciebie „dlaczego”: to wygrywa z „zrobię, co w mojej mocy”.",
       "lineas": [
         {
           "id": "titulo",
@@ -200,6 +202,7 @@
     {
       "id": "pasos",
       "titulo": "Jak zamienić cel w kroki?",
+      "respuesta": "Ustal kiedy i gdzie zdaniem „jeśli…, to…”: z nim ćwiczyło 91% osób zamiast 35%.",
       "lineas": [
         {
           "id": "titulo",
@@ -267,6 +270,7 @@
     {
       "id": "ganas",
       "titulo": "Dlaczego mija zapał?",
+      "respuesta": "Bo rośnie, gdy widzisz cel blisko: małe postępy każdego dnia są jego paliwem.",
       "lineas": [
         {
           "id": "titulo",
@@ -348,6 +352,7 @@
     {
       "id": "casa",
       "titulo": "Dlaczego warto mieć wszystko w mentalnym domu?",
+      "respuesta": "Bo mózg świetnie zapamiętuje miejsca, a gdy każdy cel ma swoje miejsce, przestaje wkradać się do twojej głowy.",
       "lineas": [
         {
           "id": "titulo",
@@ -434,6 +439,7 @@
     {
       "id": "medir",
       "titulo": "Jak sprawdzić, czy robisz postępy?",
+      "respuesta": "Często sprawdzaj postępy i je zapisuj: w 138 eksperymentach ci, którzy to robili, byli bliżej celu.",
       "lineas": [
         {
           "id": "titulo",
@@ -509,6 +515,7 @@
     {
       "id": "fallar",
       "titulo": "Co robić, gdy ci nie wyjdzie?",
+      "respuesta": "Wróć następnego dnia: możesz odpuścić raz, ale nie dwa razy z rzędu, a jeden stracony dzień nie kasuje postępów.",
       "lineas": [
         {
           "id": "titulo",
@@ -598,6 +605,7 @@
     {
       "id": "continuar",
       "titulo": "Jak iść dalej? Twój plan na ciąg dalszy",
+      "respuesta": "Wybierz jeden cel z jego „jeśli…, to…”, zacznij od dwóch minut, co niedzielę sprawdzaj serię i po potknięciu wracaj.",
       "lineas": [
         {
           "id": "titulo",

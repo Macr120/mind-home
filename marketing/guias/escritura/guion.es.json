@@ -12,6 +12,7 @@
     {
       "id": "miedo",
       "titulo": "¿Por qué escribir te quita el miedo?",
+      "respuesta": "Porque sacas la preocupación de tu cabeza al papel: escribir diez minutos antes de un examen mejora tu resultado.",
       "lineas": [
         {
           "id": "gancho",
@@ -107,6 +108,7 @@
     {
       "id": "blanco",
       "titulo": "¿Por qué la hoja en blanco da tanto miedo?",
+      "respuesta": "Porque quieres que salga perfecto a la primera: escribe diez minutos sin parar ni borrar, y corrige después.",
       "lineas": [
         {
           "id": "titulo",
@@ -198,6 +200,7 @@
     {
       "id": "orden",
       "titulo": "¿Por qué escribir te ordena la cabeza?",
+      "respuesta": "Porque las ideas sueltas tienen que hacer fila: lo que en tu cabeza era un nudo, en el papel se vuelve una lista.",
       "lineas": [
         {
           "id": "titulo",
@@ -273,6 +276,7 @@
     {
       "id": "bitacora",
       "titulo": "¿Por qué la humanidad escribe desde hace cinco mil años?",
+      "respuesta": "Porque escribir es la forma de no olvidar: nació para contar cebada y ovejas, y hoy viejas bitácoras ayudan a estudiar el clima.",
       "lineas": [
         {
           "id": "titulo",
@@ -349,6 +353,7 @@
     {
       "id": "historias",
       "titulo": "¿Por qué una historia se te queda grabada?",
+      "respuesta": "Porque une lo que quieres recordar: quienes inventaron una historia con diez palabras recordaron unas siete veces más.",
       "lineas": [
         {
           "id": "titulo",
@@ -416,6 +421,7 @@
     {
       "id": "trama",
       "titulo": "¿Cómo se arma una buena historia?",
+      "respuesta": "Con alguien que quiere algo, algo que se lo impide y un final en el que cambia; y muestra, no cuentes.",
       "lineas": [
         {
           "id": "titulo",
@@ -493,6 +499,7 @@
     {
       "id": "diario",
       "titulo": "¿Cómo escribir mejor cada día?",
+      "respuesta": "Con una cita diaria con la hoja en vez de esperar la inspiración, y corrigiendo en voz alta: lo bueno sale al corregir.",
       "lineas": [
         {
           "id": "titulo",
@@ -569,6 +576,7 @@
     {
       "id": "continuar",
       "titulo": "¿Cómo seguir? Tu plan para continuar",
+      "respuesta": "Empieza con diez minutos de escritura libre al día y, en tu primer mes, termina un proyecto pequeño corrigiéndolo en voz alta.",
       "lineas": [
         {
           "id": "titulo",

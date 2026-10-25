@@ -12,6 +12,7 @@
     {
       "id": "cantidad",
       "titulo": "Da dove vengono le buone idee?",
+      "respuesta": "Dall'averne tante: i geni non ci azzeccavano più degli altri, producevano più idee, quindi annotale tutte.",
       "lineas": [
         {
           "id": "gancho",
@@ -107,6 +108,7 @@
     {
       "id": "postit",
       "titulo": "Quale idea è nata da una colla che non incollava?",
+      "respuesta": "I foglietti Post-it: una colla «fallita» del 1968 diventò un successo nel 1980 perché qualcuno se ne ricordò.",
       "lineas": [
         {
           "id": "titulo",
@@ -183,6 +185,7 @@
     {
       "id": "ducha",
       "titulo": "Perché le idee arrivano sotto la doccia?",
+      "respuesta": "Perché quando lasci andare il problema con qualcosa di semplice, la mente continua a lavorarci sotto finché l'idea arriva.",
       "lineas": [
         {
           "id": "titulo",
@@ -262,6 +265,7 @@
     {
       "id": "caminar",
       "titulo": "Camminare ti rende più creativo?",
+      "respuesta": "Sì: camminando ti vengono in media il 60% di idee in più, e l'effetto dura un po' anche dopo che ti siedi.",
       "lineas": [
         {
           "id": "titulo",
@@ -340,6 +344,7 @@
     {
       "id": "lluvia",
       "titulo": "Brainstorming in gruppo o da soli?",
+      "respuesta": "Prima da soli: le stesse persone, ognuna per conto suo, tirano fuori quasi il doppio delle idee che in gruppo.",
       "lineas": [
         {
           "id": "titulo",
@@ -425,6 +430,7 @@
     {
       "id": "limites",
       "titulo": "Perché i limiti ti rendono più creativo?",
+      "respuesta": "Perché ti obbligano a cercare strade nuove: con solo 50 parole, il Dr. Seuss scrisse Prosciutto e uova verdi.",
       "lineas": [
         {
           "id": "titulo",
@@ -505,6 +511,7 @@
     {
       "id": "decidir",
       "titulo": "Come scegliere tra le tue idee?",
+      "respuesta": "Con una bilancia, come Benjamin Franklin: ragioni pro e contro, ognuna col suo peso, e vince il lato che pesa di più.",
       "lineas": [
         {
           "id": "titulo",
@@ -580,6 +587,7 @@
     {
       "id": "continuar",
       "titulo": "Come andare avanti? Il tuo piano per continuare",
+      "respuesta": "Annota ogni idea, fai un brainstorming da solo ogni settimana, cammina quando ti blocchi e decidi con una bilancia.",
       "lineas": [
         {
           "id": "titulo",

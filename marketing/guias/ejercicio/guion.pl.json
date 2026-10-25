@@ -20,6 +20,7 @@
     {
       "id": "adaptacion",
       "titulo": "Co dzieje się w twoim ciele, kiedy trenujesz",
+      "respuesta": "Dajesz ciału kontrolowany stres, a ono staje się silniejsze potem, gdy odpoczywasz, a ono się regeneruje.",
       "lineas": [
         {
           "id": "gancho",
@@ -100,6 +101,7 @@
     {
       "id": "historia",
       "titulo": "Krótka historia ćwiczeń",
+      "respuesta": "Od intuicji do nauki: w 1953 roku Morris wykazał, że londyńscy konduktorzy, ciągle w ruchu, mieli mniej zawałów.",
       "lineas": [
         {
           "id": "titulo",
@@ -183,6 +185,7 @@
     {
       "id": "capacidades",
       "titulo": "Cztery zdolności, które warto trenować",
+      "respuesta": "Wytrzymałość, siła, mobilność i równowaga: 150–300 minut umiarkowanej aktywności tygodniowo i siła dwa dni.",
       "lineas": [
         {
           "id": "titulo",
@@ -256,6 +259,7 @@
     {
       "id": "intensidad",
       "titulo": "Mierz intensywność jak profesjonalista",
+      "respuesta": "Skalą od 1 do 10, powtórzeniami w zapasie i tętnem: jeśli możesz rozmawiać, ale nie śpiewać, to wysiłek umiarkowany.",
       "lineas": [
         {
           "id": "titulo",
@@ -320,6 +324,7 @@
     {
       "id": "progresion",
       "titulo": "Jak robić postępy tydzień po tygodniu",
+      "respuesta": "Podwójną progresją: gdy zrobisz 12 powtórzeń w każdej serii, zwiększ ciężar i zacznij znów od 8.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +402,7 @@
     {
       "id": "recuperacion",
       "titulo": "Regeneracja: tu naprawdę robisz postępy",
+      "respuesta": "Poprawiasz się, odpoczywając: śpij siedem godzin lub dłużej i rozkładaj 1,2–2 g białka na kilogram dziennie.",
       "lineas": [
         {
           "id": "titulo",

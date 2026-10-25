@@ -7186,6 +7186,7 @@ export const KO: Dict = {
   'guia.entretenimiento.titulo': "어떻게 하면 더 잘 즐길 수 있을까요?",
   'guia.garage.titulo': "내 차량은 어떻게 관리할까요?",
   'guia.ideas.titulo': "더 좋은 아이디어를 얻으려면?",
+  'guia.viajes.titulo': "어떻게 하면 더 잘 여행할 수 있을까요?",
   'guia.noticias.titulo': "진실과 아름다움을 찾아서: 저널리즘과 콘텐츠",
   'guia.matematicas.titulo': "우주의 언어는 무엇일까요?",
   'tut.esencial.titulo': '기본 둘러보기',

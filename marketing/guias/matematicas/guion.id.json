@@ -12,6 +12,7 @@
     {
       "id": "universo",
       "titulo": "Mengapa alam semesta berbicara dengan angka?",
+      "respuesta": "Karena matematika menggambarkan cara dunia bergerak: hanya dengan hitungan, Le Verrier menemukan Neptunus tanpa melihat langit.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "origen",
       "titulo": "Dari mana angka berasal?",
+      "respuesta": "Kita lahir dengan rasa akan jumlah; yang kita ciptakan adalah cara menuliskannya, dari torehan di tulang sampai angka nol.",
       "lineas": [
         {
           "id": "titulo",
@@ -195,6 +197,7 @@
     {
       "id": "miedo",
       "titulo": "Mengapa matematika menakutkan?",
+      "respuesta": "Karena otakmu bereaksi seperti merasakan sakit bahkan sebelum mulai, tapi jago matematika bukan bakat: itu latihan, seperti bahasa.",
       "lineas": [
         {
           "id": "titulo",
@@ -272,6 +275,7 @@
     {
       "id": "resolver",
       "titulo": "Bagaimana memecahkan masalah apa pun?",
+      "respuesta": "Dengan empat langkah Pólya: pahami masalah, susun rencana, jalankan, lalu periksa; dan perkirakan sebelum menghitung.",
       "lineas": [
         {
           "id": "titulo",
@@ -357,6 +361,7 @@
     {
       "id": "ver",
       "titulo": "Bagaimana melihat sebuah persamaan?",
+      "respuesta": "Gambarlah di dua sumbu, seperti usul Descartes: sekilas kamu akan melihat di mana ia naik, di mana turun, dan di mana memotong nol.",
       "lineas": [
         {
           "id": "titulo",
@@ -433,6 +438,7 @@
     {
       "id": "vida",
       "titulo": "Bagaimana memakai angka dalam hidupmu?",
+      "respuesta": "Ganti persen dengan orang: bayangkan seratus orang dan hitung berapa yang ada di setiap kasus, maka masalahnya jadi jelas.",
       "lineas": [
         {
           "id": "titulo",
@@ -509,6 +515,7 @@
     {
       "id": "continuar",
       "titulo": "Bagaimana melanjutkan? Rencanamu untuk terus maju.",
+      "respuesta": "Cari angka-angka dalam harimu, perkirakan sebelum menghitung, dan pecahkan satu soal pendek setiap hari dengan langkah Pólya.",
       "lineas": [
         {
           "id": "titulo",

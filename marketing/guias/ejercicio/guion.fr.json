@@ -20,6 +20,7 @@
     {
       "id": "adaptacion",
       "titulo": "Ce qui se passe dans ton corps quand tu t'entraînes",
+      "respuesta": "Tu appliques un stress contrôlé, et ton corps devient plus fort après, pendant que tu te reposes et qu'il se répare.",
       "lineas": [
         {
           "id": "gancho",
@@ -100,6 +101,7 @@
     {
       "id": "historia",
       "titulo": "Une brève histoire de l'exercice",
+      "respuesta": "En 1953, Morris a montré que les receveurs des bus de Londres, toujours en mouvement, faisaient moins d'infarctus.",
       "lineas": [
         {
           "id": "titulo",
@@ -183,6 +185,7 @@
     {
       "id": "capacidades",
       "titulo": "Les quatre capacités à entraîner",
+      "respuesta": "Endurance, force, mobilité et équilibre : 150 à 300 minutes d'activité modérée par semaine, et de la force deux jours.",
       "lineas": [
         {
           "id": "titulo",
@@ -256,6 +259,7 @@
     {
       "id": "intensidad",
       "titulo": "Mesure ton intensité comme un pro",
+      "respuesta": "Avec l'échelle de 1 à 10, les répétitions en réserve et le pouls : si tu peux parler mais pas chanter, c'est modéré.",
       "lineas": [
         {
           "id": "titulo",
@@ -320,6 +324,7 @@
     {
       "id": "progresion",
       "titulo": "Comment progresser semaine après semaine",
+      "respuesta": "Avec la double progression : quand tu fais 12 répétitions sur toutes les séries, augmente la charge et repars à 8.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +402,7 @@
     {
       "id": "recuperacion",
       "titulo": "La récupération : là où tu progresses vraiment",
+      "respuesta": "Tu progresses en te reposant : dors sept heures ou plus et répartis 1,2 à 2 grammes de protéines par kilo et par jour.",
       "lineas": [
         {
           "id": "titulo",

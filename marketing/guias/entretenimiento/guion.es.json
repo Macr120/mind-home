@@ -12,6 +12,7 @@
     {
       "id": "elegir",
       "titulo": "¿Por qué tardas tanto en elegir?",
+      "respuesta": "Porque ya tardamos 10 minutos y medio en elegir: ten una lista de pendientes y, si en cinco no decides, pon el primero.",
       "lineas": [
         {
           "id": "gancho",
@@ -107,6 +108,7 @@
     {
       "id": "scroll",
       "titulo": "¿Por qué el scroll no te descansa?",
+      "respuesta": "Porque mirar redes sin participar empeora tu ánimo; antes de abrirlas, pregúntate qué buscas y ciérralas al terminar.",
       "lineas": [
         {
           "id": "titulo",
@@ -181,6 +183,7 @@
     {
       "id": "maraton",
       "titulo": "¿Maratón o un capítulo al día?",
+      "respuesta": "Un capítulo al día: en maratón la disfrutas menos, la recuerdas peor meses después y además duermes peor.",
       "lineas": [
         {
           "id": "titulo",
@@ -253,6 +256,7 @@
     {
       "id": "pausas",
       "titulo": "¿Por qué las pausas y los spoilers no arruinan nada?",
+      "respuesta": "Porque la pausa reinicia el gusto que se va gastando, y los cuentos con el final ya contado gustaron incluso más.",
       "lineas": [
         {
           "id": "titulo",
@@ -329,6 +333,7 @@
     {
       "id": "videojuegos",
       "titulo": "¿Los videojuegos te hacen bien o mal?",
+      "respuesta": "Depende del porqué: en casi 39 000 adultos, las horas apenas importaron; jugar por gusto sumaba, y por obligación, restaba.",
       "lineas": [
         {
           "id": "titulo",
@@ -400,6 +405,7 @@
     {
       "id": "otros",
       "titulo": "¿Por qué jugar con otros?",
+      "respuesta": "Porque lo vivido en compañía se siente más, y quienes jugaban más a juegos de mesa y cartas perdieron menos memoria.",
       "lineas": [
         {
           "id": "titulo",
@@ -468,6 +474,7 @@
     {
       "id": "leer",
       "titulo": "¿Y leer, cuenta?",
+      "respuesta": "Sí: quienes leían libros vivieron en promedio casi dos años más; prueba el libro antes de dormir en lugar de otro capítulo.",
       "lineas": [
         {
           "id": "titulo",
@@ -543,6 +550,7 @@
     {
       "id": "durar",
       "titulo": "¿Cómo hacer que te dure?",
+      "respuesta": "Al terminar algo, anota tus estrellas, una frase de lo que te dejó y con quién lo viste: releerlo te gustará más de lo que crees.",
       "lineas": [
         {
           "id": "titulo",
@@ -621,6 +629,7 @@
     {
       "id": "continuar",
       "titulo": "¿Cómo seguir? Tu plan para continuar",
+      "respuesta": "Arma tu lista de pendientes, máximo dos capítulos por noche y, una noche a la semana, un juego de mesa o un libro con alguien.",
       "lineas": [
         {
           "id": "titulo",

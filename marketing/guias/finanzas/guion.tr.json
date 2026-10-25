@@ -23,6 +23,7 @@
     {
       "id": "dinero",
       "titulo": "Para ne işe yarar",
+      "respuesta": "Değiş tokuş etmeye, değeri ölçmeye ve saklamaya yarar; ama önemli olan ne kadar kazandığın değil, gelenden gidenin farkıdır.",
       "lineas": [
         {
           "id": "gancho",
@@ -109,6 +110,7 @@
     {
       "id": "historia",
       "titulo": "Paranın kısa tarihi",
+      "respuesta": "Lidya’nın ilk sikkelerinden 1024’teki Çin kâğıt parasına; 1971’den beri para değerini altından değil, güvenden alıyor.",
       "lineas": [
         {
           "id": "titulo",
@@ -189,6 +191,7 @@
     {
       "id": "presupuesto",
       "titulo": "Paran nereye gidiyor",
+      "respuesta": "Bir ay boyunca her harcamanı not et, gelirini 50/30/20 kuralıyla böl ve maaş günü önce kendine öde.",
       "lineas": [
         {
           "id": "titulo",
@@ -259,6 +262,7 @@
     {
       "id": "deudas",
       "titulo": "Birikim yastığın ve borçların",
+      "respuesta": "Üç ila altı aylık temel giderin kadar birikim yastığı oluştur ve sadece asgariyi ödemeden önce pahalı borçlardan kurtul.",
       "lineas": [
         {
           "id": "titulo",
@@ -348,6 +352,7 @@
     {
       "id": "invertir",
       "titulo": "Paranı çalıştır",
+      "respuesta": "Erken başla, çünkü zaman miktardan daha değerlidir: yıllık %6 ile paran yaklaşık 12 yılda ikiye katlanır.",
       "lineas": [
         {
           "id": "titulo",
@@ -440,6 +445,7 @@
     {
       "id": "plan",
       "titulo": "Başlamak için planın",
+      "respuesta": "Hedefine tutar ve tarih koy, birikimini maaş gününe otomatikleştir ve ayda on dakika ne kadar ilerlediğine bak.",
       "lineas": [
         {
           "id": "titulo",

@@ -18,6 +18,7 @@
     {
       "id": "cuerpo",
       "titulo": "O que a comida faz no seu corpo",
+      "respuesta": "É combustível para respirar, pensar e se mexer, e o material com que você repara músculo, osso, pele e sangue.",
       "lineas": [
         {
           "id": "gancho",
@@ -97,6 +98,7 @@
     {
       "id": "historia",
       "titulo": "Uma breve história do que comemos",
+      "respuesta": "Do fogo ao rótulo: as laranjas de Lind curaram o escorbuto e Atwater mediu as calorias que ainda lemos hoje.",
       "lineas": [
         {
           "id": "titulo",
@@ -185,6 +187,7 @@
     {
       "id": "energia",
       "titulo": "Quanta energia você precisa",
+      "respuesta": "Cerca de dois terços do seu gasto servem só para te manter vivo; para emagrecer, coma uns 15% a menos do que gasta.",
       "lineas": [
         {
           "id": "titulo",
@@ -252,6 +255,7 @@
     {
       "id": "calidad",
       "titulo": "A qualidade do que você come",
+      "respuesta": "Prefira comida fresca: com ultraprocessados, as pessoas comeram umas 500 calorias a mais por dia sem perceber.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "plato",
       "titulo": "Como montar o seu prato e a sua semana",
+      "respuesta": "Encha metade do prato com verduras e frutas, um quarto com integrais e outro com proteína, e planeje o cardápio da semana.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +402,7 @@
     {
       "id": "habitos",
       "titulo": "Água, fome e constância",
+      "respuesta": "Beba uns dois litros de água por dia, coma devagar e sem telas, e anote o que come por alguns dias para ver padrões.",
       "lineas": [
         {
           "id": "titulo",

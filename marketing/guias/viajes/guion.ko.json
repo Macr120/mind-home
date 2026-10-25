@@ -1,0 +1,823 @@
+{
+  "idioma": "ko",
+  "tema": "viajes",
+  "plantillaId": "sala",
+  "numero": 20,
+  "nombre": "여행",
+  "pregunta": "어떻게 하면 더 잘 여행할 수 있을까요?",
+  "corta": "더 잘 여행하려면?",
+  "subtitulo": "여행의 가장 좋은 순간이 떠나기 전에 오는 이유, 단체 여행의 탄생, 여행은 언제 진짜로 시작되는지, 좋은 일정을 짜는 법, 여행은 얼마나 길어야 하는지, 여행을 망치지 않고 돈 쓰는 법, 사진이 기억에 도움이 되는지, 여행이 사람을 바꾸는지, 그리고 이어 가기 위한 계획.",
+  "aviso": "이 가이드는 일반적인 정보를 담고 있어요. 인용한 연구들은 특정한 사람들의 행복과 기억을 측정한 것이라, 결과는 사람마다 다를 수 있어요.",
+  "partes": [
+    {
+      "id": "feliz",
+      "titulo": "여행은 왜 우리를 행복하게 할까요?",
+      "respuesta": "무엇보다 기다림 덕분이에요. 떠나기 전이 가장 행복하고, 경험은 물건보다 큰 기쁨을 줘요.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "어떻게 하면 더 잘 여행할 수 있을까요? 여행에서 가장 행복한 순간은 대개 떠나기 전에 찾아와요. 그리고 돌아오면, 그 기쁨은 며칠 만에 사라져 버려요. 그 기쁨을 처음부터 끝까지 늘릴 수 있다면요? 오늘은 데이터로 확인하고, 이어 가기 위한 계획까지 챙겨 가게 될 거예요."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "그런데 여기는 MindHaOS에 있는 제 집이에요. 오늘은 이륙해요. 네, 비행기예요. 저는 기내의 여행하는 곰 인형이고, 여기가 제 여행 방이에요. 다녀온 곳도, 아직 못 가 본 곳도, 전부 이 지도에 있어요."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "1부. 여행은 왜 우리를 행복하게 할까요?"
+        },
+        {
+          "id": "nawijn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "anticipacion"
+          },
+          "lamina": [
+            "maleta",
+            "aeropuerto"
+          ],
+          "destacada": true,
+          "texto": "2010년, 예룬 나와인이 이끄는 네덜란드 연구팀이 천오백삼십 명의 행복을 측정했어요. 휴가를 앞둔 사람들은 다른 사람들보다 더 행복했어요… 그런데 그건 여행 전 이야기였고, 여행 후에는 아니었어요."
+        },
+        {
+          "id": "regreso",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antes",
+              "durante",
+              "despues"
+            ]
+          },
+          "lamina": [
+            "regreso",
+            "oficina"
+          ],
+          "texto": "돌아오자 거의 모든 사람이 여행을 안 간 사람들과 똑같아졌어요. 아주 푹 쉬고 돌아온 사람들만 조금 더 오래갔죠. 여행은 집에 도착해서 끝나는 게 아니라, 서서히 꺼져 가는 거예요."
+        },
+        {
+          "id": "gilovich",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "gilovich"
+          },
+          "lamina": [
+            "amigosViaje",
+            "compras"
+          ],
+          "meme": "maleta",
+          "texto": "그래도 여행은 그만한 가치가 있어요. 2003년, 리프 반 보벤과 토머스 길로비치는 물건보다 경험에 돈을 쓸 때 더 행복해진다는 걸 발견했어요. 물건은 낡아 가지만, 경험은 내 이야기의 일부가 되거든요."
+        },
+        {
+          "id": "mapa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pinApp",
+              "visitadosApp",
+              "porConocerApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "그래서 제 세계 지도에는 가 본 곳마다 핀이 하나씩 있고, 아직 못 가 본 곳은 다른 색으로 표시돼 있어요."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "우리는 언제부터 즐기려고 여행했을까요?",
+      "respuesta": "18세기 부유한 젊은이들의 그랜드 투어부터요. 대부분의 사람에겐 1841년 토머스 쿡의 단체 여행부터예요.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "2부. 우리는 언제부터 즐기려고 여행했을까요?"
+        },
+        {
+          "id": "grandTour",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1700",
+            "clave": "grandTour"
+          },
+          "lamina": [
+            "grandTour",
+            "roma"
+          ],
+          "destacada": true,
+          "texto": "18세기 영국의 부유한 젊은이들은 그랜드 투어를 떠났어요. 몇 달, 때로는 몇 년 동안 프랑스와 이탈리아를 돌며 예술과 고대 유적을 보는 여행이었죠. 즐기려고 떠나는 여행은 아주 소수만의 일이었어요."
+        },
+        {
+          "id": "cook",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1841",
+            "clave": "cook"
+          },
+          "lamina": [
+            "cook",
+            "trenVapor"
+          ],
+          "texto": "그러다 1841년, 영국의 가구 장인 토머스 쿡이 약 오백 명을 위한 기차 여행을 기획했어요. 레스터에서 러프버러까지, 한 사람에 1실링이었죠. 단체 여행이 태어난 순간이에요."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tren",
+              "avion",
+              "telefono"
+            ]
+          },
+          "lamina": [
+            "avion",
+            "celularMapa"
+          ],
+          "texto": "그 뒤로 비행기와 포켓 가이드북이 나왔고, 이제는 휴대폰이 있어요. 오늘날엔 누구나 소파에 앉아 여행을 계획하죠. 어려운 건 도착하는 게 아니라, 여행을 잘하는 거예요."
+        },
+        {
+          "id": "rutas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rutaApp",
+              "ordenApp",
+              "distanciaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "제 경로에서는 장소를 순서대로 넣으면 지도 위에 이어져 보이고, 몇 킬로미터를 가게 될지도 앱이 알려 줘요."
+        }
+      ]
+    },
+    {
+      "id": "espera",
+      "titulo": "여행은 언제 시작될까요?",
+      "respuesta": "떠나기로 마음먹은 날이요. 떠나기 전의 설렘과 다녀온 뒤의 기억은 여행 자체보다 좋을 때가 많아요.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "3부. 여행은 언제 시작될까요?"
+        },
+        {
+          "id": "mitchell",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rosa"
+          },
+          "lamina": [
+            "bicicleta",
+            "europa"
+          ],
+          "destacada": true,
+          "texto": "1997년, 테런스 미첼과 연구팀은 유럽 여행, 캘리포니아 자전거 여행, 추수감사절 휴가를 떠나는 사람들을 따라가 봤어요. 여행 전과 후에는, 여행하는 동안보다 더 좋게 평가했어요."
+        },
+        {
+          "id": "rosa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ilusion",
+              "molestias",
+              "recuerdo"
+            ]
+          },
+          "lamina": [
+            "lluviaViaje",
+            "fila"
+          ],
+          "meme": "expectativa",
+          "texto": "여행하는 동안에는 비, 긴 줄, 피로가 크게 느껴져요. 하지만 떠나기 전의 설렘과 다녀온 뒤의 기억 속에서는 그런 불편이 거의 사라져요. 연구자들은 이걸 장밋빛 시각이라고 불렀어요."
+        },
+        {
+          "id": "saborear",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cuentaRegresiva"
+          },
+          "lamina": [
+            "planeando",
+            "guiaViaje"
+          ],
+          "texto": "그러니까 여행은 떠나기로 마음먹은 날 시작돼요. 미리 계획하고, 날짜를 정하고, 기다림을 즐기세요. 그곳에 대해 읽고, 사진을 보고, 간단한 말 몇 마디를 배워 보세요. 설레는 날을 며칠이나 선물받는지 확인해 보세요."
+        },
+        {
+          "id": "itinerario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diaApp",
+              "hospedajeApp",
+              "calendarioApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "제 일본 여행은 하루하루 계획으로 짜 두었어요. 어디서 출발해서 어디로 가는지, 어디서 자고 무엇을 하는지요. 그리고 날짜마다 제 캘린더에 저절로 나타나요."
+        }
+      ]
+    },
+    {
+      "id": "itinerario",
+      "titulo": "좋은 일정은 어떻게 짤까요?",
+      "respuesta": "가장 좋은 건 마지막에, 그리고 빈틈을 남기세요. 여행은 최고의 순간과 끝으로 기억되니까요.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "4부. 좋은 일정은 어떻게 짤까요?"
+        },
+        {
+          "id": "kahneman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "picoFinal"
+          },
+          "lamina": [
+            "aguaFria",
+            "hielo"
+          ],
+          "destacada": true,
+          "texto": "1993년, 대니얼 카너먼과 연구팀은 사람들에게 얼음처럼 차가운 물에 손을 넣게 했어요. 한쪽 실험은 더 길었지만 끝이 조금 덜 차가웠고, 거의 모두가 다시 한다면 그쪽을 골랐어요. 우리는 전체가 아니라, 가장 강렬한 순간과 끝을 기억해요."
+        },
+        {
+          "id": "pico",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pico",
+              "final",
+              "duracion"
+            ]
+          },
+          "lamina": [
+            "atardecer",
+            "aeropuertoPrisa"
+          ],
+          "texto": "여행도 똑같아요. 가져오는 건 최고의 순간과 어떻게 끝났는지예요. 마지막 날 공항으로 뛰어가면, 그 기억 전체가 그 색으로 물들 수 있어요."
+        },
+        {
+          "id": "huecos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "finalViaje"
+          },
+          "lamina": [
+            "cafeCalle",
+            "mapaPapel"
+          ],
+          "meme": "itinerario",
+          "texto": "그러니 특별한 건 마지막을 위해 아껴 두고, 뜻밖의 일을 위해 계획 없는 빈틈을 남기고, 하루에 박물관 다섯 곳을 몰아넣지 마세요. 좋은 곳 하나가 더 값져요. 여기서 여행 순서를 정하고, 어떻게 기억될지 보세요."
+        },
+        {
+          "id": "guardados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "actividadesApp",
+              "guardarApp",
+              "compartirApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "계획의 하루하루에 활동과 교통편을 적어요. 그리고 마음에 들게 짜이면, 저장해서 함께 여행하는 사람과 공유해요."
+        }
+      ]
+    },
+    {
+      "id": "duracion",
+      "titulo": "여행은 얼마나 길어야 할까요?",
+      "respuesta": "길 필요 없어요. 기분은 8일째쯤 최고였다가 일주일 만에 사라지니, 더 자주 떠나세요.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "5부. 여행은 얼마나 길어야 할까요?"
+        },
+        {
+          "id": "bloom",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "dia8"
+          },
+          "lamina": [
+            "playa",
+            "hamaca"
+          ],
+          "destacada": true,
+          "texto": "2013년, 제시카 더 블롬은 휴가 중인 직장인들의 건강과 기분을 하루하루 따라가 봤어요. 금방 좋아져서 8일째쯤 최고에 이르렀고… 복귀한 첫 주에 이미 사라져 있었어요."
+        },
+        {
+          "id": "seguido",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "corto",
+              "seguido",
+              "ilusionNueva"
+            ]
+          },
+          "lamina": [
+            "escapada",
+            "carretera"
+          ],
+          "texto": "교훈은 여행을 줄이라는 게 아니라, 더 자주 가라는 거예요. 1년에 몇 번 짧게 떠나면, 큰 여행 한 번보다 설레는 시간도, 푹 쉬고 돌아오는 날도 더 많아져요."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoViajes"
+          },
+          "lamina": "pulgar",
+          "texto": "이 가이드가 마음에 든다면 좋아요를 누르고, 다음 편을 놓치지 않게 구독하고, 늘 \"우리 꼭 가자\"라고 말하는 그 사람에게 공유해 주세요."
+        },
+        {
+          "id": "volver",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "colchon",
+              "vueltaSuave",
+              "siguiente"
+            ]
+          },
+          "lamina": [
+            "maletaCasa",
+            "calendarioPared"
+          ],
+          "texto": "그리고 돌아오면, 출근 전에 하루쯤 여유를 두고 다음 여행을 계획하세요. 그러면 설렘이 다시 시작돼요."
+        },
+        {
+          "id": "porConocer",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pinPendiente",
+              "fechaApp",
+              "yaFuiApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "제 지도에서 가보고 싶은 곳에는 각각 날짜가 붙어 있어요. 그리고 드디어 가게 되면, 한 번만 누르면 다녀온 곳으로 바뀌어요."
+        }
+      ]
+    },
+    {
+      "id": "dinero",
+      "titulo": "여행을 망치지 않고 돈을 쓰려면?",
+      "respuesta": "큰 비용은 떠나기 전에 내고 하루 예산을 정하세요. 그러면 쓸 때마다 덜 아프고 여행을 더 즐겨요.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "6부. 여행을 망치지 않고 돈을 쓰려면?"
+        },
+        {
+          "id": "prelec",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1998",
+            "clave": "prelec"
+          },
+          "lamina": [
+            "billetes",
+            "tarjeta"
+          ],
+          "destacada": true,
+          "texto": "1998년, 드라젠 프렐렉과 조지 로웬스타인은 지불의 고통을 연구했어요. 돈을 낼 때마다 조금씩 아프고, 그 아픔이 산 것의 즐거움을 깎아 먹어요. 그래서 대부분은 휴가 비용을 미리 내는 쪽을 더 좋아했어요."
+        },
+        {
+          "id": "adelantado",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "presupuestoViaje"
+          },
+          "lamina": [
+            "reserva",
+            "monedero"
+          ],
+          "texto": "그러니 큰 건 떠나기 전에 내세요. 항공권, 숙소, 입장권이요. 여행 중에는 나머지를 위해 하루 예산을 정해 두면, 살 때마다 고민하지 않아도 돼요. 여기서 여행 예산을 짜 보세요."
+        },
+        {
+          "id": "ahorro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "quincena",
+              "boleto"
+            ]
+          },
+          "lamina": [
+            "alcancia",
+            "boletos"
+          ],
+          "meme": "presupuesto",
+          "texto": "모자라다면, 날짜가 있는 저축 목표로 만드세요. 2주마다 조금씩요. 그러면 표를 사는 날엔 이미 아프지 않아요."
+        },
+        {
+          "id": "presupuestoApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "presupuestoDia",
+              "metaFinanzas",
+              "totalApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "제 계획에서는 하루마다 예산이 있고, 합계는 저절로 제 재무의 저축 목표가 돼요."
+        }
+      ]
+    },
+    {
+      "id": "fotos",
+      "titulo": "사진일까요, 기억일까요?",
+      "respuesta": "먼저 보고, 사진은 적게 의도를 갖고 찍으세요. 찍기만 한 건 덜 기억나요. 매일 밤 두 줄을 쓰세요.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "7부. 사진일까요, 기억일까요?"
+        },
+        {
+          "id": "henkel",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "fotos"
+          },
+          "lamina": [
+            "museo",
+            "celularFoto"
+          ],
+          "destacada": true,
+          "texto": "2014년, 린다 헨켈은 학생들을 박물관에 데려갔어요. 사진을 찍은 작품은 눈으로만 본 작품보다 덜, 그리고 덜 자세히 기억했어요. 카메라가 대신 기억해 주니까… 우리는 기억하기를 멈추는 거예요."
+        },
+        {
+          "id": "detalle",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mira",
+              "acercate",
+              "pocas"
+            ]
+          },
+          "lamina": [
+            "detalleArte",
+            "mirador"
+          ],
+          "texto": "하지만 줌으로 한 부분을 확대해 찍었을 때는 기억이 살아남았어요. 그러니 먼저 보고, 그다음에 의도를 갖고 사진을 조금만 찍으세요."
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "noche",
+              "sentiste",
+              "conQuien"
+            ]
+          },
+          "lamina": [
+            "diarioViaje",
+            "cafeLibreta"
+          ],
+          "meme": "fotos",
+          "texto": "그리고 매일 밤 두 줄만 쓰세요. 무슨 일이 있었는지, 어떤 기분이었는지, 누구와 함께였는지요. 10년 뒤, 그 한 문장은 똑같은 사진 백 장보다 값질 거예요."
+        },
+        {
+          "id": "bitacora",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "albumApp",
+              "fotoApp",
+              "anecdotaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "제 여행 일지에서는 나라마다 앨범이 하나씩 있고, 장소마다 사진과 이야기를 함께 남겨요."
+        }
+      ]
+    },
+    {
+      "id": "cambio",
+      "titulo": "여행은 우리를 바꿀까요?",
+      "respuesta": "네. 해외로 공부하러 간 학생들은 남은 학생들보다 더 개방적이고, 친절하고, 덜 불안해졌어요.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "8부. 여행은 우리를 바꿀까요?"
+        },
+        {
+          "id": "zimmermann",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "personalidad"
+          },
+          "lamina": [
+            "estudiantes",
+            "mochila"
+          ],
+          "destacada": true,
+          "texto": "2013년, 율리아 치머만과 프란츠 나이어는 천 명이 넘는 독일 대학생들을 따라가 봤어요. 해외로 공부하러 간 학생들은 남은 학생들보다 더 개방적이고, 더 친절하고, 덜 불안해졌어요."
+        },
+        {
+          "id": "costumbre",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abierto",
+              "amable",
+              "calma"
+            ]
+          },
+          "lamina": [
+            "mercado",
+            "conversacion"
+          ],
+          "texto": "명소를 보는 것 때문이 아니라, 익숙한 일상에서 벗어나기 때문이에요. 낯선 음식을 먹어 보고, 길을 잃고, 다른 언어로 도움을 청하는 것처럼요."
+        },
+        {
+          "id": "local",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "local",
+              "gracias",
+              "sinPrisa"
+            ]
+          },
+          "lamina": [
+            "comidaCalle",
+            "plaza"
+          ],
+          "texto": "그러니 여행할 때마다 현지인처럼 해 보세요. 현지인이 먹는 곳에서 먹고, 고맙다는 말을 배우고, 한곳에서 서두르지 않고 잠시 머물러 보세요."
+        },
+        {
+          "id": "estados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "paisesApp",
+              "estadosApp",
+              "colorApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "그리고 주/도를 켜 두면, 제가 가 본 곳마다 제 색으로 칠해져요. 지도가 조금씩 채워지는 걸 보는 게 정말 좋아요."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "어떻게 이어 갈까요? 이어 가기 위한 계획",
+      "respuesta": "가 본 곳을 지도에 표시하고, 한 곳을 골라 날짜를 정해 모으고, 돌아오면 다음 여행을 계획하세요.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "9부. 어떻게 이어 갈까요? 이어 가기 위한 계획."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planViajes"
+          },
+          "lamina": [
+            "mapaPared",
+            "libreta"
+          ],
+          "texto": "이번 주에는 가 본 곳들과 가고 싶은 곳 세 군데를 지도에 표시해 보세요."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "fecha",
+              "ahorra"
+            ]
+          },
+          "lamina": [
+            "calendarioPared",
+            "alcancia"
+          ],
+          "destacada": true,
+          "texto": "첫 달에는 그중 한 곳을 골라 날짜를 정하고, 그곳을 위해 저축을 시작하세요."
+        },
+        {
+          "id": "cadaViaje",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pagaAntes",
+              "mejorFinal",
+              "escribeNoche"
+            ]
+          },
+          "lamina": [
+            "aeropuerto",
+            "atardecer"
+          ],
+          "texto": "그리고 여행할 때마다 큰 건 미리 내고, 가장 좋은 건 마지막에 두고, 매일 밤 적고, 돌아오면 다음 여행을 계획하세요."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mapaFin",
+              "planFin",
+              "bitacoraFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "어디서부터 시작할지 모르겠다면, 앱에서 제 일본 여행을 보세요. 지도부터 여행 일지까지 다 들어 있어요."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "정리하면, 기다림을 즐기고, 가장 좋은 건 마지막에 두고, 더 자주 떠나고, 떠나기 전에 내고, 찍는 것보다 더 많이 보세요."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS의 여행에서는 세계 지도에 내 장소들을 표시하고, 하루하루 일정을 짜고, 사진과 이야기로 여행 일지를 남겨요. 직접 해도 되고, AI의 도움을 받아도 돼요. 오늘 무료로 나만의 마음의 집을 지어 보세요. 링크는 설명란에 있어요. 그리고 다음 가이드는, 가장 좋은 추억을 어떻게 간직할까요?",
+    "boton": "여행 열기",
+    "lamina": "app-plan",
+    "anclas": {
+      "mapa": "세계 지도",
+      "itinerario": "하루하루 일정",
+      "bitacora": "여행 일지"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "nawijn-2010",
+      "texto": "Nawijn J., Marchand M. A., Veenhoven R., Vingerhoets A. J. Vacationers happier, but most not happier after a holiday. Applied Research in Quality of Life 5(1), 35-47 (2010).",
+      "url": "https://doi.org/10.1007/s11482-009-9091-9"
+    },
+    {
+      "id": "vanboven-2003",
+      "texto": "Van Boven L., Gilovich T. To do or to have? That is the question. Journal of Personality and Social Psychology 85(6), 1193-1202 (2003).",
+      "url": "https://doi.org/10.1037/0022-3514.85.6.1193"
+    },
+    {
+      "id": "grand-tour",
+      "texto": "그랜드 투어. 위키백과.",
+      "url": "https://en.wikipedia.org/wiki/Grand_Tour"
+    },
+    {
+      "id": "thomas-cook",
+      "texto": "토머스 쿡과 레스터에서 러프버러까지의 여행 (1841년). 위키백과.",
+      "url": "https://en.wikipedia.org/wiki/Thomas_Cook"
+    },
+    {
+      "id": "mitchell-1997",
+      "texto": "Mitchell T. R., Thompson L., Peterson E., Cronk R. Temporal adjustments in the evaluation of events: the «rosy view». Journal of Experimental Social Psychology 33(4), 421-448 (1997).",
+      "url": "https://doi.org/10.1006/jesp.1997.1333"
+    },
+    {
+      "id": "kahneman-1993",
+      "texto": "Kahneman D., Fredrickson B. L., Schreiber C. A., Redelmeier D. A. When more pain is preferred to less: adding a better end. Psychological Science 4(6), 401-405 (1993).",
+      "url": "https://doi.org/10.1111/j.1467-9280.1993.tb00589.x"
+    },
+    {
+      "id": "debloom-2013",
+      "texto": "de Bloom J., Geurts S. A. E., Kompier M. A. J. Vacation (after-) effects on employee health and well-being, and the role of vacation activities, experiences and sleep. Journal of Happiness Studies 14(2), 613-633 (2013).",
+      "url": "https://doi.org/10.1007/s10902-012-9345-3"
+    },
+    {
+      "id": "prelec-1998",
+      "texto": "Prelec D., Loewenstein G. The red and the black: mental accounting of savings and debt. Marketing Science 17(1), 4-28 (1998).",
+      "url": "https://doi.org/10.1287/mksc.17.1.4"
+    },
+    {
+      "id": "henkel-2014",
+      "texto": "Henkel L. A. Point-and-shoot memories: the influence of taking photos on memory for a museum tour. Psychological Science 25(2), 396-402 (2014).",
+      "url": "https://doi.org/10.1177/0956797613504438"
+    },
+    {
+      "id": "zimmermann-2013",
+      "texto": "Zimmermann J., Neyer F. J. Do we become a different person when hitting the road? Personality development of sojourners. Journal of Personality and Social Psychology 105(3), 515-530 (2013).",
+      "url": "https://doi.org/10.1037/a0033019"
+    }
+  ]
+}

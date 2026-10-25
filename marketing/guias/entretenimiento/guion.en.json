@@ -12,6 +12,7 @@
     {
       "id": "elegir",
       "titulo": "Why does choosing take so long?",
+      "respuesta": "Because we now spend 10 and a half minutes choosing: keep a watchlist, and if you can’t decide in five, play the first thing on it.",
       "lineas": [
         {
           "id": "gancho",
@@ -107,6 +108,7 @@
     {
       "id": "scroll",
       "titulo": "Why doesn’t scrolling help you rest?",
+      "respuesta": "Because passive scrolling drags your mood down; before opening social media, ask what you want, and close it when you’re done.",
       "lineas": [
         {
           "id": "titulo",
@@ -181,6 +183,7 @@
     {
       "id": "maraton",
       "titulo": "Binge-watch or one episode a day?",
+      "respuesta": "One a day: when you binge, you enjoy the show less, remember it worse months later and sleep worse too.",
       "lineas": [
         {
           "id": "titulo",
@@ -253,6 +256,7 @@
     {
       "id": "pausas",
       "titulo": "Why don’t breaks and spoilers ruin anything?",
+      "respuesta": "Because a break resets the enjoyment that wears off, and stories with the ending spoiled were liked even more.",
       "lineas": [
         {
           "id": "titulo",
@@ -329,6 +333,7 @@
     {
       "id": "videojuegos",
       "titulo": "Are video games good or bad for you?",
+      "respuesta": "It depends on why: among nearly 39,000 adults, hours barely mattered; playing for fun helped, playing because you feel you must hurt.",
       "lineas": [
         {
           "id": "titulo",
@@ -400,6 +405,7 @@
     {
       "id": "otros",
       "titulo": "Why play with others?",
+      "respuesta": "Because what you share feels stronger, and people who played more board and card games lost less memory as they aged.",
       "lineas": [
         {
           "id": "titulo",
@@ -468,6 +474,7 @@
     {
       "id": "leer",
       "titulo": "And does reading count?",
+      "respuesta": "Yes: people who read books lived almost two years longer on average; try a book at bedtime instead of one more episode.",
       "lineas": [
         {
           "id": "titulo",
@@ -543,6 +550,7 @@
     {
       "id": "durar",
       "titulo": "How do you make it last?",
+      "respuesta": "When you finish something, jot down your stars, a line on what it left you and who was with you: you’ll love rereading it.",
       "lineas": [
         {
           "id": "titulo",
@@ -621,6 +629,7 @@
     {
       "id": "continuar",
       "titulo": "How do you keep going? Your plan to continue",
+      "respuesta": "Build your watchlist, cap it at two episodes a night and, one night a week, swap the screen for a board game or a book with someone.",
       "lineas": [
         {
           "id": "titulo",

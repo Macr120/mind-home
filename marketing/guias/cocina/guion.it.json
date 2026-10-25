@@ -18,6 +18,7 @@
     {
       "id": "cuerpo",
       "titulo": "Che cosa fa il cibo nel tuo corpo",
+      "respuesta": "È il carburante per respirare, pensare e muoverti, e il materiale con cui ripari muscoli, ossa, pelle e sangue.",
       "lineas": [
         {
           "id": "gancho",
@@ -97,6 +98,7 @@
     {
       "id": "historia",
       "titulo": "Una breve storia di ciò che mangiamo",
+      "respuesta": "Dal fuoco all'etichetta: le arance di Lind curarono lo scorbuto e Atwater misurò le calorie che leggiamo ancora oggi.",
       "lineas": [
         {
           "id": "titulo",
@@ -185,6 +187,7 @@
     {
       "id": "energia",
       "titulo": "Quanta energia ti serve",
+      "respuesta": "Circa due terzi di ciò che consumi servono solo a tenerti in vita; per dimagrire, mangia circa il 15% in meno.",
       "lineas": [
         {
           "id": "titulo",
@@ -252,6 +255,7 @@
     {
       "id": "calidad",
       "titulo": "La qualità di ciò che mangi",
+      "respuesta": "Scegli cibo fresco: con gli ultra-processati, le persone hanno mangiato circa 500 calorie in più al giorno senza accorgersene.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "plato",
       "titulo": "Come comporre il tuo piatto e la tua settimana",
+      "respuesta": "Riempi metà piatto di verdura e frutta, un quarto di cereali integrali e uno di proteine, e pianifica il menù della settimana.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +402,7 @@
     {
       "id": "habitos",
       "titulo": "Acqua, fame e costanza",
+      "respuesta": "Bevi circa due litri d'acqua al giorno, mangia piano e senza schermi, e annota per qualche giorno cosa mangi per vedere gli schemi.",
       "lineas": [
         {
           "id": "titulo",

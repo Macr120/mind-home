@@ -12,6 +12,7 @@
     {
       "id": "elegir",
       "titulo": "Por que você demora tanto para escolher?",
+      "respuesta": "Porque já levamos 10 minutos e meio para escolher: tenha uma lista do que quer ver e, se em cinco não decidir, ponha o primeiro.",
       "lineas": [
         {
           "id": "gancho",
@@ -107,6 +108,7 @@
     {
       "id": "scroll",
       "titulo": "Por que a rolagem não te descansa?",
+      "respuesta": "Porque olhar redes sem interagir piora seu humor; antes de abri-las, pergunte o que você busca e feche ao terminar.",
       "lineas": [
         {
           "id": "titulo",
@@ -181,6 +183,7 @@
     {
       "id": "maraton",
       "titulo": "Maratona ou um episódio por dia?",
+      "respuesta": "Um episódio por dia: na maratona você curte menos, lembra pior meses depois e ainda dorme pior.",
       "lineas": [
         {
           "id": "titulo",
@@ -253,6 +256,7 @@
     {
       "id": "pausas",
       "titulo": "Por que as pausas e os spoilers não estragam nada?",
+      "respuesta": "Porque a pausa reinicia o prazer que vai se gastando, e os contos com o final já contado agradaram ainda mais.",
       "lineas": [
         {
           "id": "titulo",
@@ -329,6 +333,7 @@
     {
       "id": "videojuegos",
       "titulo": "Os videogames te fazem bem ou mal?",
+      "respuesta": "Depende do porquê: em quase 39 mil adultos, as horas quase não importaram; jogar por gosto ajudava, por obrigação, piorava.",
       "lineas": [
         {
           "id": "titulo",
@@ -400,6 +405,7 @@
     {
       "id": "otros",
       "titulo": "Por que jogar com outras pessoas?",
+      "respuesta": "Porque o que se vive acompanhado se sente mais, e quem jogava mais jogos de tabuleiro e cartas perdeu menos memória.",
       "lineas": [
         {
           "id": "titulo",
@@ -468,6 +474,7 @@
     {
       "id": "leer",
       "titulo": "E ler, conta?",
+      "respuesta": "Sim: quem lia livros viveu em média quase dois anos a mais; troque mais um episódio por um livro antes de dormir.",
       "lineas": [
         {
           "id": "titulo",
@@ -543,6 +550,7 @@
     {
       "id": "durar",
       "titulo": "Como fazer isso durar?",
+      "respuesta": "Ao terminar algo, anote suas estrelas, uma frase do que ficou e com quem viu: reler vai te agradar mais do que imagina.",
       "lineas": [
         {
           "id": "titulo",
@@ -621,6 +629,7 @@
     {
       "id": "continuar",
       "titulo": "Como seguir? Seu plano para continuar",
+      "respuesta": "Monte sua lista do que quer ver, no máximo dois episódios por noite e, uma noite por semana, um jogo de tabuleiro ou livro com alguém.",
       "lineas": [
         {
           "id": "titulo",

@@ -12,6 +12,7 @@
     {
       "id": "musica",
       "titulo": "什么是音乐",
+      "respuesta": "音乐是有组织的声音：节奏、旋律与和声；学演奏，甚至会改变你的大脑。",
       "lineas": [
         {
           "id": "gancho",
@@ -136,6 +137,7 @@
     {
       "id": "historia",
       "titulo": "音乐简史",
+      "respuesta": "从4万年前的骨笛，到录音和MIDI：今天一台键盘加一台电脑，就是一间录音室。",
       "lineas": [
         {
           "id": "titulo",
@@ -236,6 +238,7 @@
     {
       "id": "ritmo",
       "titulo": "节奏",
+      "respuesta": "节奏是音乐在时间上的分布：均匀的拍子组成小节，切分音让人想跳舞。",
       "lineas": [
         {
           "id": "titulo",
@@ -330,6 +333,7 @@
     {
       "id": "melodia",
       "titulo": "旋律",
+      "respuesta": "旋律是一串能唱出来的音：靠上行下行的轮廓认出它，重复让它留在耳边。",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +401,7 @@
     {
       "id": "armonia",
       "titulo": "和声",
+      "respuesta": "和声是同时响起的音：大三和弦明亮，小三和弦忧伤，三个和弦就能给歌伴奏。",
       "lineas": [
         {
           "id": "titulo",
@@ -477,6 +482,7 @@
     {
       "id": "mezcla",
       "titulo": "音乐是怎样混音的",
+      "respuesta": "混音就是给每条音轨定好音量、频率和位置，别让贝斯盖住旋律。",
       "lineas": [
         {
           "id": "titulo",
@@ -543,6 +549,7 @@
     {
       "id": "plan",
       "titulo": "你的起步计划",
+      "respuesta": "分层去听，每天练15分钟，一年超过90小时；从第一天起就给自己录音。",
       "lineas": [
         {
           "id": "titulo",

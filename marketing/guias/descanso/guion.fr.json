@@ -18,6 +18,7 @@
     {
       "id": "cuerpo",
       "titulo": "Ce qui se passe pendant que tu dors",
+      "respuesta": "Ton cerveau enchaîne des cycles de 90 minutes : le sommeil profond répare le corps, le paradoxal range ce que tu as appris.",
       "lineas": [
         {
           "id": "gancho",
@@ -91,6 +92,7 @@
     {
       "id": "historia",
       "titulo": "Ce que la science a découvert sur le sommeil",
+      "respuesta": "Que tu as une horloge interne : Kleitman l'a prouvé dans une grotte en 1938, et découvrir ses gènes a valu le Nobel 2017.",
       "lineas": [
         {
           "id": "titulo",
@@ -163,6 +165,7 @@
     {
       "id": "cuanto",
       "titulo": "De combien de sommeil tu as besoin",
+      "respuesta": "Sept heures ou plus pour un adulte : dormir six heures pendant deux semaines nuit à l'attention autant que deux nuits blanches.",
       "lineas": [
         {
           "id": "titulo",
@@ -224,6 +227,7 @@
     {
       "id": "reloj",
       "titulo": "Ton horloge interne",
+      "respuesta": "La lumière la règle : prends le soleil le matin, évite les écrans le soir et couche-toi à heures régulières.",
       "lineas": [
         {
           "id": "titulo",
@@ -299,6 +303,7 @@
     {
       "id": "noche",
       "titulo": "Comment préparer une bonne nuit",
+      "respuesta": "Arrête la caféine six heures avant, évite l'alcool, dors au frais et dans le noir, et lâche les écrans la dernière heure.",
       "lineas": [
         {
           "id": "titulo",
@@ -389,6 +394,7 @@
     {
       "id": "insomnio",
       "titulo": "Quand tu n'arrives pas à dormir",
+      "respuesta": "Si tu ne dors pas après 20 minutes, lève-toi et reviens avec sommeil ; si ça dure, la thérapie cognitivo-comportementale d'abord.",
       "lineas": [
         {
           "id": "titulo",

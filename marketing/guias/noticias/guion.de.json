@@ -12,6 +12,7 @@
     {
       "id": "agenda",
       "titulo": "Wer entscheidet, was du jeden Tag siehst?",
+      "respuesta": "Zum großen Teil die Medien: Wie McCombs und Shaw zeigten, sagen sie dir nicht immer, was du denken sollst, aber worüber.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "bly",
       "titulo": "Welche Reporterin gab sich als Verrückte aus, um die Wahrheit zu erzählen?",
+      "respuesta": "Nellie Bly, 1887: Sie verbrachte zehn Tage in einer New Yorker Anstalt, und ihre Reportage brachte mehr Geld für die Kranken.",
       "lineas": [
         {
           "id": "titulo",
@@ -182,6 +184,7 @@
     {
       "id": "negatividad",
       "titulo": "Warum verkaufen sich schlechte Nachrichten besser?",
+      "respuesta": "Weil dein Gehirn Schlechtem mehr Aufmerksamkeit schenkt: Jedes negative Wort mehr in einer Schlagzeile bringt über 2 % mehr Klicks.",
       "lineas": [
         {
           "id": "titulo",
@@ -257,6 +260,7 @@
     {
       "id": "mentira",
       "titulo": "Warum verbreitet sich die Lüge schneller?",
+      "respuesta": "Weil Falsches neuer wirkt und überrascht: Auf Twitter verbreitete es sich sechsmal schneller, geteilt von Menschen, nicht Bots.",
       "lineas": [
         {
           "id": "titulo",
@@ -336,6 +340,7 @@
     {
       "id": "verificar",
       "titulo": "Wie liest du wie ein Faktenchecker?",
+      "respuesta": "Lies lateral: Verlass die Seite und schau, was andere über diese Quelle sagen, so wie es professionelle Faktenchecker tun.",
       "lineas": [
         {
           "id": "titulo",
@@ -425,6 +430,7 @@
     {
       "id": "belleza",
       "titulo": "Wie erstellst du wahre und schöne Inhalte?",
+      "respuesta": "Prüf vor dem Posten, sag, woher du die Fakten hast, und erzähl es als Geschichte, mit einem guten Bild und klaren Worten.",
       "lineas": [
         {
           "id": "titulo",
@@ -521,6 +527,7 @@
     {
       "id": "dieta",
       "titulo": "Wie viele Nachrichten sind zu viele?",
+      "respuesta": "Wer sechs Stunden am Tag schaute, war gestresster als viele Augenzeugen: Leg Zeit und Limit fest und schalte Pushs aus.",
       "lineas": [
         {
           "id": "titulo",
@@ -596,6 +603,7 @@
     {
       "id": "continuar",
       "titulo": "Wie geht es weiter? Dein Plan zum Weitermachen",
+      "respuesta": "Notier, woher deine Nachrichten kommen, nimm verschiedene Quellen dazu, wähl eine feste Uhrzeit und lies lateral, bevor du teilst.",
       "lineas": [
         {
           "id": "titulo",

@@ -12,6 +12,7 @@
     {
       "id": "porque",
       "titulo": "Why do you need a hobby?",
+      "respuesta": "Because it does you good: in over 93,000 older adults across 16 countries, those with a hobby were less depressed and happier.",
       "lineas": [
         {
           "id": "gancho",
@@ -88,6 +89,7 @@
     {
       "id": "encontrar",
       "titulo": "How do you find yours?",
+      "respuesta": "Don’t wait to find a ready-made passion: try several things, keep the one that sparks your curiosity and give it time to grow.",
       "lineas": [
         {
           "id": "titulo",
@@ -163,6 +165,7 @@
     {
       "id": "sirve",
       "titulo": "Why doesn’t it have to be useful?",
+      "respuesta": "Because its only job is for you to enjoy it: seeing free time as wasted makes you enjoy it less and stress more.",
       "lineas": [
         {
           "id": "titulo",
@@ -245,6 +248,7 @@
     {
       "id": "tiempo",
       "titulo": "Where do you find the time?",
+      "respuesta": "From short, regular slots: 20 minutes, four days a week, adds up to almost 70 hours a year.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "proyectos",
       "titulo": "Why does what you make yourself hook you more?",
+      "respuesta": "Because what you make is worth more to you: people who built an IKEA box bid more for it than others did for a ready-made one.",
       "lineas": [
         {
           "id": "titulo",
@@ -395,6 +400,7 @@
     {
       "id": "mantener",
       "titulo": "How do you keep from giving it up?",
+      "respuesta": "Set a weekly goal, not a daily one, like four days out of seven: if you miss a day, the week still stands.",
       "lineas": [
         {
           "id": "titulo",
@@ -474,6 +480,7 @@
     {
       "id": "otros",
       "titulo": "Why do it with others?",
+      "respuesta": "Because a group gives you a set date, company and a reason to come back; in singing classes, people bonded much faster.",
       "lineas": [
         {
           "id": "titulo",
@@ -537,6 +544,7 @@
     {
       "id": "continuar",
       "titulo": "How do you keep going? Your plan to continue",
+      "respuesta": "Try one for 20 minutes this week; within a month, give it a weekly goal and a small project, then share it with someone.",
       "lineas": [
         {
           "id": "titulo",

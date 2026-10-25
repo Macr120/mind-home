@@ -12,6 +12,7 @@
     {
       "id": "mente",
       "titulo": "Onde está a sua mente agora?",
+      "respuesta": "Em outra coisa quase metade do tempo, e isso não é descanso: enquanto ela divaga, você se sente pior do que quando presta atenção.",
       "lineas": [
         {
           "id": "gancho",
@@ -104,6 +105,7 @@
     {
       "id": "que",
       "titulo": "O que é mindfulness e de onde vem?",
+      "respuesta": "É prestar atenção, de propósito, ao momento presente e sem julgar; vem do «sati» budista de uns 2500 anos atrás.",
       "lineas": [
         {
           "id": "titulo",
@@ -197,6 +199,7 @@
     {
       "id": "respirar",
       "titulo": "O que acontece com o seu corpo quando você respira devagar?",
+      "respuesta": "Ele se acalma: respirar umas seis vezes por minuto o desacelera, e praticar o suspiro cíclico todo dia melhora o seu humor.",
       "lineas": [
         {
           "id": "titulo",
@@ -281,6 +284,7 @@
     {
       "id": "rapido",
       "titulo": "Por que desacelerar te faz chegar mais rápido?",
+      "respuesta": "Porque treinar a atenção alguns minutos por dia te ajuda a se distrair menos e protege a sua memória de trabalho, mesmo sob estresse.",
       "lineas": [
         {
           "id": "titulo",
@@ -363,6 +367,7 @@
     {
       "id": "ciencia",
       "titulo": "O que a ciência diz, e o que não diz?",
+      "respuesta": "Que a meditação melhora de forma moderada a ansiedade, a depressão e a dor, mas não é mágica nem substitui um especialista.",
       "lineas": [
         {
           "id": "titulo",
@@ -451,6 +456,7 @@
     {
       "id": "meditar",
       "titulo": "Como meditar se você não consegue parar de pensar?",
+      "respuesta": "Se distrair não é falhar: cada vez que você percebe que se perdeu e volta à respiração, treina a sua atenção.",
       "lineas": [
         {
           "id": "titulo",
@@ -545,6 +551,7 @@
     {
       "id": "continuar",
       "titulo": "Como seguir? O seu plano para continuar",
+      "respuesta": "Grude alguns minutos de prática em algo que você já faz, aumente aos poucos e, se falhar um dia, é só voltar.",
       "lineas": [
         {
           "id": "titulo",

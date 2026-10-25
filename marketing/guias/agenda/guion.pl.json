@@ -12,6 +12,7 @@
     {
       "id": "tiempo",
       "titulo": "Dlaczego nigdy nie starcza ci czasu?",
+      "respuesta": "Bo nie doszacowujemy: studenci myśleli, że praca dyplomowa zajmie im 34 dni, a zajęła 55.",
       "lineas": [
         {
           "id": "gancho",
@@ -121,6 +122,7 @@
     {
       "id": "cabeza",
       "titulo": "Dlaczego głowa to kiepski terminarz?",
+      "respuesta": "Bo niezałatwione sprawy krążą po głowie: zapisuj wszystko w jednym miejscu, a jeśli coś zajmie mniej niż dwie minuty, zrób to od razu.",
       "lineas": [
         {
           "id": "titulo",
@@ -211,6 +213,7 @@
     {
       "id": "primero",
       "titulo": "Co robić najpierw?",
+      "respuesta": "Ważne przed pilnym: to, co jest jednym i drugim, zrób dziś, a temu, co ważne, ale niepilne, wyznacz godzinę.",
       "lineas": [
         {
           "id": "titulo",
@@ -284,6 +287,7 @@
     {
       "id": "una",
       "titulo": "Dlaczego robienie kilku rzeczy naraz cię spowalnia?",
+      "respuesta": "Bo każde przeskoczenie między zadaniami kosztuje czas i zostawia uwagę przy poprzednim: skończ jedno, zanim zaczniesz kolejne.",
       "lineas": [
         {
           "id": "titulo",
@@ -356,6 +360,7 @@
     {
       "id": "hora",
       "titulo": "Jak zaplanować czas na to, co ważne?",
+      "respuesta": "Daj każdej ważnej rzeczy jej blok w kalendarzu: studenci z rozłożonymi terminami dostali lepsze oceny.",
       "lineas": [
         {
           "id": "titulo",
@@ -440,6 +445,7 @@
     {
       "id": "pausas",
       "titulo": "Dlaczego odpoczynek pozwala zrobić więcej?",
+      "respuesta": "Bo przerwy krótsze niż dziesięć minut dają ci więcej energii i mniej zmęczenia, jak wynika z przeglądu 22 badań.",
       "lineas": [
         {
           "id": "titulo",
@@ -514,6 +520,7 @@
     {
       "id": "acumula",
       "titulo": "Co robić, gdy wszystko się piętrzy?",
+      "respuesta": "Podziel zadanie na kroki, by lepiej szacować, zostaw zapas, a gdy się nie mieści, przesuń je, przekaż komuś albo odmów.",
       "lineas": [
         {
           "id": "titulo",
@@ -590,6 +597,7 @@
     {
       "id": "continuar",
       "titulo": "Co dalej? Twój plan na ciąg dalszy",
+      "respuesta": "Wyrzuć wszystko z głowy, wybieraj trzy ważne rzeczy dziennie, daj im godzinę i co tydzień zrób 15-minutowy przegląd.",
       "lineas": [
         {
           "id": "titulo",

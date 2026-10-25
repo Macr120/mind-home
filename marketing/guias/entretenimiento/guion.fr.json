@@ -12,6 +12,7 @@
     {
       "id": "elegir",
       "titulo": "Pourquoi mets-tu autant de temps à choisir ?",
+      "respuesta": "Parce qu’on met déjà 10 minutes et demie à choisir : garde une liste de choses à voir et, si tu n’as pas choisi en cinq, lance la première.",
       "lineas": [
         {
           "id": "gancho",
@@ -107,6 +108,7 @@
     {
       "id": "scroll",
       "titulo": "Pourquoi le scroll ne te repose pas ?",
+      "respuesta": "Parce que regarder les réseaux sans participer plombe ton humeur ; avant de les ouvrir, demande-toi ce que tu cherches, et ferme après.",
       "lineas": [
         {
           "id": "titulo",
@@ -181,6 +183,7 @@
     {
       "id": "maraton",
       "titulo": "Marathon ou un épisode par jour ?",
+      "respuesta": "Un épisode par jour : en marathon, tu apprécies moins la série, tu t’en souviens moins bien et tu dors plus mal.",
       "lineas": [
         {
           "id": "titulo",
@@ -253,6 +256,7 @@
     {
       "id": "pausas",
       "titulo": "Pourquoi les pauses et les spoilers ne gâchent rien ?",
+      "respuesta": "Parce que la pause relance le plaisir qui s’use, et les histoires dont on connaissait la fin ont même plu davantage.",
       "lineas": [
         {
           "id": "titulo",
@@ -329,6 +333,7 @@
     {
       "id": "videojuegos",
       "titulo": "Les jeux vidéo te font-ils du bien ou du mal ?",
+      "respuesta": "Ça dépend du pourquoi : chez près de 39 000 adultes, les heures comptaient à peine ; jouer par plaisir aidait, par obligation, nuisait.",
       "lineas": [
         {
           "id": "titulo",
@@ -400,6 +405,7 @@
     {
       "id": "otros",
       "titulo": "Pourquoi jouer avec d’autres ?",
+      "respuesta": "Parce que ce qu’on vit à plusieurs se ressent plus fort, et ceux qui jouaient plus aux jeux de société et de cartes ont perdu moins de mémoire.",
       "lineas": [
         {
           "id": "titulo",
@@ -468,6 +474,7 @@
     {
       "id": "leer",
       "titulo": "Et lire, ça compte ?",
+      "respuesta": "Oui : ceux qui lisaient des livres ont vécu en moyenne près de deux ans de plus ; avant de dormir, prends un livre plutôt qu’un épisode.",
       "lineas": [
         {
           "id": "titulo",
@@ -543,6 +550,7 @@
     {
       "id": "durar",
       "titulo": "Comment faire durer le plaisir ?",
+      "respuesta": "Quand tu finis quelque chose, note tes étoiles, une phrase sur ce qu’il t’a laissé et avec qui : le relire te plaira plus que prévu.",
       "lineas": [
         {
           "id": "titulo",
@@ -621,6 +629,7 @@
     {
       "id": "continuar",
       "titulo": "Comment continuer ? Ton plan pour la suite",
+      "respuesta": "Fais ta liste de choses à voir, deux épisodes max par soir et, un soir par semaine, un jeu de société ou un livre, à plusieurs si possible.",
       "lineas": [
         {
           "id": "titulo",

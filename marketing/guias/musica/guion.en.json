@@ -12,6 +12,7 @@
     {
       "id": "musica",
       "titulo": "What music is",
+      "respuesta": "It’s organized sound, in rhythm, melody and harmony, and learning to play it changes even your brain, even if a machine composes.",
       "lineas": [
         {
           "id": "gancho",
@@ -136,6 +137,7 @@
     {
       "id": "historia",
       "titulo": "A brief history of music",
+      "respuesta": "From a bone flute 40,000 years old to recording and MIDI: today a keyboard and a computer make a complete studio.",
       "lineas": [
         {
           "id": "titulo",
@@ -236,6 +238,7 @@
     {
       "id": "ritmo",
       "titulo": "Rhythm",
+      "respuesta": "It’s how music is spread out in time: a steady beat, grouped into bars, and the syncopation that makes you dance.",
       "lineas": [
         {
           "id": "titulo",
@@ -330,6 +333,7 @@
     {
       "id": "melodia",
       "titulo": "Melody",
+      "respuesta": "It’s a line of notes you can sing: you recognize it by its shape, up or down, and it sticks because it repeats.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +401,7 @@
     {
       "id": "armonia",
       "titulo": "Harmony",
+      "respuesta": "Notes sounding at the same time: major chords sound bright, minor ones wistful, and three chords already accompany whole songs.",
       "lineas": [
         {
           "id": "titulo",
@@ -477,6 +482,7 @@
     {
       "id": "mezcla",
       "titulo": "How music is mixed",
+      "respuesta": "Mixing means giving each track its volume, its frequencies and its place, so that, say, the bass doesn’t cover the melody.",
       "lineas": [
         {
           "id": "titulo",
@@ -543,6 +549,7 @@
     {
       "id": "plan",
       "titulo": "Your plan to get started",
+      "respuesta": "Listen in layers, practice 15 minutes a day, which is over 90 hours a year, and record yourself from day one to improve.",
       "lineas": [
         {
           "id": "titulo",

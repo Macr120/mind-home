@@ -12,6 +12,7 @@
     {
       "id": "porque",
       "titulo": "Neden bir hobiye ihtiyacın var?",
+      "respuesta": "Çünkü sana iyi gelir: 16 ülkede 93 binden fazla yaşlıda, hobisi olanlarda depresyon daha azdı ve daha mutluydular.",
       "lineas": [
         {
           "id": "gancho",
@@ -88,6 +89,7 @@
     {
       "id": "encontrar",
       "titulo": "Kendininkini nasıl bulursun?",
+      "respuesta": "Hazır bir tutku bulmayı bekleme: birçok şey dene, merakını uyandıranla devam et ve büyümesi için ona zaman tanı.",
       "lineas": [
         {
           "id": "titulo",
@@ -163,6 +165,7 @@
     {
       "id": "sirve",
       "titulo": "Neden hiçbir işe yaraması gerekmez?",
+      "respuesta": "Çünkü tek görevi hoşuna gitmek: boş zamanı kayıp sayanlar ondan daha az keyif alıyor ve daha çok stres yaşıyor.",
       "lineas": [
         {
           "id": "titulo",
@@ -245,6 +248,7 @@
     {
       "id": "tiempo",
       "titulo": "Zamanı nereden bulursun?",
+      "respuesta": "Sabit saatli kısa anlardan: haftada dört gün 20 dakika, yılda neredeyse 70 saat eder.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "proyectos",
       "titulo": "Kendi ellerinle yaptığın şey neden daha çok bağlar?",
+      "respuesta": "Çünkü kendi ellerinle yaptığın senin için daha değerli: IKEA kutusunu kendisi kuranlar, başkalarının hazırına verdiğinden fazlasını teklif etti.",
       "lineas": [
         {
           "id": "titulo",
@@ -395,6 +400,7 @@
     {
       "id": "mantener",
       "titulo": "Nasıl bırakmazsın?",
+      "respuesta": "Günlük değil haftalık hedef koy, yediden dördü gibi: bir gün kaçırırsan haftan yine ayakta kalır.",
       "lineas": [
         {
           "id": "titulo",
@@ -474,6 +480,7 @@
     {
       "id": "otros",
       "titulo": "Neden başkalarıyla yapmalı?",
+      "respuesta": "Çünkü grup sana sabit bir buluşma, arkadaşlık ve geri dönme isteği verir; şarkı derslerinde insanlar çok daha hızlı kaynaştı.",
       "lineas": [
         {
           "id": "titulo",
@@ -537,6 +544,7 @@
     {
       "id": "continuar",
       "titulo": "Nasıl devam etmeli? Devam etmek için planın",
+      "respuesta": "Bu hafta birini 20 dakika dene; ilk ay ona haftalık bir hedef ve küçük bir proje koy, sonra birileriyle paylaş.",
       "lineas": [
         {
           "id": "titulo",

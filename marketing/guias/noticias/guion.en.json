@@ -12,6 +12,7 @@
     {
       "id": "agenda",
       "titulo": "Who decides what you see every day?",
+      "respuesta": "The media, to a large extent: as McCombs and Shaw showed, they don’t always tell you what to think, but what to think about.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "bly",
       "titulo": "Who pretended to be insane to tell the truth?",
+      "respuesta": "Nellie Bly, in 1887: she spent ten days in a New York asylum, and her report won more money for the patients.",
       "lineas": [
         {
           "id": "titulo",
@@ -182,6 +184,7 @@
     {
       "id": "negatividad",
       "titulo": "Why does bad news sell more?",
+      "respuesta": "Because your brain pays more attention to bad things: each extra negative word in a headline raises clicks by over 2%.",
       "lineas": [
         {
           "id": "titulo",
@@ -257,6 +260,7 @@
     {
       "id": "mentira",
       "titulo": "Why do lies travel faster?",
+      "respuesta": "Because falsehood is more novel and surprising: on Twitter it spread six times faster, and it was people, not bots, sharing it.",
       "lineas": [
         {
           "id": "titulo",
@@ -336,6 +340,7 @@
     {
       "id": "verificar",
       "titulo": "How do you read like a fact-checker?",
+      "respuesta": "Read laterally: leave the site and check what others say about that source, just like professional fact-checkers do.",
       "lineas": [
         {
           "id": "titulo",
@@ -425,6 +430,7 @@
     {
       "id": "belleza",
       "titulo": "How do you create true and beautiful content?",
+      "respuesta": "Check before you post, say where you got the facts, and tell it as a story, with a good image and clear words.",
       "lineas": [
         {
           "id": "titulo",
@@ -521,6 +527,7 @@
     {
       "id": "dieta",
       "titulo": "How much news is too much?",
+      "respuesta": "People who watched six hours a day ended up more stressed than many who were there: set a time and a limit, and mute alerts.",
       "lineas": [
         {
           "id": "titulo",
@@ -596,6 +603,7 @@
     {
       "id": "continuar",
       "titulo": "What’s next? Your plan to keep going",
+      "respuesta": "Note where you get your news, add different sources, pick a fixed time, and read laterally before sharing.",
       "lineas": [
         {
           "id": "titulo",

@@ -12,6 +12,7 @@
     {
       "id": "mente",
       "titulo": "Waar is je hoofd op dit moment?",
+      "respuesta": "Bijna de helft van de tijd ergens anders, en dat is geen rust: als je gedachten afdwalen, voel je je slechter dan als je oplet.",
       "lineas": [
         {
           "id": "gancho",
@@ -104,6 +105,7 @@
     {
       "id": "que",
       "titulo": "Wat is mindfulness en waar komt het vandaan?",
+      "respuesta": "Het is met opzet aandacht geven aan het huidige moment, zonder te oordelen; het komt van het boeddhistische “sati” van zo’n 2500 jaar geleden.",
       "lineas": [
         {
           "id": "titulo",
@@ -197,6 +199,7 @@
     {
       "id": "respirar",
       "titulo": "Wat gebeurt er met je lichaam als je langzaam ademt?",
+      "respuesta": "Het komt tot rust: zo’n zes keer per minuut ademen remt het af, en dagelijks de cyclische zucht doen verbetert je stemming.",
       "lineas": [
         {
           "id": "titulo",
@@ -281,6 +284,7 @@
     {
       "id": "rapido",
       "titulo": "Waarom kom je sneller vooruit als je afremt?",
+      "respuesta": "Omdat een paar minuten aandachtstraining per dag je minder laat afdwalen en je werkgeheugen beschermt, zelfs onder stress.",
       "lineas": [
         {
           "id": "titulo",
@@ -363,6 +367,7 @@
     {
       "id": "ciencia",
       "titulo": "Wat zegt de wetenschap, en wat niet?",
+      "respuesta": "Dat meditatie angst, depressie en pijn matig verbetert, maar geen wondermiddel is en geen specialist vervangt.",
       "lineas": [
         {
           "id": "titulo",
@@ -451,6 +456,7 @@
     {
       "id": "meditar",
       "titulo": "Hoe mediteer je als je niet kunt stoppen met denken?",
+      "respuesta": "Afgeleid raken is geen falen: elke keer dat je het merkt en terugkeert naar je adem, train je je aandacht.",
       "lineas": [
         {
           "id": "titulo",
@@ -545,6 +551,7 @@
     {
       "id": "continuar",
       "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "respuesta": "Koppel een paar minuten oefenen aan iets wat je al doet, bouw het langzaam op, en sla je een dag over, begin dan gewoon weer.",
       "lineas": [
         {
           "id": "titulo",

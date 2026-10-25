@@ -12,6 +12,7 @@
     {
       "id": "tiempo",
       "titulo": "Perché il tempo non ti basta mai?",
+      "respuesta": "Perché sottostimiamo: degli studenti pensavano di finire la tesi in 34 giorni e ce ne misero 55.",
       "lineas": [
         {
           "id": "gancho",
@@ -121,6 +122,7 @@
     {
       "id": "cabeza",
       "titulo": "Perché la tua testa non è una buona agenda?",
+      "respuesta": "Perché le cose in sospeso ti girano in testa: annota tutto in un solo posto e, se richiede meno di due minuti, fallo subito.",
       "lineas": [
         {
           "id": "titulo",
@@ -211,6 +213,7 @@
     {
       "id": "primero",
       "titulo": "Cosa viene prima?",
+      "respuesta": "L'importante prima dell'urgente: fai oggi ciò che è entrambe le cose e dai un orario a ciò che conta ma non preme.",
       "lineas": [
         {
           "id": "titulo",
@@ -284,6 +287,7 @@
     {
       "id": "una",
       "titulo": "Perché fare più cose insieme ti rallenta?",
+      "respuesta": "Perché ogni salto tra un compito e l'altro ti costa tempo e lascia l'attenzione indietro: finiscine uno prima di iniziarne un altro.",
       "lineas": [
         {
           "id": "titulo",
@@ -356,6 +360,7 @@
     {
       "id": "hora",
       "titulo": "Come dare un orario a ciò che conta?",
+      "respuesta": "Dai a ogni cosa importante il suo blocco nel calendario: gli studenti con scadenze distribuite hanno preso voti migliori.",
       "lineas": [
         {
           "id": "titulo",
@@ -440,6 +445,7 @@
     {
       "id": "pausas",
       "titulo": "Perché riposare ti fa rendere di più?",
+      "respuesta": "Perché pause di meno di dieci minuti ti danno più energia e meno stanchezza, secondo una revisione di 22 studi.",
       "lineas": [
         {
           "id": "titulo",
@@ -514,6 +520,7 @@
     {
       "id": "acumula",
       "titulo": "Cosa fare quando tutto si accumula?",
+      "respuesta": "Dividi il compito in passi per stimare meglio, lasciati un margine e, se non ci sta più, spostalo, affidalo a qualcuno o di' di no.",
       "lineas": [
         {
           "id": "titulo",
@@ -590,6 +597,7 @@
     {
       "id": "continuar",
       "titulo": "Come andare avanti? Il tuo piano per continuare",
+      "respuesta": "Svuota la testa, scegli tre cose importanti al giorno, dai loro un orario e rivedi la tua settimana in 15 minuti.",
       "lineas": [
         {
           "id": "titulo",

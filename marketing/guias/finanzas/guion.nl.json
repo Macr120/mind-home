@@ -23,6 +23,7 @@
     {
       "id": "dinero",
       "titulo": "Waar geld voor dient",
+      "respuesta": "Om te ruilen en waarde te meten en te bewaren, maar wat telt is niet hoeveel je verdient: het is wat erin komt min wat eruit gaat.",
       "lineas": [
         {
           "id": "gancho",
@@ -109,6 +110,7 @@
     {
       "id": "historia",
       "titulo": "Een korte geschiedenis van het geld",
+      "respuesta": "Van de eerste munten van Lydië tot het Chinese papiergeld van 1024; sinds 1971 draait geld op vertrouwen, niet op goud.",
       "lineas": [
         {
           "id": "titulo",
@@ -189,6 +191,7 @@
     {
       "id": "presupuesto",
       "titulo": "Waar je geld naartoe gaat",
+      "respuesta": "Schrijf een maand lang al je uitgaven op, verdeel je inkomen met de 50/30/20-regel en betaal jezelf eerst op betaaldag.",
       "lineas": [
         {
           "id": "titulo",
@@ -259,6 +262,7 @@
     {
       "id": "deudas",
       "titulo": "Je buffer en je schulden",
+      "respuesta": "Bouw een buffer op van drie tot zes maanden vaste lasten en los eerst dure schulden af, zonder alleen het minimum te betalen.",
       "lineas": [
         {
           "id": "titulo",
@@ -348,6 +352,7 @@
     {
       "id": "invertir",
       "titulo": "Laat je geld voor je werken",
+      "respuesta": "Begin vroeg, want tijd telt meer dan het bedrag: bij 6% per jaar verdubbelt je geld in zo'n 12 jaar.",
       "lineas": [
         {
           "id": "titulo",
@@ -440,6 +445,7 @@
     {
       "id": "plan",
       "titulo": "Je plan om te beginnen",
+      "respuesta": "Geef je doel een bedrag en een datum, automatiseer je sparen op betaaldag en kijk elke maand tien minuten hoe ver je bent.",
       "lineas": [
         {
           "id": "titulo",

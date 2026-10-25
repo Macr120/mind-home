@@ -12,6 +12,7 @@
     {
       "id": "tiempo",
       "titulo": "Waarom heb je nooit genoeg tijd?",
+      "respuesta": "Omdat we te krap schatten: studenten dachten 34 dagen over hun scriptie te doen en deden er 55 over.",
       "lineas": [
         {
           "id": "gancho",
@@ -121,6 +122,7 @@
     {
       "id": "cabeza",
       "titulo": "Waarom is je hoofd geen goede agenda?",
+      "respuesta": "Omdat wat openstaat blijft rondmalen: schrijf alles op één plek op, en als iets minder dan twee minuten kost, doe het meteen.",
       "lineas": [
         {
           "id": "titulo",
@@ -211,6 +213,7 @@
     {
       "id": "primero",
       "titulo": "Wat komt eerst?",
+      "respuesta": "Het belangrijke vóór het dringende: doe vandaag wat allebei is, en geef wat belangrijk maar niet dringend is een tijdstip.",
       "lineas": [
         {
           "id": "titulo",
@@ -284,6 +287,7 @@
     {
       "id": "una",
       "titulo": "Waarom remt multitasken je af?",
+      "respuesta": "Omdat elke wissel tussen taken tijd kost en je aandacht achterlaat: maak er één af voordat je aan de volgende begint.",
       "lineas": [
         {
           "id": "titulo",
@@ -356,6 +360,7 @@
     {
       "id": "hora",
       "titulo": "Hoe geef je het belangrijke een tijdstip?",
+      "respuesta": "Geef elk belangrijk ding een eigen blok in je kalender: studenten met gespreide deadlines haalden betere cijfers.",
       "lineas": [
         {
           "id": "titulo",
@@ -440,6 +445,7 @@
     {
       "id": "pausas",
       "titulo": "Waarom laat rust je meer presteren?",
+      "respuesta": "Omdat pauzes van minder dan tien minuten je meer energie en minder vermoeidheid geven, blijkt uit een overzicht van 22 studies.",
       "lineas": [
         {
           "id": "titulo",
@@ -514,6 +520,7 @@
     {
       "id": "acumula",
       "titulo": "Wat doe je als alles zich opstapelt?",
+      "respuesta": "Deel de taak op in stappen om beter te schatten, bouw een buffer in, en past het niet meer: verplaats het, geef het door of zeg nee.",
       "lineas": [
         {
           "id": "titulo",
@@ -590,6 +597,7 @@
     {
       "id": "continuar",
       "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "respuesta": "Haal alles uit je hoofd, kies elke dag drie belangrijke dingen, geef ze een tijdstip en blik in 15 minuten op je week terug.",
       "lineas": [
         {
           "id": "titulo",

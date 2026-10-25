@@ -20,6 +20,7 @@
     {
       "id": "adaptacion",
       "titulo": "Cosa succede nel tuo corpo quando ti alleni",
+      "respuesta": "Applichi uno stress controllato e il corpo diventa più forte dopo, mentre riposi e si ripara.",
       "lineas": [
         {
           "id": "gancho",
@@ -100,6 +101,7 @@
     {
       "id": "historia",
       "titulo": "Breve storia dell'esercizio fisico",
+      "respuesta": "Dall'intuizione alla scienza: nel 1953 Morris vide che i bigliettai di Londra, sempre in movimento, avevano meno infarti.",
       "lineas": [
         {
           "id": "titulo",
@@ -183,6 +185,7 @@
     {
       "id": "capacidades",
       "titulo": "Le quattro capacità da allenare",
+      "respuesta": "Resistenza, forza, mobilità ed equilibrio: da 150 a 300 minuti a settimana di attività moderata e forza due giorni.",
       "lineas": [
         {
           "id": "titulo",
@@ -256,6 +259,7 @@
     {
       "id": "intensidad",
       "titulo": "Misura la tua intensità come un professionista",
+      "respuesta": "Con la scala da 1 a 10, le ripetizioni in riserva e il battito: se riesci a parlare ma non a cantare, sei sul moderato.",
       "lineas": [
         {
           "id": "titulo",
@@ -320,6 +324,7 @@
     {
       "id": "progresion",
       "titulo": "Come progredire settimana dopo settimana",
+      "respuesta": "Con la doppia progressione: quando arrivi a 12 ripetizioni in tutte le serie, aumenta il carico e riparti da 8.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +402,7 @@
     {
       "id": "recuperacion",
       "titulo": "Il recupero: dove migliori davvero",
+      "respuesta": "Migliori mentre riposi: dormi sette ore o più e distribuisci da 1,2 a 2 grammi di proteine per chilo al giorno.",
       "lineas": [
         {
           "id": "titulo",

@@ -1,0 +1,823 @@
+{
+  "idioma": "hi",
+  "tema": "viajes",
+  "plantillaId": "sala",
+  "numero": 20,
+  "nombre": "यात्राएं",
+  "pregunta": "बेहतर यात्रा कैसे करें?",
+  "corta": "बेहतर यात्रा कैसे करें?",
+  "subtitulo": "क्यों यात्रा का सबसे अच्छा हिस्सा निकलने से पहले आता है, संगठित यात्रा कैसे शुरू हुई, यात्रा असल में कब शुरू होती है, अच्छी यात्रा-योजना कैसे बनाएँ, यात्रा कितनी लंबी हो, मज़ा बिगाड़े बिना ख़र्च कैसे करें, क्या तस्वीरें याद रखने में मदद करती हैं, क्या यात्रा आपको बदलती है, और आगे बढ़ने का एक प्लान।",
+  "aviso": "यह गाइड सामान्य जानकारी के लिए है। बताए गए अध्ययन लोगों के ख़ास समूहों की ख़ुशी और यादों को मापते हैं; आपके नतीजे अलग हो सकते हैं।",
+  "partes": [
+    {
+      "id": "feliz",
+      "titulo": "यात्रा आपको ख़ुश क्यों करती है?",
+      "respuesta": "सबसे ज़्यादा इंतज़ार की वजह से: निकलने से पहले आप ज़्यादा ख़ुश होते हैं, और अनुभव ख़रीदी चीज़ों से ज़्यादा ख़ुशी देते हैं।",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "बेहतर यात्रा कैसे करें? यात्रा का सबसे ख़ुशी भरा हिस्सा अक्सर निकलने से पहले आता है। और लौटते ही, वह मज़ा कुछ ही दिनों में उड़ जाता है। क्या हो अगर आप उसे शुरू से आख़िर तक खींच सकें? आज आप इसे आँकड़ों के साथ देखेंगे, और आगे बढ़ने का एक प्लान लेकर जाएँगे।"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "वैसे, यह MindHaOS में मेरा घर है, और आज यह उड़ान भर रहा है: यह एक हवाई जहाज़ है। मैं इसमें सवार मुसाफ़िर टेडी बियर हूँ, और यह मेरा यात्राओं वाला कमरा है: यहाँ उन सब जगहों का नक्शा है जहाँ मैं जा चुका हूँ और जहाँ अभी जाना बाक़ी है।"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग एक। यात्रा आपको ख़ुश क्यों करती है?"
+        },
+        {
+          "id": "nawijn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "anticipacion"
+          },
+          "lamina": [
+            "maleta",
+            "aeropuerto"
+          ],
+          "destacada": true,
+          "texto": "2010 में, येरून नावाइन की अगुवाई में एक डच टीम ने एक हज़ार पाँच सौ तीस लोगों की ख़ुशी मापी। जो छुट्टी पर जाने वाले थे, वे बाक़ियों से ज़्यादा ख़ुश थे… पर यात्रा से पहले, बाद में नहीं।"
+        },
+        {
+          "id": "regreso",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antes",
+              "durante",
+              "despues"
+            ]
+          },
+          "lamina": [
+            "regreso",
+            "oficina"
+          ],
+          "texto": "लौटने पर, लगभग सभी उन लोगों जैसे ही थे जो यात्रा पर नहीं गए थे। सिर्फ़ जो बहुत आराम से लौटे, उनमें यह थोड़ा ज़्यादा टिका। यात्रा घर पहुँचकर ख़त्म नहीं होती: वह बुझ जाती है।"
+        },
+        {
+          "id": "gilovich",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "gilovich"
+          },
+          "lamina": [
+            "amigosViaje",
+            "compras"
+          ],
+          "meme": "maleta",
+          "texto": "फिर भी यह फ़ायदे का सौदा है: 2003 में, लीफ़ वैन बोवेन और थॉमस गिलोविच ने पाया कि अनुभवों पर ख़र्च करना हमें चीज़ों पर ख़र्च करने से ज़्यादा ख़ुश करता है। चीज़ें घिस जाती हैं; जो जिया, वह आपकी कहानी का हिस्सा बन जाता है।"
+        },
+        {
+          "id": "mapa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pinApp",
+              "visitadosApp",
+              "porConocerApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "इसीलिए मेरे दुनिया के नक्शे पर हर उस जगह की एक पिन है जहाँ मैं गया हूँ, और दूसरे रंग में, वे जगहें जो अभी बाक़ी हैं।"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "हम शौक़ से कब से घूमते हैं?",
+      "respuesta": "अठारहवीं सदी में अमीर नौजवानों के ग्रैंड टूर से; और लगभग सबके लिए 1841 से, थॉमस कुक की पहली संगठित यात्रा के साथ।",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग दो। हम शौक़ से कब से घूमते हैं?"
+        },
+        {
+          "id": "grandTour",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1700",
+            "clave": "grandTour"
+          },
+          "lamina": [
+            "grandTour",
+            "roma"
+          ],
+          "destacada": true,
+          "texto": "अठारहवीं सदी में, इंग्लैंड के अमीर नौजवान ग्रैंड टूर करते थे: महीनों, कभी-कभी सालों तक, कला और प्राचीन खंडहर देखने के लिए फ़्रांस और इटली घूमते थे। शौक़ से घूमना बहुत कम लोगों के बस की बात थी।"
+        },
+        {
+          "id": "cook",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1841",
+            "clave": "cook"
+          },
+          "lamina": [
+            "cook",
+            "trenVapor"
+          ],
+          "texto": "फिर 1841 में एक अंग्रेज़ बढ़ई, थॉमस कुक, ने लगभग पाँच सौ लोगों के लिए ट्रेन की यात्रा आयोजित की, लेस्टर से लफ़बरो तक, हर किसी से एक शिलिंग लेकर। ऐसे जन्मी संगठित यात्रा।"
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tren",
+              "avion",
+              "telefono"
+            ]
+          },
+          "lamina": [
+            "avion",
+            "celularMapa"
+          ],
+          "texto": "फिर आए हवाई जहाज़, जेब में रखने वाली गाइडबुक, और अब फ़ोन: आज कोई भी सोफ़े पर बैठे-बैठे यात्रा की योजना बना लेता है। मुश्किल अब पहुँचना नहीं, बल्कि अच्छे से घूमना है।"
+        },
+        {
+          "id": "rutas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rutaApp",
+              "ordenApp",
+              "distanciaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "अपने मार्ग में मैं जगहों को क्रम से रखता हूँ, उन्हें नक्शे पर जुड़ा हुआ देखता हूँ, और ऐप बताता है कि मैं कितने किलोमीटर तय करूँगा।"
+        }
+      ]
+    },
+    {
+      "id": "espera",
+      "titulo": "यात्रा कब शुरू होती है?",
+      "respuesta": "जिस दिन आप उसे तय करते हैं: पहले का उत्साह और बाद की याद अक्सर ख़ुद यात्रा से बेहतर होते हैं।",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग तीन। यात्रा कब शुरू होती है?"
+        },
+        {
+          "id": "mitchell",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rosa"
+          },
+          "lamina": [
+            "bicicleta",
+            "europa"
+          ],
+          "destacada": true,
+          "texto": "1997 में, टेरेंस मिशेल और उनकी टीम ने ऐसे लोगों पर नज़र रखी जो यूरोप जा रहे थे, कैलिफ़ोर्निया में साइकिल यात्रा पर, और थैंक्सगिविंग की छुट्टियों पर। पहले और बाद में, उन्होंने यात्रा को उसे जीते समय से बेहतर आँका।"
+        },
+        {
+          "id": "rosa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ilusion",
+              "molestias",
+              "recuerdo"
+            ]
+          },
+          "lamina": [
+            "lluviaViaje",
+            "fila"
+          ],
+          "meme": "expectativa",
+          "texto": "यात्रा के दौरान बारिश, लंबी लाइनें और थकान भारी पड़ती हैं। पर पहले के उत्साह और बाद की याद में, ये परेशानियाँ लगभग ग़ायब हो जाती हैं। शोधकर्ताओं ने इसे गुलाबी नज़रिया कहा।"
+        },
+        {
+          "id": "saborear",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cuentaRegresiva"
+          },
+          "lamina": [
+            "planeando",
+            "guiaViaje"
+          ],
+          "texto": "तो यात्रा उसी दिन शुरू होती है जिस दिन आप उसे तय करते हैं। समय रहते योजना बनाइए, तारीख़ तय कीजिए और इंतज़ार का मज़ा लीजिए: उस जगह के बारे में पढ़िए, तस्वीरें देखिए, दो-चार वाक्य सीखिए। देखिए वह आपको उत्साह के कितने दिन देती है।"
+        },
+        {
+          "id": "itinerario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diaApp",
+              "hospedajeApp",
+              "calendarioApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "जापान की मेरी यात्रा एक दिन-ब-दिन योजना में है: मैं कहाँ से निकलता हूँ, कहाँ जाता हूँ, कहाँ सोता हूँ और क्या करता हूँ। और हर तारीख़ अपने आप मेरे कैलेंडर में आ जाती है।"
+        }
+      ]
+    },
+    {
+      "id": "itinerario",
+      "titulo": "अच्छी यात्रा-योजना कैसे बनाएँ?",
+      "respuesta": "सबसे अच्छा आख़िर के लिए रखिए और ख़ाली समय छोड़िए: आपको सबसे अच्छा पल और अंत ही सबसे ज़्यादा याद रहेगा।",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग चार। अच्छी यात्रा-योजना कैसे बनाएँ?"
+        },
+        {
+          "id": "kahneman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "picoFinal"
+          },
+          "lamina": [
+            "aguaFria",
+            "hielo"
+          ],
+          "destacada": true,
+          "texto": "1993 में, डैनियल काह्नमैन और उनकी टीम ने कुछ लोगों से बर्फ़ीले पानी में हाथ डालने को कहा। एक परीक्षण लंबा था, पर आख़िर में पानी थोड़ा कम ठंडा था, और लगभग सभी ने उसी को दोहराना चुना। हमें सबसे तीव्र पल और अंत याद रहता है, कुल जोड़ नहीं।"
+        },
+        {
+          "id": "pico",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pico",
+              "final",
+              "duracion"
+            ]
+          },
+          "lamina": [
+            "atardecer",
+            "aeropuertoPrisa"
+          ],
+          "texto": "यात्रा में भी यही होता है: आप साथ ले जाते हैं सबसे अच्छा पल और यह कि वह कैसे ख़त्म हुई। एयरपोर्ट की ओर भागते हुए बीता आख़िरी दिन पूरी याद का रंग बदल सकता है।"
+        },
+        {
+          "id": "huecos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "finalViaje"
+          },
+          "lamina": [
+            "cafeCalle",
+            "mapaPapel"
+          ],
+          "meme": "itinerario",
+          "texto": "इसलिए आख़िर के लिए कुछ ख़ास रखिए, अनपेक्षित के लिए बिना योजना का ख़ाली समय छोड़िए, और एक दिन में पाँच संग्रहालय मत ठूँसिए: एक अच्छा ही काफ़ी है। अपनी यात्रा यहाँ क्रम से लगाइए और देखिए आप उसे कैसे याद करेंगे।"
+        },
+        {
+          "id": "guardados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "actividadesApp",
+              "guardarApp",
+              "compartirApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "अपनी योजना के हर दिन में मैं गतिविधियाँ और आने-जाने का साधन लिखता हूँ। और जब वह ठीक बन जाती है, मैं उसे सेव करके अपने हमसफ़र के साथ शेयर कर देता हूँ।"
+        }
+      ]
+    },
+    {
+      "id": "duracion",
+      "titulo": "यात्रा कितनी लंबी होनी चाहिए?",
+      "respuesta": "लंबी होना ज़रूरी नहीं: सबसे अच्छा मूड आठवें दिन के आसपास आता है और एक हफ़्ते में चला जाता है, इसलिए ज़्यादा बार घूमिए।",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग पाँच। यात्रा कितनी लंबी होनी चाहिए?"
+        },
+        {
+          "id": "bloom",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "dia8"
+          },
+          "lamina": [
+            "playa",
+            "hamaca"
+          ],
+          "destacada": true,
+          "texto": "2013 में, जेसिका डी ब्लूम ने छुट्टियों में कर्मचारियों की सेहत और मूड पर दिन-ब-दिन नज़र रखी। वे जल्दी बेहतर हुए, आठवें दिन के आसपास अपने सबसे ऊँचे स्तर पर पहुँचे… और लौटने के पहले हफ़्ते में ही वह सब उड़ चुका था।"
+        },
+        {
+          "id": "seguido",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "corto",
+              "seguido",
+              "ilusionNueva"
+            ]
+          },
+          "lamina": [
+            "escapada",
+            "carretera"
+          ],
+          "texto": "सबक़ कम घूमना नहीं, बल्कि ज़्यादा बार घूमना है: साल में कई छोटी यात्राएँ आपको एक बहुत बड़ी यात्रा से ज़्यादा उत्साह के पल और ज़्यादा आरामदेह वापसियाँ देती हैं।"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoViajes"
+          },
+          "lamina": "pulgar",
+          "texto": "अगर आपको यह गाइड पसंद आ रही है, तो पसंद करें, सदस्यता लें ताकि अगली गाइड न छूटे, और शेयर करें उस इंसान के साथ जिससे आप हमेशा कहते हैं, “हमें वहाँ जाना ही है”।"
+        },
+        {
+          "id": "volver",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "colchon",
+              "vueltaSuave",
+              "siguiente"
+            ]
+          },
+          "lamina": [
+            "maletaCasa",
+            "calendarioPared"
+          ],
+          "texto": "और लौटकर, काम पर जाने से पहले एक दिन का आराम रखिए, और अपनी अगली छोटी यात्रा की योजना बनाइए: ऐसे उत्साह फिर से शुरू हो जाता है।"
+        },
+        {
+          "id": "porConocer",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pinPendiente",
+              "fechaApp",
+              "yaFuiApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "मेरे नक्शे पर, “योजना में” वाली जगहों की अपनी तारीख़ होती है; और जब मैं आख़िरकार वहाँ जाता हूँ, तो एक टैप से वे घूमी हुई जगहों में आ जाती हैं।"
+        }
+      ]
+    },
+    {
+      "id": "dinero",
+      "titulo": "यात्रा का मज़ा बिगाड़े बिना ख़र्च कैसे करें?",
+      "respuesta": "बड़े ख़र्च निकलने से पहले चुका दीजिए और रोज़ की एक रक़म तय कीजिए: हर ख़रीद कम चुभेगी और यात्रा का मज़ा बढ़ेगा।",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग छह। यात्रा का मज़ा बिगाड़े बिना ख़र्च कैसे करें?"
+        },
+        {
+          "id": "prelec",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1998",
+            "clave": "prelec"
+          },
+          "lamina": [
+            "billetes",
+            "tarjeta"
+          ],
+          "destacada": true,
+          "texto": "1998 में, द्राज़ेन प्रेलेक और जॉर्ज लोवेनस्टीन ने भुगतान के दर्द का अध्ययन किया: हर ख़र्च थोड़ा चुभता है, और वह चुभन ख़रीदी चीज़ का मज़ा कम कर देती है। इसीलिए ज़्यादातर लोग अपनी छुट्टियों का भुगतान पहले ही करना पसंद करते थे।"
+        },
+        {
+          "id": "adelantado",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "presupuestoViaje"
+          },
+          "lamina": [
+            "reserva",
+            "monedero"
+          ],
+          "texto": "इसलिए बड़े ख़र्च निकलने से पहले चुका दीजिए: फ़्लाइट, ठहरना और टिकटें। यात्रा के दौरान बाक़ी चीज़ों के लिए रोज़ की एक रक़म रखिए, और आपको हर ख़रीद पर सोचना नहीं पड़ेगा। अपना बजट यहाँ बनाइए।"
+        },
+        {
+          "id": "ahorro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "quincena",
+              "boleto"
+            ]
+          },
+          "lamina": [
+            "alcancia",
+            "boletos"
+          ],
+          "meme": "presupuesto",
+          "texto": "और अगर पैसे कम पड़ें, तो उसे तारीख़ वाला बचत लक्ष्य बना लीजिए: हर पंद्रह दिन थोड़ा-थोड़ा, और जिस दिन आप टिकट ख़रीदेंगे, वह चुभेगा नहीं।"
+        },
+        {
+          "id": "presupuestoApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "presupuestoDia",
+              "metaFinanzas",
+              "totalApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "मेरी योजना में हर दिन का अपना बजट है, और कुल रक़म अपने आप मेरे वित्त में एक बचत लक्ष्य बन जाती है।"
+        }
+      ]
+    },
+    {
+      "id": "fotos",
+      "titulo": "तस्वीरें या यादें?",
+      "respuesta": "पहले देखिए और सोच-समझकर कम तस्वीरें लीजिए: जिसकी सिर्फ़ फ़ोटो ली, वह कम याद रहता है; और हर रात दो पंक्तियाँ लिखिए।",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग सात। तस्वीरें या यादें?"
+        },
+        {
+          "id": "henkel",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "fotos"
+          },
+          "lamina": [
+            "museo",
+            "celularFoto"
+          ],
+          "destacada": true,
+          "texto": "2014 में, लिंडा हेंकल छात्रों को एक संग्रहालय ले गईं। जिन कलाकृतियों की उन्होंने फ़ोटो ली, वे उन्हें कम और कम बारीकी से याद रहीं, उन कलाकृतियों के मुक़ाबले जिन्हें उन्होंने सिर्फ़ देखा था। कैमरा आपकी जगह याद रखता है… और आप याद रखना छोड़ देते हैं।"
+        },
+        {
+          "id": "detalle",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mira",
+              "acercate",
+              "pocas"
+            ]
+          },
+          "lamina": [
+            "detalleArte",
+            "mirador"
+          ],
+          "texto": "पर जब उन्होंने ज़ूम करके किसी बारीकी को क़रीब से देखा, तो याद बच गई। इसलिए पहले देखिए, फिर सोच-समझकर कम तस्वीरें लीजिए।"
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "noche",
+              "sentiste",
+              "conQuien"
+            ]
+          },
+          "lamina": [
+            "diarioViaje",
+            "cafeLibreta"
+          ],
+          "meme": "fotos",
+          "texto": "और हर रात दो पंक्तियाँ लिखिए: क्या हुआ, आपको कैसा लगा और आप किसके साथ थे। दस साल बाद, वह एक वाक्य एक जैसी सौ तस्वीरों से ज़्यादा क़ीमती होगा।"
+        },
+        {
+          "id": "bitacora",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "albumApp",
+              "fotoApp",
+              "anecdotaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "मेरे सफ़रनामा में हर देश एक एल्बम है, और हर जगह की तस्वीरें मैं उनके क़िस्सों के साथ रखता हूँ।"
+        }
+      ]
+    },
+    {
+      "id": "cambio",
+      "titulo": "क्या यात्रा आपको बदलती है?",
+      "respuesta": "हाँ: विदेश में पढ़ने वाले, वहीं रहने वालों से ज़्यादा खुले, ज़्यादा मिलनसार और कम चिंतित हो गए।",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग आठ। क्या यात्रा आपको बदलती है?"
+        },
+        {
+          "id": "zimmermann",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "personalidad"
+          },
+          "lamina": [
+            "estudiantes",
+            "mochila"
+          ],
+          "destacada": true,
+          "texto": "2013 में, यूलिया ज़िमरमान और फ़्रांज़ नेयर ने एक हज़ार से ज़्यादा जर्मन छात्रों पर नज़र रखी। जो विदेश पढ़ने गए, वे वहीं रहने वालों से ज़्यादा खुले, ज़्यादा मिलनसार और कम चिंतित हो गए।"
+        },
+        {
+          "id": "costumbre",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abierto",
+              "amable",
+              "calma"
+            ]
+          },
+          "lamina": [
+            "mercado",
+            "conversacion"
+          ],
+          "texto": "यह स्मारक देखने से नहीं होता, बल्कि अपनी आदतों से बाहर निकलने से: नया खाना चखना, रास्ता भटकना, दूसरी भाषा में मदद माँगना।"
+        },
+        {
+          "id": "local",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "local",
+              "gracias",
+              "sinPrisa"
+            ]
+          },
+          "lamina": [
+            "comidaCalle",
+            "plaza"
+          ],
+          "texto": "इसलिए हर यात्रा में कुछ वहाँ के लोगों की तरह कीजिए: वहीं खाइए जहाँ वे खाते हैं, धन्यवाद कहना सीखिए, और किसी एक जगह थोड़ी देर बिना जल्दी के रुकिए।"
+        },
+        {
+          "id": "estados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "paisesApp",
+              "estadosApp",
+              "colorApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "और राज्य चालू करने पर, मैं जिस भी जगह जा चुका हूँ, वह अपने रंग में रंग जाती है: मुझे नक्शे को भरते देखना बहुत अच्छा लगता है।"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "आगे कैसे बढ़ें? आगे बढ़ने का आपका प्लान",
+      "respuesta": "अपनी जगहें नक्शे पर डालिए, तारीख़ के साथ एक चुनिए, उसके लिए बचाइए, और लौटकर अगली यात्रा की योजना बनाइए।",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग नौ। आगे कैसे बढ़ें? आगे बढ़ने का आपका प्लान।"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planViajes"
+          },
+          "lamina": [
+            "mapaPared",
+            "libreta"
+          ],
+          "texto": "इस हफ़्ते, नक्शे पर वे जगहें डालिए जहाँ आप जा चुके हैं, और तीन जगहें जहाँ आप जाना चाहते हैं।"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "fecha",
+              "ahorra"
+            ]
+          },
+          "lamina": [
+            "calendarioPared",
+            "alcancia"
+          ],
+          "destacada": true,
+          "texto": "पहले महीने, उनमें से एक जगह चुनिए, उसकी तारीख़ तय कीजिए और उसके लिए बचत शुरू कीजिए।"
+        },
+        {
+          "id": "cadaViaje",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pagaAntes",
+              "mejorFinal",
+              "escribeNoche"
+            ]
+          },
+          "lamina": [
+            "aeropuerto",
+            "atardecer"
+          ],
+          "texto": "और हर यात्रा में: बड़े ख़र्च पहले चुकाइए, सबसे अच्छा आख़िर के लिए रखिए, हर रात लिखिए, और लौटकर अगली छोटी यात्रा की योजना बनाइए।"
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mapaFin",
+              "planFin",
+              "bitacoraFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "और अगर समझ न आए कि कहाँ से शुरू करें, तो ऐप में मेरी जापान यात्रा देखिए: वह पूरी है, नक्शे से लेकर सफ़रनामा तक।"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "संक्षेप में: इंतज़ार का मज़ा लीजिए; सबसे अच्छा आख़िर के लिए रखिए; ज़्यादा बार घूमिए; निकलने से पहले भुगतान कीजिए; और फ़ोटो खींचने से ज़्यादा देखिए।"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS के यात्राएं कमरे में आप अपनी जगहें दुनिया के नक्शे पर डालते हैं, अपनी दिन-ब-दिन योजना बनाते हैं, और तस्वीरों और क़िस्सों के साथ अपना सफ़रनामा सँभालते हैं। आप यह ख़ुद कर सकते हैं, या AI की मदद से। आज ही अपना मन का घर मुफ़्त में बनाएँ: लिंक डिस्क्रिप्शन में है। और अगली गाइड में: अपनी सबसे अच्छी यादें कैसे सँभालें?",
+    "boton": "यात्राएं खोलें",
+    "lamina": "app-plan",
+    "anclas": {
+      "mapa": "दुनिया के नक्शे",
+      "itinerario": "अपनी दिन-ब-दिन योजना",
+      "bitacora": "अपना सफ़रनामा"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "nawijn-2010",
+      "texto": "Nawijn J., Marchand M. A., Veenhoven R., Vingerhoets A. J. Vacationers happier, but most not happier after a holiday. Applied Research in Quality of Life 5(1), 35-47 (2010).",
+      "url": "https://doi.org/10.1007/s11482-009-9091-9"
+    },
+    {
+      "id": "vanboven-2003",
+      "texto": "Van Boven L., Gilovich T. To do or to have? That is the question. Journal of Personality and Social Psychology 85(6), 1193-1202 (2003).",
+      "url": "https://doi.org/10.1037/0022-3514.85.6.1193"
+    },
+    {
+      "id": "grand-tour",
+      "texto": "ग्रैंड टूर। विकिपीडिया।",
+      "url": "https://en.wikipedia.org/wiki/Grand_Tour"
+    },
+    {
+      "id": "thomas-cook",
+      "texto": "थॉमस कुक और लेस्टर से लफ़बरो तक की यात्रा (1841)। विकिपीडिया।",
+      "url": "https://en.wikipedia.org/wiki/Thomas_Cook"
+    },
+    {
+      "id": "mitchell-1997",
+      "texto": "Mitchell T. R., Thompson L., Peterson E., Cronk R. Temporal adjustments in the evaluation of events: the «rosy view». Journal of Experimental Social Psychology 33(4), 421-448 (1997).",
+      "url": "https://doi.org/10.1006/jesp.1997.1333"
+    },
+    {
+      "id": "kahneman-1993",
+      "texto": "Kahneman D., Fredrickson B. L., Schreiber C. A., Redelmeier D. A. When more pain is preferred to less: adding a better end. Psychological Science 4(6), 401-405 (1993).",
+      "url": "https://doi.org/10.1111/j.1467-9280.1993.tb00589.x"
+    },
+    {
+      "id": "debloom-2013",
+      "texto": "de Bloom J., Geurts S. A. E., Kompier M. A. J. Vacation (after-) effects on employee health and well-being, and the role of vacation activities, experiences and sleep. Journal of Happiness Studies 14(2), 613-633 (2013).",
+      "url": "https://doi.org/10.1007/s10902-012-9345-3"
+    },
+    {
+      "id": "prelec-1998",
+      "texto": "Prelec D., Loewenstein G. The red and the black: mental accounting of savings and debt. Marketing Science 17(1), 4-28 (1998).",
+      "url": "https://doi.org/10.1287/mksc.17.1.4"
+    },
+    {
+      "id": "henkel-2014",
+      "texto": "Henkel L. A. Point-and-shoot memories: the influence of taking photos on memory for a museum tour. Psychological Science 25(2), 396-402 (2014).",
+      "url": "https://doi.org/10.1177/0956797613504438"
+    },
+    {
+      "id": "zimmermann-2013",
+      "texto": "Zimmermann J., Neyer F. J. Do we become a different person when hitting the road? Personality development of sojourners. Journal of Personality and Social Psychology 105(3), 515-530 (2013).",
+      "url": "https://doi.org/10.1037/a0033019"
+    }
+  ]
+}

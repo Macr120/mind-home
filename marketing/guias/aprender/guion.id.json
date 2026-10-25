@@ -12,6 +12,7 @@
     {
       "id": "olvido",
       "titulo": "Mengapa kamu lupa apa yang kamu pelajari?",
+      "respuesta": "Karena apa yang tidak kamu pakai lagi cepat menghilang: dalam satu jam, Ebbinghaus sudah lupa lebih dari separuhnya.",
       "lineas": [
         {
           "id": "gancho",
@@ -90,6 +91,7 @@
     {
       "id": "tecnicas",
       "titulo": "Teknik mana yang benar-benar berhasil?",
+      "respuesta": "Menguji diri dan membagi waktu belajar: dari sepuluh teknik, hanya dua itu yang mendapat nilai tertinggi.",
       "lineas": [
         {
           "id": "titulo",
@@ -170,6 +172,7 @@
     {
       "id": "prueba",
       "titulo": "Mengapa menguji diri lebih ampuh daripada membaca ulang?",
+      "respuesta": "Karena mengingat itu mengunci pelajaran: seminggu kemudian, yang menguji diri ingat 61%, yang membaca ulang 40%.",
       "lineas": [
         {
           "id": "titulo",
@@ -241,6 +244,7 @@
     {
       "id": "repasar",
       "titulo": "Kapan mengulang agar tidak lupa?",
+      "respuesta": "Keesokan harinya, seminggu, dan sebulan kemudian: membagi belajar ke beberapa hari hampir selalu mengalahkan belajar semalam.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "entender",
       "titulo": "Bagaimana memahami alih-alih menghafal?",
+      "respuesta": "Belajarlah seolah akan mengajarkannya dan jelaskan dengan sederhana: di bagian kamu tersendat, di situlah yang belum kamu pahami.",
       "lineas": [
         {
           "id": "titulo",
@@ -403,6 +408,7 @@
     {
       "id": "dormir",
       "titulo": "Apa yang dilakukan tidur pada hal yang kamu pelajari?",
+      "respuesta": "Otak mengulang dan menyimpannya lebih baik: tidur beberapa jam setelah belajar membuatmu ingat lebih banyak, bahkan berhari-hari.",
       "lineas": [
         {
           "id": "titulo",
@@ -481,6 +487,7 @@
     {
       "id": "continuar",
       "titulo": "Bagaimana melanjutkan? Rencanamu untuk terus maju",
+      "respuesta": "Uji dirimu tanpa melihat, ulangi keesokan harinya, seminggu dan sebulan kemudian, dan hitung yang kamu ingat, bukan jamnya.",
       "lineas": [
         {
           "id": "titulo",

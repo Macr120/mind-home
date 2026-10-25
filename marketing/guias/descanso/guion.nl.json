@@ -18,6 +18,7 @@
     {
       "id": "cuerpo",
       "titulo": "Wat er gebeurt terwijl je slaapt",
+      "respuesta": "Je brein doorloopt cycli van zo'n 90 minuten: diepe slaap herstelt je lichaam en REM-slaap ordent wat je leerde.",
       "lineas": [
         {
           "id": "gancho",
@@ -91,6 +92,7 @@
     {
       "id": "historia",
       "titulo": "Wat de wetenschap over slaap heeft ontdekt",
+      "respuesta": "Dat je een biologische klok hebt: Kleitman bewees het in 1938 in een grot, en de ontdekking van de genen won in 2017 de Nobelprijs.",
       "lineas": [
         {
           "id": "titulo",
@@ -163,6 +165,7 @@
     {
       "id": "cuanto",
       "titulo": "Hoeveel slaap je nodig hebt",
+      "respuesta": "Zeven uur of meer als volwassene: twee weken zes uur slapen schaadt je aandacht net zo als tot twee nachten zonder slaap.",
       "lineas": [
         {
           "id": "titulo",
@@ -224,6 +227,7 @@
     {
       "id": "reloj",
       "titulo": "Je biologische klok",
+      "respuesta": "Licht zet hem gelijk: zoek 's ochtends zon op, mijd 's avonds schermen en slaap altijd op vaste tijden.",
       "lineas": [
         {
           "id": "titulo",
@@ -299,6 +303,7 @@
     {
       "id": "noche",
       "titulo": "Hoe je je voorbereidt op een goede nacht",
+      "respuesta": "Stop zes uur van tevoren met cafeïne, laat alcohol staan, slaap koel en donker en leg je scherm weg in het laatste uur.",
       "lineas": [
         {
           "id": "titulo",
@@ -389,6 +394,7 @@
     {
       "id": "insomnio",
       "titulo": "Als je niet kunt slapen",
+      "respuesta": "Slaap je na 20 minuten niet, sta op en kom terug als je slaperig bent; duurt het weken, dan eerst cognitieve gedragstherapie.",
       "lineas": [
         {
           "id": "titulo",

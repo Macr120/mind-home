@@ -12,6 +12,7 @@
     {
       "id": "olvido",
       "titulo": "Dlaczego zapominasz to, czego się uczysz?",
+      "respuesta": "Bo to, do czego nie wracasz, szybko ulatuje: po godzinie Ebbinghaus zapomniał już ponad połowę.",
       "lineas": [
         {
           "id": "gancho",
@@ -90,6 +91,7 @@
     {
       "id": "tecnicas",
       "titulo": "Które techniki naprawdę działają?",
+      "respuesta": "Sprawdzanie się i rozkładanie nauki w czasie: z dziesięciu technik tylko te dwie dostały najwyższą ocenę.",
       "lineas": [
         {
           "id": "titulo",
@@ -170,6 +172,7 @@
     {
       "id": "prueba",
       "titulo": "Dlaczego sprawdzanie się daje więcej niż ponowne czytanie?",
+      "respuesta": "Bo przypominanie utrwala wiedzę: po tygodniu ci, którzy się sprawdzali, pamiętali 61%, a ci, co czytali ponownie, 40%.",
       "lineas": [
         {
           "id": "titulo",
@@ -241,6 +244,7 @@
     {
       "id": "repasar",
       "titulo": "Kiedy powtarzać, żeby nie zapomnieć?",
+      "respuesta": "Następnego dnia, po tygodniu i po miesiącu: nauka rozłożona na kilka dni prawie zawsze wygrywa z nocą przed egzaminem.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "entender",
       "titulo": "Jak rozumieć zamiast wkuwać?",
+      "respuesta": "Ucz się tak, jakbyś miał to komuś wytłumaczyć, i wyjaśniaj prosto: tam, gdzie się zacinasz, jest to, czego nie rozumiesz.",
       "lineas": [
         {
           "id": "titulo",
@@ -403,6 +408,7 @@
     {
       "id": "dormir",
       "titulo": "Co sen robi z tym, czego się uczysz?",
+      "respuesta": "Powtarza ją i lepiej zapisuje: kto zaśnie kilka godzin po nauce, pamięta więcej, nawet po kilku dniach.",
       "lineas": [
         {
           "id": "titulo",
@@ -481,6 +487,7 @@
     {
       "id": "continuar",
       "titulo": "Jak iść dalej? Twój plan na ciąg dalszy",
+      "respuesta": "Sprawdzaj się bez patrzenia, powtarzaj po dniu, tygodniu i miesiącu, i licz, ile pamiętasz, a nie godziny.",
       "lineas": [
         {
           "id": "titulo",

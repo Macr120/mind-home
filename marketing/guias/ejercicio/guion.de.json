@@ -20,6 +20,7 @@
     {
       "id": "adaptacion",
       "titulo": "Was in deinem Körper passiert, wenn du trainierst",
+      "respuesta": "Du setzt einen kontrollierten Reiz, und dein Körper wird danach stärker, während du ruhst und er sich repariert.",
       "lineas": [
         {
           "id": "gancho",
@@ -100,6 +101,7 @@
     {
       "id": "historia",
       "titulo": "Eine kurze Geschichte des Trainings",
+      "respuesta": "Von der Ahnung zur Wissenschaft: 1953 zeigte Morris, dass Londons Busschaffner, stets in Bewegung, seltener Herzinfarkte hatten.",
       "lineas": [
         {
           "id": "titulo",
@@ -183,6 +185,7 @@
     {
       "id": "capacidades",
       "titulo": "Die vier Fähigkeiten, die du trainieren solltest",
+      "respuesta": "Ausdauer, Kraft, Beweglichkeit und Gleichgewicht: 150 bis 300 Minuten moderate Aktivität pro Woche und zwei Krafttage.",
       "lineas": [
         {
           "id": "titulo",
@@ -256,6 +259,7 @@
     {
       "id": "intensidad",
       "titulo": "Miss deine Intensität wie ein Profi",
+      "respuesta": "Mit der Skala von 1 bis 10, Wiederholungen in Reserve und Puls: Kannst du reden, aber nicht singen, ist es moderat.",
       "lineas": [
         {
           "id": "titulo",
@@ -320,6 +324,7 @@
     {
       "id": "progresion",
       "titulo": "Wie du Woche für Woche besser wirst",
+      "respuesta": "Mit doppelter Progression: Schaffst du in allen Sätzen 12 Wiederholungen, erhöh das Gewicht und fang wieder bei 8 an.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +402,7 @@
     {
       "id": "recuperacion",
       "titulo": "Regeneration: Hier wirst du wirklich besser",
+      "respuesta": "Du wirst besser, während du ruhst: Schlaf sieben Stunden oder mehr und verteil 1,2 bis 2 Gramm Eiweiß pro Kilo am Tag.",
       "lineas": [
         {
           "id": "titulo",

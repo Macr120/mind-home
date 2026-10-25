@@ -25,6 +25,7 @@
     {
       "id": "arte",
       "titulo": "Apa itu seni",
+      "respuesta": "Sesuatu yang kamu buat agar orang lain melihat dan merasakannya, dan membuatnya baik untukmu: stres turun pada 3 dari 4 orang.",
       "lineas": [
         {
           "id": "gancho",
@@ -156,6 +157,7 @@
     {
       "id": "historia",
       "titulo": "Sejarah singkat seni rupa",
+      "respuesta": "Dari gua yang dilukis 51.000 tahun lalu hingga perspektif, foto, dan layar: alatnya berubah, yang ingin kamu sampaikan tidak.",
       "lineas": [
         {
           "id": "titulo",
@@ -253,6 +255,7 @@
     {
       "id": "elementos",
       "titulo": "Unsur-unsur sebuah karya",
+      "respuesta": "Garis, bentuk, nilai, warna, tekstur, dan ruang; kalau karyamu bagus dalam hitam putih, ia juga akan bagus dalam warna.",
       "lineas": [
         {
           "id": "titulo",
@@ -336,6 +339,7 @@
     {
       "id": "mirar",
       "titulo": "Cara melihat sebuah karya",
+      "respuesta": "Empat langkah: deskripsikan yang kamu lihat, analisis cara membuatnya, tafsirkan maknanya, lalu putuskan suka atau tidak.",
       "lineas": [
         {
           "id": "titulo",
@@ -406,6 +410,7 @@
     {
       "id": "hacer",
       "titulo": "Cara mulai membuat seni",
+      "respuesta": "Gambar yang kamu lihat, bukan yang kamu tahu: salin gambar terbalik, buat sketsa gerak cepat, tiru maestro, dan isi buku sketsa.",
       "lineas": [
         {
           "id": "titulo",
@@ -499,6 +504,7 @@
     {
       "id": "plan",
       "titulo": "Rencanamu untuk mulai",
+      "respuesta": "Tetapkan target yang bisa dihitung, misalnya 100 gambar dalam 100 hari: 15 menit sehari berarti lebih dari 90 jam setahun.",
       "lineas": [
         {
           "id": "titulo",

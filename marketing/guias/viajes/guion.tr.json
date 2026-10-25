@@ -1,0 +1,823 @@
+{
+  "idioma": "tr",
+  "tema": "viajes",
+  "plantillaId": "sala",
+  "numero": 20,
+  "nombre": "Seyahatler",
+  "pregunta": "Nasıl daha iyi seyahat edersin?",
+  "corta": "Nasıl daha iyi seyahat edersin?",
+  "subtitulo": "Bir seyahatin en güzel kısmı neden yola çıkmadan önce gelir, paket tur nasıl doğdu, bir seyahat gerçekte ne zaman başlar, iyi bir gezi planı nasıl yapılır, ne kadar sürmeli, onu mahvetmeden nasıl harcarsın, fotoğraflar hatırlamana yardım eder mi, seyahat seni değiştirir mi ve devam etmek için bir plan.",
+  "aviso": "Bu rehber bilgilendirme amaçlı ve geneldir. Alıntılanan çalışmalar belirli insan gruplarının mutluluğunu ve anılarını ölçer; senin sonuçların farklı olabilir.",
+  "partes": [
+    {
+      "id": "feliz",
+      "titulo": "Seyahat etmek seni neden mutlu eder?",
+      "respuesta": "En çok da beklentiden: yola çıkmadan önce daha mutlusun ve yaşadıkların aldıklarından daha çok sevindirir.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Nasıl daha iyi seyahat edersin? Bir seyahatin en mutlu kısmı neredeyse her zaman yola çıkmadan önce gelir. Döndüğünde ise o keyif birkaç günde uçup gider. Ya onu baştan sona uzatabilseydin? Bugün bunu verilerle göreceksin ve devam etmek için bir planla ayrılacaksın."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Bu arada, burası MindHaOS’taki evim ve bugün havalanıyor: bir uçak. Ben de uçaktaki gezgin oyuncak ayıyım ve burası benim seyahat odam: burada gördüğüm her yerin ve henüz göremediklerimin haritası var."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Birinci bölüm. Seyahat etmek seni neden mutlu eder?"
+        },
+        {
+          "id": "nawijn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "anticipacion"
+          },
+          "lamina": [
+            "maleta",
+            "aeropuerto"
+          ],
+          "destacada": true,
+          "texto": "2010’da Jeroen Nawijn liderliğindeki Hollandalı bir ekip bin beş yüz otuz kişinin mutluluğunu ölçtü. Tatile çıkacak olanlar diğerlerinden daha mutluydu… ama tatilden önce, sonra değil."
+        },
+        {
+          "id": "regreso",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antes",
+              "durante",
+              "despues"
+            ]
+          },
+          "lamina": [
+            "regreso",
+            "oficina"
+          ],
+          "texto": "Döndüklerinde neredeyse hepsi hiç seyahat etmeyenlerle aynıydı. Sadece çok dinlenmiş dönenlerde biraz daha uzun sürdü. Seyahat eve varınca bitmez: söner."
+        },
+        {
+          "id": "gilovich",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "gilovich"
+          },
+          "lamina": [
+            "amigosViaje",
+            "compras"
+          ],
+          "meme": "maleta",
+          "texto": "Yine de buna değer: 2003’te Leaf Van Boven ve Thomas Gilovich, deneyimlere harcamanın bizi eşyalara harcamaktan daha mutlu ettiğini buldu. Eşyalar eskir; yaşadıkların hikâyenin bir parçası olur."
+        },
+        {
+          "id": "mapa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pinApp",
+              "visitadosApp",
+              "porConocerApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bu yüzden dünya haritamda bulunduğum her yer için bir iğne var, gidilecek yerler de başka bir renkte."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Ne zamandan beri zevk için seyahat ediyoruz?",
+      "respuesta": "On sekizinci yüzyılda zengin gençlerin Grand Tour’undan beri; neredeyse herkes için de 1841’de Thomas Cook’un ilk paket turundan beri.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "İkinci bölüm. Ne zamandan beri zevk için seyahat ediyoruz?"
+        },
+        {
+          "id": "grandTour",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1700",
+            "clave": "grandTour"
+          },
+          "lamina": [
+            "grandTour",
+            "roma"
+          ],
+          "destacada": true,
+          "texto": "On sekizinci yüzyılda İngiltere’nin zengin gençleri Grand Tour’a çıkardı: sanat ve antik kalıntılar görmek için aylarca, bazen yıllarca Fransa’yı ve İtalya’yı gezerlerdi. Zevk için seyahat etmek çok az kişinin işiydi."
+        },
+        {
+          "id": "cook",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1841",
+            "clave": "cook"
+          },
+          "lamina": [
+            "cook",
+            "trenVapor"
+          ],
+          "texto": "Ta ki 1841’de İngiliz bir marangoz olan Thomas Cook, Leicester’dan Loughborough’ya yaklaşık beş yüz kişilik, kişi başı bir şilinlik bir tren yolculuğu düzenleyene kadar. Paket tur böyle doğdu."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tren",
+              "avion",
+              "telefono"
+            ]
+          },
+          "lamina": [
+            "avion",
+            "celularMapa"
+          ],
+          "texto": "Sonra uçaklar, cep rehberleri ve şimdi de telefon geldi: bugün herkes koltuğundan bir seyahat planlayabiliyor. Artık zor olan oraya varmak değil, iyi seyahat etmek."
+        },
+        {
+          "id": "rutas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rutaApp",
+              "ordenApp",
+              "distanciaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Rotalarımda yerleri sırayla koyuyorum, haritada birbirine bağlı görüyorum ve uygulama bana kaç kilometre yol gideceğimi söylüyor."
+        }
+      ]
+    },
+    {
+      "id": "espera",
+      "titulo": "Bir seyahat ne zaman başlar?",
+      "respuesta": "Karar verdiğin gün: önceki heyecan ve sonraki anı genelde seyahatin kendisinden daha güzeldir.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Üçüncü bölüm. Bir seyahat ne zaman başlar?"
+        },
+        {
+          "id": "mitchell",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rosa"
+          },
+          "lamina": [
+            "bicicleta",
+            "europa"
+          ],
+          "destacada": true,
+          "texto": "1997’de Terence Mitchell ve ekibi Avrupa’ya gidenleri, Kaliforniya’da bisiklet turuna çıkanları ve Şükran Günü tatiline gidenleri izledi. Önce ve sonra, seyahati yaşarken olduğundan daha iyi değerlendiriyorlardı."
+        },
+        {
+          "id": "rosa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ilusion",
+              "molestias",
+              "recuerdo"
+            ]
+          },
+          "lamina": [
+            "lluviaViaje",
+            "fila"
+          ],
+          "meme": "expectativa",
+          "texto": "Seyahat sırasında yağmur, kuyruklar ve yorgunluk ağır basar. Ama önceki heyecanda ve sonraki anıda bu sıkıntılar neredeyse kaybolur. Araştırmacılar buna pembe gözlük etkisi dedi."
+        },
+        {
+          "id": "saborear",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cuentaRegresiva"
+          },
+          "lamina": [
+            "planeando",
+            "guiaViaje"
+          ],
+          "texto": "Yani bir seyahat, karar verdiğin gün başlar. Önceden planla, bir tarih koy ve beklemenin tadını çıkar: gideceğin yer hakkında oku, fotoğraflara bak, birkaç cümle öğren. Bakalım sana kaç gün heyecan hediye ediyor."
+        },
+        {
+          "id": "itinerario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diaApp",
+              "hospedajeApp",
+              "calendarioApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Japonya seyahatim gün gün bir planda duruyor: nereden çıkıyorum, nereye gidiyorum, nerede kalıyorum ve ne yapıyorum. Her tarih de kendiliğinden takvimimde beliriyor."
+        }
+      ]
+    },
+    {
+      "id": "itinerario",
+      "titulo": "İyi bir gezi planı nasıl yapılır?",
+      "respuesta": "En iyisini sona sakla ve boşluklar bırak: seyahatten en çok en güzel anı ve nasıl bittiğini hatırlarsın.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Dördüncü bölüm. İyi bir gezi planı nasıl yapılır?"
+        },
+        {
+          "id": "kahneman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "picoFinal"
+          },
+          "lamina": [
+            "aguaFria",
+            "hielo"
+          ],
+          "destacada": true,
+          "texto": "1993’te Daniel Kahneman ve ekibi bazı insanlardan ellerini buz gibi suya sokmalarını istedi. Bir deneme daha uzun sürüyordu ama biraz daha az soğuk bitiyordu ve neredeyse herkes onu tekrarlamayı seçti. En yoğun anı ve sonu hatırlarız, toplamı değil."
+        },
+        {
+          "id": "pico",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pico",
+              "final",
+              "duracion"
+            ]
+          },
+          "lamina": [
+            "atardecer",
+            "aeropuertoPrisa"
+          ],
+          "texto": "Seyahatte de aynısı olur: yanında götürdüğün, en güzel an ve nasıl bittiğidir. Havalimanına koşarak geçen bir son gün bütün anıyı boyayabilir."
+        },
+        {
+          "id": "huecos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "finalViaje"
+          },
+          "lamina": [
+            "cafeCalle",
+            "mapaPapel"
+          ],
+          "meme": "itinerario",
+          "texto": "O yüzden sona özel bir şey sakla, beklenmedik şeyler için plansız boşluklar bırak ve bir güne beş müze sıkıştırma: iyi bir tanesi daha değerlidir. Seyahatini burada sırala ve onu nasıl hatırlayacağını gör."
+        },
+        {
+          "id": "guardados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "actividadesApp",
+              "guardarApp",
+              "compartirApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Planımın her gününe etkinlikleri ve ulaşımı yazıyorum. İçime sinince de kaydedip benimle seyahat edenle paylaşıyorum."
+        }
+      ]
+    },
+    {
+      "id": "duracion",
+      "titulo": "Bir seyahat ne kadar sürmeli?",
+      "respuesta": "Uzun olması gerekmez: en iyi ruh hâli sekizinci gün civarında gelir ve bir haftada gider, o yüzden daha sık seyahat et.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Beşinci bölüm. Bir seyahat ne kadar sürmeli?"
+        },
+        {
+          "id": "bloom",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "dia8"
+          },
+          "lamina": [
+            "playa",
+            "hamaca"
+          ],
+          "destacada": true,
+          "texto": "2013’te Jessica de Bloom, tatildeki çalışanların sağlığını ve ruh hâlini gün gün takip etti. Hızla iyileştiler, sekizinci gün civarında zirveye ulaştılar… ve dönüşün ilk haftasında hepsi uçup gitmişti."
+        },
+        {
+          "id": "seguido",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "corto",
+              "seguido",
+              "ilusionNueva"
+            ]
+          },
+          "lamina": [
+            "escapada",
+            "carretera"
+          ],
+          "texto": "Ders, daha az seyahat etmek değil, daha sık seyahat etmek: yılda birkaç kaçamak, tek bir dev seyahatten daha çok heyecan anı ve daha çok dinlenmiş dönüş verir."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoViajes"
+          },
+          "lamina": "pulgar",
+          "texto": "Bu rehberi beğeniyorsan Beğen’e bas, bir sonrakini kaçırmamak için Abone ol ve her zaman “oraya gitmeliyiz” dediğin o kişiyle Paylaş."
+        },
+        {
+          "id": "volver",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "colchon",
+              "vueltaSuave",
+              "siguiente"
+            ]
+          },
+          "lamina": [
+            "maletaCasa",
+            "calendarioPared"
+          ],
+          "texto": "Döndüğünde de işe başlamadan önce kendine bir günlük ara ver ve bir sonraki kaçamağını planla: böylece heyecan yeniden başlar."
+        },
+        {
+          "id": "porConocer",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pinPendiente",
+              "fechaApp",
+              "yaFuiApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Haritamda gidilecek yerlerin bir tarihi var; sonunda gittiğimde de tek dokunuşla ziyaret edilenlere geçiyorlar."
+        }
+      ]
+    },
+    {
+      "id": "dinero",
+      "titulo": "Seyahati mahvetmeden nasıl harcarsın?",
+      "respuesta": "Büyük harcamaları yola çıkmadan öde ve günlük bir tutar belirle: böylece her alışveriş daha az acıtır, seyahatin tadı artar.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Altıncı bölüm. Seyahati mahvetmeden nasıl harcarsın?"
+        },
+        {
+          "id": "prelec",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1998",
+            "clave": "prelec"
+          },
+          "lamina": [
+            "billetes",
+            "tarjeta"
+          ],
+          "destacada": true,
+          "texto": "1998’de Drazen Prelec ve George Loewenstein ödeme acısını inceledi: her harcama biraz acıtır ve bu acı aldığın şeyin tadını kaçırır. Bu yüzden çoğu kişi tatilini peşin ödemeyi tercih ediyordu."
+        },
+        {
+          "id": "adelantado",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "presupuestoViaje"
+          },
+          "lamina": [
+            "reserva",
+            "monedero"
+          ],
+          "texto": "O yüzden büyük harcamaları yola çıkmadan öde: uçuşlar, konaklama ve giriş biletleri. Seyahat boyunca geri kalanı için günlük bir tutar ayır, böylece her alışverişi düşünmek zorunda kalmazsın. Bütçeni burada hazırla."
+        },
+        {
+          "id": "ahorro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "quincena",
+              "boleto"
+            ]
+          },
+          "lamina": [
+            "alcancia",
+            "boletos"
+          ],
+          "meme": "presupuesto",
+          "texto": "Paran yetmiyorsa da bunu tarihli bir birikim hedefine çevir: her iki haftada bir biraz biriktir ve bileti aldığın gün artık acıtmaz."
+        },
+        {
+          "id": "presupuestoApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "presupuestoDia",
+              "metaFinanzas",
+              "totalApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Planımda her günün kendi bütçesi var, toplam da kendiliğinden Finans odamda bir birikim hedefine dönüşüyor."
+        }
+      ]
+    },
+    {
+      "id": "fotos",
+      "titulo": "Fotoğraf mı, anı mı?",
+      "respuesta": "Önce bak ve az ama bilerek fotoğraf çek: sadece fotoğrafladığını daha kötü hatırlarsın; her akşam da iki satır yaz.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Yedinci bölüm. Fotoğraf mı, anı mı?"
+        },
+        {
+          "id": "henkel",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "fotos"
+          },
+          "lamina": [
+            "museo",
+            "celularFoto"
+          ],
+          "destacada": true,
+          "texto": "2014’te Linda Henkel öğrencileri bir müzeye götürdü. Fotoğrafını çektikleri eserleri, sadece baktıklarına göre daha az ve daha az ayrıntıyla hatırlıyorlardı. Fotoğraf makinesi senin yerine hatırlar… sen de hatırlamayı bırakırsın."
+        },
+        {
+          "id": "detalle",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mira",
+              "acercate",
+              "pocas"
+            ]
+          },
+          "lamina": [
+            "detalleArte",
+            "mirador"
+          ],
+          "texto": "Ama zoomla bir ayrıntıya yaklaştıklarında anı kurtuluyordu. Yani önce bak, sonra az ve bilerek fotoğraf çek."
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "noche",
+              "sentiste",
+              "conQuien"
+            ]
+          },
+          "lamina": [
+            "diarioViaje",
+            "cafeLibreta"
+          ],
+          "meme": "fotos",
+          "texto": "Her akşam da iki satır yaz: ne oldu, ne hissettin ve kiminleydin. On yıl sonra o cümle, birbirinin aynı yüz fotoğraftan daha değerli olacak."
+        },
+        {
+          "id": "bitacora",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "albumApp",
+              "fotoApp",
+              "anecdotaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Seyir defterimde her ülke bir albüm ve her yerde fotoğraflarımı anısıyla birlikte saklıyorum."
+        }
+      ]
+    },
+    {
+      "id": "cambio",
+      "titulo": "Seyahat seni değiştirir mi?",
+      "respuesta": "Evet: yurt dışında okuyanlar, kalanlara göre daha açık, daha nazik ve daha az kaygılı hâle geldi.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Sekizinci bölüm. Seyahat seni değiştirir mi?"
+        },
+        {
+          "id": "zimmermann",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "personalidad"
+          },
+          "lamina": [
+            "estudiantes",
+            "mochila"
+          ],
+          "destacada": true,
+          "texto": "2013’te Julia Zimmermann ve Franz Neyer binden fazla Alman öğrenciyi takip etti. Yurt dışına okumaya gidenler, kalanlara göre daha açık, daha nazik ve daha az kaygılı hâle geldi."
+        },
+        {
+          "id": "costumbre",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abierto",
+              "amable",
+              "calma"
+            ]
+          },
+          "lamina": [
+            "mercado",
+            "conversacion"
+          ],
+          "texto": "Bu, anıtları görmekle değil, alışkanlıklarının dışına çıkmakla olur: başka bir yemek denemek, kaybolmak, başka bir dilde yardım istemek."
+        },
+        {
+          "id": "local",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "local",
+              "gracias",
+              "sinPrisa"
+            ]
+          },
+          "lamina": [
+            "comidaCalle",
+            "plaza"
+          ],
+          "texto": "O yüzden her seyahatte bir yerli gibi bir şey yap: onların yediği yerde ye, teşekkür etmeyi öğren ve aynı yerde biraz acele etmeden kal."
+        },
+        {
+          "id": "estados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "paisesApp",
+              "estadosApp",
+              "colorApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Eyaletler açıkken de gördüğüm her yer kendi rengine boyanıyor: haritanın yavaş yavaş dolmasını izlemeye bayılıyorum."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Nasıl devam etmeli? Devam etmek için planın",
+      "respuesta": "Yerlerini bir haritaya koy, birini tarihiyle seç, onun için biriktir ve dönünce bir sonraki kaçamağı planla.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Dokuzuncu bölüm. Nasıl devam etmeli? Devam etmek için planın."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planViajes"
+          },
+          "lamina": [
+            "mapaPared",
+            "libreta"
+          ],
+          "texto": "Bu hafta, bulunduğun yerleri ve gitmek istediğin üç yeri bir haritaya koy."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "fecha",
+              "ahorra"
+            ]
+          },
+          "lamina": [
+            "calendarioPared",
+            "alcancia"
+          ],
+          "destacada": true,
+          "texto": "İlk ay, o yerlerden birini seç, bir tarih koy ve onun için biriktirmeye başla."
+        },
+        {
+          "id": "cadaViaje",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pagaAntes",
+              "mejorFinal",
+              "escribeNoche"
+            ]
+          },
+          "lamina": [
+            "aeropuerto",
+            "atardecer"
+          ],
+          "texto": "Ve her seyahatte: büyük harcamaları önceden öde, en iyisini sona sakla, her akşam yaz ve dönünce bir sonraki kaçamağı planla."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mapaFin",
+              "planFin",
+              "bitacoraFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Nereden başlayacağını bilmiyorsan da uygulamadaki Japonya seyahatime bak: haritadan seyir defterine kadar eksiksiz."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Özetle: beklemenin tadını çıkar; en iyisini sona sakla; daha sık seyahat et; yola çıkmadan öde; ve fotoğrafladığından fazlasına bak."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS’un Seyahatler odasında yerlerini dünya haritasına koyar, gün gün gezi planını hazırlar ve seyir defterini fotoğraf ve anılarla tutarsın. Bunu kendi başına ya da yapay zekânın yardımıyla yapabilirsin. Zihinsel evini bugün ücretsiz kur: bağlantı açıklamada. Bir sonraki rehberde ise: en güzel anılarını nasıl saklarsın?",
+    "boton": "Seyahatler’i aç",
+    "lamina": "app-plan",
+    "anclas": {
+      "mapa": "dünya haritasına",
+      "itinerario": "gün gün gezi planını",
+      "bitacora": "seyir defterini"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "nawijn-2010",
+      "texto": "Nawijn J., Marchand M. A., Veenhoven R., Vingerhoets A. J. Vacationers happier, but most not happier after a holiday. Applied Research in Quality of Life 5(1), 35-47 (2010).",
+      "url": "https://doi.org/10.1007/s11482-009-9091-9"
+    },
+    {
+      "id": "vanboven-2003",
+      "texto": "Van Boven L., Gilovich T. To do or to have? That is the question. Journal of Personality and Social Psychology 85(6), 1193-1202 (2003).",
+      "url": "https://doi.org/10.1037/0022-3514.85.6.1193"
+    },
+    {
+      "id": "grand-tour",
+      "texto": "Grand Tour. Vikipedi.",
+      "url": "https://en.wikipedia.org/wiki/Grand_Tour"
+    },
+    {
+      "id": "thomas-cook",
+      "texto": "Thomas Cook ve Leicester’dan Loughborough’ya yolculuk (1841). Vikipedi.",
+      "url": "https://en.wikipedia.org/wiki/Thomas_Cook"
+    },
+    {
+      "id": "mitchell-1997",
+      "texto": "Mitchell T. R., Thompson L., Peterson E., Cronk R. Temporal adjustments in the evaluation of events: the «rosy view». Journal of Experimental Social Psychology 33(4), 421-448 (1997).",
+      "url": "https://doi.org/10.1006/jesp.1997.1333"
+    },
+    {
+      "id": "kahneman-1993",
+      "texto": "Kahneman D., Fredrickson B. L., Schreiber C. A., Redelmeier D. A. When more pain is preferred to less: adding a better end. Psychological Science 4(6), 401-405 (1993).",
+      "url": "https://doi.org/10.1111/j.1467-9280.1993.tb00589.x"
+    },
+    {
+      "id": "debloom-2013",
+      "texto": "de Bloom J., Geurts S. A. E., Kompier M. A. J. Vacation (after-) effects on employee health and well-being, and the role of vacation activities, experiences and sleep. Journal of Happiness Studies 14(2), 613-633 (2013).",
+      "url": "https://doi.org/10.1007/s10902-012-9345-3"
+    },
+    {
+      "id": "prelec-1998",
+      "texto": "Prelec D., Loewenstein G. The red and the black: mental accounting of savings and debt. Marketing Science 17(1), 4-28 (1998).",
+      "url": "https://doi.org/10.1287/mksc.17.1.4"
+    },
+    {
+      "id": "henkel-2014",
+      "texto": "Henkel L. A. Point-and-shoot memories: the influence of taking photos on memory for a museum tour. Psychological Science 25(2), 396-402 (2014).",
+      "url": "https://doi.org/10.1177/0956797613504438"
+    },
+    {
+      "id": "zimmermann-2013",
+      "texto": "Zimmermann J., Neyer F. J. Do we become a different person when hitting the road? Personality development of sojourners. Journal of Personality and Social Psychology 105(3), 515-530 (2013).",
+      "url": "https://doi.org/10.1037/a0033019"
+    }
+  ]
+}

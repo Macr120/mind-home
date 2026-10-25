@@ -18,6 +18,7 @@
     {
       "id": "cuerpo",
       "titulo": "What happens while you sleep",
+      "respuesta": "Your brain runs through cycles of about 90 minutes: deep sleep repairs your body and REM sorts what you learned.",
       "lineas": [
         {
           "id": "gancho",
@@ -91,6 +92,7 @@
     {
       "id": "historia",
       "titulo": "What science has discovered about sleep",
+      "respuesta": "That you have an internal clock: Kleitman proved it in a cave in 1938, and discovering its genes won the 2017 Nobel.",
       "lineas": [
         {
           "id": "titulo",
@@ -163,6 +165,7 @@
     {
       "id": "cuanto",
       "titulo": "How much sleep you need",
+      "respuesta": "Seven hours or more as an adult: sleeping six for two weeks hurts attention as much as up to two nights without sleep.",
       "lineas": [
         {
           "id": "titulo",
@@ -224,6 +227,7 @@
     {
       "id": "reloj",
       "titulo": "Your internal clock",
+      "respuesta": "Light sets it: get some sun in the morning, avoid screens at night and go to sleep at consistent times.",
       "lineas": [
         {
           "id": "titulo",
@@ -299,6 +303,7 @@
     {
       "id": "noche",
       "titulo": "How to prepare for a good night's sleep",
+      "respuesta": "Cut caffeine six hours before bed, skip alcohol, sleep somewhere cool and dark, and drop screens in your last hour.",
       "lineas": [
         {
           "id": "titulo",
@@ -389,6 +394,7 @@
     {
       "id": "insomnio",
       "titulo": "When you can't sleep",
+      "respuesta": "If you can't sleep after 20 minutes, get up and return when sleepy; if it lasts weeks, start with cognitive behavioral therapy.",
       "lineas": [
         {
           "id": "titulo",

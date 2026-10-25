@@ -12,6 +12,7 @@
     {
       "id": "mente",
       "titulo": "Où est ton esprit en ce moment ?",
+      "respuesta": "Ailleurs presque la moitié du temps, et ce n’est pas du repos : quand il vagabonde, tu te sens moins bien que quand tu fais attention.",
       "lineas": [
         {
           "id": "gancho",
@@ -104,6 +105,7 @@
     {
       "id": "que",
       "titulo": "Qu’est-ce que la pleine conscience, et d’où vient-elle ?",
+      "respuesta": "C’est porter attention, délibérément, au moment présent et sans juger ; ça vient du « sati » bouddhiste d’il y a environ 2500 ans.",
       "lineas": [
         {
           "id": "titulo",
@@ -197,6 +199,7 @@
     {
       "id": "respirar",
       "titulo": "Que se passe-t-il dans ton corps quand tu respires lentement ?",
+      "respuesta": "Il se calme : respirer environ six fois par minute le ralentit, et pratiquer le soupir cyclique chaque jour améliore ton humeur.",
       "lineas": [
         {
           "id": "titulo",
@@ -281,6 +284,7 @@
     {
       "id": "rapido",
       "titulo": "Pourquoi ralentir te fait arriver plus vite ?",
+      "respuesta": "Parce qu’entraîner ton attention quelques minutes par jour t’aide à moins te disperser et protège ta mémoire de travail, même sous stress.",
       "lineas": [
         {
           "id": "titulo",
@@ -363,6 +367,7 @@
     {
       "id": "ciencia",
       "titulo": "Que dit la science, et que ne dit-elle pas ?",
+      "respuesta": "Que la méditation améliore modérément l’anxiété, la dépression et la douleur, mais qu’elle n’a rien de magique et ne remplace pas un spécialiste.",
       "lineas": [
         {
           "id": "titulo",
@@ -451,6 +456,7 @@
     {
       "id": "meditar",
       "titulo": "Comment méditer si tu n’arrives pas à arrêter de penser ?",
+      "respuesta": "Te distraire, ce n’est pas échouer : chaque fois que tu le remarques et reviens à ta respiration, tu entraînes ton attention.",
       "lineas": [
         {
           "id": "titulo",
@@ -545,6 +551,7 @@
     {
       "id": "continuar",
       "titulo": "Comment continuer ? Ton plan pour la suite",
+      "respuesta": "Accroche quelques minutes de pratique à une habitude, augmente peu à peu et, si tu sautes un jour, reviens simplement.",
       "lineas": [
         {
           "id": "titulo",

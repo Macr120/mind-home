@@ -12,6 +12,7 @@
     {
       "id": "video",
       "titulo": "O que é um vídeo",
+      "respuesta": "São fotos paradas tão seguidas que o seu cérebro as junta: com 24 por segundo, a velocidade do cinema, você vê movimento fluido.",
       "lineas": [
         {
           "id": "gancho",
@@ -123,6 +124,7 @@
     {
       "id": "historia",
       "titulo": "Uma breve história do vídeo",
+      "respuesta": "Das doze câmeras de Muybridge em 1878 ao celular de hoje: o que antes exigia uma equipe de cinema agora cabe no seu bolso.",
       "lineas": [
         {
           "id": "titulo",
@@ -223,6 +225,7 @@
     {
       "id": "encuadre",
       "titulo": "O enquadramento",
+      "respuesta": "Enquadrar é decidir o que entra na imagem: ponha o que importa numa linha da regra dos terços, não no centro, e você guia o olhar.",
       "lineas": [
         {
           "id": "titulo",
@@ -307,6 +310,7 @@
     {
       "id": "luzSonido",
       "titulo": "A luz e o som",
+      "respuesta": "Fique de frente ou de lado para uma janela e traga o microfone a um palmo: o público perdoa uma imagem regular, não um som ruim.",
       "lineas": [
         {
           "id": "titulo",
@@ -388,6 +392,7 @@
     {
       "id": "edicion",
       "titulo": "A edição",
+      "respuesta": "Escolha suas melhores tomadas, ordene-as e decida quanto dura cada uma: como mostrou Kuleshov, o sentido está no que você junta.",
       "lineas": [
         {
           "id": "titulo",
@@ -471,6 +476,7 @@
     {
       "id": "historiaContar",
       "titulo": "Como contar uma história",
+      "respuesta": "Prenda nos primeiros segundos com uma pergunta, monte começo, meio e fim, e mostre em vez de dizer.",
       "lineas": [
         {
           "id": "titulo",
@@ -566,6 +572,7 @@
     {
       "id": "plan",
       "titulo": "Seu plano para começar",
+      "respuesta": "Faça um vídeo de um minuto por semana, mesmo que não saia perfeito: são 52 por ano, e cada um te ensina algo para o próximo.",
       "lineas": [
         {
           "id": "titulo",

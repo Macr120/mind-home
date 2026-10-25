@@ -25,6 +25,7 @@
     {
       "id": "arte",
       "titulo": "Che cos'è l'arte",
+      "respuesta": "È qualcosa che fai perché un altro lo guardi e lo senta, e farlo ti fa bene: lo stress è sceso in 3 persone su 4.",
       "lineas": [
         {
           "id": "gancho",
@@ -156,6 +157,7 @@
     {
       "id": "historia",
       "titulo": "Una breve storia dell'arte visiva",
+      "respuesta": "Dalle grotte dipinte 51.000 anni fa alla prospettiva, alla fotografia e agli schermi: lo strumento cambia, ciò che vuoi dire no.",
       "lineas": [
         {
           "id": "titulo",
@@ -253,6 +255,7 @@
     {
       "id": "elementos",
       "titulo": "Gli elementi di un'opera",
+      "respuesta": "Linea, forma, valore, colore, texture e spazio; e se la tua opera sta bene in bianco e nero, starà bene anche a colori.",
       "lineas": [
         {
           "id": "titulo",
@@ -336,6 +339,7 @@
     {
       "id": "mirar",
       "titulo": "Come guardare un'opera",
+      "respuesta": "In quattro passi: descrivi ciò che vedi, analizza come è fatto, interpreta cosa dice e solo alla fine decidi se ti piace.",
       "lineas": [
         {
           "id": "titulo",
@@ -406,6 +410,7 @@
     {
       "id": "hacer",
       "titulo": "Come iniziare a fare arte",
+      "respuesta": "Disegna ciò che vedi, non ciò che sai: copia capovolto, fai schizzi rapidi di gesto, copia i maestri e riempi un taccuino.",
       "lineas": [
         {
           "id": "titulo",
@@ -499,6 +504,7 @@
     {
       "id": "plan",
       "titulo": "Il tuo piano per iniziare",
+      "respuesta": "Datti un obiettivo che si può contare, come 100 disegni in 100 giorni: 15 minuti al giorno sono più di 90 ore all'anno.",
       "lineas": [
         {
           "id": "titulo",

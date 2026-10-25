@@ -12,6 +12,7 @@
     {
       "id": "video",
       "titulo": "Was ein Video ist",
+      "respuesta": "Es sind Standbilder, so schnell hintereinander, dass dein Gehirn sie verbindet: Bei 24 pro Sekunde, Kinotempo, wirkt alles fließend.",
       "lineas": [
         {
           "id": "gancho",
@@ -123,6 +124,7 @@
     {
       "id": "historia",
       "titulo": "Eine kurze Geschichte des Videos",
+      "respuesta": "Von Muybridges zwölf Kameras 1878 bis zum Handy von heute: Was einst ein Filmteam brauchte, passt jetzt in deine Hosentasche.",
       "lineas": [
         {
           "id": "titulo",
@@ -223,6 +225,7 @@
     {
       "id": "encuadre",
       "titulo": "Der Bildausschnitt",
+      "respuesta": "Beim Bildausschnitt entscheidest du, was ins Bild kommt: Setz das Wichtige auf eine Drittellinie, nicht in die Mitte, und lenk den Blick.",
       "lineas": [
         {
           "id": "titulo",
@@ -307,6 +310,7 @@
     {
       "id": "luzSonido",
       "titulo": "Licht und Ton",
+      "respuesta": "Stell dich frontal oder seitlich zum Fenster und hol das Mikro eine Handbreit heran: Ein mäßiges Bild verzeiht man, schlechten Ton nicht.",
       "lineas": [
         {
           "id": "titulo",
@@ -388,6 +392,7 @@
     {
       "id": "edicion",
       "titulo": "Der Schnitt",
+      "respuesta": "Wähl die besten Einstellungen, ordne sie und bestimm ihre Länge: Wie Kuleshov zeigte, entsteht Bedeutung durch das, was nebeneinandersteht.",
       "lineas": [
         {
           "id": "titulo",
@@ -471,6 +476,7 @@
     {
       "id": "historiaContar",
       "titulo": "Wie man eine Geschichte erzählt",
+      "respuesta": "Pack dein Publikum in den ersten Sekunden mit einer Frage, bau Anfang, Konflikt und Ende, und zeig es, statt es zu sagen.",
       "lineas": [
         {
           "id": "titulo",
@@ -566,6 +572,7 @@
     {
       "id": "plan",
       "titulo": "Dein Plan für den Anfang",
+      "respuesta": "Mach jede Woche ein Video von einer Minute, auch wenn es nicht perfekt ist: Das sind 52 im Jahr, und jedes lehrt dich etwas fürs nächste.",
       "lineas": [
         {
           "id": "titulo",

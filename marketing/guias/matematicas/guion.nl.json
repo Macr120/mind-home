@@ -12,6 +12,7 @@
     {
       "id": "universo",
       "titulo": "Waarom spreekt het universum in getallen?",
+      "respuesta": "Omdat wiskunde beschrijft hoe de wereld beweegt: met alleen berekeningen vond Le Verrier Neptunus zonder naar de hemel te kijken.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "origen",
       "titulo": "Waar komen de getallen vandaan?",
+      "respuesta": "Gevoel voor hoeveelheid hebben we al; wat we uitvonden was het opschrijven, van kerven in een bot tot de nul.",
       "lineas": [
         {
           "id": "titulo",
@@ -195,6 +197,7 @@
     {
       "id": "miedo",
       "titulo": "Waarom is wiskunde eng?",
+      "respuesta": "Omdat je hersenen al vooraf reageren alsof het pijn is, maar goed zijn in wiskunde is geen gave: het is oefening, net als een taal.",
       "lineas": [
         {
           "id": "titulo",
@@ -272,6 +275,7 @@
     {
       "id": "resolver",
       "titulo": "Hoe los je elk probleem op?",
+      "respuesta": "Met de vier stappen van Pólya: begrijp het probleem, bedenk een plan, voer het uit en kijk terug; en schat voordat je rekent.",
       "lineas": [
         {
           "id": "titulo",
@@ -357,6 +361,7 @@
     {
       "id": "ver",
       "titulo": "Hoe zie je een vergelijking?",
+      "respuesta": "Teken haar op twee assen, zoals Descartes voorstelde: je ziet in één oogopslag waar ze stijgt, waar ze daalt en waar ze door nul gaat.",
       "lineas": [
         {
           "id": "titulo",
@@ -433,6 +438,7 @@
     {
       "id": "vida",
       "titulo": "Hoe gebruik je getallen in je leven?",
+      "respuesta": "Ruil procenten in voor mensen: stel je er honderd voor en tel hoeveel er in elk geval zitten, en het probleem wordt duidelijk.",
       "lineas": [
         {
           "id": "titulo",
@@ -509,6 +515,7 @@
     {
       "id": "continuar",
       "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "respuesta": "Zoek de getallen van je dag, schat voordat je rekent en los elke dag een korte som op met de stappen van Pólya.",
       "lineas": [
         {
           "id": "titulo",

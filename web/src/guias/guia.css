@@ -4142,3 +4142,43 @@ html:has(.g-pose) body {
   cursor: pointer;
 }
 .g-ide-razon em { min-width: 1.2em; font-style: normal; font-weight: 800; text-align: center; }
+
+/* ───────── Viajes ───────── */
+.g-via {
+  --met: #0284c7;
+}
+.g-via-espera {
+  display: flex;
+  height: 26px;
+  margin: 12px 0 4px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.g-via-espera span { min-width: 6px; transition: flex-grow 0.5s; }
+.g-via-ilusion { background: linear-gradient(90deg, #7dd3fc, #0284c7); }
+.g-via-viaje { background: #f59e0b; }
+.g-via-dias {
+  display: grid;
+  gap: 6px;
+  margin: 10px 0;
+  padding: 0;
+  list-style: none;
+}
+.g-via-dias li {
+  display: grid;
+  grid-template-columns: auto 1fr 90px;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--ui-panel);
+  font-size: 13px;
+}
+.g-via-dias small { color: var(--tinta-3); font-weight: 700; }
+.g-via-dias i { height: 10px; overflow: hidden; border-radius: 5px; background: color-mix(in srgb, var(--tinta-3) 18%, transparent); }
+.g-via-dias i b { display: block; height: 100%; background: var(--met); transition: width 0.5s; }
+.g-via-dias li.pico i b { background: #22c55e; }
+.g-via-dias li.malo i b { background: #ef4444; }
+.g-via-dias li.pico, .g-via-dias li.malo { font-weight: 700; }
+.g-curva.g-via-base { stroke-width: 2; }
+.g-via-punto { fill: var(--ui-accent); }

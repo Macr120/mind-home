@@ -26,9 +26,9 @@ export function pepCon(atuendo: string, cara?: ExpresionId, ropa?: Ropa): Avatar
 /** Atuendo del narrador según el tema de la guía. */
 export const ATUENDO_GUIA: Record<string, string> = { ejercicio: 'deportista', cocina: 'chef', descanso: 'pijama', finanzas: 'oficinista', metas: 'explorador', garage: 'mecanico' }
 
-/** Lo que se suma al atuendo de la guía (Garage: la barba del mecánico, como en la casa: `ROPA` de su escena.mjs; Noticias: el atuendo del tema vaquero, el de la casa; Ideas: el de la tortuga, que lleva el osito). */
+/** Lo que se suma al atuendo de la guía (Garage: la barba del mecánico, como en la casa: `ROPA` de su escena.mjs; Noticias: el atuendo del tema vaquero, el de la casa; Ideas: el de la tortuga, que lleva el osito; Viajes: el osito piloto, gorra azul marino y chamarra café de aviador). */
 export function ropaDeGuia(tema: string): Ropa | undefined {
-  const extra: Record<string, Ropa> = { garage: { barba: { color: '#3a2a1a' } }, noticias: ATUENDO_POR_TEMA.vaquero, ideas: ATUENDO_POR_TEMA.tortuga }
+  const extra: Record<string, Ropa> = { garage: { barba: { color: '#3a2a1a' } }, noticias: ATUENDO_POR_TEMA.vaquero, ideas: ATUENDO_POR_TEMA.tortuga, viajes: { sombrero: { color: '#1e3a8a' }, camisa: { color: '#6b4226' }, pantalon: { color: '#1e293b' }, tenis: { color: '#111827' }, mochila: { color: '#6b4226' } } }
   return extra[tema] && { ...ATUENDOS_PRESET.find((a) => a.id === ATUENDO_GUIA[tema])?.ropa, ...extra[tema] }
 }
 
@@ -45,7 +45,7 @@ export function ropaDeEpoca(tema: string, parte: number): Ropa | undefined {
 }
 
 /** Las guías que no narra Pep@: Idiomas, Música y Video las cuenta el mago (el asistente de fábrica de la app); Metas y Mindfulness, la princesa (un cuerpo prediseñado de la app). */
-export const NARRADOR_GUIA: Record<string, 'mago' | 'princesa' | 'alien' | 'osito'> = { idiomas: 'mago', musica: 'mago', video: 'mago', metas: 'princesa', mindfulness: 'princesa', agenda: 'princesa', aprender: 'princesa', matematicas: 'alien', escritura: 'mago', hobbies: 'alien', entretenimiento: 'alien', ideas: 'osito' }
+export const NARRADOR_GUIA: Record<string, 'mago' | 'princesa' | 'alien' | 'osito'> = { idiomas: 'mago', musica: 'mago', video: 'mago', metas: 'princesa', mindfulness: 'princesa', agenda: 'princesa', aprender: 'princesa', matematicas: 'alien', escritura: 'mago', hobbies: 'alien', entretenimiento: 'alien', ideas: 'osito', viajes: 'osito' }
 
 /** Color del vestido de la princesa por guía (Mindfulness de verde, como en la casa: `CUERPO_COLORES` de su escena.mjs). */
 export const VESTIDO_GUIA: Record<string, string> = { mindfulness: '#34d399', agenda: '#facc15', aprender: '#60a5fa' }

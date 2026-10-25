@@ -12,6 +12,7 @@
     {
       "id": "olvido",
       "titulo": "Çalıştığın şeyi neden unutursun?",
+      "respuesta": "Çünkü yeniden kullanmadığın şey hızla gider: Ebbinghaus bir saat içinde yarısından fazlasını unutmuştu.",
       "lineas": [
         {
           "id": "gancho",
@@ -90,6 +91,7 @@
     {
       "id": "tecnicas",
       "titulo": "Hangi teknikler gerçekten işe yarar?",
+      "respuesta": "Kendini sınamak ve çalışmayı zamana yaymak: on teknik arasında en yüksek notu yalnızca bu ikisi aldı.",
       "lineas": [
         {
           "id": "titulo",
@@ -170,6 +172,7 @@
     {
       "id": "prueba",
       "titulo": "Kendini sınamak neden tekrar okumaktan daha değerlidir?",
+      "respuesta": "Çünkü hatırlamaya çalışmak bilgiyi sağlamlaştırır: bir hafta sonra kendini sınayanlar %61'ini, tekrar okuyanlar %40'ını hatırladı.",
       "lineas": [
         {
           "id": "titulo",
@@ -241,6 +244,7 @@
     {
       "id": "repasar",
       "titulo": "Unutmamak için ne zaman tekrar etmeli?",
+      "respuesta": "Ertesi gün, bir hafta sonra ve bir ay sonra: çalışmayı günlere yaymak, sınavdan önceki geceyi neredeyse her zaman yener.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "entender",
       "titulo": "Ezberlemek yerine nasıl anlarsın?",
+      "respuesta": "Öğreteceksin gibi öğren ve basitçe anlat: takıldığın ya da tuhaf kelimelere sığındığın yer, henüz anlamadığın yerdir.",
       "lineas": [
         {
           "id": "titulo",
@@ -403,6 +408,7 @@
     {
       "id": "dormir",
       "titulo": "Uyku öğrendiklerine ne yapar?",
+      "respuesta": "Öğrendiklerini tekrar eder ve daha iyi saklar: çalıştıktan birkaç saat sonra uyuyan, günler sonra bile daha çok hatırlar.",
       "lineas": [
         {
           "id": "titulo",
@@ -481,6 +487,7 @@
     {
       "id": "continuar",
       "titulo": "Nasıl devam etmeli? Devam etmek için planın",
+      "respuesta": "Bakmadan kendini sına, ertesi gün, bir hafta ve bir ay sonra tekrar et, saatleri değil ne kadar hatırladığını say.",
       "lineas": [
         {
           "id": "titulo",

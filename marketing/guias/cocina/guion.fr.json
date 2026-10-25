@@ -18,6 +18,7 @@
     {
       "id": "cuerpo",
       "titulo": "Ce que la nourriture fait dans ton corps",
+      "respuesta": "C'est ton carburant pour respirer, penser et bouger, et le matériau qui répare tes muscles, tes os, ta peau et ton sang.",
       "lineas": [
         {
           "id": "gancho",
@@ -97,6 +98,7 @@
     {
       "id": "historia",
       "titulo": "Une brève histoire de ce que nous mangeons",
+      "respuesta": "Du feu à l'étiquette : les oranges de Lind ont guéri le scorbut et Atwater a mesuré les calories qu'on lit encore.",
       "lineas": [
         {
           "id": "titulo",
@@ -185,6 +187,7 @@
     {
       "id": "energia",
       "titulo": "De combien d'énergie tu as besoin",
+      "respuesta": "Environ deux tiers de ta dépense servent juste à te maintenir en vie ; pour maigrir, mange environ 15 % de moins.",
       "lineas": [
         {
           "id": "titulo",
@@ -252,6 +255,7 @@
     {
       "id": "calidad",
       "titulo": "La qualité de ce que tu manges",
+      "respuesta": "Privilégie le frais : avec de l'ultra-transformé, les gens ont mangé environ 500 calories de plus par jour sans s'en rendre compte.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "plato",
       "titulo": "Comment composer ton assiette et ta semaine",
+      "respuesta": "Mets moitié légumes et fruits, un quart de céréales complètes, un quart de protéines, et planifie tes menus de la semaine.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +402,7 @@
     {
       "id": "habitos",
       "titulo": "Eau, faim et régularité",
+      "respuesta": "Bois environ deux litres d'eau par jour, mange lentement sans écran et note ce que tu manges quelques jours pour voir tes habitudes.",
       "lineas": [
         {
           "id": "titulo",

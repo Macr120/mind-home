@@ -12,6 +12,7 @@
     {
       "id": "musica",
       "titulo": "Ce qu'est la musique",
+      "respuesta": "C’est du son organisé en rythme, mélodie et harmonie, et apprendre à jouer change jusqu’à ton cerveau, même si une machine compose.",
       "lineas": [
         {
           "id": "gancho",
@@ -136,6 +137,7 @@
     {
       "id": "historia",
       "titulo": "Une brève histoire de la musique",
+      "respuesta": "D’une flûte en os de 40 000 ans à l’enregistrement et au MIDI : aujourd’hui, un clavier et un ordinateur font un studio.",
       "lineas": [
         {
           "id": "titulo",
@@ -236,6 +238,7 @@
     {
       "id": "ritmo",
       "titulo": "Le rythme",
+      "respuesta": "C’est la façon dont la musique se répartit dans le temps : une pulsation régulière, des mesures, et la syncope qui fait danser.",
       "lineas": [
         {
           "id": "titulo",
@@ -330,6 +333,7 @@
     {
       "id": "melodia",
       "titulo": "La mélodie",
+      "respuesta": "Une suite de notes à chanter : tu la reconnais à son dessin, qui monte ou descend, et elle reste en tête car elle se répète.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +401,7 @@
     {
       "id": "armonia",
       "titulo": "L'harmonie",
+      "respuesta": "Des notes jouées ensemble : l’accord majeur sonne lumineux, le mineur mélancolique, et trois accords suffisent pour accompagner.",
       "lineas": [
         {
           "id": "titulo",
@@ -477,6 +482,7 @@
     {
       "id": "mezcla",
       "titulo": "Comment on mixe la musique",
+      "respuesta": "Mixer, c’est donner à chaque piste son volume, ses fréquences et sa place, pour que la basse ne couvre pas la mélodie.",
       "lineas": [
         {
           "id": "titulo",
@@ -543,6 +549,7 @@
     {
       "id": "plan",
       "titulo": "Ton plan pour commencer",
+      "respuesta": "Écoute par couches, joue 15 minutes par jour, soit plus de 90 heures par an, et enregistre-toi dès le premier jour pour progresser.",
       "lineas": [
         {
           "id": "titulo",

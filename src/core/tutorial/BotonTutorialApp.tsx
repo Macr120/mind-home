@@ -35,6 +35,7 @@ const GUIAS: Record<string, { tema: string; clave: string; es: string }> = {
   garage: { tema: 'garage', clave: 'guia.garage.titulo', es: '¿Cómo cuidar tus vehículos?' },
   diario: { tema: 'noticias', clave: 'guia.noticias.titulo', es: 'En búsqueda de la verdad y la belleza: periodismo y contenido' },
   ideas: { tema: 'ideas', clave: 'guia.ideas.titulo', es: '¿Cómo tener mejores ideas?' },
+  sala: { tema: 'viajes', clave: 'guia.viajes.titulo', es: '¿Cómo viajar mejor?' },
   computo: { tema: 'matematicas', clave: 'guia.matematicas.titulo', es: '¿Cuál es el lenguaje del universo?' },
 }
 

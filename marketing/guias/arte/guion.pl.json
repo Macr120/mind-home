@@ -25,6 +25,7 @@
     {
       "id": "arte",
       "titulo": "Czym jest sztuka",
+      "respuesta": "To coś, co robisz, by ktoś inny spojrzał i poczuł, a samo tworzenie ci służy: stres spadł u 3 na 4 osoby.",
       "lineas": [
         {
           "id": "gancho",
@@ -156,6 +157,7 @@
     {
       "id": "historia",
       "titulo": "Krótka historia sztuk wizualnych",
+      "respuesta": "Od jaskiń malowanych 51 000 lat temu po perspektywę, fotografię i ekrany: narzędzie się zmienia, twój przekaz nie.",
       "lineas": [
         {
           "id": "titulo",
@@ -253,6 +255,7 @@
     {
       "id": "elementos",
       "titulo": "Elementy dzieła",
+      "respuesta": "Linia, kształt, walor, kolor, faktura i przestrzeń; a jeśli praca dobrze wygląda w czerni i bieli, będzie dobra i w kolorze.",
       "lineas": [
         {
           "id": "titulo",
@@ -336,6 +339,7 @@
     {
       "id": "mirar",
       "titulo": "Jak patrzeć na dzieło",
+      "respuesta": "W czterech krokach: opisz, co widzisz, przeanalizuj, jak to zrobiono, zinterpretuj i dopiero na końcu zdecyduj, czy ci się podoba.",
       "lineas": [
         {
           "id": "titulo",
@@ -406,6 +410,7 @@
     {
       "id": "hacer",
       "titulo": "Jak zacząć tworzyć",
+      "respuesta": "Rysuj to, co widzisz, a nie to, co wiesz: przerysowuj do góry nogami, rób szybkie szkice, kopiuj mistrzów i zapełnij szkicownik.",
       "lineas": [
         {
           "id": "titulo",
@@ -499,6 +504,7 @@
     {
       "id": "plan",
       "titulo": "Twój plan na start",
+      "respuesta": "Wyznacz cel, który da się policzyć, np. 100 rysunków w 100 dni: 15 minut dziennie to ponad 90 godzin rocznie.",
       "lineas": [
         {
           "id": "titulo",

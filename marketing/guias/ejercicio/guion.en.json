@@ -20,6 +20,7 @@
     {
       "id": "adaptacion",
       "titulo": "What happens in your body when you train",
+      "respuesta": "You apply controlled stress, and your body gets stronger afterward, while you rest and it repairs itself.",
       "lineas": [
         {
           "id": "gancho",
@@ -100,6 +101,7 @@
     {
       "id": "historia",
       "titulo": "A brief history of exercise",
+      "respuesta": "It went from hunch to science: in 1953, Morris found London's bus conductors, always on the move, had fewer heart attacks.",
       "lineas": [
         {
           "id": "titulo",
@@ -183,6 +185,7 @@
     {
       "id": "capacidades",
       "titulo": "The four capacities you should train",
+      "respuesta": "Endurance, strength, mobility and balance: 150 to 300 minutes of moderate activity a week, plus strength two days.",
       "lineas": [
         {
           "id": "titulo",
@@ -256,6 +259,7 @@
     {
       "id": "intensidad",
       "titulo": "Measure your intensity like a pro",
+      "respuesta": "With the 1-to-10 effort scale, reps in reserve and heart rate: if you can talk but not sing, you're at moderate.",
       "lineas": [
         {
           "id": "titulo",
@@ -320,6 +324,7 @@
     {
       "id": "progresion",
       "titulo": "How to progress week by week",
+      "respuesta": "Use double progression: once you hit 12 reps on every set, add load and start again at 8.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +402,7 @@
     {
       "id": "recuperacion",
       "titulo": "Recovery: where you actually get better",
+      "respuesta": "You improve while you rest: sleep seven hours or more and spread 1.2 to 2 grams of protein per kilo across the day.",
       "lineas": [
         {
           "id": "titulo",

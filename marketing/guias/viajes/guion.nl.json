@@ -1,0 +1,823 @@
+{
+  "idioma": "nl",
+  "tema": "viajes",
+  "plantillaId": "sala",
+  "numero": 20,
+  "nombre": "Reizen",
+  "pregunta": "Hoe reis je beter?",
+  "corta": "Hoe reis je beter?",
+  "subtitulo": "Waarom het mooiste deel van een reis vóór vertrek komt, hoe de georganiseerde reis ontstond, wanneer een reis echt begint, hoe je een goed reisplan maakt, hoe lang een reis moet duren, hoe je geld uitgeeft zonder hem te verpesten, of foto’s je helpen herinneren, of reizen je verandert en een plan om door te gaan.",
+  "aviso": "Deze gids is informatief en algemeen. De genoemde onderzoeken meten het geluk en de herinneringen van specifieke groepen mensen; jouw resultaten kunnen verschillen.",
+  "partes": [
+    {
+      "id": "feliz",
+      "titulo": "Waarom maakt reizen je gelukkig?",
+      "respuesta": "Vooral door het vooruitkijken: vóór vertrek ben je gelukkiger, en wat je beleeft geeft meer vreugde dan wat je koopt.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Hoe reis je beter? Het gelukkigste deel van een reis komt bijna altijd vóór vertrek. En na thuiskomst is dat gevoel binnen een paar dagen weg. Wat als je het van begin tot eind kon rekken? Vandaag zie je het met data, en ga je weg met een plan om door te gaan."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Trouwens, dit is mijn huis in MindHaOS, en vandaag stijgt het op: het is een vliegtuig. Ik ben de reizende teddybeer aan boord, en dit is mijn reiskamer: hier heb ik de kaart van alles wat ik al ken en van alles wat ik nog wil zien."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel één. Waarom maakt reizen je gelukkig?"
+        },
+        {
+          "id": "nawijn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "anticipacion"
+          },
+          "lamina": [
+            "maleta",
+            "aeropuerto"
+          ],
+          "destacada": true,
+          "texto": "In 2010 mat een Nederlands team onder leiding van Jeroen Nawijn het geluk van vijftienhonderddertig mensen. Wie binnenkort op vakantie ging, was gelukkiger dan de rest… maar vóór de reis, niet erna."
+        },
+        {
+          "id": "regreso",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antes",
+              "durante",
+              "despues"
+            ]
+          },
+          "lamina": [
+            "regreso",
+            "oficina"
+          ],
+          "texto": "Na thuiskomst waren bijna allemaal weer net zo gelukkig als wie niet op reis was geweest. Alleen bij wie heel ontspannen terugkwam, duurde het iets langer. De reis houdt niet op als je thuiskomt: hij dooft uit."
+        },
+        {
+          "id": "gilovich",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "gilovich"
+          },
+          "lamina": [
+            "amigosViaje",
+            "compras"
+          ],
+          "meme": "maleta",
+          "texto": "Toch is het de moeite waard: in 2003 ontdekten Leaf Van Boven en Thomas Gilovich dat geld uitgeven aan ervaringen ons gelukkiger maakt dan geld uitgeven aan spullen. Spullen slijten; wat je beleeft wordt deel van je verhaal."
+        },
+        {
+          "id": "mapa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pinApp",
+              "visitadosApp",
+              "porConocerApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Daarom heb ik op mijn wereldkaart een pin voor elke plek waar ik ben geweest, en in een andere kleur de plekken die ik nog wil zien."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Sinds wanneer reizen we voor ons plezier?",
+      "respuesta": "Sinds de Grand Tour van rijke jongeren in de achttiende eeuw; en voor bijna iedereen sinds 1841, met de eerste georganiseerde reis van Thomas Cook.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel twee. Sinds wanneer reizen we voor ons plezier?"
+        },
+        {
+          "id": "grandTour",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1700",
+            "clave": "grandTour"
+          },
+          "lamina": [
+            "grandTour",
+            "roma"
+          ],
+          "destacada": true,
+          "texto": "In de achttiende eeuw maakten rijke jonge Engelsen de Grand Tour: maanden, soms jaren trokken ze door Frankrijk en Italië om kunst en oude ruïnes te zien. Reizen voor je plezier was voor heel weinig mensen weggelegd."
+        },
+        {
+          "id": "cook",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1841",
+            "clave": "cook"
+          },
+          "lamina": [
+            "cook",
+            "trenVapor"
+          ],
+          "texto": "Tot in 1841 een Engelse meubelmaker, Thomas Cook, een treinreis organiseerde voor zo’n vijfhonderd mensen, van Leicester naar Loughborough, voor één shilling per persoon. De georganiseerde reis was geboren."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tren",
+              "avion",
+              "telefono"
+            ]
+          },
+          "lamina": [
+            "avion",
+            "celularMapa"
+          ],
+          "texto": "Daarna kwamen de vliegtuigen, de reisgidsjes op zakformaat en nu de telefoon: vandaag plant iedereen een reis vanaf de bank. Het moeilijke is niet meer er komen, maar goed reizen."
+        },
+        {
+          "id": "rutas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rutaApp",
+              "ordenApp",
+              "distanciaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In mijn routes zet ik de plekken op volgorde, zie ik ze verbonden op de kaart en vertelt de app me hoeveel kilometer ik ga afleggen."
+        }
+      ]
+    },
+    {
+      "id": "espera",
+      "titulo": "Wanneer begint een reis?",
+      "respuesta": "Op de dag dat je besluit te gaan: de voorpret ervoor en de herinnering erna zijn vaak mooier dan de reis zelf.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel drie. Wanneer begint een reis?"
+        },
+        {
+          "id": "mitchell",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rosa"
+          },
+          "lamina": [
+            "bicicleta",
+            "europa"
+          ],
+          "destacada": true,
+          "texto": "In 1997 volgden Terence Mitchell en zijn team mensen op een reis naar Europa, een fietstocht door Californië en een Thanksgivingvakantie. Ervoor en erna beoordeelden ze de reis beter dan tijdens."
+        },
+        {
+          "id": "rosa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ilusion",
+              "molestias",
+              "recuerdo"
+            ]
+          },
+          "lamina": [
+            "lluviaViaje",
+            "fila"
+          ],
+          "meme": "expectativa",
+          "texto": "Onderweg tellen de regen, de rijen en de vermoeidheid. Maar in de voorpret en in de herinnering verdwijnen die ergernissen bijna helemaal. De onderzoekers noemden het de roze bril."
+        },
+        {
+          "id": "saborear",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cuentaRegresiva"
+          },
+          "lamina": [
+            "planeando",
+            "guiaViaje"
+          ],
+          "texto": "Een reis begint dus op de dag dat je besluit te gaan. Plan hem op tijd, geef hem een datum en geniet van het wachten: lees over de plek, kijk foto’s, leer een paar zinnetjes. Kijk hoeveel dagen voorpret hij je geeft."
+        },
+        {
+          "id": "itinerario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diaApp",
+              "hospedajeApp",
+              "calendarioApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Mijn reis naar Japan staat in mijn reisplan, dag voor dag: waar ik vertrek, waar ik heen ga, waar ik slaap en wat ik doe. En elke datum verschijnt vanzelf in mijn agenda."
+        }
+      ]
+    },
+    {
+      "id": "itinerario",
+      "titulo": "Hoe maak je een goed reisplan?",
+      "respuesta": "Bewaar het beste voor het laatst en laat gaten vrij: je onthoudt vooral het mooiste moment en hoe het afliep.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vier. Hoe maak je een goed reisplan?"
+        },
+        {
+          "id": "kahneman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "picoFinal"
+          },
+          "lamina": [
+            "aguaFria",
+            "hielo"
+          ],
+          "destacada": true,
+          "texto": "In 1993 lieten Daniel Kahneman en zijn team mensen hun hand in ijskoud water houden. Eén proef duurde langer, maar eindigde iets minder koud, en bijna iedereen wilde liever die herhalen. We onthouden het heftigste moment en het einde, niet het totaal."
+        },
+        {
+          "id": "pico",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pico",
+              "final",
+              "duracion"
+            ]
+          },
+          "lamina": [
+            "atardecer",
+            "aeropuertoPrisa"
+          ],
+          "texto": "Op reis gaat het net zo: wat je meeneemt is het mooiste moment en hoe het afliep. Een laatste dag rennen naar het vliegveld kan de hele herinnering kleuren."
+        },
+        {
+          "id": "huecos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "finalViaje"
+          },
+          "lamina": [
+            "cafeCalle",
+            "mapaPapel"
+          ],
+          "meme": "itinerario",
+          "texto": "Bewaar dus iets bijzonders voor het laatst, laat gaten zonder plan voor het onverwachte en prop geen vijf musea in één dag: één goed museum is meer waard. Zet hier je reis op volgorde en kijk hoe je hem gaat onthouden."
+        },
+        {
+          "id": "guardados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "actividadesApp",
+              "guardarApp",
+              "compartirApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bij elke dag van mijn plan noteer ik de activiteiten en het vervoer. En als het goed is, sla ik het op en deel ik het met wie met me meereist."
+        }
+      ]
+    },
+    {
+      "id": "duracion",
+      "titulo": "Hoe lang moet een reis duren?",
+      "respuesta": "Hij hoeft niet lang te zijn: de beste stemming komt rond de achtste dag en is binnen een week weg, dus reis vaker.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vijf. Hoe lang moet een reis duren?"
+        },
+        {
+          "id": "bloom",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "dia8"
+          },
+          "lamina": [
+            "playa",
+            "hamaca"
+          ],
+          "destacada": true,
+          "texto": "In 2013 volgde Jessica de Bloom dag voor dag de gezondheid en stemming van werknemers op vakantie. Ze knapten snel op, bereikten rond de achtste dag hun hoogtepunt… en in de eerste week na terugkeer was het alweer verdwenen."
+        },
+        {
+          "id": "seguido",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "corto",
+              "seguido",
+              "ilusionNueva"
+            ]
+          },
+          "lamina": [
+            "escapada",
+            "carretera"
+          ],
+          "texto": "De les is niet minder reizen, maar vaker: een paar uitstapjes per jaar geven je meer voorpret en meer uitgeruste thuiskomsten dan één enorme reis."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoViajes"
+          },
+          "lamina": "pulgar",
+          "texto": "Als je de gids leuk vindt, klik dan op Vind ik leuk, op Abonneren zodat je de volgende niet mist, en op Delen, voor die ene persoon met wie je altijd zegt: ‘daar moeten we echt eens heen’."
+        },
+        {
+          "id": "volver",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "colchon",
+              "vueltaSuave",
+              "siguiente"
+            ]
+          },
+          "lamina": [
+            "maletaCasa",
+            "calendarioPared"
+          ],
+          "texto": "En neem na thuiskomst een bufferdag voordat je weer gaat werken, en plan je volgende uitstapje: zo begint de voorpret opnieuw."
+        },
+        {
+          "id": "porConocer",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pinPendiente",
+              "fechaApp",
+              "yaFuiApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Op mijn kaart hebben de plekken die nog te zien zijn hun datum; en als ik er eindelijk heen ga, worden ze met één tik bezochte plekken."
+        }
+      ]
+    },
+    {
+      "id": "dinero",
+      "titulo": "Hoe geef je geld uit zonder je reis te verpesten?",
+      "respuesta": "Betaal het grote werk vóór vertrek en neem een dagbedrag mee: dan doet elke aankoop minder pijn en geniet je meer.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zes. Hoe geef je geld uit zonder je reis te verpesten?"
+        },
+        {
+          "id": "prelec",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1998",
+            "clave": "prelec"
+          },
+          "lamina": [
+            "billetes",
+            "tarjeta"
+          ],
+          "destacada": true,
+          "texto": "In 1998 onderzochten Drazen Prelec en George Loewenstein de pijn van betalen: elke uitgave doet een beetje pijn, en die pijn haalt het plezier weg uit wat je koopt. Daarom betaalden de meesten hun vakantie liever vooruit."
+        },
+        {
+          "id": "adelantado",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "presupuestoViaje"
+          },
+          "lamina": [
+            "reserva",
+            "monedero"
+          ],
+          "texto": "Betaal dus het grote werk vóór vertrek: vluchten, overnachtingen en toegangskaartjes. Neem onderweg een dagbedrag mee voor de rest, en je hoeft niet meer bij elke aankoop na te denken. Stel hier je budget samen."
+        },
+        {
+          "id": "ahorro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "quincena",
+              "boleto"
+            ]
+          },
+          "lamina": [
+            "alcancia",
+            "boletos"
+          ],
+          "meme": "presupuesto",
+          "texto": "En als je tekortkomt, maak er dan een spaardoel met een datum van: elke twee weken een beetje, en op de dag dat je je ticket koopt, doet het geen pijn meer."
+        },
+        {
+          "id": "presupuestoApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "presupuestoDia",
+              "metaFinanzas",
+              "totalApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In mijn plan heeft elke dag zijn eigen budget, en het totaal wordt vanzelf een spaardoel in mijn Financiën."
+        }
+      ]
+    },
+    {
+      "id": "fotos",
+      "titulo": "Foto’s of herinneringen?",
+      "respuesta": "Kijk eerst en maak een paar bewuste foto’s: wat je alleen fotografeert, onthoud je slechter; en schrijf elke avond twee regels.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zeven. Foto’s of herinneringen?"
+        },
+        {
+          "id": "henkel",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "fotos"
+          },
+          "lamina": [
+            "museo",
+            "celularFoto"
+          ],
+          "destacada": true,
+          "texto": "In 2014 nam Linda Henkel studenten mee naar een museum. Van de kunstwerken die ze hadden gefotografeerd, onthielden ze minder, en minder precies, dan van de werken waar ze alleen naar keken. De camera onthoudt voor jou… en jij stopt ermee."
+        },
+        {
+          "id": "detalle",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mira",
+              "acercate",
+              "pocas"
+            ]
+          },
+          "lamina": [
+            "detalleArte",
+            "mirador"
+          ],
+          "texto": "Maar als ze met de zoom inzoomden op een detail, bleef de herinnering bewaard. Dus kijk eerst, en maak dan een paar foto’s, met aandacht."
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "noche",
+              "sentiste",
+              "conQuien"
+            ]
+          },
+          "lamina": [
+            "diarioViaje",
+            "cafeLibreta"
+          ],
+          "meme": "fotos",
+          "texto": "En schrijf elke avond twee regels: wat er gebeurde, wat je voelde en met wie. Over tien jaar is die ene zin meer waard dan honderd dezelfde foto’s."
+        },
+        {
+          "id": "bitacora",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "albumApp",
+              "fotoApp",
+              "anecdotaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In mijn logboek is elk land een album, en bij elke plek bewaar ik mijn foto’s met hun anekdote."
+        }
+      ]
+    },
+    {
+      "id": "cambio",
+      "titulo": "Verandert reizen je?",
+      "respuesta": "Ja: wie in het buitenland studeerde, werd opener, vriendelijker en minder angstig dan wie thuisbleef.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel acht. Verandert reizen je?"
+        },
+        {
+          "id": "zimmermann",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "personalidad"
+          },
+          "lamina": [
+            "estudiantes",
+            "mochila"
+          ],
+          "destacada": true,
+          "texto": "In 2013 volgden Julia Zimmermann en Franz Neyer meer dan duizend Duitse studenten. Wie in het buitenland ging studeren, werd opener, vriendelijker en minder angstig dan wie thuisbleef."
+        },
+        {
+          "id": "costumbre",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abierto",
+              "amable",
+              "calma"
+            ]
+          },
+          "lamina": [
+            "mercado",
+            "conversacion"
+          ],
+          "texto": "Dat komt niet door bezienswaardigheden, maar door uit je gewoontes te stappen: ander eten proberen, verdwalen, in een andere taal om hulp vragen."
+        },
+        {
+          "id": "local",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "local",
+              "gracias",
+              "sinPrisa"
+            ]
+          },
+          "lamina": [
+            "comidaCalle",
+            "plaza"
+          ],
+          "texto": "Doe dus op elke reis iets als een local: eet waar zij eten, leer dankjewel zeggen en blijf een tijdje zonder haast op één plek."
+        },
+        {
+          "id": "estados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "paisesApp",
+              "estadosApp",
+              "colorApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En met de staten aan kleurt elke plek die ik ken in zijn eigen kleur: ik vind het heerlijk om te zien hoe de kaart volloopt."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "respuesta": "Zet je plekken op een kaart, kies er een met een datum, spaar ervoor en plan na thuiskomst het volgende uitstapje.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel negen. Hoe ga je verder? Jouw plan om door te gaan."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planViajes"
+          },
+          "lamina": [
+            "mapaPared",
+            "libreta"
+          ],
+          "texto": "Zet deze week op een kaart de plekken waar je bent geweest en drie waar je heen wilt."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "fecha",
+              "ahorra"
+            ]
+          },
+          "lamina": [
+            "calendarioPared",
+            "alcancia"
+          ],
+          "destacada": true,
+          "texto": "Kies in de eerste maand een van die plekken, geef hem een datum en begin ervoor te sparen."
+        },
+        {
+          "id": "cadaViaje",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pagaAntes",
+              "mejorFinal",
+              "escribeNoche"
+            ]
+          },
+          "lamina": [
+            "aeropuerto",
+            "atardecer"
+          ],
+          "texto": "En op elke reis: betaal het grote werk vooraf, bewaar het beste voor het laatst, schrijf elke avond en plan na thuiskomst het volgende uitstapje."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mapaFin",
+              "planFin",
+              "bitacoraFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En als je niet weet waar je moet beginnen, bekijk dan mijn reis naar Japan in de app: hij is compleet, van de kaart tot het logboek."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Kortom: geniet van het wachten; bewaar het beste voor het laatst; reis vaker; betaal vóór vertrek; en kijk meer dan je fotografeert."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "In Reizen van MindHaOS zet je je plekken op de wereldkaart, maak je je reisplan dag voor dag en houd je je logboek bij met foto’s en anekdotes. Je kunt het zelf doen, of met hulp van AI. Bouw vandaag gratis je mentale huis: de link staat in de beschrijving. En in de volgende gids: hoe bewaar je je mooiste herinneringen?",
+    "boton": "Open Reizen",
+    "lamina": "app-plan",
+    "anclas": {
+      "mapa": "de wereldkaart",
+      "itinerario": "je reisplan dag voor dag",
+      "bitacora": "je logboek"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "nawijn-2010",
+      "texto": "Nawijn J., Marchand M. A., Veenhoven R., Vingerhoets A. J. Vacationers happier, but most not happier after a holiday. Applied Research in Quality of Life 5(1), 35-47 (2010).",
+      "url": "https://doi.org/10.1007/s11482-009-9091-9"
+    },
+    {
+      "id": "vanboven-2003",
+      "texto": "Van Boven L., Gilovich T. To do or to have? That is the question. Journal of Personality and Social Psychology 85(6), 1193-1202 (2003).",
+      "url": "https://doi.org/10.1037/0022-3514.85.6.1193"
+    },
+    {
+      "id": "grand-tour",
+      "texto": "De Grand Tour. Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Grand_Tour"
+    },
+    {
+      "id": "thomas-cook",
+      "texto": "Thomas Cook en de reis van Leicester naar Loughborough (1841). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Thomas_Cook"
+    },
+    {
+      "id": "mitchell-1997",
+      "texto": "Mitchell T. R., Thompson L., Peterson E., Cronk R. Temporal adjustments in the evaluation of events: the «rosy view». Journal of Experimental Social Psychology 33(4), 421-448 (1997).",
+      "url": "https://doi.org/10.1006/jesp.1997.1333"
+    },
+    {
+      "id": "kahneman-1993",
+      "texto": "Kahneman D., Fredrickson B. L., Schreiber C. A., Redelmeier D. A. When more pain is preferred to less: adding a better end. Psychological Science 4(6), 401-405 (1993).",
+      "url": "https://doi.org/10.1111/j.1467-9280.1993.tb00589.x"
+    },
+    {
+      "id": "debloom-2013",
+      "texto": "de Bloom J., Geurts S. A. E., Kompier M. A. J. Vacation (after-) effects on employee health and well-being, and the role of vacation activities, experiences and sleep. Journal of Happiness Studies 14(2), 613-633 (2013).",
+      "url": "https://doi.org/10.1007/s10902-012-9345-3"
+    },
+    {
+      "id": "prelec-1998",
+      "texto": "Prelec D., Loewenstein G. The red and the black: mental accounting of savings and debt. Marketing Science 17(1), 4-28 (1998).",
+      "url": "https://doi.org/10.1287/mksc.17.1.4"
+    },
+    {
+      "id": "henkel-2014",
+      "texto": "Henkel L. A. Point-and-shoot memories: the influence of taking photos on memory for a museum tour. Psychological Science 25(2), 396-402 (2014).",
+      "url": "https://doi.org/10.1177/0956797613504438"
+    },
+    {
+      "id": "zimmermann-2013",
+      "texto": "Zimmermann J., Neyer F. J. Do we become a different person when hitting the road? Personality development of sojourners. Journal of Personality and Social Psychology 105(3), 515-530 (2013).",
+      "url": "https://doi.org/10.1037/a0033019"
+    }
+  ]
+}

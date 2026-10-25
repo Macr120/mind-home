@@ -12,6 +12,7 @@
     {
       "id": "tiempo",
       "titulo": "Neden zamanın hiç yetmiyor?",
+      "respuesta": "Çünkü süreyi az tahmin ederiz: öğrenciler tezlerinin 34 gün süreceğini sandı, 55 gün sürdü.",
       "lineas": [
         {
           "id": "gancho",
@@ -121,6 +122,7 @@
     {
       "id": "cabeza",
       "titulo": "Neden kafan iyi bir ajanda değil?",
+      "respuesta": "Çünkü yarım kalanlar kafanda döner durur: her şeyi tek bir yere yaz ve iki dakikadan kısa sürecekse hemen yap.",
       "lineas": [
         {
           "id": "titulo",
@@ -211,6 +213,7 @@
     {
       "id": "primero",
       "titulo": "Önce ne gelir?",
+      "respuesta": "Önce önemli olan, sonra acil olan: ikisi birden olanı bugün yap, önemli ama acil olmayana bir saat ver.",
       "lineas": [
         {
           "id": "titulo",
@@ -284,6 +287,7 @@
     {
       "id": "una",
       "titulo": "Neden aynı anda birkaç iş yapmak seni yavaşlatır?",
+      "respuesta": "Çünkü işler arasındaki her geçiş sana zaman kaybettirir ve dikkatini öncekinde bırakır: birini bitirmeden ötekine başlama.",
       "lineas": [
         {
           "id": "titulo",
@@ -356,6 +360,7 @@
     {
       "id": "hora",
       "titulo": "Önemli olana nasıl saat verirsin?",
+      "respuesta": "Her önemli işe takvimde kendi bloğunu ver: teslim tarihleri dağıtılan öğrenciler daha iyi not aldı.",
       "lineas": [
         {
           "id": "titulo",
@@ -440,6 +445,7 @@
     {
       "id": "pausas",
       "titulo": "Neden dinlenmek daha çok iş çıkarmanı sağlar?",
+      "respuesta": "Çünkü 22 çalışmayı inceleyen bir derlemeye göre on dakikadan kısa molalar sana daha çok enerji, daha az yorgunluk verir.",
       "lineas": [
         {
           "id": "titulo",
@@ -514,6 +520,7 @@
     {
       "id": "acumula",
       "titulo": "Her şey birikince ne yapmalı?",
+      "respuesta": "Daha iyi tahmin için işi adımlara böl, bir pay bırak; artık sığmıyorsa ertele, başkasına ver ya da hayır de.",
       "lineas": [
         {
           "id": "titulo",
@@ -590,6 +597,7 @@
     {
       "id": "continuar",
       "titulo": "Nasıl devam etmeli? Devam etmek için planın",
+      "respuesta": "Her şeyi kafandan çıkar, her gün üç önemli iş seç, onlara saat ver ve haftanı 15 dakikada gözden geçir.",
       "lineas": [
         {
           "id": "titulo",

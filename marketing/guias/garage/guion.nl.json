@@ -12,6 +12,7 @@
     {
       "id": "prevenir",
       "titulo": "Waarom onderhouden voordat het kapotgaat?",
+      "respuesta": "Omdat bijna alles vooraf waarschuwt, en bij ruim een derde van de ongelukken door het voertuig lag het aan de banden.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "bertha",
       "titulo": "Wie was de eerste monteur uit de geschiedenis?",
+      "respuesta": "Bertha Benz: in 1888 maakte ze de eerste lange autorit ooit, ruim 100 km, en repareerde de auto onderweg zelf.",
       "lineas": [
         {
           "id": "titulo",
@@ -182,6 +184,7 @@
     {
       "id": "llantas",
       "titulo": "Waarom beginnen bij de banden?",
+      "respuesta": "Omdat ruim een op de vier auto’s een veel te zachte band heeft, die slechter remt, sneller slijt en meer benzine kost.",
       "lineas": [
         {
           "id": "titulo",
@@ -258,6 +261,7 @@
     {
       "id": "aceite",
       "titulo": "Hoe vaak ververs je de olie?",
+      "respuesta": "Wanneer het handboek van je auto het zegt, niet uit gewoonte elke 5000 km; en check het oliepeil om de paar weken.",
       "lineas": [
         {
           "id": "titulo",
@@ -333,6 +337,7 @@
     {
       "id": "manejo",
       "titulo": "Is je rijstijl ook onderhoud?",
+      "respuesta": "Ja: hard optrekken en remmen kan je verbruik in de stad tot 40% verhogen en slijt remblokken en banden sneller.",
       "lineas": [
         {
           "id": "titulo",
@@ -417,6 +422,7 @@
     {
       "id": "bici",
       "titulo": "En de fiets?",
+      "respuesta": "Check voor vertrek lucht, remmen en ketting, en smeer met één druppel per schakel: te veel olie trekt alleen vuil aan.",
       "lineas": [
         {
           "id": "titulo",
@@ -497,6 +503,7 @@
     {
       "id": "olvido",
       "titulo": "Waarom vergeten we het?",
+      "respuesta": "Omdat het vandaag geen pijn doet en we het uitstellen; met een simpele herinnering maakten ruim twee keer zoveel patiënten een afspraak.",
       "lineas": [
         {
           "id": "titulo",
@@ -575,6 +582,7 @@
     {
       "id": "continuar",
       "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "respuesta": "Check deze week je banden; lees deze maand het handboek, plan je onderhoud en zoek een garage die je vertrouwt.",
       "lineas": [
         {
           "id": "titulo",

@@ -20,6 +20,7 @@
     {
       "id": "adaptacion",
       "titulo": "O que acontece no seu corpo quando você treina",
+      "respuesta": "Você aplica um estresse controlado, e o corpo fica mais forte depois, enquanto você descansa e ele se repara.",
       "lineas": [
         {
           "id": "gancho",
@@ -100,6 +101,7 @@
     {
       "id": "historia",
       "titulo": "Uma breve história do exercício",
+      "respuesta": "Passou de intuição a ciência: em 1953, Morris viu que os cobradores de Londres, sempre em movimento, tinham menos infartos.",
       "lineas": [
         {
           "id": "titulo",
@@ -183,6 +185,7 @@
     {
       "id": "capacidades",
       "titulo": "As quatro capacidades que você deve treinar",
+      "respuesta": "Resistência, força, mobilidade e equilíbrio: de 150 a 300 minutos semanais de atividade moderada e força dois dias.",
       "lineas": [
         {
           "id": "titulo",
@@ -256,6 +259,7 @@
     {
       "id": "intensidad",
       "titulo": "Meça sua intensidade como um profissional",
+      "respuesta": "Com a escala de 1 a 10, as repetições em reserva e o pulso: se dá para conversar mas não cantar, você está no moderado.",
       "lineas": [
         {
           "id": "titulo",
@@ -320,6 +324,7 @@
     {
       "id": "progresion",
       "titulo": "Como evoluir semana a semana",
+      "respuesta": "Com a progressão dupla: quando fizer 12 repetições em todas as séries, aumente a carga e recomece em 8.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +402,7 @@
     {
       "id": "recuperacion",
       "titulo": "Recuperação: onde você realmente melhora",
+      "respuesta": "Você melhora enquanto descansa: durma sete horas ou mais e distribua de 1,2 a 2 gramas de proteína por quilo ao dia.",
       "lineas": [
         {
           "id": "titulo",

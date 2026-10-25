@@ -12,6 +12,7 @@
     {
       "id": "querer",
       "titulo": "Pourquoi vouloir ne suffit pas ?",
+      "respuesta": "Parce que près de la moitié de ceux qui en ont l’intention n’agissent pas : conçois ton objectif pour qu’il ne dépende pas de l’envie.",
       "lineas": [
         {
           "id": "gancho",
@@ -124,6 +125,7 @@
     {
       "id": "buena",
       "titulo": "Qu’est-ce qui fait un bon objectif ?",
+      "respuesta": "Qu’il soit concret, un peu difficile, positif et porté par un pourquoi qui compte : il bat « je ferai de mon mieux ».",
       "lineas": [
         {
           "id": "titulo",
@@ -200,6 +202,7 @@
     {
       "id": "pasos",
       "titulo": "Comment transformer un objectif en étapes ?",
+      "respuesta": "Décide quand et où avec une phrase « si…, alors… » : avec elle, 91 % ont fait du sport au lieu de 35 %.",
       "lineas": [
         {
           "id": "titulo",
@@ -267,6 +270,7 @@
     {
       "id": "ganas",
       "titulo": "Pourquoi l’envie s’épuise-t-elle ?",
+      "respuesta": "Parce qu’elle monte quand tu vois l’objectif proche : les petits progrès de chaque jour sont son carburant.",
       "lineas": [
         {
           "id": "titulo",
@@ -348,6 +352,7 @@
     {
       "id": "casa",
       "titulo": "Pourquoi ça aide de tout ranger dans une maison mentale ?",
+      "respuesta": "Parce que ton cerveau retient très bien les lieux, et quand chaque objectif a sa place, il cesse de s’inviter dans ta tête.",
       "lineas": [
         {
           "id": "titulo",
@@ -434,6 +439,7 @@
     {
       "id": "medir",
       "titulo": "Comment savoir si tu avances ?",
+      "respuesta": "Vérifie souvent ton avancée et note-la : sur 138 expériences, ceux qui le faisaient se rapprochaient plus de leur objectif.",
       "lineas": [
         {
           "id": "titulo",
@@ -509,6 +515,7 @@
     {
       "id": "fallar",
       "titulo": "Que faire quand tu échoues ?",
+      "respuesta": "Reprends dès le lendemain : tu peux rater une fois, mais pas deux de suite, et un jour manqué n’efface pas tes progrès.",
       "lineas": [
         {
           "id": "titulo",
@@ -598,6 +605,7 @@
     {
       "id": "continuar",
       "titulo": "Comment continuer ? Ton plan pour la suite",
+      "respuesta": "Choisis un objectif avec son « si…, alors… », commence par deux minutes, revois ta série chaque dimanche et, si tu rates, reviens.",
       "lineas": [
         {
           "id": "titulo",

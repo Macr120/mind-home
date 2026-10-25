@@ -25,6 +25,7 @@
     {
       "id": "saber",
       "titulo": "Por qué aprenderlo y qué es saberlo",
+      "respuesta": "Porque hablarlo cambia tu cerebro y te conecta con la gente; y saberlo son cuatro habilidades, del nivel A1 al C2.",
       "lineas": [
         {
           "id": "gancho",
@@ -142,6 +143,7 @@
     {
       "id": "historia",
       "titulo": "Una breve historia de aprender idiomas",
+      "respuesta": "De Comenius y sus dibujos a Berlitz y su clase sin traducir, la lección se repite: aprende con imágenes y en el idioma.",
       "lineas": [
         {
           "id": "titulo",
@@ -210,6 +212,7 @@
     {
       "id": "cerebro",
       "titulo": "Cómo aprende y cómo olvida tu cerebro",
+      "respuesta": "Aprendes cuando entiendes algo un poco por encima de tu nivel, y frenas el olvido repasando espaciado y poniéndote a prueba.",
       "lineas": [
         {
           "id": "titulo",
@@ -285,6 +288,7 @@
     {
       "id": "palabras",
       "titulo": "Las palabras que más rinden",
+      "respuesta": "Las más frecuentes: en inglés, las mil más usadas son casi 8 de cada 10 palabras de un texto; apréndelas en frases.",
       "lineas": [
         {
           "id": "titulo",
@@ -369,6 +373,7 @@
     {
       "id": "hablar",
       "titulo": "Habla desde el primer día",
+      "respuesta": "Porque al hablar descubres lo que no sabes decir: haz sombra, equivócate mucho y abre la boca a diario, a cualquier edad.",
       "lineas": [
         {
           "id": "titulo",
@@ -453,6 +458,7 @@
     {
       "id": "plan",
       "titulo": "Tu plan para empezar",
+      "respuesta": "Ponte un para qué, un nivel y una fecha, y dale 20 minutos al día: son más de 120 horas al año.",
       "lineas": [
         {
           "id": "titulo",

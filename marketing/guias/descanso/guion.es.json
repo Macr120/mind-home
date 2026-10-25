@@ -18,6 +18,7 @@
     {
       "id": "cuerpo",
       "titulo": "Qué pasa mientras duermes",
+      "respuesta": "Tu cerebro recorre ciclos de unos 90 minutos: el sueño profundo repara el cuerpo y el REM ordena lo que aprendiste.",
       "lineas": [
         {
           "id": "gancho",
@@ -67,6 +68,7 @@
     {
       "id": "historia",
       "titulo": "Lo que la ciencia descubrió del sueño",
+      "respuesta": "Que tienes un reloj interno: Kleitman lo comprobó en una cueva en 1938, y descubrir sus genes ganó el Nobel en 2017.",
       "lineas": [
         {
           "id": "titulo",
@@ -115,6 +117,7 @@
     {
       "id": "cuanto",
       "titulo": "Cuánto necesitas dormir",
+      "respuesta": "Siete horas o más si eres adulto: dormir seis durante dos semanas daña la atención como pasar hasta dos noches en vela.",
       "lineas": [
         {
           "id": "titulo",
@@ -157,6 +160,7 @@
     {
       "id": "reloj",
       "titulo": "Tu reloj interno",
+      "respuesta": "Lo pone en hora la luz: busca sol por la mañana, evita pantallas de noche y duérmete siempre a horas constantes.",
       "lineas": [
         {
           "id": "titulo",
@@ -206,6 +210,7 @@
     {
       "id": "noche",
       "titulo": "Cómo preparar una buena noche",
+      "respuesta": "Corta la cafeína seis horas antes, evita el alcohol, duerme fresco y a oscuras, y deja las pantallas la última hora.",
       "lineas": [
         {
           "id": "titulo",
@@ -264,6 +269,7 @@
     {
       "id": "insomnio",
       "titulo": "Cuando no puedes dormir",
+      "respuesta": "Si en 20 minutos no te duermes, levántate y vuelve con sueño; si dura semanas, la terapia cognitivo-conductual va primero.",
       "lineas": [
         {
           "id": "titulo",

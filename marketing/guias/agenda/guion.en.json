@@ -12,6 +12,7 @@
     {
       "id": "tiempo",
       "titulo": "Why do you never have enough time?",
+      "respuesta": "Because we underestimate: some students thought their thesis would take 34 days, and it took them 55.",
       "lineas": [
         {
           "id": "gancho",
@@ -121,6 +122,7 @@
     {
       "id": "cabeza",
       "titulo": "Why isn’t your head a good planner?",
+      "respuesta": "Because unfinished tasks keep circling: write everything down in one place, and if it takes under two minutes, do it now.",
       "lineas": [
         {
           "id": "titulo",
@@ -211,6 +213,7 @@
     {
       "id": "primero",
       "titulo": "What comes first?",
+      "respuesta": "The important before the urgent: do today what's both, and give a time slot to what's important but not pressing.",
       "lineas": [
         {
           "id": "titulo",
@@ -284,6 +287,7 @@
     {
       "id": "una",
       "titulo": "Why does doing several things at once slow you down?",
+      "respuesta": "Because every switch between tasks costs you time and leaves your attention behind: finish one before starting another.",
       "lineas": [
         {
           "id": "titulo",
@@ -356,6 +360,7 @@
     {
       "id": "hora",
       "titulo": "How do you give the important things a time slot?",
+      "respuesta": "Give each important thing its own block in your calendar: students with spread-out deadlines got better grades.",
       "lineas": [
         {
           "id": "titulo",
@@ -440,6 +445,7 @@
     {
       "id": "pausas",
       "titulo": "Why does resting help you get more done?",
+      "respuesta": "Because breaks of under ten minutes give you more energy and less fatigue, according to a review of 22 studies.",
       "lineas": [
         {
           "id": "titulo",
@@ -514,6 +520,7 @@
     {
       "id": "acumula",
       "titulo": "What do you do when everything piles up?",
+      "respuesta": "Break the task into steps to estimate better, leave a buffer, and if it no longer fits, move it, hand it off or say no.",
       "lineas": [
         {
           "id": "titulo",
@@ -590,6 +597,7 @@
     {
       "id": "continuar",
       "titulo": "How do you keep going? Your plan to continue",
+      "respuesta": "Get everything out of your head, pick three important things a day, give them a time slot and review your week in 15 minutes.",
       "lineas": [
         {
           "id": "titulo",

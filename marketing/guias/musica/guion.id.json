@@ -12,6 +12,7 @@
     {
       "id": "musica",
       "titulo": "Apa itu musik",
+      "respuesta": "Musik adalah bunyi yang tertata dalam ritme, melodi, dan harmoni, dan belajar memainkannya bahkan mengubah otakmu.",
       "lineas": [
         {
           "id": "gancho",
@@ -136,6 +137,7 @@
     {
       "id": "historia",
       "titulo": "Sejarah singkat musik",
+      "respuesta": "Dari seruling tulang berumur 40.000 tahun hingga rekaman dan MIDI: kini satu keyboard dan satu komputer sudah jadi studio lengkap.",
       "lineas": [
         {
           "id": "titulo",
@@ -236,6 +238,7 @@
     {
       "id": "ritmo",
       "titulo": "Ritme",
+      "respuesta": "Cara musik dibagi dalam waktu: ketukan yang teratur, dikelompokkan dalam birama, dan sinkopasi yang membuatmu berjoget.",
       "lineas": [
         {
           "id": "titulo",
@@ -330,6 +333,7 @@
     {
       "id": "melodia",
       "titulo": "Melodi",
+      "respuesta": "Deretan nada yang bisa kamu nyanyikan: kamu mengenalinya dari bentuknya, naik atau turun, dan ia menempel karena diulang.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +401,7 @@
     {
       "id": "armonia",
       "titulo": "Harmoni",
+      "respuesta": "Nada yang berbunyi bersamaan: akor mayor terdengar cerah, minor sendu, dan dengan tiga akor kamu sudah bisa mengiringi lagu.",
       "lineas": [
         {
           "id": "titulo",
@@ -477,6 +482,7 @@
     {
       "id": "mezcla",
       "titulo": "Cara musik di-mix",
+      "respuesta": "Mixing berarti memberi setiap trek volume, frekuensi, dan tempatnya sendiri, supaya bass tidak menutupi melodi.",
       "lineas": [
         {
           "id": "titulo",
@@ -543,6 +549,7 @@
     {
       "id": "plan",
       "titulo": "Rencanamu untuk mulai",
+      "respuesta": "Dengarkan per lapisan, berlatih 15 menit sehari, lebih dari 90 jam setahun, dan rekam dirimu sejak hari pertama.",
       "lineas": [
         {
           "id": "titulo",

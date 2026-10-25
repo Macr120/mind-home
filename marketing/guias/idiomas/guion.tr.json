@@ -25,6 +25,7 @@
     {
       "id": "saber",
       "titulo": "Neden öğrenmeli ve bir dili bilmek ne demek",
+      "respuesta": "Çünkü bir dili konuşmak beynini değiştirir ve seni insanlara yaklaştırır; onu bilmek ise A1'den C2'ye dört beceridir.",
       "lineas": [
         {
           "id": "gancho",
@@ -142,6 +143,7 @@
     {
       "id": "historia",
       "titulo": "Dil öğrenmenin kısa tarihi",
+      "respuesta": "Çizimleriyle Comenius'tan çevirisiz dersleriyle Berlitz'e ders hep aynı: çeviriyle değil, resimlerle ve dilin kendisiyle öğren.",
       "lineas": [
         {
           "id": "titulo",
@@ -210,6 +212,7 @@
     {
       "id": "cerebro",
       "titulo": "Beynin nasıl öğrenir ve nasıl unutur",
+      "respuesta": "Seviyenin biraz üstündekini anladığında öğrenirsin; unutmayı ise aralıklı tekrar edip kendini sınayarak yavaşlatırsın.",
       "lineas": [
         {
           "id": "titulo",
@@ -285,6 +288,7 @@
     {
       "id": "palabras",
       "titulo": "En çok işe yarayan kelimeler",
+      "respuesta": "En sık kullanılanlar: İngilizcede en sık bin kelime, bir metnin her 10 kelimesinin 8'i kadardır; onları cümle içinde öğren.",
       "lineas": [
         {
           "id": "titulo",
@@ -369,6 +373,7 @@
     {
       "id": "hablar",
       "titulo": "İlk günden konuş",
+      "respuesta": "Çünkü konuşurken henüz söyleyemediklerini keşfedersin: gölge tekniğini dene, bolca hata yap ve her gün konuş, her yaşta.",
       "lineas": [
         {
           "id": "titulo",
@@ -453,6 +458,7 @@
     {
       "id": "plan",
       "titulo": "Başlamak için planın",
+      "respuesta": "Bir amaç, bir seviye ve bir tarih belirle, ve ona günde 20 dakika ver: bu, yılda 120 saatten fazla eder.",
       "lineas": [
         {
           "id": "titulo",

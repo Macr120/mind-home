@@ -12,6 +12,7 @@
     {
       "id": "prevenir",
       "titulo": "Dlaczego dbać o niego, zanim się zepsuje?",
+      "respuesta": "Bo prawie wszystko ostrzega przed awarią, a w ponad jednej trzeciej wypadków z winy pojazdu zawiodły opony.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "bertha",
       "titulo": "Kto był pierwszym mechanikiem w historii?",
+      "respuesta": "Bertha Benz: w 1888 roku odbyła pierwszą długą podróż autem, ponad 100 km, i sama naprawiała je po drodze.",
       "lineas": [
         {
           "id": "titulo",
@@ -182,6 +184,7 @@
     {
       "id": "llantas",
       "titulo": "Dlaczego zacząć od opon?",
+      "respuesta": "Bo ponad co czwarte auto ma mocno niedopompowaną oponę, która gorzej hamuje, szybciej się zużywa i podbija spalanie.",
       "lineas": [
         {
           "id": "titulo",
@@ -258,6 +261,7 @@
     {
       "id": "aceite",
       "titulo": "Jak często wymieniać olej?",
+      "respuesta": "Wtedy, gdy każe instrukcja twojego auta, a nie z przyzwyczajenia co 5000 km; i sprawdzaj poziom co dwa tygodnie.",
       "lineas": [
         {
           "id": "titulo",
@@ -333,6 +337,7 @@
     {
       "id": "manejo",
       "titulo": "Czy twój styl jazdy to też serwis?",
+      "respuesta": "Tak: gwałtowne przyspieszanie i hamowanie może podnieść spalanie w mieście nawet o 40% i szybciej zużywa klocki i opony.",
       "lineas": [
         {
           "id": "titulo",
@@ -417,6 +422,7 @@
     {
       "id": "bici",
       "titulo": "A rower?",
+      "respuesta": "Przed jazdą sprawdź powietrze, hamulce i łańcuch, i smaruj go kroplą na ogniwo: nadmiar oleju tylko zbiera brud.",
       "lineas": [
         {
           "id": "titulo",
@@ -497,6 +503,7 @@
     {
       "id": "olvido",
       "titulo": "Dlaczego o tym zapominamy?",
+      "respuesta": "Bo dziś nie boli, więc odkładamy; prosta przypominajka sprawiła, że ponad dwa razy więcej pacjentów umówiło wizytę.",
       "lineas": [
         {
           "id": "titulo",
@@ -575,6 +582,7 @@
     {
       "id": "continuar",
       "titulo": "Jak iść dalej? Twój plan na ciąg dalszy",
+      "respuesta": "W tym tygodniu sprawdź opony; w tym miesiącu przeczytaj instrukcję, zaplanuj serwisy i znajdź zaufany warsztat.",
       "lineas": [
         {
           "id": "titulo",

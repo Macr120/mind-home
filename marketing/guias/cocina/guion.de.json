@@ -18,6 +18,7 @@
     {
       "id": "cuerpo",
       "titulo": "Was Essen in deinem Körper bewirkt",
+      "respuesta": "Es ist Treibstoff zum Atmen, Denken und Bewegen und Baumaterial, mit dem du Muskeln, Knochen, Haut und Blut reparierst.",
       "lineas": [
         {
           "id": "gancho",
@@ -97,6 +98,7 @@
     {
       "id": "historia",
       "titulo": "Eine kurze Geschichte unseres Essens",
+      "respuesta": "Vom Feuer bis zum Etikett: Linds Orangen heilten Skorbut, und Atwater maß die Kalorien, die wir heute noch lesen.",
       "lineas": [
         {
           "id": "titulo",
@@ -185,6 +187,7 @@
     {
       "id": "energia",
       "titulo": "Wie viel Energie du brauchst",
+      "respuesta": "Etwa zwei Drittel deines Verbrauchs halten dich einfach am Leben; zum Abnehmen iss rund 15 % weniger, als du verbrauchst.",
       "lineas": [
         {
           "id": "titulo",
@@ -252,6 +255,7 @@
     {
       "id": "calidad",
       "titulo": "Die Qualität deines Essens",
+      "respuesta": "Setz auf frische Lebensmittel: Mit hochverarbeitetem Essen aßen Menschen unbemerkt rund 500 Kalorien mehr am Tag.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "plato",
       "titulo": "Wie du deinen Teller und deine Woche planst",
+      "respuesta": "Füll den halben Teller mit Gemüse und Obst, ein Viertel mit Vollkorn, eins mit Eiweiß, und plan das Menü der Woche.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +402,7 @@
     {
       "id": "habitos",
       "titulo": "Wasser, Hunger und Beständigkeit",
+      "respuesta": "Trink etwa zwei Liter Wasser am Tag, iss langsam und ohne Bildschirm und notier ein paar Tage, was du isst, um Muster zu sehen.",
       "lineas": [
         {
           "id": "titulo",

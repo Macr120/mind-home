@@ -25,6 +25,7 @@
     {
       "id": "saber",
       "titulo": "Why learn it and what it means to know it",
+      "respuesta": "Because speaking it changes your brain and connects you with people, and knowing it means four skills, from A1 to C2.",
       "lineas": [
         {
           "id": "gancho",
@@ -142,6 +143,7 @@
     {
       "id": "historia",
       "titulo": "A brief history of learning languages",
+      "respuesta": "From Comenius and his drawings to Berlitz and his no-translation classes, the lesson repeats: learn with pictures and in the language itself.",
       "lineas": [
         {
           "id": "titulo",
@@ -210,6 +212,7 @@
     {
       "id": "cerebro",
       "titulo": "How your brain learns and how it forgets",
+      "respuesta": "You learn when you understand things a little above your level, and you slow forgetting with spaced reviews that test yourself.",
       "lineas": [
         {
           "id": "titulo",
@@ -285,6 +288,7 @@
     {
       "id": "palabras",
       "titulo": "The words that pay off the most",
+      "respuesta": "The most frequent ones: in English, the top thousand make up about 8 in 10 words of a text; learn them in phrases.",
       "lineas": [
         {
           "id": "titulo",
@@ -369,6 +373,7 @@
     {
       "id": "hablar",
       "titulo": "Speak from day one",
+      "respuesta": "Because speaking shows you what you can't say yet: try shadowing, make lots of mistakes and speak every day, at any age.",
       "lineas": [
         {
           "id": "titulo",
@@ -453,6 +458,7 @@
     {
       "id": "plan",
       "titulo": "Your plan to get started",
+      "respuesta": "Set a reason, a level and a date, and give it 20 minutes a day: that's over 120 hours a year.",
       "lineas": [
         {
           "id": "titulo",

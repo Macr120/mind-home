@@ -1,0 +1,823 @@
+{
+  "idioma": "id",
+  "tema": "viajes",
+  "plantillaId": "sala",
+  "numero": 20,
+  "nombre": "Perjalanan",
+  "pregunta": "Bagaimana bepergian dengan lebih baik?",
+  "corta": "Bagaimana bepergian dengan lebih baik?",
+  "subtitulo": "Kenapa bagian terbaik dari perjalanan datang sebelum berangkat, bagaimana tur terorganisir lahir, kapan perjalanan benar-benar dimulai, cara menyusun rencana perjalanan yang baik, berapa lama sebaiknya, cara berbelanja tanpa merusaknya, apakah foto membantumu mengingat, apakah bepergian mengubahmu, dan rencana untuk melanjutkan.",
+  "aviso": "Panduan ini bersifat informatif dan umum. Studi yang dikutip mengukur kebahagiaan dan kenangan kelompok orang tertentu; hasilmu bisa berbeda.",
+  "partes": [
+    {
+      "id": "feliz",
+      "titulo": "Kenapa bepergian membuatmu bahagia?",
+      "respuesta": "Terutama karena menantikannya: sebelum berangkat kamu lebih bahagia, dan pengalaman memberimu lebih banyak sukacita daripada barang.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Bagaimana bepergian dengan lebih baik? Bagian paling bahagia dari perjalanan hampir selalu datang sebelum berangkat. Dan saat pulang, rasa senang itu menguap dalam hitungan hari. Bagaimana kalau kamu bisa merentangkannya dari awal sampai akhir? Hari ini kamu akan melihatnya dengan data, dan pulang membawa rencana untuk melanjutkan."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Omong-omong, ini rumahku di MindHaOS, dan hari ini ia lepas landas: jadi pesawat. Aku si beruang teddy penjelajah di dalamnya, dan ini ruang Perjalanan milikku: di sini ada peta semua tempat yang sudah kukunjungi dan yang belum."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian satu. Kenapa bepergian membuatmu bahagia?"
+        },
+        {
+          "id": "nawijn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "anticipacion"
+          },
+          "lamina": [
+            "maleta",
+            "aeropuerto"
+          ],
+          "destacada": true,
+          "texto": "Pada 2010, tim Belanda yang dipimpin Jeroen Nawijn mengukur kebahagiaan seribu lima ratus tiga puluh orang. Yang akan berlibur lebih bahagia daripada yang lain… tapi sebelum perjalanan, bukan sesudahnya."
+        },
+        {
+          "id": "regreso",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antes",
+              "durante",
+              "despues"
+            ]
+          },
+          "lamina": [
+            "regreso",
+            "oficina"
+          ],
+          "texto": "Setelah pulang, hampir semuanya sama saja dengan yang tidak bepergian. Rasa senangnya hanya bertahan sedikit lebih lama pada yang pulang dengan sangat santai. Perjalanan tidak berakhir saat tiba di rumah: ia meredup."
+        },
+        {
+          "id": "gilovich",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "gilovich"
+          },
+          "lamina": [
+            "amigosViaje",
+            "compras"
+          ],
+          "meme": "maleta",
+          "texto": "Tetap saja sepadan: pada 2003, Leaf Van Boven dan Thomas Gilovich menemukan bahwa belanja pengalaman membuat kita lebih bahagia daripada belanja barang. Barang bisa usang; yang kamu alami menjadi bagian dari ceritamu."
+        },
+        {
+          "id": "mapa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pinApp",
+              "visitadosApp",
+              "porConocerApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Karena itu di peta duniaku ada satu pin untuk setiap tempat yang pernah kukunjungi, dan dengan warna lain, yang belum."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Sejak kapan kita bepergian untuk bersenang-senang?",
+      "respuesta": "Sejak Grand Tour para pemuda kaya abad ke-18; dan bagi hampir semua orang sejak 1841, dengan tur terorganisir pertama Thomas Cook.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian dua. Sejak kapan kita bepergian untuk bersenang-senang?"
+        },
+        {
+          "id": "grandTour",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1700",
+            "clave": "grandTour"
+          },
+          "lamina": [
+            "grandTour",
+            "roma"
+          ],
+          "destacada": true,
+          "texto": "Pada abad kedelapan belas, para pemuda kaya Inggris melakukan Grand Tour: berbulan-bulan, kadang bertahun-tahun, berkeliling Prancis dan Italia untuk melihat seni dan reruntuhan kuno. Bepergian untuk bersenang-senang hanya untuk segelintir orang."
+        },
+        {
+          "id": "cook",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1841",
+            "clave": "cook"
+          },
+          "lamina": [
+            "cook",
+            "trenVapor"
+          ],
+          "texto": "Sampai pada 1841, seorang tukang mebel Inggris, Thomas Cook, mengatur perjalanan kereta untuk sekitar lima ratus orang, dari Leicester ke Loughborough, seharga satu shilling per orang. Lahirlah tur terorganisir."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tren",
+              "avion",
+              "telefono"
+            ]
+          },
+          "lamina": [
+            "avion",
+            "celularMapa"
+          ],
+          "texto": "Lalu datang pesawat, buku panduan saku, dan sekarang ponsel: kini siapa pun bisa merencanakan perjalanan dari sofa. Yang sulit bukan lagi sampai, melainkan bepergian dengan baik."
+        },
+        {
+          "id": "rutas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rutaApp",
+              "ordenApp",
+              "distanciaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Di Rute-ku, aku menyusun tempat-tempat secara berurutan, melihatnya tersambung di peta, dan aplikasinya memberi tahu berapa kilometer yang akan kutempuh."
+        }
+      ]
+    },
+    {
+      "id": "espera",
+      "titulo": "Kapan sebuah perjalanan dimulai?",
+      "respuesta": "Sejak hari kamu memutuskannya: antusiasme sebelumnya dan kenangan sesudahnya sering lebih indah daripada perjalanannya sendiri.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tiga. Kapan sebuah perjalanan dimulai?"
+        },
+        {
+          "id": "mitchell",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rosa"
+          },
+          "lamina": [
+            "bicicleta",
+            "europa"
+          ],
+          "destacada": true,
+          "texto": "Pada 1997, Terence Mitchell dan timnya mengikuti orang-orang yang pergi ke Eropa, bersepeda keliling California, dan berlibur saat Thanksgiving. Sebelum dan sesudahnya, mereka menilai perjalanan itu lebih baik daripada saat menjalaninya."
+        },
+        {
+          "id": "rosa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ilusion",
+              "molestias",
+              "recuerdo"
+            ]
+          },
+          "lamina": [
+            "lluviaViaje",
+            "fila"
+          ],
+          "meme": "expectativa",
+          "texto": "Selama perjalanan, hujan, antrean, dan lelah terasa berat. Tapi dalam antusiasme sebelumnya dan kenangan sesudahnya, gangguan itu hampir hilang. Para peneliti menyebutnya pandangan serba indah."
+        },
+        {
+          "id": "saborear",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cuentaRegresiva"
+          },
+          "lamina": [
+            "planeando",
+            "guiaViaje"
+          ],
+          "texto": "Jadi perjalanan dimulai sejak hari kamu memutuskannya. Rencanakan jauh-jauh hari, tentukan tanggalnya, dan nikmati masa menunggu: baca tentang tempatnya, lihat foto, pelajari beberapa kalimat. Lihat berapa hari antusiasme yang kamu dapat."
+        },
+        {
+          "id": "itinerario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diaApp",
+              "hospedajeApp",
+              "calendarioApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Perjalananku ke Jepang ada dalam rencana harian: dari mana aku berangkat, ke mana aku pergi, di mana aku tidur, dan apa yang kulakukan. Dan setiap tanggal muncul sendiri di kalenderku."
+        }
+      ]
+    },
+    {
+      "id": "itinerario",
+      "titulo": "Bagaimana menyusun rencana perjalanan yang baik?",
+      "respuesta": "Simpan yang terbaik untuk akhir dan sisakan waktu kosong: yang paling kamu ingat adalah momen terbaik dan akhirnya.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian empat. Bagaimana menyusun rencana perjalanan yang baik?"
+        },
+        {
+          "id": "kahneman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "picoFinal"
+          },
+          "lamina": [
+            "aguaFria",
+            "hielo"
+          ],
+          "destacada": true,
+          "texto": "Pada 1993, Daniel Kahneman dan timnya meminta beberapa orang memasukkan tangan ke air es. Satu percobaan lebih lama, tapi berakhir sedikit kurang dingin, dan hampir semua memilih mengulang yang itu. Kita mengingat momen paling intens dan akhirnya, bukan totalnya."
+        },
+        {
+          "id": "pico",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pico",
+              "final",
+              "duracion"
+            ]
+          },
+          "lamina": [
+            "atardecer",
+            "aeropuertoPrisa"
+          ],
+          "texto": "Dalam perjalanan pun sama: yang kamu bawa pulang adalah momen terbaik dan bagaimana akhirnya. Hari terakhir yang habis untuk berlari ke bandara bisa mewarnai seluruh kenangan."
+        },
+        {
+          "id": "huecos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "finalViaje"
+          },
+          "lamina": [
+            "cafeCalle",
+            "mapaPapel"
+          ],
+          "meme": "itinerario",
+          "texto": "Jadi simpan sesuatu yang istimewa untuk akhir, sisakan waktu kosong untuk hal tak terduga, dan jangan jejalkan lima museum dalam sehari: satu yang bagus lebih berharga. Susun perjalananmu di sini dan lihat bagaimana kamu akan mengingatnya."
+        },
+        {
+          "id": "guardados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "actividadesApp",
+              "guardarApp",
+              "compartirApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Di setiap hari rencanaku, aku mencatat kegiatan dan transportasinya. Dan kalau sudah pas, aku menyimpannya dan membagikannya ke teman seperjalanan."
+        }
+      ]
+    },
+    {
+      "id": "duracion",
+      "titulo": "Berapa lama sebaiknya sebuah perjalanan?",
+      "respuesta": "Tidak perlu lama: suasana hati terbaik datang sekitar hari kedelapan dan hilang dalam seminggu, jadi bepergianlah lebih sering.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian lima. Berapa lama sebaiknya sebuah perjalanan?"
+        },
+        {
+          "id": "bloom",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "dia8"
+          },
+          "lamina": [
+            "playa",
+            "hamaca"
+          ],
+          "destacada": true,
+          "texto": "Pada 2013, Jessica de Bloom mengikuti kesehatan dan suasana hati para pekerja hari demi hari selama liburan. Mereka cepat membaik, mencapai puncaknya sekitar hari kedelapan… dan di minggu pertama setelah kembali, semuanya sudah menguap."
+        },
+        {
+          "id": "seguido",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "corto",
+              "seguido",
+              "ilusionNueva"
+            ]
+          },
+          "lamina": [
+            "escapada",
+            "carretera"
+          ],
+          "texto": "Pelajarannya bukan bepergian lebih jarang, tapi lebih sering: beberapa liburan singkat dalam setahun memberimu lebih banyak masa antusias dan lebih banyak kepulangan yang segar daripada satu perjalanan besar."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoViajes"
+          },
+          "lamina": "pulgar",
+          "texto": "Kalau kamu suka panduan ini, tekan Suka, Subscribe supaya tidak ketinggalan panduan berikutnya, dan Bagikan ke orang yang selalu kamu bilangi «kita harus ke sana»."
+        },
+        {
+          "id": "volver",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "colchon",
+              "vueltaSuave",
+              "siguiente"
+            ]
+          },
+          "lamina": [
+            "maletaCasa",
+            "calendarioPared"
+          ],
+          "texto": "Dan setelah pulang, beri dirimu satu hari jeda sebelum kerja, lalu rencanakan liburan singkat berikutnya: dengan begitu antusiasmenya dimulai lagi."
+        },
+        {
+          "id": "porConocer",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pinPendiente",
+              "fechaApp",
+              "yaFuiApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Di petaku, tempat yang ingin dikunjungi punya tanggalnya sendiri; dan ketika akhirnya aku ke sana, dengan satu ketukan ia pindah ke yang sudah dikunjungi."
+        }
+      ]
+    },
+    {
+      "id": "dinero",
+      "titulo": "Bagaimana berbelanja tanpa merusak perjalanan?",
+      "respuesta": "Bayar yang besar sebelum berangkat dan bawa jatah harian: setiap pembelian jadi kurang terasa dan kamu lebih menikmati perjalanan.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian enam. Bagaimana berbelanja tanpa merusak perjalanan?"
+        },
+        {
+          "id": "prelec",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1998",
+            "clave": "prelec"
+          },
+          "lamina": [
+            "billetes",
+            "tarjeta"
+          ],
+          "destacada": true,
+          "texto": "Pada 1998, Drazen Prelec dan George Loewenstein meneliti rasa sakit saat membayar: setiap pengeluaran terasa sedikit perih, dan rasa perih itu mengurangi kenikmatan barang yang kamu beli. Karena itu kebanyakan orang lebih suka membayar liburan mereka di muka."
+        },
+        {
+          "id": "adelantado",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "presupuestoViaje"
+          },
+          "lamina": [
+            "reserva",
+            "monedero"
+          ],
+          "texto": "Jadi bayar yang besar sebelum berangkat: tiket pesawat, penginapan, dan tiket masuk. Selama perjalanan, bawa jatah harian untuk sisanya, dan kamu tak perlu memikirkan setiap pembelian. Susun anggaranmu di sini."
+        },
+        {
+          "id": "ahorro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "quincena",
+              "boleto"
+            ]
+          },
+          "lamina": [
+            "alcancia",
+            "boletos"
+          ],
+          "meme": "presupuesto",
+          "texto": "Dan kalau uangnya kurang, jadikan target tabungan dengan tanggal: sedikit setiap dua minggu, dan saat kamu membeli tiket, tidak terasa perih lagi."
+        },
+        {
+          "id": "presupuestoApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "presupuestoDia",
+              "metaFinanzas",
+              "totalApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Di rencanaku, setiap hari punya anggarannya, dan totalnya otomatis jadi target tabungan di Keuangan-ku."
+        }
+      ]
+    },
+    {
+      "id": "fotos",
+      "titulo": "Foto atau kenangan?",
+      "respuesta": "Lihat dulu dan ambil sedikit foto dengan sengaja: yang hanya kamu potret malah lebih sulit diingat; dan tulis dua baris setiap malam.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tujuh. Foto atau kenangan?"
+        },
+        {
+          "id": "henkel",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "fotos"
+          },
+          "lamina": [
+            "museo",
+            "celularFoto"
+          ],
+          "destacada": true,
+          "texto": "Pada 2014, Linda Henkel membawa mahasiswa ke museum. Karya yang mereka foto lebih sedikit diingat, dan kurang detail, dibanding karya yang hanya mereka lihat. Kamera mengingat untukmu… dan kamu berhenti mengingat."
+        },
+        {
+          "id": "detalle",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mira",
+              "acercate",
+              "pocas"
+            ]
+          },
+          "lamina": [
+            "detalleArte",
+            "mirador"
+          ],
+          "texto": "Tapi saat mereka memperbesar satu detail dengan zoom, ingatannya terselamatkan. Jadi lihat dulu, lalu ambil sedikit foto dengan sengaja."
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "noche",
+              "sentiste",
+              "conQuien"
+            ]
+          },
+          "lamina": [
+            "diarioViaje",
+            "cafeLibreta"
+          ],
+          "meme": "fotos",
+          "texto": "Dan setiap malam tulis dua baris: apa yang terjadi, apa yang kamu rasakan, dan bersama siapa. Sepuluh tahun lagi, kalimat itu akan lebih berharga daripada seratus foto yang mirip."
+        },
+        {
+          "id": "bitacora",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "albumApp",
+              "fotoApp",
+              "anecdotaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Di Jurnal perjalanan-ku, setiap negara adalah album, dan di setiap tempat aku menyimpan foto-fotoku beserta ceritanya."
+        }
+      ]
+    },
+    {
+      "id": "cambio",
+      "titulo": "Apakah bepergian mengubahmu?",
+      "respuesta": "Ya: yang kuliah di luar negeri jadi lebih terbuka, lebih ramah, dan tidak secemas yang tetap tinggal.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian delapan. Apakah bepergian mengubahmu?"
+        },
+        {
+          "id": "zimmermann",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "personalidad"
+          },
+          "lamina": [
+            "estudiantes",
+            "mochila"
+          ],
+          "destacada": true,
+          "texto": "Pada 2013, Julia Zimmermann dan Franz Neyer mengikuti lebih dari seribu mahasiswa Jerman. Yang pergi kuliah ke luar negeri menjadi lebih terbuka, lebih ramah, dan tidak secemas yang tetap tinggal."
+        },
+        {
+          "id": "costumbre",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abierto",
+              "amable",
+              "calma"
+            ]
+          },
+          "lamina": [
+            "mercado",
+            "conversacion"
+          ],
+          "texto": "Itu bukan karena melihat monumen, tapi karena keluar dari kebiasaanmu: mencoba makanan lain, tersesat, meminta tolong dalam bahasa lain."
+        },
+        {
+          "id": "local",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "local",
+              "gracias",
+              "sinPrisa"
+            ]
+          },
+          "lamina": [
+            "comidaCalle",
+            "plaza"
+          ],
+          "texto": "Jadi di setiap perjalanan, lakukan sesuatu seperti warga lokal: makan di tempat mereka makan, belajar mengucapkan terima kasih, dan tinggallah sebentar tanpa terburu-buru di satu tempat."
+        },
+        {
+          "id": "estados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "paisesApp",
+              "estadosApp",
+              "colorApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dan dengan Negara bagian dinyalakan, setiap tempat yang kukenal terwarnai dengan warnanya: aku suka melihat petanya pelan-pelan terisi."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Bagaimana selanjutnya? Rencanamu untuk melanjutkan",
+      "respuesta": "Taruh tempat-tempatmu di peta, pilih satu dengan tanggal, menabunglah untuknya, dan sepulangnya rencanakan liburan berikutnya.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian sembilan. Bagaimana selanjutnya? Rencanamu untuk melanjutkan."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planViajes"
+          },
+          "lamina": [
+            "mapaPared",
+            "libreta"
+          ],
+          "texto": "Minggu ini, tandai di peta tempat-tempat yang pernah kamu kunjungi dan tiga tempat yang ingin kamu datangi."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "fecha",
+              "ahorra"
+            ]
+          },
+          "lamina": [
+            "calendarioPared",
+            "alcancia"
+          ],
+          "destacada": true,
+          "texto": "Bulan pertama, pilih satu dari tempat-tempat itu, tentukan tanggalnya, dan mulai menabung untuknya."
+        },
+        {
+          "id": "cadaViaje",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pagaAntes",
+              "mejorFinal",
+              "escribeNoche"
+            ]
+          },
+          "lamina": [
+            "aeropuerto",
+            "atardecer"
+          ],
+          "texto": "Dan di setiap perjalanan: bayar yang besar lebih dulu, simpan yang terbaik untuk akhir, menulislah setiap malam, dan sepulangnya, rencanakan liburan berikutnya."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mapaFin",
+              "planFin",
+              "bitacoraFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dan kalau bingung mulai dari mana, lihat perjalananku ke Jepang di aplikasi: lengkap, dari peta sampai jurnal perjalanan."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Ringkasnya: nikmati masa menunggu; simpan yang terbaik untuk akhir; bepergianlah lebih sering; bayar sebelum berangkat; dan lebih banyak melihat daripada memotret."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Di Perjalanan MindHaOS kamu menaruh tempat-tempatmu di peta dunia, menyusun rencana perjalananmu hari demi hari, dan menyimpan jurnal perjalananmu dengan foto dan cerita. Kamu bisa melakukannya sendiri, atau dengan bantuan AI. Bangun rumah pikiranmu gratis hari ini: tautannya ada di deskripsi. Dan di panduan berikutnya: bagaimana menyimpan kenangan terbaikmu?",
+    "boton": "Buka Perjalanan",
+    "lamina": "app-plan",
+    "anclas": {
+      "mapa": "peta dunia",
+      "itinerario": "rencana perjalananmu hari demi hari",
+      "bitacora": "jurnal perjalananmu"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "nawijn-2010",
+      "texto": "Nawijn J., Marchand M. A., Veenhoven R., Vingerhoets A. J. Vacationers happier, but most not happier after a holiday. Applied Research in Quality of Life 5(1), 35-47 (2010).",
+      "url": "https://doi.org/10.1007/s11482-009-9091-9"
+    },
+    {
+      "id": "vanboven-2003",
+      "texto": "Van Boven L., Gilovich T. To do or to have? That is the question. Journal of Personality and Social Psychology 85(6), 1193-1202 (2003).",
+      "url": "https://doi.org/10.1037/0022-3514.85.6.1193"
+    },
+    {
+      "id": "grand-tour",
+      "texto": "Grand Tour. Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Grand_Tour"
+    },
+    {
+      "id": "thomas-cook",
+      "texto": "Thomas Cook dan perjalanan dari Leicester ke Loughborough (1841). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Thomas_Cook"
+    },
+    {
+      "id": "mitchell-1997",
+      "texto": "Mitchell T. R., Thompson L., Peterson E., Cronk R. Temporal adjustments in the evaluation of events: the «rosy view». Journal of Experimental Social Psychology 33(4), 421-448 (1997).",
+      "url": "https://doi.org/10.1006/jesp.1997.1333"
+    },
+    {
+      "id": "kahneman-1993",
+      "texto": "Kahneman D., Fredrickson B. L., Schreiber C. A., Redelmeier D. A. When more pain is preferred to less: adding a better end. Psychological Science 4(6), 401-405 (1993).",
+      "url": "https://doi.org/10.1111/j.1467-9280.1993.tb00589.x"
+    },
+    {
+      "id": "debloom-2013",
+      "texto": "de Bloom J., Geurts S. A. E., Kompier M. A. J. Vacation (after-) effects on employee health and well-being, and the role of vacation activities, experiences and sleep. Journal of Happiness Studies 14(2), 613-633 (2013).",
+      "url": "https://doi.org/10.1007/s10902-012-9345-3"
+    },
+    {
+      "id": "prelec-1998",
+      "texto": "Prelec D., Loewenstein G. The red and the black: mental accounting of savings and debt. Marketing Science 17(1), 4-28 (1998).",
+      "url": "https://doi.org/10.1287/mksc.17.1.4"
+    },
+    {
+      "id": "henkel-2014",
+      "texto": "Henkel L. A. Point-and-shoot memories: the influence of taking photos on memory for a museum tour. Psychological Science 25(2), 396-402 (2014).",
+      "url": "https://doi.org/10.1177/0956797613504438"
+    },
+    {
+      "id": "zimmermann-2013",
+      "texto": "Zimmermann J., Neyer F. J. Do we become a different person when hitting the road? Personality development of sojourners. Journal of Personality and Social Psychology 105(3), 515-530 (2013).",
+      "url": "https://doi.org/10.1037/a0033019"
+    }
+  ]
+}

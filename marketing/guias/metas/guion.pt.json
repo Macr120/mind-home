@@ -12,6 +12,7 @@
     {
       "id": "querer",
       "titulo": "Por que querer não basta?",
+      "respuesta": "Porque quase metade de quem tem a intenção não age: planeje sua meta para que ela não dependa da vontade.",
       "lineas": [
         {
           "id": "gancho",
@@ -124,6 +125,7 @@
     {
       "id": "buena",
       "titulo": "O que faz uma meta ser boa?",
+      "respuesta": "Que seja concreta e um pouco difícil, no positivo e com um porquê que importe: assim vence o «vou fazer o melhor possível».",
       "lineas": [
         {
           "id": "titulo",
@@ -200,6 +202,7 @@
     {
       "id": "pasos",
       "titulo": "Como transformar uma meta em passos?",
+      "respuesta": "Decida quando e onde com uma frase «se…, então…»: com ela, 91% fizeram exercício, em vez de 35%.",
       "lineas": [
         {
           "id": "titulo",
@@ -267,6 +270,7 @@
     {
       "id": "ganas",
       "titulo": "Por que a vontade acaba?",
+      "respuesta": "Porque ela sobe quando você vê a meta perto: os pequenos avanços de cada dia são o combustível que a mantém.",
       "lineas": [
         {
           "id": "titulo",
@@ -348,6 +352,7 @@
     {
       "id": "casa",
       "titulo": "Por que ajuda ter tudo numa casa mental?",
+      "respuesta": "Porque seu cérebro lembra muito bem de lugares, e quando cada meta tem seu lugar, ela para de invadir sua cabeça.",
       "lineas": [
         {
           "id": "titulo",
@@ -434,6 +439,7 @@
     {
       "id": "medir",
       "titulo": "Como saber se você está avançando?",
+      "respuesta": "Revise seu avanço com frequência e anote: em 138 experimentos, quem fazia isso chegava mais perto da meta.",
       "lineas": [
         {
           "id": "titulo",
@@ -509,6 +515,7 @@
     {
       "id": "fallar",
       "titulo": "O que fazer quando você falha?",
+      "respuesta": "Volte no dia seguinte: você pode falhar uma vez, mas não duas seguidas, e um dia perdido não apaga o que avançou.",
       "lineas": [
         {
           "id": "titulo",
@@ -598,6 +605,7 @@
     {
       "id": "continuar",
       "titulo": "Como seguir? O seu plano para continuar",
+      "respuesta": "Escolha uma meta com seu «se…, então…», comece com dois minutos, revise sua sequência todo domingo e, se falhar, volte.",
       "lineas": [
         {
           "id": "titulo",

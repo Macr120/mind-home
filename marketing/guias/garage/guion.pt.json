@@ -12,6 +12,7 @@
     {
       "id": "prevenir",
       "titulo": "Por que cuidar antes que dê problema?",
+      "respuesta": "Porque quase tudo avisa antes de falhar, e em mais de um terço dos acidentes causados pelo veículo a culpa foi dos pneus.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "bertha",
       "titulo": "Quem foi o primeiro mecânico da história?",
+      "respuesta": "Foi Bertha Benz: em 1888 fez a primeira viagem longa de carro, mais de 100 km, e foi consertando o carro sozinha pelo caminho.",
       "lineas": [
         {
           "id": "titulo",
@@ -182,6 +184,7 @@
     {
       "id": "llantas",
       "titulo": "Por que começar pelos pneus?",
+      "respuesta": "Porque mais de um em cada quatro carros tem um pneu bem murcho, que freia pior, se gasta antes e faz você gastar mais gasolina.",
       "lineas": [
         {
           "id": "titulo",
@@ -258,6 +261,7 @@
     {
       "id": "aceite",
       "titulo": "De quanto em quanto tempo trocar o óleo?",
+      "respuesta": "Quando o manual do seu carro mandar, não a cada 5 mil km por costume; e confira o nível a cada duas semanas.",
       "lineas": [
         {
           "id": "titulo",
@@ -333,6 +337,7 @@
     {
       "id": "manejo",
       "titulo": "O seu jeito de dirigir também é manutenção?",
+      "respuesta": "Sim: acelerar e frear bruscamente aumenta o consumo em até 40% na cidade e gasta antes as pastilhas e os pneus.",
       "lineas": [
         {
           "id": "titulo",
@@ -417,6 +422,7 @@
     {
       "id": "bici",
       "titulo": "E a bicicleta?",
+      "respuesta": "Antes de sair, confira ar, freios e corrente, e lubrifique com uma gota por elo: óleo demais só junta sujeira.",
       "lineas": [
         {
           "id": "titulo",
@@ -497,6 +503,7 @@
     {
       "id": "olvido",
       "titulo": "Por que a gente esquece?",
+      "respuesta": "Porque hoje não dói e a gente vai adiando; com um simples lembrete, mais que o dobro de pacientes marcou consulta.",
       "lineas": [
         {
           "id": "titulo",
@@ -575,6 +582,7 @@
     {
       "id": "continuar",
       "titulo": "Como seguir? O seu plano para continuar",
+      "respuesta": "Nesta semana, confira os pneus; neste mês, leia o manual, agende as revisões e encontre uma oficina de confiança.",
       "lineas": [
         {
           "id": "titulo",

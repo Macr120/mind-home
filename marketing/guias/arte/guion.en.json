@@ -25,6 +25,7 @@
     {
       "id": "arte",
       "titulo": "What art is",
+      "respuesta": "Something you make so others will look at it and feel it, and making it does you good: stress fell in 3 out of 4 people.",
       "lineas": [
         {
           "id": "gancho",
@@ -156,6 +157,7 @@
     {
       "id": "historia",
       "titulo": "A brief history of visual art",
+      "respuesta": "From caves painted 51,000 years ago to perspective, photography and screens: the tool changes, what you want to say doesn’t.",
       "lineas": [
         {
           "id": "titulo",
@@ -253,6 +255,7 @@
     {
       "id": "elementos",
       "titulo": "The elements of a work",
+      "respuesta": "Line, shape, value, color, texture and space; and if your work looks good in black and white, it’ll look good in color.",
       "lineas": [
         {
           "id": "titulo",
@@ -336,6 +339,7 @@
     {
       "id": "mirar",
       "titulo": "How to look at a work",
+      "respuesta": "Slowly, in four steps: describe what you see, analyze how it’s made, interpret what it says and only then decide if you like it.",
       "lineas": [
         {
           "id": "titulo",
@@ -406,6 +410,7 @@
     {
       "id": "hacer",
       "titulo": "How to start making art",
+      "respuesta": "Draw what you see, not what you know: copy upside down, do quick gesture drawings, copy the masters and fill a sketchbook.",
       "lineas": [
         {
           "id": "titulo",
@@ -499,6 +504,7 @@
     {
       "id": "plan",
       "titulo": "Your plan to get started",
+      "respuesta": "Set a goal you can count, like 100 drawings in 100 days: 15 minutes a day adds up to more than 90 hours a year.",
       "lineas": [
         {
           "id": "titulo",

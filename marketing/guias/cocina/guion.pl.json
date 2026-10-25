@@ -18,6 +18,7 @@
     {
       "id": "cuerpo",
       "titulo": "Co jedzenie robi w twoim ciele",
+      "respuesta": "To paliwo do oddychania, myślenia i ruchu oraz materiał, z którego naprawiasz mięśnie, kości, skórę i krew.",
       "lineas": [
         {
           "id": "gancho",
@@ -97,6 +98,7 @@
     {
       "id": "historia",
       "titulo": "Krótka historia tego, co jemy",
+      "respuesta": "Od ognia po etykietę: pomarańcze Linda wyleczyły szkorbut, a Atwater zmierzył kalorie, które czytamy do dziś.",
       "lineas": [
         {
           "id": "titulo",
@@ -185,6 +187,7 @@
     {
       "id": "energia",
       "titulo": "Ile energii potrzebujesz",
+      "respuesta": "Około dwóch trzecich wydatku idzie na samo utrzymanie przy życiu; żeby schudnąć, jedz około 15% mniej, niż spalasz.",
       "lineas": [
         {
           "id": "titulo",
@@ -252,6 +255,7 @@
     {
       "id": "calidad",
       "titulo": "Jakość tego, co jesz",
+      "respuesta": "Wybieraj świeże jedzenie: przy ultraprzetworzonym ludzie bezwiednie jedli około 500 kalorii dziennie więcej.",
       "lineas": [
         {
           "id": "titulo",
@@ -324,6 +328,7 @@
     {
       "id": "plato",
       "titulo": "Jak ułożyć swój talerz i swój tydzień",
+      "respuesta": "Wypełnij pół talerza warzywami i owocami, ćwierć pełnym ziarnem, ćwierć białkiem i zaplanuj jadłospis na tydzień.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +402,7 @@
     {
       "id": "habitos",
       "titulo": "Woda, głód i wytrwałość",
+      "respuesta": "Pij około dwóch litrów wody dziennie, jedz powoli i bez ekranów, a przez kilka dni zapisuj, co jesz, by dostrzec wzorce.",
       "lineas": [
         {
           "id": "titulo",

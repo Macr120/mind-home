@@ -25,6 +25,7 @@
     {
       "id": "arte",
       "titulo": "Was Kunst ist",
+      "respuesta": "Etwas, das du machst, damit andere es ansehen und fühlen, und das Machen tut gut: Bei 3 von 4 Menschen sank der Stress.",
       "lineas": [
         {
           "id": "gancho",
@@ -156,6 +157,7 @@
     {
       "id": "historia",
       "titulo": "Eine kurze Geschichte der bildenden Kunst",
+      "respuesta": "Von 51.000 Jahre alten Höhlenbildern über Perspektive und Foto bis zum Bildschirm: Das Werkzeug wechselt, deine Aussage bleibt.",
       "lineas": [
         {
           "id": "titulo",
@@ -253,6 +255,7 @@
     {
       "id": "elementos",
       "titulo": "Die Elemente eines Werks",
+      "respuesta": "Linie, Form, Tonwert, Farbe, Textur und Raum; und wenn dein Werk in Schwarz-Weiß gut aussieht, dann auch in Farbe.",
       "lineas": [
         {
           "id": "titulo",
@@ -336,6 +339,7 @@
     {
       "id": "mirar",
       "titulo": "Wie man ein Werk betrachtet",
+      "respuesta": "In vier Schritten: Beschreib, was du siehst, analysier, wie es gemacht ist, deute es und entscheide erst dann, ob es dir gefällt.",
       "lineas": [
         {
           "id": "titulo",
@@ -406,6 +410,7 @@
     {
       "id": "hacer",
       "titulo": "Wie man mit Kunst anfängt",
+      "respuesta": "Zeichne, was du siehst, nicht, was du weißt: Kopier Bilder auf dem Kopf, skizzier schnell, kopier Meister und füll ein Skizzenbuch.",
       "lineas": [
         {
           "id": "titulo",
@@ -499,6 +504,7 @@
     {
       "id": "plan",
       "titulo": "Dein Plan für den Anfang",
+      "respuesta": "Setz dir ein Ziel, das man zählen kann, wie 100 Zeichnungen in 100 Tagen: 15 Minuten am Tag sind über 90 Stunden im Jahr.",
       "lineas": [
         {
           "id": "titulo",

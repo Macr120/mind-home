@@ -20,6 +20,7 @@
     {
       "id": "adaptacion",
       "titulo": "운동할 때 몸 안에서 일어나는 일",
+      "respuesta": "몸에 조절된 스트레스를 주면, 쉬면서 회복하는 동안 전보다 조금 더 강해져요.",
       "lineas": [
         {
           "id": "gancho",
@@ -100,6 +101,7 @@
     {
       "id": "historia",
       "titulo": "운동의 짧은 역사",
+      "respuesta": "직감에서 과학으로. 1953년 모리스는 늘 움직이는 런던 버스 차장이 심장마비가 적다는 걸 밝혔어요.",
       "lineas": [
         {
           "id": "titulo",
@@ -183,6 +185,7 @@
     {
       "id": "capacidades",
       "titulo": "꼭 길러야 할 네 가지 능력",
+      "respuesta": "지구력, 근력, 가동성, 균형. 주 150~300분 중강도 활동과 주 2일 근력 운동이 기준이에요.",
       "lineas": [
         {
           "id": "titulo",
@@ -256,6 +259,7 @@
     {
       "id": "intensidad",
       "titulo": "전문가처럼 강도 재기",
+      "respuesta": "1~10 운동자각도, 남은 반복 횟수, 심박수로 재요. 대화는 되는데 노래가 힘들면 중강도예요.",
       "lineas": [
         {
           "id": "titulo",
@@ -320,6 +324,7 @@
     {
       "id": "progresion",
       "titulo": "주마다 발전하는 법",
+      "respuesta": "이중 점진법으로요. 모든 세트에서 12회를 해내면 무게를 올리고 다시 8회부터 시작하세요.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +402,7 @@
     {
       "id": "recuperacion",
       "titulo": "회복: 진짜로 좋아지는 시간",
+      "respuesta": "쉬는 동안 좋아져요. 7시간 이상 자고, 체중 1kg당 1.2~2g 단백질을 나눠 드세요.",
       "lineas": [
         {
           "id": "titulo",

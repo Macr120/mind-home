@@ -18,6 +18,7 @@
     {
       "id": "cuerpo",
       "titulo": "Co się dzieje, kiedy śpisz",
+      "respuesta": "Mózg przechodzi cykle po około 90 minut: sen głęboki naprawia ciało, a REM porządkuje to, czego się nauczyłeś.",
       "lineas": [
         {
           "id": "gancho",
@@ -91,6 +92,7 @@
     {
       "id": "historia",
       "titulo": "Co nauka odkryła o śnie",
+      "respuesta": "Że masz wewnętrzny zegar: Kleitman dowiódł tego w jaskini w 1938 roku, a odkrycie jego genów dało Nobla w 2017.",
       "lineas": [
         {
           "id": "titulo",
@@ -163,6 +165,7 @@
     {
       "id": "cuanto",
       "titulo": "Ile snu potrzebujesz",
+      "respuesta": "Dorosły potrzebuje siedmiu godzin lub więcej: dwa tygodnie po sześć godzin psują uwagę jak nawet dwie nieprzespane noce.",
       "lineas": [
         {
           "id": "titulo",
@@ -224,6 +227,7 @@
     {
       "id": "reloj",
       "titulo": "Twój wewnętrzny zegar",
+      "respuesta": "Nastawia go światło: łap słońce rano, unikaj ekranów wieczorem i chodź spać zawsze o stałych porach.",
       "lineas": [
         {
           "id": "titulo",
@@ -299,6 +303,7 @@
     {
       "id": "noche",
       "titulo": "Jak przygotować się do dobrej nocy",
+      "respuesta": "Odstaw kofeinę sześć godzin wcześniej, unikaj alkoholu, śpij w chłodzie i ciemności, a ostatnią godzinę bez ekranów.",
       "lineas": [
         {
           "id": "titulo",
@@ -389,6 +394,7 @@
     {
       "id": "insomnio",
       "titulo": "Kiedy nie możesz zasnąć",
+      "respuesta": "Jeśli po 20 minutach nie śpisz, wstań i wróć, gdy zrobisz się senny; gdy trwa to tygodniami, najpierw terapia poznawczo-behawioralna.",
       "lineas": [
         {
           "id": "titulo",

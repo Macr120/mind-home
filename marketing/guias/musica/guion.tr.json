@@ -12,6 +12,7 @@
     {
       "id": "musica",
       "titulo": "Müzik nedir",
+      "respuesta": "Ritim, melodi ve armoniyle düzenlenmiş sestir; bir makine beste yapsa bile çalmayı öğrenmek beynini bile değiştirir.",
       "lineas": [
         {
           "id": "gancho",
@@ -136,6 +137,7 @@
     {
       "id": "historia",
       "titulo": "Müziğin kısa tarihi",
+      "respuesta": "40.000 yıllık kemik flütten kayda ve MIDI'ye: bugün bir klavye ve bir bilgisayar başlı başına bir stüdyo.",
       "lineas": [
         {
           "id": "titulo",
@@ -236,6 +238,7 @@
     {
       "id": "ritmo",
       "titulo": "Ritim",
+      "respuesta": "Müziğin zamana nasıl yayıldığıdır: ölçülerde toplanan düzenli bir vuruş ve seni dans ettiren senkop.",
       "lineas": [
         {
           "id": "titulo",
@@ -330,6 +333,7 @@
     {
       "id": "melodia",
       "titulo": "Melodi",
+      "respuesta": "Söyleyebileceğin bir nota dizisidir: onu çiziminden, inip çıkışından tanırsın ve tekrar ettiği için akılda kalır.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +401,7 @@
     {
       "id": "armonia",
       "titulo": "Armoni",
+      "respuesta": "Aynı anda çalan notalardır: majör akor aydınlık, minör akor hüzünlü çalar ve üç akorla bile şarkılara eşlik edebilirsin.",
       "lineas": [
         {
           "id": "titulo",
@@ -477,6 +482,7 @@
     {
       "id": "mezcla",
       "titulo": "Müzik nasıl miksajlanır",
+      "respuesta": "Miksaj, her kanala kendi ses düzeyini, frekansını ve yerini vermektir; böylece bas melodiyi örtmez.",
       "lineas": [
         {
           "id": "titulo",
@@ -543,6 +549,7 @@
     {
       "id": "plan",
       "titulo": "Başlamak için planın",
+      "respuesta": "Katman katman dinle, günde 15 dakika çalış, yılda 90 saatten fazla eder, ve gelişmek için ilk günden kendini kaydet.",
       "lineas": [
         {
           "id": "titulo",

@@ -12,6 +12,7 @@
     {
       "id": "tiempo",
       "titulo": "Por que o tempo nunca dá?",
+      "respuesta": "Porque calculamos para menos: estudantes acharam que a monografia levaria 34 dias e levaram 55.",
       "lineas": [
         {
           "id": "gancho",
@@ -121,6 +122,7 @@
     {
       "id": "cabeza",
       "titulo": "Por que a sua cabeça não é uma boa agenda?",
+      "respuesta": "Porque o que fica pendente fica rodando na cabeça: anote tudo num só lugar e, se levar menos de dois minutos, faça já.",
       "lineas": [
         {
           "id": "titulo",
@@ -211,6 +213,7 @@
     {
       "id": "primero",
       "titulo": "O que vem primeiro?",
+      "respuesta": "O importante antes do urgente: faça hoje o que é as duas coisas e dê horário ao que é importante, mas não aperta.",
       "lineas": [
         {
           "id": "titulo",
@@ -284,6 +287,7 @@
     {
       "id": "una",
       "titulo": "Por que fazer várias coisas ao mesmo tempo te atrasa?",
+      "respuesta": "Porque cada troca de tarefa te cobra tempo e deixa sua atenção na anterior: termine uma antes de começar outra.",
       "lineas": [
         {
           "id": "titulo",
@@ -356,6 +360,7 @@
     {
       "id": "hora",
       "titulo": "Como dar horário ao que importa?",
+      "respuesta": "Dê a cada coisa importante o seu bloco no calendário: os estudantes com prazos espalhados tiraram notas melhores.",
       "lineas": [
         {
           "id": "titulo",
@@ -440,6 +445,7 @@
     {
       "id": "pausas",
       "titulo": "Por que descansar te faz render mais?",
+      "respuesta": "Porque pausas de menos de dez minutos te dão mais energia e menos cansaço, segundo uma revisão de 22 estudos.",
       "lineas": [
         {
           "id": "titulo",
@@ -514,6 +520,7 @@
     {
       "id": "acumula",
       "titulo": "O que fazer quando tudo se acumula?",
+      "respuesta": "Divida a tarefa em passos para calcular melhor, deixe uma folga e, se não couber mais, mude de dia, passe adiante ou diga não.",
       "lineas": [
         {
           "id": "titulo",
@@ -590,6 +597,7 @@
     {
       "id": "continuar",
       "titulo": "Como seguir? O seu plano para continuar",
+      "respuesta": "Tire tudo da cabeça, escolha três coisas importantes por dia, dê horário a elas e revise a sua semana em 15 minutos.",
       "lineas": [
         {
           "id": "titulo",

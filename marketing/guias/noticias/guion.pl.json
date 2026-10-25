@@ -12,6 +12,7 @@
     {
       "id": "agenda",
       "titulo": "Kto decyduje o tym, co widzisz każdego dnia?",
+      "respuesta": "W dużej mierze media: jak pokazali McCombs i Shaw, nie zawsze mówią ci, co myśleć, ale mówią, o czym myśleć.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "bly",
       "titulo": "Która reporterka udawała obłąkaną, żeby opowiedzieć prawdę?",
+      "respuesta": "Nellie Bly w 1887 roku: spędziła dziesięć dni w nowojorskim zakładzie dla obłąkanych, a jej reportaż dał chorym więcej pieniędzy.",
       "lineas": [
         {
           "id": "titulo",
@@ -182,6 +184,7 @@
     {
       "id": "negatividad",
       "titulo": "Dlaczego złe wiadomości sprzedają się lepiej?",
+      "respuesta": "Bo mózg zwraca większą uwagę na złe rzeczy: każde dodatkowe negatywne słowo w nagłówku podnosi kliknięcia o ponad 2%.",
       "lineas": [
         {
           "id": "titulo",
@@ -257,6 +260,7 @@
     {
       "id": "mentira",
       "titulo": "Dlaczego kłamstwo biegnie szybciej?",
+      "respuesta": "Bo fałsz jest bardziej nowy i zaskakuje: na Twitterze szedł sześć razy szybciej, a udostępniali go ludzie, nie boty.",
       "lineas": [
         {
           "id": "titulo",
@@ -336,6 +340,7 @@
     {
       "id": "verificar",
       "titulo": "Jak czytać jak fact-checker?",
+      "respuesta": "Czytaj lateralnie: wyjdź ze strony i sprawdź, co inni mówią o tym źródle, tak jak robią to zawodowi fact-checkerzy.",
       "lineas": [
         {
           "id": "titulo",
@@ -425,6 +430,7 @@
     {
       "id": "belleza",
       "titulo": "Jak tworzyć prawdziwe i piękne treści?",
+      "respuesta": "Sprawdź, zanim opublikujesz, podaj, skąd masz dane, i opowiedz to jak historię, z dobrym obrazem i jasnymi słowami.",
       "lineas": [
         {
           "id": "titulo",
@@ -521,6 +527,7 @@
     {
       "id": "dieta",
       "titulo": "Ile wiadomości to za dużo?",
+      "respuesta": "Kto oglądał sześć godzin dziennie, był bardziej zestresowany niż wielu świadków: ustal porę, limit i wyłącz powiadomienia.",
       "lineas": [
         {
           "id": "titulo",
@@ -596,6 +603,7 @@
     {
       "id": "continuar",
       "titulo": "Jak iść dalej? Twój plan na ciąg dalszy",
+      "respuesta": "Zapisz, skąd masz wiadomości, dodaj różne źródła, wybierz stałą porę i czytaj lateralnie, zanim coś udostępnisz.",
       "lineas": [
         {
           "id": "titulo",

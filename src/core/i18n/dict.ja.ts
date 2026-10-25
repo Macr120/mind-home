@@ -7177,6 +7177,7 @@ export const JA: Dict = {
   'guia.entretenimiento.titulo': "どうすればもっと上手に楽しめるのでしょうか？",
   'guia.garage.titulo': "乗り物をどうメンテナンスすればいいのでしょうか？",
   'guia.ideas.titulo': "もっといいアイデアを出すには？",
+  'guia.viajes.titulo': "もっと上手に旅をするには？",
   'guia.noticias.titulo': "真実と美を求めて：ジャーナリズムとコンテンツ",
   'guia.matematicas.titulo': "宇宙の言葉とは何でしょうか？",
   'tut.esencial.titulo': '基本の使い方',

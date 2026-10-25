@@ -12,6 +12,7 @@
     {
       "id": "cantidad",
       "titulo": "Woher kommen gute Ideen?",
+      "respuesta": "Daraus, viele zu haben: Genies lagen nicht öfter richtig, sie hatten einfach mehr Ideen, also schreib alle auf.",
       "lineas": [
         {
           "id": "gancho",
@@ -107,6 +108,7 @@
     {
       "id": "postit",
       "titulo": "Welche Idee entstand aus einem Kleber, der nicht klebte?",
+      "respuesta": "Die Post-it-Zettel: Ein „gescheiterter“ Kleber von 1968 wurde 1980 ein Erfolg, weil sich jemand an ihn erinnerte.",
       "lineas": [
         {
           "id": "titulo",
@@ -183,6 +185,7 @@
     {
       "id": "ducha",
       "titulo": "Warum kommen Ideen unter der Dusche?",
+      "respuesta": "Weil dein Kopf im Hintergrund weiter am Problem arbeitet, wenn du es bei etwas Einfachem loslässt, bis die Idee auftaucht.",
       "lineas": [
         {
           "id": "titulo",
@@ -262,6 +265,7 @@
     {
       "id": "caminar",
       "titulo": "Macht Gehen dich kreativer?",
+      "respuesta": "Ja: Beim Gehen kommen dir im Schnitt 60 % mehr Ideen, und der Effekt hält noch eine Weile nach dem Hinsetzen an.",
       "lineas": [
         {
           "id": "titulo",
@@ -340,6 +344,7 @@
     {
       "id": "lluvia",
       "titulo": "Brainstorming in der Gruppe oder allein?",
+      "respuesta": "Erst allein: Dieselben Leute, jeder für sich, kommen auf fast doppelt so viele Ideen wie in der Gruppe.",
       "lineas": [
         {
           "id": "titulo",
@@ -425,6 +430,7 @@
     {
       "id": "limites",
       "titulo": "Warum machen Grenzen dich kreativer?",
+      "respuesta": "Weil sie dich zwingen, neue Wege zu suchen: Mit nur 50 Wörtern schrieb Dr. Seuss „Grünes Ei mit Speck“.",
       "lineas": [
         {
           "id": "titulo",
@@ -505,6 +511,7 @@
     {
       "id": "decidir",
       "titulo": "Wie entscheidest du zwischen deinen Ideen?",
+      "respuesta": "Mit einer Waage, wie Benjamin Franklin: Gründe dafür und dagegen, jeder mit seinem Gewicht, und die schwerere Seite gewinnt.",
       "lineas": [
         {
           "id": "titulo",
@@ -580,6 +587,7 @@
     {
       "id": "continuar",
       "titulo": "Wie geht es weiter? Dein Plan zum Weitermachen",
+      "respuesta": "Schreib jede Idee auf, brainstorme jede Woche allein, geh spazieren, wenn du feststeckst, und entscheide mit einer Waage.",
       "lineas": [
         {
           "id": "titulo",

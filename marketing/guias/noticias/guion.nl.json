@@ -12,6 +12,7 @@
     {
       "id": "agenda",
       "titulo": "Wie bepaalt wat je elke dag ziet?",
+      "respuesta": "Grotendeels de media: zoals McCombs en Shaw lieten zien, vertellen ze je niet altijd wat je moet denken, maar wel waarover.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "bly",
       "titulo": "Welke verslaggeefster deed zich voor als gek om de waarheid te vertellen?",
+      "respuesta": "Nellie Bly, in 1887: ze bracht tien dagen door in een gesticht in New York en haar reportage leverde meer geld op voor de patiënten.",
       "lineas": [
         {
           "id": "titulo",
@@ -182,6 +184,7 @@
     {
       "id": "negatividad",
       "titulo": "Waarom verkoopt slecht nieuws beter?",
+      "respuesta": "Omdat je brein meer let op het slechte: elk extra negatief woord in een kop levert ruim 2% meer klikken op.",
       "lineas": [
         {
           "id": "titulo",
@@ -257,6 +260,7 @@
     {
       "id": "mentira",
       "titulo": "Waarom gaat een leugen sneller?",
+      "respuesta": "Omdat onwaarheid nieuwer is en verrast: op Twitter ging die zes keer sneller, gedeeld door mensen, niet door bots.",
       "lineas": [
         {
           "id": "titulo",
@@ -336,6 +340,7 @@
     {
       "id": "verificar",
       "titulo": "Hoe lees je als een factchecker?",
+      "respuesta": "Lees lateraal: verlaat de site en kijk wat anderen over die bron zeggen, zoals professionele factcheckers doen.",
       "lineas": [
         {
           "id": "titulo",
@@ -425,6 +430,7 @@
     {
       "id": "belleza",
       "titulo": "Hoe maak je ware en mooie content?",
+      "respuesta": "Check voor je iets plaatst, zeg waar je het gegeven vandaan hebt en vertel het als een verhaal, met een goed beeld en heldere woorden.",
       "lineas": [
         {
           "id": "titulo",
@@ -521,6 +527,7 @@
     {
       "id": "dieta",
       "titulo": "Hoeveel nieuws is te veel?",
+      "respuesta": "Wie zes uur per dag keek, had meer stress dan veel mensen die erbij waren: kies een vast moment, een limiet en zet meldingen uit.",
       "lineas": [
         {
           "id": "titulo",
@@ -596,6 +603,7 @@
     {
       "id": "continuar",
       "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "respuesta": "Noteer waar je nieuws vandaan komt, voeg andere bronnen toe, kies een vast tijdstip en lees lateraal voor je deelt.",
       "lineas": [
         {
           "id": "titulo",

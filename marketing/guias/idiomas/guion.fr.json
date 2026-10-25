@@ -25,6 +25,7 @@
     {
       "id": "saber",
       "titulo": "Pourquoi l'apprendre et ce que veut dire la parler",
+      "respuesta": "Parce que la parler change ton cerveau et te rapproche des gens ; et la savoir, c'est quatre compétences, du A1 au C2.",
       "lineas": [
         {
           "id": "gancho",
@@ -142,6 +143,7 @@
     {
       "id": "historia",
       "titulo": "Une brève histoire de l'apprentissage des langues",
+      "respuesta": "De Comenius et ses dessins à Berlitz et sa classe sans traduction, la leçon se répète : apprends avec des images et dans la langue, sans traduire.",
       "lineas": [
         {
           "id": "titulo",
@@ -210,6 +212,7 @@
     {
       "id": "cerebro",
       "titulo": "Comment ton cerveau apprend et comment il oublie",
+      "respuesta": "Tu apprends quand tu comprends un peu au-dessus de ton niveau, et tu freines l'oubli en révisant de façon espacée et en te testant.",
       "lineas": [
         {
           "id": "titulo",
@@ -285,6 +288,7 @@
     {
       "id": "palabras",
       "titulo": "Les mots qui rapportent le plus",
+      "respuesta": "Les plus fréquents : en anglais, les mille plus courants font environ 8 mots sur 10 d'un texte ; apprends-les dans des phrases.",
       "lineas": [
         {
           "id": "titulo",
@@ -369,6 +373,7 @@
     {
       "id": "hablar",
       "titulo": "Parle dès le premier jour",
+      "respuesta": "Parce qu'en parlant, tu découvres ce que tu ne sais pas encore dire : fais du shadowing, trompe-toi beaucoup et parle chaque jour, à tout âge.",
       "lineas": [
         {
           "id": "titulo",
@@ -453,6 +458,7 @@
     {
       "id": "plan",
       "titulo": "Ton plan pour commencer",
+      "respuesta": "Fixe-toi un but, un niveau et une date, et donne-lui 20 minutes par jour : ça fait plus de 120 heures par an.",
       "lineas": [
         {
           "id": "titulo",

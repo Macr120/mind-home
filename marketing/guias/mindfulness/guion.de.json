@@ -12,6 +12,7 @@
     {
       "id": "mente",
       "titulo": "Wo sind deine Gedanken gerade?",
+      "respuesta": "Fast die Hälfte der Zeit woanders, und das ist keine Pause: Wenn sie abschweifen, fühlst du dich schlechter, als wenn du aufmerksam bist.",
       "lineas": [
         {
           "id": "gancho",
@@ -104,6 +105,7 @@
     {
       "id": "que",
       "titulo": "Was ist Achtsamkeit und woher kommt sie?",
+      "respuesta": "Es heißt, absichtlich und ohne zu urteilen auf den gegenwärtigen Moment zu achten; es stammt vom buddhistischen „Sati“ von vor etwa 2500 Jahren.",
       "lineas": [
         {
           "id": "titulo",
@@ -197,6 +199,7 @@
     {
       "id": "respirar",
       "titulo": "Was passiert in deinem Körper, wenn du langsam atmest?",
+      "respuesta": "Er beruhigt sich: Etwa sechs Atemzüge pro Minute bremsen ihn, und tägliches zyklisches Seufzen hebt deine Stimmung.",
       "lineas": [
         {
           "id": "titulo",
@@ -281,6 +284,7 @@
     {
       "id": "rapido",
       "titulo": "Warum bringt dich Bremsen schneller ans Ziel?",
+      "respuesta": "Weil ein paar Minuten Achtsamkeitstraining am Tag dich weniger abschweifen lassen und dein Arbeitsgedächtnis schützen, selbst unter Stress.",
       "lineas": [
         {
           "id": "titulo",
@@ -363,6 +367,7 @@
     {
       "id": "ciencia",
       "titulo": "Was sagt die Wissenschaft, und was nicht?",
+      "respuesta": "Dass Meditation Angst, Depression und Schmerzen mäßig lindert, aber keine Magie ist und keinen Facharzt ersetzt.",
       "lineas": [
         {
           "id": "titulo",
@@ -451,6 +456,7 @@
     {
       "id": "meditar",
       "titulo": "Wie meditierst du, wenn du nicht aufhören kannst zu denken?",
+      "respuesta": "Abschweifen ist kein Versagen: Jedes Mal, wenn du es bemerkst und zum Atem zurückkehrst, trainierst du deine Aufmerksamkeit.",
       "lineas": [
         {
           "id": "titulo",
@@ -545,6 +551,7 @@
     {
       "id": "continuar",
       "titulo": "Wie geht es weiter? Dein Plan, um dranzubleiben",
+      "respuesta": "Häng ein paar Minuten Übung an etwas, das du schon tust, steigere dich langsam, und lässt du einen Tag aus, fang einfach wieder an.",
       "lineas": [
         {
           "id": "titulo",

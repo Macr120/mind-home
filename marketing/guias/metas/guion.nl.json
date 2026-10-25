@@ -12,6 +12,7 @@
     {
       "id": "querer",
       "titulo": "Waarom is willen niet genoeg?",
+      "respuesta": "Omdat bijna de helft van wie iets van plan is het niet doet: ontwerp je doel zo dat het niet van zin afhangt.",
       "lineas": [
         {
           "id": "gancho",
@@ -124,6 +125,7 @@
     {
       "id": "buena",
       "titulo": "Wat maakt een doel goed?",
+      "respuesta": "Het is concreet, een beetje moeilijk, positief en met een waarom dat je raakt: dat wint van „ik doe mijn best”.",
       "lineas": [
         {
           "id": "titulo",
@@ -200,6 +202,7 @@
     {
       "id": "pasos",
       "titulo": "Hoe maak je van een doel stappen?",
+      "respuesta": "Bepaal wanneer en waar met een „als…, dan…”-zin: daarmee ging 91% sporten in plaats van 35%.",
       "lineas": [
         {
           "id": "titulo",
@@ -267,6 +270,7 @@
     {
       "id": "ganas",
       "titulo": "Waarom verdwijnt de motivatie?",
+      "respuesta": "Omdat die stijgt als je het doel dichtbij ziet: kleine stappen vooruit, elke dag, zijn de brandstof.",
       "lineas": [
         {
           "id": "titulo",
@@ -348,6 +352,7 @@
     {
       "id": "casa",
       "titulo": "Waarom helpt het om alles in een mentaal huis te hebben?",
+      "respuesta": "Omdat je brein plekken heel goed onthoudt, en als elk doel zijn plek heeft, sluipt het niet meer je hoofd in.",
       "lineas": [
         {
           "id": "titulo",
@@ -434,6 +439,7 @@
     {
       "id": "medir",
       "titulo": "Hoe weet je of je vooruitgaat?",
+      "respuesta": "Check je voortgang vaak en schrijf hem op: in 138 experimenten kwamen mensen die dat deden dichter bij hun doel.",
       "lineas": [
         {
           "id": "titulo",
@@ -509,6 +515,7 @@
     {
       "id": "fallar",
       "titulo": "Wat doe je als het misgaat?",
+      "respuesta": "Ga de volgende dag gewoon door: één keer overslaan mag, twee keer achter elkaar niet, en één gemiste dag wist niets uit.",
       "lineas": [
         {
           "id": "titulo",
@@ -598,6 +605,7 @@
     {
       "id": "continuar",
       "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "respuesta": "Kies één doel met zijn „als…, dan…”, begin met twee minuten, bekijk elke zondag je reeks en ga na een misser gewoon door.",
       "lineas": [
         {
           "id": "titulo",

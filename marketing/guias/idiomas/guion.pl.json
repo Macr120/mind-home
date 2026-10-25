@@ -25,6 +25,7 @@
     {
       "id": "saber",
       "titulo": "Po co się go uczyć i co znaczy go znać",
+      "respuesta": "Bo mówienie w obcym języku zmienia twój mózg i zbliża cię do ludzi, a znać go to cztery umiejętności, od A1 do C2.",
       "lineas": [
         {
           "id": "gancho",
@@ -142,6 +143,7 @@
     {
       "id": "historia",
       "titulo": "Krótka historia nauki języków",
+      "respuesta": "Od Komeńskiego i jego rysunków po Berlitza i lekcje bez tłumaczenia wniosek jest ten sam: ucz się obrazami i w samym języku, nie tłumacząc.",
       "lineas": [
         {
           "id": "titulo",
@@ -210,6 +212,7 @@
     {
       "id": "cerebro",
       "titulo": "Jak twój mózg się uczy i jak zapomina",
+      "respuesta": "Uczysz się, gdy rozumiesz coś odrobinę powyżej swojego poziomu, a zapominanie hamujesz, powtarzając w odstępach i sprawdzając się.",
       "lineas": [
         {
           "id": "titulo",
@@ -285,6 +288,7 @@
     {
       "id": "palabras",
       "titulo": "Słowa, które dają najwięcej",
+      "respuesta": "Najczęstsze: w angielskim tysiąc najczęstszych słów to około 8 na 10 słów w tekście; ucz się ich w zdaniach.",
       "lineas": [
         {
           "id": "titulo",
@@ -369,6 +373,7 @@
     {
       "id": "hablar",
       "titulo": "Mów od pierwszego dnia",
+      "respuesta": "Bo mówiąc, odkrywasz, czego jeszcze nie umiesz powiedzieć: rób shadowing, myl się często i mów codziennie, w każdym wieku.",
       "lineas": [
         {
           "id": "titulo",
@@ -453,6 +458,7 @@
     {
       "id": "plan",
       "titulo": "Twój plan na start",
+      "respuesta": "Wyznacz sobie cel, poziom i datę, i poświęcaj mu 20 minut dziennie: to ponad 120 godzin rocznie.",
       "lineas": [
         {
           "id": "titulo",

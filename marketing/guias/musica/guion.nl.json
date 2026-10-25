@@ -12,6 +12,7 @@
     {
       "id": "musica",
       "titulo": "Wat muziek is",
+      "respuesta": "Georganiseerd geluid in ritme, melodie en harmonie, en leren spelen verandert zelfs je hersenen, ook al componeert een machine.",
       "lineas": [
         {
           "id": "gancho",
@@ -136,6 +137,7 @@
     {
       "id": "historia",
       "titulo": "Een korte geschiedenis van de muziek",
+      "respuesta": "Van een botfluit van 40.000 jaar oud tot opnames en MIDI: vandaag zijn een keyboard en een computer een complete studio.",
       "lineas": [
         {
           "id": "titulo",
@@ -236,6 +238,7 @@
     {
       "id": "ritmo",
       "titulo": "Het ritme",
+      "respuesta": "Hoe muziek over de tijd verdeeld wordt: een gelijkmatige puls, gegroepeerd in maten, en de syncope die je laat dansen.",
       "lineas": [
         {
           "id": "titulo",
@@ -330,6 +333,7 @@
     {
       "id": "melodia",
       "titulo": "De melodie",
+      "respuesta": "Een rij noten die je kunt zingen: je herkent haar aan haar vorm, omhoog of omlaag, en ze blijft hangen omdat ze zich herhaalt.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +401,7 @@
     {
       "id": "armonia",
       "titulo": "De harmonie",
+      "respuesta": "Noten die tegelijk klinken: majeur klinkt helder, mineur weemoedig, en met drie akkoorden begeleid je al hele liedjes.",
       "lineas": [
         {
           "id": "titulo",
@@ -477,6 +482,7 @@
     {
       "id": "mezcla",
       "titulo": "Hoe muziek wordt gemixt",
+      "respuesta": "Mixen is elk spoor zijn volume, zijn frequenties en zijn plek geven, zodat de bas de melodie niet bedekt.",
       "lineas": [
         {
           "id": "titulo",
@@ -543,6 +549,7 @@
     {
       "id": "plan",
       "titulo": "Jouw plan om te beginnen",
+      "respuesta": "Luister in lagen, oefen 15 minuten per dag, meer dan 90 uur per jaar, en neem jezelf vanaf dag één op om beter te worden.",
       "lineas": [
         {
           "id": "titulo",

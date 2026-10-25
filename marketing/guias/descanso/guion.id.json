@@ -18,6 +18,7 @@
     {
       "id": "cuerpo",
       "titulo": "Apa yang terjadi saat kamu tidur",
+      "respuesta": "Otakmu melewati siklus sekitar 90 menit: tidur dalam memperbaiki tubuh dan tidur REM menata apa yang kamu pelajari.",
       "lineas": [
         {
           "id": "gancho",
@@ -67,6 +68,7 @@
     {
       "id": "historia",
       "titulo": "Apa yang ditemukan sains tentang tidur",
+      "respuesta": "Bahwa kamu punya jam biologis: Kleitman membuktikannya di gua pada 1938, dan penemuan gennya meraih Nobel 2017.",
       "lineas": [
         {
           "id": "titulo",
@@ -115,6 +117,7 @@
     {
       "id": "cuanto",
       "titulo": "Berapa lama kamu perlu tidur",
+      "respuesta": "Tujuh jam atau lebih untuk orang dewasa: tidur enam jam selama dua minggu merusak fokus seperti dua malam tanpa tidur.",
       "lineas": [
         {
           "id": "titulo",
@@ -157,6 +160,7 @@
     {
       "id": "reloj",
       "titulo": "Jam biologismu",
+      "respuesta": "Cahaya yang mengaturnya: cari sinar matahari pagi, hindari layar di malam hari, dan tidur di jam yang sama.",
       "lineas": [
         {
           "id": "titulo",
@@ -206,6 +210,7 @@
     {
       "id": "noche",
       "titulo": "Cara menyiapkan malam yang baik",
+      "respuesta": "Stop kafein enam jam sebelum tidur, hindari alkohol, tidur di kamar sejuk dan gelap, dan tinggalkan layar di jam terakhir.",
       "lineas": [
         {
           "id": "titulo",
@@ -264,6 +269,7 @@
     {
       "id": "insomnio",
       "titulo": "Saat kamu tidak bisa tidur",
+      "respuesta": "Kalau 20 menit belum tidur, bangun dan kembali saat mengantuk; kalau berlangsung berminggu-minggu, terapi perilaku kognitif dulu.",
       "lineas": [
         {
           "id": "titulo",

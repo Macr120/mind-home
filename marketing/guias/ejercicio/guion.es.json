@@ -20,6 +20,7 @@
     {
       "id": "adaptacion",
       "titulo": "Qué pasa en tu cuerpo cuando entrenas",
+      "respuesta": "Le aplicas un estrés controlado y tu cuerpo se vuelve más fuerte después, mientras descansas y se repara.",
       "lineas": [
         {
           "id": "gancho",
@@ -100,6 +101,7 @@
     {
       "id": "historia",
       "titulo": "Una breve historia del ejercicio",
+      "respuesta": "Pasó de intuición a ciencia: en 1953, Morris vio que los cobradores de Londres, siempre en movimiento, tenían menos infartos.",
       "lineas": [
         {
           "id": "titulo",
@@ -183,6 +185,7 @@
     {
       "id": "capacidades",
       "titulo": "Las cuatro capacidades que debes entrenar",
+      "respuesta": "Resistencia, fuerza, movilidad y equilibrio: de 150 a 300 minutos de actividad moderada a la semana y fuerza dos días.",
       "lineas": [
         {
           "id": "titulo",
@@ -256,6 +259,7 @@
     {
       "id": "intensidad",
       "titulo": "Mide tu intensidad como un profesional",
+      "respuesta": "Con la escala del 1 al 10, las repeticiones en reserva y el pulso: si puedes platicar pero no cantar, vas en moderado.",
       "lineas": [
         {
           "id": "titulo",
@@ -320,6 +324,7 @@
     {
       "id": "progresion",
       "titulo": "Cómo progresar semana a semana",
+      "respuesta": "Con la progresión doble: cuando logres 12 repeticiones en todas las series, sube la carga y vuelve a empezar en 8.",
       "lineas": [
         {
           "id": "titulo",
@@ -397,6 +402,7 @@
     {
       "id": "recuperacion",
       "titulo": "Recuperación: donde realmente mejoras",
+      "respuesta": "Mejoras mientras descansas: duerme siete horas o más y reparte de 1.2 a 2 gramos de proteína por kilo al día.",
       "lineas": [
         {
           "id": "titulo",

@@ -12,6 +12,7 @@
     {
       "id": "mente",
       "titulo": "Di mana pikiranmu saat ini?",
+      "respuesta": "Di tempat lain hampir separuh waktu, dan itu bukan istirahat: saat pikiranmu mengembara, kamu merasa lebih buruk daripada saat fokus.",
       "lineas": [
         {
           "id": "gancho",
@@ -104,6 +105,7 @@
     {
       "id": "que",
       "titulo": "Apa itu mindfulness dan dari mana asalnya?",
+      "respuesta": "Artinya memberi perhatian, dengan sengaja, pada saat ini tanpa menghakimi; asalnya dari «sati» dalam ajaran Buddha sekitar 2500 tahun lalu.",
       "lineas": [
         {
           "id": "titulo",
@@ -197,6 +199,7 @@
     {
       "id": "respirar",
       "titulo": "Apa yang terjadi pada tubuhmu saat bernapas pelan?",
+      "respuesta": "Tubuhmu jadi tenang: bernapas sekitar enam kali per menit memperlambatnya, dan desahan siklik setiap hari memperbaiki suasana hatimu.",
       "lineas": [
         {
           "id": "titulo",
@@ -281,6 +284,7 @@
     {
       "id": "rapido",
       "titulo": "Mengapa melambat membuatmu sampai lebih cepat?",
+      "respuesta": "Karena melatih perhatian beberapa menit sehari membuatmu tak mudah teralihkan dan melindungi memori kerjamu, bahkan saat stres.",
       "lineas": [
         {
           "id": "titulo",
@@ -363,6 +367,7 @@
     {
       "id": "ciencia",
       "titulo": "Apa kata sains, dan apa yang tidak?",
+      "respuesta": "Bahwa meditasi memperbaiki kecemasan, depresi, dan nyeri secara moderat, tapi bukan sihir dan tak menggantikan tenaga ahli.",
       "lineas": [
         {
           "id": "titulo",
@@ -451,6 +456,7 @@
     {
       "id": "meditar",
       "titulo": "Bagaimana bermeditasi kalau tak bisa berhenti berpikir?",
+      "respuesta": "Teralihkan bukan berarti gagal: setiap kali kamu sadar dan kembali ke napas, kamu sedang melatih perhatianmu.",
       "lineas": [
         {
           "id": "titulo",
@@ -545,6 +551,7 @@
     {
       "id": "continuar",
       "titulo": "Bagaimana melanjutkan? Rencanamu untuk terus maju",
+      "respuesta": "Tempelkan beberapa menit latihan pada hal yang sudah kamu lakukan, tambah sedikit demi sedikit, dan kalau terlewat sehari, kembali saja.",
       "lineas": [
         {
           "id": "titulo",

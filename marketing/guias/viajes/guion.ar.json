@@ -1,0 +1,823 @@
+{
+  "idioma": "ar",
+  "tema": "viajes",
+  "plantillaId": "sala",
+  "numero": 20,
+  "nombre": "الرحلات",
+  "pregunta": "كيف تسافر بشكل أفضل؟",
+  "corta": "كيف تسافر بشكل أفضل؟",
+  "subtitulo": "لماذا يأتي أجمل ما في الرحلة قبل أن تنطلق، وكيف وُلدت الرحلة المنظمة، ومتى تبدأ الرحلة حقًا، وكيف ترتّب خطة رحلة جيدة، وكم يجب أن تدوم، وكيف تنفق دون أن تفسدها، وهل تساعدك الصور على التذكر، وهل يغيّرك السفر، وخطة للاستمرار.",
+  "aviso": "هذا الدليل للمعلومات العامة فقط. الدراسات المذكورة تقيس سعادة وذكريات مجموعات محددة من الناس؛ وقد تختلف نتائجك.",
+  "partes": [
+    {
+      "id": "feliz",
+      "titulo": "لماذا يجعلك السفر سعيدًا؟",
+      "respuesta": "بسبب الانتظار قبل كل شيء: قبل أن تنطلق تكون أسعد، وما تعيشه يمنحك فرحًا أكثر مما تشتريه.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "كيف تسافر بشكل أفضل؟ أسعد جزء في الرحلة يأتي غالبًا قبل أن تنطلق. وعند العودة، تتلاشى تلك المتعة في أيام. ماذا لو استطعت أن تمدّها من البداية إلى النهاية؟ اليوم ستراه بالأرقام، وستخرج بخطة للاستمرار."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "بالمناسبة، هذا بيتي في MindHaOS، واليوم يُقلع: إنه طائرة. وأنا الدبدوب المسافر على متنها، وهذه غرفة الرحلات عندي: هنا خريطة كل الأماكن التي زرتها والأماكن التي بقيت لي."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الأول. لماذا يجعلك السفر سعيدًا؟"
+        },
+        {
+          "id": "nawijn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "anticipacion"
+          },
+          "lamina": [
+            "maleta",
+            "aeropuerto"
+          ],
+          "destacada": true,
+          "texto": "في عام 2010، قاس فريق هولندي بقيادة يروين ناوين سعادة ألف وخمسمئة وثلاثين شخصًا. كان من سيذهبون في إجازة أسعد من غيرهم… لكن قبل الرحلة، لا بعدها."
+        },
+        {
+          "id": "regreso",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antes",
+              "durante",
+              "despues"
+            ]
+          },
+          "lamina": [
+            "regreso",
+            "oficina"
+          ],
+          "texto": "عند العودة، صار معظمهم مثل من لم يسافروا تمامًا. ودامت السعادة قليلًا فقط عند من عادوا مرتاحين جدًا. الرحلة لا تنتهي حين تصل إلى البيت: بل تنطفئ."
+        },
+        {
+          "id": "gilovich",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "gilovich"
+          },
+          "lamina": [
+            "amigosViaje",
+            "compras"
+          ],
+          "meme": "maleta",
+          "texto": "ومع ذلك فهي تستحق: في عام 2003، وجد ليف فان بوفن وتوماس جيلوفيتش أن الإنفاق على التجارب يجعلنا أسعد من الإنفاق على الأشياء. الأشياء تبلى؛ أما ما عشته فيصير جزءًا من قصتك."
+        },
+        {
+          "id": "mapa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pinApp",
+              "visitadosApp",
+              "porConocerApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "لهذا في خريطة العالم عندي دبوس لكل مكان زرته، وبلون آخر، الأماكن التي بقيت لي."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "منذ متى نسافر للمتعة؟",
+      "respuesta": "منذ الجولة الكبرى للشباب الأثرياء في القرن الثامن عشر؛ وللجميع تقريبًا منذ 1841، مع أول رحلة منظمة لتوماس كوك.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثاني. منذ متى نسافر للمتعة؟"
+        },
+        {
+          "id": "grandTour",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1700",
+            "clave": "grandTour"
+          },
+          "lamina": [
+            "grandTour",
+            "roma"
+          ],
+          "destacada": true,
+          "texto": "في القرن الثامن عشر، كان الشباب الأثرياء في إنجلترا يقومون بالجولة الكبرى: أشهرًا، وأحيانًا سنوات، يجوبون فرنسا وإيطاليا ليروا الفن والآثار القديمة. كان السفر للمتعة أمرًا لقلة قليلة."
+        },
+        {
+          "id": "cook",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1841",
+            "clave": "cook"
+          },
+          "lamina": [
+            "cook",
+            "trenVapor"
+          ],
+          "texto": "حتى عام 1841، حين نظّم نجّار أثاث إنجليزي اسمه توماس كوك رحلة بالقطار لنحو خمسمئة شخص، من ليستر إلى لافبرة، بشلن واحد لكل منهم. هكذا وُلدت الرحلة المنظمة."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tren",
+              "avion",
+              "telefono"
+            ]
+          },
+          "lamina": [
+            "avion",
+            "celularMapa"
+          ],
+          "texto": "ثم جاءت الطائرات، وكتيّبات السفر الصغيرة، والآن الهاتف: اليوم يخطط أي شخص لرحلته من الأريكة. الصعب لم يعد الوصول، بل أن تسافر جيدًا."
+        },
+        {
+          "id": "rutas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rutaApp",
+              "ordenApp",
+              "distanciaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "في المسارات عندي أضع الأماكن بالترتيب، وأراها متصلة على الخريطة، ويخبرني التطبيق كم كيلومترًا سأقطع."
+        }
+      ]
+    },
+    {
+      "id": "espera",
+      "titulo": "متى تبدأ الرحلة؟",
+      "respuesta": "يوم تقرّرها: لهفة ما قبلها وذكرى ما بعدها غالبًا أجمل من الرحلة نفسها.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثالث. متى تبدأ الرحلة؟"
+        },
+        {
+          "id": "mitchell",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rosa"
+          },
+          "lamina": [
+            "bicicleta",
+            "europa"
+          ],
+          "destacada": true,
+          "texto": "في عام 1997، تابع تيرنس ميتشل وفريقه أشخاصًا ذاهبين إلى أوروبا، وفي رحلة بالدراجة عبر كاليفورنيا، وفي عطلة عيد الشكر. قبل الرحلة وبعدها، قيّموها أفضل مما قيّموها وهم يعيشونها."
+        },
+        {
+          "id": "rosa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ilusion",
+              "molestias",
+              "recuerdo"
+            ]
+          },
+          "lamina": [
+            "lluviaViaje",
+            "fila"
+          ],
+          "meme": "expectativa",
+          "texto": "أثناء الرحلة يثقل علينا المطر والطوابير والتعب. لكن في لهفة ما قبلها وذكرى ما بعدها، تكاد هذه المنغّصات تختفي. وسمّى الباحثون ذلك «النظرة الوردية»."
+        },
+        {
+          "id": "saborear",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cuentaRegresiva"
+          },
+          "lamina": [
+            "planeando",
+            "guiaViaje"
+          ],
+          "texto": "إذن الرحلة تبدأ يوم تقرّرها. خطّط لها مبكرًا، وحدّد لها تاريخًا، واستمتع بالانتظار: اقرأ عن المكان، وشاهد الصور، وتعلّم عبارتين. انظر كم يومًا من اللهفة تهديك."
+        },
+        {
+          "id": "itinerario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diaApp",
+              "hospedajeApp",
+              "calendarioApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "رحلتي إلى اليابان عندي في خطة يومًا بيوم: من أين أنطلق، وإلى أين أذهب، وأين أنام، وماذا أفعل. وكل تاريخ يظهر وحده في تقويمي."
+        }
+      ]
+    },
+    {
+      "id": "itinerario",
+      "titulo": "كيف ترتّب خطة رحلة جيدة؟",
+      "respuesta": "احتفظ بالأفضل للنهاية واترك فراغات: ستتذكر من الرحلة أجمل لحظة فيها وكيف انتهت.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الرابع. كيف ترتّب خطة رحلة جيدة؟"
+        },
+        {
+          "id": "kahneman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "picoFinal"
+          },
+          "lamina": [
+            "aguaFria",
+            "hielo"
+          ],
+          "destacada": true,
+          "texto": "في عام 1993، طلب دانيال كانمان وفريقه من بعض الأشخاص أن يضعوا أيديهم في ماء مثلج. كانت إحدى التجربتين أطول، لكنها تنتهي أقل برودة بقليل، وفضّل الجميع تقريبًا تكرارها. نحن نتذكر أشد لحظة والنهاية، لا المجموع."
+        },
+        {
+          "id": "pico",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pico",
+              "final",
+              "duracion"
+            ]
+          },
+          "lamina": [
+            "atardecer",
+            "aeropuertoPrisa"
+          ],
+          "texto": "وفي الرحلة يحدث الشيء نفسه: ما تأخذه معك هو أجمل لحظة وكيف انتهت. يوم أخير تركض فيه إلى المطار قد يصبغ الذكرى كلها."
+        },
+        {
+          "id": "huecos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "finalViaje"
+          },
+          "lamina": [
+            "cafeCalle",
+            "mapaPapel"
+          ],
+          "meme": "itinerario",
+          "texto": "لذلك احتفظ بشيء مميز للنهاية، واترك فراغات بلا خطة للمفاجآت، ولا تحشر خمسة متاحف في يوم واحد: متحف جيد واحد أفضل. رتّب رحلتك هنا وانظر كيف ستتذكرها."
+        },
+        {
+          "id": "guardados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "actividadesApp",
+              "guardarApp",
+              "compartirApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "في كل يوم من خطتي أدوّن الأنشطة والمواصلات. وحين تعجبني، أحفظها وأشاركها مع من يسافر معي."
+        }
+      ]
+    },
+    {
+      "id": "duracion",
+      "titulo": "كم يجب أن تدوم الرحلة؟",
+      "respuesta": "لا داعي لأن تكون طويلة: أفضل مزاج يأتي نحو اليوم الثامن ويزول في أسبوع، فسافر أكثر تكرارًا.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الخامس. كم يجب أن تدوم الرحلة؟"
+        },
+        {
+          "id": "bloom",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "dia8"
+          },
+          "lamina": [
+            "playa",
+            "hamaca"
+          ],
+          "destacada": true,
+          "texto": "في عام 2013، تابعت جيسيكا دي بلوم يومًا بيوم صحة ومزاج موظفين في إجازاتهم. تحسّنوا بسرعة، وبلغوا ذروتهم نحو اليوم الثامن… وفي الأسبوع الأول بعد العودة كان كل ذلك قد تلاشى."
+        },
+        {
+          "id": "seguido",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "corto",
+              "seguido",
+              "ilusionNueva"
+            ]
+          },
+          "lamina": [
+            "escapada",
+            "carretera"
+          ],
+          "texto": "الدرس ليس أن تسافر أقل، بل أكثر تكرارًا: عدة رحلات قصيرة في السنة تمنحك لحظات لهفة أكثر وعودات أكثر راحة من رحلة واحدة ضخمة."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoViajes"
+          },
+          "lamina": "pulgar",
+          "texto": "إن كان هذا الدليل يعجبك، فاضغط «أعجبني»، و«اشتراك» حتى لا يفوتك الدليل القادم، و«مشاركة» مع ذلك الشخص الذي تقول له دائمًا: «لازم نروح»."
+        },
+        {
+          "id": "volver",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "colchon",
+              "vueltaSuave",
+              "siguiente"
+            ]
+          },
+          "lamina": [
+            "maletaCasa",
+            "calendarioPared"
+          ],
+          "texto": "وعند العودة، امنح نفسك يومًا احتياطيًا قبل العمل، وخطّط لرحلتك القصيرة التالية: هكذا تبدأ اللهفة من جديد."
+        },
+        {
+          "id": "porConocer",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pinPendiente",
+              "fechaApp",
+              "yaFuiApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "في خريطتي، الأماكن «للزيارة» لها تاريخها؛ وحين أذهب أخيرًا، تنتقل بلمسة واحدة إلى «تمت الزيارة»."
+        }
+      ]
+    },
+    {
+      "id": "dinero",
+      "titulo": "كيف تنفق دون أن تفسد الرحلة؟",
+      "respuesta": "ادفع الكبير قبل السفر وخصّص مبلغًا يوميًا: هكذا يؤلمك كل شراء أقل وتستمتع بالرحلة أكثر.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السادس. كيف تنفق دون أن تفسد الرحلة؟"
+        },
+        {
+          "id": "prelec",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1998",
+            "clave": "prelec"
+          },
+          "lamina": [
+            "billetes",
+            "tarjeta"
+          ],
+          "destacada": true,
+          "texto": "في عام 1998، درس درازن بريليك وجورج لوينستاين ألم الدفع: كل إنفاق يؤلم قليلًا، وهذا الألم يُنقص متعة ما تشتريه. ولهذا فضّل معظم الناس أن يدفعوا ثمن إجازاتهم مقدمًا."
+        },
+        {
+          "id": "adelantado",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "presupuestoViaje"
+          },
+          "lamina": [
+            "reserva",
+            "monedero"
+          ],
+          "texto": "لذلك ادفع الأشياء الكبيرة قبل أن تنطلق: الطيران والإقامة والتذاكر. وأثناء الرحلة، خصّص مبلغًا يوميًا للباقي، ولن تضطر إلى التفكير في كل شراء. ضع ميزانيتك هنا."
+        },
+        {
+          "id": "ahorro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "quincena",
+              "boleto"
+            ]
+          },
+          "lamina": [
+            "alcancia",
+            "boletos"
+          ],
+          "meme": "presupuesto",
+          "texto": "وإن نقصك المال، فاجعله هدف ادخار بتاريخ محدد: القليل كل أسبوعين، ويوم تشتري التذكرة لن يؤلمك."
+        },
+        {
+          "id": "presupuestoApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "presupuestoDia",
+              "metaFinanzas",
+              "totalApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "في خطتي، لكل يوم ميزانيته، والمجموع يتحول وحده إلى هدف ادخار في غرفة المالية عندي."
+        }
+      ]
+    },
+    {
+      "id": "fotos",
+      "titulo": "صور أم ذكريات؟",
+      "respuesta": "انظر أولًا والتقط صورًا قليلة بقصد: ما تكتفي بتصويره تتذكره أسوأ؛ واكتب سطرين كل ليلة.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السابع. صور أم ذكريات؟"
+        },
+        {
+          "id": "henkel",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "fotos"
+          },
+          "lamina": [
+            "museo",
+            "celularFoto"
+          ],
+          "destacada": true,
+          "texto": "في عام 2014، أخذت ليندا هنكل طلابًا إلى متحف. الأعمال التي صوّروها تذكروها أقل، وبتفاصيل أقل، من تلك التي اكتفوا بالنظر إليها. الكاميرا تتذكر بدلًا منك… فتتوقف أنت عن التذكر."
+        },
+        {
+          "id": "detalle",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mira",
+              "acercate",
+              "pocas"
+            ]
+          },
+          "lamina": [
+            "detalleArte",
+            "mirador"
+          ],
+          "texto": "لكن حين قرّبوا بالزوم على تفصيلة ما، نجت الذكرى. لذلك انظر أولًا، ثم التقط صورًا قليلة وبقصد."
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "noche",
+              "sentiste",
+              "conQuien"
+            ]
+          },
+          "lamina": [
+            "diarioViaje",
+            "cafeLibreta"
+          ],
+          "meme": "fotos",
+          "texto": "وكل ليلة اكتب سطرين: ماذا حدث، وبماذا شعرت، ومع من. بعد عشر سنوات، ستساوي تلك الجملة أكثر من مئة صورة متشابهة."
+        },
+        {
+          "id": "bitacora",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "albumApp",
+              "fotoApp",
+              "anecdotaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "في يوميات الرحلة عندي، كل بلد ألبوم، وفي كل مكان أحفظ صوري مع حكايتها."
+        }
+      ]
+    },
+    {
+      "id": "cambio",
+      "titulo": "هل يغيّرك السفر؟",
+      "respuesta": "نعم: من درسوا في الخارج صاروا أكثر انفتاحًا ولطفًا وأقل قلقًا ممن بقوا.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثامن. هل يغيّرك السفر؟"
+        },
+        {
+          "id": "zimmermann",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "personalidad"
+          },
+          "lamina": [
+            "estudiantes",
+            "mochila"
+          ],
+          "destacada": true,
+          "texto": "في عام 2013، تابعت يوليا تسيمرمان وفرانتس ناير أكثر من ألف طالب ألماني. من ذهبوا للدراسة في الخارج صاروا أكثر انفتاحًا، وأكثر لطفًا، وأقل قلقًا ممن بقوا."
+        },
+        {
+          "id": "costumbre",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abierto",
+              "amable",
+              "calma"
+            ]
+          },
+          "lamina": [
+            "mercado",
+            "conversacion"
+          ],
+          "texto": "ولا يحدث ذلك برؤية المعالم، بل بالخروج عن عاداتك: أن تجرّب طعامًا آخر، وأن تضيع، وأن تطلب المساعدة بلغة أخرى."
+        },
+        {
+          "id": "local",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "local",
+              "gracias",
+              "sinPrisa"
+            ]
+          },
+          "lamina": [
+            "comidaCalle",
+            "plaza"
+          ],
+          "texto": "لذلك افعل في كل رحلة شيئًا كأهل البلد: كُل حيث يأكلون، وتعلّم أن تقول شكرًا، وابقَ قليلًا دون عجلة في مكان واحد."
+        },
+        {
+          "id": "estados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "paisesApp",
+              "estadosApp",
+              "colorApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "ومع تشغيل «الولايات»، يتلوّن كل مكان أعرفه بلونه: أحب أن أرى الخريطة وهي تمتلئ شيئًا فشيئًا."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "كيف تستمر؟ خطتك للاستمرار",
+      "respuesta": "ضع أماكنك على خريطة، واختر واحدًا بتاريخ، وادّخر له، وعند العودة خطّط للرحلة التالية.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء التاسع. كيف تستمر؟ خطتك للاستمرار."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planViajes"
+          },
+          "lamina": [
+            "mapaPared",
+            "libreta"
+          ],
+          "texto": "هذا الأسبوع، ضع على خريطة الأماكن التي زرتها، وثلاثة أماكن تريد الذهاب إليها."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "fecha",
+              "ahorra"
+            ]
+          },
+          "lamina": [
+            "calendarioPared",
+            "alcancia"
+          ],
+          "destacada": true,
+          "texto": "في الشهر الأول، اختر واحدًا من تلك الأماكن، وحدّد له تاريخًا، وابدأ الادخار له."
+        },
+        {
+          "id": "cadaViaje",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pagaAntes",
+              "mejorFinal",
+              "escribeNoche"
+            ]
+          },
+          "lamina": [
+            "aeropuerto",
+            "atardecer"
+          ],
+          "texto": "وفي كل رحلة: ادفع الكبير مقدمًا، واحتفظ بالأفضل للنهاية، واكتب كل ليلة، وعند العودة خطّط لرحلتك القصيرة التالية."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mapaFin",
+              "planFin",
+              "bitacoraFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "وإن لم تعرف من أين تبدأ، فانظر إلى رحلتي إلى اليابان في التطبيق: إنها كاملة، من الخريطة إلى يوميات الرحلة."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "باختصار: استمتع بالانتظار؛ واحتفظ بالأفضل للنهاية؛ وسافر أكثر تكرارًا؛ وادفع قبل أن تنطلق؛ وانظر أكثر مما تصوّر."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "في الرحلات على MindHaOS تضع أماكنك على خريطة العالم، وترتّب خطة رحلتك يومًا بيوم، وتحفظ يوميات رحلتك بالصور والحكايات. يمكنك أن تفعل ذلك بنفسك، أو بمساعدة الذكاء الاصطناعي. ابنِ بيتك الذهني مجانًا اليوم: الرابط في الوصف. وفي الدليل القادم: كيف تحفظ أجمل ذكرياتك؟",
+    "boton": "افتح الرحلات",
+    "lamina": "app-plan",
+    "anclas": {
+      "mapa": "خريطة العالم",
+      "itinerario": "خطة رحلتك يومًا بيوم",
+      "bitacora": "يوميات رحلتك"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "nawijn-2010",
+      "texto": "Nawijn J., Marchand M. A., Veenhoven R., Vingerhoets A. J. Vacationers happier, but most not happier after a holiday. Applied Research in Quality of Life 5(1), 35-47 (2010).",
+      "url": "https://doi.org/10.1007/s11482-009-9091-9"
+    },
+    {
+      "id": "vanboven-2003",
+      "texto": "Van Boven L., Gilovich T. To do or to have? That is the question. Journal of Personality and Social Psychology 85(6), 1193-1202 (2003).",
+      "url": "https://doi.org/10.1037/0022-3514.85.6.1193"
+    },
+    {
+      "id": "grand-tour",
+      "texto": "الجولة الكبرى (Grand Tour). ويكيبيديا.",
+      "url": "https://en.wikipedia.org/wiki/Grand_Tour"
+    },
+    {
+      "id": "thomas-cook",
+      "texto": "توماس كوك والرحلة من ليستر إلى لافبرة (1841). ويكيبيديا.",
+      "url": "https://en.wikipedia.org/wiki/Thomas_Cook"
+    },
+    {
+      "id": "mitchell-1997",
+      "texto": "Mitchell T. R., Thompson L., Peterson E., Cronk R. Temporal adjustments in the evaluation of events: the «rosy view». Journal of Experimental Social Psychology 33(4), 421-448 (1997).",
+      "url": "https://doi.org/10.1006/jesp.1997.1333"
+    },
+    {
+      "id": "kahneman-1993",
+      "texto": "Kahneman D., Fredrickson B. L., Schreiber C. A., Redelmeier D. A. When more pain is preferred to less: adding a better end. Psychological Science 4(6), 401-405 (1993).",
+      "url": "https://doi.org/10.1111/j.1467-9280.1993.tb00589.x"
+    },
+    {
+      "id": "debloom-2013",
+      "texto": "de Bloom J., Geurts S. A. E., Kompier M. A. J. Vacation (after-) effects on employee health and well-being, and the role of vacation activities, experiences and sleep. Journal of Happiness Studies 14(2), 613-633 (2013).",
+      "url": "https://doi.org/10.1007/s10902-012-9345-3"
+    },
+    {
+      "id": "prelec-1998",
+      "texto": "Prelec D., Loewenstein G. The red and the black: mental accounting of savings and debt. Marketing Science 17(1), 4-28 (1998).",
+      "url": "https://doi.org/10.1287/mksc.17.1.4"
+    },
+    {
+      "id": "henkel-2014",
+      "texto": "Henkel L. A. Point-and-shoot memories: the influence of taking photos on memory for a museum tour. Psychological Science 25(2), 396-402 (2014).",
+      "url": "https://doi.org/10.1177/0956797613504438"
+    },
+    {
+      "id": "zimmermann-2013",
+      "texto": "Zimmermann J., Neyer F. J. Do we become a different person when hitting the road? Personality development of sojourners. Journal of Personality and Social Psychology 105(3), 515-530 (2013).",
+      "url": "https://doi.org/10.1037/a0033019"
+    }
+  ]
+}

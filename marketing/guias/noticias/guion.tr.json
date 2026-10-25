@@ -12,6 +12,7 @@
     {
       "id": "agenda",
       "titulo": "Her gün ne gördüğüne kim karar veriyor?",
+      "respuesta": "Büyük ölçüde medya: McCombs ve Shaw’un gösterdiği gibi, sana her zaman ne düşüneceğini değil, ne hakkında düşüneceğini söyler.",
       "lineas": [
         {
           "id": "gancho",
@@ -106,6 +107,7 @@
     {
       "id": "bly",
       "titulo": "Gerçeği anlatmak için kim deli taklidi yaptı?",
+      "respuesta": "1887’de Nellie Bly: New York’ta bir akıl hastanesinde on gün geçirdi ve haberi hastalar için daha fazla para sağladı.",
       "lineas": [
         {
           "id": "titulo",
@@ -182,6 +184,7 @@
     {
       "id": "negatividad",
       "titulo": "Kötü haberler neden daha çok satar?",
+      "respuesta": "Çünkü beynin kötüye daha çok dikkat eder: başlıktaki her fazladan olumsuz kelime tıklamaları %2’den fazla artırır.",
       "lineas": [
         {
           "id": "titulo",
@@ -257,6 +260,7 @@
     {
       "id": "mentira",
       "titulo": "Yalan neden daha hızlı koşar?",
+      "respuesta": "Çünkü yalan daha yeni ve şaşırtıcıdır: Twitter’da altı kat daha hızlı yayılıyordu ve onu botlar değil, insanlar paylaşıyordu.",
       "lineas": [
         {
           "id": "titulo",
@@ -336,6 +340,7 @@
     {
       "id": "verificar",
       "titulo": "Bir doğrulamacı gibi nasıl okunur?",
+      "respuesta": "Yanal okuma yap: siteden çık ve başkalarının o kaynak hakkında ne dediğine bak, tıpkı profesyonel doğrulamacılar gibi.",
       "lineas": [
         {
           "id": "titulo",
@@ -425,6 +430,7 @@
     {
       "id": "belleza",
       "titulo": "Doğru ve güzel içerik nasıl üretilir?",
+      "respuesta": "Paylaşmadan önce doğrula, bilgiyi nereden aldığını söyle ve onu iyi bir görsel ve açık sözlerle bir hikâye gibi anlat.",
       "lineas": [
         {
           "id": "titulo",
@@ -521,6 +527,7 @@
     {
       "id": "dieta",
       "titulo": "Ne kadar haber fazladır?",
+      "respuesta": "Günde altı saat izleyenler, olay yerindeki birçok kişiden daha çok strese girdi: sabit bir saat ve sınır koy, bildirimleri kapat.",
       "lineas": [
         {
           "id": "titulo",
@@ -596,6 +603,7 @@
     {
       "id": "continuar",
       "titulo": "Nasıl devam etmeli? Devam etmek için planın",
+      "respuesta": "Haberlerini nereden aldığını not et, farklı kaynaklar ekle, sabit bir saat seç ve paylaşmadan önce yanal okuma yap.",
       "lineas": [
         {
           "id": "titulo",

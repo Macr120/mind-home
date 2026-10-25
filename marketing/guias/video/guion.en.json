@@ -12,6 +12,7 @@
     {
       "id": "video",
       "titulo": "What a video is",
+      "respuesta": "It’s still photos in such quick succession that your brain joins them: at 24 per second, cinema speed, you see smooth motion.",
       "lineas": [
         {
           "id": "gancho",
@@ -123,6 +124,7 @@
     {
       "id": "historia",
       "titulo": "A brief history of video",
+      "respuesta": "From Muybridge’s twelve cameras in 1878 to today’s phone: what once took a film crew now fits in your pocket.",
       "lineas": [
         {
           "id": "titulo",
@@ -223,6 +225,7 @@
     {
       "id": "encuadre",
       "titulo": "Framing",
+      "respuesta": "Framing is deciding what goes in the picture: put what matters on a rule-of-thirds line, not dead center, and you guide the eye.",
       "lineas": [
         {
           "id": "titulo",
@@ -307,6 +310,7 @@
     {
       "id": "luzSonido",
       "titulo": "Light and sound",
+      "respuesta": "Face a window or stand side-on to it, and bring the mic a hand’s width away: audiences forgive so-so images, not bad sound.",
       "lineas": [
         {
           "id": "titulo",
@@ -388,6 +392,7 @@
     {
       "id": "edicion",
       "titulo": "Editing",
+      "respuesta": "Pick your best shots, order them and decide how long each lasts: as Kuleshov showed, meaning lies in what you put side by side.",
       "lineas": [
         {
           "id": "titulo",
@@ -471,6 +476,7 @@
     {
       "id": "historiaContar",
       "titulo": "How to tell a story",
+      "respuesta": "Hook people in the first seconds with a question, build a beginning, middle and end, and show, don’t tell.",
       "lineas": [
         {
           "id": "titulo",
@@ -566,6 +572,7 @@
     {
       "id": "plan",
       "titulo": "Your plan to get started",
+      "respuesta": "Make a one-minute video a week, even if it’s not perfect: that’s 52 a year, and each one teaches you something for the next.",
       "lineas": [
         {
           "id": "titulo",

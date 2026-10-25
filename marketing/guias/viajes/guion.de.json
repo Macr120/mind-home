@@ -1,0 +1,823 @@
+{
+  "idioma": "de",
+  "tema": "viajes",
+  "plantillaId": "sala",
+  "numero": 20,
+  "nombre": "Reisen",
+  "pregunta": "Wie reist du besser?",
+  "corta": "Wie reist du besser?",
+  "subtitulo": "Warum der schönste Teil einer Reise vor der Abfahrt kommt, wie die Pauschalreise entstand, wann eine Reise wirklich beginnt, wie du einen guten Reiseplan zusammenstellst, wie lange sie dauern sollte, wie du Geld ausgibst, ohne sie zu ruinieren, ob Fotos dir beim Erinnern helfen, ob Reisen dich verändert, und ein Plan zum Weitermachen.",
+  "aviso": "Dieser Leitfaden ist informativ und allgemein. Die zitierten Studien messen Glück und Erinnerungen bestimmter Gruppen von Menschen; deine Ergebnisse können abweichen.",
+  "partes": [
+    {
+      "id": "feliz",
+      "titulo": "Warum macht Reisen dich glücklich?",
+      "respuesta": "Vor allem wegen der Vorfreude: Vor der Abfahrt bist du glücklicher, und Erlebtes macht mehr Freude als Gekauftes.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Wie reist du besser? Der glücklichste Teil einer Reise kommt fast immer vor der Abfahrt. Und nach der Rückkehr verfliegt dieses Gefühl in wenigen Tagen. Was, wenn du es von Anfang bis Ende verlängern könntest? Heute siehst du es mit Daten, und du gehst mit einem Plan zum Weitermachen."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Übrigens, das ist mein Haus in MindHaOS, und heute hebt es ab: Es ist ein Flugzeug. Ich bin der Reiseteddy an Bord, und das ist mein Reisezimmer: Hier habe ich die Karte von allem, was ich schon kenne, und von allem, was mir noch fehlt."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil eins. Warum macht Reisen dich glücklich?"
+        },
+        {
+          "id": "nawijn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "anticipacion"
+          },
+          "lamina": [
+            "maleta",
+            "aeropuerto"
+          ],
+          "destacada": true,
+          "texto": "2010 maß ein niederländisches Team um Jeroen Nawijn das Glück von tausendfünfhundertdreißig Menschen. Wer bald in den Urlaub fuhr, war glücklicher als die anderen… aber vor der Reise, nicht danach."
+        },
+        {
+          "id": "regreso",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antes",
+              "durante",
+              "despues"
+            ]
+          },
+          "lamina": [
+            "regreso",
+            "oficina"
+          ],
+          "texto": "Nach der Rückkehr ging es fast allen wieder wie denen, die gar nicht verreist waren. Nur bei denen, die sehr entspannt zurückkamen, hielt es etwas länger. Die Reise endet nicht, wenn du heimkommst: Sie verglimmt."
+        },
+        {
+          "id": "gilovich",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "gilovich"
+          },
+          "lamina": [
+            "amigosViaje",
+            "compras"
+          ],
+          "meme": "maleta",
+          "texto": "Trotzdem lohnt es sich: 2003 fanden Leaf Van Boven und Thomas Gilovich heraus, dass Geld für Erlebnisse uns glücklicher macht als Geld für Dinge. Dinge nutzen sich ab; Erlebtes wird Teil deiner Geschichte."
+        },
+        {
+          "id": "mapa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pinApp",
+              "visitadosApp",
+              "porConocerApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Deshalb habe ich auf meiner Weltkarte einen Pin für jeden Ort, an dem ich war, und in einer anderen Farbe die, die mir noch fehlen."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Seit wann reisen wir zum Vergnügen?",
+      "respuesta": "Seit der Grand Tour reicher junger Engländer im 18. Jahrhundert; und für fast alle seit 1841, mit der ersten Pauschalreise von Thomas Cook.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil zwei. Seit wann reisen wir zum Vergnügen?"
+        },
+        {
+          "id": "grandTour",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1700",
+            "clave": "grandTour"
+          },
+          "lamina": [
+            "grandTour",
+            "roma"
+          ],
+          "destacada": true,
+          "texto": "Im achtzehnten Jahrhundert machten reiche junge Engländer die Grand Tour: Monate, manchmal Jahre zogen sie durch Frankreich und Italien, um Kunst und antike Ruinen zu sehen. Zum Vergnügen reisten nur ganz wenige."
+        },
+        {
+          "id": "cook",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1841",
+            "clave": "cook"
+          },
+          "lamina": [
+            "cook",
+            "trenVapor"
+          ],
+          "texto": "Bis 1841 ein englischer Kunsttischler, Thomas Cook, eine Bahnfahrt für rund fünfhundert Menschen organisierte, von Leicester nach Loughborough, für einen Schilling pro Kopf. Die Pauschalreise war geboren."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tren",
+              "avion",
+              "telefono"
+            ]
+          },
+          "lamina": [
+            "avion",
+            "celularMapa"
+          ],
+          "texto": "Dann kamen die Flugzeuge, die Reiseführer im Taschenformat und jetzt das Handy: Heute plant jeder eine Reise vom Sofa aus. Schwierig ist nicht mehr das Ankommen, sondern gut zu reisen."
+        },
+        {
+          "id": "rutas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rutaApp",
+              "ordenApp",
+              "distanciaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In meinen Routen bringe ich die Orte in eine Reihenfolge, sehe sie auf der Karte verbunden, und die App sagt mir, wie viele Kilometer ich zurücklegen werde."
+        }
+      ]
+    },
+    {
+      "id": "espera",
+      "titulo": "Wann beginnt eine Reise?",
+      "respuesta": "An dem Tag, an dem du dich entscheidest: Die Vorfreude davor und die Erinnerung danach sind oft schöner als die Reise selbst.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil drei. Wann beginnt eine Reise?"
+        },
+        {
+          "id": "mitchell",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rosa"
+          },
+          "lamina": [
+            "bicicleta",
+            "europa"
+          ],
+          "destacada": true,
+          "texto": "1997 begleiteten Terence Mitchell und sein Team Menschen auf einer Europareise, einer Radtour durch Kalifornien und einem Thanksgiving-Urlaub. Vorher und nachher bewerteten sie die Reise besser als währenddessen."
+        },
+        {
+          "id": "rosa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ilusion",
+              "molestias",
+              "recuerdo"
+            ]
+          },
+          "lamina": [
+            "lluviaViaje",
+            "fila"
+          ],
+          "meme": "expectativa",
+          "texto": "Unterwegs zählen Regen, Warteschlangen und Müdigkeit. Aber in der Vorfreude und in der Erinnerung verschwinden diese Ärgernisse fast ganz. Die Forscher nannten das die rosarote Brille."
+        },
+        {
+          "id": "saborear",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cuentaRegresiva"
+          },
+          "lamina": [
+            "planeando",
+            "guiaViaje"
+          ],
+          "texto": "Eine Reise beginnt also an dem Tag, an dem du dich entscheidest. Plan sie früh, gib ihr ein Datum und genieß das Warten: Lies über den Ort, schau dir Fotos an, lern ein paar Sätze. Schau, wie viele Tage Vorfreude sie dir schenkt."
+        },
+        {
+          "id": "itinerario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diaApp",
+              "hospedajeApp",
+              "calendarioApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Meine Japanreise steht in meinem Reiseplan, Tag für Tag: wo ich losfahre, wohin ich fahre, wo ich schlafe und was ich mache. Und jedes Datum erscheint von selbst in meinem Kalender."
+        }
+      ]
+    },
+    {
+      "id": "itinerario",
+      "titulo": "Wie stellst du einen guten Reiseplan zusammen?",
+      "respuesta": "Heb dir das Beste für den Schluss auf und lass Lücken: Du erinnerst dich vor allem an den schönsten Moment und an das Ende.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil vier. Wie stellst du einen guten Reiseplan zusammen?"
+        },
+        {
+          "id": "kahneman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "picoFinal"
+          },
+          "lamina": [
+            "aguaFria",
+            "hielo"
+          ],
+          "destacada": true,
+          "texto": "1993 ließen Daniel Kahneman und sein Team Menschen die Hand in eiskaltes Wasser halten. Ein Durchgang dauerte länger, endete aber etwas weniger kalt, und fast alle wollten lieber diesen wiederholen. Wir erinnern uns an den intensivsten Moment und an das Ende, nicht an die Summe."
+        },
+        {
+          "id": "pico",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pico",
+              "final",
+              "duracion"
+            ]
+          },
+          "lamina": [
+            "atardecer",
+            "aeropuertoPrisa"
+          ],
+          "texto": "Auf Reisen ist es genauso: Was du mitnimmst, ist der schönste Moment und wie es endete. Ein letzter Tag mit Hetze zum Flughafen kann die ganze Erinnerung färben."
+        },
+        {
+          "id": "huecos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "finalViaje"
+          },
+          "lamina": [
+            "cafeCalle",
+            "mapaPapel"
+          ],
+          "meme": "itinerario",
+          "texto": "Heb dir also etwas Besonderes für den Schluss auf, lass Lücken ohne Plan für das Unerwartete und pack keine fünf Museen in einen Tag: Ein gutes ist mehr wert. Ordne hier deine Reise und schau, wie du dich an sie erinnern wirst."
+        },
+        {
+          "id": "guardados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "actividadesApp",
+              "guardarApp",
+              "compartirApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "An jedem Tag meines Plans notiere ich die Aktivitäten und die Verkehrsmittel. Und wenn er mir gefällt, speichere ich ihn und teile ihn mit denen, die mit mir reisen."
+        }
+      ]
+    },
+    {
+      "id": "duracion",
+      "titulo": "Wie lange sollte eine Reise dauern?",
+      "respuesta": "Sie muss nicht lang sein: Die beste Stimmung kommt um den achten Tag und ist nach einer Woche weg, also reise öfter.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil fünf. Wie lange sollte eine Reise dauern?"
+        },
+        {
+          "id": "bloom",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "dia8"
+          },
+          "lamina": [
+            "playa",
+            "hamaca"
+          ],
+          "destacada": true,
+          "texto": "2013 verfolgte Jessica de Bloom Tag für Tag Gesundheit und Stimmung von Berufstätigen im Urlaub. Es ging ihnen schnell besser, der Höhepunkt kam um den achten Tag… und in der ersten Woche nach der Rückkehr war alles schon verflogen."
+        },
+        {
+          "id": "seguido",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "corto",
+              "seguido",
+              "ilusionNueva"
+            ]
+          },
+          "lamina": [
+            "escapada",
+            "carretera"
+          ],
+          "texto": "Die Lehre ist nicht, weniger zu reisen, sondern öfter: Mehrere Kurztrips im Jahr schenken dir mehr Vorfreude und mehr erholte Heimkehren als eine einzige Riesenreise."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoViajes"
+          },
+          "lamina": "pulgar",
+          "texto": "Wenn dir der Leitfaden gefällt, klick auf Mag ich, auf Abonnieren, damit du den nächsten nicht verpasst, und auf Teilen, für die Person, mit der du immer sagst: „Da müssen wir mal hin.“"
+        },
+        {
+          "id": "volver",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "colchon",
+              "vueltaSuave",
+              "siguiente"
+            ]
+          },
+          "lamina": [
+            "maletaCasa",
+            "calendarioPared"
+          ],
+          "texto": "Und nach der Rückkehr gönn dir einen Puffertag vor der Arbeit und plane deinen nächsten Kurztrip: So beginnt die Vorfreude von vorn."
+        },
+        {
+          "id": "porConocer",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pinPendiente",
+              "fechaApp",
+              "yaFuiApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Auf meiner Karte haben die Orte, die noch zu entdecken sind, ihr Datum; und wenn ich endlich hinfahre, werden sie mit einem Tippen zu besuchten Orten."
+        }
+      ]
+    },
+    {
+      "id": "dinero",
+      "titulo": "Wie gibst du Geld aus, ohne die Reise zu ruinieren?",
+      "respuesta": "Bezahl das Große vor der Abfahrt und nimm einen Tagesbetrag mit: So tut jeder Kauf weniger weh und du genießt die Reise mehr.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil sechs. Wie gibst du Geld aus, ohne die Reise zu ruinieren?"
+        },
+        {
+          "id": "prelec",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1998",
+            "clave": "prelec"
+          },
+          "lamina": [
+            "billetes",
+            "tarjeta"
+          ],
+          "destacada": true,
+          "texto": "1998 untersuchten Drazen Prelec und George Loewenstein den Schmerz des Bezahlens: Jede Ausgabe tut ein bisschen weh, und dieser Schmerz nimmt dem Gekauften die Freude. Deshalb zahlten die meisten ihren Urlaub lieber im Voraus."
+        },
+        {
+          "id": "adelantado",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "presupuestoViaje"
+          },
+          "lamina": [
+            "reserva",
+            "monedero"
+          ],
+          "texto": "Bezahl also das Große vor der Abfahrt: Flüge, Unterkunft und Eintritte. Unterwegs nimmst du einen Tagesbetrag für den Rest mit, und du musst nicht mehr über jeden Kauf nachdenken. Stell hier dein Budget zusammen."
+        },
+        {
+          "id": "ahorro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "quincena",
+              "boleto"
+            ]
+          },
+          "lamina": [
+            "alcancia",
+            "boletos"
+          ],
+          "meme": "presupuesto",
+          "texto": "Und wenn dir Geld fehlt, mach daraus ein Sparziel mit Datum: alle zwei Wochen ein bisschen, und am Tag, an dem du das Ticket kaufst, tut es nicht mehr weh."
+        },
+        {
+          "id": "presupuestoApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "presupuestoDia",
+              "metaFinanzas",
+              "totalApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In meinem Plan hat jeder Tag sein Budget, und die Summe wird von selbst ein Sparziel in meinen Finanzen."
+        }
+      ]
+    },
+    {
+      "id": "fotos",
+      "titulo": "Fotos oder Erinnerungen?",
+      "respuesta": "Schau erst hin und mach wenige Fotos mit Absicht: Was du nur fotografierst, merkst du dir schlechter; und schreib jeden Abend zwei Zeilen.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil sieben. Fotos oder Erinnerungen?"
+        },
+        {
+          "id": "henkel",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "fotos"
+          },
+          "lamina": [
+            "museo",
+            "celularFoto"
+          ],
+          "destacada": true,
+          "texto": "2014 führte Linda Henkel Studierende durch ein Museum. An die Werke, die sie fotografiert hatten, erinnerten sie sich schlechter und ungenauer als an die, die sie nur angeschaut hatten. Die Kamera erinnert sich für dich… und du hörst damit auf."
+        },
+        {
+          "id": "detalle",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mira",
+              "acercate",
+              "pocas"
+            ]
+          },
+          "lamina": [
+            "detalleArte",
+            "mirador"
+          ],
+          "texto": "Aber wenn sie mit dem Zoom ein Detail heranholten, blieb die Erinnerung erhalten. Also schau zuerst hin, und mach dann wenige Fotos, mit Absicht."
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "noche",
+              "sentiste",
+              "conQuien"
+            ]
+          },
+          "lamina": [
+            "diarioViaje",
+            "cafeLibreta"
+          ],
+          "meme": "fotos",
+          "texto": "Und schreib jeden Abend zwei Zeilen: was passiert ist, was du gefühlt hast und mit wem. In zehn Jahren ist dieser eine Satz mehr wert als hundert gleiche Fotos."
+        },
+        {
+          "id": "bitacora",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "albumApp",
+              "fotoApp",
+              "anecdotaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In meinem Logbuch ist jedes Land ein Album, und zu jedem Ort speichere ich meine Fotos mit ihrer Anekdote."
+        }
+      ]
+    },
+    {
+      "id": "cambio",
+      "titulo": "Verändert dich Reisen?",
+      "respuesta": "Ja: Wer im Ausland studierte, wurde offener, freundlicher und weniger ängstlich als die, die zu Hause blieben.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil acht. Verändert dich Reisen?"
+        },
+        {
+          "id": "zimmermann",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "personalidad"
+          },
+          "lamina": [
+            "estudiantes",
+            "mochila"
+          ],
+          "destacada": true,
+          "texto": "2013 begleiteten Julia Zimmermann und Franz Neyer über tausend deutsche Studierende. Wer zum Studium ins Ausland ging, wurde offener, freundlicher und weniger ängstlich als die, die blieben."
+        },
+        {
+          "id": "costumbre",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abierto",
+              "amable",
+              "calma"
+            ]
+          },
+          "lamina": [
+            "mercado",
+            "conversacion"
+          ],
+          "texto": "Das liegt nicht an den Sehenswürdigkeiten, sondern daran, deine Gewohnheiten zu verlassen: anderes Essen probieren, dich verlaufen, in einer fremden Sprache um Hilfe bitten."
+        },
+        {
+          "id": "local",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "local",
+              "gracias",
+              "sinPrisa"
+            ]
+          },
+          "lamina": [
+            "comidaCalle",
+            "plaza"
+          ],
+          "texto": "Mach also auf jeder Reise etwas wie die Einheimischen: Iss, wo sie essen, lern Danke zu sagen und bleib eine Weile ohne Eile an einem Ort."
+        },
+        {
+          "id": "estados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "paisesApp",
+              "estadosApp",
+              "colorApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Und mit eingeschalteten Regionen färbt sich jeder Ort, den ich kenne, in seiner Farbe: Ich liebe es zu sehen, wie sich die Karte füllt."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Wie geht es weiter? Dein Plan zum Weitermachen",
+      "respuesta": "Trag deine Orte auf einer Karte ein, wähl einen mit Datum, spar dafür und plane nach der Rückkehr den nächsten Kurztrip.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil neun. Wie geht es weiter? Dein Plan zum Weitermachen."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planViajes"
+          },
+          "lamina": [
+            "mapaPared",
+            "libreta"
+          ],
+          "texto": "Diese Woche: Trag auf einer Karte die Orte ein, an denen du warst, und drei, an die du willst."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "fecha",
+              "ahorra"
+            ]
+          },
+          "lamina": [
+            "calendarioPared",
+            "alcancia"
+          ],
+          "destacada": true,
+          "texto": "Im ersten Monat wählst du einen dieser Orte, gibst ihm ein Datum und fängst an, dafür zu sparen."
+        },
+        {
+          "id": "cadaViaje",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pagaAntes",
+              "mejorFinal",
+              "escribeNoche"
+            ]
+          },
+          "lamina": [
+            "aeropuerto",
+            "atardecer"
+          ],
+          "texto": "Und auf jeder Reise: Bezahl das Große vorher, heb dir das Beste für den Schluss auf, schreib jeden Abend, und plane nach der Rückkehr den nächsten Kurztrip."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mapaFin",
+              "planFin",
+              "bitacoraFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Und wenn du nicht weißt, wo du anfangen sollst, schau dir meine Japanreise in der App an: Sie ist komplett, von der Karte bis zum Logbuch."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Kurz gesagt: Genieß das Warten; heb dir das Beste für den Schluss auf; reise öfter; zahl vor der Abfahrt; und schau mehr, als du fotografierst."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "In den Reisen von MindHaOS setzt du deine Orte auf die Weltkarte, planst deinen Reiseplan Tag für Tag und führst dein Logbuch mit Fotos und Anekdoten. Du kannst es selbst machen, oder mit Hilfe der KI. Bau dir heute kostenlos dein mentales Haus: Der Link ist in der Beschreibung. Und im nächsten Leitfaden: Wie bewahrst du deine schönsten Erinnerungen?",
+    "boton": "Reisen öffnen",
+    "lamina": "app-plan",
+    "anclas": {
+      "mapa": "die Weltkarte",
+      "itinerario": "deinen Reiseplan Tag für Tag",
+      "bitacora": "dein Logbuch"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "nawijn-2010",
+      "texto": "Nawijn J., Marchand M. A., Veenhoven R., Vingerhoets A. J. Vacationers happier, but most not happier after a holiday. Applied Research in Quality of Life 5(1), 35-47 (2010).",
+      "url": "https://doi.org/10.1007/s11482-009-9091-9"
+    },
+    {
+      "id": "vanboven-2003",
+      "texto": "Van Boven L., Gilovich T. To do or to have? That is the question. Journal of Personality and Social Psychology 85(6), 1193-1202 (2003).",
+      "url": "https://doi.org/10.1037/0022-3514.85.6.1193"
+    },
+    {
+      "id": "grand-tour",
+      "texto": "Die Grand Tour. Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Grand_Tour"
+    },
+    {
+      "id": "thomas-cook",
+      "texto": "Thomas Cook und die Reise von Leicester nach Loughborough (1841). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Thomas_Cook"
+    },
+    {
+      "id": "mitchell-1997",
+      "texto": "Mitchell T. R., Thompson L., Peterson E., Cronk R. Temporal adjustments in the evaluation of events: the «rosy view». Journal of Experimental Social Psychology 33(4), 421-448 (1997).",
+      "url": "https://doi.org/10.1006/jesp.1997.1333"
+    },
+    {
+      "id": "kahneman-1993",
+      "texto": "Kahneman D., Fredrickson B. L., Schreiber C. A., Redelmeier D. A. When more pain is preferred to less: adding a better end. Psychological Science 4(6), 401-405 (1993).",
+      "url": "https://doi.org/10.1111/j.1467-9280.1993.tb00589.x"
+    },
+    {
+      "id": "debloom-2013",
+      "texto": "de Bloom J., Geurts S. A. E., Kompier M. A. J. Vacation (after-) effects on employee health and well-being, and the role of vacation activities, experiences and sleep. Journal of Happiness Studies 14(2), 613-633 (2013).",
+      "url": "https://doi.org/10.1007/s10902-012-9345-3"
+    },
+    {
+      "id": "prelec-1998",
+      "texto": "Prelec D., Loewenstein G. The red and the black: mental accounting of savings and debt. Marketing Science 17(1), 4-28 (1998).",
+      "url": "https://doi.org/10.1287/mksc.17.1.4"
+    },
+    {
+      "id": "henkel-2014",
+      "texto": "Henkel L. A. Point-and-shoot memories: the influence of taking photos on memory for a museum tour. Psychological Science 25(2), 396-402 (2014).",
+      "url": "https://doi.org/10.1177/0956797613504438"
+    },
+    {
+      "id": "zimmermann-2013",
+      "texto": "Zimmermann J., Neyer F. J. Do we become a different person when hitting the road? Personality development of sojourners. Journal of Personality and Social Psychology 105(3), 515-530 (2013).",
+      "url": "https://doi.org/10.1037/a0033019"
+    }
+  ]
+}

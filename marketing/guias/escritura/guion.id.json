@@ -12,6 +12,7 @@
     {
       "id": "miedo",
       "titulo": "Mengapa menulis menghilangkan rasa takutmu?",
+      "respuesta": "Karena kamu memindahkan kekhawatiran dari kepala ke kertas: menulis sepuluh menit sebelum ujian membuat hasilmu lebih baik.",
       "lineas": [
         {
           "id": "gancho",
@@ -107,6 +108,7 @@
     {
       "id": "blanco",
       "titulo": "Mengapa halaman kosong begitu menakutkan?",
+      "respuesta": "Karena kamu ingin hasilnya langsung sempurna: menulislah sepuluh menit tanpa berhenti atau menghapus, lalu koreksi nanti.",
       "lineas": [
         {
           "id": "titulo",
@@ -198,6 +200,7 @@
     {
       "id": "orden",
       "titulo": "Mengapa menulis menata pikiranmu?",
+      "respuesta": "Karena ide-ide yang berserakan harus antre: yang di kepalamu berupa simpul, di kertas berubah menjadi daftar.",
       "lineas": [
         {
           "id": "titulo",
@@ -273,6 +276,7 @@
     {
       "id": "bitacora",
       "titulo": "Mengapa manusia sudah menulis selama lima ribu tahun?",
+      "respuesta": "Karena menulis adalah cara agar tidak lupa: lahir untuk menghitung jelai dan domba, dan kini buku log kapal lama membantu mempelajari iklim.",
       "lineas": [
         {
           "id": "titulo",
@@ -349,6 +353,7 @@
     {
       "id": "historias",
       "titulo": "Mengapa sebuah cerita melekat di ingatanmu?",
+      "respuesta": "Karena cerita menyatukan yang ingin kamu ingat: yang mengarang cerita dari sepuluh kata mengingat sekitar tujuh kali lebih banyak.",
       "lineas": [
         {
           "id": "titulo",
@@ -416,6 +421,7 @@
     {
       "id": "trama",
       "titulo": "Bagaimana menyusun cerita yang baik?",
+      "respuesta": "Dengan seseorang yang menginginkan sesuatu, sesuatu yang menghalanginya, dan akhir saat ia berubah; dan tunjukkan, jangan ceritakan.",
       "lineas": [
         {
           "id": "titulo",
@@ -493,6 +499,7 @@
     {
       "id": "diario",
       "titulo": "Bagaimana menulis lebih baik setiap hari?",
+      "respuesta": "Dengan janji harian bersama halaman, bukan menunggu inspirasi, dan mengoreksi sambil membaca keras-keras: yang bagus lahir saat mengoreksi.",
       "lineas": [
         {
           "id": "titulo",
@@ -569,6 +576,7 @@
     {
       "id": "continuar",
       "titulo": "Bagaimana melanjutkan? Rencanamu untuk terus maju",
+      "respuesta": "Mulailah dengan sepuluh menit menulis bebas sehari, dan di bulan pertama, selesaikan satu proyek kecil sambil mengoreksinya keras-keras.",
       "lineas": [
         {
           "id": "titulo",

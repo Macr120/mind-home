@@ -23,6 +23,7 @@
     {
       "id": "dinero",
       "titulo": "A che cosa serve il denaro",
+      "respuesta": "Serve a scambiare, misurare e conservare valore, ma conta non quanto guadagni, bensì ciò che entra meno ciò che esce.",
       "lineas": [
         {
           "id": "gancho",
@@ -109,6 +110,7 @@
     {
       "id": "historia",
       "titulo": "Una breve storia del denaro",
+      "respuesta": "Dalle prime monete della Lidia alla cartamoneta cinese del 1024; dal 1971 il denaro vale per la fiducia, non per l'oro.",
       "lineas": [
         {
           "id": "titulo",
@@ -189,6 +191,7 @@
     {
       "id": "presupuesto",
       "titulo": "Dove finiscono i tuoi soldi",
+      "respuesta": "Annota ogni spesa per un mese, dividi il reddito con la regola 50/30/20 e paga prima te stesso il giorno dello stipendio.",
       "lineas": [
         {
           "id": "titulo",
@@ -259,6 +262,7 @@
     {
       "id": "deudas",
       "titulo": "Il tuo cuscinetto e i tuoi debiti",
+      "respuesta": "Metti da parte da tre a sei mesi di spese di base come cuscinetto ed esci prima dai debiti cari, senza pagare solo il minimo.",
       "lineas": [
         {
           "id": "titulo",
@@ -348,6 +352,7 @@
     {
       "id": "invertir",
       "titulo": "Fai lavorare i tuoi soldi",
+      "respuesta": "Comincia presto, perché il tempo conta più della cifra: al 6% l'anno, i tuoi soldi raddoppiano in circa 12 anni.",
       "lineas": [
         {
           "id": "titulo",
@@ -440,6 +445,7 @@
     {
       "id": "plan",
       "titulo": "Il tuo piano per cominciare",
+      "respuesta": "Dai un importo e una data al tuo obiettivo, automatizza il risparmio il giorno dello stipendio e fai il punto dieci minuti al mese.",
       "lineas": [
         {
           "id": "titulo",

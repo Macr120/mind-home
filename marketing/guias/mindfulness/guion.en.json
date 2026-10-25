@@ -12,6 +12,7 @@
     {
       "id": "mente",
       "titulo": "Where is your mind right now?",
+      "respuesta": "Somewhere else almost half the time, and it's no rest: while it wanders, you feel worse than when you're paying attention.",
       "lineas": [
         {
           "id": "gancho",
@@ -104,6 +105,7 @@
     {
       "id": "que",
       "titulo": "What is mindfulness, and where does it come from?",
+      "respuesta": "It's paying attention, on purpose, to the present moment without judging; it comes from the Buddhist “sati” of about 2,500 years ago.",
       "lineas": [
         {
           "id": "titulo",
@@ -197,6 +199,7 @@
     {
       "id": "respirar",
       "titulo": "What happens to your body when you breathe slowly?",
+      "respuesta": "It calms down: breathing about six times a minute slows it, and daily cyclic sighing improves your mood.",
       "lineas": [
         {
           "id": "titulo",
@@ -281,6 +284,7 @@
     {
       "id": "rapido",
       "titulo": "Why does slowing down get you there faster?",
+      "respuesta": "Because training your attention a few minutes a day helps you get distracted less and protects your working memory, even under stress.",
       "lineas": [
         {
           "id": "titulo",
@@ -363,6 +367,7 @@
     {
       "id": "ciencia",
       "titulo": "What does science say, and what doesn’t it?",
+      "respuesta": "That meditation moderately improves anxiety, depression and pain, but it isn't magic and doesn't replace a specialist.",
       "lineas": [
         {
           "id": "titulo",
@@ -451,6 +456,7 @@
     {
       "id": "meditar",
       "titulo": "How do you meditate if you can’t stop thinking?",
+      "respuesta": "Getting distracted isn't failing: every time you notice you drifted and come back to your breath, you train your attention.",
       "lineas": [
         {
           "id": "titulo",
@@ -545,6 +551,7 @@
     {
       "id": "continuar",
       "titulo": "How do you keep going? Your plan to continue",
+      "respuesta": "Attach a few minutes of practice to something you already do, build up little by little, and if you miss a day, just come back.",
       "lineas": [
         {
           "id": "titulo",

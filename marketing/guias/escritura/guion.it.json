@@ -12,6 +12,7 @@
     {
       "id": "miedo",
       "titulo": "Perché scrivere ti toglie la paura?",
+      "respuesta": "Perché tiri fuori la preoccupazione dalla testa e la lasci sulla carta: dieci minuti di scrittura prima di un esame migliorano il risultato.",
       "lineas": [
         {
           "id": "gancho",
@@ -107,6 +108,7 @@
     {
       "id": "blanco",
       "titulo": "Perché il foglio bianco fa così paura?",
+      "respuesta": "Perché vuoi che venga perfetto al primo colpo: scrivi dieci minuti senza fermarti né cancellare, e correggi dopo.",
       "lineas": [
         {
           "id": "titulo",
@@ -198,6 +200,7 @@
     {
       "id": "orden",
       "titulo": "Perché scrivere ti mette in ordine la testa?",
+      "respuesta": "Perché le idee sparse devono mettersi in fila: quello che nella testa era un nodo, sulla carta diventa un elenco.",
       "lineas": [
         {
           "id": "titulo",
@@ -273,6 +276,7 @@
     {
       "id": "bitacora",
       "titulo": "Perché l'umanità scrive da cinquemila anni?",
+      "respuesta": "Perché scrivere è il modo per non dimenticare: nacque per contare orzo e pecore, e oggi vecchi diari di bordo aiutano a studiare il clima.",
       "lineas": [
         {
           "id": "titulo",
@@ -349,6 +353,7 @@
     {
       "id": "historias",
       "titulo": "Perché una storia ti resta impressa?",
+      "respuesta": "Perché unisce ciò che vuoi ricordare: chi inventò una storia con dieci parole ne ricordò circa sette volte di più.",
       "lineas": [
         {
           "id": "titulo",
@@ -416,6 +421,7 @@
     {
       "id": "trama",
       "titulo": "Come si costruisce una buona storia?",
+      "respuesta": "Con qualcuno che vuole qualcosa, qualcosa che glielo impedisce e un finale in cui cambia; e mostra, non raccontare.",
       "lineas": [
         {
           "id": "titulo",
@@ -493,6 +499,7 @@
     {
       "id": "diario",
       "titulo": "Come scrivere meglio ogni giorno?",
+      "respuesta": "Con un appuntamento quotidiano con il foglio invece di aspettare l’ispirazione, e correggendo ad alta voce: il buono nasce correggendo.",
       "lineas": [
         {
           "id": "titulo",
@@ -569,6 +576,7 @@
     {
       "id": "continuar",
       "titulo": "Come andare avanti? Il tuo piano per continuare",
+      "respuesta": "Comincia con dieci minuti di scrittura libera al giorno e, il primo mese, finisci un piccolo progetto correggendolo ad alta voce.",
       "lineas": [
         {
           "id": "titulo",

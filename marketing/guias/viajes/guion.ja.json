@@ -1,0 +1,823 @@
+{
+  "idioma": "ja",
+  "tema": "viajes",
+  "plantillaId": "sala",
+  "numero": 20,
+  "nombre": "旅行",
+  "pregunta": "もっと上手に旅をするには？",
+  "corta": "もっと上手に旅をするには？",
+  "subtitulo": "旅のいちばんいい時間が出発前にやってくる理由、団体旅行の誕生、旅が本当に始まるのはいつか、いい旅程の組み方、旅の長さ、旅を台無しにしないお金の使い方、写真は思い出を助けるのか、旅は人を変えるのか、そして続けるためのプラン。",
+  "aviso": "このガイドは一般的な情報提供を目的としています。紹介する研究は特定の人たちの幸福感や記憶を測ったもので、結果には個人差があります。",
+  "partes": [
+    {
+      "id": "feliz",
+      "titulo": "なぜ旅をすると幸せになるのでしょうか？",
+      "respuesta": "いちばんは待つ時間。出発前がいちばん幸せで、体験はモノよりも大きな喜びをくれます。",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "もっと上手に旅をするには、どうすればいいのでしょうか？ 旅でいちばん幸せな時間は、たいてい出発する前にやってきます。そして帰ってくると、その喜びは数日で消えてしまいます。もしそれを、最初から最後まで引きのばせるとしたら？ 今日はデータでそれを確かめて、続けるためのプランを持ち帰ってもらいます。"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "ところで、ここはMindHaOSにあるぼくの家です。今日はなんと離陸します。そう、飛行機なんです。ぼくは機内にいる旅するテディベア。ここがぼくの旅行の部屋で、行ったことのある場所も、まだ行っていない場所も、全部この地図にのっています。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート1。なぜ旅をすると幸せになるのでしょうか？"
+        },
+        {
+          "id": "nawijn",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "anticipacion"
+          },
+          "lamina": [
+            "maleta",
+            "aeropuerto"
+          ],
+          "destacada": true,
+          "texto": "2010年、ジェローン・ナワイン率いるオランダのチームが、1530人の幸福度を調べました。休暇に出かける予定の人は、ほかの人より幸せでした……でもそれは旅の前の話で、旅のあとではありません。"
+        },
+        {
+          "id": "regreso",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "antes",
+              "durante",
+              "despues"
+            ]
+          },
+          "lamina": [
+            "regreso",
+            "oficina"
+          ],
+          "texto": "帰ってくると、ほとんどの人は旅をしなかった人と同じに戻っていました。少し長く続いたのは、すごくリラックスして帰ってきた人だけ。旅は家に着いたら終わるのではなく、だんだん消えていくんです。"
+        },
+        {
+          "id": "gilovich",
+          "escena": "senala",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "gilovich"
+          },
+          "lamina": [
+            "amigosViaje",
+            "compras"
+          ],
+          "meme": "maleta",
+          "texto": "それでも旅には価値があります。2003年、リーフ・ヴァン・ボーベンとトーマス・ギロビッチは、モノより体験にお金を使うほうが幸せになれることを見つけました。モノは古びていきますが、体験はあなたの物語の一部になります。"
+        },
+        {
+          "id": "mapa",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pinApp",
+              "visitadosApp",
+              "porConocerApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "だからぼくの世界地図には、行った場所ごとにピンがひとつあって、まだ行っていない場所は別の色になっています。"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "人はいつから楽しみのために旅をしているのでしょうか？",
+      "respuesta": "18世紀の裕福な若者のグランドツアーから。多くの人にとっては1841年、トーマス・クックの団体旅行から。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート2。人はいつから楽しみのために旅をしているのでしょうか？"
+        },
+        {
+          "id": "grandTour",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1700",
+            "clave": "grandTour"
+          },
+          "lamina": [
+            "grandTour",
+            "roma"
+          ],
+          "destacada": true,
+          "texto": "18世紀、イギリスの裕福な若者たちはグランドツアーに出かけました。何か月も、ときには何年もかけてフランスやイタリアをめぐり、芸術や古代の遺跡を見るんです。楽しみのための旅は、ごく一部の人だけのものでした。"
+        },
+        {
+          "id": "cook",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1841",
+            "clave": "cook"
+          },
+          "lamina": [
+            "cook",
+            "trenVapor"
+          ],
+          "texto": "ところが1841年、イギリスの家具職人トーマス・クックが、約500人を乗せた列車の旅を企画しました。レスターからラフバラーまで、ひとり1シリング。団体旅行の誕生です。"
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tren",
+              "avion",
+              "telefono"
+            ]
+          },
+          "lamina": [
+            "avion",
+            "celularMapa"
+          ],
+          "texto": "そのあと飛行機が登場し、ポケットサイズのガイドブックが生まれ、今ではスマホがあります。誰でもソファから旅の計画を立てられる時代です。難しいのは、たどり着くことではなく、上手に旅をすることなんです。"
+        },
+        {
+          "id": "rutas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "rutaApp",
+              "ordenApp",
+              "distanciaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "ぼくの「ルート」では、場所を順番に並べると地図の上でつながって見えて、何キロ移動するのかもアプリが教えてくれます。"
+        }
+      ]
+    },
+    {
+      "id": "espera",
+      "titulo": "旅はいつ始まるのでしょうか？",
+      "respuesta": "行くと決めた日から。出発前の楽しみと帰ってからの思い出は、旅そのものよりいいことが多いんです。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート3。旅はいつ始まるのでしょうか？"
+        },
+        {
+          "id": "mitchell",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "rosa"
+          },
+          "lamina": [
+            "bicicleta",
+            "europa"
+          ],
+          "destacada": true,
+          "texto": "1997年、テレンス・ミッチェルたちは、ヨーロッパ旅行、カリフォルニアの自転車旅行、感謝祭の休暇に出かける人たちを追いかけました。旅の前とあとのほうが、旅の最中よりも評価が高かったんです。"
+        },
+        {
+          "id": "rosa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "ilusion",
+              "molestias",
+              "recuerdo"
+            ]
+          },
+          "lamina": [
+            "lluviaViaje",
+            "fila"
+          ],
+          "meme": "expectativa",
+          "texto": "旅のあいだは、雨や行列や疲れがこたえます。でも出発前の楽しみと帰ってからの思い出の中では、そんな不満はほとんど消えてしまいます。研究者たちはこれを「バラ色の見方」と呼びました。"
+        },
+        {
+          "id": "saborear",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "cuentaRegresiva"
+          },
+          "lamina": [
+            "planeando",
+            "guiaViaje"
+          ],
+          "texto": "だから、旅は行くと決めた日に始まるんです。早めに計画して、日付を決めて、待つ時間を楽しみましょう。その土地のことを読んだり、写真を見たり、ひとことふたこと言葉を覚えたり。何日分のワクワクがもらえるか、見てみてください。"
+        },
+        {
+          "id": "itinerario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diaApp",
+              "hospedajeApp",
+              "calendarioApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "ぼくのメキシコ旅行は、一日ごとのプランにしてあります。どこから出発して、どこへ行き、どこに泊まって、何をするか。そして日付はひとつひとつ、自動でカレンダーに入ります。"
+        }
+      ]
+    },
+    {
+      "id": "itinerario",
+      "titulo": "いい旅程はどう組めばいいのでしょうか？",
+      "respuesta": "いちばんいいものは最後に取っておき、余白を残すこと。旅はいちばんの瞬間と終わり方で記憶されます。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート4。いい旅程はどう組めばいいのでしょうか？"
+        },
+        {
+          "id": "kahneman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "picoFinal"
+          },
+          "lamina": [
+            "aguaFria",
+            "hielo"
+          ],
+          "destacada": true,
+          "texto": "1993年、ダニエル・カーネマンたちは、参加者に氷のように冷たい水へ手を入れてもらいました。片方は長く続くけれど、最後に少しだけ冷たさがやわらぐもの。ほとんどの人が、もう一度やるならそちらを選びました。人は合計ではなく、いちばん強い瞬間と終わりを覚えているんです。"
+        },
+        {
+          "id": "pico",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pico",
+              "final",
+              "duracion"
+            ]
+          },
+          "lamina": [
+            "atardecer",
+            "aeropuertoPrisa"
+          ],
+          "texto": "旅も同じです。持ち帰るのは、いちばんよかった瞬間と、どう終わったか。最終日に空港までダッシュすると、思い出全体がその色に染まってしまいます。"
+        },
+        {
+          "id": "huecos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "finalViaje"
+          },
+          "lamina": [
+            "cafeCalle",
+            "mapaPapel"
+          ],
+          "meme": "itinerario",
+          "texto": "だから、最後に特別なことを取っておいて、思いがけない出来事のために予定のない時間を残し、一日に美術館を五つも詰めこまないこと。いいところひとつのほうが価値があります。ここで旅を並べて、どう記憶に残るか見てみてください。"
+        },
+        {
+          "id": "guardados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "actividadesApp",
+              "guardarApp",
+              "compartirApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "プランの一日ごとに、アクティビティと移動手段を書きこみます。うまくまとまったら保存して、一緒に旅する人と共有します。"
+        }
+      ]
+    },
+    {
+      "id": "duracion",
+      "titulo": "旅はどのくらいの長さがいいのでしょうか？",
+      "respuesta": "長くなくていいんです。気分のピークは8日目ごろで、1週間で消えるので、もっとこまめに旅をしましょう。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート5。旅はどのくらいの長さがいいのでしょうか？"
+        },
+        {
+          "id": "bloom",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "dia8"
+          },
+          "lamina": [
+            "playa",
+            "hamaca"
+          ],
+          "destacada": true,
+          "texto": "2013年、ジェシカ・デ・ブルームは、休暇中の働く人たちの健康と気分を毎日追いかけました。すぐによくなって、8日目ごろにいちばん高くなり……仕事に戻って最初の1週間で、もう消えていました。"
+        },
+        {
+          "id": "seguido",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "corto",
+              "seguido",
+              "ilusionNueva"
+            ]
+          },
+          "lamina": [
+            "escapada",
+            "carretera"
+          ],
+          "texto": "教訓は、旅を減らすことではなく、もっとこまめに行くことです。一年に何回か小旅行をすると、大きな旅一回よりも、ワクワクする時間も、元気に帰ってくる回数も増えます。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoViajes"
+          },
+          "lamina": "pulgar",
+          "texto": "このガイドを気に入ってもらえたら、高評価と、次回を見逃さないためのチャンネル登録、そして、いつも「絶対行こうね」って言い合っているあの人に共有をお願いします。"
+        },
+        {
+          "id": "volver",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "colchon",
+              "vueltaSuave",
+              "siguiente"
+            ]
+          },
+          "lamina": [
+            "maletaCasa",
+            "calendarioPared"
+          ],
+          "texto": "そして帰ってきたら、仕事の前にゆとりの一日を作って、次の小旅行を計画しましょう。そうすれば、ワクワクがまた始まります。"
+        },
+        {
+          "id": "porConocer",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pinPendiente",
+              "fechaApp",
+              "yaFuiApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "ぼくの地図では、「行きたい場所」にそれぞれ日付がついています。そしてついに行ったら、ワンタップで「訪れた場所」に変わります。"
+        }
+      ]
+    },
+    {
+      "id": "dinero",
+      "titulo": "旅を台無しにしないお金の使い方は？",
+      "respuesta": "大きな出費は出発前に払い、一日の予算を決めておく。そうすれば支払いが苦にならず、旅をもっと楽しめます。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート6。旅を台無しにしないお金の使い方は？"
+        },
+        {
+          "id": "prelec",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1998",
+            "clave": "prelec"
+          },
+          "lamina": [
+            "billetes",
+            "tarjeta"
+          ],
+          "destacada": true,
+          "texto": "1998年、ドラゼン・プレレックとジョージ・ローウェンスタインは、支払いの痛みを研究しました。お金を払うたびに少し心が痛み、その痛みが買ったものの楽しさを減らしてしまいます。だから多くの人が、休暇の費用を前払いしたがりました。"
+        },
+        {
+          "id": "adelantado",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "presupuestoViaje"
+          },
+          "lamina": [
+            "reserva",
+            "monedero"
+          ],
+          "texto": "だから、大きなものは出発前に払いましょう。航空券、宿、入場券。旅のあいだは、それ以外の分として一日の予算を持っていけば、買うたびに悩まなくてすみます。ここで旅の予算を組んでみてください。"
+        },
+        {
+          "id": "ahorro",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "meta",
+              "quincena",
+              "boleto"
+            ]
+          },
+          "lamina": [
+            "alcancia",
+            "boletos"
+          ],
+          "meme": "presupuesto",
+          "texto": "足りないなら、日付つきの貯金の目標にしましょう。2週間ごとに少しずつ。そうすれば、チケットを買う日にはもう痛くありません。"
+        },
+        {
+          "id": "presupuestoApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "presupuestoDia",
+              "metaFinanzas",
+              "totalApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "ぼくのプランでは、一日ごとに予算があって、合計は自動でぼくの「家計」の貯金目標になります。"
+        }
+      ]
+    },
+    {
+      "id": "fotos",
+      "titulo": "写真か、思い出か？",
+      "respuesta": "まずよく見て、写真は少なく意図をもって。撮っただけのものは忘れやすいので、毎晩2行書きましょう。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート7。写真か、思い出か？"
+        },
+        {
+          "id": "henkel",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "fotos"
+          },
+          "lamina": [
+            "museo",
+            "celularFoto"
+          ],
+          "destacada": true,
+          "texto": "2014年、リンダ・ヘンケルは学生たちを美術館に連れていきました。写真を撮った作品は、ただ見ただけの作品より覚えていることが少なく、細かいところもあいまいでした。カメラがあなたの代わりに覚えて……あなたは覚えるのをやめてしまうんです。"
+        },
+        {
+          "id": "detalle",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mira",
+              "acercate",
+              "pocas"
+            ]
+          },
+          "lamina": [
+            "detalleArte",
+            "mirador"
+          ],
+          "texto": "でも、ズームで細部に寄って撮ったときは、記憶が守られました。だから、まずはよく見て、それから意図をもって少しだけ撮りましょう。"
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "noche",
+              "sentiste",
+              "conQuien"
+            ]
+          },
+          "lamina": [
+            "diarioViaje",
+            "cafeLibreta"
+          ],
+          "meme": "fotos",
+          "texto": "そして毎晩、2行だけ書きましょう。何があったか、どう感じたか、誰といたか。10年後、その一文は、同じような写真100枚よりも価値があります。"
+        },
+        {
+          "id": "bitacora",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "albumApp",
+              "fotoApp",
+              "anecdotaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "ぼくの「旅日記」では、国ごとにアルバムがあって、場所ごとに写真とエピソードを残しています。"
+        }
+      ]
+    },
+    {
+      "id": "cambio",
+      "titulo": "旅は人を変えるのでしょうか？",
+      "respuesta": "はい。留学した学生は、残った学生より心が開かれ、優しくなり、不安が少なくなりました。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート8。旅は人を変えるのでしょうか？"
+        },
+        {
+          "id": "zimmermann",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "personalidad"
+          },
+          "lamina": [
+            "estudiantes",
+            "mochila"
+          ],
+          "destacada": true,
+          "texto": "2013年、ユリア・ツィンマーマンとフランツ・ナイヤーは、千人を超えるドイツの学生を追いかけました。留学した学生は、残った学生よりも心が開かれ、優しくなり、不安が少なくなっていました。"
+        },
+        {
+          "id": "costumbre",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "abierto",
+              "amable",
+              "calma"
+            ]
+          },
+          "lamina": [
+            "mercado",
+            "conversacion"
+          ],
+          "texto": "大事なのは名所を見ることではなく、いつもの習慣から抜け出すことです。知らない料理を食べたり、道に迷ったり、ほかの言葉で助けを求めたり。"
+        },
+        {
+          "id": "local",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "local",
+              "gracias",
+              "sinPrisa"
+            ]
+          },
+          "lamina": [
+            "comidaCalle",
+            "plaza"
+          ],
+          "texto": "だから旅のたびに、地元の人のように何かしてみましょう。地元の人が食べる店で食べて、「ありがとう」の言い方を覚えて、同じ場所でしばらくのんびり過ごすんです。"
+        },
+        {
+          "id": "estados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "paisesApp",
+              "estadosApp",
+              "colorApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "そして「州」をオンにすると、ぼくが行った場所がそれぞれの色に塗られていきます。地図がだんだん埋まっていくのを見るのが、大好きなんです。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "この先どうする？ 続けるためのプラン",
+      "respuesta": "行った場所を地図にのせ、ひとつ選んで日付を決めて貯金し、帰ったら次の小旅行を計画しましょう。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート9。この先どうする？ 続けるためのプラン。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planViajes"
+          },
+          "lamina": [
+            "mapaPared",
+            "libreta"
+          ],
+          "texto": "今週は、行ったことのある場所と、行ってみたい場所を3つ、地図にのせましょう。"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "elige",
+              "fecha",
+              "ahorra"
+            ]
+          },
+          "lamina": [
+            "calendarioPared",
+            "alcancia"
+          ],
+          "destacada": true,
+          "texto": "最初の1か月で、その中からひとつ選んで日付を決め、そのための貯金を始めましょう。"
+        },
+        {
+          "id": "cadaViaje",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pagaAntes",
+              "mejorFinal",
+              "escribeNoche"
+            ]
+          },
+          "lamina": [
+            "aeropuerto",
+            "atardecer"
+          ],
+          "texto": "そして旅のたびに、大きなものは先に払い、いちばんいいものは最後に取っておき、毎晩書いて、帰ってきたら次の小旅行を計画しましょう。"
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "mapaFin",
+              "planFin",
+              "bitacoraFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "どこから始めればいいかわからなければ、アプリでぼくのメキシコ旅行を見てみてください。マップから旅日記まで、全部そろっています。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "まとめると、待つ時間を楽しむこと。いちばんいいものは最後に取っておくこと。もっとこまめに旅をすること。出発前に払うこと。そして、撮るよりもよく見ることです。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOSの「旅行」では、世界地図に自分の場所をのせて、一日ごとの旅程を組んで、写真とエピソードで旅日記を残せます。自分でやっても、AIに手伝ってもらってもいいんです。今日、無料であなたの心の家をつくろう。リンクは概要欄にあります。そして次回のガイドは、いちばんの思い出は、どうすれば残せるのでしょうか？",
+    "boton": "旅行を開く",
+    "lamina": "app-plan",
+    "anclas": {
+      "mapa": "世界地図",
+      "itinerario": "一日ごとの旅程",
+      "bitacora": "旅日記"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "nawijn-2010",
+      "texto": "Nawijn J., Marchand M. A., Veenhoven R., Vingerhoets A. J. Vacationers happier, but most not happier after a holiday. Applied Research in Quality of Life 5(1), 35-47 (2010).",
+      "url": "https://doi.org/10.1007/s11482-009-9091-9"
+    },
+    {
+      "id": "vanboven-2003",
+      "texto": "Van Boven L., Gilovich T. To do or to have? That is the question. Journal of Personality and Social Psychology 85(6), 1193-1202 (2003).",
+      "url": "https://doi.org/10.1037/0022-3514.85.6.1193"
+    },
+    {
+      "id": "grand-tour",
+      "texto": "グランドツアー。ウィキペディア。",
+      "url": "https://en.wikipedia.org/wiki/Grand_Tour"
+    },
+    {
+      "id": "thomas-cook",
+      "texto": "トーマス・クックとレスターからラフバラーへの旅（1841年）。ウィキペディア。",
+      "url": "https://en.wikipedia.org/wiki/Thomas_Cook"
+    },
+    {
+      "id": "mitchell-1997",
+      "texto": "Mitchell T. R., Thompson L., Peterson E., Cronk R. Temporal adjustments in the evaluation of events: the «rosy view». Journal of Experimental Social Psychology 33(4), 421-448 (1997).",
+      "url": "https://doi.org/10.1006/jesp.1997.1333"
+    },
+    {
+      "id": "kahneman-1993",
+      "texto": "Kahneman D., Fredrickson B. L., Schreiber C. A., Redelmeier D. A. When more pain is preferred to less: adding a better end. Psychological Science 4(6), 401-405 (1993).",
+      "url": "https://doi.org/10.1111/j.1467-9280.1993.tb00589.x"
+    },
+    {
+      "id": "debloom-2013",
+      "texto": "de Bloom J., Geurts S. A. E., Kompier M. A. J. Vacation (after-) effects on employee health and well-being, and the role of vacation activities, experiences and sleep. Journal of Happiness Studies 14(2), 613-633 (2013).",
+      "url": "https://doi.org/10.1007/s10902-012-9345-3"
+    },
+    {
+      "id": "prelec-1998",
+      "texto": "Prelec D., Loewenstein G. The red and the black: mental accounting of savings and debt. Marketing Science 17(1), 4-28 (1998).",
+      "url": "https://doi.org/10.1287/mksc.17.1.4"
+    },
+    {
+      "id": "henkel-2014",
+      "texto": "Henkel L. A. Point-and-shoot memories: the influence of taking photos on memory for a museum tour. Psychological Science 25(2), 396-402 (2014).",
+      "url": "https://doi.org/10.1177/0956797613504438"
+    },
+    {
+      "id": "zimmermann-2013",
+      "texto": "Zimmermann J., Neyer F. J. Do we become a different person when hitting the road? Personality development of sojourners. Journal of Personality and Social Psychology 105(3), 515-530 (2013).",
+      "url": "https://doi.org/10.1037/a0033019"
+    }
+  ]
+}

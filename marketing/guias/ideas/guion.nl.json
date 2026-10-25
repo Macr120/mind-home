@@ -12,6 +12,7 @@
     {
       "id": "cantidad",
       "titulo": "Waar komen goede ideeën vandaan?",
+      "respuesta": "Uit er veel hebben: genieën zaten niet vaker goed, ze bedachten gewoon meer ideeën, dus schrijf ze allemaal op.",
       "lineas": [
         {
           "id": "gancho",
@@ -107,6 +108,7 @@
     {
       "id": "postit",
       "titulo": "Welk idee ontstond uit lijm die niet plakte?",
+      "respuesta": "De Post-it-briefjes: een „mislukte” lijm uit 1968 werd in 1980 een succes omdat iemand zich hem herinnerde.",
       "lineas": [
         {
           "id": "titulo",
@@ -183,6 +185,7 @@
     {
       "id": "ducha",
       "titulo": "Waarom komen ideeën onder de douche?",
+      "respuesta": "Omdat je hoofd op de achtergrond doorwerkt als je het probleem loslaat met iets simpels, tot het idee opduikt.",
       "lineas": [
         {
           "id": "titulo",
@@ -262,6 +265,7 @@
     {
       "id": "caminar",
       "titulo": "Maakt wandelen je creatiever?",
+      "respuesta": "Ja: al wandelend krijg je gemiddeld 60% meer ideeën, en het effect houdt nog even aan nadat je bent gaan zitten.",
       "lineas": [
         {
           "id": "titulo",
@@ -340,6 +344,7 @@
     {
       "id": "lluvia",
       "titulo": "Brainstormen in een groep of alleen?",
+      "respuesta": "Eerst alleen: dezelfde mensen, elk voor zich, bedenken bijna twee keer zoveel ideeën als in een groep.",
       "lineas": [
         {
           "id": "titulo",
@@ -425,6 +430,7 @@
     {
       "id": "limites",
       "titulo": "Waarom maken grenzen je creatiever?",
+      "respuesta": "Omdat ze je dwingen nieuwe wegen te zoeken: met maar 50 woorden schreef Dr. Seuss Groene eieren met ham.",
       "lineas": [
         {
           "id": "titulo",
@@ -505,6 +511,7 @@
     {
       "id": "decidir",
       "titulo": "Hoe kies je tussen je ideeën?",
+      "respuesta": "Met een weegschaal, zoals Benjamin Franklin: redenen voor en tegen, elk met zijn gewicht, en de zwaarste kant wint.",
       "lineas": [
         {
           "id": "titulo",
@@ -580,6 +587,7 @@
     {
       "id": "continuar",
       "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "respuesta": "Schrijf elk idee op, brainstorm elke week alleen, ga wandelen als je vastzit en beslis met een weegschaal.",
       "lineas": [
         {
           "id": "titulo",

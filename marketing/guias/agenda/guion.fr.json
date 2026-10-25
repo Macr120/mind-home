@@ -12,6 +12,7 @@
     {
       "id": "tiempo",
       "titulo": "Pourquoi tu manques toujours de temps ?",
+      "respuesta": "Parce qu’on sous-estime : des étudiants pensaient finir leur mémoire en 34 jours, il leur en a fallu 55.",
       "lineas": [
         {
           "id": "gancho",
@@ -121,6 +122,7 @@
     {
       "id": "cabeza",
       "titulo": "Pourquoi ta tête n’est pas un bon agenda ?",
+      "respuesta": "Parce que ce qui reste en suspens tourne en boucle : note tout au même endroit et, si ça prend moins de deux minutes, fais-le tout de suite.",
       "lineas": [
         {
           "id": "titulo",
@@ -211,6 +213,7 @@
     {
       "id": "primero",
       "titulo": "Qu’est-ce qui passe en premier ?",
+      "respuesta": "L’important avant l’urgent : fais aujourd’hui ce qui est les deux, et donne une heure à ce qui compte sans presser.",
       "lineas": [
         {
           "id": "titulo",
@@ -284,6 +287,7 @@
     {
       "id": "una",
       "titulo": "Pourquoi faire plusieurs choses à la fois te ralentit ?",
+      "respuesta": "Parce que chaque passage d’une tâche à l’autre te coûte du temps et laisse ton attention derrière : finis-en une avant d’en commencer une autre.",
       "lineas": [
         {
           "id": "titulo",
@@ -356,6 +360,7 @@
     {
       "id": "hora",
       "titulo": "Comment donner une heure à ce qui compte ?",
+      "respuesta": "Donne à chaque chose importante son bloc dans le calendrier : les étudiants aux échéances réparties ont eu de meilleures notes.",
       "lineas": [
         {
           "id": "titulo",
@@ -440,6 +445,7 @@
     {
       "id": "pausas",
       "titulo": "Pourquoi te reposer te rend plus efficace ?",
+      "respuesta": "Parce que des pauses de moins de dix minutes te donnent plus d’énergie et moins de fatigue, selon une revue de 22 études.",
       "lineas": [
         {
           "id": "titulo",
@@ -514,6 +520,7 @@
     {
       "id": "acumula",
       "titulo": "Que faire quand tout s’accumule ?",
+      "respuesta": "Découpe la tâche en étapes pour mieux estimer, garde une marge et, si ça ne rentre plus, déplace-la, confie-la ou dis non.",
       "lineas": [
         {
           "id": "titulo",
@@ -590,6 +597,7 @@
     {
       "id": "continuar",
       "titulo": "Comment continuer ? Ton plan pour la suite",
+      "respuesta": "Vide ta tête, choisis trois choses importantes par jour, donne-leur une heure et fais le point sur ta semaine en 15 minutes.",
       "lineas": [
         {
           "id": "titulo",

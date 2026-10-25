@@ -23,6 +23,7 @@
     {
       "id": "dinero",
       "titulo": "Untuk apa uang itu",
+      "respuesta": "Untuk bertukar, mengukur, dan menyimpan nilai, tapi yang penting bukan berapa penghasilanmu, melainkan uang masuk dikurangi uang keluar.",
       "lineas": [
         {
           "id": "gancho",
@@ -109,6 +110,7 @@
     {
       "id": "historia",
       "titulo": "Sejarah singkat uang",
+      "respuesta": "Dari koin pertama Lidia sampai uang kertas Tiongkok tahun 1024; sejak 1971, uang bernilai karena kepercayaan, bukan emas.",
       "lineas": [
         {
           "id": "titulo",
@@ -189,6 +191,7 @@
     {
       "id": "presupuesto",
       "titulo": "Ke mana uangmu pergi",
+      "respuesta": "Catat semua pengeluaranmu selama sebulan, bagi penghasilan dengan aturan 50/30/20, dan bayar dirimu sendiri lebih dulu saat gajian.",
       "lineas": [
         {
           "id": "titulo",
@@ -259,6 +262,7 @@
     {
       "id": "deudas",
       "titulo": "Bantalan dan utangmu",
+      "respuesta": "Siapkan bantalan senilai tiga sampai enam bulan kebutuhan pokok, dan lunasi dulu utang yang mahal, jangan hanya bayar minimum.",
       "lineas": [
         {
           "id": "titulo",
@@ -348,6 +352,7 @@
     {
       "id": "invertir",
       "titulo": "Buat uangmu bekerja",
+      "respuesta": "Mulailah lebih awal, karena waktu lebih berharga daripada jumlah: dengan 6% per tahun, uangmu berlipat dua dalam sekitar 12 tahun.",
       "lineas": [
         {
           "id": "titulo",
@@ -440,6 +445,7 @@
     {
       "id": "plan",
       "titulo": "Rencanamu untuk memulai",
+      "respuesta": "Beri targetmu jumlah dan tanggal, otomatiskan tabungan saat gajian, dan cek kemajuanmu sepuluh menit tiap bulan.",
       "lineas": [
         {
           "id": "titulo",

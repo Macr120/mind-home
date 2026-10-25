@@ -1,0 +1,468 @@
+{
+  "idioma": "es",
+  "tema": "viajes",
+  "plantillaId": "sala",
+  "numero": 20,
+  "nombre": "Viajes",
+  "pregunta": "¿Cómo viajar mejor?",
+  "corta": "¿Cómo viajar mejor?",
+  "subtitulo": "Por qué la mejor parte de un viaje llega antes de salir, cómo nació el viaje organizado, cuándo empieza de verdad un viaje, cómo armar un buen itinerario, cuánto debe durar, cómo gastar sin arruinarlo, si las fotos te ayudan a recordar, si viajar te cambia y un plan para continuar.",
+  "aviso": "Esta guía es informativa y general. Los estudios citados miden la felicidad y los recuerdos de grupos concretos de personas; tus resultados pueden variar.",
+  "partes": [
+    {
+      "id": "feliz",
+      "titulo": "¿Por qué viajar te hace feliz?",
+      "respuesta": "Sobre todo por la espera: antes de salir eres más feliz, y lo vivido te da más alegría que lo que compras.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": { "tipo": "titulo" },
+          "enCasa": true,
+          "texto": "¿Cómo viajar mejor? La parte más feliz de un viaje casi siempre llega antes de salir. Y al volver, ese gusto se esfuma en días. ¿Y si pudieras estirarlo de principio a fin? Hoy lo vas a ver con datos, y vas a salir con un plan para continuar."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Por cierto, esta es mi casa en MindHaOS, y hoy despega: es un avión. Yo soy el osito viajero de a bordo, y este es mi cuarto de viajes: aquí tengo el mapa de todo lo que he conocido y de lo que me falta."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte uno. ¿Por qué viajar te hace feliz?"
+        },
+        {
+          "id": "nawijn",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "anticipacion" },
+          "lamina": ["maleta", "aeropuerto"],
+          "destacada": true,
+          "texto": "En 2010, un equipo holandés encabezado por Jeroen Nawijn midió la felicidad de mil quinientas treinta personas. Las que iban a salir de vacaciones eran más felices que las demás… pero antes del viaje, no después."
+        },
+        {
+          "id": "regreso",
+          "escena": "pensando",
+          "visual": { "tipo": "pasos", "claves": ["antes", "durante", "despues"] },
+          "lamina": ["regreso", "oficina"],
+          "texto": "Al volver, casi todos estaban igual que quienes no habían viajado. Solo duraba un poco más en quienes regresaron muy relajados. El viaje no se acaba al llegar a casa: se apaga."
+        },
+        {
+          "id": "gilovich",
+          "escena": "senala",
+          "visual": { "tipo": "dato", "cifra": "2003", "clave": "gilovich" },
+          "lamina": ["amigosViaje", "compras"],
+          "meme": "maleta",
+          "texto": "Aun así vale la pena: en 2003, Leaf Van Boven y Thomas Gilovich encontraron que gastar en experiencias nos hace más felices que gastar en cosas. Las cosas se gastan; lo vivido se vuelve parte de tu historia."
+        },
+        {
+          "id": "mapa",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["pinApp", "visitadosApp", "porConocerApp"] },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Por eso en mi mapamundi tengo un pin por cada lugar donde he estado, y de otro color, los que me faltan."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "¿Desde cuándo viajamos por gusto?",
+      "respuesta": "Desde el Grand Tour de los jóvenes ricos del siglo XVIII; y para casi todos desde 1841, con el primer viaje organizado de Thomas Cook.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte dos. ¿Desde cuándo viajamos por gusto?"
+        },
+        {
+          "id": "grandTour",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "1700", "clave": "grandTour" },
+          "lamina": ["grandTour", "roma"],
+          "destacada": true,
+          "texto": "En el siglo dieciocho, los jóvenes ricos de Inglaterra hacían el Grand Tour: meses, a veces años, recorriendo Francia e Italia para ver arte y ruinas antiguas. Viajar por gusto era cosa de muy pocos."
+        },
+        {
+          "id": "cook",
+          "escena": "pensando",
+          "visual": { "tipo": "dato", "cifra": "1841", "clave": "cook" },
+          "lamina": ["cook", "trenVapor"],
+          "texto": "Hasta que en 1841 un ebanista inglés, Thomas Cook, organizó un viaje en tren para unas quinientas personas, de Leicester a Loughborough, por un chelín cada una. Nacía el viaje organizado."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["tren", "avion", "telefono"] },
+          "lamina": ["avion", "celularMapa"],
+          "texto": "Después llegaron los aviones, las guías de bolsillo y ahora el teléfono: hoy cualquiera planea un viaje desde el sillón. Lo difícil ya no es llegar, sino viajar bien."
+        },
+        {
+          "id": "rutas",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["rutaApp", "ordenApp", "distanciaApp"] },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En mis rutas pongo los lugares en orden, los veo unidos en el mapa y la app me dice cuántos kilómetros voy a recorrer."
+        }
+      ]
+    },
+    {
+      "id": "espera",
+      "titulo": "¿Cuándo empieza un viaje?",
+      "respuesta": "El día que lo decides: la ilusión de antes y el recuerdo de después suelen ser mejores que el viaje mismo.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte tres. ¿Cuándo empieza un viaje?"
+        },
+        {
+          "id": "mitchell",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "rosa" },
+          "lamina": ["bicicleta", "europa"],
+          "destacada": true,
+          "texto": "En 1997, Terence Mitchell y su equipo siguieron a personas que iban a Europa, a un viaje en bici por California y a unas vacaciones de Acción de Gracias. Antes y después, lo valoraban mejor que mientras lo vivían."
+        },
+        {
+          "id": "rosa",
+          "escena": "pensando",
+          "visual": { "tipo": "pasos", "claves": ["ilusion", "molestias", "recuerdo"] },
+          "lamina": ["lluviaViaje", "fila"],
+          "meme": "expectativa",
+          "texto": "Durante el viaje pesan la lluvia, las filas y el cansancio. Pero en la ilusión de antes y en el recuerdo de después, esas molestias casi desaparecen. Los investigadores lo llamaron la visión color de rosa."
+        },
+        {
+          "id": "saborear",
+          "escena": "senala",
+          "visual": { "tipo": "herramienta", "herramienta": "cuentaRegresiva" },
+          "lamina": ["planeando", "guiaViaje"],
+          "texto": "Así que un viaje empieza el día que lo decides. Planéalo con tiempo, ponle fecha y disfruta la espera: lee del lugar, mira fotos, aprende un par de frases. Mira cuántos días de ilusión te regala."
+        },
+        {
+          "id": "itinerario",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["diaApp", "hospedajeApp", "calendarioApp"] },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Mi viaje a Japón lo tengo en un plan día a día: de dónde salgo, a dónde voy, dónde duermo y qué hago. Y cada fecha aparece sola en mi calendario."
+        }
+      ]
+    },
+    {
+      "id": "itinerario",
+      "titulo": "¿Cómo armar un buen itinerario?",
+      "respuesta": "Guarda lo mejor para el final y deja huecos: del viaje recordarás sobre todo el mejor momento y cómo terminó.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte cuatro. ¿Cómo armar un buen itinerario?"
+        },
+        {
+          "id": "kahneman",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "picoFinal" },
+          "lamina": ["aguaFria", "hielo"],
+          "destacada": true,
+          "texto": "En 1993, Daniel Kahneman y su equipo pidieron a unas personas meter la mano en agua helada. Una prueba duraba más, pero terminaba un poco menos fría, y casi todos prefirieron repetir esa. Recordamos el momento más intenso y el final, no el total."
+        },
+        {
+          "id": "pico",
+          "escena": "pensando",
+          "visual": { "tipo": "pasos", "claves": ["pico", "final", "duracion"] },
+          "lamina": ["atardecer", "aeropuertoPrisa"],
+          "texto": "En un viaje pasa lo mismo: lo que te llevas es el mejor momento y cómo terminó. Un último día corriendo al aeropuerto puede teñir todo el recuerdo."
+        },
+        {
+          "id": "huecos",
+          "escena": "senala",
+          "visual": { "tipo": "herramienta", "herramienta": "finalViaje" },
+          "lamina": ["cafeCalle", "mapaPapel"],
+          "meme": "itinerario",
+          "texto": "Así que guarda algo especial para el final, deja huecos sin plan para lo inesperado y no metas cinco museos en un día: uno bueno vale más. Ordena aquí tu viaje y mira cómo lo vas a recordar."
+        },
+        {
+          "id": "guardados",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["actividadesApp", "guardarApp", "compartirApp"] },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En cada día de mi plan anoto las actividades y el transporte. Y cuando me queda bien, lo guardo y lo comparto con quien viaja conmigo."
+        }
+      ]
+    },
+    {
+      "id": "duracion",
+      "titulo": "¿Cuánto debe durar un viaje?",
+      "respuesta": "No hace falta que sea largo: el mejor ánimo llega hacia el octavo día y se va en una semana, así que viaja más seguido.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte cinco. ¿Cuánto debe durar un viaje?"
+        },
+        {
+          "id": "bloom",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "dia8" },
+          "lamina": ["playa", "hamaca"],
+          "destacada": true,
+          "texto": "En 2013, Jessica de Bloom siguió día a día la salud y el ánimo de trabajadores en sus vacaciones. Mejoraron rápido, llegaron a su punto más alto hacia el octavo día… y en la primera semana de regreso ya se había esfumado."
+        },
+        {
+          "id": "seguido",
+          "escena": "pensando",
+          "visual": { "tipo": "pasos", "claves": ["corto", "seguido", "ilusionNueva"] },
+          "lamina": ["escapada", "carretera"],
+          "texto": "La lección no es viajar menos, sino más seguido: varias escapadas al año te dan más ratos de ilusión y más regresos descansados que un solo viaje enorme."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": { "tipo": "herramienta", "herramienta": "apoyoViajes" },
+          "lamina": "pulgar",
+          "texto": "Si te está gustando la guía, dale like, suscríbete para no perderte la próxima y compártela con esa persona con la que siempre dices «tenemos que ir»."
+        },
+        {
+          "id": "volver",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["colchon", "vueltaSuave", "siguiente"] },
+          "lamina": ["maletaCasa", "calendarioPared"],
+          "texto": "Y al volver, date un día de colchón antes del trabajo, y planea tu siguiente escapada: así la ilusión empieza otra vez."
+        },
+        {
+          "id": "porConocer",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["pinPendiente", "fechaApp", "yaFuiApp"] },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En mi mapa, los lugares por conocer llevan su fecha; y cuando por fin voy, con un toque pasan a visitados."
+        }
+      ]
+    },
+    {
+      "id": "dinero",
+      "titulo": "¿Cómo gastar sin arruinar el viaje?",
+      "respuesta": "Paga lo grande antes de salir y lleva un monto diario: así cada compra duele menos y disfrutas más el viaje.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte seis. ¿Cómo gastar sin arruinar el viaje?"
+        },
+        {
+          "id": "prelec",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "1998", "clave": "prelec" },
+          "lamina": ["billetes", "tarjeta"],
+          "destacada": true,
+          "texto": "En 1998, Drazen Prelec y George Loewenstein estudiaron el dolor de pagar: cada gasto duele un poco, y ese dolor le resta gusto a lo que compras. Por eso la mayoría prefería pagar sus vacaciones por adelantado."
+        },
+        {
+          "id": "adelantado",
+          "escena": "pensando",
+          "visual": { "tipo": "herramienta", "herramienta": "presupuestoViaje" },
+          "lamina": ["reserva", "monedero"],
+          "texto": "Así que paga lo grande antes de salir: vuelos, hospedaje y entradas. Durante el viaje, lleva un monto diario para lo demás, y ya no tendrás que pensar en cada compra. Arma aquí tu presupuesto."
+        },
+        {
+          "id": "ahorro",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["meta", "quincena", "boleto"] },
+          "lamina": ["alcancia", "boletos"],
+          "meme": "presupuesto",
+          "texto": "Y si te falta, conviértelo en una meta de ahorro con fecha: un poco cada quincena, y el día que compras el boleto ya no duele."
+        },
+        {
+          "id": "presupuestoApp",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["presupuestoDia", "metaFinanzas", "totalApp"] },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En mi plan, cada día lleva su presupuesto, y el total se vuelve solo una meta de ahorro en mis Finanzas."
+        }
+      ]
+    },
+    {
+      "id": "fotos",
+      "titulo": "¿Fotos o recuerdos?",
+      "respuesta": "Primero mira y toma pocas fotos con intención: lo que solo fotografías lo recuerdas peor; y escribe dos líneas cada noche.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte siete. ¿Fotos o recuerdos?"
+        },
+        {
+          "id": "henkel",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "fotos" },
+          "lamina": ["museo", "celularFoto"],
+          "destacada": true,
+          "texto": "En 2014, Linda Henkel llevó a estudiantes a un museo. De las obras que fotografiaron recordaban menos, y con menos detalle, que de las que solo miraron. La cámara recuerda por ti… y tú dejas de hacerlo."
+        },
+        {
+          "id": "detalle",
+          "escena": "pensando",
+          "visual": { "tipo": "pasos", "claves": ["mira", "acercate", "pocas"] },
+          "lamina": ["detalleArte", "mirador"],
+          "texto": "Pero cuando se acercaban con el zoom a un detalle, el recuerdo se salvaba. Así que primero mira, luego toma pocas fotos y con intención."
+        },
+        {
+          "id": "escribe",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["noche", "sentiste", "conQuien"] },
+          "lamina": ["diarioViaje", "cafeLibreta"],
+          "meme": "fotos",
+          "texto": "Y cada noche escribe dos líneas: qué pasó, qué sentiste y con quién. Dentro de diez años, esa frase valdrá más que cien fotos iguales."
+        },
+        {
+          "id": "bitacora",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["albumApp", "fotoApp", "anecdotaApp"] },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En mi bitácora cada país es un álbum, y en cada lugar guardo mis fotos con su anécdota."
+        }
+      ]
+    },
+    {
+      "id": "cambio",
+      "titulo": "¿Viajar te cambia?",
+      "respuesta": "Sí: quienes estudiaron en el extranjero se volvieron más abiertos, más amables y menos ansiosos que quienes se quedaron.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte ocho. ¿Viajar te cambia?"
+        },
+        {
+          "id": "zimmermann",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "personalidad" },
+          "lamina": ["estudiantes", "mochila"],
+          "destacada": true,
+          "texto": "En 2013, Julia Zimmermann y Franz Neyer siguieron a más de mil estudiantes alemanes. Los que se fueron a estudiar al extranjero se volvieron más abiertos, más amables y menos ansiosos que los que se quedaron."
+        },
+        {
+          "id": "costumbre",
+          "escena": "pensando",
+          "visual": { "tipo": "pasos", "claves": ["abierto", "amable", "calma"] },
+          "lamina": ["mercado", "conversacion"],
+          "texto": "No pasa por ver monumentos, sino por salir de tu costumbre: probar otra comida, perderte, pedir ayuda en otro idioma."
+        },
+        {
+          "id": "local",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["local", "gracias", "sinPrisa"] },
+          "lamina": ["comidaCalle", "plaza"],
+          "texto": "Así que en cada viaje haz algo como local: come donde comen ellos, aprende a decir gracias y quédate un rato sin prisa en un mismo lugar."
+        },
+        {
+          "id": "estados",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["paisesApp", "estadosApp", "colorApp"] },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Y con los estados encendidos, cada lugar que conozco se pinta de su color: me encanta ver cómo se va llenando el mapa."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "¿Cómo seguir? Tu plan para continuar",
+      "respuesta": "Pon tus lugares en un mapa, elige uno con fecha, ahorra para él y, al volver, planea la siguiente escapada.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte nueve. ¿Cómo seguir? Tu plan para continuar."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": { "tipo": "grafica", "grafica": "planViajes" },
+          "lamina": ["mapaPared", "libreta"],
+          "texto": "Esta semana, pon en un mapa los lugares donde has estado y tres a los que quieres ir."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": { "tipo": "pasos", "claves": ["elige", "fecha", "ahorra"] },
+          "lamina": ["calendarioPared", "alcancia"],
+          "destacada": true,
+          "texto": "El primer mes, elige uno de esos lugares, ponle fecha y empieza a ahorrar para él."
+        },
+        {
+          "id": "cadaViaje",
+          "escena": "pensando",
+          "visual": { "tipo": "pasos", "claves": ["pagaAntes", "mejorFinal", "escribeNoche"] },
+          "lamina": ["aeropuerto", "atardecer"],
+          "texto": "Y en cada viaje: paga lo grande antes, guarda lo mejor para el final, escribe cada noche y, al volver, planea la siguiente escapada."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["mapaFin", "planFin", "bitacoraFin"] },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Y si no sabes por dónde empezar, mira mi viaje a Japón en la app: está completo, del mapa a la bitácora."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": { "tipo": "lista", "claves": ["resumen1", "resumen2", "resumen3", "resumen4", "resumen5"] },
+          "lamina": "cumbre",
+          "texto": "En resumen: disfruta la espera; guarda lo mejor para el final; viaja más seguido; paga antes de salir; y mira más de lo que fotografías."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "En los Viajes de MindHaOS pones tus lugares en el mapamundi, armas tu itinerario día a día y guardas tu bitácora con fotos y anécdotas. Puedes hacerlo tú, o con ayuda de la IA. Arma tu casa mental gratis hoy: el enlace está en la descripción. Y en la próxima guía: ¿cómo guardar tus mejores recuerdos?",
+    "boton": "Abrir Viajes",
+    "lamina": "app-plan",
+    "anclas": {
+      "mapa": "el mapamundi",
+      "itinerario": "tu itinerario día a día",
+      "bitacora": "tu bitácora"
+    }
+  },
+  "fuentes": [
+    { "id": "nawijn-2010", "texto": "Nawijn J., Marchand M. A., Veenhoven R., Vingerhoets A. J. Vacationers happier, but most not happier after a holiday. Applied Research in Quality of Life 5(1), 35-47 (2010).", "url": "https://doi.org/10.1007/s11482-009-9091-9" },
+    { "id": "vanboven-2003", "texto": "Van Boven L., Gilovich T. To do or to have? That is the question. Journal of Personality and Social Psychology 85(6), 1193-1202 (2003).", "url": "https://doi.org/10.1037/0022-3514.85.6.1193" },
+    { "id": "grand-tour", "texto": "El Grand Tour. Wikipedia.", "url": "https://en.wikipedia.org/wiki/Grand_Tour" },
+    { "id": "thomas-cook", "texto": "Thomas Cook y el viaje de Leicester a Loughborough (1841). Wikipedia.", "url": "https://en.wikipedia.org/wiki/Thomas_Cook" },
+    { "id": "mitchell-1997", "texto": "Mitchell T. R., Thompson L., Peterson E., Cronk R. Temporal adjustments in the evaluation of events: the «rosy view». Journal of Experimental Social Psychology 33(4), 421-448 (1997).", "url": "https://doi.org/10.1006/jesp.1997.1333" },
+    { "id": "kahneman-1993", "texto": "Kahneman D., Fredrickson B. L., Schreiber C. A., Redelmeier D. A. When more pain is preferred to less: adding a better end. Psychological Science 4(6), 401-405 (1993).", "url": "https://doi.org/10.1111/j.1467-9280.1993.tb00589.x" },
+    { "id": "debloom-2013", "texto": "de Bloom J., Geurts S. A. E., Kompier M. A. J. Vacation (after-) effects on employee health and well-being, and the role of vacation activities, experiences and sleep. Journal of Happiness Studies 14(2), 613-633 (2013).", "url": "https://doi.org/10.1007/s10902-012-9345-3" },
+    { "id": "prelec-1998", "texto": "Prelec D., Loewenstein G. The red and the black: mental accounting of savings and debt. Marketing Science 17(1), 4-28 (1998).", "url": "https://doi.org/10.1287/mksc.17.1.4" },
+    { "id": "henkel-2014", "texto": "Henkel L. A. Point-and-shoot memories: the influence of taking photos on memory for a museum tour. Psychological Science 25(2), 396-402 (2014).", "url": "https://doi.org/10.1177/0956797613504438" },
+    { "id": "zimmermann-2013", "texto": "Zimmermann J., Neyer F. J. Do we become a different person when hitting the road? Personality development of sojourners. Journal of Personality and Social Psychology 105(3), 515-530 (2013).", "url": "https://doi.org/10.1037/a0033019" }
+  ]
+}

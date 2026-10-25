@@ -12,6 +12,7 @@
     {
       "id": "video",
       "titulo": "Qué es un video",
+      "respuesta": "Son fotos fijas tan seguidas que tu cerebro las une: con 24 por segundo, la velocidad del cine, ya ves movimiento fluido.",
       "lineas": [
         {
           "id": "gancho",
@@ -123,6 +124,7 @@
     {
       "id": "historia",
       "titulo": "Una breve historia del video",
+      "respuesta": "De las doce cámaras de Muybridge en 1878 al celular de hoy: lo que antes pedía un equipo de cine ya cabe en tu bolsillo.",
       "lineas": [
         {
           "id": "titulo",
@@ -223,6 +225,7 @@
     {
       "id": "encuadre",
       "titulo": "El encuadre",
+      "respuesta": "Encuadrar es decidir qué entra en la imagen: pon lo importante sobre una línea de los tercios, no al centro, y guiarás la mirada.",
       "lineas": [
         {
           "id": "titulo",
@@ -307,6 +310,7 @@
     {
       "id": "luzSonido",
       "titulo": "La luz y el sonido",
+      "respuesta": "Ponte de frente o de lado a una ventana y acerca el micrófono a un palmo: el público perdona una imagen regular, no un mal sonido.",
       "lineas": [
         {
           "id": "titulo",
@@ -388,6 +392,7 @@
     {
       "id": "edicion",
       "titulo": "La edición",
+      "respuesta": "Elige tus mejores tomas, ordénalas y mide cuánto dura cada una: como mostró Kuleshov, el sentido está en lo que pones junto.",
       "lineas": [
         {
           "id": "titulo",
@@ -471,6 +476,7 @@
     {
       "id": "historiaContar",
       "titulo": "Cómo contar una historia",
+      "respuesta": "Engancha en los primeros segundos con una pregunta, arma inicio, nudo y final, y muestra en vez de decir.",
       "lineas": [
         {
           "id": "titulo",
@@ -566,6 +572,7 @@
     {
       "id": "plan",
       "titulo": "Tu plan para empezar",
+      "respuesta": "Haz un video de un minuto a la semana, aunque no salga perfecto: son 52 al año y cada uno te enseña algo para el siguiente.",
       "lineas": [
         {
           "id": "titulo",

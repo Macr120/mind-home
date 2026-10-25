@@ -12,6 +12,7 @@
     {
       "id": "universo",
       "titulo": "Why does the universe speak in numbers?",
+      "respuesta": "Because math describes how the world moves: with nothing but calculations, Le Verrier found Neptune without looking at the sky.",
       "lineas": [
         {
           "id": "gancho",
@@ -70,6 +71,7 @@
     {
       "id": "origen",
       "titulo": "Where did numbers come from?",
+      "respuesta": "We’re born with a sense of quantity; what we invented was writing it down, from notches on a bone to zero.",
       "lineas": [
         {
           "id": "titulo",
@@ -121,6 +123,7 @@
     {
       "id": "miedo",
       "titulo": "Why is math scary?",
+      "respuesta": "Because your brain reacts as if to pain before you even start, but being a math person isn’t a gift: it’s practice, like a language.",
       "lineas": [
         {
           "id": "titulo",
@@ -166,6 +169,7 @@
     {
       "id": "resolver",
       "titulo": "How do you solve any problem?",
+      "respuesta": "With Pólya’s four steps: understand the problem, devise a plan, carry it out and look back; and estimate before you calculate.",
       "lineas": [
         {
           "id": "titulo",
@@ -217,6 +221,7 @@
     {
       "id": "ver",
       "titulo": "How do you see an equation?",
+      "respuesta": "Draw it on two axes, as Descartes proposed: you’ll see at a glance where it rises, where it falls and where it crosses zero.",
       "lineas": [
         {
           "id": "titulo",
@@ -261,6 +266,7 @@
     {
       "id": "vida",
       "titulo": "How do you use numbers in your life?",
+      "respuesta": "Swap percentages for people: picture a hundred and count how many fall into each case, and the problem becomes clear.",
       "lineas": [
         {
           "id": "titulo",
@@ -305,6 +311,7 @@
     {
       "id": "continuar",
       "titulo": "How do you keep going? Your plan to continue.",
+      "respuesta": "Look for the numbers in your day, estimate before you calculate, and solve one short problem a day with Pólya’s steps.",
       "lineas": [
         {
           "id": "titulo",

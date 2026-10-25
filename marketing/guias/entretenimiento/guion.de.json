@@ -12,6 +12,7 @@
     {
       "id": "elegir",
       "titulo": "Warum brauchst du so lange zum Auswählen?",
+      "respuesta": "Weil wir schon 10,5 Minuten zum Auswählen brauchen: Hab eine Liste mit Vorgemerktem, und wählst du nicht in fünf, nimm das Erste.",
       "lineas": [
         {
           "id": "gancho",
@@ -107,6 +108,7 @@
     {
       "id": "scroll",
       "titulo": "Warum erholt dich Scrollen nicht?",
+      "respuesta": "Weil passives Scrollen deine Stimmung drückt: Frag dich vor dem Öffnen, was du suchst, und schließ die App, wenn du fertig bist.",
       "lineas": [
         {
           "id": "titulo",
@@ -181,6 +183,7 @@
     {
       "id": "maraton",
       "titulo": "Marathon oder eine Folge am Tag?",
+      "respuesta": "Eine Folge am Tag: Beim Marathon genießt du die Serie weniger, erinnerst dich später schlechter und schläfst auch schlechter.",
       "lineas": [
         {
           "id": "titulo",
@@ -253,6 +256,7 @@
     {
       "id": "pausas",
       "titulo": "Warum machen Pausen und Spoiler nichts kaputt?",
+      "respuesta": "Weil eine Pause den nachlassenden Genuss neu startet, und Geschichten mit verratenem Ende gefielen sogar besser.",
       "lineas": [
         {
           "id": "titulo",
@@ -329,6 +333,7 @@
     {
       "id": "videojuegos",
       "titulo": "Tun dir Videospiele gut oder schaden sie dir?",
+      "respuesta": "Es kommt aufs Warum an: Bei fast 39.000 Erwachsenen zählten die Stunden kaum; Spielen aus Lust tat gut, aus Zwang schadete es.",
       "lineas": [
         {
           "id": "titulo",
@@ -400,6 +405,7 @@
     {
       "id": "otros",
       "titulo": "Warum mit anderen spielen?",
+      "respuesta": "Weil Geteiltes stärker wirkt, und wer öfter Brett- und Kartenspiele spielte, verlor im Alter weniger Gedächtnis.",
       "lineas": [
         {
           "id": "titulo",
@@ -468,6 +474,7 @@
     {
       "id": "leer",
       "titulo": "Und Lesen, zählt das?",
+      "respuesta": "Ja: Wer Bücher las, lebte im Schnitt fast zwei Jahre länger; nimm vorm Schlafen ein Buch statt noch einer Folge.",
       "lineas": [
         {
           "id": "titulo",
@@ -543,6 +550,7 @@
     {
       "id": "durar",
       "titulo": "Wie bleibt es dir länger?",
+      "respuesta": "Wenn du etwas beendest, notier deine Sterne, einen Satz dazu, was es dir gegeben hat, und mit wem: Nachlesen macht mehr Freude als gedacht.",
       "lineas": [
         {
           "id": "titulo",
@@ -621,6 +629,7 @@
     {
       "id": "continuar",
       "titulo": "Wie geht es weiter? Dein Plan zum Weitermachen",
+      "respuesta": "Leg deine Liste mit Vorgemerktem an, höchstens zwei Folgen pro Abend und einmal pro Woche ein Brettspiel oder Buch, am besten mit jemandem.",
       "lineas": [
         {
           "id": "titulo",

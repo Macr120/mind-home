@@ -12,6 +12,7 @@
     {
       "id": "video",
       "titulo": "Wat een video is",
+      "respuesta": "Het zijn stilstaande foto’s zo snel na elkaar dat je brein ze samenvoegt: bij 24 per seconde, bioscooptempo, zie je vloeiende beweging.",
       "lineas": [
         {
           "id": "gancho",
@@ -123,6 +124,7 @@
     {
       "id": "historia",
       "titulo": "Een korte geschiedenis van video",
+      "respuesta": "Van Muybridges twaalf camera’s in 1878 tot de smartphone van nu: waar je ooit een filmploeg voor nodig had, past nu in je broekzak.",
       "lineas": [
         {
           "id": "titulo",
@@ -223,6 +225,7 @@
     {
       "id": "encuadre",
       "titulo": "De kadrering",
+      "respuesta": "Kadreren is kiezen wat in beeld komt: zet het belangrijkste op een lijn van de regel van derden, niet in het midden, en je stuurt de blik.",
       "lineas": [
         {
           "id": "titulo",
@@ -307,6 +310,7 @@
     {
       "id": "luzSonido",
       "titulo": "Licht en geluid",
+      "respuesta": "Ga voor of naast een raam staan en haal de microfoon tot een handbreedte: het publiek vergeeft een matig beeld, maar geen slecht geluid.",
       "lineas": [
         {
           "id": "titulo",
@@ -388,6 +392,7 @@
     {
       "id": "edicion",
       "titulo": "De montage",
+      "respuesta": "Kies je beste shots, zet ze op volgorde en bepaal hoe lang elk duurt: zoals Kuleshov liet zien, zit de betekenis in wat je naast elkaar zet.",
       "lineas": [
         {
           "id": "titulo",
@@ -471,6 +476,7 @@
     {
       "id": "historiaContar",
       "titulo": "Hoe je een verhaal vertelt",
+      "respuesta": "Grijp mensen in de eerste seconden met een vraag, bouw een begin, een knoop en een einde, en laat zien in plaats van te zeggen.",
       "lineas": [
         {
           "id": "titulo",
@@ -566,6 +572,7 @@
     {
       "id": "plan",
       "titulo": "Jouw plan om te beginnen",
+      "respuesta": "Maak elke week een video van een minuut, ook als hij niet perfect is: dat zijn er 52 per jaar, en elke video leert je iets voor de volgende.",
       "lineas": [
         {
           "id": "titulo",

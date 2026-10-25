@@ -18,6 +18,7 @@
     {
       "id": "cuerpo",
       "titulo": "Che cosa succede mentre dormi",
+      "respuesta": "Il cervello attraversa cicli di circa 90 minuti: il sonno profondo ripara il corpo e il REM riordina ciò che hai imparato.",
       "lineas": [
         {
           "id": "gancho",
@@ -91,6 +92,7 @@
     {
       "id": "historia",
       "titulo": "Che cosa ha scoperto la scienza sul sonno",
+      "respuesta": "Che hai un orologio interno: Kleitman lo dimostrò in una grotta nel 1938, e scoprirne i geni valse il Nobel nel 2017.",
       "lineas": [
         {
           "id": "titulo",
@@ -163,6 +165,7 @@
     {
       "id": "cuanto",
       "titulo": "Quanto ti serve dormire",
+      "respuesta": "Sette ore o più da adulto: dormirne sei per due settimane danneggia l'attenzione come fino a due notti in bianco.",
       "lineas": [
         {
           "id": "titulo",
@@ -224,6 +227,7 @@
     {
       "id": "reloj",
       "titulo": "Il tuo orologio interno",
+      "respuesta": "Lo regola la luce: prendi il sole al mattino, evita gli schermi la sera e dormi sempre a orari costanti.",
       "lineas": [
         {
           "id": "titulo",
@@ -299,6 +303,7 @@
     {
       "id": "noche",
       "titulo": "Come preparare una buona notte",
+      "respuesta": "Stop alla caffeina sei ore prima, niente alcol, dormi al fresco e al buio, e lascia gli schermi nell'ultima ora.",
       "lineas": [
         {
           "id": "titulo",
@@ -389,6 +394,7 @@
     {
       "id": "insomnio",
       "titulo": "Quando non riesci a dormire",
+      "respuesta": "Se dopo 20 minuti non dormi, alzati e torna quando hai sonno; se dura settimane, prima la terapia cognitivo-comportamentale.",
       "lineas": [
         {
           "id": "titulo",
