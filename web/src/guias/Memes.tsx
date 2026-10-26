@@ -126,6 +126,12 @@ export const MEMES: Record<string, DefMeme> = {
   itinerario: { formato: 'unico', poses: ['cansado'], sonido: 'bruh' },
   presupuesto: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
   fotos: { formato: 'arribaAbajo', poses: ['orgulloso', 'confundido'], sonido: 'jeje-boy' },
+  // Archivo (las poses son del astronauta, el narrador; «pestanas» es el de Mindfulness, con sus textos propios).
+  bodega: { formato: 'arribaAbajo', poses: ['orgulloso', 'cansado'], sonido: 'bruh' },
+  guardado: { formato: 'unico', poses: ['confundido'], sonido: 'bruh' },
+  final: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
+  nombres: { formato: 'arribaAbajo', poses: ['relajado', 'confundido'], sonido: 'jeje-boy' },
+  porSiAcaso: { formato: 'arribaAbajo', poses: ['orgulloso', 'cansado'], sonido: 'bruh' },
 }
 
 export function Meme({ id, tema, t }: { id: string; tema: string; t: T }) {

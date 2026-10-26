@@ -1,0 +1,745 @@
+{
+  "idioma": "pl",
+  "tema": "archivos",
+  "plantillaId": "archivos",
+  "numero": 21,
+  "nombre": "Pliki",
+  "pregunta": "Jak uporządkować swój umysł?",
+  "corta": "Jak uporządkować swój umysł?",
+  "subtitulo": "Ile naprawdę mieści się w twojej głowie, od kiedy przechowujemy pamięć poza nią, czy zapisywanie rzeczy sprawia, że zapominasz, czy lepsze są foldery, czy wyszukiwarka, jak wpływa na ciebie bałagan, ile czasu tracisz na szukanie, co zachować, a co odpuścić, i plan na ciąg dalszy.",
+  "aviso": "Ten przewodnik ma charakter informacyjny i ogólny. Cytowane badania mierzą pamięć i uwagę konkretnych grup ludzi; twoje wyniki mogą być inne.",
+  "partes": [
+    {
+      "id": "cabeza",
+      "titulo": "Ile mieści się w twojej głowie?",
+      "respuesta": "Około czterech rzeczy naraz: głowa jest do myślenia, nie do przechowywania, więc resztę przenieś w pewne miejsce.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Jak uporządkować swój umysł? Twoja głowa mieści naraz tylko około czterech rzeczy. A mimo to każemy jej pamiętać wszystko. A gdybyś przestał używać jej jako magazynu? Dziś zobaczysz to w danych i wyjdziesz z planem na ciąg dalszy."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "A tak przy okazji, to mój dom w MindHaOS, a dziś jest statkiem kosmicznym. Ja jestem astronautą na pokładzie, a to są moje Pliki: tu trzymam wszystko, co nie mieści mi się w głowie."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część pierwsza. Ile mieści się w twojej głowie?"
+        },
+        {
+          "id": "cowan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cuatro"
+          },
+          "lamina": [
+            "malabares",
+            "notasPegadas"
+          ],
+          "destacada": true,
+          "texto": "W 1956 roku George Miller stwierdził, że umysł utrzymuje naraz około siedmiu rzeczy. W 2001 roku Nelson Cowan przejrzał dziesiątki eksperymentów i obniżył tę liczbę: w rzeczywistości to około czterech."
+        },
+        {
+          "id": "bodega",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "super",
+              "cita",
+              "idea"
+            ]
+          },
+          "lamina": [
+            "listaSuper",
+            "olvido"
+          ],
+          "meme": "bodega",
+          "texto": "Kiedy próbujesz nosić w głowie listę zakupów, wizytę u lekarza i pomysł do pracy, coś wypada. To nie znaczy, że masz słabą pamięć: po prostu używasz jej jako magazynu."
+        },
+        {
+          "id": "descarga",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "vaciarMente"
+          },
+          "lamina": [
+            "libretaLista",
+            "escritorioOrden"
+          ],
+          "texto": "Więc głowa jest do myślenia, nie do przechowywania. Zrób test: wpisz tutaj wszystko, co masz teraz w głowie, i zobacz, ile rzeczy dźwigałeś."
+        },
+        {
+          "id": "miArchivo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "carpetasApp",
+              "tiposApp",
+              "nubeApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dlatego w moich Plikach mieszka wszystko, co nie mieści mi się w głowie: papiery, zdjęcia, notatki i dokumenty, każda rzecz w swoim folderze."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Od kiedy przechowujemy pamięć poza głową?",
+      "respuesta": "Od zawsze, ale nowoczesna idea rodzi się w 1945 roku z Memexem Vannevara Busha i z dziewięćdziesięcioma tysiącami fiszek Niklasa Luhmanna.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część druga. Od kiedy przechowujemy pamięć poza głową?"
+        },
+        {
+          "id": "bush",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1945",
+            "clave": "bush"
+          },
+          "lamina": [
+            "bush",
+            "microfilm"
+          ],
+          "destacada": true,
+          "texto": "W 1945 roku inżynier Vannevar Bush wymyślił Memex: biurko, które przechowywałoby wszystkie twoje książki, listy i notatki, połączone ścieżkami, żebyś znalazł je w kilka sekund. Dekady później ta idea zainspirowała twórców hipertekstu: linków, których dziś używasz w sieci."
+        },
+        {
+          "id": "luhmann",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1952",
+            "clave": "luhmann"
+          },
+          "lamina": [
+            "fichero",
+            "fichas"
+          ],
+          "texto": "A w 1952 roku niemiecki socjolog Niklas Luhmann zaczął zapisywać każdy pomysł na osobnej fiszce. Doszedł do około dziewięćdziesięciu tysięcy i dzięki nim napisał ponad siedemdziesiąt książek. Mówił, że jego kartoteka jest jego partnerem w pracy."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fichas",
+              "computadora",
+              "nube"
+            ]
+          },
+          "lamina": [
+            "archivero",
+            "celularArchivos"
+          ],
+          "texto": "Potem przyszły szafy na akta, komputer, a teraz chmura. Dziś wszystko mieści się w kieszeni; trudne nie jest już przechowywanie, tylko znajdowanie."
+        },
+        {
+          "id": "cuartos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuartoApp",
+              "fuentesApp",
+              "tuyosApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "A skoro mój dom to mój umysł, każdy pokój ma swój folder: pojawia się w nim samo to, co jego aplikacja już przechowuje, na przykład zdjęcia z moich podróży albo moje rysunki."
+        }
+      ]
+    },
+    {
+      "id": "olvido",
+      "titulo": "Czy zapisywanie rzeczy sprawia, że zapominasz?",
+      "respuesta": "Trochę, ale w zamian uwalniasz głowę: to, co zapiszesz w pewnym miejscu, pozwala ci lepiej uczyć się i pamiętać kolejne rzeczy.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część trzecia. Czy zapisywanie rzeczy sprawia, że zapominasz?"
+        },
+        {
+          "id": "sparrow",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "donde"
+          },
+          "lamina": [
+            "teclado",
+            "buscadorPantalla"
+          ],
+          "destacada": true,
+          "texto": "W 2011 roku Betsy Sparrow i jej zespół poprosili studentów, żeby wpisali do komputera ciekawostki. Ci, którzy myśleli, że zostaną zapisane, gorzej pamiętali same ciekawostki… ale świetnie pamiętali, w którym folderze się znajdują."
+        },
+        {
+          "id": "storm",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2015",
+            "clave": "storm"
+          },
+          "lamina": [
+            "guardarArchivo",
+            "estudiante"
+          ],
+          "texto": "A w 2015 roku Benjamin Storm i Sean Stone pokazali drugą stronę: kto zapisał jeden plik, zanim zaczął uczyć się następnego, lepiej opanowywał ten drugi. Zapisywanie zwalnia miejsce na nowe."
+        },
+        {
+          "id": "confiable",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unLugar",
+              "siempreAhi",
+              "sabesDonde"
+            ]
+          },
+          "lamina": [
+            "llaves",
+            "cajaFuerte"
+          ],
+          "meme": "guardado",
+          "texto": "Ale to działa tylko wtedy, gdy ufasz temu miejscu: jeśli zapiszesz coś i nie wiesz gdzie, głowa dalej to dźwiga. Więc zapisuj bez wyrzutów sumienia, zawsze w tym samym miejscu."
+        },
+        {
+          "id": "visor",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fotoApp",
+              "pdfApp",
+              "dispositivosApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "A każdy plik otwieram od razu tutaj: zdjęcie, PDF albo notatkę, z telefonu albo z komputera."
+        }
+      ]
+    },
+    {
+      "id": "carpetas",
+      "titulo": "Foldery czy wyszukiwarka?",
+      "respuesta": "Foldery: prawie zawsze docieramy do plików, przeglądając je, a wyszukiwarka zostaje na chwile, gdy się zgubisz; mało, płytko i z jasnymi nazwami.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część czwarta. Foldery czy wyszukiwarka?"
+        },
+        {
+          "id": "bergman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "navegar"
+          },
+          "lamina": [
+            "carpetasPantalla",
+            "oficina"
+          ],
+          "destacada": true,
+          "texto": "W 2008 roku Ofer Bergman i Steve Whittaker zbadali, jak ludzie znajdują własne pliki. Nawet z dobrymi wyszukiwarkami najczęściej docierali do nich, przechodząc przez swoje foldery; z wyszukiwarki korzystali bardzo rzadko, głównie wtedy, gdy już się zgubili."
+        },
+        {
+          "id": "mapa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pocas",
+              "planas",
+              "nombres"
+            ]
+          },
+          "lamina": [
+            "mapaCiudad",
+            "etiquetas"
+          ],
+          "meme": "final",
+          "texto": "Twoje foldery to mapa w głowie. Jeśli masz ich sto albo jeden w drugim, a ten w kolejnym, gubisz się. Co działa: mało, płytko i z nazwami, które zrozumiesz w sekundę."
+        },
+        {
+          "id": "cinco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "misCarpetas"
+          },
+          "lamina": [
+            "cajas",
+            "estante"
+          ],
+          "texto": "Spróbuj z pięcioma dużymi: praca, dom i sprawy urzędowe, zdrowie, projekty i zdjęcia. Ułóż tu swoje i sprawdź, czy wszystko, co masz, zmieści się w którymś."
+        },
+        {
+          "id": "carpetasApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cincoApp",
+              "nivelesApp",
+              "moverApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Moich folderów jest niewiele: Praca, Dom i sprawy urzędowe, Zdrowie, Projekty i Zdjęcia. I prawie nic nie schodzi głębiej niż dwa poziomy."
+        }
+      ]
+    },
+    {
+      "id": "desorden",
+      "titulo": "Czy bałagan kradnie ci uwagę?",
+      "respuesta": "Tak: wszystko, co masz na widoku, walczy o twoją uwagę, więc zostaw na wierzchu tylko to, czego właśnie używasz.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część piąta. Czy bałagan kradnie ci uwagę?"
+        },
+        {
+          "id": "mcmains",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "competencia"
+          },
+          "lamina": [
+            "escritorioCaos",
+            "cerebro"
+          ],
+          "destacada": true,
+          "texto": "W 2011 roku Stephanie McMains i Sabine Kastner z Uniwersytetu Princeton badały mózgi ludzi patrzących na ekran pełen przedmiotów. Każda rzecz na widoku walczyła o ich uwagę, a skupienie się przychodziło trudniej."
+        },
+        {
+          "id": "vista",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escritorio",
+              "pestanas",
+              "bandeja"
+            ]
+          },
+          "lamina": [
+            "pestanas",
+            "escritorioLimpio"
+          ],
+          "texto": "Tak jest na twoim biurku, na ekranie i w telefonie: dwadzieścia otwartych kart to dwadzieścia rzeczy, które cię ciągną. Na widoku zostaw tylko to, czego używasz, a resztę schowaj."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoArchivos"
+          },
+          "lamina": "pulgar",
+          "texto": "Jeśli ten przewodnik ci się podoba, kliknij „Podoba mi się”, „Subskrybuj”, żeby nie przegapić następnego, i „Udostępnij” go osobie, która ma pulpit zawalony plikami."
+        },
+        {
+          "id": "bandeja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "entrada",
+              "semanal",
+              "vacia"
+            ]
+          },
+          "lamina": [
+            "bandejaPapeles",
+            "cafeLibreta"
+          ],
+          "meme": "pestanas",
+          "texto": "I miej jedną skrzynkę odbiorczą: wszystko nowe trafia tam, a raz w tygodniu rozkładasz to do właściwych folderów."
+        },
+        {
+          "id": "destacados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estrellaApp",
+              "destacadosApp",
+              "recientesApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "To, czego używam co tydzień, oznaczam gwiazdką i mam pod ręką w zakładce Oznaczone gwiazdką; reszta nie przeszkadza mi na widoku."
+        }
+      ]
+    },
+    {
+      "id": "buscar",
+      "titulo": "Ile czasu tracisz na szukanie?",
+      "respuesta": "Prawie jedną piątą tygodnia pracy: nadaj każdemu plikowi nazwę z datą na początku, a znajdziesz go w kilka sekund.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część szósta. Ile czasu tracisz na szukanie?"
+        },
+        {
+          "id": "mckinsey",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2012",
+            "clave": "mckinsey"
+          },
+          "lamina": [
+            "buscandoPapeles",
+            "reloj"
+          ],
+          "destacada": true,
+          "texto": "W 2012 roku raport firmy doradczej McKinsey wyliczył, że pracownicy biurowi spędzają prawie jedną piątą tygodnia na szukaniu i zbieraniu informacji. To prawie cały dzień, co tydzień."
+        },
+        {
+          "id": "nombres",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nombreArchivo"
+          },
+          "lamina": [
+            "documentos",
+            "calendarioPared"
+          ],
+          "meme": "nombres",
+          "texto": "Cała sztuczka tkwi w nazwie. Zacznij od daty od końca: rok, miesiąc i dzień, a potem napisz, co to jest. Wtedy pliki same układają się według daty i znajdziesz je jednym rzutem oka. Ułóż tu dobrą nazwę."
+        },
+        {
+          "id": "primeraVez",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "alGuardar",
+              "unaVez",
+              "sinDescargas"
+            ]
+          },
+          "lamina": [
+            "descargas",
+            "carpetaOrden"
+          ],
+          "texto": "I nazwij go dobrze za pierwszym razem, przy zapisywaniu. Jeśli odłożysz to na później, wyląduje w Pobranych z nazwą, którą nadał mu ktoś inny."
+        },
+        {
+          "id": "buscador",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "buscadorApp",
+              "ordenApp",
+              "fechaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "A jeśli coś mi zginie, wpisuję to w wyszukiwarkę albo sortuję według daty; skoro moje nazwy zaczynają się od daty, wszystko wychodzi po kolei."
+        }
+      ]
+    },
+    {
+      "id": "soltar",
+      "titulo": "Co zachować, a co odpuścić?",
+      "respuesta": "Zachowaj to, czego użyjesz albo czego stratę byś odczuł, a resztę odpuść: zbieranie „na wszelki wypadek” też ciąży.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część siódma. Co zachować, a co odpuścić?"
+        },
+        {
+          "id": "sweeten",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "acumular"
+          },
+          "lamina": [
+            "correoLleno",
+            "discoDuro"
+          ],
+          "destacada": true,
+          "texto": "W 2018 roku Gretchen Sweeten i jej zespół w Anglii rozmawiali z ludźmi o ich cyfrowych plikach. Wielu trzymało tysiące maili, zdjęć i dokumentów „na wszelki wypadek”, a ta góra dawała im stres zamiast spokoju."
+        },
+        {
+          "id": "preguntas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "usar",
+              "otroLado",
+              "doleria"
+            ]
+          },
+          "lamina": [
+            "fotosRepetidas",
+            "decidir"
+          ],
+          "meme": "porSiAcaso",
+          "texto": "Zanim coś zachowasz, zadaj sobie trzy pytania: czy tego użyję, czy to już jest gdzie indziej, czy bolałaby mnie jego strata? Jeśli trzy razy nie, odpuść."
+        },
+        {
+          "id": "mensual",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "repetidas",
+              "viejo",
+              "importante"
+            ]
+          },
+          "lamina": [
+            "limpieza",
+            "papelera"
+          ],
+          "texto": "A raz w miesiącu usuń powtórzone zdjęcia i to, co już straciło ważność. To, co naprawdę ważne, jak dokumenty i wspomnienia, przechowuj z kopią."
+        },
+        {
+          "id": "papelera",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "papeleraApp",
+              "recuperarApp",
+              "treintaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "To, co odpuszczam, trafia do Kosza: jeśli zmienię zdanie, wyjmuję to; a po trzydziestu dniach usuwa się samo."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Jak iść dalej? Twój plan na ciąg dalszy",
+      "respuesta": "Wyrzuć z głowy wszystko na listę, załóż pięć folderów, nazywaj pliki z datą na początku i co miesiąc odpuszczaj nadmiar.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część ósma. Jak iść dalej? Twój plan na ciąg dalszy."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planArchivos"
+          },
+          "lamina": [
+            "libretaLista",
+            "papelesMesa"
+          ],
+          "texto": "W tym tygodniu wypisz z głowy na listę wszystko, co masz do zrobienia, i zbierz swoje ważne papiery w jednym miejscu."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cincoCarpetas",
+              "renombra",
+              "estrella"
+            ]
+          },
+          "lamina": [
+            "cajas",
+            "carpetaOrden"
+          ],
+          "destacada": true,
+          "texto": "W pierwszym miesiącu załóż najwyżej pięć folderów, zmień nazwy ważnych plików, dając datę na początek, i oznacz gwiazdką to, czego używasz najczęściej."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vaciaBandeja",
+              "suelta",
+              "copia"
+            ]
+          },
+          "lamina": [
+            "bandejaPapeles",
+            "limpieza"
+          ],
+          "texto": "A co miesiąc: opróżnij skrzynkę odbiorczą, odpuść to, co już się nie przydaje, i sprawdź, czy to, co ważne, ma kopię."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "carpetasFin",
+              "cuartosFin",
+              "papeleraFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "A jeśli nie wiesz, od czego zacząć, zajrzyj do moich Plików w aplikacji: wszystko jest uporządkowane, od moich folderów po Kosz."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Podsumowując: głowa jest do myślenia, nie do przechowywania; zapisuj zawsze w tym samym miejscu; mało folderów i płytko; data na początku nazwy; i odpuszczaj to, czego już nie używasz."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "W Plikach MindHaOS trzymasz wszystko w swoich folderach, każdy pokój twojego domu ma swój, a to, co wyrzucisz, czeka trzydzieści dni w koszu. Możesz to robić sam albo z pomocą AI. Zbuduj swój mentalny dom za darmo już dziś: link jest w opisie. A w następnym przewodniku: jak zachować swoje najlepsze wspomnienia?",
+    "boton": "Otwórz Pliki",
+    "lamina": "app-plan",
+    "anclas": {
+      "carpetas": "swoich folderach",
+      "cuartos": "każdy pokój twojego domu",
+      "papelera": "w koszu"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "miller-1956",
+      "texto": "Miller G. A. The magical number seven, plus or minus two: some limits on our capacity for processing information. Psychological Review 63(2), 81-97 (1956).",
+      "url": "https://doi.org/10.1037/h0043158"
+    },
+    {
+      "id": "cowan-2001",
+      "texto": "Cowan N. The magical number 4 in short-term memory: a reconsideration of mental storage capacity. Behavioral and Brain Sciences 24(1), 87-114 (2001).",
+      "url": "https://doi.org/10.1017/S0140525X01003922"
+    },
+    {
+      "id": "bush-1945",
+      "texto": "Bush V. As We May Think. The Atlantic (lipiec 1945).",
+      "url": "https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/"
+    },
+    {
+      "id": "luhmann",
+      "texto": "Niklas Luhmann i jego kartoteka (Zettelkasten). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Zettelkasten"
+    },
+    {
+      "id": "sparrow-2011",
+      "texto": "Sparrow B., Liu J., Wegner D. M. Google effects on memory: cognitive consequences of having information at our fingertips. Science 333(6043), 776-778 (2011).",
+      "url": "https://doi.org/10.1126/science.1207745"
+    },
+    {
+      "id": "storm-2015",
+      "texto": "Storm B. C., Stone S. M. Saving-enhanced memory: the benefits of saving on the learning and remembering of new information. Psychological Science 26(2), 182-188 (2015).",
+      "url": "https://doi.org/10.1177/0956797614559285"
+    },
+    {
+      "id": "bergman-2008",
+      "texto": "Bergman O., Beyth-Marom R., Nachmias R., Gradovitch N., Whittaker S. Improved search engines and navigation preference in personal information management. ACM Transactions on Information Systems 26(4) (2008).",
+      "url": "https://doi.org/10.1145/1402256.1402259"
+    },
+    {
+      "id": "mcmains-2011",
+      "texto": "McMains S., Kastner S. Interactions of top-down and bottom-up mechanisms in human visual cortex. Journal of Neuroscience 31(2), 587-597 (2011).",
+      "url": "https://doi.org/10.1523/JNEUROSCI.3766-10.2011"
+    },
+    {
+      "id": "mckinsey-2012",
+      "texto": "McKinsey Global Institute. The social economy: unlocking value and productivity through social technologies (2012).",
+      "url": "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-social-economy"
+    },
+    {
+      "id": "sweeten-2018",
+      "texto": "Sweeten G., Sillence E., Neave N. Digital hoarding behaviours: underlying motivations and potential negative consequences. Computers in Human Behavior 85, 54-60 (2018).",
+      "url": "https://researchportal.northumbria.ac.uk/en/publications/digital-hoarding-behaviours-underlying-motivations-and-potential-/"
+    }
+  ]
+}

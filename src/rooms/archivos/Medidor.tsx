@@ -5,6 +5,7 @@ import { useSesion } from '../../core/cuenta/sesionStore'
 import { formatoBytes, refrescarUsoAlmacen, useAlmacen } from '../../core/cuenta/almacen'
 import { fechaPurga } from '../../core/cuenta/almacenUso'
 import { useNubeStudio } from '../../core/studio/nubeStudio'
+import { esDemo } from '../../core/edicion'
 import { COLOR } from './constantes'
 
 /**
@@ -40,7 +41,8 @@ export function Medidor({ puedeSubir, tut }: { puedeSubir: boolean; tut?: string
           <div className="h-full rounded-full transition-all" style={{ width: `${pct}%`, background: pct >= 90 ? '#f87171' : COLOR }} />
         </div>
       )}
-      {!puedeSubir && (
+      {/* En la demo no hay plan que perder: el aviso de solo lectura no aplica. */}
+      {!puedeSubir && !esDemo() && (
         <p className="text-xs text-amber-300/80">
           {t('archivos.soloLectura', 'Tu plan no incluye nube: puedes ver y bajar tus archivos, pero no subir nuevos.')}
           {purga && uso.usados > 0 && (

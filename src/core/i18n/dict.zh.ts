@@ -7147,6 +7147,7 @@ export const ZH: Dict = {
   'guia.garage.titulo': "怎样保养你的交通工具？",
   'guia.ideas.titulo': "怎样才能有更好的点子？",
   'guia.viajes.titulo': "怎样更好地旅行？",
+  'guia.archivos.titulo': "怎样整理你的头脑？",
   'guia.noticias.titulo': "追寻真与美：新闻与内容",
   'guia.matematicas.titulo': "宇宙的语言是什么？",
   'tut.esencial.titulo': '基础导览',

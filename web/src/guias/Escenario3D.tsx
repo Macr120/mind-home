@@ -41,7 +41,7 @@ export default function Escenario3D({
   const patron = useMemo(() => patronEscena(escena), [escena])
   const mago = NARRADOR_GUIA[tema] === 'mago'
   const princesa = NARRADOR_GUIA[tema] === 'princesa'
-  const alien = NARRADOR_GUIA[tema] === 'alien' || NARRADOR_GUIA[tema] === 'osito'
+  const alien = NARRADOR_GUIA[tema] === 'alien' || NARRADOR_GUIA[tema] === 'osito' || NARRADOR_GUIA[tema] === 'astronauta'
   // Lo que sobresale por encima de la cabeza (el copete del gorro de chef, el sombrero del mago): el encuadre lo cuenta.
   const sobreCabeza = mago ? 0.7 : princesa ? 0.3 : alien ? 0.35 : av.ropa?.gorroChef ? 0.6 : av.ropa?.sombrero ? 0.3 : 0
   const boca = useRef<BocaHabla>(nuevaBocaHabla())

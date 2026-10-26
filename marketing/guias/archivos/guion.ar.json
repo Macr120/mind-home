@@ -1,0 +1,745 @@
+{
+  "idioma": "ar",
+  "tema": "archivos",
+  "plantillaId": "archivos",
+  "numero": 21,
+  "nombre": "الملفات",
+  "pregunta": "كيف ترتّب عقلك؟",
+  "corta": "كيف ترتّب عقلك؟",
+  "subtitulo": "كم يتّسع رأسك حقًا، ومنذ متى نحفظ الذاكرة خارجه، وهل يجعلك حفظ الأشياء تنساها، وهل الأفضل المجلدات أم البحث، وكيف تؤثّر فيك الفوضى، وكم من الوقت تضيّع في البحث، وماذا تحتفظ به وماذا تتخلّى عنه، وخطة للاستمرار.",
+  "aviso": "هذا الدليل معلوماتي وعام. الدراسات المذكورة تقيس ذاكرة وانتباه مجموعات محددة من الناس؛ وقد تختلف نتائجك.",
+  "partes": [
+    {
+      "id": "cabeza",
+      "titulo": "كم يتّسع رأسك؟",
+      "respuesta": "نحو أربعة أشياء في وقت واحد: رأسك للتفكير لا للتخزين، فضع الباقي في مكان موثوق.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "كيف ترتّب عقلك؟ رأسك لا يحمل إلا نحو أربعة أشياء في وقت واحد. ومع ذلك نطلب منه أن يتذكّر كل شيء. ماذا لو توقّفت عن استخدامه كمخزن؟ اليوم ستراه بالأرقام، وستخرج بخطة للاستمرار."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "بالمناسبة، هذا بيتي في MindHaOS، واليوم هو سفينة فضاء. وأنا رائد الفضاء على متنها، وهذه ملفاتي: هنا أحفظ كل ما لا يتّسع له رأسي."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الأول. كم يتّسع رأسك؟"
+        },
+        {
+          "id": "cowan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cuatro"
+          },
+          "lamina": [
+            "malabares",
+            "notasPegadas"
+          ],
+          "destacada": true,
+          "texto": "في عام 1956، قال جورج ميلر إن العقل يحمل نحو سبعة أشياء في وقت واحد. وفي عام 2001، راجع نيلسون كوان عشرات التجارب وخفّض الرقم: في الحقيقة هي نحو أربعة."
+        },
+        {
+          "id": "bodega",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "super",
+              "cita",
+              "idea"
+            ]
+          },
+          "lamina": [
+            "listaSuper",
+            "olvido"
+          ],
+          "meme": "bodega",
+          "texto": "حين تحاول أن تحمل قائمة المشتريات وموعد الطبيب وفكرة العمل معًا، يسقط شيء ما. ليست ذاكرتك سيئة: أنت فقط تستخدمها كمخزن."
+        },
+        {
+          "id": "descarga",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "vaciarMente"
+          },
+          "lamina": [
+            "libretaLista",
+            "escritorioOrden"
+          ],
+          "texto": "إذن رأسك للتفكير لا للتخزين. جرّب: اكتب هنا كل ما يدور في ذهنك الآن، وانظر كم شيئًا كنت تحمل."
+        },
+        {
+          "id": "miArchivo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "carpetasApp",
+              "tiposApp",
+              "nubeApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "لهذا يعيش في ملفاتي كل ما لا يتّسع له رأسي: أوراق وصور وملاحظات ومستندات، كل شيء في مجلده."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "منذ متى نحفظ الذاكرة خارج رؤوسنا؟",
+      "respuesta": "منذ الأزل، لكن الفكرة الحديثة وُلدت عام 1945 مع ميمكس فانيفار بوش ومع بطاقات نيكلاس لومان التسعين ألفًا.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثاني. منذ متى نحفظ الذاكرة خارج رؤوسنا؟"
+        },
+        {
+          "id": "bush",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1945",
+            "clave": "bush"
+          },
+          "lamina": [
+            "bush",
+            "microfilm"
+          ],
+          "destacada": true,
+          "texto": "في عام 1945، تخيّل المهندس فانيفار بوش جهاز ميمكس: مكتبًا يحفظ كل كتبك ورسائلك وملاحظاتك، مترابطة بمسارات، لتجدها في ثوانٍ. وبعد عقود، ألهمت تلك الفكرة مخترعي النص التشعّبي: الروابط التي تستخدمها اليوم على الويب."
+        },
+        {
+          "id": "luhmann",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1952",
+            "clave": "luhmann"
+          },
+          "lamina": [
+            "fichero",
+            "fichas"
+          ],
+          "texto": "وفي عام 1952، بدأ عالم الاجتماع الألماني نيكلاس لومان يدوّن كل فكرة على بطاقة. وصل إلى نحو تسعين ألف بطاقة، وكتب بها أكثر من سبعين كتابًا. وكان يقول إن صندوق بطاقاته زميله في العمل."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fichas",
+              "computadora",
+              "nube"
+            ]
+          },
+          "lamina": [
+            "archivero",
+            "celularArchivos"
+          ],
+          "texto": "ثم جاءت خزائن الملفات، والحاسوب، والآن السحابة. اليوم يتّسع كل شيء في الجيب؛ الصعب لم يعد الحفظ، بل العثور."
+        },
+        {
+          "id": "cuartos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuartoApp",
+              "fuentesApp",
+              "tuyosApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "ولأن بيتي هو عقلي، فلكل غرفة مجلدها: يظهر فيه تلقائيًا ما يحفظه تطبيقها، مثل صور رحلاتي أو رسوماتي."
+        }
+      ]
+    },
+    {
+      "id": "olvido",
+      "titulo": "هل يجعلك حفظ الأشياء تنساها؟",
+      "respuesta": "قليلًا، لكنك في المقابل تُريح رأسك: ما تحفظه في مكان موثوق يتيح لك أن تتعلّم وتتذكّر ما يليه بشكل أفضل.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثالث. هل يجعلك حفظ الأشياء تنساها؟"
+        },
+        {
+          "id": "sparrow",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "donde"
+          },
+          "lamina": [
+            "teclado",
+            "buscadorPantalla"
+          ],
+          "destacada": true,
+          "texto": "في عام 2011، طلبت بيتسي سبارو وفريقها من طلاب أن يكتبوا معلومات طريفة على الحاسوب. الذين ظنّوا أنها ستُحفظ تذكّروا المعلومات أقل… لكنهم تذكّروا جيدًا في أي مجلد كانت."
+        },
+        {
+          "id": "storm",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2015",
+            "clave": "storm"
+          },
+          "lamina": [
+            "guardarArchivo",
+            "estudiante"
+          ],
+          "texto": "وفي عام 2015، أظهر بنجامين ستورم وشون ستون الوجه الآخر: من كانوا يحفظون ملفًا قبل دراسة الملف التالي تعلّموا الثاني بشكل أفضل. الحفظ يُفسح مكانًا للجديد."
+        },
+        {
+          "id": "confiable",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unLugar",
+              "siempreAhi",
+              "sabesDonde"
+            ]
+          },
+          "lamina": [
+            "llaves",
+            "cajaFuerte"
+          ],
+          "meme": "guardado",
+          "texto": "لكن هذا لا ينجح إلا إذا وثقت بالمكان: حين تحفظ شيئًا ولا تعرف أين، يظل رأسك يحمله. فاحفظ بلا ذنب، ودائمًا في المكان نفسه."
+        },
+        {
+          "id": "visor",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fotoApp",
+              "pdfApp",
+              "dispositivosApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "وأي ملف أفتحه هنا مباشرة: صورة أو PDF أو ملاحظة، من الهاتف أو من الحاسوب."
+        }
+      ]
+    },
+    {
+      "id": "carpetas",
+      "titulo": "مجلدات أم بحث؟",
+      "respuesta": "المجلدات: نصل غالبًا بالتنقّل بينها ونترك البحث لحين نضيع؛ قليلة وقليلة العمق وبأسماء واضحة.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الرابع. مجلدات أم بحث؟"
+        },
+        {
+          "id": "bergman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "navegar"
+          },
+          "lamina": [
+            "carpetasPantalla",
+            "oficina"
+          ],
+          "destacada": true,
+          "texto": "في عام 2008، درس عوفر بيرغمان وستيف ويتاكر كيف يجد الناس ملفاتهم الخاصة. حتى مع محرّكات بحث جيدة، كانوا يصلون في أغلب الأحيان بالتنقّل بين مجلداتهم؛ ونادرًا ما استخدموا البحث، وغالبًا حين يكونون قد ضاعوا."
+        },
+        {
+          "id": "mapa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pocas",
+              "planas",
+              "nombres"
+            ]
+          },
+          "lamina": [
+            "mapaCiudad",
+            "etiquetas"
+          ],
+          "meme": "final",
+          "texto": "مجلداتك خريطة ذهنية. إن كان لديك مئة، أو مجلد داخل مجلد داخل مجلد، تضيع. ما ينجح: قليلة، وقليلة العمق، وبأسماء تفهمها في ثانية."
+        },
+        {
+          "id": "cinco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "misCarpetas"
+          },
+          "lamina": [
+            "cajas",
+            "estante"
+          ],
+          "texto": "جرّب خمسة مجلدات كبيرة: العمل، والبيت والمعاملات، والصحة، والمشاريع، والصور. رتّب هنا مجلداتك وانظر هل يتّسع كل ما لديك في واحد منها."
+        },
+        {
+          "id": "carpetasApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cincoApp",
+              "nivelesApp",
+              "moverApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "مجلداتي قليلة: العمل، والبيت والمعاملات، والصحة، والمشاريع، والصور. ولا يكاد شيء يتجاوز مستويين."
+        }
+      ]
+    },
+    {
+      "id": "desorden",
+      "titulo": "هل تسرق الفوضى انتباهك؟",
+      "respuesta": "نعم: كل ما هو أمام عينيك يتنافس على انتباهك، فلا تُبقِ ظاهرًا إلا ما تستخدمه الآن.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الخامس. هل تسرق الفوضى انتباهك؟"
+        },
+        {
+          "id": "mcmains",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "competencia"
+          },
+          "lamina": [
+            "escritorioCaos",
+            "cerebro"
+          ],
+          "destacada": true,
+          "texto": "في عام 2011، قاست ستيفاني ماكمينز وسابين كاستنر، من جامعة برينستون، أدمغة أشخاص ينظرون إلى شاشة مليئة بالأشياء. كل شيء ظاهر كان يتنافس على انتباههم، وصار التركيز أصعب."
+        },
+        {
+          "id": "vista",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escritorio",
+              "pestanas",
+              "bandeja"
+            ]
+          },
+          "lamina": [
+            "pestanas",
+            "escritorioLimpio"
+          ],
+          "texto": "يحدث هذا على مكتبك وشاشتك وهاتفك: عشرون تبويبًا مفتوحًا هي عشرون شيئًا يشدّك. لا تُبقِ ظاهرًا إلا ما تستخدمه، والباقي محفوظ."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoArchivos"
+          },
+          "lamina": "pulgar",
+          "texto": "إن كان هذا الدليل يعجبك، فاضغط «أعجبني»، و«اشتراك» حتى لا يفوتك الدليل القادم، و«مشاركة» مع ذلك الشخص الذي سطح مكتبه مليء بالملفات."
+        },
+        {
+          "id": "bandeja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "entrada",
+              "semanal",
+              "vacia"
+            ]
+          },
+          "lamina": [
+            "bandejaPapeles",
+            "cafeLibreta"
+          ],
+          "meme": "pestanas",
+          "texto": "واجعل لك صندوق وارد واحدًا: كل جديد يقع فيه، ومرة في الأسبوع توزّعه على مجلداته."
+        },
+        {
+          "id": "destacados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estrellaApp",
+              "destacadosApp",
+              "recientesApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "ما أستخدمه كل أسبوع أضع عليه نجمة فيبقى في متناولي ضمن المميّزة بنجمة؛ والباقي لا يزعج نظري."
+        }
+      ]
+    },
+    {
+      "id": "buscar",
+      "titulo": "كم من الوقت تضيّع في البحث؟",
+      "respuesta": "نحو خُمس أسبوع العمل: ضع التاريخ في بداية اسم كل ملف وستجده في ثوانٍ.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السادس. كم من الوقت تضيّع في البحث؟"
+        },
+        {
+          "id": "mckinsey",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2012",
+            "clave": "mckinsey"
+          },
+          "lamina": [
+            "buscandoPapeles",
+            "reloj"
+          ],
+          "destacada": true,
+          "texto": "في عام 2012، حسب تقرير من شركة الاستشارات ماكنزي أن موظفي المكاتب يقضون نحو خُمس أسبوعهم في البحث عن المعلومات وجمعها. أي يومًا كاملًا تقريبًا، كل أسبوع."
+        },
+        {
+          "id": "nombres",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nombreArchivo"
+          },
+          "lamina": [
+            "documentos",
+            "calendarioPared"
+          ],
+          "meme": "nombres",
+          "texto": "السرّ في الاسم. ابدأ بالتاريخ معكوسًا، السنة ثم الشهر ثم اليوم، وبعدها قل ما هو. هكذا تترتّب الملفات وحدها حسب التاريخ وتجدها بنظرة. كوّن هنا اسمًا جيدًا."
+        },
+        {
+          "id": "primeraVez",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "alGuardar",
+              "unaVez",
+              "sinDescargas"
+            ]
+          },
+          "lamina": [
+            "descargas",
+            "carpetaOrden"
+          ],
+          "texto": "وسمِّه جيدًا من أول مرة، لحظة حفظه. إن أجّلته، ينتهي في مجلد التنزيلات بالاسم الذي وضعه له غيرك."
+        },
+        {
+          "id": "buscador",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "buscadorApp",
+              "ordenApp",
+              "fechaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "وإن ضاع مني شيء، أكتبه في البحث أو أرتّب حسب التاريخ؛ ولأن أسمائي تبدأ بالتاريخ، يظهر كل شيء بالترتيب."
+        }
+      ]
+    },
+    {
+      "id": "soltar",
+      "titulo": "ماذا تحتفظ به وماذا تتخلّى عنه؟",
+      "respuesta": "احتفظ بما ستستخدمه أو يؤلمك فقدانه وتخلَّ عن الباقي: التكديس «للاحتياط» يُثقل أيضًا.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السابع. ماذا تحتفظ به وماذا تتخلّى عنه؟"
+        },
+        {
+          "id": "sweeten",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "acumular"
+          },
+          "lamina": [
+            "correoLleno",
+            "discoDuro"
+          ],
+          "destacada": true,
+          "texto": "في عام 2018، أجرت غريتشن سويتن وفريقها، في إنجلترا، مقابلات مع أشخاص عن ملفاتهم الرقمية. كثيرون كانوا يحتفظون بآلاف الرسائل والصور والمستندات «للاحتياط»، وتلك الكومة كانت تمنحهم توترًا بدل الراحة."
+        },
+        {
+          "id": "preguntas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "usar",
+              "otroLado",
+              "doleria"
+            ]
+          },
+          "lamina": [
+            "fotosRepetidas",
+            "decidir"
+          ],
+          "meme": "porSiAcaso",
+          "texto": "قبل أن تحفظ شيئًا، اسأل نفسك ثلاثة أسئلة: هل سأستخدمه، هل هو موجود في مكان آخر، هل سيؤلمني فقدانه؟ إن كانت الإجابات الثلاث لا، فتخلَّ عنه."
+        },
+        {
+          "id": "mensual",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "repetidas",
+              "viejo",
+              "importante"
+            ]
+          },
+          "lamina": [
+            "limpieza",
+            "papelera"
+          ],
+          "texto": "ومرة في الشهر، احذف الصور المكررة وما انتهت صلاحيته. أما المهم حقًا، مثل مستنداتك وذكرياتك، فاحفظه مع نسخة احتياطية."
+        },
+        {
+          "id": "papelera",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "papeleraApp",
+              "recuperarApp",
+              "treintaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "ما أتخلّى عنه يذهب إلى سلة المهملات: إن ندمت، أستعيده؛ وبعد ثلاثين يومًا يُحذف وحده."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "كيف تستمر؟ خطتك للاستمرار",
+      "respuesta": "أفرغ رأسك في قائمة، ورتّب خمسة مجلدات، وسمِّ كل شيء بالتاريخ أولًا، وكل شهر تخلَّ عمّا زاد.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثامن. كيف تستمر؟ خطتك للاستمرار."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planArchivos"
+          },
+          "lamina": [
+            "libretaLista",
+            "papelesMesa"
+          ],
+          "texto": "هذا الأسبوع، أخرج من رأسك كل ما هو معلّق في قائمة، واجمع أوراقك المهمة في مكان واحد."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cincoCarpetas",
+              "renombra",
+              "estrella"
+            ]
+          },
+          "lamina": [
+            "cajas",
+            "carpetaOrden"
+          ],
+          "destacada": true,
+          "texto": "في الشهر الأول، رتّب خمسة مجلدات على الأكثر، وأعد تسمية المهم بالتاريخ في البداية، وضع نجمة على ما تستخدمه أكثر."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vaciaBandeja",
+              "suelta",
+              "copia"
+            ]
+          },
+          "lamina": [
+            "bandejaPapeles",
+            "limpieza"
+          ],
+          "texto": "وكل شهر: أفرغ صندوق الوارد، وتخلَّ عمّا لم يعد يفيد، وتأكّد أن للمهم نسخة احتياطية."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "carpetasFin",
+              "cuartosFin",
+              "papeleraFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "وإن لم تعرف من أين تبدأ، فانظر إلى ملفاتي في التطبيق: كل شيء مرتّب، من مجلداتي إلى سلة المهملات."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "باختصار: رأسك للتفكير لا للتخزين؛ احفظ دائمًا في المكان نفسه؛ مجلدات قليلة وقليلة العمق؛ التاريخ في بداية الاسم؛ وتخلَّ عمّا لم تعد تستخدمه."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "في الملفات على MindHaOS تحفظ كل شيء في مجلداتك، ولكل غرفة في بيتك مجلدها، وما تتخلّى عنه ينتظر ثلاثين يومًا في سلة المهملات. يمكنك أن تفعل ذلك بنفسك، أو بمساعدة الذكاء الاصطناعي. ابنِ بيتك الذهني مجانًا اليوم: الرابط في الوصف. وفي الدليل القادم: كيف تحفظ أجمل ذكرياتك؟",
+    "boton": "افتح الملفات",
+    "lamina": "app-plan",
+    "anclas": {
+      "carpetas": "في مجلداتك",
+      "cuartos": "لكل غرفة في بيتك",
+      "papelera": "سلة المهملات"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "miller-1956",
+      "texto": "Miller G. A. The magical number seven, plus or minus two: some limits on our capacity for processing information. Psychological Review 63(2), 81-97 (1956).",
+      "url": "https://doi.org/10.1037/h0043158"
+    },
+    {
+      "id": "cowan-2001",
+      "texto": "Cowan N. The magical number 4 in short-term memory: a reconsideration of mental storage capacity. Behavioral and Brain Sciences 24(1), 87-114 (2001).",
+      "url": "https://doi.org/10.1017/S0140525X01003922"
+    },
+    {
+      "id": "bush-1945",
+      "texto": "Bush V. As We May Think. The Atlantic (يوليو 1945).",
+      "url": "https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/"
+    },
+    {
+      "id": "luhmann",
+      "texto": "نيكلاس لومان وصندوق بطاقاته (Zettelkasten). ويكيبيديا.",
+      "url": "https://en.wikipedia.org/wiki/Zettelkasten"
+    },
+    {
+      "id": "sparrow-2011",
+      "texto": "Sparrow B., Liu J., Wegner D. M. Google effects on memory: cognitive consequences of having information at our fingertips. Science 333(6043), 776-778 (2011).",
+      "url": "https://doi.org/10.1126/science.1207745"
+    },
+    {
+      "id": "storm-2015",
+      "texto": "Storm B. C., Stone S. M. Saving-enhanced memory: the benefits of saving on the learning and remembering of new information. Psychological Science 26(2), 182-188 (2015).",
+      "url": "https://doi.org/10.1177/0956797614559285"
+    },
+    {
+      "id": "bergman-2008",
+      "texto": "Bergman O., Beyth-Marom R., Nachmias R., Gradovitch N., Whittaker S. Improved search engines and navigation preference in personal information management. ACM Transactions on Information Systems 26(4) (2008).",
+      "url": "https://doi.org/10.1145/1402256.1402259"
+    },
+    {
+      "id": "mcmains-2011",
+      "texto": "McMains S., Kastner S. Interactions of top-down and bottom-up mechanisms in human visual cortex. Journal of Neuroscience 31(2), 587-597 (2011).",
+      "url": "https://doi.org/10.1523/JNEUROSCI.3766-10.2011"
+    },
+    {
+      "id": "mckinsey-2012",
+      "texto": "McKinsey Global Institute. The social economy: unlocking value and productivity through social technologies (2012).",
+      "url": "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-social-economy"
+    },
+    {
+      "id": "sweeten-2018",
+      "texto": "Sweeten G., Sillence E., Neave N. Digital hoarding behaviours: underlying motivations and potential negative consequences. Computers in Human Behavior 85, 54-60 (2018).",
+      "url": "https://researchportal.northumbria.ac.uk/en/publications/digital-hoarding-behaviours-underlying-motivations-and-potential-/"
+    }
+  ]
+}

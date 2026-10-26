@@ -4182,3 +4182,311 @@ html:has(.g-pose) body {
 .g-via-dias li.pico, .g-via-dias li.malo { font-weight: 700; }
 .g-curva.g-via-base { stroke-width: 2; }
 .g-via-punto { fill: var(--ui-accent); }
+
+/* ───────── Archivo ───────── */
+.g-arc {
+  --met: #0284c7;
+  --arc: #38bdf8;
+}
+.g-arc-entrada {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0 12px;
+}
+.g-arc-entrada input,
+.g-arc-campos input,
+.g-arc-carpetas input {
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-boton);
+  background: var(--ui-panel-2);
+  color: var(--ui-ink);
+  font: inherit;
+}
+.g-arc-entrada input { flex: 1; }
+.g-arc-entrada button,
+.g-arc-nombre button,
+.g-arc-vaciar {
+  padding: 8px 14px;
+  border: 0;
+  border-radius: var(--radio-boton);
+  background: var(--met);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.g-arc-entrada button:disabled,
+.g-arc-nombre button:disabled { opacity: 0.45; cursor: default; }
+.g-arc-vaciar {
+  margin-top: 10px;
+  background: color-mix(in srgb, var(--tinta-3) 22%, transparent);
+  color: var(--ui-ink);
+}
+
+/* Las ranuras de la memoria de trabajo */
+.g-arc-cabeza {
+  padding: 12px;
+  border: 2px dashed color-mix(in srgb, var(--arc) 60%, transparent);
+  border-radius: 18px;
+}
+.g-arc-rotulo { display: block; margin-bottom: 8px; font-size: 13px; font-weight: 700; color: var(--tinta-3); }
+.g-arc-ranuras {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.g-arc-ranuras li {
+  display: grid;
+  place-items: center;
+  min-height: 52px;
+  padding: 6px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--tinta-3) 12%, transparent);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  overflow-wrap: anywhere;
+  transition: background 0.3s, transform 0.3s;
+}
+.g-arc-ranuras li.llena {
+  background: color-mix(in srgb, var(--arc) 30%, transparent);
+  animation: g-arc-entra 0.35s ease-out both;
+  animation-delay: calc(var(--j, 0) * 0.08s);
+}
+.g-arc-caen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.g-arc-caen li {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, #ef4444 20%, transparent);
+  font-size: 13px;
+  font-weight: 600;
+  rotate: calc((var(--j) - 2) * 3deg);
+  animation: g-arc-cae 0.5s ease-in both;
+}
+@keyframes g-arc-entra {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes g-arc-cae {
+  from { opacity: 0; translate: 0 -24px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+/* Tus cinco carpetas */
+.g-arc-carpetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.g-arc-carpetas > li {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  min-height: 110px;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 4px 14px 14px 14px;
+  background: color-mix(in srgb, var(--arc) 16%, var(--ui-panel));
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.g-arc-carpetas > li.elegida { border-color: var(--arc); transform: translateY(-2px); }
+.g-arc-pestana {
+  position: absolute;
+  inset-inline-start: -2px;
+  top: -12px;
+  width: 56px;
+  height: 12px;
+  border-radius: 8px 8px 0 0;
+  background: color-mix(in srgb, var(--arc) 40%, var(--ui-panel));
+}
+.g-arc-carpetas input { width: 100%; padding: 4px 6px; font-weight: 800; background: transparent; border-color: transparent; }
+.g-arc-carpetas input:focus { border-color: var(--arc); background: var(--ui-panel-2); }
+.g-arc-carpetas small { padding-inline: 6px; font-size: 12px; color: var(--tinta-3); }
+.g-arc-carpetas ul { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.g-arc-carpetas ul li {
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: var(--ui-panel);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+  animation: g-arc-entra 0.35s ease-out both;
+}
+
+/* El buen nombre */
+.g-arc-campos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 10px 0 0;
+}
+.g-arc-campos label { display: grid; gap: 4px; font-size: 13px; color: var(--tinta-2); }
+.g-arc-nombre {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--arc) 14%, transparent);
+}
+.g-arc-nombre code {
+  flex: 1;
+  min-width: 0;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+.g-arc-nombre code b { color: var(--met); }
+.g-arc-nombre code em { font-style: normal; font-weight: 700; }
+.g-arc-nombre code em.quien { color: var(--tinta-2); font-weight: 600; }
+.g-arc-dos {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+.g-arc-dos > div > b { font-size: 13px; }
+.g-arc-lista {
+  display: grid;
+  gap: 4px;
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+}
+.g-arc-lista li {
+  padding: 5px 8px;
+  border-inline-start: 3px solid var(--arc);
+  border-radius: 6px;
+  background: var(--ui-panel-2);
+  overflow-wrap: anywhere;
+}
+.g-arc-lista li.nuevo { background: color-mix(in srgb, var(--arc) 28%, transparent); font-weight: 700; animation: g-arc-entra 0.4s ease-out both; }
+.g-arc-mal .g-arc-lista li { border-color: #ef4444; color: var(--tinta-3); text-decoration: line-through; text-decoration-color: color-mix(in srgb, #ef4444 60%, transparent); }
+
+/* Gráficas */
+.g-arc-fila {
+  display: grid;
+  grid-template-columns: minmax(110px, 30%) 1fr auto;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  font-size: 14px;
+}
+.g-arc-fila em { font-style: normal; font-weight: 800; font-size: 20px; }
+.g-arc-fila.fuerte em { color: var(--met); }
+.g-arc-mini { grid-template-columns: repeat(7, 1fr); gap: 6px; }
+.g-arc-mini li { min-height: 34px; }
+.g-arc-mini li.llena { background: color-mix(in srgb, var(--tinta-3) 40%, transparent); }
+.g-arc-fila.fuerte .g-arc-mini li.llena { background: var(--arc); }
+.g-arc-mini li.hueca { background: transparent; border: 2px dashed color-mix(in srgb, var(--tinta-3) 35%, transparent); }
+.g-arc-sparrow { display: grid; gap: 14px; }
+.g-arc-sparrow > div > b { font-size: 14px; }
+.g-arc .g-met-barras em { min-width: 4.5em; font-size: 13px; }
+.g-arc-rangos { display: grid; gap: 14px; margin: 6px 0; }
+.g-arc-rangos > div {
+  display: grid;
+  grid-template-columns: minmax(110px, 34%) 1fr auto;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+}
+.g-arc-rangos i {
+  position: relative;
+  height: 22px;
+  border-radius: 11px;
+  background: color-mix(in srgb, var(--ui-ink) 8%, transparent);
+  overflow: hidden;
+}
+.g-arc-rangos i s {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  background: color-mix(in srgb, var(--ui-ink) 20%, transparent);
+}
+.g-arc-rangos i b {
+  position: absolute;
+  inset-block: 0;
+  border-radius: 0 11px 11px 0;
+  background: color-mix(in srgb, var(--ui-ink) 40%, transparent);
+}
+.g-arc-rangos .fuerte i s { background: color-mix(in srgb, var(--arc) 45%, transparent); }
+.g-arc-rangos .fuerte i b { background: var(--met); }
+.g-arc-rangos em { font-style: normal; font-weight: 800; }
+.g-arc-rangos .fuerte em { color: var(--met); }
+.g-arc-paneles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.g-arc-paneles > div {
+  display: grid;
+  gap: 6px;
+  padding: 10px;
+  border-radius: 14px;
+  background: var(--ui-panel-2);
+  text-align: center;
+}
+.g-arc-paneles svg { width: 100%; max-height: 170px; }
+.g-arc-halo { fill: color-mix(in srgb, var(--arc) 22%, transparent); stroke: var(--arc); stroke-width: 2; animation: g-arc-late 2.4s ease-in-out infinite; transform-origin: 100px 95px; }
+.g-arc-objeto { fill: var(--met); }
+.g-arc-tiron { stroke: color-mix(in srgb, var(--tinta-3) 45%, transparent); stroke-width: 1.5; stroke-dasharray: 3 4; }
+.g-arc-distrae { opacity: 0.85; animation: g-arc-late 1.6s ease-in-out infinite; animation-delay: calc(var(--j) * -0.2s); transform-box: fill-box; transform-origin: center; }
+@keyframes g-arc-late {
+  50% { transform: scale(1.08); }
+}
+.g-arc-atencion { display: grid; gap: 2px; }
+.g-arc-atencion i { height: 12px; border-radius: 6px; background: color-mix(in srgb, var(--ui-ink) 10%, transparent); overflow: hidden; }
+.g-arc-atencion i b { display: block; height: 100%; border-radius: 6px; background: var(--met); transition: width 1.2s; }
+.g-arc-atencion small { font-size: 12px; color: var(--tinta-3); }
+.g-arc-pesa .g-arc-atencion i b { background: #ef4444; }
+.g-arc-ligero .g-arc-atencion i b { background: #22c55e; }
+.g-arc-monton {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: flex-start;
+  height: 150px;
+}
+.g-arc-monton span {
+  width: 70%;
+  height: 9px;
+  margin-top: -1px;
+  border: 1px solid color-mix(in srgb, var(--tinta-3) 40%, transparent);
+  border-radius: 2px;
+  background: var(--ui-panel);
+  rotate: var(--g);
+  animation: g-arc-cae 0.4s ease-out both;
+  animation-delay: calc(var(--j) * 0.06s);
+}
+.g-arc-ligero .g-arc-monton span { background: color-mix(in srgb, var(--arc) 35%, var(--ui-panel)); }
+@media (max-width: 560px) {
+  .g-arc-campos,
+  .g-arc-dos { grid-template-columns: 1fr; }
+  .g-arc-ranuras:not(.g-arc-mini) { grid-template-columns: repeat(2, 1fr); }
+  .g-arc-fila,
+  .g-arc-rangos > div { grid-template-columns: 1fr auto; }
+  .g-arc-fila > span,
+  .g-arc-rangos > div > span { grid-column: 1 / -1; }
+}
+/* Los memes del Archivo llevan nombres de archivo largos sin espacios: que partan en vez de desbordar. */
+.g-meme p,
+.g-meme figcaption { overflow-wrap: anywhere; }

@@ -1,0 +1,745 @@
+{
+  "idioma": "nl",
+  "tema": "archivos",
+  "plantillaId": "archivos",
+  "numero": 21,
+  "nombre": "Bestanden",
+  "pregunta": "Hoe orden je je hoofd?",
+  "corta": "Hoe orden je je hoofd?",
+  "subtitulo": "Hoeveel er echt in je hoofd past, sinds wanneer we ons geheugen buiten ons bewaren, of opslaan je vergeetachtig maakt, of je beter mappen of de zoekfunctie gebruikt, wat rommel met je doet, hoeveel tijd je verliest met zoeken, wat je bewaart en wat je loslaat, en een plan om door te gaan.",
+  "aviso": "Deze gids is informatief en algemeen. De aangehaalde studies meten het geheugen en de aandacht van specifieke groepen mensen; jouw resultaten kunnen verschillen.",
+  "partes": [
+    {
+      "id": "cabeza",
+      "titulo": "Hoeveel past er in je hoofd?",
+      "respuesta": "Zo’n vier dingen tegelijk: je hoofd is om te denken, niet om te bewaren, dus zet de rest op een betrouwbare plek.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Hoe orden je je hoofd? Je hoofd kan maar zo’n vier dingen tegelijk vasthouden. En toch vragen we het om alles te onthouden. Wat als je het niet langer als opslagruimte gebruikt? Vandaag zie je het met data, en je gaat weg met een plan om door te gaan."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Trouwens, dit is mijn huis in MindHaOS, en vandaag is het een ruimteschip. Ik ben de astronaut aan boord, en dit zijn mijn Bestanden: hier bewaar ik alles wat niet in mijn hoofd past."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel één. Hoeveel past er in je hoofd?"
+        },
+        {
+          "id": "cowan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cuatro"
+          },
+          "lamina": [
+            "malabares",
+            "notasPegadas"
+          ],
+          "destacada": true,
+          "texto": "In 1956 zei George Miller dat de geest zo’n zeven dingen tegelijk vasthoudt. In 2001 bekeek Nelson Cowan tientallen experimenten opnieuw en verlaagde het getal: eigenlijk zijn het er zo’n vier."
+        },
+        {
+          "id": "bodega",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "super",
+              "cita",
+              "idea"
+            ]
+          },
+          "lamina": [
+            "listaSuper",
+            "olvido"
+          ],
+          "meme": "bodega",
+          "texto": "Als je de boodschappenlijst, de doktersafspraak en het idee voor je werk tegelijk probeert te dragen, valt er iets. Je hebt geen slecht geheugen: je gebruikt het gewoon als opslagruimte."
+        },
+        {
+          "id": "descarga",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "vaciarMente"
+          },
+          "lamina": [
+            "libretaLista",
+            "escritorioOrden"
+          ],
+          "texto": "Je hoofd is dus om te denken, niet om te bewaren. Doe de test: schrijf hier alles op wat er nu door je hoofd gaat, en kijk hoeveel je met je meedroeg."
+        },
+        {
+          "id": "miArchivo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "carpetasApp",
+              "tiposApp",
+              "nubeApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Daarom woont in mijn Bestanden alles wat niet in mijn hoofd past: papieren, foto’s, notities en documenten, alles in zijn eigen map."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Sinds wanneer bewaren we ons geheugen buiten ons hoofd?",
+      "respuesta": "Altijd al, maar het moderne idee ontstaat in 1945 met de Memex van Vannevar Bush en de negentigduizend kaartjes van Niklas Luhmann.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel twee. Sinds wanneer bewaren we ons geheugen buiten ons hoofd?"
+        },
+        {
+          "id": "bush",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1945",
+            "clave": "bush"
+          },
+          "lamina": [
+            "bush",
+            "microfilm"
+          ],
+          "destacada": true,
+          "texto": "In 1945 bedacht ingenieur Vannevar Bush de Memex: een bureau dat al je boeken, brieven en notities zou bewaren, verbonden door paden, zodat je ze in seconden terugvindt. Tientallen jaren later inspireerde dat idee de uitvinders van hypertekst: de links die je nu op het web gebruikt."
+        },
+        {
+          "id": "luhmann",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1952",
+            "clave": "luhmann"
+          },
+          "lamina": [
+            "fichero",
+            "fichas"
+          ],
+          "texto": "En in 1952 begon de Duitse socioloog Niklas Luhmann elk idee op een kaartje te noteren. Hij kwam tot zo’n negentigduizend, en daarmee schreef hij meer dan zeventig boeken. Hij zei dat zijn kaartenbak zijn collega was."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fichas",
+              "computadora",
+              "nube"
+            ]
+          },
+          "lamina": [
+            "archivero",
+            "celularArchivos"
+          ],
+          "texto": "Daarna kwamen de archiefkasten, de computer en nu de cloud. Vandaag past alles in je broekzak; bewaren is niet meer het moeilijke, terugvinden wel."
+        },
+        {
+          "id": "cuartos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuartoApp",
+              "fuentesApp",
+              "tuyosApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En omdat mijn huis mijn hoofd is, heeft elke kamer een eigen map: daar verschijnt vanzelf wat de app van die kamer al bewaart, zoals de foto’s van mijn reizen of mijn tekeningen."
+        }
+      ]
+    },
+    {
+      "id": "olvido",
+      "titulo": "Maakt opslaan je vergeetachtig?",
+      "respuesta": "Een beetje, maar in ruil maak je je hoofd vrij: wat je op een betrouwbare plek bewaart, laat je het volgende beter leren en onthouden.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel drie. Maakt opslaan je vergeetachtig?"
+        },
+        {
+          "id": "sparrow",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "donde"
+          },
+          "lamina": [
+            "teclado",
+            "buscadorPantalla"
+          ],
+          "destacada": true,
+          "texto": "In 2011 lieten Betsy Sparrow en haar team studenten weetjes intypen op een computer. Wie dacht dat ze bewaard zouden worden, onthield de weetjes slechter… maar wist heel goed in welke map ze stonden."
+        },
+        {
+          "id": "storm",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2015",
+            "clave": "storm"
+          },
+          "lamina": [
+            "guardarArchivo",
+            "estudiante"
+          ],
+          "texto": "En in 2015 lieten Benjamin Storm en Sean Stone de andere kant zien: wie een bestand opsloeg voordat hij het volgende bestudeerde, leerde dat tweede beter. Opslaan maakt ruimte voor iets nieuws."
+        },
+        {
+          "id": "confiable",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unLugar",
+              "siempreAhi",
+              "sabesDonde"
+            ]
+          },
+          "lamina": [
+            "llaves",
+            "cajaFuerte"
+          ],
+          "meme": "guardado",
+          "texto": "Maar het werkt alleen als je de plek vertrouwt: als je iets opslaat en niet weet waar, blijft je hoofd het meedragen. Sla dus zonder schuldgevoel op, altijd op dezelfde plek."
+        },
+        {
+          "id": "visor",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fotoApp",
+              "pdfApp",
+              "dispositivosApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En elk bestand open ik gewoon hier: een foto, een pdf of een notitie, vanaf mijn telefoon of mijn computer."
+        }
+      ]
+    },
+    {
+      "id": "carpetas",
+      "titulo": "Mappen of zoeken?",
+      "respuesta": "Mappen: meestal klikken we ons er naartoe en zoeken bewaar je voor als je verdwaalt; weinig, ondiep en met duidelijke namen.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vier. Mappen of zoeken?"
+        },
+        {
+          "id": "bergman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "navegar"
+          },
+          "lamina": [
+            "carpetasPantalla",
+            "oficina"
+          ],
+          "destacada": true,
+          "texto": "In 2008 onderzochten Ofer Bergman en Steve Whittaker hoe mensen hun eigen bestanden vinden. Zelfs met goede zoekfuncties klikten ze zich meestal door hun mappen; de zoekfunctie gebruikten ze weinig, vooral als ze al verdwaald waren."
+        },
+        {
+          "id": "mapa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pocas",
+              "planas",
+              "nombres"
+            ]
+          },
+          "lamina": [
+            "mapaCiudad",
+            "etiquetas"
+          ],
+          "meme": "final",
+          "texto": "Je mappen zijn een kaart in je hoofd. Als je er honderd hebt, of een map in een map in een map, verdwaal je. Wat werkt: weinig, ondiep en met namen die je in een seconde snapt."
+        },
+        {
+          "id": "cinco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "misCarpetas"
+          },
+          "lamina": [
+            "cajas",
+            "estante"
+          ],
+          "texto": "Probeer het met vijf grote: werk, huis en papierwerk, gezondheid, projecten en foto's. Maak hier je eigen mappen en kijk of alles wat je hebt in een ervan past."
+        },
+        {
+          "id": "carpetasApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cincoApp",
+              "nivelesApp",
+              "moverApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Ik heb maar een paar mappen: Werk, Huis en papierwerk, Gezondheid, Projecten en Foto's. En bijna niets gaat dieper dan twee niveaus."
+        }
+      ]
+    },
+    {
+      "id": "desorden",
+      "titulo": "Steelt rommel je aandacht?",
+      "respuesta": "Ja: alles wat je ziet, vecht om je aandacht, dus laat alleen liggen wat je nu gebruikt.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vijf. Steelt rommel je aandacht?"
+        },
+        {
+          "id": "mcmains",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "competencia"
+          },
+          "lamina": [
+            "escritorioCaos",
+            "cerebro"
+          ],
+          "destacada": true,
+          "texto": "In 2011 maten Stephanie McMains en Sabine Kastner, van de Universiteit van Princeton, de hersenen van mensen die naar een scherm vol voorwerpen keken. Alles wat in beeld was, vocht om hun aandacht, en concentreren kostte meer moeite."
+        },
+        {
+          "id": "vista",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escritorio",
+              "pestanas",
+              "bandeja"
+            ]
+          },
+          "lamina": [
+            "pestanas",
+            "escritorioLimpio"
+          ],
+          "texto": "Het gebeurt op je bureau, op je scherm en op je telefoon: twintig open tabbladen zijn twintig dingen die aan je trekken. Laat alleen in zicht wat je nu gebruikt, en berg de rest op."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoArchivos"
+          },
+          "lamina": "pulgar",
+          "texto": "Als je de gids leuk vindt, klik dan op Vind ik leuk, op Abonneren zodat je de volgende niet mist, en op Delen, voor die ene persoon met een bureaublad vol bestanden."
+        },
+        {
+          "id": "bandeja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "entrada",
+              "semanal",
+              "vacia"
+            ]
+          },
+          "lamina": [
+            "bandejaPapeles",
+            "cafeLibreta"
+          ],
+          "meme": "pestanas",
+          "texto": "En heb maar één inbox: alles wat nieuw is, komt daar terecht, en één keer per week verdeel je het over de mappen."
+        },
+        {
+          "id": "destacados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estrellaApp",
+              "destacadosApp",
+              "recientesApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Wat ik elke week gebruik, geef ik een ster, en dan staat het binnen handbereik bij Met ster; de rest zit me niet in de weg."
+        }
+      ]
+    },
+    {
+      "id": "buscar",
+      "titulo": "Hoeveel tijd verlies je met zoeken?",
+      "respuesta": "Bijna een vijfde van je werkweek: geef elk bestand een naam met de datum vooraan, en je vindt het in seconden.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zes. Hoeveel tijd verlies je met zoeken?"
+        },
+        {
+          "id": "mckinsey",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2012",
+            "clave": "mckinsey"
+          },
+          "lamina": [
+            "buscandoPapeles",
+            "reloj"
+          ],
+          "destacada": true,
+          "texto": "In 2012 berekende een rapport van adviesbureau McKinsey dat kantoormedewerkers bijna een vijfde van hun week kwijt zijn aan informatie zoeken en verzamelen. Dat is bijna een hele dag, elke week."
+        },
+        {
+          "id": "nombres",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nombreArchivo"
+          },
+          "lamina": [
+            "documentos",
+            "calendarioPared"
+          ],
+          "meme": "nombres",
+          "texto": "De truc zit in de naam. Begin met de datum, maar omgekeerd: jaar, maand en dag, en zeg daarna wat het is. Zo sorteren je bestanden zich vanzelf op datum en vind je ze in één oogopslag. Maak hier een goede naam."
+        },
+        {
+          "id": "primeraVez",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "alGuardar",
+              "unaVez",
+              "sinDescargas"
+            ]
+          },
+          "lamina": [
+            "descargas",
+            "carpetaOrden"
+          ],
+          "texto": "En geef het meteen de eerste keer een goede naam, bij het opslaan. Als je het uitstelt, belandt het in je downloadmap met de naam die iemand anders eraan gaf."
+        },
+        {
+          "id": "buscador",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "buscadorApp",
+              "ordenApp",
+              "fechaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En als ik iets kwijt ben, typ ik het in de zoekbalk of sorteer ik op datum; omdat mijn namen met de datum beginnen, komt alles in volgorde."
+        }
+      ]
+    },
+    {
+      "id": "soltar",
+      "titulo": "Wat bewaar je en wat laat je los?",
+      "respuesta": "Bewaar wat je gaat gebruiken of niet kwijt wilt en laat de rest los: alles bewaren ‘voor het geval dat’ weegt ook.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zeven. Wat bewaar je en wat laat je los?"
+        },
+        {
+          "id": "sweeten",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "acumular"
+          },
+          "lamina": [
+            "correoLleno",
+            "discoDuro"
+          ],
+          "destacada": true,
+          "texto": "In 2018 interviewden Gretchen Sweeten en haar team in Engeland mensen over hun digitale bestanden. Velen bewaarden duizenden mails, foto’s en documenten ‘voor het geval dat’, en die berg gaf ze stress in plaats van rust."
+        },
+        {
+          "id": "preguntas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "usar",
+              "otroLado",
+              "doleria"
+            ]
+          },
+          "lamina": [
+            "fotosRepetidas",
+            "decidir"
+          ],
+          "meme": "porSiAcaso",
+          "texto": "Stel jezelf drie vragen voordat je iets bewaart: ga ik het gebruiken? Staat het al ergens anders? Zou ik het erg vinden om het kwijt te raken? Is het drie keer nee, laat het dan los."
+        },
+        {
+          "id": "mensual",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "repetidas",
+              "viejo",
+              "importante"
+            ]
+          },
+          "lamina": [
+            "limpieza",
+            "papelera"
+          ],
+          "texto": "En één keer per maand wis je dubbele foto’s en alles wat verlopen is. Wat echt belangrijk is, zoals je documenten en je herinneringen, bewaar je met een kopie."
+        },
+        {
+          "id": "papelera",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "papeleraApp",
+              "recuperarApp",
+              "treintaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Wat ik loslaat, gaat naar de Prullenbak: als ik spijt krijg, haal ik het terug; en na dertig dagen wordt het vanzelf gewist."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "respuesta": "Leeg je hoofd in een lijst, maak vijf mappen, geef alles een naam met de datum vooraan en laat elke maand los wat te veel is.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel acht. Hoe ga je verder? Jouw plan om door te gaan."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planArchivos"
+          },
+          "lamina": [
+            "libretaLista",
+            "papelesMesa"
+          ],
+          "texto": "Deze week: haal alles wat nog openstaat uit je hoofd en zet het op een lijst, en verzamel je belangrijke papieren op één plek."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cincoCarpetas",
+              "renombra",
+              "estrella"
+            ]
+          },
+          "lamina": [
+            "cajas",
+            "carpetaOrden"
+          ],
+          "destacada": true,
+          "texto": "De eerste maand: maak hooguit vijf mappen, hernoem het belangrijke met de datum vooraan en geef een ster aan wat je het meest gebruikt."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vaciaBandeja",
+              "suelta",
+              "copia"
+            ]
+          },
+          "lamina": [
+            "bandejaPapeles",
+            "limpieza"
+          ],
+          "texto": "En elke maand: leeg je inbox, laat los wat niet meer nodig is en controleer of het belangrijke een kopie heeft."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "carpetasFin",
+              "cuartosFin",
+              "papeleraFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En als je niet weet waar je moet beginnen, kijk dan naar mijn Bestanden in de app: alles staat op orde, van mijn mappen tot de Prullenbak."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Kortom: je hoofd is om te denken, niet om te bewaren; sla altijd op dezelfde plek op; weinig en ondiepe mappen; de datum voor de naam; en laat los wat je niet meer gebruikt."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "In Bestanden van MindHaOS bewaar je alles in je mappen, elke kamer van je huis heeft een eigen map, en wat je loslaat, wacht dertig dagen in de prullenbak. Je kunt het zelf doen, of met hulp van AI. Bouw vandaag gratis je mentale huis: de link staat in de beschrijving. En in de volgende gids: hoe bewaar je je mooiste herinneringen?",
+    "boton": "Open Bestanden",
+    "lamina": "app-plan",
+    "anclas": {
+      "carpetas": "je mappen",
+      "cuartos": "elke kamer van je huis",
+      "papelera": "in de prullenbak"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "miller-1956",
+      "texto": "Miller G. A. The magical number seven, plus or minus two: some limits on our capacity for processing information. Psychological Review 63(2), 81-97 (1956).",
+      "url": "https://doi.org/10.1037/h0043158"
+    },
+    {
+      "id": "cowan-2001",
+      "texto": "Cowan N. The magical number 4 in short-term memory: a reconsideration of mental storage capacity. Behavioral and Brain Sciences 24(1), 87-114 (2001).",
+      "url": "https://doi.org/10.1017/S0140525X01003922"
+    },
+    {
+      "id": "bush-1945",
+      "texto": "Bush V. As We May Think. The Atlantic (juli 1945).",
+      "url": "https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/"
+    },
+    {
+      "id": "luhmann",
+      "texto": "Niklas Luhmann en zijn kaartenbak (Zettelkasten). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Zettelkasten"
+    },
+    {
+      "id": "sparrow-2011",
+      "texto": "Sparrow B., Liu J., Wegner D. M. Google effects on memory: cognitive consequences of having information at our fingertips. Science 333(6043), 776-778 (2011).",
+      "url": "https://doi.org/10.1126/science.1207745"
+    },
+    {
+      "id": "storm-2015",
+      "texto": "Storm B. C., Stone S. M. Saving-enhanced memory: the benefits of saving on the learning and remembering of new information. Psychological Science 26(2), 182-188 (2015).",
+      "url": "https://doi.org/10.1177/0956797614559285"
+    },
+    {
+      "id": "bergman-2008",
+      "texto": "Bergman O., Beyth-Marom R., Nachmias R., Gradovitch N., Whittaker S. Improved search engines and navigation preference in personal information management. ACM Transactions on Information Systems 26(4) (2008).",
+      "url": "https://doi.org/10.1145/1402256.1402259"
+    },
+    {
+      "id": "mcmains-2011",
+      "texto": "McMains S., Kastner S. Interactions of top-down and bottom-up mechanisms in human visual cortex. Journal of Neuroscience 31(2), 587-597 (2011).",
+      "url": "https://doi.org/10.1523/JNEUROSCI.3766-10.2011"
+    },
+    {
+      "id": "mckinsey-2012",
+      "texto": "McKinsey Global Institute. The social economy: unlocking value and productivity through social technologies (2012).",
+      "url": "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-social-economy"
+    },
+    {
+      "id": "sweeten-2018",
+      "texto": "Sweeten G., Sillence E., Neave N. Digital hoarding behaviours: underlying motivations and potential negative consequences. Computers in Human Behavior 85, 54-60 (2018).",
+      "url": "https://researchportal.northumbria.ac.uk/en/publications/digital-hoarding-behaviours-underlying-motivations-and-potential-/"
+    }
+  ]
+}

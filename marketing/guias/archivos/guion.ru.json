@@ -1,0 +1,745 @@
+{
+  "idioma": "ru",
+  "tema": "archivos",
+  "plantillaId": "archivos",
+  "numero": 21,
+  "nombre": "Файлы",
+  "pregunta": "Как навести порядок в голове?",
+  "corta": "Как навести порядок в голове?",
+  "subtitulo": "Сколько на самом деле помещается у тебя в голове, с каких пор мы храним память вне её, заставляет ли сохранение забывать, что лучше — папки или поиск, как на тебя влияет беспорядок, сколько времени ты теряешь на поиски, что хранить и что отпускать, и план на будущее.",
+  "aviso": "Это руководство носит информационный и общий характер. Цитируемые исследования измеряют память и внимание конкретных групп людей; твои результаты могут отличаться.",
+  "partes": [
+    {
+      "id": "cabeza",
+      "titulo": "Сколько помещается у тебя в голове?",
+      "respuesta": "Около четырёх вещей сразу: голова нужна, чтобы думать, а не хранить, так что всё остальное вынеси в надёжное место.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Как навести порядок в голове? Твоя голова может удерживать одновременно лишь около четырёх вещей. И всё же мы требуем от неё помнить всё. А что, если перестать использовать её как склад? Сегодня ты увидишь это на данных и уйдёшь с планом на будущее."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Кстати, это мой дом в MindHaOS, и сегодня он — космический корабль. Я астронавт на борту, а это мои Файлы: здесь я храню всё, что не помещается у меня в голове."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть первая. Сколько помещается у тебя в голове?"
+        },
+        {
+          "id": "cowan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cuatro"
+          },
+          "lamina": [
+            "malabares",
+            "notasPegadas"
+          ],
+          "destacada": true,
+          "texto": "В 1956 году Джордж Миллер сказал, что ум удерживает одновременно около семи вещей. В 2001 году Нельсон Коуэн пересмотрел десятки экспериментов и снизил эту цифру: на самом деле их около четырёх."
+        },
+        {
+          "id": "bodega",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "super",
+              "cita",
+              "idea"
+            ]
+          },
+          "lamina": [
+            "listaSuper",
+            "olvido"
+          ],
+          "meme": "bodega",
+          "texto": "Когда пытаешься держать в голове список покупок, запись к врачу и рабочую идею, что-то выпадает. Дело не в плохой памяти: просто ты используешь её как склад."
+        },
+        {
+          "id": "descarga",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "vaciarMente"
+          },
+          "lamina": [
+            "libretaLista",
+            "escritorioOrden"
+          ],
+          "texto": "Так что голова нужна, чтобы думать, а не хранить. Проверь сам: запиши здесь всё, что у тебя сейчас в голове, и посмотри, сколько всего ты носил."
+        },
+        {
+          "id": "miArchivo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "carpetasApp",
+              "tiposApp",
+              "nubeApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Поэтому в моих Файлах живёт всё, что не помещается у меня в голове: бумаги, фото, заметки и документы, каждая вещь в своей папке."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "С каких пор мы храним память вне головы?",
+      "respuesta": "С давних времён, но современная идея рождается в 1945 году с Мемексом Ванневара Буша и с девяноста тысячами карточек Никласа Лумана.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть вторая. С каких пор мы храним память вне головы?"
+        },
+        {
+          "id": "bush",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1945",
+            "clave": "bush"
+          },
+          "lamina": [
+            "bush",
+            "microfilm"
+          ],
+          "destacada": true,
+          "texto": "В 1945 году инженер Ванневар Буш придумал Мемекс: письменный стол, который хранил бы все твои книги, письма и заметки, связанные между собой путями, чтобы находить их за секунды. Десятилетия спустя эта идея вдохновила изобретателей гипертекста — ссылок, которыми ты сегодня пользуешься в интернете."
+        },
+        {
+          "id": "luhmann",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1952",
+            "clave": "luhmann"
+          },
+          "lamina": [
+            "fichero",
+            "fichas"
+          ],
+          "texto": "А в 1952 году немецкий социолог Никлас Луман начал записывать каждую идею на отдельную карточку. Он дошёл примерно до девяноста тысяч и с их помощью написал больше семидесяти книг. Он говорил, что его картотека — его соавтор."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fichas",
+              "computadora",
+              "nube"
+            ]
+          },
+          "lamina": [
+            "archivero",
+            "celularArchivos"
+          ],
+          "texto": "Потом появились картотечные шкафы, компьютер, а теперь облако. Сегодня всё помещается в кармане; трудно уже не хранить, а находить."
+        },
+        {
+          "id": "cuartos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuartoApp",
+              "fuentesApp",
+              "tuyosApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "А раз мой дом — это мой ум, у каждой комнаты есть своя папка: там сам собой появляется то, что уже хранит её приложение, например фото из моих путешествий или мои рисунки."
+        }
+      ]
+    },
+    {
+      "id": "olvido",
+      "titulo": "Заставляет ли сохранение забывать?",
+      "respuesta": "Немного, но взамен ты освобождаешь голову: то, что лежит в надёжном месте, помогает лучше учить и запоминать следующее.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть третья. Заставляет ли сохранение забывать?"
+        },
+        {
+          "id": "sparrow",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "donde"
+          },
+          "lamina": [
+            "teclado",
+            "buscadorPantalla"
+          ],
+          "destacada": true,
+          "texto": "В 2011 году Бетси Спарроу и её команда попросили студентов набрать на компьютере интересные факты. Те, кто думал, что факты сохранятся, хуже запомнили сами факты… но отлично помнили, в какой они папке."
+        },
+        {
+          "id": "storm",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2015",
+            "clave": "storm"
+          },
+          "lamina": [
+            "guardarArchivo",
+            "estudiante"
+          ],
+          "texto": "А в 2015 году Бенджамин Сторм и Шон Стоун показали обратную сторону: кто сохранял один файл, прежде чем учить следующий, лучше усваивал второй. Сохранение освобождает место для нового."
+        },
+        {
+          "id": "confiable",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unLugar",
+              "siempreAhi",
+              "sabesDonde"
+            ]
+          },
+          "lamina": [
+            "llaves",
+            "cajaFuerte"
+          ],
+          "meme": "guardado",
+          "texto": "Но это работает, только если ты доверяешь месту: когда сохраняешь и не знаешь куда, голова продолжает это нести. Так что сохраняй без угрызений совести, всегда в одно и то же место."
+        },
+        {
+          "id": "visor",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fotoApp",
+              "pdfApp",
+              "dispositivosApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "А любой файл я открываю прямо здесь: фото, PDF или заметку, с телефона или с компьютера."
+        }
+      ]
+    },
+    {
+      "id": "carpetas",
+      "titulo": "Папки или поиск?",
+      "respuesta": "Папки: почти всегда мы находим файлы, переходя по ним, а поиск остаётся на случай, когда заблудился; мало, неглубоко и с понятными названиями.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть четвёртая. Папки или поиск?"
+        },
+        {
+          "id": "bergman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "navegar"
+          },
+          "lamina": [
+            "carpetasPantalla",
+            "oficina"
+          ],
+          "destacada": true,
+          "texto": "В 2008 году Офер Бергман и Стив Уиттакер изучили, как люди находят свои собственные файлы. Даже с хорошими поисковиками чаще всего они добирались до них, переходя по своим папкам; поиском пользовались очень редко, в основном когда уже заблудились."
+        },
+        {
+          "id": "mapa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pocas",
+              "planas",
+              "nombres"
+            ]
+          },
+          "lamina": [
+            "mapaCiudad",
+            "etiquetas"
+          ],
+          "meme": "final",
+          "texto": "Твои папки — это карта в голове. Если их сто или одна внутри другой, а та внутри третьей, ты теряешься. Что работает: мало, неглубоко и с названиями, которые понятны за секунду."
+        },
+        {
+          "id": "cinco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "misCarpetas"
+          },
+          "lamina": [
+            "cajas",
+            "estante"
+          ],
+          "texto": "Попробуй пять больших: работа, дом и документы, здоровье, проекты и фото. Собери здесь свои и посмотри, помещается ли всё, что у тебя есть, хоть в одну."
+        },
+        {
+          "id": "carpetasApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cincoApp",
+              "nivelesApp",
+              "moverApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Папок у меня немного: Работа, Дом и документы, Здоровье, Проекты и Фото. И почти ничего не уходит глубже двух уровней."
+        }
+      ]
+    },
+    {
+      "id": "desorden",
+      "titulo": "Крадёт ли беспорядок твоё внимание?",
+      "respuesta": "Да: всё, что у тебя на виду, борется за твоё внимание, так что оставляй снаружи только то, чем пользуешься сейчас.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть пятая. Крадёт ли беспорядок твоё внимание?"
+        },
+        {
+          "id": "mcmains",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "competencia"
+          },
+          "lamina": [
+            "escritorioCaos",
+            "cerebro"
+          ],
+          "destacada": true,
+          "texto": "В 2011 году Стефани Макмейнс и Сабина Кастнер из Принстонского университета измеряли активность мозга людей, смотревших на экран со множеством предметов. Каждая вещь на виду боролась за их внимание, и сосредоточиться было труднее."
+        },
+        {
+          "id": "vista",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escritorio",
+              "pestanas",
+              "bandeja"
+            ]
+          },
+          "lamina": [
+            "pestanas",
+            "escritorioLimpio"
+          ],
+          "texto": "Так происходит на твоём столе, на экране и в телефоне: двадцать открытых вкладок — это двадцать вещей, которые тянут тебя в разные стороны. Оставь на виду только то, чем пользуешься, а остальное убери."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoArchivos"
+          },
+          "lamina": "pulgar",
+          "texto": "Если тебе нравится это руководство, нажми «Нравится», «Подписаться», чтобы не пропустить следующее, и «Поделиться» — с тем, у кого рабочий стол завален файлами."
+        },
+        {
+          "id": "bandeja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "entrada",
+              "semanal",
+              "vacia"
+            ]
+          },
+          "lamina": [
+            "bandejaPapeles",
+            "cafeLibreta"
+          ],
+          "meme": "pestanas",
+          "texto": "И заведи один-единственный входящий ящик: всё новое падает туда, а раз в неделю ты раскладываешь это по папкам."
+        },
+        {
+          "id": "destacados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estrellaApp",
+              "destacadosApp",
+              "recientesApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "То, чем пользуюсь каждую неделю, я помечаю звёздочкой, и оно всегда под рукой в «Помеченных»; остальное не мешает мне на виду."
+        }
+      ]
+    },
+    {
+      "id": "buscar",
+      "titulo": "Сколько времени ты теряешь на поиски?",
+      "respuesta": "Почти пятую часть рабочей недели: называй каждый файл с датой в начале, и найдёшь его за секунды.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть шестая. Сколько времени ты теряешь на поиски?"
+        },
+        {
+          "id": "mckinsey",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2012",
+            "clave": "mckinsey"
+          },
+          "lamina": [
+            "buscandoPapeles",
+            "reloj"
+          ],
+          "destacada": true,
+          "texto": "В 2012 году отчёт консалтинговой компании McKinsey подсчитал, что офисные работники тратят почти пятую часть недели на поиск и сбор информации. Это почти целый день, каждую неделю."
+        },
+        {
+          "id": "nombres",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nombreArchivo"
+          },
+          "lamina": [
+            "documentos",
+            "calendarioPared"
+          ],
+          "meme": "nombres",
+          "texto": "Весь секрет в названии. Начни с даты наоборот: год, месяц и день, а потом скажи, что это. Тогда файлы сами выстраиваются по дате, и ты находишь их с одного взгляда. Составь здесь хорошее название."
+        },
+        {
+          "id": "primeraVez",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "alGuardar",
+              "unaVez",
+              "sinDescargas"
+            ]
+          },
+          "lamina": [
+            "descargas",
+            "carpetaOrden"
+          ],
+          "texto": "И называй файл правильно с первого раза, когда сохраняешь. Если отложишь на потом, он окажется в «Загрузках» с названием, которое дал ему кто-то другой."
+        },
+        {
+          "id": "buscador",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "buscadorApp",
+              "ordenApp",
+              "fechaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "А если что-то теряется, я ввожу это в поиск или сортирую по дате; раз мои названия начинаются с даты, всё выходит по порядку."
+        }
+      ]
+    },
+    {
+      "id": "soltar",
+      "titulo": "Что хранить и что отпускать?",
+      "respuesta": "Храни то, чем будешь пользоваться или что жалко потерять, а остальное отпусти: копить «на всякий случай» тоже тяжело.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть седьмая. Что хранить и что отпускать?"
+        },
+        {
+          "id": "sweeten",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "acumular"
+          },
+          "lamina": [
+            "correoLleno",
+            "discoDuro"
+          ],
+          "destacada": true,
+          "texto": "В 2018 году Гретхен Свитен и её команда в Англии расспрашивали людей об их цифровых файлах. Многие хранили тысячи писем, фото и документов «на всякий случай», и эта груда вызывала у них стресс вместо спокойствия."
+        },
+        {
+          "id": "preguntas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "usar",
+              "otroLado",
+              "doleria"
+            ]
+          },
+          "lamina": [
+            "fotosRepetidas",
+            "decidir"
+          ],
+          "meme": "porSiAcaso",
+          "texto": "Прежде чем что-то сохранить, задай себе три вопроса: буду ли я этим пользоваться, есть ли это уже где-то ещё, жалко ли будет это потерять? Если все три ответа «нет», отпусти."
+        },
+        {
+          "id": "mensual",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "repetidas",
+              "viejo",
+              "importante"
+            ]
+          },
+          "lamina": [
+            "limpieza",
+            "papelera"
+          ],
+          "texto": "И раз в месяц удаляй повторяющиеся фото и то, что уже устарело. По-настоящему важное, вроде документов и воспоминаний, храни с копией."
+        },
+        {
+          "id": "papelera",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "papeleraApp",
+              "recuperarApp",
+              "treintaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "То, что я отпускаю, уходит в Корзину: если передумаю, достаю обратно; а через тридцать дней оно удаляется само."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Как продолжать? Твой план на будущее",
+      "respuesta": "Выгрузи всё из головы в список, заведи пять папок, называй файлы с датой в начале и каждый месяц отпускай лишнее.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть восьмая. Как продолжать? Твой план на будущее."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planArchivos"
+          },
+          "lamina": [
+            "libretaLista",
+            "papelesMesa"
+          ],
+          "texto": "На этой неделе выгрузи из головы в список все дела и собери свои важные бумаги в одном месте."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cincoCarpetas",
+              "renombra",
+              "estrella"
+            ]
+          },
+          "lamina": [
+            "cajas",
+            "carpetaOrden"
+          ],
+          "destacada": true,
+          "texto": "В первый месяц заведи не больше пяти папок, переименуй важное, поставив дату в начало, и пометь звёздочкой то, чем пользуешься чаще всего."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vaciaBandeja",
+              "suelta",
+              "copia"
+            ]
+          },
+          "lamina": [
+            "bandejaPapeles",
+            "limpieza"
+          ],
+          "texto": "А каждый месяц: разбери входящий ящик, отпусти то, что уже не нужно, и проверь, что у важного есть копия."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "carpetasFin",
+              "cuartosFin",
+              "papeleraFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "А если не знаешь, с чего начать, загляни в мои Файлы в приложении: там всё по порядку, от моих папок до Корзины."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Итак: голова нужна, чтобы думать, а не хранить; сохраняй всегда в одно и то же место; мало папок и неглубоко; дата в начале названия; и отпускай то, чем больше не пользуешься."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "В «Файлах» MindHaOS ты хранишь всё в своих папках, у каждой комнаты твоего дома есть своя, а то, что ты выбрасываешь, тридцать дней ждёт в корзине. Ты можешь делать это сам или с помощью ИИ. Построй свой мысленный дом бесплатно уже сегодня: ссылка в описании. А в следующем руководстве: как сохранить свои лучшие воспоминания?",
+    "boton": "Открыть Файлы",
+    "lamina": "app-plan",
+    "anclas": {
+      "carpetas": "своих папках",
+      "cuartos": "каждой комнаты твоего дома",
+      "papelera": "в корзине"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "miller-1956",
+      "texto": "Miller G. A. The magical number seven, plus or minus two: some limits on our capacity for processing information. Psychological Review 63(2), 81-97 (1956).",
+      "url": "https://doi.org/10.1037/h0043158"
+    },
+    {
+      "id": "cowan-2001",
+      "texto": "Cowan N. The magical number 4 in short-term memory: a reconsideration of mental storage capacity. Behavioral and Brain Sciences 24(1), 87-114 (2001).",
+      "url": "https://doi.org/10.1017/S0140525X01003922"
+    },
+    {
+      "id": "bush-1945",
+      "texto": "Bush V. As We May Think. The Atlantic (июль 1945).",
+      "url": "https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/"
+    },
+    {
+      "id": "luhmann",
+      "texto": "Никлас Луман и его картотека (Zettelkasten). Википедия.",
+      "url": "https://en.wikipedia.org/wiki/Zettelkasten"
+    },
+    {
+      "id": "sparrow-2011",
+      "texto": "Sparrow B., Liu J., Wegner D. M. Google effects on memory: cognitive consequences of having information at our fingertips. Science 333(6043), 776-778 (2011).",
+      "url": "https://doi.org/10.1126/science.1207745"
+    },
+    {
+      "id": "storm-2015",
+      "texto": "Storm B. C., Stone S. M. Saving-enhanced memory: the benefits of saving on the learning and remembering of new information. Psychological Science 26(2), 182-188 (2015).",
+      "url": "https://doi.org/10.1177/0956797614559285"
+    },
+    {
+      "id": "bergman-2008",
+      "texto": "Bergman O., Beyth-Marom R., Nachmias R., Gradovitch N., Whittaker S. Improved search engines and navigation preference in personal information management. ACM Transactions on Information Systems 26(4) (2008).",
+      "url": "https://doi.org/10.1145/1402256.1402259"
+    },
+    {
+      "id": "mcmains-2011",
+      "texto": "McMains S., Kastner S. Interactions of top-down and bottom-up mechanisms in human visual cortex. Journal of Neuroscience 31(2), 587-597 (2011).",
+      "url": "https://doi.org/10.1523/JNEUROSCI.3766-10.2011"
+    },
+    {
+      "id": "mckinsey-2012",
+      "texto": "McKinsey Global Institute. The social economy: unlocking value and productivity through social technologies (2012).",
+      "url": "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-social-economy"
+    },
+    {
+      "id": "sweeten-2018",
+      "texto": "Sweeten G., Sillence E., Neave N. Digital hoarding behaviours: underlying motivations and potential negative consequences. Computers in Human Behavior 85, 54-60 (2018).",
+      "url": "https://researchportal.northumbria.ac.uk/en/publications/digital-hoarding-behaviours-underlying-motivations-and-potential-/"
+    }
+  ]
+}

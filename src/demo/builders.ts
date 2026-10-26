@@ -76,6 +76,8 @@ export const BUILDERS_DEMO: Record<string, () => Promise<BuilderDemo>> = {
   sala: () => import('../rooms/sala/demo').then((m) => m.construirDemoSala),
   despacho: () => import('../rooms/despacho/demo').then((m) => m.construirDemoDespacho),
   computo: () => import('../rooms/computo/demo').then((m) => m.construirDemoComputo),
+  // La nube de ejemplo del cuarto Archivo (carpetas, PDFs, fotos, notas y audio).
+  archivos: () => import('../rooms/archivos/demo').then((m) => m.construirDemoArchivos),
 }
 
 /**

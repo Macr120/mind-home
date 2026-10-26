@@ -70,7 +70,7 @@ export async function aPapelera(sel: Seleccion, todas: Seleccion): Promise<void>
   }
   // Lo que está en la papelera deja de estar compartido. Sin red no frena el
   // borrado: el enlace muere igual al vaciarse (su objeto deja de contar).
-  if (claves.length) await revocarEnlacesDe(claves).catch((e) => console.warn('[MPH] revocar enlaces', e))
+  if (claves.length && !esDemo()) await revocarEnlacesDe(claves).catch((e) => console.warn('[MPH] revocar enlaces', e))
 }
 
 /**
@@ -108,7 +108,8 @@ export async function borrarParaSiempre(sel: Seleccion, todas: Seleccion): Promi
   for (const a of sel.archivos) if (a.id != null) archivos.set(a.id, a)
   for (const a of todas.archivos) if (a.id != null && a.carpetaId != null && ids.has(a.carpetaId)) archivos.set(a.id, a)
   const lista = [...archivos.values()]
-  if (lista.length) await borrarArchivos(lista.map((a) => a.clave))
+  // En la demo los bytes viven en la fila (no hay nada en R2 que borrar).
+  if (lista.length && !esDemo()) await borrarArchivos(lista.map((a) => a.clave))
   for (const a of lista) await archivosNubeRepo.remove(a.id!)
   for (const id of ids) await carpetasArchivoRepo.remove(id)
   await refrescarUsoAlmacen()

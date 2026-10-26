@@ -1,0 +1,745 @@
+{
+  "idioma": "ja",
+  "tema": "archivos",
+  "plantillaId": "archivos",
+  "numero": 21,
+  "nombre": "ファイル",
+  "pregunta": "頭の中を整理するには？",
+  "corta": "頭の中を整理するには？",
+  "subtitulo": "頭に本当に入る量、記憶を頭の外に置くようになったのはいつからか、保存すると忘れるのか、フォルダと検索のどちらがいいか、散らかりがどう影響するか、探しものにどれだけ時間を失っているか、何を残して何を手放すか、そして続けるためのプラン。",
+  "aviso": "このガイドは一般的な情報提供を目的としています。紹介する研究は特定の人たちの記憶や注意を測ったもので、結果には個人差があります。",
+  "partes": [
+    {
+      "id": "cabeza",
+      "titulo": "頭にはどれだけ入るのでしょうか？",
+      "respuesta": "一度に4つほど。頭は考えるための場所なので、ほかは信頼できる場所に出しましょう。",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "どうすれば頭の中を整理できるのでしょうか？ 頭が一度に持てるのは、だいたい4つまでです。それなのに私たちは、全部覚えておいてと頭に頼んでいます。もし、頭を倉庫として使うのをやめたら？ 今日はデータでそれを確かめて、続けるためのプランを持ち帰ってもらいます。"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "ところで、これはMindHaOSにある僕の家で、今日は宇宙船になっています。僕はこの船の宇宙飛行士で、ここが僕の「ファイル」です。頭に入りきらないものは、全部ここにしまっています。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート1。頭にはどれだけ入るのでしょうか？"
+        },
+        {
+          "id": "cowan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cuatro"
+          },
+          "lamina": [
+            "malabares",
+            "notasPegadas"
+          ],
+          "destacada": true,
+          "texto": "1956年、ジョージ・ミラーは、心が一度に持てるのは7つほどだと言いました。2001年、ネルソン・コーワンは何十もの実験を見直して、その数を下げました。実際は4つほどなんです。"
+        },
+        {
+          "id": "bodega",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "super",
+              "cita",
+              "idea"
+            ]
+          },
+          "lamina": [
+            "listaSuper",
+            "olvido"
+          ],
+          "meme": "bodega",
+          "texto": "買い物リストと、病院の予約と、仕事のアイデアを全部抱えようとすると、何かが落ちます。記憶力が悪いわけではありません。頭を倉庫として使っているだけなんです。"
+        },
+        {
+          "id": "descarga",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "vaciarMente"
+          },
+          "lamina": [
+            "libretaLista",
+            "escritorioOrden"
+          ],
+          "texto": "だから、頭は考えるためのもので、しまっておくためのものではありません。試してみてください。いま頭の中にあることを全部ここに書き出して、どれだけ抱えていたか見てみましょう。"
+        },
+        {
+          "id": "miArchivo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "carpetasApp",
+              "tiposApp",
+              "nubeApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "だから僕の「ファイル」には、頭に入りきらないものが全部入っています。書類、写真、メモ、文書が、それぞれのフォルダに。"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "人はいつから記憶を頭の外に置いているのでしょうか？",
+      "respuesta": "ずっと昔から。でも今の考え方は、1945年のブッシュのメメックスと、ルーマンの9万枚のカードから始まりました。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート2。人はいつから記憶を頭の外に置いているのでしょうか？"
+        },
+        {
+          "id": "bush",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1945",
+            "clave": "bush"
+          },
+          "lamina": [
+            "bush",
+            "microfilm"
+          ],
+          "destacada": true,
+          "texto": "1945年、技術者のヴァネヴァー・ブッシュはメメックスを思い描きました。本も手紙もメモも全部しまえて、それらが道でつながり、数秒で見つかる机です。数十年後、このアイデアはハイパーテキストの発明者たちに影響を与えました。いまウェブで使っているリンクのことです。"
+        },
+        {
+          "id": "luhmann",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1952",
+            "clave": "luhmann"
+          },
+          "lamina": [
+            "fichero",
+            "fichas"
+          ],
+          "texto": "そして1952年、ドイツの社会学者ニクラス・ルーマンは、アイデアをひとつずつカードに書きはじめました。カードは約9万枚になり、それを使って70冊以上の本を書きました。彼は、自分のカード箱を仕事仲間だと言っていました。"
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fichas",
+              "computadora",
+              "nube"
+            ]
+          },
+          "lamina": [
+            "archivero",
+            "celularArchivos"
+          ],
+          "texto": "そのあと書類棚が生まれ、コンピューターが登場し、いまはクラウドです。今では全部ポケットに入ります。難しいのはもう保存ではなく、見つけることです。"
+        },
+        {
+          "id": "cuartos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuartoApp",
+              "fuentesApp",
+              "tuyosApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "そして、僕の家は僕の心なので、部屋ごとにフォルダがあります。そこには、その部屋のアプリがもう保存しているものが自動で出てきます。旅の写真や、僕の絵みたいに。"
+        }
+      ]
+    },
+    {
+      "id": "olvido",
+      "titulo": "保存すると忘れてしまうのでしょうか？",
+      "respuesta": "少しは。でも頭が軽くなり、信頼できる場所に預けたぶん、次のことをよく覚えられます。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート3。保存すると忘れてしまうのでしょうか？"
+        },
+        {
+          "id": "sparrow",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "donde"
+          },
+          "lamina": [
+            "teclado",
+            "buscadorPantalla"
+          ],
+          "destacada": true,
+          "texto": "2011年、ベッツィ・スパロウたちは、学生に雑学をコンピューターに入力してもらいました。保存されると思っていた人たちは、内容をあまり覚えていませんでした…でも、どのフォルダに入っているかはよく覚えていたんです。"
+        },
+        {
+          "id": "storm",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2015",
+            "clave": "storm"
+          },
+          "lamina": [
+            "guardarArchivo",
+            "estudiante"
+          ],
+          "texto": "そして2015年、ベンジャミン・ストームとショーン・ストーンは、その裏側を示しました。次のファイルを勉強する前にひとつ目を保存した人は、2つ目をよりよく覚えたんです。保存すると、新しいことのための空きができます。"
+        },
+        {
+          "id": "confiable",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unLugar",
+              "siempreAhi",
+              "sabesDonde"
+            ]
+          },
+          "lamina": [
+            "llaves",
+            "cajaFuerte"
+          ],
+          "meme": "guardado",
+          "texto": "ただし、それは場所を信頼しているときだけです。保存してもどこにあるかわからないと、頭はまだそれを抱えたままです。だから罪悪感なしに保存しましょう。いつも同じ場所に。"
+        },
+        {
+          "id": "visor",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fotoApp",
+              "pdfApp",
+              "dispositivosApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "そして、どんなファイルもここでそのまま開けます。写真も、PDFも、メモも。スマホからでも、コンピューターからでも。"
+        }
+      ]
+    },
+    {
+      "id": "carpetas",
+      "titulo": "フォルダか、検索か？",
+      "respuesta": "フォルダです。たいていはたどって見つけ、検索は迷ったときだけ。少なく、浅く、わかりやすい名前で。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート4。フォルダか、検索か？"
+        },
+        {
+          "id": "bergman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "navegar"
+          },
+          "lamina": [
+            "carpetasPantalla",
+            "oficina"
+          ],
+          "destacada": true,
+          "texto": "2008年、オファー・バーグマンとスティーブ・ウィテカーは、人が自分のファイルをどうやって見つけるかを調べました。いい検索機能があっても、ほとんどの場合はフォルダをたどって見つけていました。検索はあまり使われず、使うのはたいてい、もう迷ってしまったときでした。"
+        },
+        {
+          "id": "mapa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pocas",
+              "planas",
+              "nombres"
+            ]
+          },
+          "lamina": [
+            "mapaCiudad",
+            "etiquetas"
+          ],
+          "meme": "final",
+          "texto": "フォルダは頭の中の地図です。百個もあったり、フォルダの中のフォルダの中のフォルダだったりすると、迷ってしまいます。うまくいくのは、少なく、浅く、一瞬でわかる名前にすることです。"
+        },
+        {
+          "id": "cinco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "misCarpetas"
+          },
+          "lamina": [
+            "cajas",
+            "estante"
+          ],
+          "texto": "大きなフォルダを5つにしてみましょう。仕事、家と手続き、健康、プロジェクト、写真。ここで自分のフォルダを作って、持っているものが全部どれかに入るか見てみてください。"
+        },
+        {
+          "id": "carpetasApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cincoApp",
+              "nivelesApp",
+              "moverApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "僕のフォルダは少しだけ。仕事、家と手続き、健康、プロジェクト、写真です。そして、ほとんどが2階層までです。"
+        }
+      ]
+    },
+    {
+      "id": "desorden",
+      "titulo": "散らかりは集中力を奪うのでしょうか？",
+      "respuesta": "はい。目に入るものはすべて注意を奪い合うので、出しておくのは使っているものだけに。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート5。散らかりは集中力を奪うのでしょうか？"
+        },
+        {
+          "id": "mcmains",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "competencia"
+          },
+          "lamina": [
+            "escritorioCaos",
+            "cerebro"
+          ],
+          "destacada": true,
+          "texto": "2011年、プリンストン大学のステファニー・マクメインズとサビーネ・カストナーは、たくさんの物が映った画面を見ている人の脳を測りました。目に入るものはどれも注意を奪い合い、集中するのが難しくなっていました。"
+        },
+        {
+          "id": "vista",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escritorio",
+              "pestanas",
+              "bandeja"
+            ]
+          },
+          "lamina": [
+            "pestanas",
+            "escritorioLimpio"
+          ],
+          "texto": "机の上でも、画面でも、スマホでも同じです。開いたままのタブが20個あれば、20個のものに引っぱられています。目に見えるところには今使っているものだけを置いて、ほかはしまっておきましょう。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoArchivos"
+          },
+          "lamina": "pulgar",
+          "texto": "このガイドを気に入ってもらえたら、高評価と、次回を見逃さないためのチャンネル登録、そして、デスクトップがファイルでいっぱいのあの人に共有をお願いします。"
+        },
+        {
+          "id": "bandeja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "entrada",
+              "semanal",
+              "vacia"
+            ]
+          },
+          "lamina": [
+            "bandejaPapeles",
+            "cafeLibreta"
+          ],
+          "meme": "pestanas",
+          "texto": "そして、受け取り箱はひとつだけにしましょう。新しいものは全部そこに入れて、週に一度、それぞれのフォルダに振り分けます。"
+        },
+        {
+          "id": "destacados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estrellaApp",
+              "destacadosApp",
+              "recientesApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "毎週使うものにはスターを付けておくと、「スター付き」にまとまって、すぐ手に取れます。ほかのものは目ざわりになりません。"
+        }
+      ]
+    },
+    {
+      "id": "buscar",
+      "titulo": "探しものにどれだけ時間を失っているのでしょうか？",
+      "respuesta": "仕事の1週間のほぼ5分の1です。ファイル名の頭に日付を付ければ、数秒で見つかります。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート6。探しものにどれだけ時間を失っているのでしょうか？"
+        },
+        {
+          "id": "mckinsey",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2012",
+            "clave": "mckinsey"
+          },
+          "lamina": [
+            "buscandoPapeles",
+            "reloj"
+          ],
+          "destacada": true,
+          "texto": "2012年、コンサルティング会社マッキンゼーの報告書は、オフィスで働く人は1週間のほぼ5分の1を、情報を探したり集めたりするのに使っていると試算しました。毎週、ほぼ丸1日です。"
+        },
+        {
+          "id": "nombres",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nombreArchivo"
+          },
+          "lamina": [
+            "documentos",
+            "calendarioPared"
+          ],
+          "meme": "nombres",
+          "texto": "コツは名前にあります。まず日付を年、月、日の順で書いて、そのあとに中身を書きます。そうすれば自然に日付順に並んで、ひと目で見つかります。ここでいい名前を作ってみましょう。"
+        },
+        {
+          "id": "primeraVez",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "alGuardar",
+              "unaVez",
+              "sinDescargas"
+            ]
+          },
+          "lamina": [
+            "descargas",
+            "carpetaOrden"
+          ],
+          "texto": "そして名前は、保存するその時に、最初からちゃんと付けましょう。あとまわしにすると、誰かが付けた名前のまま、ダウンロードフォルダに埋もれてしまいます。"
+        },
+        {
+          "id": "buscador",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "buscadorApp",
+              "ordenApp",
+              "fechaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "それでも何か見つからないときは、検索に入力するか、日付順に並べます。僕のファイル名は日付から始まるので、全部きちんと並んで出てきます。"
+        }
+      ]
+    },
+    {
+      "id": "soltar",
+      "titulo": "何を残して、何を手放す？",
+      "respuesta": "使うものと、なくしたらつらいものだけ残しましょう。「念のため」ためこむのも重荷になります。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート7。何を残して、何を手放す？"
+        },
+        {
+          "id": "sweeten",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "acumular"
+          },
+          "lamina": [
+            "correoLleno",
+            "discoDuro"
+          ],
+          "destacada": true,
+          "texto": "2018年、イングランドのグレッチェン・スウィートンたちは、デジタルファイルについて人々に話を聞きました。多くの人が何千ものメールや写真や文書を「念のため」に残していて、その山は安心ではなくストレスになっていました。"
+        },
+        {
+          "id": "preguntas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "usar",
+              "otroLado",
+              "doleria"
+            ]
+          },
+          "lamina": [
+            "fotosRepetidas",
+            "decidir"
+          ],
+          "meme": "porSiAcaso",
+          "texto": "何かを保存する前に、3つ質問してみてください。これを使う？ もうほかの場所にある？ なくしたらつらい？ 3つともノーなら、手放しましょう。"
+        },
+        {
+          "id": "mensual",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "repetidas",
+              "viejo",
+              "importante"
+            ]
+          },
+          "lamina": [
+            "limpieza",
+            "papelera"
+          ],
+          "texto": "そして月に一度、重複した写真や、期限の切れたものを消しましょう。書類や思い出のような本当に大切なものは、コピーを取って残しておきます。"
+        },
+        {
+          "id": "papelera",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "papeleraApp",
+              "recuperarApp",
+              "treintaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "手放したものはゴミ箱に入ります。後悔したら取り出せますし、30日たつと自動で消えます。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "この先どうする？ 続けるためのプラン",
+      "respuesta": "頭の中をリストに出し、フォルダを5つ作り、名前の頭に日付を付け、毎月いらないものを手放しましょう。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート8。この先どうする？ 続けるためのプラン。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planArchivos"
+          },
+          "lamina": [
+            "libretaLista",
+            "papelesMesa"
+          ],
+          "texto": "今週は、頭の中にあるやることを全部リストに書き出して、大事な書類をひとつの場所に集めましょう。"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cincoCarpetas",
+              "renombra",
+              "estrella"
+            ]
+          },
+          "lamina": [
+            "cajas",
+            "carpetaOrden"
+          ],
+          "destacada": true,
+          "texto": "最初の1か月は、フォルダを多くても5つ作り、大事なものの名前の頭に日付を付け直して、よく使うものにスターを付けましょう。"
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vaciaBandeja",
+              "suelta",
+              "copia"
+            ]
+          },
+          "lamina": [
+            "bandejaPapeles",
+            "limpieza"
+          ],
+          "texto": "そして毎月、受け取り箱を空にして、もう役に立たないものを手放し、大事なものにコピーがあるか確かめます。"
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "carpetasFin",
+              "cuartosFin",
+              "papeleraFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "どこから始めればいいかわからなければ、アプリで僕の「ファイル」を見てください。フォルダからゴミ箱まで、きちんと整理されています。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "まとめると、頭は考えるためのもので、しまうためのものではない。保存はいつも同じ場所に。フォルダは少なく、浅く。名前の頭に日付を。そして、使わないものは手放そう。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOSの「ファイル」では、全部を自分のフォルダにしまえて、家の部屋ごとにもフォルダがあり、手放したものはゴミ箱で30日間待っています。自分でやっても、AIに手伝ってもらってもいいんです。今日、無料であなたの心の家をつくろう。リンクは概要欄にあります。そして次回のガイドは、いちばんの思い出は、どうすれば残せるのでしょうか？",
+    "boton": "ファイルを開く",
+    "lamina": "app-plan",
+    "anclas": {
+      "carpetas": "自分のフォルダ",
+      "cuartos": "家の部屋ごと",
+      "papelera": "ゴミ箱"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "miller-1956",
+      "texto": "Miller G. A. The magical number seven, plus or minus two: some limits on our capacity for processing information. Psychological Review 63(2), 81-97 (1956).",
+      "url": "https://doi.org/10.1037/h0043158"
+    },
+    {
+      "id": "cowan-2001",
+      "texto": "Cowan N. The magical number 4 in short-term memory: a reconsideration of mental storage capacity. Behavioral and Brain Sciences 24(1), 87-114 (2001).",
+      "url": "https://doi.org/10.1017/S0140525X01003922"
+    },
+    {
+      "id": "bush-1945",
+      "texto": "Bush V. As We May Think. The Atlantic（1945年7月）.",
+      "url": "https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/"
+    },
+    {
+      "id": "luhmann",
+      "texto": "ニクラス・ルーマンとカード箱（Zettelkasten）。Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Zettelkasten"
+    },
+    {
+      "id": "sparrow-2011",
+      "texto": "Sparrow B., Liu J., Wegner D. M. Google effects on memory: cognitive consequences of having information at our fingertips. Science 333(6043), 776-778 (2011).",
+      "url": "https://doi.org/10.1126/science.1207745"
+    },
+    {
+      "id": "storm-2015",
+      "texto": "Storm B. C., Stone S. M. Saving-enhanced memory: the benefits of saving on the learning and remembering of new information. Psychological Science 26(2), 182-188 (2015).",
+      "url": "https://doi.org/10.1177/0956797614559285"
+    },
+    {
+      "id": "bergman-2008",
+      "texto": "Bergman O., Beyth-Marom R., Nachmias R., Gradovitch N., Whittaker S. Improved search engines and navigation preference in personal information management. ACM Transactions on Information Systems 26(4) (2008).",
+      "url": "https://doi.org/10.1145/1402256.1402259"
+    },
+    {
+      "id": "mcmains-2011",
+      "texto": "McMains S., Kastner S. Interactions of top-down and bottom-up mechanisms in human visual cortex. Journal of Neuroscience 31(2), 587-597 (2011).",
+      "url": "https://doi.org/10.1523/JNEUROSCI.3766-10.2011"
+    },
+    {
+      "id": "mckinsey-2012",
+      "texto": "McKinsey Global Institute. The social economy: unlocking value and productivity through social technologies (2012).",
+      "url": "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-social-economy"
+    },
+    {
+      "id": "sweeten-2018",
+      "texto": "Sweeten G., Sillence E., Neave N. Digital hoarding behaviours: underlying motivations and potential negative consequences. Computers in Human Behavior 85, 54-60 (2018).",
+      "url": "https://researchportal.northumbria.ac.uk/en/publications/digital-hoarding-behaviours-underlying-motivations-and-potential-/"
+    }
+  ]
+}

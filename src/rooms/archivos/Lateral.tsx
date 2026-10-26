@@ -71,7 +71,7 @@ export function Lateral({
       key={e.clave}
       type="button"
       data-destino={e.destino}
-      data-tut={e.cuarto ? undefined : `archivos.menu.${e.clave}`}
+      data-tut={e.cuarto ? `archivos.menu.cuarto.${e.cuarto.appId ?? e.cuarto.cuarto.id}` : `archivos.menu.${e.clave}`}
       onClick={() => ir(e.ir)}
       className={`flex w-full items-center gap-2.5 rounded-full py-1.5 pe-3 text-left text-sm transition ${sangria ? 'ps-6' : 'ps-3'} ${clases(e)}`}
     >

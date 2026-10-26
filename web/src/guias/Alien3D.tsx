@@ -8,7 +8,7 @@ import { CUERPOS_PRESET } from '../../../src/core/house/cuerpos'
 import { GESTOS, Pieza } from './Princesa3D'
 
 /**
- * El alien verde, narrador de la guía de Matemáticas (y, con `cuerpo='osito'`, el osito de la de Ideas): el mismo cuerpo de piezas que el
+ * El alien verde, narrador de la guía de Matemáticas (y, con `cuerpo='osito'`, el osito de la de Ideas; con `cuerpo='astronauta'`, el astronauta del Archivo): el mismo cuerpo de piezas que el
  * preset «Alien» de la app (`CUERPOS_PRESET` en src/core/house/cuerpos.ts: torso de cajas,
  * cabeza redonda y dos ojos negros grandes), con los brazos articulados desde el hombro para
  * los gestos de la guía (los mismos que la princesa) y una boca que se abre con la narración.
@@ -20,6 +20,9 @@ import { GESTOS, Pieza } from './Princesa3D'
 const CABEZAS: Record<string, { y: number; boca: [number, number, number]; color: string }> = {
   alien: { y: 1.55, boca: [0, -0.13, 0.27], color: '#1f3b1a' },
   osito: { y: 1.5, boca: [0, -0.15, 0.26], color: '#3b2314' },
+  // El astronauta (Archivo): casco de 0,27 en y = 1,54; la boca va en la cara frontal del visor
+  // (caja en z = 0,33 de 0,06 de grueso: frente en 0,36), un poco abajo y clara para leerse sobre él.
+  astronauta: { y: 1.54, boca: [0, -0.05, 0.36], color: '#7dd3fc' },
 }
 
 export function Alien3D({ escena, boca, cara, colores, cuerpo: id = 'alien', ropa }: { escena: string; boca: MutableRefObject<BocaHabla>; cara?: ExpresionId; colores?: Record<string, string>; cuerpo?: string; ropa?: Ropa }) {

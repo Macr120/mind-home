@@ -1,0 +1,745 @@
+{
+  "idioma": "id",
+  "tema": "archivos",
+  "plantillaId": "archivos",
+  "numero": 21,
+  "nombre": "Berkas",
+  "pregunta": "Bagaimana mengatur pikiranmu?",
+  "corta": "Bagaimana mengatur pikiranmu?",
+  "subtitulo": "Seberapa banyak yang benar-benar muat di kepalamu, sejak kapan kita menyimpan ingatan di luar kepala, apakah menyimpan membuatmu lupa, lebih baik folder atau pencarian, bagaimana kekacauan memengaruhimu, berapa banyak waktu yang hilang untuk mencari, apa yang disimpan dan apa yang dilepas, dan rencana untuk melanjutkan.",
+  "aviso": "Panduan ini bersifat informatif dan umum. Studi yang dikutip mengukur ingatan dan perhatian kelompok orang tertentu; hasilmu bisa berbeda.",
+  "partes": [
+    {
+      "id": "cabeza",
+      "titulo": "Seberapa banyak yang muat di kepalamu?",
+      "respuesta": "Sekitar empat hal sekaligus: kepalamu untuk berpikir, bukan untuk menyimpan, jadi taruh sisanya di tempat yang bisa dipercaya.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Bagaimana mengatur pikiranmu? Kepalamu hanya bisa memegang sekitar empat hal sekaligus. Tapi tetap saja kita memintanya mengingat semuanya. Bagaimana kalau kamu berhenti memakainya sebagai gudang? Hari ini kamu akan melihatnya dengan data, dan pulang membawa rencana untuk melanjutkan."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Omong-omong, ini rumahku di MindHaOS, dan hari ini ia jadi pesawat luar angkasa. Aku astronaut di dalamnya, dan ini Berkasku: di sini kusimpan semua yang tidak muat di kepalaku."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian satu. Seberapa banyak yang muat di kepalamu?"
+        },
+        {
+          "id": "cowan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cuatro"
+          },
+          "lamina": [
+            "malabares",
+            "notasPegadas"
+          ],
+          "destacada": true,
+          "texto": "Pada 1956, George Miller bilang pikiran bisa memegang sekitar tujuh hal sekaligus. Pada 2001, Nelson Cowan meninjau puluhan eksperimen dan menurunkan angkanya: sebenarnya hanya sekitar empat."
+        },
+        {
+          "id": "bodega",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "super",
+              "cita",
+              "idea"
+            ]
+          },
+          "lamina": [
+            "listaSuper",
+            "olvido"
+          ],
+          "meme": "bodega",
+          "texto": "Saat kamu mencoba membawa daftar belanja, janji dengan dokter, dan ide untuk kerjaan, pasti ada yang jatuh. Bukan karena ingatanmu buruk: kamu memakainya sebagai gudang."
+        },
+        {
+          "id": "descarga",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "vaciarMente"
+          },
+          "lamina": [
+            "libretaLista",
+            "escritorioOrden"
+          ],
+          "texto": "Jadi kepalamu untuk berpikir, bukan untuk menyimpan. Coba deh: tulis di sini semua yang ada di pikiranmu sekarang, dan lihat berapa banyak yang kamu bawa."
+        },
+        {
+          "id": "miArchivo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "carpetasApp",
+              "tiposApp",
+              "nubeApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Karena itu, di Berkasku tinggal semua yang tidak muat di kepalaku: kertas, foto, catatan, dan dokumen, masing-masing di foldernya."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Sejak kapan kita menyimpan ingatan di luar kepala?",
+      "respuesta": "Sejak dulu, tapi gagasan modernnya lahir pada 1945 lewat Memex Vannevar Bush dan sembilan puluh ribu kartu Niklas Luhmann.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian dua. Sejak kapan kita menyimpan ingatan di luar kepala?"
+        },
+        {
+          "id": "bush",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1945",
+            "clave": "bush"
+          },
+          "lamina": [
+            "bush",
+            "microfilm"
+          ],
+          "destacada": true,
+          "texto": "Pada 1945, insinyur Vannevar Bush membayangkan Memex: sebuah meja yang menyimpan semua buku, surat, dan catatanmu, terhubung lewat jalur-jalur, supaya bisa ditemukan dalam hitungan detik. Puluhan tahun kemudian, gagasan itu menginspirasi para penemu hiperteks: tautan yang kamu pakai di web hari ini."
+        },
+        {
+          "id": "luhmann",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1952",
+            "clave": "luhmann"
+          },
+          "lamina": [
+            "fichero",
+            "fichas"
+          ],
+          "texto": "Lalu pada 1952, sosiolog Jerman Niklas Luhmann mulai mencatat setiap ide di selembar kartu. Jumlahnya sampai sekitar sembilan puluh ribu, dan dengan itu ia menulis lebih dari tujuh puluh buku. Katanya, kotak kartunya adalah rekan kerjanya."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fichas",
+              "computadora",
+              "nube"
+            ]
+          },
+          "lamina": [
+            "archivero",
+            "celularArchivos"
+          ],
+          "texto": "Setelah itu datang lemari arsip, komputer, dan sekarang cloud. Kini semuanya muat di saku; yang sulit bukan lagi menyimpan, tapi menemukan."
+        },
+        {
+          "id": "cuartos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuartoApp",
+              "fuentesApp",
+              "tuyosApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dan karena rumahku adalah pikiranku, setiap ruangan punya foldernya: di sana otomatis muncul apa yang sudah disimpan aplikasinya, seperti foto perjalananku atau gambar-gambarku."
+        }
+      ]
+    },
+    {
+      "id": "olvido",
+      "titulo": "Apakah menyimpan membuatmu lupa?",
+      "respuesta": "Sedikit, tapi sebagai gantinya kepalamu lega: yang kamu simpan di tempat terpercaya membantumu belajar dan mengingat hal berikutnya.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tiga. Apakah menyimpan membuatmu lupa?"
+        },
+        {
+          "id": "sparrow",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "donde"
+          },
+          "lamina": [
+            "teclado",
+            "buscadorPantalla"
+          ],
+          "destacada": true,
+          "texto": "Pada 2011, Betsy Sparrow dan timnya meminta mahasiswa mengetik fakta-fakta unik di komputer. Yang mengira datanya akan disimpan lebih sedikit mengingat faktanya… tapi ingat betul di folder mana datanya berada."
+        },
+        {
+          "id": "storm",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2015",
+            "clave": "storm"
+          },
+          "lamina": [
+            "guardarArchivo",
+            "estudiante"
+          ],
+          "texto": "Lalu pada 2015, Benjamin Storm dan Sean Stone menunjukkan sisi lainnya: orang yang menyimpan satu berkas sebelum mempelajari berkas berikutnya belajar lebih baik di berkas kedua. Menyimpan memberi ruang untuk hal baru."
+        },
+        {
+          "id": "confiable",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unLugar",
+              "siempreAhi",
+              "sabesDonde"
+            ]
+          },
+          "lamina": [
+            "llaves",
+            "cajaFuerte"
+          ],
+          "meme": "guardado",
+          "texto": "Tapi itu hanya berhasil kalau kamu percaya pada tempatnya: kalau kamu menyimpan dan tidak tahu di mana, kepalamu tetap memikulnya. Jadi simpan tanpa rasa bersalah, selalu di tempat yang sama."
+        },
+        {
+          "id": "visor",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fotoApp",
+              "pdfApp",
+              "dispositivosApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dan berkas apa pun bisa kubuka langsung di sini: foto, PDF, atau catatan, dari ponsel maupun komputer."
+        }
+      ]
+    },
+    {
+      "id": "carpetas",
+      "titulo": "Folder atau pencarian?",
+      "respuesta": "Folder: kita hampir selalu sampai dengan menelusuri, dan pencarian dipakai saat tersesat; sedikit, dangkal, dan bernama jelas.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian empat. Folder atau pencarian?"
+        },
+        {
+          "id": "bergman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "navegar"
+          },
+          "lamina": [
+            "carpetasPantalla",
+            "oficina"
+          ],
+          "destacada": true,
+          "texto": "Pada 2008, Ofer Bergman dan Steve Whittaker meneliti cara orang menemukan berkas mereka sendiri. Meski mesin pencarinya bagus, kebanyakan orang sampai dengan menelusuri folder; pencarian jarang dipakai, terutama saat mereka sudah tersesat."
+        },
+        {
+          "id": "mapa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pocas",
+              "planas",
+              "nombres"
+            ]
+          },
+          "lamina": [
+            "mapaCiudad",
+            "etiquetas"
+          ],
+          "meme": "final",
+          "texto": "Folder-foldermu adalah peta pikiran. Kalau ada seratus, atau folder di dalam folder di dalam folder, kamu tersesat. Yang berhasil: sedikit, dangkal, dan dengan nama yang langsung kamu pahami dalam sedetik."
+        },
+        {
+          "id": "cinco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "misCarpetas"
+          },
+          "lamina": [
+            "cajas",
+            "estante"
+          ],
+          "texto": "Coba dengan lima folder besar: kerja, rumah dan administrasi, kesehatan, proyek, dan foto. Buat foldermu sendiri di sini dan lihat apakah semua yang kamu punya muat di salah satunya."
+        },
+        {
+          "id": "carpetasApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cincoApp",
+              "nivelesApp",
+              "moverApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Folderku cuma sedikit: Kerja, Rumah dan administrasi, Kesehatan, Proyek, dan Foto. Dan hampir tidak ada yang lebih dari dua tingkat."
+        }
+      ]
+    },
+    {
+      "id": "desorden",
+      "titulo": "Apakah kekacauan mencuri perhatianmu?",
+      "respuesta": "Ya: semua yang terlihat berebut perhatianmu, jadi biarkan di luar hanya yang sedang kamu pakai.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian lima. Apakah kekacauan mencuri perhatianmu?"
+        },
+        {
+          "id": "mcmains",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "competencia"
+          },
+          "lamina": [
+            "escritorioCaos",
+            "cerebro"
+          ],
+          "destacada": true,
+          "texto": "Pada 2011, Stephanie McMains dan Sabine Kastner, dari Universitas Princeton, mengukur otak orang yang melihat layar penuh benda. Setiap benda yang terlihat berebut perhatian mereka, dan berkonsentrasi jadi lebih sulit."
+        },
+        {
+          "id": "vista",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escritorio",
+              "pestanas",
+              "bandeja"
+            ]
+          },
+          "lamina": [
+            "pestanas",
+            "escritorioLimpio"
+          ],
+          "texto": "Itu terjadi di mejamu, di layarmu, dan di ponselmu: dua puluh tab yang terbuka adalah dua puluh hal yang menarikmu. Biarkan terlihat hanya yang sedang kamu pakai, dan sisanya, simpan."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoArchivos"
+          },
+          "lamina": "pulgar",
+          "texto": "Kalau kamu suka panduan ini, tekan Suka, Subscribe supaya tidak ketinggalan panduan berikutnya, dan Bagikan ke orang yang desktopnya penuh berkas."
+        },
+        {
+          "id": "bandeja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "entrada",
+              "semanal",
+              "vacia"
+            ]
+          },
+          "lamina": [
+            "bandejaPapeles",
+            "cafeLibreta"
+          ],
+          "meme": "pestanas",
+          "texto": "Dan punya satu kotak masuk saja: semua yang baru masuk ke sana, dan seminggu sekali kamu bagikan ke foldernya masing-masing."
+        },
+        {
+          "id": "destacados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estrellaApp",
+              "destacadosApp",
+              "recientesApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Yang kupakai tiap minggu kuberi bintang, dan langsung siap di Berbintang; sisanya tidak mengganggu pandanganku."
+        }
+      ]
+    },
+    {
+      "id": "buscar",
+      "titulo": "Berapa banyak waktu yang hilang untuk mencari?",
+      "respuesta": "Hampir seperlima minggu kerja: beri setiap berkas nama dengan tanggal di depan, dan kamu akan menemukannya dalam hitungan detik.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian enam. Berapa banyak waktu yang hilang untuk mencari?"
+        },
+        {
+          "id": "mckinsey",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2012",
+            "clave": "mckinsey"
+          },
+          "lamina": [
+            "buscandoPapeles",
+            "reloj"
+          ],
+          "destacada": true,
+          "texto": "Pada 2012, sebuah laporan dari firma konsultan McKinsey menghitung bahwa pekerja kantor menghabiskan hampir seperlima minggunya untuk mencari dan mengumpulkan informasi. Itu hampir satu hari penuh, setiap minggu."
+        },
+        {
+          "id": "nombres",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nombreArchivo"
+          },
+          "lamina": [
+            "documentos",
+            "calendarioPared"
+          ],
+          "meme": "nombres",
+          "texto": "Rahasianya ada di nama. Mulailah dengan tanggal yang dibalik, tahun, bulan, lalu hari, baru sebutkan isinya. Dengan begitu berkas terurut sendiri menurut tanggal dan kamu menemukannya sekilas. Buat nama yang bagus di sini."
+        },
+        {
+          "id": "primeraVez",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "alGuardar",
+              "unaVez",
+              "sinDescargas"
+            ]
+          },
+          "lamina": [
+            "descargas",
+            "carpetaOrden"
+          ],
+          "texto": "Dan beri nama yang benar sejak pertama, saat menyimpannya. Kalau ditunda, ujung-ujungnya masuk folder unduhan dengan nama yang diberikan orang lain."
+        },
+        {
+          "id": "buscador",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "buscadorApp",
+              "ordenApp",
+              "fechaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dan kalau ada yang hilang, kuketik di kolom pencarian atau kuurutkan menurut tanggal; karena namaku diawali tanggal, semuanya muncul berurutan."
+        }
+      ]
+    },
+    {
+      "id": "soltar",
+      "titulo": "Apa yang disimpan dan apa yang dilepas?",
+      "respuesta": "Simpan yang akan kamu pakai atau sayang kalau hilang, dan lepaskan sisanya: menumpuk «buat jaga-jaga» juga membebani.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tujuh. Apa yang disimpan dan apa yang dilepas?"
+        },
+        {
+          "id": "sweeten",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "acumular"
+          },
+          "lamina": [
+            "correoLleno",
+            "discoDuro"
+          ],
+          "destacada": true,
+          "texto": "Pada 2018, Gretchen Sweeten dan timnya, di Inggris, mewawancarai orang tentang berkas digital mereka. Banyak yang menyimpan ribuan email, foto, dan dokumen «buat jaga-jaga», dan tumpukan itu justru bikin stres, bukan tenang."
+        },
+        {
+          "id": "preguntas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "usar",
+              "otroLado",
+              "doleria"
+            ]
+          },
+          "lamina": [
+            "fotosRepetidas",
+            "decidir"
+          ],
+          "meme": "porSiAcaso",
+          "texto": "Sebelum menyimpan sesuatu, tanyakan tiga hal: apakah akan kupakai?, apakah sudah ada di tempat lain?, apakah aku akan sedih kalau hilang? Kalau ketiganya tidak, lepaskan."
+        },
+        {
+          "id": "mensual",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "repetidas",
+              "viejo",
+              "importante"
+            ]
+          },
+          "lamina": [
+            "limpieza",
+            "papelera"
+          ],
+          "texto": "Dan sebulan sekali, hapus foto yang dobel dan yang sudah kedaluwarsa. Yang benar-benar penting, seperti dokumen dan kenanganmu, simpan dengan cadangan."
+        },
+        {
+          "id": "papelera",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "papeleraApp",
+              "recuperarApp",
+              "treintaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Yang kulepas masuk ke Sampah: kalau menyesal, kukeluarkan lagi; dan setelah tiga puluh hari terhapus sendiri."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Bagaimana selanjutnya? Rencanamu untuk melanjutkan",
+      "respuesta": "Kosongkan kepalamu ke sebuah daftar, buat lima folder, beri nama dengan tanggal di depan, dan tiap bulan lepaskan yang tak perlu.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian delapan. Bagaimana selanjutnya? Rencanamu untuk melanjutkan."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planArchivos"
+          },
+          "lamina": [
+            "libretaLista",
+            "papelesMesa"
+          ],
+          "texto": "Minggu ini, keluarkan dari kepalamu semua yang tertunda ke sebuah daftar, dan kumpulkan kertas-kertas pentingmu di satu tempat."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cincoCarpetas",
+              "renombra",
+              "estrella"
+            ]
+          },
+          "lamina": [
+            "cajas",
+            "carpetaOrden"
+          ],
+          "destacada": true,
+          "texto": "Di bulan pertama, buat paling banyak lima folder, ganti nama yang penting dengan tanggal di depan, dan beri bintang yang paling sering kamu pakai."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vaciaBandeja",
+              "suelta",
+              "copia"
+            ]
+          },
+          "lamina": [
+            "bandejaPapeles",
+            "limpieza"
+          ],
+          "texto": "Dan setiap bulan: kosongkan kotak masukmu, lepaskan yang sudah tidak berguna, dan pastikan yang penting punya cadangan."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "carpetasFin",
+              "cuartosFin",
+              "papeleraFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dan kalau kamu bingung mulai dari mana, lihat Berkasku di aplikasi: semuanya rapi, dari folder-folderku sampai Sampah."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Singkatnya: kepalamu untuk berpikir, bukan untuk menyimpan; selalu simpan di tempat yang sama; sedikit folder dan dangkal; tanggal di depan nama; dan lepaskan yang sudah tidak kamu pakai."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Di Berkas MindHaOS kamu menyimpan semuanya di folder-foldermu, setiap ruangan di rumahmu punya foldernya sendiri, dan yang kamu lepaskan menunggu tiga puluh hari di Sampah. Kamu bisa melakukannya sendiri, atau dengan bantuan AI. Bangun rumah pikiranmu gratis hari ini: tautannya ada di deskripsi. Dan di panduan berikutnya: bagaimana menyimpan kenangan terbaikmu?",
+    "boton": "Buka Berkas",
+    "lamina": "app-plan",
+    "anclas": {
+      "carpetas": "di folder-foldermu",
+      "cuartos": "setiap ruangan di rumahmu",
+      "papelera": "di Sampah"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "miller-1956",
+      "texto": "Miller G. A. The magical number seven, plus or minus two: some limits on our capacity for processing information. Psychological Review 63(2), 81-97 (1956).",
+      "url": "https://doi.org/10.1037/h0043158"
+    },
+    {
+      "id": "cowan-2001",
+      "texto": "Cowan N. The magical number 4 in short-term memory: a reconsideration of mental storage capacity. Behavioral and Brain Sciences 24(1), 87-114 (2001).",
+      "url": "https://doi.org/10.1017/S0140525X01003922"
+    },
+    {
+      "id": "bush-1945",
+      "texto": "Bush V. As We May Think. The Atlantic (Juli 1945).",
+      "url": "https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/"
+    },
+    {
+      "id": "luhmann",
+      "texto": "Niklas Luhmann dan kotak kartunya (Zettelkasten). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Zettelkasten"
+    },
+    {
+      "id": "sparrow-2011",
+      "texto": "Sparrow B., Liu J., Wegner D. M. Google effects on memory: cognitive consequences of having information at our fingertips. Science 333(6043), 776-778 (2011).",
+      "url": "https://doi.org/10.1126/science.1207745"
+    },
+    {
+      "id": "storm-2015",
+      "texto": "Storm B. C., Stone S. M. Saving-enhanced memory: the benefits of saving on the learning and remembering of new information. Psychological Science 26(2), 182-188 (2015).",
+      "url": "https://doi.org/10.1177/0956797614559285"
+    },
+    {
+      "id": "bergman-2008",
+      "texto": "Bergman O., Beyth-Marom R., Nachmias R., Gradovitch N., Whittaker S. Improved search engines and navigation preference in personal information management. ACM Transactions on Information Systems 26(4) (2008).",
+      "url": "https://doi.org/10.1145/1402256.1402259"
+    },
+    {
+      "id": "mcmains-2011",
+      "texto": "McMains S., Kastner S. Interactions of top-down and bottom-up mechanisms in human visual cortex. Journal of Neuroscience 31(2), 587-597 (2011).",
+      "url": "https://doi.org/10.1523/JNEUROSCI.3766-10.2011"
+    },
+    {
+      "id": "mckinsey-2012",
+      "texto": "McKinsey Global Institute. The social economy: unlocking value and productivity through social technologies (2012).",
+      "url": "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-social-economy"
+    },
+    {
+      "id": "sweeten-2018",
+      "texto": "Sweeten G., Sillence E., Neave N. Digital hoarding behaviours: underlying motivations and potential negative consequences. Computers in Human Behavior 85, 54-60 (2018).",
+      "url": "https://researchportal.northumbria.ac.uk/en/publications/digital-hoarding-behaviours-underlying-motivations-and-potential-/"
+    }
+  ]
+}

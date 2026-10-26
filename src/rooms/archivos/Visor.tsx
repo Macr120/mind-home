@@ -67,7 +67,7 @@ export function Visor({
   else if (mime.startsWith('image/')) vista = <img src={url} alt={archivo.nombre} className="max-h-[60vh] w-full rounded-lg object-contain" />
   else if (mime.startsWith('video/')) vista = <video src={url} controls playsInline className="max-h-[60vh] w-full rounded-lg bg-black" />
   else if (mime.startsWith('audio/')) vista = <audio src={url} controls className="w-full" />
-  else if (mime === 'application/pdf') vista = <iframe src={url} title={archivo.nombre} className="h-[60vh] w-full rounded-lg bg-white" />
+  else if (mime === 'application/pdf') vista = <iframe src={`${url}#navpanes=0`} title={archivo.nombre} className="h-[60vh] w-full rounded-lg bg-white" />
   else if (esTexto && texto != null) vista = <pre className="max-h-[60vh] overflow-auto whitespace-pre-wrap rounded-lg bg-black/30 p-3 text-xs">{texto}</pre>
   else if (esTexto) vista = <Spinner etiqueta={t('archivos.cargando', 'Cargando…')} />
   else
@@ -79,23 +79,23 @@ export function Visor({
     )
 
   return (
-    <Modal titulo={archivo.nombre} onCerrar={onCerrar} ancho="max-w-3xl">
+    <Modal titulo={archivo.nombre} onCerrar={onCerrar} ancho="max-w-3xl" tut="archivos.visor">
       <div className="grid min-h-32 place-items-center">{vista}</div>
       <p className="text-xs text-white/45">
         {formatoBytes(archivo.bytes)}
         {archivo.creadoEn && ` · ${new Date(archivo.creadoEn).toLocaleString(localeActual())}`}
       </p>
       <div className="flex flex-wrap gap-2">
-        <BotonPrimario pequeno app={COLOR} onClick={onDescargar}>
+        <BotonPrimario pequeno app={COLOR} onClick={onDescargar} data-tut="archivos.visor.descargar">
           <Icono nombre="descargar" /> {t('archivos.descargar', 'Descargar')}
         </BotonPrimario>
         {botones.map((b) =>
           b.peligro ? (
-            <BotonPeligro key={b.texto} pequeno onClick={b.onClick} className="ml-auto">
+            <BotonPeligro key={b.texto} pequeno onClick={b.onClick} className="ml-auto" data-tut={`archivos.visor.${b.icono}`}>
               <Icono nombre={b.icono} /> {b.texto}
             </BotonPeligro>
           ) : (
-            <BotonSecundario key={b.texto} pequeno onClick={b.onClick}>
+            <BotonSecundario key={b.texto} pequeno onClick={b.onClick} data-tut={`archivos.visor.${b.icono}`}>
               <Icono nombre={b.icono} /> {b.texto}
             </BotonSecundario>
           ),

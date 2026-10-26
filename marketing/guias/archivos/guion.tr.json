@@ -1,0 +1,745 @@
+{
+  "idioma": "tr",
+  "tema": "archivos",
+  "plantillaId": "archivos",
+  "numero": 21,
+  "nombre": "Dosyalar",
+  "pregunta": "Zihnini nasıl düzenlersin?",
+  "corta": "Zihnini nasıl düzenlersin?",
+  "subtitulo": "Kafana gerçekte ne kadar şey sığar, belleği ne zamandan beri kafamızın dışında saklıyoruz, bir şeyleri kaydetmek unutturur mu, klasör mü arama mı, dağınıklık seni nasıl etkiler, aramaya ne kadar zaman kaybedersin, neyi saklamalı neyi bırakmalı ve devam etmek için bir plan.",
+  "aviso": "Bu rehber bilgilendirme amaçlı ve geneldir. Alıntılanan çalışmalar belirli insan gruplarının belleğini ve dikkatini ölçer; senin sonuçların farklı olabilir.",
+  "partes": [
+    {
+      "id": "cabeza",
+      "titulo": "Kafana ne kadar şey sığar?",
+      "respuesta": "Aynı anda dört kadar şey: kafan düşünmek içindir, saklamak için değil, o yüzden gerisini güvenilir bir yere çıkar.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Zihnini nasıl düzenlersin? Kafan aynı anda yalnızca dört kadar şeyi tutabilir. Yine de ondan her şeyi hatırlamasını bekleriz. Ya onu depo gibi kullanmayı bıraksaydın? Bugün bunu verilerle göreceksin ve devam etmek için bir planla ayrılacaksın."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Bu arada, burası MindHaOS’taki evim ve bugün bir uzay gemisi. Ben gemideki astronotum, bu da Dosyalarım: kafama sığmayan her şeyi burada saklıyorum."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Birinci bölüm. Kafana ne kadar şey sığar?"
+        },
+        {
+          "id": "cowan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cuatro"
+          },
+          "lamina": [
+            "malabares",
+            "notasPegadas"
+          ],
+          "destacada": true,
+          "texto": "1956’da George Miller, zihnin aynı anda yedi kadar şey tuttuğunu söyledi. 2001’de Nelson Cowan onlarca deneyi gözden geçirdi ve sayıyı düşürdü: gerçekte dört kadar."
+        },
+        {
+          "id": "bodega",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "super",
+              "cita",
+              "idea"
+            ]
+          },
+          "lamina": [
+            "listaSuper",
+            "olvido"
+          ],
+          "meme": "bodega",
+          "texto": "Market listesini, doktor randevusunu ve iş fikrini aynı anda taşımaya çalışınca bir şey düşer. Hafızan kötü değil: sadece onu depo gibi kullanıyorsun."
+        },
+        {
+          "id": "descarga",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "vaciarMente"
+          },
+          "lamina": [
+            "libretaLista",
+            "escritorioOrden"
+          ],
+          "texto": "Yani kafan düşünmek içindir, saklamak için değil. Bir dene: şu an aklında ne varsa buraya yaz ve kaç şey taşıdığına bak."
+        },
+        {
+          "id": "miArchivo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "carpetasApp",
+              "tiposApp",
+              "nubeApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bu yüzden kafama sığmayan her şey Dosyalarımda yaşar: kâğıtlar, fotoğraflar, notlar ve belgeler, her biri kendi klasöründe."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Belleği ne zamandan beri dışarıda saklıyoruz?",
+      "respuesta": "Hep sakladık, ama modern fikir 1945’te Vannevar Bush’un Memex’i ve Niklas Luhmann’ın doksan bin fişiyle doğar.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "İkinci bölüm. Belleği ne zamandan beri dışarıda saklıyoruz?"
+        },
+        {
+          "id": "bush",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1945",
+            "clave": "bush"
+          },
+          "lamina": [
+            "bush",
+            "microfilm"
+          ],
+          "destacada": true,
+          "texto": "1945’te mühendis Vannevar Bush, Memex’i hayal etti: tüm kitaplarını, mektuplarını ve notlarını birbirine yollarla bağlı saklayan ve saniyeler içinde bulmanı sağlayan bir masa. Onlarca yıl sonra bu fikir, hipermetnin mucitlerine ilham verdi: bugün internette kullandığın bağlantılara."
+        },
+        {
+          "id": "luhmann",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1952",
+            "clave": "luhmann"
+          },
+          "lamina": [
+            "fichero",
+            "fichas"
+          ],
+          "texto": "Ve 1952’de Alman sosyolog Niklas Luhmann her fikrini ayrı bir fişe yazmaya başladı. Doksan bin kadar fişe ulaştı ve onlarla yetmişten fazla kitap yazdı. Fiş kutusunun iş arkadaşı olduğunu söylerdi."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fichas",
+              "computadora",
+              "nube"
+            ]
+          },
+          "lamina": [
+            "archivero",
+            "celularArchivos"
+          ],
+          "texto": "Sonra dosya dolapları, bilgisayar ve şimdi de bulut geldi. Bugün her şey cebe sığıyor; zor olan artık saklamak değil, bulmak."
+        },
+        {
+          "id": "cuartos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuartoApp",
+              "fuentesApp",
+              "tuyosApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Evim zihnim olduğu için her odanın kendi klasörü var: orada, uygulamasının zaten sakladıkları kendiliğinden görünür, mesela gezilerimin fotoğrafları ya da çizimlerim."
+        }
+      ]
+    },
+    {
+      "id": "olvido",
+      "titulo": "Bir şeyleri kaydetmek unutturur mu?",
+      "respuesta": "Biraz, ama karşılığında kafanı boşaltırsın: güvenilir bir yere kaydettiğin şey, sıradakini daha iyi öğrenip hatırlamanı sağlar.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Üçüncü bölüm. Bir şeyleri kaydetmek unutturur mu?"
+        },
+        {
+          "id": "sparrow",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "donde"
+          },
+          "lamina": [
+            "teclado",
+            "buscadorPantalla"
+          ],
+          "destacada": true,
+          "texto": "2011’de Betsy Sparrow ve ekibi, öğrencilerden bir bilgisayara ilginç bilgiler yazmalarını istedi. Bilgilerin kaydedileceğini düşünenler bilgileri daha az hatırladı… ama hangi klasörde olduklarını çok iyi hatırladılar."
+        },
+        {
+          "id": "storm",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2015",
+            "clave": "storm"
+          },
+          "lamina": [
+            "guardarArchivo",
+            "estudiante"
+          ],
+          "texto": "Ve 2015’te Benjamin Storm ve Sean Stone madalyonun öbür yüzünü gösterdi: bir sonrakine çalışmadan önce bir dosyayı kaydedenler ikincisini daha iyi öğreniyordu. Kaydetmek yeniye yer açar."
+        },
+        {
+          "id": "confiable",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unLugar",
+              "siempreAhi",
+              "sabesDonde"
+            ]
+          },
+          "lamina": [
+            "llaves",
+            "cajaFuerte"
+          ],
+          "meme": "guardado",
+          "texto": "Ama bu yalnızca o yere güveniyorsan işe yarar: kaydedip nereye koyduğunu bilmezsen kafan onu taşımaya devam eder. O yüzden gönül rahatlığıyla kaydet, hep aynı yere."
+        },
+        {
+          "id": "visor",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fotoApp",
+              "pdfApp",
+              "dispositivosApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Ve her dosyayı hemen burada açarım: bir fotoğraf, bir PDF ya da bir not, telefondan veya bilgisayardan."
+        }
+      ]
+    },
+    {
+      "id": "carpetas",
+      "titulo": "Klasör mü, arama mı?",
+      "respuesta": "Klasör: neredeyse her zaman gezinerek buluruz, arama kaybolduğun zamanlar içindir; az, sığ ve net isimli klasörler.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Dördüncü bölüm. Klasör mü, arama mı?"
+        },
+        {
+          "id": "bergman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "navegar"
+          },
+          "lamina": [
+            "carpetasPantalla",
+            "oficina"
+          ],
+          "destacada": true,
+          "texto": "2008’de Ofer Bergman ve Steve Whittaker insanların kendi dosyalarını nasıl bulduğunu inceledi. İyi arama motorları olsa bile çoğu zaman klasörlerinde gezinerek ulaşıyorlardı; aramayı çok az, çoğunlukla zaten kaybolmuşken kullanıyorlardı."
+        },
+        {
+          "id": "mapa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pocas",
+              "planas",
+              "nombres"
+            ]
+          },
+          "lamina": [
+            "mapaCiudad",
+            "etiquetas"
+          ],
+          "meme": "final",
+          "texto": "Klasörlerin zihnindeki bir haritadır. Yüz tane varsa ya da biri ötekinin, o da bir başkasının içindeyse kaybolursun. İşe yarayan: az, sığ ve bir saniyede anlayacağın isimler."
+        },
+        {
+          "id": "cinco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "misCarpetas"
+          },
+          "lamina": [
+            "cajas",
+            "estante"
+          ],
+          "texto": "Beş büyük klasörle dene: iş, ev ve resmi işler, sağlık, projeler ve fotoğraflar. Kendi klasörlerini burada kur ve sahip olduğun her şeyin birine sığıp sığmadığına bak."
+        },
+        {
+          "id": "carpetasApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cincoApp",
+              "nivelesApp",
+              "moverApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Klasörlerim az: İş, Ev ve resmi işler, Sağlık, Projeler ve Fotoğraflar. Ve neredeyse hiçbir şey iki seviyeden derine inmiyor."
+        }
+      ]
+    },
+    {
+      "id": "desorden",
+      "titulo": "Dağınıklık dikkatini çalar mı?",
+      "respuesta": "Evet: gözünün önündeki her şey dikkatin için yarışır, o yüzden dışarıda sadece o an kullandığını bırak.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Beşinci bölüm. Dağınıklık dikkatini çalar mı?"
+        },
+        {
+          "id": "mcmains",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "competencia"
+          },
+          "lamina": [
+            "escritorioCaos",
+            "cerebro"
+          ],
+          "destacada": true,
+          "texto": "2011’de Princeton Üniversitesi’nden Stephanie McMains ve Sabine Kastner, çok sayıda nesne olan bir ekrana bakan insanların beynini ölçtü. Görünen her şey dikkatleri için yarışıyordu ve odaklanmak daha zordu."
+        },
+        {
+          "id": "vista",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escritorio",
+              "pestanas",
+              "bandeja"
+            ]
+          },
+          "lamina": [
+            "pestanas",
+            "escritorioLimpio"
+          ],
+          "texto": "Masanda, ekranında ve telefonunda da böyle: yirmi açık sekme, seni çeken yirmi şey demek. Gözünün önünde sadece kullandığını bırak, gerisini kaldır."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoArchivos"
+          },
+          "lamina": "pulgar",
+          "texto": "Bu rehberi beğeniyorsan Beğen’e bas, bir sonrakini kaçırmamak için Abone ol ve masaüstü dosyalarla dolu o kişiyle Paylaş."
+        },
+        {
+          "id": "bandeja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "entrada",
+              "semanal",
+              "vacia"
+            ]
+          },
+          "lamina": [
+            "bandejaPapeles",
+            "cafeLibreta"
+          ],
+          "meme": "pestanas",
+          "texto": "Ve tek bir gelen kutun olsun: yeni gelen her şey oraya düşsün, haftada bir de onları klasörlerine dağıt."
+        },
+        {
+          "id": "destacados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estrellaApp",
+              "destacadosApp",
+              "recientesApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Her hafta kullandıklarımı yıldızla işaretlerim, Yıldızlı bölümünde elimin altında dururlar; gerisi gözüme batmaz."
+        }
+      ]
+    },
+    {
+      "id": "buscar",
+      "titulo": "Aramaya ne kadar zaman kaybedersin?",
+      "respuesta": "İş haftasının neredeyse beşte biri: her dosyaya başında tarih olan bir isim ver, saniyeler içinde bulursun.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Altıncı bölüm. Aramaya ne kadar zaman kaybedersin?"
+        },
+        {
+          "id": "mckinsey",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2012",
+            "clave": "mckinsey"
+          },
+          "lamina": [
+            "buscandoPapeles",
+            "reloj"
+          ],
+          "destacada": true,
+          "texto": "2012’de danışmanlık şirketi McKinsey’nin bir raporu, ofiste çalışanların haftalarının neredeyse beşte birini bilgi aramaya ve toplamaya ayırdığını hesapladı. Bu da her hafta neredeyse koca bir gün demek."
+        },
+        {
+          "id": "nombres",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nombreArchivo"
+          },
+          "lamina": [
+            "documentos",
+            "calendarioPared"
+          ],
+          "meme": "nombres",
+          "texto": "İşin sırrı isimde. Tarihle başla, büyükten küçüğe: yıl, ay ve gün, sonra ne olduğunu yaz. Böylece dosyalar kendiliğinden tarihe göre sıralanır ve onları bir bakışta bulursun. Burada iyi bir isim oluştur."
+        },
+        {
+          "id": "primeraVez",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "alGuardar",
+              "unaVez",
+              "sinDescargas"
+            ]
+          },
+          "lamina": [
+            "descargas",
+            "carpetaOrden"
+          ],
+          "texto": "Ve ilk seferde, kaydederken doğru adlandır. Sonraya bırakırsan, başkasının verdiği isimle İndirilenler klasöründe kalır."
+        },
+        {
+          "id": "buscador",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "buscadorApp",
+              "ordenApp",
+              "fechaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bir şey kaybolursa arama kutusuna yazarım ya da tarihe göre sıralarım; isimlerim tarihle başladığı için her şey sırayla çıkar."
+        }
+      ]
+    },
+    {
+      "id": "soltar",
+      "titulo": "Neyi saklamalı, neyi bırakmalı?",
+      "respuesta": "Kullanacağın ya da kaybetsen üzüleceğin şeyi sakla, gerisini bırak: “ne olur ne olmaz” diye biriktirmek de ağırlık yapar.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Yedinci bölüm. Neyi saklamalı, neyi bırakmalı?"
+        },
+        {
+          "id": "sweeten",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "acumular"
+          },
+          "lamina": [
+            "correoLleno",
+            "discoDuro"
+          ],
+          "destacada": true,
+          "texto": "2018’de Gretchen Sweeten ve ekibi, İngiltere’de insanlarla dijital dosyaları hakkında görüştü. Birçoğu binlerce e-postayı, fotoğrafı ve belgeyi “ne olur ne olmaz” diye saklıyordu ve bu yığın onlara huzur yerine stres veriyordu."
+        },
+        {
+          "id": "preguntas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "usar",
+              "otroLado",
+              "doleria"
+            ]
+          },
+          "lamina": [
+            "fotosRepetidas",
+            "decidir"
+          ],
+          "meme": "porSiAcaso",
+          "texto": "Bir şeyi saklamadan önce kendine üç soru sor: bunu kullanacak mıyım, zaten başka bir yerde var mı, kaybetsem üzülür müyüm? Üçünün cevabı da hayırsa bırak gitsin."
+        },
+        {
+          "id": "mensual",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "repetidas",
+              "viejo",
+              "importante"
+            ]
+          },
+          "lamina": [
+            "limpieza",
+            "papelera"
+          ],
+          "texto": "Ve ayda bir, tekrar eden fotoğrafları ve süresi geçmiş şeyleri sil. Gerçekten önemli olanları, belgelerin ve anıların gibi, yedeğiyle sakla."
+        },
+        {
+          "id": "papelera",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "papeleraApp",
+              "recuperarApp",
+              "treintaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bıraktıklarım Çöp kutusuna gider: fikrimi değiştirirsem geri alırım; otuz gün sonra da kendiliğinden silinir."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Nasıl devam etmeli? Devam etmek için planın",
+      "respuesta": "Kafandakileri bir listeye dök, beş klasör kur, her şeyi başında tarihle adlandır ve her ay fazlalıkları bırak.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Sekizinci bölüm. Nasıl devam etmeli? Devam etmek için planın."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planArchivos"
+          },
+          "lamina": [
+            "libretaLista",
+            "papelesMesa"
+          ],
+          "texto": "Bu hafta, kafandaki tüm yapılacakları bir listeye dök ve önemli kâğıtlarını tek bir yerde topla."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cincoCarpetas",
+              "renombra",
+              "estrella"
+            ]
+          },
+          "lamina": [
+            "cajas",
+            "carpetaOrden"
+          ],
+          "destacada": true,
+          "texto": "İlk ay en fazla beş klasör kur, önemli dosyaları başına tarih koyarak yeniden adlandır ve en çok kullandıklarını yıldızla işaretle."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vaciaBandeja",
+              "suelta",
+              "copia"
+            ]
+          },
+          "lamina": [
+            "bandejaPapeles",
+            "limpieza"
+          ],
+          "texto": "Ve her ay: gelen kutunu boşalt, artık işe yaramayanları bırak ve önemli şeylerin yedeği olup olmadığına bak."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "carpetasFin",
+              "cuartosFin",
+              "papeleraFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Nereden başlayacağını bilmiyorsan uygulamadaki Dosyalarıma bak: klasörlerimden Çöp kutusuna kadar her şey düzenli."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Özetle: kafan düşünmek içindir, saklamak için değil; hep aynı yere kaydet; az ve sığ klasörler; ismin başında tarih; ve artık kullanmadığını bırak."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS’un Dosyalar odasında her şeyi klasörlerinde saklarsın, evinin her odasının kendi klasörü var ve bıraktıkların otuz gün çöp kutusunda bekler. Bunu kendi başına ya da yapay zekânın yardımıyla yapabilirsin. Zihinsel evini bugün ücretsiz kur: bağlantı açıklamada. Bir sonraki rehberde ise: en güzel anılarını nasıl saklarsın?",
+    "boton": "Dosyalar’ı aç",
+    "lamina": "app-plan",
+    "anclas": {
+      "carpetas": "her şeyi klasörlerinde",
+      "cuartos": "evinin her odasının",
+      "papelera": "çöp kutusunda"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "miller-1956",
+      "texto": "Miller G. A. The magical number seven, plus or minus two: some limits on our capacity for processing information. Psychological Review 63(2), 81-97 (1956).",
+      "url": "https://doi.org/10.1037/h0043158"
+    },
+    {
+      "id": "cowan-2001",
+      "texto": "Cowan N. The magical number 4 in short-term memory: a reconsideration of mental storage capacity. Behavioral and Brain Sciences 24(1), 87-114 (2001).",
+      "url": "https://doi.org/10.1017/S0140525X01003922"
+    },
+    {
+      "id": "bush-1945",
+      "texto": "Bush V. As We May Think. The Atlantic (Temmuz 1945).",
+      "url": "https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/"
+    },
+    {
+      "id": "luhmann",
+      "texto": "Niklas Luhmann ve fiş kutusu (Zettelkasten). Vikipedi.",
+      "url": "https://en.wikipedia.org/wiki/Zettelkasten"
+    },
+    {
+      "id": "sparrow-2011",
+      "texto": "Sparrow B., Liu J., Wegner D. M. Google effects on memory: cognitive consequences of having information at our fingertips. Science 333(6043), 776-778 (2011).",
+      "url": "https://doi.org/10.1126/science.1207745"
+    },
+    {
+      "id": "storm-2015",
+      "texto": "Storm B. C., Stone S. M. Saving-enhanced memory: the benefits of saving on the learning and remembering of new information. Psychological Science 26(2), 182-188 (2015).",
+      "url": "https://doi.org/10.1177/0956797614559285"
+    },
+    {
+      "id": "bergman-2008",
+      "texto": "Bergman O., Beyth-Marom R., Nachmias R., Gradovitch N., Whittaker S. Improved search engines and navigation preference in personal information management. ACM Transactions on Information Systems 26(4) (2008).",
+      "url": "https://doi.org/10.1145/1402256.1402259"
+    },
+    {
+      "id": "mcmains-2011",
+      "texto": "McMains S., Kastner S. Interactions of top-down and bottom-up mechanisms in human visual cortex. Journal of Neuroscience 31(2), 587-597 (2011).",
+      "url": "https://doi.org/10.1523/JNEUROSCI.3766-10.2011"
+    },
+    {
+      "id": "mckinsey-2012",
+      "texto": "McKinsey Global Institute. The social economy: unlocking value and productivity through social technologies (2012).",
+      "url": "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-social-economy"
+    },
+    {
+      "id": "sweeten-2018",
+      "texto": "Sweeten G., Sillence E., Neave N. Digital hoarding behaviours: underlying motivations and potential negative consequences. Computers in Human Behavior 85, 54-60 (2018).",
+      "url": "https://researchportal.northumbria.ac.uk/en/publications/digital-hoarding-behaviours-underlying-motivations-and-potential-/"
+    }
+  ]
+}

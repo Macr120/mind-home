@@ -31,7 +31,7 @@ export type Ubicacion =
 export type Item =
   | { k: string; tipo: 'carpeta'; carpeta: CarpetaArchivo; n: number }
   | { k: string; tipo: 'archivo'; archivo: ArchivoNube }
-  | { k: string; tipo: 'virtual'; nombre: string; icono: NombreIcono; ir: Ubicacion; n?: number; destino?: string; cuarto?: Cuarto }
+  | { k: string; tipo: 'virtual'; nombre: string; icono: NombreIcono; ir: Ubicacion; n?: number; destino?: string; cuarto?: Cuarto; tut?: string }
   | { k: string; tipo: 'app'; elem: ElementoApp }
 
 export const nombreDe = (i: Item): string =>
@@ -41,6 +41,17 @@ export const fechaDe = (i: Item): string =>
   i.tipo === 'carpeta' ? i.carpeta.creadoEn : i.tipo === 'archivo' ? i.archivo.creadoEn : i.tipo === 'app' ? i.elem.creadoEn : ''
 
 export const bytesDe = (i: Item): number => (i.tipo === 'archivo' ? i.archivo.bytes : i.tipo === 'app' ? i.elem.bytes : 0)
+
+/**
+ * Ancla estable de un elemento para tutoriales y grabaciones (`data-tut="archivos.item.<clave>"`).
+ * Las filas de la demo traen la suya (`tut`: `trabajo`, `analisis`…); las demás usan su id.
+ */
+export function claveTut(i: Item): string {
+  if (i.tipo === 'carpeta') return (i.carpeta as { tut?: string }).tut ?? `carpeta.${i.carpeta.id}`
+  if (i.tipo === 'archivo') return (i.archivo as { tut?: string }).tut ?? `archivo.${i.archivo.id}`
+  if (i.tipo === 'virtual') return i.tut ?? i.k
+  return i.k
+}
 
 /** Solo las filas reales se seleccionan y se arrastran. */
 export const esReal = (i: Item): i is Extract<Item, { tipo: 'carpeta' | 'archivo' }> => i.tipo === 'carpeta' || i.tipo === 'archivo'

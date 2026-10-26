@@ -13,6 +13,7 @@ import { obtenerSupabase } from './supabase'
 import { tGlobal } from '../i18n/useT'
 import { pedirUsoAlmacen, type UsoAlmacen } from './almacenUso'
 import { URL_WEB } from './urlWeb'
+import { esDemo } from '../edicion'
 
 export { formatoBytes, formatoUso } from './almacenUso'
 
@@ -149,7 +150,8 @@ export async function borrarArchivos(claves: string[], prefijo?: string): Promis
 
 /** Relee el medidor del servidor y lo deja en `useAlmacen`. */
 export async function refrescarUsoAlmacen(): Promise<UsoAlmacen | null> {
-  const uso = await pedirUsoAlmacen()
+  // La demo no tiene nube: su medidor enseña un uso de ejemplo (2.4 GB de 30 GB).
+  const uso = esDemo() ? { usados: 2.4 * 1024 ** 3, cuota: 30 * 1024 ** 3 } : await pedirUsoAlmacen()
   if (uso) useAlmacen.setState({ uso })
   return uso
 }

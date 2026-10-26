@@ -1,0 +1,745 @@
+{
+  "idioma": "hi",
+  "tema": "archivos",
+  "plantillaId": "archivos",
+  "numero": 21,
+  "nombre": "फ़ाइलें",
+  "pregunta": "अपने मन को व्यवस्थित कैसे करें?",
+  "corta": "अपने मन को व्यवस्थित कैसे करें?",
+  "subtitulo": "आपके दिमाग़ में सच में कितना समाता है, हम कब से याददाश्त को बाहर सँभालते आए हैं, क्या चीज़ें सहेजने से आप भूल जाते हैं, फ़ोल्डर बेहतर हैं या सर्च, बिखराव आप पर कैसे असर डालता है, ढूँढ़ने में कितना समय जाता है, क्या रखें और क्या छोड़ें, और आगे बढ़ने का एक प्लान।",
+  "aviso": "यह गाइड सामान्य जानकारी के लिए है। बताए गए अध्ययन कुछ ख़ास लोगों के समूहों की याददाश्त और ध्यान को मापते हैं; आपके नतीजे अलग हो सकते हैं।",
+  "partes": [
+    {
+      "id": "cabeza",
+      "titulo": "आपके दिमाग़ में कितना समाता है?",
+      "respuesta": "एक साथ लगभग चार चीज़ें: दिमाग़ सोचने के लिए है, रखने के लिए नहीं, इसलिए बाक़ी सब किसी भरोसेमंद जगह रखें।",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "अपने मन को व्यवस्थित कैसे करें? आपका दिमाग़ एक साथ लगभग चार चीज़ें ही सँभाल सकता है। फिर भी हम उससे सब कुछ याद रखने को कहते हैं। क्या हो अगर आप उसे गोदाम की तरह इस्तेमाल करना बंद कर दें? आज आप इसे आँकड़ों के साथ देखेंगे, और आगे बढ़ने का एक प्लान लेकर जाएँगे।"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "वैसे, यह MindHaOS में मेरा घर है, और आज यह एक अंतरिक्ष यान है। मैं इसमें सवार अंतरिक्ष यात्री हूँ, और ये हैं मेरी फ़ाइलें: यहाँ मैं वह सब रखता हूँ जो मेरे दिमाग़ में नहीं समाता।"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग एक। आपके दिमाग़ में कितना समाता है?"
+        },
+        {
+          "id": "cowan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cuatro"
+          },
+          "lamina": [
+            "malabares",
+            "notasPegadas"
+          ],
+          "destacada": true,
+          "texto": "1956 में, जॉर्ज मिलर ने कहा कि मन एक साथ लगभग सात चीज़ें सँभालता है। 2001 में, नेल्सन कोवन ने दर्जनों प्रयोगों की समीक्षा की और यह संख्या घटा दी: असल में वे लगभग चार हैं।"
+        },
+        {
+          "id": "bodega",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "super",
+              "cita",
+              "idea"
+            ]
+          },
+          "lamina": [
+            "listaSuper",
+            "olvido"
+          ],
+          "meme": "bodega",
+          "texto": "जब आप किराने की लिस्ट, डॉक्टर का अपॉइंटमेंट और काम का आइडिया एक साथ उठाने की कोशिश करते हैं, तो कुछ न कुछ गिर जाता है। आपकी याददाश्त ख़राब नहीं है: आप उसे गोदाम बना रहे हैं।"
+        },
+        {
+          "id": "descarga",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "vaciarMente"
+          },
+          "lamina": [
+            "libretaLista",
+            "escritorioOrden"
+          ],
+          "texto": "तो दिमाग़ सोचने के लिए है, रखने के लिए नहीं। आज़माकर देखिए: अभी जो कुछ भी आपके मन में है, सब यहाँ लिखिए, और देखिए आप कितनी चीज़ें उठाए घूम रहे थे।"
+        },
+        {
+          "id": "miArchivo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "carpetasApp",
+              "tiposApp",
+              "nubeApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "इसीलिए मेरी फ़ाइलों में वह सब रहता है जो मेरे दिमाग़ में नहीं समाता: काग़ज़, फ़ोटो, नोट्स और दस्तावेज़, हर चीज़ अपने फ़ोल्डर में।"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "हम कब से याददाश्त को बाहर सँभालते हैं?",
+      "respuesta": "हमेशा से, पर आज का विचार 1945 में वैनेवर बुश के मेमेक्स और निकलास लूमान के नब्बे हज़ार कार्डों से जन्मा।",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग दो। हम कब से याददाश्त को बाहर सँभालते हैं?"
+        },
+        {
+          "id": "bush",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1945",
+            "clave": "bush"
+          },
+          "lamina": [
+            "bush",
+            "microfilm"
+          ],
+          "destacada": true,
+          "texto": "1945 में, इंजीनियर वैनेवर बुश ने मेमेक्स की कल्पना की: एक ऐसी मेज़ जो आपकी सारी किताबें, चिट्ठियाँ और नोट्स रखे, रास्तों से जुड़े हुए, ताकि वे पलों में मिल जाएँ। दशकों बाद, इसी विचार ने हाइपरटेक्स्ट बनाने वालों को प्रेरित किया: वही लिंक जो आप आज वेब पर इस्तेमाल करते हैं।"
+        },
+        {
+          "id": "luhmann",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1952",
+            "clave": "luhmann"
+          },
+          "lamina": [
+            "fichero",
+            "fichas"
+          ],
+          "texto": "और 1952 में, जर्मन समाजशास्त्री निकलास लूमान ने हर विचार को एक कार्ड पर लिखना शुरू किया। कार्ड लगभग नब्बे हज़ार तक पहुँचे, और उनसे उन्होंने सत्तर से ज़्यादा किताबें लिखीं। वे कहते थे कि उनका कार्ड-बक्सा उनका साथी है।"
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fichas",
+              "computadora",
+              "nube"
+            ]
+          },
+          "lamina": [
+            "archivero",
+            "celularArchivos"
+          ],
+          "texto": "फिर आईं फ़ाइल-अलमारियाँ, कंप्यूटर और अब क्लाउड। आज सब कुछ जेब में समा जाता है; मुश्किल अब रखना नहीं, ढूँढ़ना है।"
+        },
+        {
+          "id": "cuartos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuartoApp",
+              "fuentesApp",
+              "tuyosApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "और क्योंकि मेरा घर मेरा मन है, हर कमरे का अपना फ़ोल्डर है: उसमें अपने आप वह दिखता है जो उसकी ऐप पहले से रखती है, जैसे मेरी यात्राओं की फ़ोटो या मेरे चित्र।"
+        }
+      ]
+    },
+    {
+      "id": "olvido",
+      "titulo": "क्या चीज़ें सहेजने से आप भूल जाते हैं?",
+      "respuesta": "थोड़ा, पर बदले में दिमाग़ हल्का होता है: भरोसेमंद जगह रखी चीज़ आपको अगली बात बेहतर सीखने और याद रखने देती है।",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग तीन। क्या चीज़ें सहेजने से आप भूल जाते हैं?"
+        },
+        {
+          "id": "sparrow",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "donde"
+          },
+          "lamina": [
+            "teclado",
+            "buscadorPantalla"
+          ],
+          "destacada": true,
+          "texto": "2011 में, बेट्सी स्पैरो और उनकी टीम ने छात्रों से कंप्यूटर पर कुछ दिलचस्प तथ्य टाइप करवाए। जिन्हें लगा कि वे सेव हो जाएँगे, उन्हें तथ्य कम याद रहे… पर उन्हें अच्छी तरह याद था कि वे किस फ़ोल्डर में थे।"
+        },
+        {
+          "id": "storm",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2015",
+            "clave": "storm"
+          },
+          "lamina": [
+            "guardarArchivo",
+            "estudiante"
+          ],
+          "texto": "और 2015 में, बेंजामिन स्टॉर्म और शॉन स्टोन ने दूसरा पहलू दिखाया: जो लोग अगली फ़ाइल पढ़ने से पहले एक फ़ाइल सेव कर लेते थे, वे दूसरी फ़ाइल बेहतर सीखते थे। सहेजना नई चीज़ों के लिए जगह बनाता है।"
+        },
+        {
+          "id": "confiable",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unLugar",
+              "siempreAhi",
+              "sabesDonde"
+            ]
+          },
+          "lamina": [
+            "llaves",
+            "cajaFuerte"
+          ],
+          "meme": "guardado",
+          "texto": "पर यह तभी काम करता है जब आपको उस जगह पर भरोसा हो: अगर आप सहेजते हैं और पता नहीं कहाँ, तो दिमाग़ उसे ढोता रहता है। इसलिए बिना झिझक सहेजिए, हमेशा एक ही जगह।"
+        },
+        {
+          "id": "visor",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fotoApp",
+              "pdfApp",
+              "dispositivosApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "और कोई भी फ़ाइल मैं यहीं खोल लेता हूँ: फ़ोटो, PDF या नोट, फ़ोन से या कंप्यूटर से।"
+        }
+      ]
+    },
+    {
+      "id": "carpetas",
+      "titulo": "फ़ोल्डर या सर्च?",
+      "respuesta": "फ़ोल्डर: हम ज़्यादातर फ़ोल्डरों से होकर पहुँचते हैं और सर्च तब, जब भटक जाएँ; कम, उथले और साफ़ नामों वाले।",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग चार। फ़ोल्डर या सर्च?"
+        },
+        {
+          "id": "bergman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "navegar"
+          },
+          "lamina": [
+            "carpetasPantalla",
+            "oficina"
+          ],
+          "destacada": true,
+          "texto": "2008 में, ओफ़र बर्गमन और स्टीव व्हिटेकर ने अध्ययन किया कि लोग अपनी ही फ़ाइलें कैसे ढूँढ़ते हैं। अच्छे सर्च के बावजूद, ज़्यादातर बार वे फ़ोल्डरों से होकर पहुँचते थे; सर्च बहुत कम इस्तेमाल होता था, ख़ासकर तब जब वे भटक चुके होते थे।"
+        },
+        {
+          "id": "mapa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pocas",
+              "planas",
+              "nombres"
+            ]
+          },
+          "lamina": [
+            "mapaCiudad",
+            "etiquetas"
+          ],
+          "meme": "final",
+          "texto": "आपके फ़ोल्डर एक मानसिक नक्शा हैं। अगर सौ हों, या फ़ोल्डर के अंदर फ़ोल्डर के अंदर फ़ोल्डर, तो आप भटक जाते हैं। जो काम करता है: कम, उथले, और ऐसे नाम जो एक पल में समझ आ जाएँ।"
+        },
+        {
+          "id": "cinco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "misCarpetas"
+          },
+          "lamina": [
+            "cajas",
+            "estante"
+          ],
+          "texto": "पाँच बड़े फ़ोल्डरों से शुरू कीजिए: काम, घर और कागज़ात, सेहत, प्रोजेक्ट और फ़ोटो। यहाँ अपने फ़ोल्डर बनाइए और देखिए कि आपके पास जो कुछ है, वह किसी न किसी में समाता है या नहीं।"
+        },
+        {
+          "id": "carpetasApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cincoApp",
+              "nivelesApp",
+              "moverApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "मेरे फ़ोल्डर कम हैं: काम, घर और कागज़ात, सेहत, प्रोजेक्ट और फ़ोटो। और लगभग कुछ भी दो स्तरों से आगे नहीं जाता।"
+        }
+      ]
+    },
+    {
+      "id": "desorden",
+      "titulo": "क्या बिखराव आपका ध्यान चुराता है?",
+      "respuesta": "हाँ: जो कुछ नज़र के सामने है, वह आपके ध्यान के लिए होड़ करता है, इसलिए बाहर सिर्फ़ वही रखें जो इस्तेमाल कर रहे हैं।",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग पाँच। क्या बिखराव आपका ध्यान चुराता है?"
+        },
+        {
+          "id": "mcmains",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "competencia"
+          },
+          "lamina": [
+            "escritorioCaos",
+            "cerebro"
+          ],
+          "destacada": true,
+          "texto": "2011 में, प्रिंसटन विश्वविद्यालय की स्टेफ़नी मैकमेन्स और सबीन कास्टनर ने ढेर सारी चीज़ों वाली स्क्रीन देखते लोगों के दिमाग़ को मापा। नज़र के सामने हर चीज़ उनके ध्यान के लिए होड़ करती थी, और ध्यान लगाना मुश्किल हो जाता था।"
+        },
+        {
+          "id": "vista",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escritorio",
+              "pestanas",
+              "bandeja"
+            ]
+          },
+          "lamina": [
+            "pestanas",
+            "escritorioLimpio"
+          ],
+          "texto": "यही आपकी मेज़, आपकी स्क्रीन और आपके फ़ोन पर होता है: बीस खुले टैब यानी बीस चीज़ें जो आपको खींच रही हैं। सामने सिर्फ़ वही रखिए जो इस्तेमाल कर रहे हैं, और बाक़ी सब, सहेजकर।"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoArchivos"
+          },
+          "lamina": "pulgar",
+          "texto": "अगर आपको यह गाइड पसंद आ रही है, तो पसंद करें, सदस्यता लें ताकि अगली गाइड न छूटे, और शेयर करें उस इंसान के साथ जिसका डेस्कटॉप फ़ाइलों से भरा पड़ा है।"
+        },
+        {
+          "id": "bandeja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "entrada",
+              "semanal",
+              "vacia"
+            ]
+          },
+          "lamina": [
+            "bandejaPapeles",
+            "cafeLibreta"
+          ],
+          "meme": "pestanas",
+          "texto": "और एक ही इनबॉक्स रखिए: हर नई चीज़ वहीं आए, और हफ़्ते में एक बार आप उसे उसके फ़ोल्डरों में बाँट दें।"
+        },
+        {
+          "id": "destacados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estrellaApp",
+              "destacadosApp",
+              "recientesApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "जो मैं हर हफ़्ते इस्तेमाल करता हूँ, उस पर तारा लगा देता हूँ और वह तारांकित में हाथ के पास रहता है; बाक़ी मेरी नज़र में नहीं अटकता।"
+        }
+      ]
+    },
+    {
+      "id": "buscar",
+      "titulo": "ढूँढ़ने में आपका कितना समय जाता है?",
+      "respuesta": "काम के हफ़्ते का लगभग पाँचवाँ हिस्सा: हर फ़ाइल के नाम के आगे तारीख़ लगाइए, और वह पलों में मिल जाएगी।",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग छह। ढूँढ़ने में आपका कितना समय जाता है?"
+        },
+        {
+          "id": "mckinsey",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2012",
+            "clave": "mckinsey"
+          },
+          "lamina": [
+            "buscandoPapeles",
+            "reloj"
+          ],
+          "destacada": true,
+          "texto": "2012 में, कंसल्टिंग फ़र्म मैकिन्से की एक रिपोर्ट ने हिसाब लगाया कि दफ़्तर में काम करने वाले अपने हफ़्ते का लगभग पाँचवाँ हिस्सा जानकारी ढूँढ़ने और जुटाने में लगाते हैं। यानी लगभग पूरा एक दिन, हर हफ़्ते।"
+        },
+        {
+          "id": "nombres",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nombreArchivo"
+          },
+          "lamina": [
+            "documentos",
+            "calendarioPared"
+          ],
+          "meme": "nombres",
+          "texto": "तरकीब नाम में है। शुरुआत उल्टी तारीख़ से कीजिए, पहले साल, फिर महीना, फिर दिन, और उसके बाद बताइए कि यह क्या है। ऐसे फ़ाइलें अपने आप तारीख़ से क्रम में लग जाती हैं और एक नज़र में मिल जाती हैं। यहाँ एक अच्छा नाम बनाइए।"
+        },
+        {
+          "id": "primeraVez",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "alGuardar",
+              "unaVez",
+              "sinDescargas"
+            ]
+          },
+          "lamina": [
+            "descargas",
+            "carpetaOrden"
+          ],
+          "texto": "और पहली ही बार, सहेजते समय, सही नाम दीजिए। अगर बाद के लिए छोड़ा, तो वह डाउनलोड फ़ोल्डर में किसी और के रखे नाम के साथ पड़ी रह जाती है।"
+        },
+        {
+          "id": "buscador",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "buscadorApp",
+              "ordenApp",
+              "fechaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "और अगर कुछ खो जाए, तो मैं उसे सर्च में लिखता हूँ या तारीख़ से क्रम में लगाता हूँ; मेरे नाम तारीख़ से शुरू होते हैं, इसलिए सब क्रम से आता है।"
+        }
+      ]
+    },
+    {
+      "id": "soltar",
+      "titulo": "क्या रखें और क्या छोड़ें?",
+      "respuesta": "वही रखें जो इस्तेमाल करेंगे या जिसे खोकर दुख होगा, बाक़ी छोड़ दें: “शायद काम आए” के लिए जमा करना भी बोझ है।",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग सात। क्या रखें और क्या छोड़ें?"
+        },
+        {
+          "id": "sweeten",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "acumular"
+          },
+          "lamina": [
+            "correoLleno",
+            "discoDuro"
+          ],
+          "destacada": true,
+          "texto": "2018 में, इंग्लैंड में ग्रेचेन स्वीटन और उनकी टीम ने लोगों से उनकी डिजिटल फ़ाइलों के बारे में बात की। कई लोग हज़ारों ईमेल, फ़ोटो और दस्तावेज़ “शायद काम आए” सोचकर रखे हुए थे, और वह ढेर उन्हें सुकून नहीं, तनाव देता था।"
+        },
+        {
+          "id": "preguntas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "usar",
+              "otroLado",
+              "doleria"
+            ]
+          },
+          "lamina": [
+            "fotosRepetidas",
+            "decidir"
+          ],
+          "meme": "porSiAcaso",
+          "texto": "कुछ भी सहेजने से पहले ख़ुद से तीन सवाल पूछिए: क्या मैं इसे इस्तेमाल करूँगा, क्या यह कहीं और पहले से है, क्या इसे खोकर मुझे दुख होगा? अगर तीनों का जवाब ना है, तो छोड़ दीजिए।"
+        },
+        {
+          "id": "mensual",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "repetidas",
+              "viejo",
+              "importante"
+            ]
+          },
+          "lamina": [
+            "limpieza",
+            "papelera"
+          ],
+          "texto": "और महीने में एक बार, दोहराई गई फ़ोटो और जिनकी मियाद ख़त्म हो चुकी है, उन्हें मिटा दीजिए। जो सच में ज़रूरी है, जैसे आपके दस्तावेज़ और यादें, उसकी कॉपी बनाकर रखिए।"
+        },
+        {
+          "id": "papelera",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "papeleraApp",
+              "recuperarApp",
+              "treintaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "जो मैं छोड़ता हूँ, वह ट्रैश में जाता है: अगर पछतावा हो, तो वापस ले आता हूँ; और तीस दिन बाद वह अपने आप मिट जाता है।"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "आगे कैसे बढ़ें? आगे बढ़ने का आपका प्लान",
+      "respuesta": "दिमाग़ को एक लिस्ट में ख़ाली करें, पाँच फ़ोल्डर बनाएँ, नाम के आगे तारीख़ लगाएँ और हर महीने फ़ालतू चीज़ें छोड़ें।",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग आठ। आगे कैसे बढ़ें? आगे बढ़ने का आपका प्लान।"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planArchivos"
+          },
+          "lamina": [
+            "libretaLista",
+            "papelesMesa"
+          ],
+          "texto": "इस हफ़्ते, दिमाग़ में अटके सारे बाक़ी काम एक लिस्ट में निकालिए, और अपने ज़रूरी काग़ज़ एक ही जगह इकट्ठा कीजिए।"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cincoCarpetas",
+              "renombra",
+              "estrella"
+            ]
+          },
+          "lamina": [
+            "cajas",
+            "carpetaOrden"
+          ],
+          "destacada": true,
+          "texto": "पहले महीने में, ज़्यादा से ज़्यादा पाँच फ़ोल्डर बनाइए, ज़रूरी चीज़ों के नाम के आगे तारीख़ लगाइए, और जो सबसे ज़्यादा इस्तेमाल करते हैं उस पर तारा लगाइए।"
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vaciaBandeja",
+              "suelta",
+              "copia"
+            ]
+          },
+          "lamina": [
+            "bandejaPapeles",
+            "limpieza"
+          ],
+          "texto": "और हर महीने: अपना इनबॉक्स ख़ाली कीजिए, जो अब काम का नहीं उसे छोड़िए, और देखिए कि ज़रूरी चीज़ों की कॉपी है।"
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "carpetasFin",
+              "cuartosFin",
+              "papeleraFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "और अगर समझ न आए कि कहाँ से शुरू करें, तो ऐप में मेरी फ़ाइलें देखिए: सब व्यवस्थित है, मेरे फ़ोल्डरों से लेकर ट्रैश तक।"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "संक्षेप में: दिमाग़ सोचने के लिए है, रखने के लिए नहीं; हमेशा एक ही जगह सहेजिए; कम और उथले फ़ोल्डर; नाम के आगे तारीख़; और जो अब इस्तेमाल नहीं करते, उसे छोड़ दीजिए।"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS के फ़ाइलें कमरे में आप सब कुछ अपने फ़ोल्डरों में रखते हैं, आपके घर के हर कमरे का अपना फ़ोल्डर होता है, और जो आप छोड़ देते हैं वह तीस दिन ट्रैश में इंतज़ार करता है। आप यह ख़ुद कर सकते हैं, या AI की मदद से। आज ही अपना मन का घर मुफ़्त में बनाएँ: लिंक डिस्क्रिप्शन में है। और अगली गाइड में: अपनी सबसे अच्छी यादें कैसे सँभालें?",
+    "boton": "फ़ाइलें खोलें",
+    "lamina": "app-plan",
+    "anclas": {
+      "carpetas": "अपने फ़ोल्डरों में",
+      "cuartos": "घर के हर कमरे",
+      "papelera": "ट्रैश में"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "miller-1956",
+      "texto": "Miller G. A. The magical number seven, plus or minus two: some limits on our capacity for processing information. Psychological Review 63(2), 81-97 (1956).",
+      "url": "https://doi.org/10.1037/h0043158"
+    },
+    {
+      "id": "cowan-2001",
+      "texto": "Cowan N. The magical number 4 in short-term memory: a reconsideration of mental storage capacity. Behavioral and Brain Sciences 24(1), 87-114 (2001).",
+      "url": "https://doi.org/10.1017/S0140525X01003922"
+    },
+    {
+      "id": "bush-1945",
+      "texto": "Bush V. As We May Think. The Atlantic (जुलाई 1945).",
+      "url": "https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/"
+    },
+    {
+      "id": "luhmann",
+      "texto": "Niklas Luhmann और उनका कार्ड-बक्सा (Zettelkasten). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Zettelkasten"
+    },
+    {
+      "id": "sparrow-2011",
+      "texto": "Sparrow B., Liu J., Wegner D. M. Google effects on memory: cognitive consequences of having information at our fingertips. Science 333(6043), 776-778 (2011).",
+      "url": "https://doi.org/10.1126/science.1207745"
+    },
+    {
+      "id": "storm-2015",
+      "texto": "Storm B. C., Stone S. M. Saving-enhanced memory: the benefits of saving on the learning and remembering of new information. Psychological Science 26(2), 182-188 (2015).",
+      "url": "https://doi.org/10.1177/0956797614559285"
+    },
+    {
+      "id": "bergman-2008",
+      "texto": "Bergman O., Beyth-Marom R., Nachmias R., Gradovitch N., Whittaker S. Improved search engines and navigation preference in personal information management. ACM Transactions on Information Systems 26(4) (2008).",
+      "url": "https://doi.org/10.1145/1402256.1402259"
+    },
+    {
+      "id": "mcmains-2011",
+      "texto": "McMains S., Kastner S. Interactions of top-down and bottom-up mechanisms in human visual cortex. Journal of Neuroscience 31(2), 587-597 (2011).",
+      "url": "https://doi.org/10.1523/JNEUROSCI.3766-10.2011"
+    },
+    {
+      "id": "mckinsey-2012",
+      "texto": "McKinsey Global Institute. The social economy: unlocking value and productivity through social technologies (2012).",
+      "url": "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-social-economy"
+    },
+    {
+      "id": "sweeten-2018",
+      "texto": "Sweeten G., Sillence E., Neave N. Digital hoarding behaviours: underlying motivations and potential negative consequences. Computers in Human Behavior 85, 54-60 (2018).",
+      "url": "https://researchportal.northumbria.ac.uk/en/publications/digital-hoarding-behaviours-underlying-motivations-and-potential-/"
+    }
+  ]
+}

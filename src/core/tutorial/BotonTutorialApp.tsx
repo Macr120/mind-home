@@ -36,6 +36,7 @@ const GUIAS: Record<string, { tema: string; clave: string; es: string }> = {
   diario: { tema: 'noticias', clave: 'guia.noticias.titulo', es: 'En búsqueda de la verdad y la belleza: periodismo y contenido' },
   ideas: { tema: 'ideas', clave: 'guia.ideas.titulo', es: '¿Cómo tener mejores ideas?' },
   sala: { tema: 'viajes', clave: 'guia.viajes.titulo', es: '¿Cómo viajar mejor?' },
+  archivos: { tema: 'archivos', clave: 'guia.archivos.titulo', es: '¿Cómo organizar tu mente?' },
   computo: { tema: 'matematicas', clave: 'guia.matematicas.titulo', es: '¿Cuál es el lenguaje del universo?' },
 }
 

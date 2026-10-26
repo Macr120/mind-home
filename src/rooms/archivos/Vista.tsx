@@ -6,7 +6,7 @@ import type { PropsArrastre } from '../../core/ui/comun/arrastre'
 import { formatoBytes } from '../../core/cuenta/almacen'
 import { FILA_INTERACTIVA, TARJETA } from '../_shared/ui'
 import { iconoDeMime } from './constantes'
-import { destinoCarpeta, fechaDe, type Item } from './modelo'
+import { claveTut, destinoCarpeta, fechaDe, type Item } from './modelo'
 
 export type ModoVista = 'rejilla' | 'lista'
 
@@ -92,6 +92,7 @@ export function Vista(p: PropsVista) {
     return {
       ...arr,
       'data-destino': destino,
+      'data-tut': `archivos.item.${claveTut(i)}`,
       onPointerDown: (e: React.PointerEvent) => {
         tactil.current = e.pointerType !== 'mouse'
         arr?.onPointerDown(e)
@@ -125,6 +126,7 @@ export function Vista(p: PropsVista) {
       <button
         type="button"
         aria-label={t('archivos.seleccionar', 'Seleccionar')}
+        data-tut={`archivos.item.${claveTut(i)}.marcar`}
         onClick={(e) => {
           e.stopPropagation()
           p.alMarcar(i)
@@ -144,6 +146,7 @@ export function Vista(p: PropsVista) {
     <button
       type="button"
       aria-label={t('archivos.opciones', 'Opciones')}
+      data-tut={`archivos.item.${claveTut(i)}.opciones`}
       onClick={(e) => {
         e.stopPropagation()
         const r = e.currentTarget.getBoundingClientRect()

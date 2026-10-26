@@ -1,0 +1,745 @@
+{
+  "idioma": "zh",
+  "tema": "archivos",
+  "plantillaId": "archivos",
+  "numero": 21,
+  "nombre": "文件",
+  "pregunta": "怎样整理你的头脑？",
+  "corta": "怎样整理你的头脑？",
+  "subtitulo": "你的脑袋到底能装下多少，我们从什么时候开始把记忆存在脑外，存起来会不会让你忘记，用文件夹还是用搜索，杂乱怎样影响你，你花多少时间在找东西上，该留什么、该放下什么，以及一个继续下去的计划。",
+  "aviso": "本指南仅提供一般性信息。文中引用的研究测量的是特定人群的记忆和注意力，你的结果可能会有所不同。",
+  "partes": [
+    {
+      "id": "cabeza",
+      "titulo": "你的脑袋能装下多少？",
+      "respuesta": "一次大约四件：脑袋是用来思考的，不是用来存放的，其他的都放到可靠的地方。",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "怎样整理你的头脑？你的脑袋一次只能装下大约四件事。可我们还是要它记住一切。如果不再把它当仓库用呢？今天你会用数据看清楚，还会带走一个继续下去的计划。"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "对了，这是我在MindHaOS里的家，今天它是一艘宇宙飞船。我是船上的宇航员，这里是我的文件：脑袋装不下的东西，我都存在这里。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第一部分。你的脑袋能装下多少？"
+        },
+        {
+          "id": "cowan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cuatro"
+          },
+          "lamina": [
+            "malabares",
+            "notasPegadas"
+          ],
+          "destacada": true,
+          "texto": "1956年，乔治·米勒说，人的头脑一次能记住大约七件事。2001年，纳尔逊·考恩重新检视了几十项实验，把这个数字往下调：其实只有大约四件。"
+        },
+        {
+          "id": "bodega",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "super",
+              "cita",
+              "idea"
+            ]
+          },
+          "lamina": [
+            "listaSuper",
+            "olvido"
+          ],
+          "meme": "bodega",
+          "texto": "当你想同时记住购物清单、看医生的预约和工作上的点子，总有一样会掉。不是你记性差，而是你把脑袋当成了仓库。"
+        },
+        {
+          "id": "descarga",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "vaciarMente"
+          },
+          "lamina": [
+            "libretaLista",
+            "escritorioOrden"
+          ],
+          "texto": "所以，脑袋是用来思考的，不是用来存放的。试试看：把你现在脑子里的事都写在这里，看看你一直扛着多少东西。"
+        },
+        {
+          "id": "miArchivo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "carpetasApp",
+              "tiposApp",
+              "nubeApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "所以我的文件里放着所有脑袋装不下的东西：文件、照片、笔记和文档，各自待在自己的文件夹里。"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "我们从什么时候开始把记忆存在脑外？",
+      "respuesta": "自古就有，但现代的想法始于1945年布什的Memex和卢曼的九万张卡片。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第二部分。我们从什么时候开始把记忆存在脑外？"
+        },
+        {
+          "id": "bush",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1945",
+            "clave": "bush"
+          },
+          "lamina": [
+            "bush",
+            "microfilm"
+          ],
+          "destacada": true,
+          "texto": "1945年，工程师万尼瓦尔·布什构想了Memex：一张能存下你所有书、信件和笔记的书桌，它们由一条条路径连在一起，几秒钟就能找到。几十年后，这个想法启发了超文本的发明者，也就是你今天在网上用的链接。"
+        },
+        {
+          "id": "luhmann",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1952",
+            "clave": "luhmann"
+          },
+          "lamina": [
+            "fichero",
+            "fichas"
+          ],
+          "texto": "1952年，德国社会学家尼克拉斯·卢曼开始把每个想法写在一张卡片上。他攒到了大约九万张，用它们写出了七十多本书。他说，他的卡片盒是他的工作伙伴。"
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fichas",
+              "computadora",
+              "nube"
+            ]
+          },
+          "lamina": [
+            "archivero",
+            "celularArchivos"
+          ],
+          "texto": "后来有了档案柜、电脑，现在又有了云端。如今一切都能装进口袋；难的已经不是存，而是找。"
+        },
+        {
+          "id": "cuartos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuartoApp",
+              "fuentesApp",
+              "tuyosApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "我的家就是我的心，所以每个房间都有自己的文件夹：里面会自动出现那个房间的应用已经存下的东西，比如我的旅行照片或我的画。"
+        }
+      ]
+    },
+    {
+      "id": "olvido",
+      "titulo": "存起来会让你忘记吗？",
+      "respuesta": "会忘一点，但脑袋轻了：存在可靠地方的东西，让你更好地学习和记住下一件。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第三部分。存起来会让你忘记吗？"
+        },
+        {
+          "id": "sparrow",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "donde"
+          },
+          "lamina": [
+            "teclado",
+            "buscadorPantalla"
+          ],
+          "destacada": true,
+          "texto": "2011年，贝特西·斯帕罗和她的团队请学生把一些冷知识输入电脑。以为内容会被保存的人，对内容记得更少……但他们非常清楚它们存在哪个文件夹里。"
+        },
+        {
+          "id": "storm",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2015",
+            "clave": "storm"
+          },
+          "lamina": [
+            "guardarArchivo",
+            "estudiante"
+          ],
+          "texto": "2015年，本杰明·斯托姆和肖恩·斯通展示了另一面：在学习下一个文件之前先把前一个存好的人，对第二个学得更好。保存，就是给新东西腾出空间。"
+        },
+        {
+          "id": "confiable",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unLugar",
+              "siempreAhi",
+              "sabesDonde"
+            ]
+          },
+          "lamina": [
+            "llaves",
+            "cajaFuerte"
+          ],
+          "meme": "guardado",
+          "texto": "但前提是你信任那个地方：如果存了却不知道在哪儿，你的脑袋还会一直扛着它。所以放心地存吧，永远存在同一个地方。"
+        },
+        {
+          "id": "visor",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fotoApp",
+              "pdfApp",
+              "dispositivosApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "任何文件我都能直接在这里打开：照片、PDF或笔记，用手机或电脑都行。"
+        }
+      ]
+    },
+    {
+      "id": "carpetas",
+      "titulo": "文件夹还是搜索？",
+      "respuesta": "文件夹：我们多半是一层层点进去找到的，搜索留给迷路时；少而浅，名字要清楚。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第四部分。文件夹还是搜索？"
+        },
+        {
+          "id": "bergman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "navegar"
+          },
+          "lamina": [
+            "carpetasPantalla",
+            "oficina"
+          ],
+          "destacada": true,
+          "texto": "2008年，奥弗·伯格曼和史蒂夫·惠特克研究了人们怎样找到自己的文件。即使有好用的搜索，大多数时候人们还是一层层点开文件夹找到的；搜索用得很少，主要是在已经迷路的时候。"
+        },
+        {
+          "id": "mapa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pocas",
+              "planas",
+              "nombres"
+            ]
+          },
+          "lamina": [
+            "mapaCiudad",
+            "etiquetas"
+          ],
+          "meme": "final",
+          "texto": "你的文件夹就是一张心里的地图。如果有一百个，或者文件夹套文件夹再套文件夹，你就会迷路。管用的做法是：少，浅，名字一眼就懂。"
+        },
+        {
+          "id": "cinco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "misCarpetas"
+          },
+          "lamina": [
+            "cajas",
+            "estante"
+          ],
+          "texto": "试试五个大文件夹：工作、家务与手续、健康、项目和照片。在这里建好你自己的，看看你手上的东西是不是都能放进其中一个。"
+        },
+        {
+          "id": "carpetasApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cincoApp",
+              "nivelesApp",
+              "moverApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "我的文件夹不多：工作、家务与手续、健康、项目和照片。而且几乎没有超过两层的。"
+        }
+      ]
+    },
+    {
+      "id": "desorden",
+      "titulo": "杂乱会偷走你的注意力吗？",
+      "respuesta": "会：眼前的每样东西都在争夺你的注意力，所以只把正在用的留在外面。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第五部分。杂乱会偷走你的注意力吗？"
+        },
+        {
+          "id": "mcmains",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "competencia"
+          },
+          "lamina": [
+            "escritorioCaos",
+            "cerebro"
+          ],
+          "destacada": true,
+          "texto": "2011年，普林斯顿大学的斯蒂芬妮·麦克梅恩斯和萨宾·卡斯特纳，测量了人们看着满是物体的屏幕时的大脑。眼前的每样东西都在争夺注意力，专注变得更难。"
+        },
+        {
+          "id": "vista",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escritorio",
+              "pestanas",
+              "bandeja"
+            ]
+          },
+          "lamina": [
+            "pestanas",
+            "escritorioLimpio"
+          ],
+          "texto": "你的书桌、你的屏幕、你的手机都是这样：开着二十个标签页，就有二十样东西在拉扯你。眼前只留正在用的，其他的都收起来。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoArchivos"
+          },
+          "lamina": "pulgar",
+          "texto": "如果你喜欢这份指南，请点赞，订阅，免得错过下一期，再分享给那个桌面堆满文件的人。"
+        },
+        {
+          "id": "bandeja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "entrada",
+              "semanal",
+              "vacia"
+            ]
+          },
+          "lamina": [
+            "bandejaPapeles",
+            "cafeLibreta"
+          ],
+          "meme": "pestanas",
+          "texto": "再准备一个唯一的收件箱：新东西都先放进去，每周一次把它们分到各自的文件夹里。"
+        },
+        {
+          "id": "destacados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estrellaApp",
+              "destacadosApp",
+              "recientesApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "每周都用的东西，我会加星标，它们就待在已加星标里，随手可拿；其他的不会在眼前碍事。"
+        }
+      ]
+    },
+    {
+      "id": "buscar",
+      "titulo": "你花多少时间在找东西上？",
+      "respuesta": "将近一周工作时间的五分之一：给每个文件起名时把日期放在最前面，几秒就能找到。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第六部分。你花多少时间在找东西上？"
+        },
+        {
+          "id": "mckinsey",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2012",
+            "clave": "mckinsey"
+          },
+          "lamina": [
+            "buscandoPapeles",
+            "reloj"
+          ],
+          "destacada": true,
+          "texto": "2012年，咨询公司麦肯锡的一份报告估算，坐办公室的人每周将近五分之一的时间都花在查找和收集信息上。这差不多是每周整整一天。"
+        },
+        {
+          "id": "nombres",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nombreArchivo"
+          },
+          "lamina": [
+            "documentos",
+            "calendarioPared"
+          ],
+          "meme": "nombres",
+          "texto": "诀窍在名字里。先写日期，按年、月、日的顺序，再写它是什么。这样文件会自己按日期排好，你一眼就能找到。在这里拼一个好名字吧。"
+        },
+        {
+          "id": "primeraVez",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "alGuardar",
+              "unaVez",
+              "sinDescargas"
+            ]
+          },
+          "lamina": [
+            "descargas",
+            "carpetaOrden"
+          ],
+          "texto": "而且第一次保存时就把名字起好。要是拖到以后，它就会躺在下载文件夹里，顶着别人给它起的名字。"
+        },
+        {
+          "id": "buscador",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "buscadorApp",
+              "ordenApp",
+              "fechaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "要是有什么找不到了，我就在搜索框里输入，或者按日期排序；因为我的文件名都以日期开头，一切都按顺序出来。"
+        }
+      ]
+    },
+    {
+      "id": "soltar",
+      "titulo": "该留什么，该放下什么？",
+      "respuesta": "留下你会用或丢了会心疼的，其余的放下：「以防万一」地囤积也是负担。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第七部分。该留什么，该放下什么？"
+        },
+        {
+          "id": "sweeten",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "acumular"
+          },
+          "lamina": [
+            "correoLleno",
+            "discoDuro"
+          ],
+          "destacada": true,
+          "texto": "2018年，英格兰的格雷琴·斯威滕和她的团队，访谈了人们怎样对待自己的数字文件。很多人「以防万一」地存着成千上万封邮件、照片和文档，这一大堆带给他们的不是安心，而是压力。"
+        },
+        {
+          "id": "preguntas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "usar",
+              "otroLado",
+              "doleria"
+            ]
+          },
+          "lamina": [
+            "fotosRepetidas",
+            "decidir"
+          ],
+          "meme": "porSiAcaso",
+          "texto": "存东西之前，先问自己三个问题：我会用它吗？别的地方已经有了吗？丢了我会心疼吗？如果三个答案都是不，就放下它。"
+        },
+        {
+          "id": "mensual",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "repetidas",
+              "viejo",
+              "importante"
+            ]
+          },
+          "lamina": [
+            "limpieza",
+            "papelera"
+          ],
+          "texto": "每个月一次，删掉重复的照片和已经过期的东西。真正重要的，比如你的证件和回忆，要留好备份。"
+        },
+        {
+          "id": "papelera",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "papeleraApp",
+              "recuperarApp",
+              "treintaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "我放下的东西会进回收站：后悔了就拿出来；三十天后它会自动删除。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "接下来怎么做？你的继续计划",
+      "respuesta": "把脑子里的事倒进清单，建五个文件夹，名字以日期开头，每月放下多余的。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第八部分。接下来怎么做？你的继续计划。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planArchivos"
+          },
+          "lamina": [
+            "libretaLista",
+            "papelesMesa"
+          ],
+          "texto": "这周，把脑子里所有待办的事写成一张清单，再把重要的纸质文件集中到一个地方。"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cincoCarpetas",
+              "renombra",
+              "estrella"
+            ]
+          },
+          "lamina": [
+            "cajas",
+            "carpetaOrden"
+          ],
+          "destacada": true,
+          "texto": "第一个月，最多建五个文件夹，把重要文件改名、日期放在前面，再给最常用的加星标。"
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vaciaBandeja",
+              "suelta",
+              "copia"
+            ]
+          },
+          "lamina": [
+            "bandejaPapeles",
+            "limpieza"
+          ],
+          "texto": "之后每个月：清空你的收件箱，放下没用的东西，再检查重要的东西有没有备份。"
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "carpetasFin",
+              "cuartosFin",
+              "papeleraFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "如果你不知道从哪儿开始，就去应用里看看我的文件：从我的文件夹到回收站，都整理得好好的。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "总结一下：脑袋是用来思考的，不是用来存放的；永远存在同一个地方；文件夹要少、要浅；日期放在名字前面；用不到的就放下。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "在MindHaOS的文件里，你可以把一切存进你的文件夹，你家的每个房间都有自己的文件夹，放下的东西会在回收站里等三十天。你可以自己来，也可以请AI帮忙。今天就免费搭建你的心灵之家。链接在视频简介里。下一期指南：怎样留住你最美好的回忆？",
+    "boton": "打开文件",
+    "lamina": "app-plan",
+    "anclas": {
+      "carpetas": "你的文件夹",
+      "cuartos": "每个房间",
+      "papelera": "回收站"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "miller-1956",
+      "texto": "Miller G. A. The magical number seven, plus or minus two: some limits on our capacity for processing information. Psychological Review 63(2), 81-97 (1956).",
+      "url": "https://doi.org/10.1037/h0043158"
+    },
+    {
+      "id": "cowan-2001",
+      "texto": "Cowan N. The magical number 4 in short-term memory: a reconsideration of mental storage capacity. Behavioral and Brain Sciences 24(1), 87-114 (2001).",
+      "url": "https://doi.org/10.1017/S0140525X01003922"
+    },
+    {
+      "id": "bush-1945",
+      "texto": "Bush V. As We May Think. The Atlantic（1945年7月）.",
+      "url": "https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/"
+    },
+    {
+      "id": "luhmann",
+      "texto": "尼克拉斯·卢曼和他的卡片盒（Zettelkasten）。维基百科。",
+      "url": "https://en.wikipedia.org/wiki/Zettelkasten"
+    },
+    {
+      "id": "sparrow-2011",
+      "texto": "Sparrow B., Liu J., Wegner D. M. Google effects on memory: cognitive consequences of having information at our fingertips. Science 333(6043), 776-778 (2011).",
+      "url": "https://doi.org/10.1126/science.1207745"
+    },
+    {
+      "id": "storm-2015",
+      "texto": "Storm B. C., Stone S. M. Saving-enhanced memory: the benefits of saving on the learning and remembering of new information. Psychological Science 26(2), 182-188 (2015).",
+      "url": "https://doi.org/10.1177/0956797614559285"
+    },
+    {
+      "id": "bergman-2008",
+      "texto": "Bergman O., Beyth-Marom R., Nachmias R., Gradovitch N., Whittaker S. Improved search engines and navigation preference in personal information management. ACM Transactions on Information Systems 26(4) (2008).",
+      "url": "https://doi.org/10.1145/1402256.1402259"
+    },
+    {
+      "id": "mcmains-2011",
+      "texto": "McMains S., Kastner S. Interactions of top-down and bottom-up mechanisms in human visual cortex. Journal of Neuroscience 31(2), 587-597 (2011).",
+      "url": "https://doi.org/10.1523/JNEUROSCI.3766-10.2011"
+    },
+    {
+      "id": "mckinsey-2012",
+      "texto": "McKinsey Global Institute. The social economy: unlocking value and productivity through social technologies (2012).",
+      "url": "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-social-economy"
+    },
+    {
+      "id": "sweeten-2018",
+      "texto": "Sweeten G., Sillence E., Neave N. Digital hoarding behaviours: underlying motivations and potential negative consequences. Computers in Human Behavior 85, 54-60 (2018).",
+      "url": "https://researchportal.northumbria.ac.uk/en/publications/digital-hoarding-behaviours-underlying-motivations-and-potential-/"
+    }
+  ]
+}

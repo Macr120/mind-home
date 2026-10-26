@@ -118,7 +118,10 @@ export function ArchivosApp() {
   // Leído para repintar cuando cambia el plan; el gate en sí es `tieneAcceso()`.
   useSesion((s) => s.plan)
 
-  if (esDemo() || !hayBackend()) {
+  // La demo enseña su nube de ejemplo (`demo.ts`, bytes locales); subir, crear y
+  // compartir piden Pro como a quien no tiene plan.
+  if (esDemo()) return <Explorador puedeSubir={false} />
+  if (!hayBackend()) {
     return <Vacio icono="nube" titulo={t('archivos.demo.titulo', 'La demo no sube archivos')} sub={t('archivos.demo.sub', 'En tu casa, con Pro, aquí guardas tus archivos en la nube y los abres desde cualquier dispositivo.')} />
   }
   if (!usuario) {
@@ -231,6 +234,7 @@ function Explorador({ puedeSubir }: { puedeSubir: boolean }) {
       cuarto: c.cuarto,
       ir: { tipo: 'cuarto', cuartoId: c.cuarto.id, carpetaId: null },
       destino: destinoCuarto(c.cuarto.id),
+      tut: `cuarto.${c.appId ?? c.cuarto.id}`,
     }))
   } else if (ubi.tipo === 'cuarto' || ubi.tipo === 'otras') {
     const fuente = ubi.fuente
@@ -246,12 +250,12 @@ function Explorador({ puedeSubir }: { puedeSubir: boolean }) {
       // Solo las apps que de verdad guardan algo: las demás serían carpetas vacías.
       items = otras.flatMap((a): Item[] => {
         const n = FUENTES[a].reduce((s, f) => s + (elementos?.get(f.clave)?.length ?? 0), 0)
-        return n ? [{ k: `v:app:${a}`, tipo: 'virtual', nombre: nombreApp(a), icono: 'rejilla', n, ir: { tipo: 'otras', appId: a } }] : []
+        return n ? [{ k: `v:app:${a}`, tipo: 'virtual', nombre: nombreApp(a), icono: 'rejilla', n, ir: { tipo: 'otras', appId: a }, tut: `app.${a}` }] : []
       })
     } else {
       const deFuentes = fuentesVisibles.flatMap((f): Item[] => {
         const n = elementos?.get(f.clave)?.length ?? 0
-        return n ? [{ k: `v:f:${f.clave}`, tipo: 'virtual', nombre: t(`archivos.fuente.${f.clave}`, f.titulo), icono: f.icono, n, ir: { ...ubi, fuente: f.clave } }] : []
+        return n ? [{ k: `v:f:${f.clave}`, tipo: 'virtual', nombre: t(`archivos.fuente.${f.clave}`, f.titulo), icono: f.icono, n, ir: { ...ubi, fuente: f.clave }, tut: `fuente.${f.clave}` }] : []
       })
       const raices = ubi.tipo === 'cuarto' ? (carpetasDeCuarto.get(ubi.cuartoId) ?? []) : []
       items = [
@@ -687,6 +691,7 @@ function Explorador({ puedeSubir }: { puedeSubir: boolean }) {
                     <button
                       type="button"
                       data-destino={m.destino}
+                      data-tut={`archivos.miga.${idx}`}
                       onClick={() => ir(m.ir!)}
                       className={`max-w-40 truncate rounded-lg px-2 py-1 hover:bg-white/10 ${m.destino && resaltado === m.destino ? 'ring-2 ring-emerald-400/80' : ''}`}
                     >
@@ -699,7 +704,7 @@ function Explorador({ puedeSubir }: { puedeSubir: boolean }) {
               ))}
             </nav>
             {enPapelera && items.length > 0 && (
-              <BotonSecundario pequeno onClick={() => void vaciarPapelera()}>
+              <BotonSecundario pequeno onClick={() => void vaciarPapelera()} data-tut="archivos.vaciarPapelera">
                 <Icono nombre="basura" /> {t('archivos.vaciarPapelera', 'Vaciar papelera')}
               </BotonSecundario>
             )}
@@ -710,7 +715,7 @@ function Explorador({ puedeSubir }: { puedeSubir: boolean }) {
             )}
           </div>
           {n > 0 ? (
-            <div className="flex min-h-9 flex-wrap items-center gap-1.5">
+            <div className="flex min-h-9 flex-wrap items-center gap-1.5" data-tut="archivos.seleccion">
               <button
                 type="button"
                 onClick={() => setSel(new Set())}
@@ -761,6 +766,7 @@ function Explorador({ puedeSubir }: { puedeSubir: boolean }) {
                   onChange={(e) => setBusca(e.target.value)}
                   placeholder={ubi.tipo === 'mia' ? t('archivos.buscar.todo', 'Buscar en tu Archivo') : t('archivos.buscar.aqui', 'Buscar aquí')}
                   aria-label={t('archivos.buscar.aqui', 'Buscar aquí')}
+                  data-tut="archivos.buscar"
                   className={`${INPUT} py-1.5 ps-8`}
                 />
               </label>
@@ -768,6 +774,7 @@ function Explorador({ puedeSubir }: { puedeSubir: boolean }) {
                 <button
                   type="button"
                   onClick={abrirOrden}
+                  data-tut="archivos.ordenar"
                   title={t('archivos.ordenar', 'Ordenar')}
                   aria-label={t('archivos.ordenar', 'Ordenar')}
                   className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-white/10 bg-white/5 hover:bg-white/10"
@@ -782,6 +789,7 @@ function Explorador({ puedeSubir }: { puedeSubir: boolean }) {
                   setModo(m)
                   guardarLS(LS_VISTA, m)
                 }}
+                data-tut="archivos.vista"
                 title={modo === 'lista' ? t('archivos.vista.rejilla', 'Ver en cuadrícula') : t('archivos.vista.lista', 'Ver en lista')}
                 aria-label={modo === 'lista' ? t('archivos.vista.rejilla', 'Ver en cuadrícula') : t('archivos.vista.lista', 'Ver en lista')}
                 className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-white/10 bg-white/5 hover:bg-white/10"

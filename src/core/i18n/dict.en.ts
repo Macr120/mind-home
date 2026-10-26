@@ -7561,6 +7561,7 @@ export const EN: Dict = {
   'guia.garage.titulo': "How do you take care of your vehicles?",
   'guia.ideas.titulo': "How can you have better ideas?",
   'guia.viajes.titulo': "How can you travel better?",
+  'guia.archivos.titulo': "How can you organize your mind?",
   'guia.noticias.titulo': "In search of truth and beauty: journalism and content",
   'guia.matematicas.titulo': "What is the language of the universe?",
   // Esenciales (corren en la casa real y recorren los menús de cada app)

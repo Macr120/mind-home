@@ -1,0 +1,331 @@
+{
+  "fotos": {},
+  "laminas": {
+    "malabares": {
+      "archivo": "laminas/malabares.mp4",
+      "tipo": "video",
+      "autor": "Los Muertos Crew",
+      "fuente": "https://www.pexels.com/video/street-performer-juggling-outdoors-8895395/",
+      "licencia": "Licencia Pexels"
+    },
+    "notasPegadas": {
+      "archivo": "laminas/notasPegadas.mp4",
+      "tipo": "video",
+      "autor": "Kaboompics.com",
+      "fuente": "https://www.pexels.com/video/ideas-in-sticky-notes-7710869/",
+      "licencia": "Licencia Pexels"
+    },
+    "listaSuper": {
+      "archivo": "laminas/listaSuper.mp4",
+      "tipo": "video",
+      "autor": "Mike Jones",
+      "fuente": "https://www.pexels.com/video/a-woman-looking-for-fruits-8801848/",
+      "licencia": "Licencia Pexels"
+    },
+    "olvido": {
+      "archivo": "laminas/olvido.mp4",
+      "tipo": "video",
+      "autor": "Anastasia Shuraeva",
+      "fuente": "https://www.pexels.com/video/person-sticking-a-note-on-a-man-s-forehead-7279552/",
+      "licencia": "Licencia Pexels"
+    },
+    "libretaLista": {
+      "archivo": "laminas/libretaLista.mp4",
+      "tipo": "video",
+      "autor": "Miriam Alonso",
+      "fuente": "https://www.pexels.com/video/person-writing-a-to-do-list-7597168/",
+      "licencia": "Licencia Pexels"
+    },
+    "escritorioOrden": {
+      "archivo": "laminas/escritorioOrden.mp4",
+      "tipo": "video",
+      "autor": "Ron Lach",
+      "fuente": "https://www.pexels.com/video/a-person-putting-pens-inside-an-organizer-10567222/",
+      "licencia": "Licencia Pexels"
+    },
+    "bush": {
+      "archivo": "laminas/bush.webp",
+      "tipo": "foto",
+      "autor": "Office for Emergency Management (gobierno de EE. UU.)",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Vannevar_Bush.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "microfilm": {
+      "archivo": "laminas/microfilm.webp",
+      "tipo": "foto",
+      "autor": "LSE Library (autor desconocido)",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Student_at_microfilm_reader,_c1970s.jpg",
+      "licencia": "No known copyright restrictions",
+      "credito": "Wikimedia Commons"
+    },
+    "fichero": {
+      "archivo": "laminas/fichero.webp",
+      "tipo": "foto",
+      "autor": "MarkBuckawicki",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Wooden_Card_Catalog_Furniture.jpg",
+      "licencia": "CC0",
+      "credito": "Wikimedia Commons"
+    },
+    "fichas": {
+      "archivo": "laminas/fichas.webp",
+      "tipo": "foto",
+      "autor": "Michael Holley (Swtpc6800)",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Copyright_Card_Catalog_Drawer.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "archivero": {
+      "archivo": "laminas/archivero.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-woman-getting-a-file-6538598/",
+      "licencia": "Licencia Pexels"
+    },
+    "celularArchivos": {
+      "archivo": "laminas/celularArchivos.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/close-up-on-man-hand-scrolling-phone-gallery-10374888/",
+      "licencia": "Licencia Pexels"
+    },
+    "teclado": {
+      "archivo": "laminas/teclado.mp4",
+      "tipo": "video",
+      "autor": "MELQUIZEDEQUE ALMEIDA",
+      "fuente": "https://www.pexels.com/video/hands-typing-fast-on-a-laptop-keyboard-34124550/",
+      "licencia": "Licencia Pexels"
+    },
+    "buscadorPantalla": {
+      "archivo": "laminas/buscadorPantalla.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/using-a-magnifying-glass-to-visually-enlarge-objects-3831743/",
+      "licencia": "Licencia Pexels"
+    },
+    "guardarArchivo": {
+      "archivo": "laminas/guardarArchivo.mp4",
+      "tipo": "video",
+      "autor": "Kaboompics.com",
+      "fuente": "https://www.pexels.com/video/organized-person-putting-her-paperworks-in-a-folder-orderly-8135783/",
+      "licencia": "Licencia Pexels"
+    },
+    "estudiante": {
+      "archivo": "laminas/estudiante.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/young-student-taking-notes-from-the-book-6209576/",
+      "licencia": "Licencia Pexels"
+    },
+    "llaves": {
+      "archivo": "laminas/llaves.mp4",
+      "tipo": "video",
+      "autor": "Peggy Anke",
+      "fuente": "https://www.pexels.com/video/keys-hanging-on-a-metal-rack-6182057/",
+      "licencia": "Licencia Pexels"
+    },
+    "cajaFuerte": {
+      "archivo": "laminas/cajaFuerte.webp",
+      "tipo": "foto",
+      "autor": "Berna",
+      "fuente": "https://www.pexels.com/photo/wall-of-yellow-boxes-19920920/",
+      "licencia": "Licencia Pexels"
+    },
+    "carpetasPantalla": {
+      "archivo": "laminas/carpetasPantalla.mp4",
+      "tipo": "video",
+      "autor": "Kaboompics.com",
+      "fuente": "https://www.pexels.com/video/a-person-finding-a-document-7710451/",
+      "licencia": "Licencia Pexels"
+    },
+    "oficina": {
+      "archivo": "laminas/oficina.mp4",
+      "tipo": "video",
+      "autor": "Mizuno K",
+      "fuente": "https://www.pexels.com/video/businesswoman-using-a-computer-at-an-office-desk-12896410/",
+      "licencia": "Licencia Pexels"
+    },
+    "mapaCiudad": {
+      "archivo": "laminas/mapaCiudad.mp4",
+      "tipo": "video",
+      "autor": "Lara Jameson",
+      "fuente": "https://www.pexels.com/video/a-person-putting-pins-in-a-paper-map-8829568/",
+      "licencia": "Licencia Pexels"
+    },
+    "etiquetas": {
+      "archivo": "laminas/etiquetas.mp4",
+      "tipo": "video",
+      "autor": "Blue Bird",
+      "fuente": "https://www.pexels.com/video/woman-putting-label-on-a-box-7210977/",
+      "licencia": "Licencia Pexels"
+    },
+    "cajas": {
+      "archivo": "laminas/cajas.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/a-woman-putting-stuff-in-the-box-7463987/",
+      "licencia": "Licencia Pexels"
+    },
+    "estante": {
+      "archivo": "laminas/estante.mp4",
+      "tipo": "video",
+      "autor": "Jordann Player",
+      "fuente": "https://www.pexels.com/video/pull-out-shot-of-bookshelves-in-a-living-room-10822607/",
+      "licencia": "Licencia Pexels"
+    },
+    "escritorioCaos": {
+      "archivo": "laminas/escritorioCaos.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/a-messy-table-in-the-office-8869991/",
+      "licencia": "Licencia Pexels"
+    },
+    "cerebro": {
+      "archivo": "laminas/cerebro.mp4",
+      "tipo": "video",
+      "autor": "MART PRODUCTION",
+      "fuente": "https://www.pexels.com/video/a-man-undergoing-mri-procedure-7089938/",
+      "licencia": "Licencia Pexels"
+    },
+    "pestanas": {
+      "archivo": "laminas/pestanas.mp4",
+      "tipo": "video",
+      "autor": "Kaboompics.com",
+      "fuente": "https://www.pexels.com/video/a-tired-person-working-on-the-computer-6032110/",
+      "licencia": "Licencia Pexels"
+    },
+    "escritorioLimpio": {
+      "archivo": "laminas/escritorioLimpio.mp4",
+      "tipo": "video",
+      "autor": "Ron Lach",
+      "fuente": "https://www.pexels.com/video/a-man-tidying-up-his-desk-10567192/",
+      "licencia": "Licencia Pexels"
+    },
+    "bandejaPapeles": {
+      "archivo": "laminas/bandejaPapeles.webp",
+      "tipo": "foto",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/photo/documents-in-paper-tray-on-office-desk-7845307/",
+      "licencia": "Licencia Pexels"
+    },
+    "cafeLibreta": {
+      "archivo": "laminas/cafeLibreta.mp4",
+      "tipo": "video",
+      "autor": "Mikhail Nilov",
+      "fuente": "https://www.pexels.com/video/male-hands-opening-daily-planner-6931515/",
+      "licencia": "Licencia Pexels"
+    },
+    "buscandoPapeles": {
+      "archivo": "laminas/buscandoPapeles.mp4",
+      "tipo": "video",
+      "autor": "Mizuno K",
+      "fuente": "https://www.pexels.com/video/frustrated-woman-browsing-through-documents-in-an-office-12909006/",
+      "licencia": "Licencia Pexels"
+    },
+    "reloj": {
+      "archivo": "laminas/reloj.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/view-of-several-alarm-clocks-on-a-surface-8322054/",
+      "licencia": "Licencia Pexels"
+    },
+    "documentos": {
+      "archivo": "laminas/documentos.mp4",
+      "tipo": "video",
+      "autor": "Leeloo The First",
+      "fuente": "https://www.pexels.com/video/a-person-writing-on-documents-using-marker-7247823/",
+      "licencia": "Licencia Pexels"
+    },
+    "calendarioPared": {
+      "archivo": "laminas/calendarioPared.mp4",
+      "tipo": "video",
+      "autor": "Cis14_04 09",
+      "fuente": "https://www.pexels.com/video/flipping-calendar-pages-in-motion-35332817/",
+      "licencia": "Licencia Pexels"
+    },
+    "descargas": {
+      "archivo": "laminas/descargas.mp4",
+      "tipo": "video",
+      "autor": "Cis14_04 09",
+      "fuente": "https://www.pexels.com/video/young-man-browsing-online-image-gallery-35332818/",
+      "licencia": "Licencia Pexels"
+    },
+    "carpetaOrden": {
+      "archivo": "laminas/carpetaOrden.mp4",
+      "tipo": "video",
+      "autor": "Cup of Couple",
+      "fuente": "https://www.pexels.com/video/person-arranging-documents-at-office-desk-6177732/",
+      "licencia": "Licencia Pexels"
+    },
+    "correoLleno": {
+      "archivo": "laminas/correoLleno.mp4",
+      "tipo": "video",
+      "autor": "Keira Burton",
+      "fuente": "https://www.pexels.com/video/man-holding-his-head-6623022/",
+      "licencia": "Licencia Pexels"
+    },
+    "discoDuro": {
+      "archivo": "laminas/discoDuro.webp",
+      "tipo": "foto",
+      "autor": "Arturo A",
+      "fuente": "https://www.pexels.com/photo/opened-hard-drive-disk-in-hand-18734876/",
+      "licencia": "Licencia Pexels"
+    },
+    "fotosRepetidas": {
+      "archivo": "laminas/fotosRepetidas.mp4",
+      "tipo": "video",
+      "autor": "George Milton",
+      "fuente": "https://www.pexels.com/video/close-up-footage-of-a-camera-and-printed-photos-on-the-table-7010300/",
+      "licencia": "Licencia Pexels"
+    },
+    "decidir": {
+      "archivo": "laminas/decidir.mp4",
+      "tipo": "video",
+      "autor": "George Milton",
+      "fuente": "https://www.pexels.com/video/woman-thinking-deeply-7026691/",
+      "licencia": "Licencia Pexels"
+    },
+    "limpieza": {
+      "archivo": "laminas/limpieza.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/woman-looking-at-a-t-shirt-and-throwing-it-to-a-cardboard-box-8581136/",
+      "licencia": "Licencia Pexels"
+    },
+    "papelera": {
+      "archivo": "laminas/papelera.mp4",
+      "tipo": "video",
+      "autor": "Monstera Production",
+      "fuente": "https://www.pexels.com/video/crumpled-papers-on-the-floor-and-beside-a-trash-bin-9305899/",
+      "licencia": "Licencia Pexels"
+    },
+    "papelesMesa": {
+      "archivo": "laminas/papelesMesa.mp4",
+      "tipo": "video",
+      "autor": "Mizuno K",
+      "fuente": "https://www.pexels.com/video/woman-checking-documents-on-floor-12909799/",
+      "licencia": "Licencia Pexels"
+    },
+    "pulgar": {
+      "archivo": "laminas/pulgar.mp4",
+      "tipo": "video",
+      "autor": "Kevin Malik",
+      "fuente": "https://www.pexels.com/video/a-hand-giving-a-thumbs-up-9017832/",
+      "licencia": "Licencia Pexels"
+    },
+    "cumbre": {
+      "archivo": "laminas/cumbre.mp4",
+      "tipo": "video",
+      "autor": "Canan İldeniz",
+      "fuente": "https://www.pexels.com/video/group-of-hikers-celebrating-on-mountain-peak-38242686/",
+      "licencia": "Licencia Pexels"
+    },
+    "app-plan": {
+      "archivo": "laminas/app-plan.{idioma}.mp4",
+      "tipo": "video",
+      "autor": "MindHaOS",
+      "fuente": "https://app.mindhaos.com",
+      "credito": ""
+    }
+  }
+}

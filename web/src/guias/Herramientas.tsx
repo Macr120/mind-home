@@ -18,6 +18,7 @@ import { HERRAMIENTAS_GARAGE, HerramientaGarage } from './Garage'
 import { HERRAMIENTAS_NOTICIAS, HerramientaNoticias } from './Noticias'
 import { HERRAMIENTAS_IDEAS, HerramientaIdeas } from './Ideas'
 import { HERRAMIENTAS_VIAJES, HerramientaViajes } from './Viajes'
+import { HERRAMIENTAS_ARCHIVOS, HerramientaArchivos } from './Archivos'
 import type { T } from './datos'
 
 /**
@@ -45,6 +46,7 @@ export function Herramienta({ id, t, demo }: { id: string; t: T; demo: boolean }
   if (HERRAMIENTAS_NOTICIAS.has(id)) return <HerramientaNoticias id={id} t={t} demo={demo} />
   if (HERRAMIENTAS_IDEAS.has(id)) return <HerramientaIdeas id={id} t={t} demo={demo} />
   if (HERRAMIENTAS_VIAJES.has(id)) return <HerramientaViajes id={id} t={t} demo={demo} />
+  if (HERRAMIENTAS_ARCHIVOS.has(id)) return <HerramientaArchivos id={id} t={t} demo={demo} />
   if (id === 'escalaRpe') return <EscalaRpe t={t} demo={demo} />
   if (id === 'zonasCardiacas') return <ZonasCardiacas t={t} demo={demo} />
   if (id === 'armaTuPlan') return <ArmaTuPlan t={t} demo={demo} />

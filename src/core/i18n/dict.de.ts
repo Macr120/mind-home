@@ -7585,6 +7585,7 @@ export const DE: Dict = {
   'guia.garage.titulo': "Wie hältst du deine Fahrzeuge in Schuss?",
   'guia.ideas.titulo': "Wie kommst du auf bessere Ideen?",
   'guia.viajes.titulo': "Wie reist du besser?",
+  'guia.archivos.titulo': "Wie bringst du Ordnung in deinen Kopf?",
   'guia.noticias.titulo': "Auf der Suche nach Wahrheit und Schönheit: Journalismus und Content",
   'guia.matematicas.titulo': "Was ist die Sprache des Universums?",
   'tut.esencial.titulo': 'Das Wichtigste',

@@ -1,0 +1,425 @@
+{
+  "idioma": "es",
+  "tema": "archivos",
+  "plantillaId": "archivos",
+  "numero": 21,
+  "nombre": "Archivo",
+  "pregunta": "¿Cómo organizar tu mente?",
+  "corta": "¿Cómo organizar tu mente?",
+  "subtitulo": "Cuánto cabe de verdad en tu cabeza, desde cuándo guardamos la memoria fuera de ella, si guardar las cosas te hace olvidar, si conviene usar carpetas o el buscador, cómo te afecta el desorden, cuánto tiempo pierdes buscando, qué guardar y qué soltar, y un plan para continuar.",
+  "aviso": "Esta guía es informativa y general. Los estudios citados miden la memoria y la atención de grupos concretos de personas; tus resultados pueden variar.",
+  "partes": [
+    {
+      "id": "cabeza",
+      "titulo": "¿Cuánto cabe en tu cabeza?",
+      "respuesta": "Unas cuatro cosas a la vez: tu cabeza es para pensar, no para guardar, así que saca lo demás a un lugar confiable.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": { "tipo": "titulo" },
+          "enCasa": true,
+          "texto": "¿Cómo organizar tu mente? Tu cabeza solo puede sostener unas cuatro cosas a la vez. Y aun así le pedimos que recuerde todo. ¿Y si dejaras de usarla como bodega? Hoy lo vas a ver con datos, y vas a salir con un plan para continuar."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": { "tipo": "fondo" },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Por cierto, esta es mi casa en MindHaOS, y hoy es una nave espacial. Yo soy el astronauta de a bordo, y este es mi Archivo: aquí guardo todo lo que no cabe en mi cabeza."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte uno. ¿Cuánto cabe en tu cabeza?"
+        },
+        {
+          "id": "cowan",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "cuatro" },
+          "lamina": ["malabares", "notasPegadas"],
+          "destacada": true,
+          "texto": "En 1956, George Miller dijo que la mente sostiene unas siete cosas a la vez. En 2001, Nelson Cowan revisó decenas de experimentos y bajó la cifra: en realidad son unas cuatro."
+        },
+        {
+          "id": "bodega",
+          "escena": "pensando",
+          "visual": { "tipo": "pasos", "claves": ["super", "cita", "idea"] },
+          "lamina": ["listaSuper", "olvido"],
+          "meme": "bodega",
+          "texto": "Cuando intentas cargar la lista del súper, la cita del doctor y la idea del trabajo, algo se cae. No es que tengas mala memoria: es que la estás usando de bodega."
+        },
+        {
+          "id": "descarga",
+          "escena": "senala",
+          "visual": { "tipo": "herramienta", "herramienta": "vaciarMente" },
+          "lamina": ["libretaLista", "escritorioOrden"],
+          "texto": "Así que tu cabeza es para pensar, no para guardar. Haz la prueba: escribe aquí todo lo que traes en la mente ahora mismo, y mira cuántas cosas cargabas."
+        },
+        {
+          "id": "miArchivo",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["carpetasApp", "tiposApp", "nubeApp"] },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Por eso en mi Archivo vive todo lo que no cabe en mi cabeza: papeles, fotos, notas y documentos, cada cosa en su carpeta."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "¿Desde cuándo guardamos la memoria fuera?",
+      "respuesta": "Desde siempre, pero la idea moderna nace en 1945 con el Memex de Vannevar Bush y con las noventa mil fichas de Niklas Luhmann.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte dos. ¿Desde cuándo guardamos la memoria fuera?"
+        },
+        {
+          "id": "bush",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "1945", "clave": "bush" },
+          "lamina": ["bush", "microfilm"],
+          "destacada": true,
+          "texto": "En 1945, el ingeniero Vannevar Bush imaginó el Memex: un escritorio que guardaría todos tus libros, cartas y notas, unidos por caminos, para encontrarlos en segundos. Décadas después, esa idea inspiró a los inventores del hipertexto: los enlaces que hoy usas en la web."
+        },
+        {
+          "id": "luhmann",
+          "escena": "pensando",
+          "visual": { "tipo": "dato", "cifra": "1952", "clave": "luhmann" },
+          "lamina": ["fichero", "fichas"],
+          "texto": "Y en 1952, el sociólogo alemán Niklas Luhmann empezó a anotar cada idea en una ficha. Llegó a unas noventa mil, y con ellas escribió más de setenta libros. Decía que su fichero era su compañero de trabajo."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["fichas", "computadora", "nube"] },
+          "lamina": ["archivero", "celularArchivos"],
+          "texto": "Después llegaron los archiveros, la computadora y ahora la nube. Hoy cabe todo en el bolsillo; lo difícil ya no es guardar, sino encontrar."
+        },
+        {
+          "id": "cuartos",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["cuartoApp", "fuentesApp", "tuyosApp"] },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Y como mi casa es mi mente, cada cuarto tiene su carpeta: ahí aparece solo lo que su app ya guarda, como las fotos de mis viajes o mis dibujos."
+        }
+      ]
+    },
+    {
+      "id": "olvido",
+      "titulo": "¿Guardar las cosas te hace olvidar?",
+      "respuesta": "Un poco, pero a cambio liberas la cabeza: lo que guardas en un lugar confiable te deja aprender y recordar mejor lo siguiente.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte tres. ¿Guardar las cosas te hace olvidar?"
+        },
+        {
+          "id": "sparrow",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "donde" },
+          "lamina": ["teclado", "buscadorPantalla"],
+          "destacada": true,
+          "texto": "En 2011, Betsy Sparrow y su equipo pidieron a estudiantes escribir datos curiosos en una computadora. Los que creían que se iban a guardar recordaron menos los datos… pero recordaban muy bien en qué carpeta estaban."
+        },
+        {
+          "id": "storm",
+          "escena": "pensando",
+          "visual": { "tipo": "dato", "cifra": "2015", "clave": "storm" },
+          "lamina": ["guardarArchivo", "estudiante"],
+          "texto": "Y en 2015, Benjamin Storm y Sean Stone dieron la otra cara: quienes guardaban un archivo antes de estudiar el siguiente aprendían mejor ese segundo. Guardar libera espacio para lo nuevo."
+        },
+        {
+          "id": "confiable",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["unLugar", "siempreAhi", "sabesDonde"] },
+          "lamina": ["llaves", "cajaFuerte"],
+          "meme": "guardado",
+          "texto": "Pero solo funciona si confías en el lugar: cuando guardas y no sabes dónde, tu cabeza sigue cargándolo. Así que guarda sin culpa, siempre en el mismo sitio."
+        },
+        {
+          "id": "visor",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["fotoApp", "pdfApp", "dispositivosApp"] },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Y cualquier archivo lo abro aquí mismo: una foto, un PDF o una nota, desde el celular o la computadora."
+        }
+      ]
+    },
+    {
+      "id": "carpetas",
+      "titulo": "¿Carpetas o buscador?",
+      "respuesta": "Carpetas: casi siempre llegamos navegando y el buscador queda para cuando te pierdes; pocas, poco profundas y con nombres claros.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte cuatro. ¿Carpetas o buscador?"
+        },
+        {
+          "id": "bergman",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "navegar" },
+          "lamina": ["carpetasPantalla", "oficina"],
+          "destacada": true,
+          "texto": "En 2008, Ofer Bergman y Steve Whittaker estudiaron cómo la gente encuentra sus propios archivos. Aun con buenos buscadores, la mayoría de las veces llegaban navegando por sus carpetas; el buscador lo usaban muy poco, sobre todo cuando ya estaban perdidos."
+        },
+        {
+          "id": "mapa",
+          "escena": "pensando",
+          "visual": { "tipo": "pasos", "claves": ["pocas", "planas", "nombres"] },
+          "lamina": ["mapaCiudad", "etiquetas"],
+          "meme": "final",
+          "texto": "Tus carpetas son un mapa mental. Si tienes cien, o una dentro de otra dentro de otra, te pierdes. Lo que funciona: pocas, poco profundas y con nombres que entiendas en un segundo."
+        },
+        {
+          "id": "cinco",
+          "escena": "senala",
+          "visual": { "tipo": "herramienta", "herramienta": "misCarpetas" },
+          "lamina": ["cajas", "estante"],
+          "texto": "Prueba con cinco grandes: trabajo, casa y trámites, salud, proyectos y fotos. Arma aquí las tuyas y mira si todo lo que tienes cabe en alguna."
+        },
+        {
+          "id": "carpetasApp",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["cincoApp", "nivelesApp", "moverApp"] },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Mis carpetas son pocas: Trabajo, Casa y trámites, Salud, Proyectos y Fotos. Y casi nada pasa de dos niveles."
+        }
+      ]
+    },
+    {
+      "id": "desorden",
+      "titulo": "¿El desorden te roba atención?",
+      "respuesta": "Sí: todo lo que tienes a la vista compite por tu atención, así que deja fuera solo lo que estás usando.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte cinco. ¿El desorden te roba atención?"
+        },
+        {
+          "id": "mcmains",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "competencia" },
+          "lamina": ["escritorioCaos", "cerebro"],
+          "destacada": true,
+          "texto": "En 2011, Stephanie McMains y Sabine Kastner, de la Universidad de Princeton, midieron el cerebro de personas mirando una pantalla con muchos objetos. Cada cosa a la vista competía por su atención, y concentrarse costaba más."
+        },
+        {
+          "id": "vista",
+          "escena": "pensando",
+          "visual": { "tipo": "pasos", "claves": ["escritorio", "pestanas", "bandeja"] },
+          "lamina": ["pestanas", "escritorioLimpio"],
+          "texto": "Pasa en tu escritorio, en tu pantalla y en tu teléfono: veinte pestañas abiertas son veinte cosas jalándote. Deja a la vista solo lo que estás usando, y lo demás, guardado."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": { "tipo": "herramienta", "herramienta": "apoyoArchivos" },
+          "lamina": "pulgar",
+          "texto": "Si te está gustando la guía, dale like, suscríbete para no perderte la próxima y compártela con esa persona que tiene el escritorio lleno de archivos."
+        },
+        {
+          "id": "bandeja",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["entrada", "semanal", "vacia"] },
+          "lamina": ["bandejaPapeles", "cafeLibreta"],
+          "meme": "pestanas",
+          "texto": "Y ten una sola bandeja de entrada: todo lo nuevo cae ahí, y una vez a la semana lo repartes en sus carpetas."
+        },
+        {
+          "id": "destacados",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["estrellaApp", "destacadosApp", "recientesApp"] },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Lo que uso cada semana lo marco con una estrella y queda a la mano en Destacados; lo demás no me estorba a la vista."
+        }
+      ]
+    },
+    {
+      "id": "buscar",
+      "titulo": "¿Cuánto tiempo pierdes buscando?",
+      "respuesta": "Casi una quinta parte de la semana de trabajo: ponle a cada archivo un nombre con la fecha delante y lo encontrarás en segundos.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte seis. ¿Cuánto tiempo pierdes buscando?"
+        },
+        {
+          "id": "mckinsey",
+          "escena": "habla",
+          "visual": { "tipo": "dato", "cifra": "2012", "clave": "mckinsey" },
+          "lamina": ["buscandoPapeles", "reloj"],
+          "destacada": true,
+          "texto": "En 2012, un informe de la consultora McKinsey calculó que quienes trabajan en oficina dedican casi la quinta parte de su semana a buscar y reunir información. Es casi un día entero, cada semana."
+        },
+        {
+          "id": "nombres",
+          "escena": "pensando",
+          "visual": { "tipo": "herramienta", "herramienta": "nombreArchivo" },
+          "lamina": ["documentos", "calendarioPared"],
+          "meme": "nombres",
+          "texto": "El truco está en el nombre. Empieza con la fecha al revés, año, mes y día, y luego di qué es. Así se ordenan solos por fecha y los encuentras de un vistazo. Arma aquí un buen nombre."
+        },
+        {
+          "id": "primeraVez",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["alGuardar", "unaVez", "sinDescargas"] },
+          "lamina": ["descargas", "carpetaOrden"],
+          "texto": "Y nómbralo bien la primera vez, al guardarlo. Si lo dejas para luego, termina en la carpeta de descargas con el nombre que le puso otro."
+        },
+        {
+          "id": "buscador",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["buscadorApp", "ordenApp", "fechaApp"] },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Y si algo se me pierde, lo escribo en el buscador o lo ordeno por fecha; como mis nombres empiezan con la fecha, todo sale en orden."
+        }
+      ]
+    },
+    {
+      "id": "soltar",
+      "titulo": "¿Qué guardar y qué soltar?",
+      "respuesta": "Guarda lo que vas a usar o te dolería perder y suelta lo demás: acumular «por si acaso» también pesa.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte siete. ¿Qué guardar y qué soltar?"
+        },
+        {
+          "id": "sweeten",
+          "escena": "habla",
+          "visual": { "tipo": "grafica", "grafica": "acumular" },
+          "lamina": ["correoLleno", "discoDuro"],
+          "destacada": true,
+          "texto": "En 2018, Gretchen Sweeten y su equipo, en Inglaterra, entrevistaron a personas sobre sus archivos digitales. Muchas guardaban miles de correos, fotos y documentos «por si acaso», y ese montón les daba estrés en vez de calma."
+        },
+        {
+          "id": "preguntas",
+          "escena": "pensando",
+          "visual": { "tipo": "pasos", "claves": ["usar", "otroLado", "doleria"] },
+          "lamina": ["fotosRepetidas", "decidir"],
+          "meme": "porSiAcaso",
+          "texto": "Antes de guardar algo, hazte tres preguntas: ¿lo voy a usar?, ¿ya está en otro lado?, ¿me dolería perderlo? Si las tres son no, suéltalo."
+        },
+        {
+          "id": "mensual",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["repetidas", "viejo", "importante"] },
+          "lamina": ["limpieza", "papelera"],
+          "texto": "Y una vez al mes, borra las fotos repetidas y lo que ya venció. Lo importante de verdad, como tus documentos y tus recuerdos, guárdalo con copia."
+        },
+        {
+          "id": "papelera",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["papeleraApp", "recuperarApp", "treintaApp"] },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Lo que suelto va a la Papelera: si me arrepiento, lo saco; y a los treinta días se borra solo."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "¿Cómo seguir? Tu plan para continuar",
+      "respuesta": "Vacía tu cabeza en una lista, arma cinco carpetas, nombra todo con la fecha delante y cada mes suelta lo que sobra.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": { "tipo": "encabezado" },
+          "plano": "cuerpo",
+          "texto": "Parte ocho. ¿Cómo seguir? Tu plan para continuar."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": { "tipo": "grafica", "grafica": "planArchivos" },
+          "lamina": ["libretaLista", "papelesMesa"],
+          "texto": "Esta semana, saca de tu cabeza todo lo pendiente en una lista, y junta tus papeles importantes en un solo lugar."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": { "tipo": "pasos", "claves": ["cincoCarpetas", "renombra", "estrella"] },
+          "lamina": ["cajas", "carpetaOrden"],
+          "destacada": true,
+          "texto": "El primer mes, arma cinco carpetas como máximo, renombra lo importante con la fecha delante y marca con estrella lo que más usas."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": { "tipo": "pasos", "claves": ["vaciaBandeja", "suelta", "copia"] },
+          "lamina": ["bandejaPapeles", "limpieza"],
+          "texto": "Y cada mes: vacía tu bandeja de entrada, suelta lo que ya no sirve y revisa que lo importante tenga copia."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": { "tipo": "pasos", "claves": ["carpetasFin", "cuartosFin", "papeleraFin"] },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Y si no sabes por dónde empezar, mira mi Archivo en la app: está ordenado, de mis carpetas a la Papelera."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": { "tipo": "lista", "claves": ["resumen1", "resumen2", "resumen3", "resumen4", "resumen5"] },
+          "lamina": "cumbre",
+          "texto": "En resumen: tu cabeza es para pensar, no para guardar; guarda siempre en el mismo lugar; pocas carpetas y poco profundas; la fecha delante del nombre; y suelta lo que ya no usas."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "En el Archivo de MindHaOS guardas todo en tus carpetas, cada cuarto de tu casa tiene la suya, y lo que sueltas espera treinta días en la papelera. Puedes hacerlo tú, o con ayuda de la IA. Arma tu casa mental gratis hoy: el enlace está en la descripción. Y en la próxima guía: ¿cómo guardar tus mejores recuerdos?",
+    "boton": "Abrir Archivo",
+    "lamina": "app-plan",
+    "anclas": {
+      "carpetas": "tus carpetas",
+      "cuartos": "cada cuarto de tu casa",
+      "papelera": "la papelera"
+    }
+  },
+  "fuentes": [
+    { "id": "miller-1956", "texto": "Miller G. A. The magical number seven, plus or minus two: some limits on our capacity for processing information. Psychological Review 63(2), 81-97 (1956).", "url": "https://doi.org/10.1037/h0043158" },
+    { "id": "cowan-2001", "texto": "Cowan N. The magical number 4 in short-term memory: a reconsideration of mental storage capacity. Behavioral and Brain Sciences 24(1), 87-114 (2001).", "url": "https://doi.org/10.1017/S0140525X01003922" },
+    { "id": "bush-1945", "texto": "Bush V. As We May Think. The Atlantic (julio de 1945).", "url": "https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/" },
+    { "id": "luhmann", "texto": "Niklas Luhmann y su fichero (Zettelkasten). Wikipedia.", "url": "https://en.wikipedia.org/wiki/Zettelkasten" },
+    { "id": "sparrow-2011", "texto": "Sparrow B., Liu J., Wegner D. M. Google effects on memory: cognitive consequences of having information at our fingertips. Science 333(6043), 776-778 (2011).", "url": "https://doi.org/10.1126/science.1207745" },
+    { "id": "storm-2015", "texto": "Storm B. C., Stone S. M. Saving-enhanced memory: the benefits of saving on the learning and remembering of new information. Psychological Science 26(2), 182-188 (2015).", "url": "https://doi.org/10.1177/0956797614559285" },
+    { "id": "bergman-2008", "texto": "Bergman O., Beyth-Marom R., Nachmias R., Gradovitch N., Whittaker S. Improved search engines and navigation preference in personal information management. ACM Transactions on Information Systems 26(4) (2008).", "url": "https://doi.org/10.1145/1402256.1402259" },
+    { "id": "mcmains-2011", "texto": "McMains S., Kastner S. Interactions of top-down and bottom-up mechanisms in human visual cortex. Journal of Neuroscience 31(2), 587-597 (2011).", "url": "https://doi.org/10.1523/JNEUROSCI.3766-10.2011" },
+    { "id": "mckinsey-2012", "texto": "McKinsey Global Institute. The social economy: unlocking value and productivity through social technologies (2012).", "url": "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-social-economy" },
+    { "id": "sweeten-2018", "texto": "Sweeten G., Sillence E., Neave N. Digital hoarding behaviours: underlying motivations and potential negative consequences. Computers in Human Behavior 85, 54-60 (2018).", "url": "https://researchportal.northumbria.ac.uk/en/publications/digital-hoarding-behaviours-underlying-motivations-and-potential-/" }
+  ]
+}

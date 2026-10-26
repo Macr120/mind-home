@@ -7440,6 +7440,7 @@ export const RU: Dict = {
   'guia.garage.titulo': "Как ухаживать за своим транспортом?",
   'guia.ideas.titulo': "Как придумывать лучшие идеи?",
   'guia.viajes.titulo': "Как путешествовать лучше?",
+  'guia.archivos.titulo': "Как навести порядок в голове?",
   'guia.noticias.titulo': "В поисках истины и красоты: журналистика и контент",
   'guia.matematicas.titulo': "На каком языке говорит Вселенная?",
   'tut.esencial.titulo': 'Главное',

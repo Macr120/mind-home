@@ -50,6 +50,7 @@ export function MenuArchivo({ x, y, opciones, onCerrar }: { x: number; y: number
     <div
       ref={caja}
       role="menu"
+      data-tut="archivos.menuContextual"
       className="ui-panel ui-pop fixed z-[70] min-w-48 overflow-hidden rounded-xl border border-white/10 py-1 shadow-2xl"
       style={{ left: pos.x, top: pos.y }}
       onContextMenu={(e) => e.preventDefault()}
@@ -59,6 +60,7 @@ export function MenuArchivo({ x, y, opciones, onCerrar }: { x: number; y: number
           key={o.texto}
           type="button"
           role="menuitem"
+          data-tut={`archivos.opcion.${o.icono}`}
           onClick={() => {
             onCerrar()
             o.onClick()

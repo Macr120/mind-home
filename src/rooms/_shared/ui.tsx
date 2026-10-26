@@ -259,12 +259,15 @@ export function Modal({
   onCerrar,
   children,
   ancho = 'max-w-md',
+  tut,
 }: {
   titulo: string
   onCerrar: () => void
   children: ReactNode
   /** Clase max-w-* del panel. */
   ancho?: string
+  /** Ancla de tutorial del panel (`data-tut`); su botón de cerrar lleva `<tut>.cerrar`. */
+  tut?: string
 }) {
   const t = useT()
   // Escape se escucha en `document`: puesto en el panel deja de funcionar en
@@ -282,6 +285,7 @@ export function Modal({
         role="dialog"
         aria-modal="true"
         aria-label={titulo}
+        data-tut={tut}
         className={`ui-panel ui-pop max-h-[85vh] w-full space-y-3 overflow-y-auto rounded-2xl border border-white/10 p-4 shadow-xl ${ancho}`}
         onClick={(e) => e.stopPropagation()}
       >
@@ -291,6 +295,7 @@ export function Modal({
             type="button"
             onClick={onCerrar}
             aria-label={t('rutinas.cerrar', 'Cerrar')}
+            data-tut={tut && `${tut}.cerrar`}
             className="rounded-lg px-2 py-1 text-white/50 transition hover:bg-white/10"
           >
             <Icono nombre="cerrar" />

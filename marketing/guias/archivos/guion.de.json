@@ -1,0 +1,745 @@
+{
+  "idioma": "de",
+  "tema": "archivos",
+  "plantillaId": "archivos",
+  "numero": 21,
+  "nombre": "Dateien",
+  "pregunta": "Wie bringst du Ordnung in deinen Kopf?",
+  "corta": "Wie bringst du Ordnung in deinen Kopf?",
+  "subtitulo": "Wie viel wirklich in deinen Kopf passt, seit wann wir das Gedächtnis auslagern, ob Speichern vergesslich macht, ob Ordner oder Suche besser sind, wie Unordnung dich beeinflusst, wie viel Zeit du mit Suchen verlierst, was du behältst und was du loslässt, und ein Plan zum Weitermachen.",
+  "aviso": "Dieser Leitfaden ist informativ und allgemein. Die zitierten Studien messen Gedächtnis und Aufmerksamkeit bestimmter Personengruppen; deine Ergebnisse können abweichen.",
+  "partes": [
+    {
+      "id": "cabeza",
+      "titulo": "Wie viel passt in deinen Kopf?",
+      "respuesta": "Etwa vier Dinge auf einmal: Dein Kopf ist zum Denken da, nicht zum Aufbewahren, also bring den Rest an einen verlässlichen Ort.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Wie bringst du Ordnung in deinen Kopf? Dein Kopf kann nur etwa vier Dinge gleichzeitig halten. Und trotzdem verlangen wir, dass er sich alles merkt. Was, wenn du ihn nicht mehr als Lagerraum benutzt? Heute siehst du es mit Daten, und du gehst mit einem Plan zum Weitermachen."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Übrigens, das ist mein Haus in MindHaOS, und heute ist es ein Raumschiff. Ich bin der Astronaut an Bord, und das hier sind meine Dateien: Hier bewahre ich alles auf, was nicht in meinen Kopf passt."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil eins. Wie viel passt in deinen Kopf?"
+        },
+        {
+          "id": "cowan",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "cuatro"
+          },
+          "lamina": [
+            "malabares",
+            "notasPegadas"
+          ],
+          "destacada": true,
+          "texto": "1956 sagte George Miller, dass der Verstand etwa sieben Dinge gleichzeitig hält. 2001 prüfte Nelson Cowan Dutzende Experimente und senkte die Zahl: In Wahrheit sind es etwa vier."
+        },
+        {
+          "id": "bodega",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "super",
+              "cita",
+              "idea"
+            ]
+          },
+          "lamina": [
+            "listaSuper",
+            "olvido"
+          ],
+          "meme": "bodega",
+          "texto": "Wenn du die Einkaufsliste, den Arzttermin und die Idee für die Arbeit gleichzeitig tragen willst, fällt etwas runter. Du hast kein schlechtes Gedächtnis: Du benutzt es nur als Lagerraum."
+        },
+        {
+          "id": "descarga",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "vaciarMente"
+          },
+          "lamina": [
+            "libretaLista",
+            "escritorioOrden"
+          ],
+          "texto": "Dein Kopf ist also zum Denken da, nicht zum Aufbewahren. Mach den Test: Schreib hier alles auf, was dir gerade durch den Kopf geht, und sieh, wie viel du mit dir herumgetragen hast."
+        },
+        {
+          "id": "miArchivo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "carpetasApp",
+              "tiposApp",
+              "nubeApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Deshalb lebt in meinen Dateien alles, was nicht in meinen Kopf passt: Papiere, Fotos, Notizen und Dokumente, alles in seinem Ordner."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Seit wann lagern wir das Gedächtnis aus?",
+      "respuesta": "Schon immer, aber die moderne Idee entsteht 1945 mit dem Memex von Vannevar Bush und den neunzigtausend Zetteln von Niklas Luhmann.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil zwei. Seit wann lagern wir das Gedächtnis aus?"
+        },
+        {
+          "id": "bush",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1945",
+            "clave": "bush"
+          },
+          "lamina": [
+            "bush",
+            "microfilm"
+          ],
+          "destacada": true,
+          "texto": "1945 stellte sich der Ingenieur Vannevar Bush den Memex vor: einen Schreibtisch, der all deine Bücher, Briefe und Notizen speichert, durch Pfade verbunden, damit du sie in Sekunden findest. Jahrzehnte später inspirierte diese Idee die Erfinder des Hypertexts: die Links, die du heute im Web benutzt."
+        },
+        {
+          "id": "luhmann",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1952",
+            "clave": "luhmann"
+          },
+          "lamina": [
+            "fichero",
+            "fichas"
+          ],
+          "texto": "Und 1952 begann der deutsche Soziologe Niklas Luhmann, jede Idee auf einem Zettel festzuhalten. Er kam auf rund neunzigtausend, und damit schrieb er mehr als siebzig Bücher. Er sagte, sein Zettelkasten sei sein Kollege."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fichas",
+              "computadora",
+              "nube"
+            ]
+          },
+          "lamina": [
+            "archivero",
+            "celularArchivos"
+          ],
+          "texto": "Danach kamen die Aktenschränke, der Computer und jetzt die Cloud. Heute passt alles in die Hosentasche; schwierig ist nicht mehr das Aufbewahren, sondern das Finden."
+        },
+        {
+          "id": "cuartos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuartoApp",
+              "fuentesApp",
+              "tuyosApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Und weil mein Haus mein Kopf ist, hat jeder Raum seinen Ordner: Dort erscheint von selbst, was seine App schon speichert, wie die Fotos meiner Reisen oder meine Zeichnungen."
+        }
+      ]
+    },
+    {
+      "id": "olvido",
+      "titulo": "Macht Speichern vergesslich?",
+      "respuesta": "Ein bisschen, aber dafür wird dein Kopf frei: Was an einem verlässlichen Ort liegt, lässt dich das Nächste besser lernen und behalten.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil drei. Macht Speichern vergesslich?"
+        },
+        {
+          "id": "sparrow",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "donde"
+          },
+          "lamina": [
+            "teclado",
+            "buscadorPantalla"
+          ],
+          "destacada": true,
+          "texto": "2011 ließen Betsy Sparrow und ihr Team Studierende kuriose Fakten in einen Computer tippen. Wer glaubte, dass sie gespeichert würden, erinnerte sich schlechter an die Fakten… aber sehr gut daran, in welchem Ordner sie lagen."
+        },
+        {
+          "id": "storm",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2015",
+            "clave": "storm"
+          },
+          "lamina": [
+            "guardarArchivo",
+            "estudiante"
+          ],
+          "texto": "Und 2015 zeigten Benjamin Storm und Sean Stone die andere Seite: Wer eine Datei speicherte, bevor er die nächste lernte, lernte diese zweite besser. Speichern macht Platz für Neues."
+        },
+        {
+          "id": "confiable",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "unLugar",
+              "siempreAhi",
+              "sabesDonde"
+            ]
+          },
+          "lamina": [
+            "llaves",
+            "cajaFuerte"
+          ],
+          "meme": "guardado",
+          "texto": "Aber das klappt nur, wenn du dem Ort vertraust: Wenn du etwas speicherst und nicht weißt wo, trägt dein Kopf es weiter mit sich. Also speichere ohne schlechtes Gewissen, immer am selben Ort."
+        },
+        {
+          "id": "visor",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fotoApp",
+              "pdfApp",
+              "dispositivosApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Und jede Datei öffne ich direkt hier: ein Foto, ein PDF oder eine Notiz, vom Handy oder vom Computer."
+        }
+      ]
+    },
+    {
+      "id": "carpetas",
+      "titulo": "Ordner oder Suche?",
+      "respuesta": "Ordner: Meist klicken wir uns zum Ziel, und die Suche bleibt für den Fall, dass du dich verirrst; wenige, flach und klar benannt.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil vier. Ordner oder Suche?"
+        },
+        {
+          "id": "bergman",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "navegar"
+          },
+          "lamina": [
+            "carpetasPantalla",
+            "oficina"
+          ],
+          "destacada": true,
+          "texto": "2008 untersuchten Ofer Bergman und Steve Whittaker, wie Menschen ihre eigenen Dateien finden. Selbst mit guten Suchfunktionen klickten sie sich meistens durch ihre Ordner; die Suche nutzten sie kaum, vor allem dann, wenn sie sich schon verirrt hatten."
+        },
+        {
+          "id": "mapa",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "pocas",
+              "planas",
+              "nombres"
+            ]
+          },
+          "lamina": [
+            "mapaCiudad",
+            "etiquetas"
+          ],
+          "meme": "final",
+          "texto": "Deine Ordner sind eine innere Landkarte. Wenn du hundert hast, oder einen in einem anderen in einem anderen, verirrst du dich. Was funktioniert: wenige, flach und mit Namen, die du in einer Sekunde verstehst."
+        },
+        {
+          "id": "cinco",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "misCarpetas"
+          },
+          "lamina": [
+            "cajas",
+            "estante"
+          ],
+          "texto": "Probier es mit fünf großen: Arbeit, Wohnung & Formalitäten, Gesundheit, Projekte und Fotos. Bau hier deine eigenen und schau, ob alles, was du hast, in einen davon passt."
+        },
+        {
+          "id": "carpetasApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cincoApp",
+              "nivelesApp",
+              "moverApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Meine Ordner sind wenige: Arbeit, Wohnung & Formalitäten, Gesundheit, Projekte und Fotos. Und fast nichts geht über zwei Ebenen hinaus."
+        }
+      ]
+    },
+    {
+      "id": "desorden",
+      "titulo": "Raubt dir Unordnung die Aufmerksamkeit?",
+      "respuesta": "Ja: Alles, was du siehst, kämpft um deine Aufmerksamkeit, also lass nur liegen, was du gerade benutzt.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil fünf. Raubt dir Unordnung die Aufmerksamkeit?"
+        },
+        {
+          "id": "mcmains",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "competencia"
+          },
+          "lamina": [
+            "escritorioCaos",
+            "cerebro"
+          ],
+          "destacada": true,
+          "texto": "2011 maßen Stephanie McMains und Sabine Kastner von der Universität Princeton das Gehirn von Menschen, die auf einen Bildschirm mit vielen Objekten schauten. Jedes sichtbare Ding kämpfte um ihre Aufmerksamkeit, und sich zu konzentrieren fiel schwerer."
+        },
+        {
+          "id": "vista",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "escritorio",
+              "pestanas",
+              "bandeja"
+            ]
+          },
+          "lamina": [
+            "pestanas",
+            "escritorioLimpio"
+          ],
+          "texto": "Das passiert auf deinem Schreibtisch, auf deinem Bildschirm und auf deinem Handy: Zwanzig offene Tabs sind zwanzig Dinge, die an dir zerren. Lass nur sichtbar, was du gerade benutzt, und räum den Rest weg."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoArchivos"
+          },
+          "lamina": "pulgar",
+          "texto": "Wenn dir der Leitfaden gefällt, klick auf Mag ich, auf Abonnieren, damit du den nächsten nicht verpasst, und auf Teilen, für die Person, deren Desktop voller Dateien ist."
+        },
+        {
+          "id": "bandeja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "entrada",
+              "semanal",
+              "vacia"
+            ]
+          },
+          "lamina": [
+            "bandejaPapeles",
+            "cafeLibreta"
+          ],
+          "meme": "pestanas",
+          "texto": "Und hab nur einen einzigen Eingangskorb: Alles Neue landet dort, und einmal pro Woche verteilst du es auf seine Ordner."
+        },
+        {
+          "id": "destacados",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "estrellaApp",
+              "destacadosApp",
+              "recientesApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Was ich jede Woche benutze, markiere ich mit einem Stern, und es liegt griffbereit unter Markiert; der Rest stört mich nicht im Blickfeld."
+        }
+      ]
+    },
+    {
+      "id": "buscar",
+      "titulo": "Wie viel Zeit verlierst du mit Suchen?",
+      "respuesta": "Fast ein Fünftel der Arbeitswoche: Gib jeder Datei einen Namen mit dem Datum vorne, und du findest sie in Sekunden.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil sechs. Wie viel Zeit verlierst du mit Suchen?"
+        },
+        {
+          "id": "mckinsey",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2012",
+            "clave": "mckinsey"
+          },
+          "lamina": [
+            "buscandoPapeles",
+            "reloj"
+          ],
+          "destacada": true,
+          "texto": "2012 berechnete ein Bericht der Beratungsfirma McKinsey, dass Büroangestellte fast ein Fünftel ihrer Woche damit verbringen, Informationen zu suchen und zusammenzutragen. Das ist fast ein ganzer Tag, jede Woche."
+        },
+        {
+          "id": "nombres",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "nombreArchivo"
+          },
+          "lamina": [
+            "documentos",
+            "calendarioPared"
+          ],
+          "meme": "nombres",
+          "texto": "Der Trick steckt im Namen. Fang mit dem Datum an, aber umgekehrt: Jahr, Monat und Tag, und dann sag, was es ist. So sortieren sich die Dateien von selbst nach Datum, und du findest sie auf einen Blick. Bau hier einen guten Namen."
+        },
+        {
+          "id": "primeraVez",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "alGuardar",
+              "unaVez",
+              "sinDescargas"
+            ]
+          },
+          "lamina": [
+            "descargas",
+            "carpetaOrden"
+          ],
+          "texto": "Und benenn sie gleich beim ersten Mal richtig, beim Speichern. Wenn du es aufschiebst, landet sie im Download-Ordner, mit dem Namen, den ihr jemand anderes gegeben hat."
+        },
+        {
+          "id": "buscador",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "buscadorApp",
+              "ordenApp",
+              "fechaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Und wenn mir etwas verloren geht, tippe ich es in die Suche oder sortiere nach Datum; weil meine Namen mit dem Datum anfangen, kommt alles in der richtigen Reihenfolge."
+        }
+      ]
+    },
+    {
+      "id": "soltar",
+      "titulo": "Was behalten und was loslassen?",
+      "respuesta": "Behalte, was du benutzen wirst oder ungern verlieren würdest, und lass den Rest los: Horten „für alle Fälle“ belastet auch.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil sieben. Was behalten und was loslassen?"
+        },
+        {
+          "id": "sweeten",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "acumular"
+          },
+          "lamina": [
+            "correoLleno",
+            "discoDuro"
+          ],
+          "destacada": true,
+          "texto": "2018 befragten Gretchen Sweeten und ihr Team in England Menschen zu ihren digitalen Dateien. Viele hoben Tausende E-Mails, Fotos und Dokumente „für alle Fälle“ auf, und dieser Berg machte ihnen Stress statt Ruhe."
+        },
+        {
+          "id": "preguntas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "usar",
+              "otroLado",
+              "doleria"
+            ]
+          },
+          "lamina": [
+            "fotosRepetidas",
+            "decidir"
+          ],
+          "meme": "porSiAcaso",
+          "texto": "Bevor du etwas aufhebst, stell dir drei Fragen: Werde ich es benutzen? Ist es schon woanders? Würde es mir wehtun, es zu verlieren? Wenn dreimal Nein, lass es los."
+        },
+        {
+          "id": "mensual",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "repetidas",
+              "viejo",
+              "importante"
+            ]
+          },
+          "lamina": [
+            "limpieza",
+            "papelera"
+          ],
+          "texto": "Und einmal im Monat löschst du doppelte Fotos und alles, was abgelaufen ist. Was wirklich wichtig ist, wie deine Dokumente und deine Erinnerungen, bewahrst du mit Kopie auf."
+        },
+        {
+          "id": "papelera",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "papeleraApp",
+              "recuperarApp",
+              "treintaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Was ich loslasse, kommt in den Papierkorb: Wenn ich es bereue, hole ich es zurück; und nach dreißig Tagen wird es von selbst gelöscht."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Wie geht es weiter? Dein Plan zum Weitermachen",
+      "respuesta": "Leere deinen Kopf in eine Liste, leg fünf Ordner an, benenne alles mit dem Datum vorne und lass jeden Monat los, was zu viel ist.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil acht. Wie geht es weiter? Dein Plan zum Weitermachen."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planArchivos"
+          },
+          "lamina": [
+            "libretaLista",
+            "papelesMesa"
+          ],
+          "texto": "Diese Woche: Hol alles Offene aus deinem Kopf in eine Liste, und sammle deine wichtigen Papiere an einem einzigen Ort."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cincoCarpetas",
+              "renombra",
+              "estrella"
+            ]
+          },
+          "lamina": [
+            "cajas",
+            "carpetaOrden"
+          ],
+          "destacada": true,
+          "texto": "Im ersten Monat: Leg höchstens fünf Ordner an, benenne das Wichtige mit dem Datum vorne um und markiere mit einem Stern, was du am meisten benutzt."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "vaciaBandeja",
+              "suelta",
+              "copia"
+            ]
+          },
+          "lamina": [
+            "bandejaPapeles",
+            "limpieza"
+          ],
+          "texto": "Und jeden Monat: Leere deinen Eingangskorb, lass los, was nichts mehr nützt, und prüf, ob das Wichtige eine Kopie hat."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "carpetasFin",
+              "cuartosFin",
+              "papeleraFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Und wenn du nicht weißt, wo du anfangen sollst, schau dir meine Dateien in der App an: Alles ist geordnet, von meinen Ordnern bis zum Papierkorb."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Kurz gesagt: Dein Kopf ist zum Denken da, nicht zum Aufbewahren; speichere immer am selben Ort; wenige und flache Ordner; das Datum vor den Namen; und lass los, was du nicht mehr benutzt."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "In den Dateien von MindHaOS bewahrst du alles in deinen Ordnern auf, jeder Raum deines Hauses hat seinen eigenen, und was du loslässt, wartet dreißig Tage im Papierkorb. Du kannst es selbst machen, oder mit Hilfe der KI. Bau dir heute kostenlos dein mentales Haus: Der Link ist in der Beschreibung. Und im nächsten Leitfaden: Wie bewahrst du deine schönsten Erinnerungen?",
+    "boton": "Dateien öffnen",
+    "lamina": "app-plan",
+    "anclas": {
+      "carpetas": "deinen Ordnern",
+      "cuartos": "jeder Raum deines Hauses",
+      "papelera": "im Papierkorb"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "miller-1956",
+      "texto": "Miller G. A. The magical number seven, plus or minus two: some limits on our capacity for processing information. Psychological Review 63(2), 81-97 (1956).",
+      "url": "https://doi.org/10.1037/h0043158"
+    },
+    {
+      "id": "cowan-2001",
+      "texto": "Cowan N. The magical number 4 in short-term memory: a reconsideration of mental storage capacity. Behavioral and Brain Sciences 24(1), 87-114 (2001).",
+      "url": "https://doi.org/10.1017/S0140525X01003922"
+    },
+    {
+      "id": "bush-1945",
+      "texto": "Bush V. As We May Think. The Atlantic (Juli 1945).",
+      "url": "https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/"
+    },
+    {
+      "id": "luhmann",
+      "texto": "Niklas Luhmann und sein Zettelkasten. Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Zettelkasten"
+    },
+    {
+      "id": "sparrow-2011",
+      "texto": "Sparrow B., Liu J., Wegner D. M. Google effects on memory: cognitive consequences of having information at our fingertips. Science 333(6043), 776-778 (2011).",
+      "url": "https://doi.org/10.1126/science.1207745"
+    },
+    {
+      "id": "storm-2015",
+      "texto": "Storm B. C., Stone S. M. Saving-enhanced memory: the benefits of saving on the learning and remembering of new information. Psychological Science 26(2), 182-188 (2015).",
+      "url": "https://doi.org/10.1177/0956797614559285"
+    },
+    {
+      "id": "bergman-2008",
+      "texto": "Bergman O., Beyth-Marom R., Nachmias R., Gradovitch N., Whittaker S. Improved search engines and navigation preference in personal information management. ACM Transactions on Information Systems 26(4) (2008).",
+      "url": "https://doi.org/10.1145/1402256.1402259"
+    },
+    {
+      "id": "mcmains-2011",
+      "texto": "McMains S., Kastner S. Interactions of top-down and bottom-up mechanisms in human visual cortex. Journal of Neuroscience 31(2), 587-597 (2011).",
+      "url": "https://doi.org/10.1523/JNEUROSCI.3766-10.2011"
+    },
+    {
+      "id": "mckinsey-2012",
+      "texto": "McKinsey Global Institute. The social economy: unlocking value and productivity through social technologies (2012).",
+      "url": "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-social-economy"
+    },
+    {
+      "id": "sweeten-2018",
+      "texto": "Sweeten G., Sillence E., Neave N. Digital hoarding behaviours: underlying motivations and potential negative consequences. Computers in Human Behavior 85, 54-60 (2018).",
+      "url": "https://researchportal.northumbria.ac.uk/en/publications/digital-hoarding-behaviours-underlying-motivations-and-potential-/"
+    }
+  ]
+}
