@@ -84,6 +84,10 @@ export interface MetaYouTube {
   privacidad: 'public' | 'unlisted' | 'private'
   paraNinos: boolean
   categoryId: string
+  /** BCP-47 del título y del audio: YouTube lo usa para recomendarlo a quien habla ese idioma. */
+  idioma?: string
+  /** ISO: YouTube lo publica a esa hora (exige subirlo privado). */
+  publicarEn?: string
 }
 
 /**
@@ -107,8 +111,15 @@ export async function iniciarSubidaYouTube(token: string, meta: MetaYouTube, tam
       ...(origen ? { Origin: origen } : {}),
     },
     body: JSON.stringify({
-      snippet: { title: meta.titulo, description: meta.descripcion, categoryId: meta.categoryId },
-      status: { privacyStatus: meta.privacidad, selfDeclaredMadeForKids: meta.paraNinos },
+      snippet: {
+        title: meta.titulo,
+        description: meta.descripcion,
+        categoryId: meta.categoryId,
+        ...(meta.idioma ? { defaultLanguage: meta.idioma, defaultAudioLanguage: meta.idioma } : {}),
+      },
+      status: meta.publicarEn
+        ? { privacyStatus: 'private', publishAt: meta.publicarEn, selfDeclaredMadeForKids: meta.paraNinos }
+        : { privacyStatus: meta.privacidad, selfDeclaredMadeForKids: meta.paraNinos },
     }),
   })
   const location = resp.headers.get('Location')

@@ -20,6 +20,11 @@
  *   {accion:'estado-publicacion', sesion}                 → {estado, id, url, motivo, privado}
  *   {accion:'token-youtube'}                              → {access_token, expira_en}
  *   {accion:'cuentas'}                                    → {cuentas} (las conectadas, sin tokens)
+ *   {accion:'publicar-foto', plataforma, ranura, url | urls (2-20: álbum/carrusel), texto, publicar_en?}
+ *       → {estado:'publicado', id, url, privado}  (Facebook o Instagram; la imagen, en media.mindhaos.com)
+ *   {accion:'video-fb-url', ranura, url, titulo, descripcion, publicar_en?}  → {video_id}
+ *       video normal de la Página que Facebook baja de media.mindhaos.com (los 1:1 no caben en Reels)
+ *   {accion:'estado-video-fb', ranura, video_id}          → {estado, url, motivo}
  *
  * El script de publicación en lote (`scripts/redes/publicar-lote.mjs`) entra sin
  * sesión: manda la clave `REDES_SCRIPT_CLAVE` en `x-redes-script` (y la anon key
@@ -38,14 +43,21 @@ import { dentroDeLimite } from '../_shared/limite.ts'
 import { ErrorRedes, respuestaError } from '../_shared/redes/errores.ts'
 import { iniciarSubidaYouTube, type MetaYouTube } from '../_shared/redes/google.ts'
 import {
+  crearReelIGUrl,
   estadoContenedorIG,
   estadoVideoFB,
   finalizarReelFB,
+  graph,
   iniciarReelFB,
   iniciarReelIG,
   iniciarSubidaFB,
   offsetRupload,
   offsetSubidaFB,
+  publicarFotoFB,
+  publicarFotoIG,
+  publicarAlbumFB,
+  publicarCarruselIG,
+  publicarVideoFBUrl,
   publicarIG,
   publicarVideoFB,
   subirTrozoFB,
@@ -133,6 +145,34 @@ Deno.serve(async (req) => {
       }
       case 'cuentas':
         return json({ cuentas: await listarCuentasPublicas(admin, usuario.id) }, 200, cors)
+      case 'publicar-foto':
+        return json(await publicarFoto(admin, usuario.id, cuerpo, max), 200, cors)
+      case 'reel-ig-url': {
+        const ranura = leerRanura(cuerpo.ranura, max)
+        const url = typeof cuerpo.url === 'string' ? cuerpo.url : ''
+        if (!url.startsWith(ORIGEN_FOTOS) || !/\.mp4(\?|$)/i.test(url)) throw new ErrorRedes('peticion-invalida', 'El video debe ser un MP4 de media.mindhaos.com.')
+        const bucket = ranura ? `redes-pub-instagram-${ranura}` : 'redes-pub-instagram'
+        if (!(await dentroDeLimite(admin, usuario.id, bucket, 10, 86_400))) throw new ErrorRedes('limite', 'Ya publicaste varias veces hoy en esa red; inténtalo mañana.')
+        const c = await cuentaVigente(admin, usuario.id, 'instagram', undefined, ranura)
+        return json({ contenedor: await crearReelIGUrl(c.cuenta_id, c.access_token, url, texto(cuerpo.texto, 2200)) }, 200, cors)
+      }
+      case 'estado-reel-ig': {
+        // Cuando Instagram termina de procesar el contenedor, se publica aquí mismo.
+        const c = await cuentaVigente(admin, usuario.id, 'instagram', undefined, leerRanura(cuerpo.ranura, max))
+        if (typeof cuerpo.contenedor !== 'string' || !/^\d+$/.test(cuerpo.contenedor)) throw new ErrorRedes('peticion-invalida', 'Contenedor inválido.')
+        const s = await estadoContenedorIG(cuerpo.contenedor, c.access_token)
+        if (s !== 'listo') return json({ estado: s === 'fallo' ? 'fallo' : 'procesando' }, 200, cors)
+        return json({ estado: 'publicado', ...(await publicarIG(c.cuenta_id, c.access_token, cuerpo.contenedor)), privado: !bandera('REDES_META_LIVE') }, 200, cors)
+      }
+      case 'estadisticas':
+        return json(await estadisticas(admin, usuario.id, cuerpo, max), 200, cors)
+      case 'video-fb-url':
+        return json(await videoFbDesdeUrl(admin, usuario.id, cuerpo, max), 200, cors)
+      case 'estado-video-fb': {
+        const c = await cuentaVigente(admin, usuario.id, 'facebook', undefined, leerRanura(cuerpo.ranura, max))
+        if (typeof cuerpo.video_id !== 'string' || !/^\d+$/.test(cuerpo.video_id)) throw new ErrorRedes('peticion-invalida', 'Video inválido.')
+        return json(await estadoVideoFB(cuerpo.video_id, c.access_token), 200, cors)
+      }
       default:
         throw new ErrorRedes('peticion-invalida', 'Acción desconocida.')
     }
@@ -192,6 +232,17 @@ function texto(v: unknown, max: number): string {
   return typeof v === 'string' ? v.trim().slice(0, max) : ''
 }
 
+/**
+ * La hora a la que programar, si es válida para YouTube y Facebook: Facebook pide
+ * al menos 10 min por delante (se dan 15 por la subida) y no más de 29 días.
+ */
+function horaProgramada(v: unknown): Date | null {
+  if (typeof v !== 'string') return null
+  const d = new Date(v)
+  const falta = d.getTime() - Date.now()
+  return Number.isFinite(falta) && falta >= 15 * 60_000 && falta <= 29 * 86_400_000 ? d : null
+}
+
 async function iniciarPublicacion(
   admin: SupabaseClient,
   uid: string,
@@ -212,6 +263,8 @@ async function iniciarPublicacion(
   const duracion = Number(meta.duracion_seg ?? 0)
   const titulo = texto(meta.titulo, 2200)
   const descripcion = texto(meta.descripcion, 5000)
+  const programada = horaProgramada(meta.publicar_en)
+  if (meta.publicar_en && !programada) throw new ErrorRedes('peticion-invalida', 'La hora programada ya pasó o está demasiado lejos.')
 
   // El tope diario va por cuenta: con una por idioma, cada una lleva el suyo (el global de YouTube sigue mandando).
   const bucket = ranura ? `redes-pub-${plataforma}-${ranura}` : `redes-pub-${plataforma}`
@@ -239,6 +292,9 @@ async function iniciarPublicacion(
       privacidad: bandera('REDES_YT_AUDITADO') && PRIVACIDAD_YT.has(pedida) ? (pedida as MetaYouTube['privacidad']) : 'private',
       paraNinos: yt.madeForKids === true,
       categoryId: /^\d{1,3}$/.test(String(yt.categoryId ?? '')) ? String(yt.categoryId) : '22',
+      idioma: /^[a-z]{2}(-[A-Za-z]{2,4})?$/.test(String(meta.idioma ?? '')) ? String(meta.idioma) : undefined,
+      // Programar exige que el video pueda salir público: sin la auditoría no aplica.
+      publicarEn: programada && bandera('REDES_YT_AUDITADO') ? programada.toISOString() : undefined,
     }
     const upload_url = await iniciarSubidaYouTube(cuenta.access_token, m, tamano, mime, origen)
     return { modo: 'directo', upload_url, access_token: cuenta.access_token, expira_en: cuenta.expira_en, trozo: TROZO_BYTES }
@@ -249,6 +305,8 @@ async function iniciarPublicacion(
   let remoto: Record<string, unknown>
   let poll_ms = 5000
   let metaGuardada: Record<string, unknown> = { titulo, descripcion, aspecto }
+  // Facebook lo aplica al finalizar; TikTok e Instagram no tienen programación en su API.
+  if (plataforma === 'facebook' && programada) metaGuardada.programado = Math.floor(programada.getTime() / 1000)
 
   if (plataforma === 'tiktok') {
     const info = await infoCreador(cuenta.access_token)
@@ -291,8 +349,9 @@ async function iniciarPublicacion(
       remoto = { modo: 'video', sesion_fb: sesionFb }
     }
   } else {
-    if (mime !== 'video/mp4' || aspecto !== '9:16') {
-      throw new ErrorRedes('formato', 'Instagram solo admite Reels en MP4 y formato 9:16.')
+    // Los Reels admiten de 0.01:1 a 10:1 (las guías van en 1:1); 9:16 es solo lo recomendado.
+    if (mime !== 'video/mp4') {
+      throw new ErrorRedes('formato', 'Instagram solo admite Reels en MP4.')
     }
     const ig = (meta.instagram ?? {}) as Record<string, unknown>
     const s = await iniciarReelIG(cuenta.cuenta_id, cuenta.access_token, texto(meta.titulo, 2200), ig.share_to_feed !== false)
@@ -307,6 +366,98 @@ async function iniciarPublicacion(
     .single()
   if (error || !data) throw new Error(`redes_publicaciones: ${error?.message}`)
   return { modo: 'trozos', sesion: data.id, trozo, total_trozos: Math.ceil(tamano / trozo), poll_ms }
+}
+
+// ─── publicar-foto ───────────────────────────────────────────────────────────
+
+/** Solo imágenes nuestras: Meta las descarga de esa URL, así que no se acepta cualquier host. */
+const ORIGEN_FOTOS = 'https://media.mindhaos.com/'
+
+/**
+ * Números de lo publicado (solo lectura), con los permisos que ya hay:
+ * pages_read_engagement en Facebook e instagram_basic en Instagram.
+ */
+async function estadisticas(admin: SupabaseClient, uid: string, cuerpo: Record<string, unknown>, max: number): Promise<Record<string, unknown>> {
+  const plataforma = cuerpo.plataforma
+  if (plataforma !== 'facebook' && plataforma !== 'instagram') throw new ErrorRedes('plataforma', 'Solo Facebook o Instagram.')
+  const ids = Array.isArray(cuerpo.ids) ? cuerpo.ids.filter((x): x is string => typeof x === 'string' && /^[\d_]+$/.test(x)).slice(0, 50) : []
+  const cuenta = await cuentaVigente(admin, uid, plataforma, undefined, leerRanura(cuerpo.ranura, max))
+  // `recientes`: lo último de la cuenta, para saber si algo que dio error sí salió.
+  if (cuerpo.recientes === true) {
+    const ruta = plataforma === 'instagram' ? `/${cuenta.cuenta_id}/media?fields=id,media_type,timestamp,permalink&limit=10` : `/${cuenta.cuenta_id}/posts?fields=id,created_time,permalink_url&limit=10`
+    return { recientes: (await graph(ruta, cuenta.access_token)).data ?? [] }
+  }
+  const campos =
+    plataforma === 'instagram'
+      ? ['like_count,comments_count,media_type']
+      : // Un video tiene `views`; una publicación (carrusel) solo reacciones y comentarios.
+        ['views,likes.summary(true).limit(0),comments.summary(true).limit(0)', 'reactions.summary(true).limit(0),comments.summary(true).limit(0),shares']
+  const datos: Record<string, unknown> = {}
+  for (const id of ids) {
+    let ultimo = ''
+    for (const f of campos) {
+      try {
+        datos[id] = await graph(`/${id}?fields=${f}`, cuenta.access_token)
+        ultimo = ''
+        break
+      } catch (e) {
+        ultimo = e instanceof Error ? e.message : String(e)
+      }
+    }
+    if (ultimo) datos[id] = { error: ultimo }
+  }
+  return { datos }
+}
+
+/** Facebook baja el MP4 de nuestra URL (`file_url`): sin trozos ni sesión. */
+async function videoFbDesdeUrl(admin: SupabaseClient, uid: string, cuerpo: Record<string, unknown>, max: number): Promise<Record<string, unknown>> {
+  const ranura = leerRanura(cuerpo.ranura, max)
+  const url = typeof cuerpo.url === 'string' ? cuerpo.url : ''
+  if (!url.startsWith(ORIGEN_FOTOS) || !/\.mp4(\?|$)/i.test(url)) throw new ErrorRedes('peticion-invalida', 'El video debe ser un MP4 de media.mindhaos.com.')
+  const programada = horaProgramada(cuerpo.publicar_en)
+  if (cuerpo.publicar_en && !programada) throw new ErrorRedes('peticion-invalida', 'La hora programada ya pasó o está demasiado lejos.')
+  const bucket = ranura ? `redes-pub-facebook-${ranura}` : 'redes-pub-facebook'
+  if (!(await dentroDeLimite(admin, uid, bucket, 10, 86_400))) throw new ErrorRedes('limite', 'Ya publicaste varias veces hoy en esa red; inténtalo mañana.')
+  const cuenta = await cuentaVigente(admin, uid, 'facebook', undefined, ranura)
+  const video_id = await publicarVideoFBUrl(
+    cuenta.cuenta_id,
+    cuenta.access_token,
+    url,
+    texto(cuerpo.titulo, 255),
+    texto(cuerpo.descripcion, 5000),
+    programada ? Math.floor(programada.getTime() / 1000) : undefined,
+  )
+  return { video_id, privado: !bandera('REDES_META_LIVE') }
+}
+
+async function publicarFoto(admin: SupabaseClient, uid: string, cuerpo: Record<string, unknown>, max: number): Promise<Record<string, unknown>> {
+  const plataforma = cuerpo.plataforma
+  if (plataforma !== 'facebook' && plataforma !== 'instagram') throw new ErrorRedes('plataforma', 'Las fotos solo se publican en Facebook o Instagram.')
+  const ranura = leerRanura(cuerpo.ranura, max)
+  // Con `urls` (2 a 20) sale UNA publicación con todas: álbum en Facebook, carrusel en Instagram.
+  const urls = Array.isArray(cuerpo.urls) ? cuerpo.urls : [cuerpo.url]
+  if (urls.length < 1 || urls.length > 20) throw new ErrorRedes('peticion-invalida', 'Un carrusel lleva de 2 a 20 imágenes.')
+  for (const u of urls) {
+    if (typeof u !== 'string' || !u.startsWith(ORIGEN_FOTOS) || !/\.jpe?g(\?|$)/i.test(u)) throw new ErrorRedes('peticion-invalida', 'La imagen debe ser un JPEG de media.mindhaos.com.')
+  }
+  const [url] = urls as string[]
+  const varias = urls.length > 1
+  const caption = texto(cuerpo.texto, 2200)
+  const programada = horaProgramada(cuerpo.publicar_en)
+  if (cuerpo.publicar_en && !programada) throw new ErrorRedes('peticion-invalida', 'La hora programada ya pasó o está demasiado lejos.')
+  const bucket = ranura ? `redes-foto-${plataforma}-${ranura}` : `redes-foto-${plataforma}`
+  if (!(await dentroDeLimite(admin, uid, bucket, 10, 86_400))) throw new ErrorRedes('limite', 'Ya publicaste varias fotos hoy en esa cuenta; inténtalo mañana.')
+  const cuenta = await cuentaVigente(admin, uid, plataforma, undefined, ranura)
+  // Instagram no programa por API: sale al momento.
+  const r =
+    plataforma === 'facebook'
+      ? varias
+        ? await publicarAlbumFB(cuenta.cuenta_id, cuenta.access_token, urls as string[], caption, programada ? Math.floor(programada.getTime() / 1000) : undefined)
+        : await publicarFotoFB(cuenta.cuenta_id, cuenta.access_token, url, caption, programada ? Math.floor(programada.getTime() / 1000) : undefined)
+      : varias
+        ? await publicarCarruselIG(cuenta.cuenta_id, cuenta.access_token, urls as string[], caption)
+        : await publicarFotoIG(cuenta.cuenta_id, cuenta.access_token, url, caption)
+  return { estado: 'publicado', ...r, privado: !bandera('REDES_META_LIVE') }
 }
 
 // ─── trozo ───────────────────────────────────────────────────────────────────
@@ -391,12 +542,13 @@ async function finalizar(admin: SupabaseClient, uid: string, cuerpo: Record<stri
   const descripcion = String(sesion.meta.descripcion ?? '')
   const patch: Record<string, unknown> = {}
   if (sesion.plataforma === 'facebook') {
+    const programado = typeof sesion.meta.programado === 'number' ? sesion.meta.programado : undefined
     if (sesion.remoto.modo === 'reel') {
-      await finalizarReelFB(cuenta.cuenta_id, cuenta.access_token, String(sesion.remoto.video_id), titulo, descripcion)
+      await finalizarReelFB(cuenta.cuenta_id, cuenta.access_token, String(sesion.remoto.video_id), titulo, descripcion, programado)
     } else {
       const handle = typeof sesion.remoto.handle === 'string' ? sesion.remoto.handle : null
       if (!handle) throw new ErrorRedes('proveedor', 'Facebook no confirmó la subida del archivo.')
-      patch.video_id = await publicarVideoFB(cuenta.cuenta_id, cuenta.access_token, handle, titulo, descripcion)
+      patch.video_id = await publicarVideoFB(cuenta.cuenta_id, cuenta.access_token, handle, titulo, descripcion, programado)
     }
   }
   // TikTok procesa solo al recibir el último trozo; Instagram publica cuando el contenedor está listo (ver estado).
@@ -424,7 +576,7 @@ async function estadoPublicacion(admin: SupabaseClient, uid: string, cuerpo: Rec
     resultado = { ...r, url: r.id ? `https://www.tiktok.com/@${usuario}/video/${r.id}` : undefined }
   } else if (sesion.plataforma === 'facebook') {
     const videoId = String(sesion.remoto.video_id)
-    const r = await estadoVideoFB(videoId, cuenta.access_token)
+    const r = await estadoVideoFB(videoId, cuenta.access_token, typeof sesion.meta.programado === 'number')
     resultado = { ...r, id: videoId }
   } else {
     const contenedor = String(sesion.remoto.contenedor)

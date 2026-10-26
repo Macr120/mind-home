@@ -161,10 +161,24 @@ export async function iniciarReelFB(pageId: string, tokenPagina: string): Promis
   return { video_id: d.video_id, upload_url: d.upload_url }
 }
 
-export async function finalizarReelFB(pageId: string, tokenPagina: string, videoId: string, titulo: string, descripcion: string): Promise<void> {
+/** `programado` = segundos Unix: el Reel queda agendado y Facebook lo publica a esa hora. */
+export async function finalizarReelFB(
+  pageId: string,
+  tokenPagina: string,
+  videoId: string,
+  titulo: string,
+  descripcion: string,
+  programado?: number,
+): Promise<void> {
   await graph(`/${pageId}/video_reels`, tokenPagina, {
     method: 'POST',
-    form: { upload_phase: 'finish', video_id: videoId, video_state: 'PUBLISHED', title: titulo, description: descripcion },
+    form: {
+      upload_phase: 'finish',
+      video_id: videoId,
+      title: titulo,
+      description: descripcion,
+      ...(programado ? { video_state: 'SCHEDULED', scheduled_publish_time: String(programado) } : { video_state: 'PUBLISHED' }),
+    },
   })
 }
 
@@ -197,10 +211,44 @@ export async function offsetSubidaFB(sesion: string, tokenUsuario: string): Prom
   return Number.isFinite(n) ? n : null
 }
 
-export async function publicarVideoFB(pageId: string, tokenPagina: string, handle: string, titulo: string, descripcion: string): Promise<string> {
+export async function publicarVideoFB(
+  pageId: string,
+  tokenPagina: string,
+  handle: string,
+  titulo: string,
+  descripcion: string,
+  programado?: number,
+): Promise<string> {
   const d = await graph(`/${pageId}/videos`, tokenPagina, {
     method: 'POST',
-    form: { fbuploader_video_file_chunk: handle, title: titulo, description: descripcion },
+    form: {
+      fbuploader_video_file_chunk: handle,
+      title: titulo,
+      description: descripcion,
+      ...(programado ? { published: 'false', scheduled_publish_time: String(programado) } : {}),
+    },
+  })
+  if (typeof d.id !== 'string') throw new ErrorRedes('proveedor', 'Facebook no devolvió el id del video.')
+  return d.id
+}
+
+/** Video normal de la Página desde una URL pública (`file_url`): Facebook lo baja y lo procesa él. */
+export async function publicarVideoFBUrl(
+  pageId: string,
+  tokenPagina: string,
+  url: string,
+  titulo: string,
+  descripcion: string,
+  programado?: number,
+): Promise<string> {
+  const d = await graph(`/${pageId}/videos`, tokenPagina, {
+    method: 'POST',
+    form: {
+      file_url: url,
+      title: titulo,
+      description: descripcion,
+      ...(programado ? { published: 'false', scheduled_publish_time: String(programado) } : {}),
+    },
   })
   if (typeof d.id !== 'string') throw new ErrorRedes('proveedor', 'Facebook no devolvió el id del video.')
   return d.id
@@ -212,7 +260,8 @@ export interface EstadoMeta {
   motivo?: string
 }
 
-export async function estadoVideoFB(videoId: string, tokenPagina: string): Promise<EstadoMeta> {
+/** `programado`: uno agendado no sale hasta su hora; basta con que Facebook lo haya procesado. */
+export async function estadoVideoFB(videoId: string, tokenPagina: string, programado = false): Promise<EstadoMeta> {
   // Los subcampos de `status` hay que pedirlos uno a uno: `fields=status` a secas
   // no trae los errores, y sin ellos el aviso al usuario no dice nada.
   const d = await graph(
@@ -231,6 +280,7 @@ export async function estadoVideoFB(videoId: string, tokenPagina: string): Promi
       .join(' · ')
     return { estado: 'fallo', motivo: detalle ? `Facebook rechazó el video: ${detalle}` : `Facebook no pudo procesar el video (${videoId}).` }
   }
+  if (programado && estado?.processing_phase?.status === 'complete') return { estado: 'publicado', url: permalink }
   return { estado: 'procesando', url: permalink }
 }
 
@@ -243,6 +293,16 @@ export async function iniciarReelIG(igId: string, token: string, caption: string
   })
   if (typeof d.id !== 'string' || typeof d.uri !== 'string') throw new ErrorRedes('proveedor', 'Instagram no devolvió el contenedor del Reel.')
   return { id: d.id, uri: d.uri }
+}
+
+/** Reel que Instagram baja de una URL pública (`video_url`): sin trozos por la función. */
+export async function crearReelIGUrl(igId: string, token: string, videoUrl: string, caption: string): Promise<string> {
+  const d = await graph(`/${igId}/media`, token, {
+    method: 'POST',
+    form: { media_type: 'REELS', video_url: videoUrl, caption, share_to_feed: 'true' },
+  })
+  if (typeof d.id !== 'string') throw new ErrorRedes('proveedor', 'Instagram no devolvió el contenedor del Reel.')
+  return d.id
 }
 
 export async function estadoContenedorIG(contenedor: string, token: string): Promise<'procesando' | 'listo' | 'fallo'> {
@@ -258,4 +318,67 @@ export async function publicarIG(igId: string, token: string, contenedor: string
   if (typeof d.id !== 'string') throw new ErrorRedes('proveedor', 'Instagram no devolvió el id de la publicación.')
   const p = await graph(`/${d.id}?fields=permalink`, token).catch(() => ({}) as Record<string, unknown>)
   return { id: d.id, url: typeof p.permalink === 'string' ? p.permalink : undefined }
+}
+
+// ─── Fotos (plantillas de las guías) ─────────────────────────────────────────
+// Meta descarga la imagen de `url`: tiene que ser pública (media.mindhaos.com).
+
+/** Una foto con su texto en la Página; `programado` = segundos Unix (sale a esa hora). */
+export async function publicarFotoFB(pageId: string, tokenPagina: string, url: string, texto: string, programado?: number): Promise<{ id: string; url?: string }> {
+  const d = await graph(`/${pageId}/photos`, tokenPagina, {
+    method: 'POST',
+    form: { url, message: texto, ...(programado ? { published: 'false', scheduled_publish_time: String(programado) } : {}) },
+  })
+  const id = typeof d.post_id === 'string' ? d.post_id : typeof d.id === 'string' ? d.id : null
+  if (!id) throw new ErrorRedes('proveedor', 'Facebook no devolvió el id de la foto.')
+  return { id, url: programado ? undefined : `https://www.facebook.com/${id}` }
+}
+
+/** Una imagen al feed de Instagram (JPEG, de 4:5 a 1.91:1): contenedor, espera a que esté listo y lo publica. */
+export async function publicarFotoIG(igId: string, token: string, url: string, caption: string): Promise<{ id: string; url?: string }> {
+  const d = await graph(`/${igId}/media`, token, { method: 'POST', form: { image_url: url, caption } })
+  if (typeof d.id !== 'string') throw new ErrorRedes('proveedor', 'Instagram no devolvió el contenedor de la imagen.')
+  for (let i = 0; i < 10; i++) {
+    const s = await estadoContenedorIG(d.id, token)
+    if (s === 'listo') return publicarIG(igId, token, d.id)
+    if (s === 'fallo') throw new ErrorRedes('proveedor', 'Instagram no pudo procesar la imagen.')
+    await new Promise((r) => setTimeout(r, 2000))
+  }
+  throw new ErrorRedes('proveedor', 'Instagram tarda demasiado en procesar la imagen; inténtalo en un rato.')
+}
+
+/** Varias fotos en UNA publicación de la Página: se suben sin publicar y se adjuntan al post. */
+export async function publicarAlbumFB(pageId: string, tokenPagina: string, urls: string[], texto: string, programado?: number): Promise<{ id: string; url?: string }> {
+  const ids: string[] = []
+  for (const url of urls) {
+    const d = await graph(`/${pageId}/photos`, tokenPagina, { method: 'POST', form: { url, published: 'false', temporary: programado ? 'true' : 'false' } })
+    if (typeof d.id !== 'string') throw new ErrorRedes('proveedor', 'Facebook no devolvió el id de una foto.')
+    ids.push(d.id)
+  }
+  const adjuntos = Object.fromEntries(ids.map((id, i) => [`attached_media[${i}]`, JSON.stringify({ media_fbid: id })]))
+  const d = await graph(`/${pageId}/feed`, tokenPagina, {
+    method: 'POST',
+    form: { message: texto, ...adjuntos, ...(programado ? { published: 'false', scheduled_publish_time: String(programado) } : {}) },
+  })
+  if (typeof d.id !== 'string') throw new ErrorRedes('proveedor', 'Facebook no devolvió el id de la publicación.')
+  return { id: d.id, url: programado ? undefined : `https://www.facebook.com/${d.id}` }
+}
+
+/** Carrusel de Instagram (2 a 20 imágenes): un contenedor por imagen y uno CAROUSEL que los junta. */
+export async function publicarCarruselIG(igId: string, token: string, urls: string[], caption: string): Promise<{ id: string; url?: string }> {
+  const hijos: string[] = []
+  for (const url of urls) {
+    const d = await graph(`/${igId}/media`, token, { method: 'POST', form: { image_url: url, is_carousel_item: 'true' } })
+    if (typeof d.id !== 'string') throw new ErrorRedes('proveedor', 'Instagram no devolvió el contenedor de una imagen.')
+    hijos.push(d.id)
+  }
+  const d = await graph(`/${igId}/media`, token, { method: 'POST', form: { media_type: 'CAROUSEL', children: hijos.join(','), caption } })
+  if (typeof d.id !== 'string') throw new ErrorRedes('proveedor', 'Instagram no devolvió el contenedor del carrusel.')
+  for (let i = 0; i < 15; i++) {
+    const s = await estadoContenedorIG(d.id, token)
+    if (s === 'listo') return publicarIG(igId, token, d.id)
+    if (s === 'fallo') throw new ErrorRedes('proveedor', 'Instagram no pudo procesar el carrusel.')
+    await new Promise((r) => setTimeout(r, 2000))
+  }
+  throw new ErrorRedes('proveedor', 'Instagram tarda demasiado en procesar el carrusel; inténtalo en un rato.')
 }

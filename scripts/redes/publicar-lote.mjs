@@ -30,6 +30,7 @@
  * `REDES_SCRIPT_CLAVE`, la misma clave que el secreto del servidor; la URL y la
  * anon key se leen de `.env.local`.
  */
+import { createHash } from 'node:crypto'
 import { execFileSync } from 'node:child_process'
 import { existsSync, readFileSync, statSync, writeFileSync, openSync, readSync, closeSync } from 'node:fs'
 import path from 'node:path'
@@ -75,14 +76,17 @@ class ErrorServidor extends Error {
   }
 }
 
-/** fetch que reintenta los cortes de red (no las respuestas del servidor). */
-async function pedir(url, init) {
+/**
+ * fetch que reintenta los cortes de red (no las respuestas del servidor), con
+ * tiempo límite por intento: con la red atorada un fetch puede no volver nunca.
+ */
+async function pedir(url, init, limiteMs = 60_000) {
   for (let intento = 1; ; intento++) {
     try {
-      return await fetch(url, init)
+      return await fetch(url, { ...init, signal: AbortSignal.timeout(limiteMs) })
     } catch (e) {
-      if (intento >= 4) throw e
-      await espera(3000 * intento)
+      if (intento >= 6) throw e
+      await espera(5000 * intento)
     }
   }
 }
@@ -104,7 +108,7 @@ async function enviarTrozo(sesion, offset, bytes) {
     method: 'POST',
     headers: { ...CABECERAS, 'Content-Type': 'application/octet-stream' },
     body: bytes,
-  })
+  }, 180_000)
   const json = await resp.json().catch(() => null)
   if (!resp.ok) throw new ErrorServidor(json?.error ?? 'proveedor', json?.mensaje ?? `HTTP ${resp.status}`, json?.recibido)
   return json
@@ -137,13 +141,15 @@ async function mapaCuentas() {
   return { cuentas, mapa }
 }
 
+// Se sale con `break fin` y no con process.exit: cortar con sockets de fetch abiertos revienta libuv en Windows.
+fin: {
 if (args.includes('--cuentas')) {
   const { cuentas } = await mapaCuentas()
   const filas = cuentas
     .map((c) => ({ red: c.plataforma, idioma: idiomaDeCuenta(c.nombre) ?? '?', nombre: c.nombre, ranura: c.ranura, estado: c.estado }))
     .sort((a, b) => a.red.localeCompare(b.red) || a.idioma.localeCompare(b.idioma))
   console.table(filas)
-  process.exit(0)
+  break fin
 }
 
 // ─── Lote ────────────────────────────────────────────────────────────────────
@@ -241,7 +247,7 @@ console.table(
 for (const a of avisos) console.log(`  ! ${a}`)
 if (!EN_SERIO) {
   console.log('\nEnsayo: no se subió nada. Añade --publicar para publicar de verdad.')
-  process.exit(0)
+  break fin
 }
 
 // ─── Subidas ─────────────────────────────────────────────────────────────────
@@ -265,11 +271,16 @@ async function subirYouTube(inicio, fd, tamano, ranura) {
     const fin = Math.min(tamano, offset + inicio.trozo)
     let resp
     try {
-      resp = await fetch(inicio.upload_url, { method: 'PUT', headers: cabeceras(`bytes ${offset}-${fin - 1}/${tamano}`), body: leerTrozo(fd, offset, fin - offset) })
+      resp = await fetch(inicio.upload_url, {
+        method: 'PUT',
+        headers: cabeceras(`bytes ${offset}-${fin - 1}/${tamano}`),
+        body: leerTrozo(fd, offset, fin - offset),
+        signal: AbortSignal.timeout(300_000),
+      })
     } catch {
-      if (++intentos > 4) throw new Error('Se perdió la conexión con YouTube.')
-      await espera(2000 * intentos)
-      const q = await fetch(inicio.upload_url, { method: 'PUT', headers: cabeceras(`bytes */${tamano}`) }).catch(() => null)
+      if (++intentos > 8) throw new Error('Se perdió la conexión con YouTube.')
+      await espera(5000 * intentos)
+      const q = await fetch(inicio.upload_url, { method: 'PUT', headers: cabeceras(`bytes */${tamano}`), signal: AbortSignal.timeout(60_000) }).catch(() => null)
       if (q?.status === 308) offset = recibidoDe(q) ?? 0
       else if (q?.ok) return resultadoYouTube(q)
       continue
@@ -284,8 +295,8 @@ async function subirYouTube(inicio, fd, tamano, ranura) {
     } else if (resp.status === 401) {
       token = (await llamar({ accion: 'token-youtube', ranura })).access_token
     } else if (resp.status >= 500 || resp.status === 429) {
-      if (++intentos > 4) throw new Error(`YouTube no aceptó la subida (HTTP ${resp.status}).`)
-      await espera(2000 * intentos)
+      if (++intentos > 6) throw new Error(`YouTube no aceptó la subida (HTTP ${resp.status}).`)
+      await espera(5000 * intentos)
     } else {
       const j = await resp.json().catch(() => ({}))
       throw new Error(`YouTube: ${j.error?.message ?? `HTTP ${resp.status}`}`)
@@ -317,8 +328,8 @@ async function subirPorTrozos(inicio, fd, tamano) {
         offset = e.recibido
         continue
       }
-      if (++intentos > 4 || (e instanceof ErrorServidor && !['proveedor', 'limite'].includes(e.codigo))) throw e
-      await espera(2000 * intentos)
+      if (++intentos > 8 || (e instanceof ErrorServidor && !['proveedor', 'limite'].includes(e.codigo))) throw e
+      await espera(5000 * intentos)
     }
   }
   process.stdout.write('\n')
@@ -329,6 +340,59 @@ async function subirPorTrozos(inicio, fd, tamano) {
     const e = await llamar({ accion: 'estado-publicacion', sesion: inicio.sesion })
     if (e.estado === 'publicado') return { id: e.id, url: e.url, privado: e.privado }
     if (e.estado === 'fallo') throw new Error(e.motivo || 'La red no pudo procesar el video.')
+  }
+  throw new Error('La red tarda demasiado en procesar; revisa la cuenta en un rato.')
+}
+
+/**
+ * Facebook en 1:1 o 16:9: los Reels de Facebook solo admiten 9:16, y la subida
+ * por trozos a la Resumable Upload API la rechaza Meta («There was a problem
+ * uploading your video file»). Se sube el MP4 a R2 (media.mindhaos.com),
+ * Facebook lo baja con `file_url` y, ya procesado, se borra de R2.
+ */
+async function facebookPorUrl(t, meta) {
+  return porUrl(t, async (url) => {
+    const { video_id } = await llamar({ accion: 'video-fb-url', ranura: t.cuenta.ranura, url, titulo: meta.titulo, descripcion: meta.descripcion, publicar_en: meta.publicar_en })
+    return async () => {
+      const e = await llamar({ accion: 'estado-video-fb', ranura: t.cuenta.ranura, video_id })
+      return e.estado === 'publicado' ? { ...e, id: video_id, url: e.url ?? `https://www.facebook.com/${video_id}` } : e
+    }
+  })
+}
+
+/**
+ * Instagram: la subida por trozos a través de la función se reiniciaba una y
+ * otra vez (horas por Reel). Instagram baja el MP4 de R2 con `video_url`.
+ */
+async function instagramPorUrl(t, meta) {
+  return porUrl(t, async (url) => {
+    const { contenedor } = await llamar({ accion: 'reel-ig-url', ranura: t.cuenta.ranura, url, texto: meta.titulo })
+    return () => llamar({ accion: 'estado-reel-ig', ranura: t.cuenta.ranura, contenedor })
+  })
+}
+
+/** Sube el MP4 a R2, deja que la red lo baje (`iniciar` → función de estado) y, ya publicado, lo borra de R2. */
+async function porUrl(t, iniciar) {
+  const huella = createHash('sha256').update(readFileSync(t.archivo)).digest('hex').slice(0, 10)
+  const claveR2 = `redes/${t.red}/${t.idioma}/${path.basename(t.archivo, '.mp4')}-${huella}.mp4`
+  const npx = process.platform === 'win32' ? ['cmd', ['/c', 'npx']] : ['npx', []]
+  const r2 = (...a) => execFileSync(npx[0], [...npx[1], 'wrangler', 'r2', 'object', ...a, '--remote'], { cwd: RAIZ, stdio: 'ignore' })
+  console.log('    subiendo a media.mindhaos.com…')
+  r2('put', `mindhaos-media/${claveR2}`, '--file', t.archivo, '--content-type', 'video/mp4')
+  const estado = await iniciar(`https://media.mindhaos.com/${claveR2}`)
+  const tope = Date.now() + 20 * 60_000
+  while (Date.now() < tope) {
+    await espera(15_000)
+    const e = await estado()
+    if (e.estado === 'fallo') throw new Error(e.motivo || 'La red no pudo procesar el video.')
+    if (e.estado === 'publicado') {
+      try {
+        r2('delete', `mindhaos-media/${claveR2}`)
+      } catch {
+        // Si no se borra solo ocupa espacio en R2; el video ya está publicado.
+      }
+      return { id: e.id, url: e.url }
+    }
   }
   throw new Error('La red tarda demasiado en procesar; revisa la cuenta en un rato.')
 }
@@ -347,10 +411,16 @@ for (const t of trabajos) {
   const fd = openSync(t.archivo, 'r')
   try {
     const meta = metaDe(t.red, t.texto, duraciones.get(t.archivo), t.idioma)
+    if ((t.red === 'facebook' && aspecto !== '9:16') || t.red === 'instagram') {
+      const r = t.red === 'facebook' ? await facebookPorUrl(t, meta) : await instagramPorUrl(t, meta)
+      anotar(t.clave, { estado: 'publicado', cuenta: t.cuenta.nombre, ...r })
+      console.log(`  ✓ ${r.url}`)
+      continue
+    }
     const inicio = await llamar({ accion: 'iniciar-publicacion', plataforma: t.red, ranura: t.cuenta.ranura, tamano, mime: 'video/mp4', meta })
     const r = inicio.modo === 'directo' ? await subirYouTube(inicio, fd, tamano, t.cuenta.ranura) : await subirPorTrozos(inicio, fd, tamano)
     anotar(t.clave, { estado: 'publicado', cuenta: t.cuenta.nombre, ...r })
-    console.log(`  ✓ ${r.url ?? r.id}${r.privacidad ? ` (${r.privacidad})` : r.privado ? ' (privado)' : ''}`)
+    console.log(`  ✓ ${r.url ?? r.id ?? 'listo'}${r.privacidad ? ` (${r.privacidad})` : r.privado ? ' (privado)' : ''}`)
   } catch (e) {
     anotar(t.clave, { estado: 'fallo', cuenta: t.cuenta.nombre, motivo: e.message })
     console.error(`  ✗ ${e.message}`)
@@ -363,3 +433,4 @@ const filas = trabajos.map((t) => ({ red: t.red, idioma: t.idioma, estado: regis
 console.log('\nResultado:')
 console.table(filas)
 console.log(`Registro: ${RUTA_REGISTRO}`)
+}
