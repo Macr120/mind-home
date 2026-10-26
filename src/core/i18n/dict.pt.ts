@@ -7470,6 +7470,7 @@ export const PT: Dict = {
   'guia.ideas.titulo': "Como ter ideias melhores?",
   'guia.viajes.titulo': "Como viajar melhor?",
   'guia.archivos.titulo': "Como organizar a sua mente?",
+  'guia.anecdotario.titulo': "Como guardar as suas melhores lembranças?",
   'guia.noticias.titulo': "Em busca da verdade e da beleza: jornalismo e conteúdo",
   'guia.matematicas.titulo': "Qual é a linguagem do universo?",
   'tut.esencial.titulo': 'O essencial',

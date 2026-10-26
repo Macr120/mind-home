@@ -1,0 +1,745 @@
+{
+  "idioma": "pt",
+  "tema": "anecdotario",
+  "plantillaId": "anecdotario",
+  "numero": 22,
+  "nombre": "Diário",
+  "pregunta": "Como guardar as suas melhores lembranças?",
+  "corta": "Como guardar suas lembranças?",
+  "subtitulo": "Por que esquecemos quase tudo o que vivemos, desde quando guardamos lembranças, se a sua memória é fiel, quais lembranças ficam, o que desperta uma lembrança, se lembrar faz você feliz, por que contar as suas histórias e um plano para continuar.",
+  "aviso": "Este guia é informativo e geral. Os estudos citados medem a memória e o humor de grupos específicos de pessoas; os seus resultados podem variar.",
+  "partes": [
+    {
+      "id": "olvido",
+      "titulo": "Por que esquecemos quase tudo?",
+      "respuesta": "Porque, sem pistas, as lembranças se apagam: anote todo dia o que aconteceu, com quem e onde, e você vai recuperá-las anos depois.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Como guardar as suas melhores lembranças? Do que você vive nesta semana, em alguns anos vai esquecer quase tudo. E o que você lembrar, a sua mente vai mudando. E se você pudesse guardar tudo do jeito que foi? Hoje você vai ver isso com dados, e vai sair com um plano para continuar."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Aliás, esta é a minha casa no MindHaOS, e hoje ela zarpa: é um barco. Eu sou o ursinho marinheiro de bordo, e este é o meu diário: aqui eu guardo uma lembrança de cada dia."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte um. Por que esquecemos quase tudo?"
+        },
+        {
+          "id": "wagenaar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1986",
+            "clave": "wagenaar"
+          },
+          "lamina": [
+            "diarioEscribir",
+            "calendarioViejo"
+          ],
+          "destacada": true,
+          "texto": "Durante seis anos, o psicólogo holandês Willem Wagenaar anotou todo dia o que acontecia com ele: o quê, com quem, onde e quando. Com uns dois mil e quatrocentos acontecimentos anotados, ele se pôs à prova, e em 1986 publicou o que descobriu."
+        },
+        {
+          "id": "pistas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "quien",
+              "donde"
+            ]
+          },
+          "lamina": [
+            "fotoVieja",
+            "pensativo"
+          ],
+          "meme": "olvido",
+          "texto": "Com uma pista só, ele lembrava pouco; com várias juntas, recuperava fatos que achava perdidos. O quê, quem e onde eram boas pistas; a pior era a data. E o que mais ficava era o que tinha mexido com ele."
+        },
+        {
+          "id": "anotar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "recuerdoDelDia"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "Então não confie que você vai lembrar: anote. Experimente aqui com algo de hoje: o que aconteceu, com quem e onde. Três linhas bastam."
+        },
+        {
+          "id": "escribo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tituloApp",
+              "textoApp",
+              "animoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Por isso, toda noite eu escrevo no meu diário: um título para o dia, o que aconteceu e uma carinha com como eu me senti."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Desde quando guardamos lembranças?",
+      "respuesta": "Desde sempre, mas um diário famoso é o de Samuel Pepys, de 1660, e a primeira foto chegou por volta de 1826 com Nicéphore Niépce.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte dois. Desde quando guardamos lembranças?"
+        },
+        {
+          "id": "pepys",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1660",
+            "clave": "pepys"
+          },
+          "lamina": [
+            "pepys",
+            "londres"
+          ],
+          "destacada": true,
+          "texto": "Em 1660, um funcionário de Londres, Samuel Pepys, começou um diário e escreveu nele quase todo dia durante nove anos. Graças a ele, sabemos como foi viver o grande incêndio de Londres: ele mesmo enterrou o seu vinho e o seu queijo parmesão no jardim para salvá-los."
+        },
+        {
+          "id": "niepce",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1826",
+            "clave": "niepce"
+          },
+          "lamina": [
+            "niepce",
+            "camaraAntigua"
+          ],
+          "texto": "E por volta de 1826, o francês Nicéphore Niépce tirou a foto mais antiga que se conserva: a vista da sua janela. Ele precisou de horas de exposição para uma única imagem."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diario",
+              "album",
+              "telefono"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "celularFotos"
+          ],
+          "texto": "Hoje tiramos milhares de fotos por ano e quase nunca voltamos a vê-las. Guardar já não custa nada; o difícil é uma lembrança ter a sua história."
+        },
+        {
+          "id": "calendario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diaApp",
+              "colorApp",
+              "mesApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "No meu calendário, cada dia com lembrança ganha a cor do meu humor: num piscar de olhos eu vejo como foi o meu mês."
+        }
+      ]
+    },
+    {
+      "id": "fieles",
+      "titulo": "A sua memória é fiel?",
+      "respuesta": "Não: cada vez que você lembra, você reconstrói e muda sem perceber, então escreva no mesmo dia.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte três. A sua memória é fiel?"
+        },
+        {
+          "id": "loftus",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "palabra"
+          },
+          "lamina": [
+            "choque",
+            "testigo"
+          ],
+          "destacada": true,
+          "texto": "Em 1974, Elizabeth Loftus e John Palmer mostraram a estudantes o vídeo de uma batida de carro. A uns perguntaram a que velocidade iam os carros quando se tocaram; a outros, quando se espatifaram. Os do «espatifaram» calcularam mais velocidade, e uma semana depois muitos lembravam de vidros quebrados que nunca existiram."
+        },
+        {
+          "id": "talarico",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "talarico"
+          },
+          "lamina": [
+            "noticiasTele",
+            "periodico"
+          ],
+          "texto": "E não acontece só com as coisas pequenas. Em 2003, Jennifer Talarico e David Rubin acompanharam as lembranças de estudantes sobre o 11 de setembro. Com os meses, elas mudavam tanto quanto as de um dia qualquer… mas eles continuavam certos de que lembravam perfeitamente."
+        },
+        {
+          "id": "mismoDia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "reconstruye",
+              "mismoDia",
+              "detalles"
+            ]
+          },
+          "lamina": [
+            "escribirCafe",
+            "notas"
+          ],
+          "meme": "seguro",
+          "texto": "Cada vez que você lembra de algo, você monta tudo de novo, e no caminho entram mudanças. Por isso, escreva no mesmo dia, com detalhes: o que você viu, o que te disseram, o que você sentiu."
+        },
+        {
+          "id": "dia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocaApp",
+              "intactoApp",
+              "fechaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "E quando eu quero voltar a um dia, toco nele no calendário e lá está, do jeito que eu escrevi naquela noite."
+        }
+      ]
+    },
+    {
+      "id": "quedan",
+      "titulo": "Quais lembranças ficam?",
+      "respuesta": "As primeiras vezes: por isso lembramos mais dos dez aos trinta anos; então dê a si mesmo primeiras vezes em qualquer idade.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte quatro. Quais lembranças ficam?"
+        },
+        {
+          "id": "rubin",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "joroba"
+          },
+          "lamina": [
+            "graduacion",
+            "primerAuto"
+          ],
+          "destacada": true,
+          "texto": "Em 1986, David Rubin e a sua equipe pediram a pessoas mais velhas as suas lembranças mais vivas. A maioria não vinha dos anos recentes, mas de entre os dez e os trinta anos. Chamaram isso de pico de reminiscência."
+        },
+        {
+          "id": "primeras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "primerTrabajo",
+              "primerViaje",
+              "primerAmor"
+            ]
+          },
+          "lamina": [
+            "primerDia",
+            "mudanza"
+          ],
+          "texto": "É a idade das primeiras vezes: o primeiro emprego, a primeira viagem sozinha ou sozinho, o primeiro amor. O que é novo fica gravado; o que se repete se mistura com todo o resto."
+        },
+        {
+          "id": "nuevas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "primerasVeces"
+          },
+          "lamina": [
+            "clase",
+            "caminoNuevo"
+          ],
+          "meme": "rutina",
+          "texto": "A boa notícia: você pode criar primeiras vezes em qualquer idade. Um caminho novo, uma receita, uma aula. Escolha aqui as suas para este mês."
+        },
+        {
+          "id": "fotosApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fotoApp",
+              "grandeApp",
+              "historiaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "E em cada lembrança eu guardo as suas fotos; com um toque eu vejo em tamanho grande, junto com a história que elas contam."
+        }
+      ]
+    },
+    {
+      "id": "despertar",
+      "titulo": "O que desperta uma lembrança?",
+      "respuesta": "As pistas dos sentidos, principalmente os cheiros: guarde junto às suas lembranças uma música, um objeto ou um aroma.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte cinco. O que desperta uma lembrança?"
+        },
+        {
+          "id": "herz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "sentidos"
+          },
+          "lamina": [
+            "cafeAroma",
+            "pan"
+          ],
+          "destacada": true,
+          "texto": "Em 2004, Rachel Herz testou despertar lembranças pela visão, pela audição e pelo olfato. As lembranças trazidas por um cheiro eram mais emotivas e transportavam mais, como se você voltasse a estar lá."
+        },
+        {
+          "id": "pistasSentidos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "olor",
+              "cancion",
+              "objeto"
+            ]
+          },
+          "lamina": [
+            "vinilo",
+            "cajaRecuerdos"
+          ],
+          "texto": "Por isso uma música antiga ou o cheiro de uma cozinha te devolvem anos inteiros. Use isso a seu favor: junto a uma lembrança, anote o que tocava, que cheiro tinha, o que você tinha na mão."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoAnecdotario"
+          },
+          "lamina": "pulgar",
+          "texto": "Se você está gostando do guia, deixe o seu gostei, inscreva-se para não perder o próximo e compartilhe com aquela pessoa com quem você tem as melhores lembranças."
+        },
+        {
+          "id": "caja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "boleto",
+              "playlist",
+              "frasco"
+            ]
+          },
+          "lamina": [
+            "boletos",
+            "audifonos"
+          ],
+          "meme": "cancion",
+          "texto": "E guarde pequenos objetos: um ingresso, um cartão-postal, uma playlist daquele verão. São chaves que abrem lembranças."
+        },
+        {
+          "id": "animo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "caritasApp",
+              "animoDiaApp",
+              "sentirApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Em cada lembrança eu marco como me senti com uma carinha: feliz, tranquilo, cansado… e assim também lembro do que senti."
+        }
+      ]
+    },
+    {
+      "id": "feliz",
+      "titulo": "Lembrar faz você feliz?",
+      "respuesta": "Sim: reviver boas lembranças alguns minutos por dia melhora o humor, e com o tempo o ruim se apaga mais rápido que o bom.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte seis. Lembrar faz você feliz?"
+        },
+        {
+          "id": "bryant",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "revivir"
+          },
+          "lamina": [
+            "sonrisa",
+            "atardecer"
+          ],
+          "destacada": true,
+          "texto": "Em 2005, Fred Bryant e a sua equipe pediram a estudantes que revivessem uma boa lembrança por dez minutos, duas vezes por dia, durante uma semana. No fim, eles se sentiam mais felizes do que quem não fez, principalmente os que imaginavam com detalhes."
+        },
+        {
+          "id": "walker",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "walker"
+          },
+          "lamina": [
+            "lluvia",
+            "solSale"
+          ],
+          "texto": "E o tempo ajuda: em 2003, Richard Walker e a sua equipe viram que o que sentimos nas lembranças ruins se apaga mais rápido do que nas boas. A memória, com os anos, fica mais gentil."
+        },
+        {
+          "id": "releer",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "malDia",
+              "releer",
+              "detalle"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "sofa"
+          ],
+          "meme": "releer",
+          "texto": "Então tenha as suas boas lembranças à mão. Num dia ruim, releia uma com calma e volte a imaginá-la: onde você estava, quem ria, que cheiro tinha."
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "listaApp",
+              "masApp",
+              "releoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "E quando eu tenho um dia ruim, abro o meu diário e desço pelas minhas lembranças até achar uma boa."
+        }
+      ]
+    },
+    {
+      "id": "contar",
+      "titulo": "Por que contar as suas histórias?",
+      "respuesta": "Porque compartilhar lembranças nos une: as crianças que conhecem as histórias da família se sentem mais seguras de si.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte sete. Por que contar as suas histórias?"
+        },
+        {
+          "id": "fivush",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "familia"
+          },
+          "lamina": [
+            "abuela",
+            "cenaFamilia"
+          ],
+          "destacada": true,
+          "texto": "Nos Estados Unidos, Marshall Duke e Robyn Fivush fizeram a crianças vinte perguntas sobre a família: onde os pais se conheceram, onde os avós cresceram. As que sabiam mais histórias tinham mais confiança em si mesmas e se recuperavam melhor dos problemas."
+        },
+        {
+          "id": "subibaja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "subidas",
+              "bajadas",
+              "seguimos"
+            ]
+          },
+          "lamina": [
+            "fotoFamilia",
+            "manos"
+          ],
+          "texto": "Ajudavam principalmente as histórias com altos e baixos: «perdemos tudo, mas demos a volta por cima». Elas dizem a quem escuta que faz parte de algo maior."
+        },
+        {
+          "id": "cuenta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cena",
+              "pregunta",
+              "graba"
+            ]
+          },
+          "lamina": [
+            "conversacion",
+            "grabarVoz"
+          ],
+          "texto": "Então conte as suas histórias no jantar, pergunte as dos mais velhos enquanto pode e guarde-as: o que não se conta se perde."
+        },
+        {
+          "id": "anio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuentaApp",
+              "anioApp",
+              "llenaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Com os meses passando no meu calendário, eu vejo quantos dias têm lembrança, e o meu ano vai se enchendo de histórias para contar."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Como seguir? O seu plano para continuar",
+      "respuesta": "Escreva três linhas toda noite, some fotos e primeiras vezes, e todo mês releia suas lembranças e conte uma a alguém.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Parte oito. Como seguir? O seu plano para continuar."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planAnecdotario"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "Nesta semana, toda noite, escreva três linhas: o que aconteceu, com quem e como você se sentiu."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "foto",
+              "primeraVez",
+              "olorCancion"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "caminoNuevo"
+          ],
+          "destacada": true,
+          "texto": "No primeiro mês, coloque uma foto em cada lembrança e dê a si mesmo uma primeira vez por semana."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "relee",
+              "cuenta",
+              "copia"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "cenaFamilia"
+          ],
+          "texto": "E todo mês: releia as suas lembranças, conte uma a alguém que você ama e guarde uma cópia do que mais importa para você."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "calendarioFin",
+              "diaFin",
+              "fotosFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "E se você não sabe por onde começar, veja o meu diário no app: ele tem um ano inteiro de lembranças."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Resumindo: anote o que aconteceu, com quem e onde; escreva no mesmo dia; dê a si mesmo primeiras vezes; guarde as pistas dos seus sentidos; e conte as suas histórias."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "No Diário do MindHaOS você escreve uma lembrança por dia, vê o seu humor no calendário e guarda as suas fotos com a sua história. Você pode fazer por conta própria, ou com a ajuda da IA. Monte sua casa mental grátis hoje: o link está na descrição. E se você perdeu algum guia, lá também estão todos.",
+    "boton": "Abrir Diário",
+    "lamina": "app-plan",
+    "anclas": {
+      "recuerdo": "uma lembrança por dia",
+      "calendario": "no calendário",
+      "fotos": "as suas fotos"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "wagenaar-1986",
+      "texto": "Wagenaar W. A. My memory: a study of autobiographical memory over six years. Cognitive Psychology 18(2), 225-252 (1986).",
+      "url": "https://doi.org/10.1016/0010-0285(86)90013-7"
+    },
+    {
+      "id": "pepys",
+      "texto": "O diário de Samuel Pepys (1660-1669). Wikipédia.",
+      "url": "https://en.wikipedia.org/wiki/Samuel_Pepys"
+    },
+    {
+      "id": "niepce",
+      "texto": "Vista da janela em Le Gras, de Nicéphore Niépce (por volta de 1826). Wikipédia.",
+      "url": "https://en.wikipedia.org/wiki/View_from_the_Window_at_Le_Gras"
+    },
+    {
+      "id": "loftus-1974",
+      "texto": "Loftus E. F., Palmer J. C. Reconstruction of automobile destruction: an example of the interaction between language and memory. Journal of Verbal Learning and Verbal Behavior 13(5), 585-589 (1974).",
+      "url": "https://doi.org/10.1016/S0022-5371(74)80011-3"
+    },
+    {
+      "id": "talarico-2003",
+      "texto": "Talarico J. M., Rubin D. C. Confidence, not consistency, characterizes flashbulb memories. Psychological Science 14(5), 455-461 (2003).",
+      "url": "https://doi.org/10.1111/1467-9280.02453"
+    },
+    {
+      "id": "rubin-1986",
+      "texto": "Rubin D. C., Wetzler S. E., Nebes R. D. Autobiographical memory across the lifespan. Em Rubin D. C. (ed.), Autobiographical Memory. Cambridge University Press (1986).",
+      "url": "https://en.wikipedia.org/wiki/Reminiscence_bump"
+    },
+    {
+      "id": "herz-2004",
+      "texto": "Herz R. S. A naturalistic analysis of autobiographical memories triggered by olfactory, visual and auditory stimuli. Chemical Senses 29(3), 217-224 (2004).",
+      "url": "https://doi.org/10.1093/chemse/bjh025"
+    },
+    {
+      "id": "bryant-2005",
+      "texto": "Bryant F. B., Smart C. M., King S. P. Using the past to enhance the present: boosting happiness through positive reminiscence. Journal of Happiness Studies 6(3), 227-260 (2005).",
+      "url": "https://doi.org/10.1007/s10902-005-3889-4"
+    },
+    {
+      "id": "walker-2003",
+      "texto": "Walker W. R., Skowronski J. J., Thompson C. P. Life is pleasant, and memory helps to keep it that way! Review of General Psychology 7(2), 203-210 (2003).",
+      "url": "https://doi.org/10.1037/1089-2680.7.2.203"
+    },
+    {
+      "id": "duke-2008",
+      "texto": "Duke M. P., Lazarus A., Fivush R. Knowledge of family history as a clinically useful index of psychological well-being and prognosis: a brief report. Psychotherapy: Theory, Research, Practice, Training 45(2), 268-272 (2008).",
+      "url": "https://doi.org/10.1037/0033-3204.45.2.268"
+    }
+  ]
+}

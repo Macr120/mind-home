@@ -19,6 +19,7 @@ import { GRAFICAS_NOTICIAS, GraficaNoticias } from './Noticias'
 import { GRAFICAS_IDEAS, GraficaIdeas } from './Ideas'
 import { GRAFICAS_VIAJES, GraficaViajes } from './Viajes'
 import { GRAFICAS_ARCHIVOS, GraficaArchivos } from './Archivos'
+import { GRAFICAS_ANECDOTARIO, GraficaAnecdotario } from './Anecdotario'
 import type { T, Visual } from './datos'
 
 interface Foto { archivo: string; autor: string; fuente: string }
@@ -87,6 +88,7 @@ export function Bloque({ v, tema, t }: { v: Visual; tema: string; t: T }) {
       if (tema === 'ideas' && GRAFICAS_IDEAS.has(v.grafica!)) return <GraficaIdeas id={v.grafica!} k={k} />
       if (tema === 'viajes' && GRAFICAS_VIAJES.has(v.grafica!)) return <GraficaViajes id={v.grafica!} k={k} />
       if (tema === 'archivos' && GRAFICAS_ARCHIVOS.has(v.grafica!)) return <GraficaArchivos id={v.grafica!} k={k} />
+      if (tema === 'anecdotario' && GRAFICAS_ANECDOTARIO.has(v.grafica!)) return <GraficaAnecdotario id={v.grafica!} k={k} />
       if (GRAFICAS_COCINA.has(v.grafica!)) return <GraficaCocina id={v.grafica!} k={k} />
       if (GRAFICAS_FINANZAS.has(v.grafica!)) return <GraficaFinanzas id={v.grafica!} k={k} />
       if (GRAFICAS_IDIOMAS.has(v.grafica!)) return <GraficaIdiomas id={v.grafica!} k={k} />

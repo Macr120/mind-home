@@ -7336,6 +7336,7 @@ export const AR: Dict = {
   'guia.ideas.titulo': "كيف تحصل على أفكار أفضل؟",
   'guia.viajes.titulo': "كيف تسافر بشكل أفضل؟",
   'guia.archivos.titulo': "كيف ترتّب عقلك؟",
+  'guia.anecdotario.titulo': "كيف تحفظ أجمل ذكرياتك؟",
   'guia.noticias.titulo': "بحثًا عن الحقيقة والجمال: الصحافة والمحتوى",
   'guia.matematicas.titulo': "ما لغة الكون؟",
   'tut.esencial.titulo': 'الأساسيات',

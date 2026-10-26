@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react'
+import { useEffect, useState } from 'react'
 
 async function redimensionar(archivo: Blob, ladoMax: number, calidad: number): Promise<Blob> {
   try {
@@ -38,7 +38,13 @@ export function Foto({
   className?: string
   onClick?: () => void
 }) {
-  const url = useMemo(() => URL.createObjectURL(blob), [blob])
-  useEffect(() => () => URL.revokeObjectURL(url), [url])
+  // La URL nace y muere en el mismo efecto: con useMemo, el doble montaje de StrictMode
+  // la revocaba y la foto quedaba rota (la memo devolvía la URL ya revocada).
+  const [url, setUrl] = useState<string>()
+  useEffect(() => {
+    const u = URL.createObjectURL(blob)
+    setUrl(u)
+    return () => URL.revokeObjectURL(u)
+  }, [blob])
   return <img src={url} alt="" className={className} onClick={onClick} />
 }

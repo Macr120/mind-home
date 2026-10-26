@@ -1,0 +1,324 @@
+{
+  "fotos": {},
+  "laminas": {
+    "diarioEscribir": {
+      "archivo": "laminas/diarioEscribir.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/man-writing-down-on-a-notebook-using-a-fountain-pen-7612013/",
+      "licencia": "Licencia Pexels"
+    },
+    "calendarioViejo": {
+      "archivo": "laminas/calendarioViejo.mp4",
+      "tipo": "video",
+      "autor": "thiago japyassu",
+      "fuente": "https://www.pexels.com/video/close-up-view-of-daily-planner-13511897/",
+      "licencia": "Licencia Pexels"
+    },
+    "fotoVieja": {
+      "archivo": "laminas/fotoVieja.mp4",
+      "tipo": "video",
+      "autor": "SHVETS production",
+      "fuente": "https://www.pexels.com/video/a-person-holding-an-old-photo-7546136/",
+      "licencia": "Licencia Pexels"
+    },
+    "pensativo": {
+      "archivo": "laminas/pensativo.mp4",
+      "tipo": "video",
+      "autor": "Timur Weber",
+      "fuente": "https://www.pexels.com/video/a-man-in-deep-thought-8557552/",
+      "licencia": "Licencia Pexels"
+    },
+    "libretaNoche": {
+      "archivo": "laminas/libretaNoche.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/woman-writing-in-her-notebook-at-midnight-6940837/",
+      "licencia": "Licencia Pexels"
+    },
+    "lampara": {
+      "archivo": "laminas/lampara.mp4",
+      "tipo": "video",
+      "autor": "Tima Miroshnichenko",
+      "fuente": "https://www.pexels.com/video/table-with-books-and-lamp-6323324/",
+      "licencia": "Licencia Pexels"
+    },
+    "pepys": {
+      "archivo": "laminas/pepys.webp",
+      "tipo": "foto",
+      "autor": "John Hayls (1666)",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Samuel_Pepys.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "londres": {
+      "archivo": "laminas/londres.webp",
+      "tipo": "foto",
+      "autor": "Artista desconocido (hacia 1675)",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Great_Fire_London.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "niepce": {
+      "archivo": "laminas/niepce.webp",
+      "tipo": "foto",
+      "autor": "Joseph Nicéphore Niépce",
+      "fuente": "https://commons.wikimedia.org/wiki/File:View_from_the_Window_at_Le_Gras,_Joseph_Nicéphore_Niépce.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "camaraAntigua": {
+      "archivo": "laminas/camaraAntigua.webp",
+      "tipo": "foto",
+      "autor": "Liudmila & Nelson",
+      "fuente": "https://commons.wikimedia.org/wiki/File:Susse_Frères_Daguerreotype_camera_1839.jpg",
+      "licencia": "Public domain",
+      "credito": "Wikimedia Commons"
+    },
+    "albumFotos": {
+      "archivo": "laminas/albumFotos.mp4",
+      "tipo": "video",
+      "autor": "ArtHouse Studio",
+      "fuente": "https://www.pexels.com/video/a-person-keeping-polaroid-photos-7695489/",
+      "licencia": "Licencia Pexels"
+    },
+    "celularFotos": {
+      "archivo": "laminas/celularFotos.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-person-scrolling-photos-stored-on-a-smartphone-3627321/",
+      "licencia": "Licencia Pexels"
+    },
+    "choque": {
+      "archivo": "laminas/choque.webp",
+      "tipo": "foto",
+      "autor": "Nikita Nikitin",
+      "fuente": "https://www.pexels.com/photo/a-minor-car-accident-10102313/",
+      "licencia": "Licencia Pexels"
+    },
+    "testigo": {
+      "archivo": "laminas/testigo.mp4",
+      "tipo": "video",
+      "autor": "Kindel Media",
+      "fuente": "https://www.pexels.com/video/police-officer-talking-to-a-man-7714015/",
+      "licencia": "Licencia Pexels"
+    },
+    "noticiasTele": {
+      "archivo": "laminas/noticiasTele.mp4",
+      "tipo": "video",
+      "autor": "Kampus Production",
+      "fuente": "https://www.pexels.com/video/elderly-couple-embracing-while-watching-television-7477318/",
+      "licencia": "Licencia Pexels"
+    },
+    "periodico": {
+      "archivo": "laminas/periodico.mp4",
+      "tipo": "video",
+      "autor": "Vanessa Garcia",
+      "fuente": "https://www.pexels.com/video/man-drinking-coffee-and-reading-newspaper-6325125/",
+      "licencia": "Licencia Pexels"
+    },
+    "escribirCafe": {
+      "archivo": "laminas/escribirCafe.mp4",
+      "tipo": "video",
+      "autor": "Mike Jones",
+      "fuente": "https://www.pexels.com/video/a-woman-writing-in-the-notebook-9046183/",
+      "licencia": "Licencia Pexels"
+    },
+    "notas": {
+      "archivo": "laminas/notas.mp4",
+      "tipo": "video",
+      "autor": "Mikhail Nilov",
+      "fuente": "https://www.pexels.com/video/close-up-video-of-a-person-writing-on-a-notebook-6931510/",
+      "licencia": "Licencia Pexels"
+    },
+    "graduacion": {
+      "archivo": "laminas/graduacion.mp4",
+      "tipo": "video",
+      "autor": "Pavel Danilyuk",
+      "fuente": "https://www.pexels.com/video/the-graduates-jumping-together-7945816/",
+      "licencia": "Licencia Pexels"
+    },
+    "primerAuto": {
+      "archivo": "laminas/primerAuto.mp4",
+      "tipo": "video",
+      "autor": "Antoni Shkraba",
+      "fuente": "https://www.pexels.com/video/woman-holding-the-key-of-her-brand-new-car-7154227/",
+      "licencia": "Licencia Pexels"
+    },
+    "primerDia": {
+      "archivo": "laminas/primerDia.mp4",
+      "tipo": "video",
+      "autor": "RDNE Stock project",
+      "fuente": "https://www.pexels.com/video/man-moving-to-his-new-office-7581327/",
+      "licencia": "Licencia Pexels"
+    },
+    "mudanza": {
+      "archivo": "laminas/mudanza.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-family-of-three-in-a-moving-box-4569384/",
+      "licencia": "Licencia Pexels"
+    },
+    "clase": {
+      "archivo": "laminas/clase.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/young-women-in-ceramic-workshop-6694347/",
+      "licencia": "Licencia Pexels"
+    },
+    "caminoNuevo": {
+      "archivo": "laminas/caminoNuevo.mp4",
+      "tipo": "video",
+      "autor": "Mohammad Kheir",
+      "fuente": "https://www.pexels.com/video/walking-through-a-summer-field-path-36141231/",
+      "licencia": "Licencia Pexels"
+    },
+    "cafeAroma": {
+      "archivo": "laminas/cafeAroma.mp4",
+      "tipo": "video",
+      "autor": "Kevin Malik",
+      "fuente": "https://www.pexels.com/video/close-up-video-of-a-woman-smelling-coffee-9035651/",
+      "licencia": "Licencia Pexels"
+    },
+    "pan": {
+      "archivo": "laminas/pan.mp4",
+      "tipo": "video",
+      "autor": "Anna Bondarenko",
+      "fuente": "https://www.pexels.com/video/panning-shot-various-breads-on-a-basket-5757797/",
+      "licencia": "Licencia Pexels"
+    },
+    "vinilo": {
+      "archivo": "laminas/vinilo.mp4",
+      "tipo": "video",
+      "autor": "Necip Duman",
+      "fuente": "https://www.pexels.com/video/vintage-record-player-spinning-vinyl-34660700/",
+      "licencia": "Licencia Pexels"
+    },
+    "cajaRecuerdos": {
+      "archivo": "laminas/cajaRecuerdos.mp4",
+      "tipo": "video",
+      "autor": "fish socks",
+      "fuente": "https://www.pexels.com/video/nostalgic-family-photo-collection-in-shoebox-36511115/",
+      "licencia": "Licencia Pexels"
+    },
+    "boletos": {
+      "archivo": "laminas/boletos.webp",
+      "tipo": "foto",
+      "autor": "Huu Huynh",
+      "fuente": "https://www.pexels.com/photo/top-view-of-the-hands-holdings-tickets-22863008/",
+      "licencia": "Licencia Pexels"
+    },
+    "audifonos": {
+      "archivo": "laminas/audifonos.mp4",
+      "tipo": "video",
+      "autor": "Darina Belonogova",
+      "fuente": "https://www.pexels.com/video/woman-listening-to-music-using-her-headphones-7198925/",
+      "licencia": "Licencia Pexels"
+    },
+    "sonrisa": {
+      "archivo": "laminas/sonrisa.mp4",
+      "tipo": "video",
+      "autor": "Yaroslav Shuraev",
+      "fuente": "https://www.pexels.com/video/woman-holding-photo-8086811/",
+      "licencia": "Licencia Pexels"
+    },
+    "atardecer": {
+      "archivo": "laminas/atardecer.mp4",
+      "tipo": "video",
+      "autor": "Yaroslav Shuraev",
+      "fuente": "https://www.pexels.com/video/silhouettes-of-young-people-enjoying-sunset-at-the-beach-8695010/",
+      "licencia": "Licencia Pexels"
+    },
+    "lluvia": {
+      "archivo": "laminas/lluvia.mp4",
+      "tipo": "video",
+      "autor": "Taryn Elliott",
+      "fuente": "https://www.pexels.com/video/dripping-water-from-a-glass-window-8549582/",
+      "licencia": "Licencia Pexels"
+    },
+    "solSale": {
+      "archivo": "laminas/solSale.mp4",
+      "tipo": "video",
+      "autor": "Altaf Shah",
+      "fuente": "https://www.pexels.com/video/sun-and-clouds-12279773/",
+      "licencia": "Licencia Pexels"
+    },
+    "leerDiario": {
+      "archivo": "laminas/leerDiario.mp4",
+      "tipo": "video",
+      "autor": "K",
+      "fuente": "https://www.pexels.com/video/relaxed-reading-with-open-journals-indoors-33350915/",
+      "licencia": "Licencia Pexels"
+    },
+    "sofa": {
+      "archivo": "laminas/sofa.mp4",
+      "tipo": "video",
+      "autor": "George Milton",
+      "fuente": "https://www.pexels.com/video/a-woman-reading-a-book-while-sitting-on-the-couch-7026554/",
+      "licencia": "Licencia Pexels"
+    },
+    "abuela": {
+      "archivo": "laminas/abuela.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-grandmother-talking-to-her-granddaughter-about-flowers-5960702/",
+      "licencia": "Licencia Pexels"
+    },
+    "cenaFamilia": {
+      "archivo": "laminas/cenaFamilia.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/dad-talking-in-a-family-dinner-gathering-3198214/",
+      "licencia": "Licencia Pexels"
+    },
+    "fotoFamilia": {
+      "archivo": "laminas/fotoFamilia.mp4",
+      "tipo": "video",
+      "autor": "Yaroslav Shuraev",
+      "fuente": "https://www.pexels.com/video/elderly-women-looking-at-the-old-photos-8088080/",
+      "licencia": "Licencia Pexels"
+    },
+    "manos": {
+      "archivo": "laminas/manos.mp4",
+      "tipo": "video",
+      "autor": "Kindel Media",
+      "fuente": "https://www.pexels.com/video/people-holding-hands-for-support-8164796/",
+      "licencia": "Licencia Pexels"
+    },
+    "conversacion": {
+      "archivo": "laminas/conversacion.mp4",
+      "tipo": "video",
+      "autor": "cottonbro studio",
+      "fuente": "https://www.pexels.com/video/a-girl-talking-to-her-grandparents-7085097/",
+      "licencia": "Licencia Pexels"
+    },
+    "grabarVoz": {
+      "archivo": "laminas/grabarVoz.mp4",
+      "tipo": "video",
+      "autor": "Kaboompics.com",
+      "fuente": "https://www.pexels.com/video/woman-recording-sounds-with-microphone-6952830/",
+      "licencia": "Licencia Pexels"
+    },
+    "pulgar": {
+      "archivo": "laminas/pulgar.mp4",
+      "tipo": "video",
+      "autor": "Kevin Malik",
+      "fuente": "https://www.pexels.com/video/a-hand-giving-a-thumbs-up-9017832/",
+      "licencia": "Licencia Pexels"
+    },
+    "cumbre": {
+      "archivo": "laminas/cumbre.mp4",
+      "tipo": "video",
+      "autor": "Canan İldeniz",
+      "fuente": "https://www.pexels.com/video/group-of-hikers-celebrating-on-mountain-peak-38242686/",
+      "licencia": "Licencia Pexels"
+    },
+    "app-plan": {
+      "archivo": "laminas/app-plan.{idioma}.mp4",
+      "tipo": "video",
+      "autor": "MindHaOS",
+      "fuente": "https://app.mindhaos.com",
+      "credito": ""
+    }
+  }
+}

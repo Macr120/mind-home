@@ -1,0 +1,745 @@
+{
+  "idioma": "ja",
+  "tema": "anecdotario",
+  "plantillaId": "anecdotario",
+  "numero": 22,
+  "nombre": "思い出ノート",
+  "pregunta": "いちばんの思い出は、どうすれば残せるのでしょうか？",
+  "corta": "思い出はどう残す？",
+  "subtitulo": "なぜ経験のほとんどを忘れてしまうのか、人はいつから思い出を残してきたのか、記憶は正確なのか、どんな思い出が残るのか、何が思い出を呼び覚ますのか、思い出すと幸せになれるのか、なぜ自分の物語を語るといいのか、そして続けるためのプラン。",
+  "aviso": "このガイドは一般的な情報です。紹介する研究は、特定のグループの人たちの記憶と気分を調べたもので、結果には個人差があります。",
+  "partes": [
+    {
+      "id": "olvido",
+      "titulo": "なぜほとんど忘れてしまうのでしょうか？",
+      "respuesta": "手がかりがないと記憶は消えるので、毎日「何を、誰と、どこで」を書けば、何年後でも思い出せます。",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "いちばんの思い出は、どうすれば残せるのでしょうか？ 今週の出来事も、数年後にはほとんど忘れてしまいます。そして覚えていることも、頭の中で少しずつ書き換わっていきます。もし、あったままの形で残せるとしたら？ 今日はデータでそれを確かめて、続けるためのプランを持ち帰ってもらいます。"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "ところで、ここはMindHaOSにあるぼくの家です。今日はなんと出航します。そう、船なんです。ぼくは船に乗っている船乗りのテディベア。そしてこれがぼくの思い出ノート。毎日ひとつ、ここに思い出を残しています。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート1。なぜほとんど忘れてしまうのでしょうか？"
+        },
+        {
+          "id": "wagenaar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1986",
+            "clave": "wagenaar"
+          },
+          "lamina": [
+            "diarioEscribir",
+            "calendarioViejo"
+          ],
+          "destacada": true,
+          "texto": "オランダの心理学者ウィレム・ワーゲナールは、6年間、毎日の出来事を書き続けました。何が、誰と、どこで、いつ。およそ2400の出来事を記録して自分自身をテストし、1986年にその結果を発表しました。"
+        },
+        {
+          "id": "pistas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "quien",
+              "donde"
+            ]
+          },
+          "lamina": [
+            "fotoVieja",
+            "pensativo"
+          ],
+          "meme": "olvido",
+          "texto": "手がかりがひとつだけだと、ほとんど思い出せませんでした。でもいくつか組み合わせると、なくしたと思っていた出来事がよみがえりました。何が、誰と、どこでは良い手がかりで、いちばん弱いのは日付。そしていちばん残ったのは、心を動かされた出来事でした。"
+        },
+        {
+          "id": "anotar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "recuerdoDelDia"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "だから、覚えているはずだと思わずに、書きましょう。ここで今日のことを試してみて。何があったか、誰と、どこで。3行で十分です。"
+        },
+        {
+          "id": "escribo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tituloApp",
+              "textoApp",
+              "animoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "だからぼくは毎晩、思い出ノートに書きます。その日のタイトルと、何があったか、そして気分を表す顔をひとつ。"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "人はいつから思い出を残してきたのでしょうか？",
+      "respuesta": "ずっと昔からです。有名なのは1660年のピープスの日記で、最初の写真は1826年ごろのニエプスです。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート2。人はいつから思い出を残してきたのでしょうか？"
+        },
+        {
+          "id": "pepys",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1660",
+            "clave": "pepys"
+          },
+          "lamina": [
+            "pepys",
+            "londres"
+          ],
+          "destacada": true,
+          "texto": "1660年、ロンドンの役人サミュエル・ピープスは日記をつけ始め、9年間ほぼ毎日書き続けました。おかげで、ロンドン大火のようすがわかります。彼はワインとパルメザンチーズを守るために、自分で庭に埋めたんです。"
+        },
+        {
+          "id": "niepce",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1826",
+            "clave": "niepce"
+          },
+          "lamina": [
+            "niepce",
+            "camaraAntigua"
+          ],
+          "texto": "そして1826年ごろ、フランスのニセフォール・ニエプスが、現存する最古の写真を撮りました。自分の窓からの眺めです。たった一枚に、何時間もの露光が必要でした。"
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diario",
+              "album",
+              "telefono"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "celularFotos"
+          ],
+          "texto": "今では一年に何千枚も写真を撮るのに、見返すことはほとんどありません。残すのはタダになりました。難しいのは、思い出に物語を持たせることです。"
+        },
+        {
+          "id": "calendario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diaApp",
+              "colorApp",
+              "mesApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "ぼくのカレンダーでは、思い出のある日が、その日の気分の色に染まります。ひと目で、その月がどうだったかがわかります。"
+        }
+      ]
+    },
+    {
+      "id": "fieles",
+      "titulo": "あなたの記憶は正確でしょうか？",
+      "respuesta": "いいえ。思い出すたびに組み立て直して変えてしまうので、その日のうちに書きましょう。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート3。あなたの記憶は正確でしょうか？"
+        },
+        {
+          "id": "loftus",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "palabra"
+          },
+          "lamina": [
+            "choque",
+            "testigo"
+          ],
+          "destacada": true,
+          "texto": "1974年、エリザベス・ロフタスとジョン・パーマーは、学生たちに自動車事故の映像を見せました。ある人には、車が「ぶつかった」ときのスピードを、別の人には「激突した」ときのスピードを聞きました。「激突した」と聞かれた人はスピードを速く見積もり、1週間後には、多くの人がなかったはずの割れたガラスを覚えていました。"
+        },
+        {
+          "id": "talarico",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "talarico"
+          },
+          "lamina": [
+            "noticiasTele",
+            "periodico"
+          ],
+          "texto": "小さなことだけではありません。2003年、ジェニファー・タラリコとデヴィッド・ルービンは、学生たちの9月11日の同時多発テロの記憶を追いかけました。数か月で、その記憶はふつうの日の記憶と同じくらい変わっていました……それでも本人たちは、完璧に覚えていると信じていたんです。"
+        },
+        {
+          "id": "mismoDia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "reconstruye",
+              "mismoDia",
+              "detalles"
+            ]
+          },
+          "lamina": [
+            "escribirCafe",
+            "notas"
+          ],
+          "meme": "seguro",
+          "texto": "何かを思い出すたびに、記憶は組み立て直され、その途中で変化が入りこみます。だから、その日のうちに細かく書きましょう。見たもの、言われたこと、感じたこと。"
+        },
+        {
+          "id": "dia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocaApp",
+              "intactoApp",
+              "fechaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "ある日に戻りたいときは、カレンダーでその日をタップ。あの夜に書いたまま、ちゃんと残っています。"
+        }
+      ]
+    },
+    {
+      "id": "quedan",
+      "titulo": "どんな思い出が残るのでしょうか？",
+      "respuesta": "「初めて」の出来事です。だから10〜30歳の記憶が多く、「初めて」は何歳でもつくれます。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート4。どんな思い出が残るのでしょうか？"
+        },
+        {
+          "id": "rubin",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "joroba"
+          },
+          "lamina": [
+            "graduacion",
+            "primerAuto"
+          ],
+          "destacada": true,
+          "texto": "1986年、デヴィッド・ルービンたちは、高齢の人たちに、いちばん鮮やかな思い出を聞きました。その多くは最近のことではなく、10歳から30歳のあいだの出来事でした。これは「思い出のこぶ」と呼ばれています。"
+        },
+        {
+          "id": "primeras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "primerTrabajo",
+              "primerViaje",
+              "primerAmor"
+            ]
+          },
+          "lamina": [
+            "primerDia",
+            "mudanza"
+          ],
+          "texto": "それは「初めて」が続く年ごろです。初めての仕事、初めてのひとり旅、初めての恋。新しいことは心に刻まれ、くり返すことはほかのすべてと混ざってしまいます。"
+        },
+        {
+          "id": "nuevas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "primerasVeces"
+          },
+          "lamina": [
+            "clase",
+            "caminoNuevo"
+          ],
+          "meme": "rutina",
+          "texto": "いい知らせです。「初めて」は何歳になってもつくれます。新しい道、新しいレシピ、新しい習いごと。ここで今月の「初めて」を選んでみて。"
+        },
+        {
+          "id": "fotosApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fotoApp",
+              "grandeApp",
+              "historiaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "それぞれの思い出には写真を残しています。タップすると大きく見られて、その写真が語る物語もいっしょに読めます。"
+        }
+      ]
+    },
+    {
+      "id": "despertar",
+      "titulo": "何が思い出を呼び覚ますのでしょうか？",
+      "respuesta": "五感の手がかり、とくに香りです。思い出といっしょに、歌や物や香りを残しましょう。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート5。何が思い出を呼び覚ますのでしょうか？"
+        },
+        {
+          "id": "herz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "sentidos"
+          },
+          "lamina": [
+            "cafeAroma",
+            "pan"
+          ],
+          "destacada": true,
+          "texto": "2004年、レイチェル・ハーツは、目と耳と鼻で思い出を呼び起こす実験をしました。香りがよみがえらせた思い出は、より感情がこもっていて、まるでその場に戻ったような気持ちにさせました。"
+        },
+        {
+          "id": "pistasSentidos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "olor",
+              "cancion",
+              "objeto"
+            ]
+          },
+          "lamina": [
+            "vinilo",
+            "cajaRecuerdos"
+          ],
+          "texto": "だから昔の歌や台所のにおいで、何年も前に一気に戻ってしまうんです。それを味方にしましょう。思い出といっしょに、何が流れていたか、どんなにおいがしたか、手に何を持っていたかを書いておきます。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoAnecdotario"
+          },
+          "lamina": "pulgar",
+          "texto": "このガイドを気に入ってもらえたら、高評価と、次回を見逃さないためのチャンネル登録、そして、いちばんの思い出を一緒につくってきたあの人に共有をお願いします。"
+        },
+        {
+          "id": "caja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "boleto",
+              "playlist",
+              "frasco"
+            ]
+          },
+          "lamina": [
+            "boletos",
+            "audifonos"
+          ],
+          "meme": "cancion",
+          "texto": "それから、小さな物も取っておきましょう。チケット、絵はがき、あの夏のプレイリスト。それは思い出を開ける鍵なんです。"
+        },
+        {
+          "id": "animo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "caritasApp",
+              "animoDiaApp",
+              "sentirApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "ぼくはそれぞれの思い出に、気分を表す顔をつけています。うれしい、おだやか、つかれた……。そうすると、そのときの気持ちも思い出せます。"
+        }
+      ]
+    },
+    {
+      "id": "feliz",
+      "titulo": "思い出すと幸せになれるのでしょうか？",
+      "respuesta": "はい。いい思い出を毎日数分味わうと気分が上がり、いやなことは時間とともに先に薄れます。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート6。思い出すと幸せになれるのでしょうか？"
+        },
+        {
+          "id": "bryant",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "revivir"
+          },
+          "lamina": [
+            "sonrisa",
+            "atardecer"
+          ],
+          "destacada": true,
+          "texto": "2005年、フレッド・ブライアントたちは、学生たちに、いい思い出を1日2回、10分ずつ、1週間味わってもらいました。最後には、やらなかった人たちより幸せを感じていて、とくに細かく思い描いた人ほどそうでした。"
+        },
+        {
+          "id": "walker",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "walker"
+          },
+          "lamina": [
+            "lluvia",
+            "solSale"
+          ],
+          "texto": "そして時間も味方です。2003年、リチャード・ウォーカーたちは、いやな思い出の感情のほうが、いい思い出の感情より早く薄れることを見つけました。記憶は年月とともに、やさしくなっていくんです。"
+        },
+        {
+          "id": "releer",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "malDia",
+              "releer",
+              "detalle"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "sofa"
+          ],
+          "meme": "releer",
+          "texto": "だから、いい思い出はすぐ手の届くところに。つらい日には、ひとつをゆっくり読み返して、もう一度思い描いてみて。どこにいたか、誰が笑っていたか、どんなにおいがしたか。"
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "listaApp",
+              "masApp",
+              "releoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "つらい日には、ぼくは思い出ノートを開いて、いい思い出が見つかるまでスクロールします。"
+        }
+      ]
+    },
+    {
+      "id": "contar",
+      "titulo": "なぜ自分の物語を語るといいのでしょうか？",
+      "respuesta": "思い出を分かち合うと人はつながり、家族の物語を知る子どもは自分に自信を持てるからです。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート7。なぜ自分の物語を語るといいのでしょうか？"
+        },
+        {
+          "id": "fivush",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "familia"
+          },
+          "lamina": [
+            "abuela",
+            "cenaFamilia"
+          ],
+          "destacada": true,
+          "texto": "アメリカで、マーシャル・デュークとロビン・フィヴァッシュは、子どもたちに家族についての20の質問をしました。両親はどこで出会ったのか、祖父母はどこで育ったのか。たくさんの話を知っている子ほど、自分に自信があり、困ったことからも立ち直りやすかったんです。"
+        },
+        {
+          "id": "subibaja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "subidas",
+              "bajadas",
+              "seguimos"
+            ]
+          },
+          "lamina": [
+            "fotoFamilia",
+            "manos"
+          ],
+          "texto": "とくに役立ったのは、浮き沈みのある話でした。「すべてを失ったけれど、なんとか乗りこえた」。そんな話は、聞く人に、自分はもっと大きなものの一員なんだと伝えてくれます。"
+        },
+        {
+          "id": "cuenta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cena",
+              "pregunta",
+              "graba"
+            ]
+          },
+          "lamina": [
+            "conversacion",
+            "grabarVoz"
+          ],
+          "texto": "だから夕食のときに自分の話をして、できるうちに年上の家族の話を聞いて、残しておきましょう。語られないものは、消えてしまいます。"
+        },
+        {
+          "id": "anio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuentaApp",
+              "anioApp",
+              "llenaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "カレンダーで月をめくると、思い出のある日がいくつあるかが見えて、ぼくの一年が語りたい物語で満たされていきます。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "この先どうする？ 続けるためのプラン",
+      "respuesta": "毎晩3行書き、写真と「初めて」を足して、毎月思い出を読み返して誰かにひとつ話しましょう。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "パート8。この先どうする？ 続けるためのプラン。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planAnecdotario"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "今週は、毎晩3行書きましょう。何があったか、誰といたか、どんな気分だったか。"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "foto",
+              "primeraVez",
+              "olorCancion"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "caminoNuevo"
+          ],
+          "destacada": true,
+          "texto": "最初の1か月は、それぞれの思い出に写真を1枚足して、毎週ひとつ「初めて」を自分にプレゼントしましょう。"
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "relee",
+              "cuenta",
+              "copia"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "cenaFamilia"
+          ],
+          "texto": "そして毎月、思い出を読み返して、大切な人にひとつ話して、いちばん大事なものはコピーを取っておきましょう。"
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "calendarioFin",
+              "diaFin",
+              "fotosFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "どこから始めればいいかわからなければ、アプリでぼくの思い出ノートを見てください。まる一年分の思い出が入っています。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "まとめです。何が、誰と、どこでを書くこと。その日のうちに書くこと。「初めて」をつくること。五感の手がかりを残すこと。そして、自分の物語を語ること。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOSの思い出ノートでは、毎日ひとつ思い出を書いて、カレンダーで気分を見て、写真を物語といっしょに残せます。自分でやっても、AIに手伝ってもらってもいいんです。今日、無料であなたの心の家をつくろう。リンクは概要欄にあります。そして見逃したガイドがあれば、そこに全部そろっています。",
+    "boton": "思い出ノートを開く",
+    "lamina": "app-plan",
+    "anclas": {
+      "recuerdo": "毎日ひとつ思い出",
+      "calendario": "カレンダーで気分",
+      "fotos": "写真を物語"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "wagenaar-1986",
+      "texto": "Wagenaar W. A. My memory: a study of autobiographical memory over six years. Cognitive Psychology 18(2), 225-252 (1986).",
+      "url": "https://doi.org/10.1016/0010-0285(86)90013-7"
+    },
+    {
+      "id": "pepys",
+      "texto": "サミュエル・ピープスの日記（1660〜1669年）。Wikipedia。",
+      "url": "https://en.wikipedia.org/wiki/Samuel_Pepys"
+    },
+    {
+      "id": "niepce",
+      "texto": "ニセフォール・ニエプス『ル・グラの窓からの眺め』（1826年ごろ）。Wikipedia。",
+      "url": "https://en.wikipedia.org/wiki/View_from_the_Window_at_Le_Gras"
+    },
+    {
+      "id": "loftus-1974",
+      "texto": "Loftus E. F., Palmer J. C. Reconstruction of automobile destruction: an example of the interaction between language and memory. Journal of Verbal Learning and Verbal Behavior 13(5), 585-589 (1974).",
+      "url": "https://doi.org/10.1016/S0022-5371(74)80011-3"
+    },
+    {
+      "id": "talarico-2003",
+      "texto": "Talarico J. M., Rubin D. C. Confidence, not consistency, characterizes flashbulb memories. Psychological Science 14(5), 455-461 (2003).",
+      "url": "https://doi.org/10.1111/1467-9280.02453"
+    },
+    {
+      "id": "rubin-1986",
+      "texto": "Rubin D. C., Wetzler S. E., Nebes R. D. Autobiographical memory across the lifespan. 収録：Rubin D. C. (ed.), Autobiographical Memory. Cambridge University Press (1986).",
+      "url": "https://en.wikipedia.org/wiki/Reminiscence_bump"
+    },
+    {
+      "id": "herz-2004",
+      "texto": "Herz R. S. A naturalistic analysis of autobiographical memories triggered by olfactory, visual and auditory stimuli. Chemical Senses 29(3), 217-224 (2004).",
+      "url": "https://doi.org/10.1093/chemse/bjh025"
+    },
+    {
+      "id": "bryant-2005",
+      "texto": "Bryant F. B., Smart C. M., King S. P. Using the past to enhance the present: boosting happiness through positive reminiscence. Journal of Happiness Studies 6(3), 227-260 (2005).",
+      "url": "https://doi.org/10.1007/s10902-005-3889-4"
+    },
+    {
+      "id": "walker-2003",
+      "texto": "Walker W. R., Skowronski J. J., Thompson C. P. Life is pleasant, and memory helps to keep it that way! Review of General Psychology 7(2), 203-210 (2003).",
+      "url": "https://doi.org/10.1037/1089-2680.7.2.203"
+    },
+    {
+      "id": "duke-2008",
+      "texto": "Duke M. P., Lazarus A., Fivush R. Knowledge of family history as a clinically useful index of psychological well-being and prognosis: a brief report. Psychotherapy: Theory, Research, Practice, Training 45(2), 268-272 (2008).",
+      "url": "https://doi.org/10.1037/0033-3204.45.2.268"
+    }
+  ]
+}

@@ -1,0 +1,745 @@
+{
+  "idioma": "hi",
+  "tema": "anecdotario",
+  "plantillaId": "anecdotario",
+  "numero": 22,
+  "nombre": "डायरी",
+  "pregunta": "अपनी सबसे अच्छी यादें कैसे सँभालें?",
+  "corta": "अपनी यादें कैसे सँभालें?",
+  "subtitulo": "हम जो जीते हैं उसमें से लगभग सब कुछ क्यों भूल जाते हैं, हम कब से यादें सँभालते हैं, क्या आपकी याददाश्त सच्ची है, कौन-सी यादें टिकती हैं, याद को क्या जगाता है, क्या याद करना आपको ख़ुश करता है, अपनी कहानियाँ क्यों सुनाएँ, और आगे बढ़ने का प्लान।",
+  "aviso": "यह गाइड सामान्य जानकारी के लिए है। बताए गए अध्ययन लोगों के ख़ास समूहों की याददाश्त और मूड को मापते हैं; आपके नतीजे अलग हो सकते हैं।",
+  "partes": [
+    {
+      "id": "olvido",
+      "titulo": "हम लगभग सब कुछ क्यों भूल जाते हैं?",
+      "respuesta": "क्योंकि सुराग़ के बिना यादें मिट जाती हैं: हर दिन लिखें कि क्या हुआ, किसके साथ और कहाँ, तो सालों बाद भी आप उन्हें वापस पा सकेंगे।",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "अपनी सबसे अच्छी यादें कैसे सँभालें? इस हफ़्ते आप जो जी रहे हैं, कुछ सालों में उसका लगभग सब कुछ भूल जाएँगे। और जो याद रहेगा, उसे भी आपका मन धीरे-धीरे बदलता जाएगा। क्या हो अगर आप उसे ठीक वैसा ही सँभाल सकें जैसा वह था? आज आप इसे आँकड़ों के साथ देखेंगे, और आगे बढ़ने का एक प्लान लेकर जाएँगे।"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "वैसे, यह MindHaOS में मेरा घर है, और आज यह समंदर में निकल रहा है: यह एक जहाज़ है। मैं इस पर सवार नाविक टेडी बियर हूँ, और यह है मेरी डायरी: यहाँ मैं हर दिन की एक याद रखता हूँ।"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग एक। हम लगभग सब कुछ क्यों भूल जाते हैं?"
+        },
+        {
+          "id": "wagenaar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1986",
+            "clave": "wagenaar"
+          },
+          "lamina": [
+            "diarioEscribir",
+            "calendarioViejo"
+          ],
+          "destacada": true,
+          "texto": "छह साल तक, डच मनोवैज्ञानिक विलेम वागेनार ने हर दिन लिखा कि उनके साथ क्या हुआ: क्या, किसके साथ, कहाँ और कब। लगभग चौबीस सौ घटनाएँ लिखने के बाद, उन्होंने ख़ुद की परीक्षा ली, और 1986 में अपने नतीजे प्रकाशित किए।"
+        },
+        {
+          "id": "pistas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "quien",
+              "donde"
+            ]
+          },
+          "lamina": [
+            "fotoVieja",
+            "pensativo"
+          ],
+          "meme": "olvido",
+          "texto": "एक ही सुराग़ से उन्हें कम याद आता था; कई सुराग़ साथ हों, तो वे घटनाएँ भी लौट आती थीं जिन्हें वे खोया हुआ समझते थे। क्या, कौन और कहाँ अच्छे सुराग़ थे; सबसे बुरा सुराग़ तारीख़ थी। और सबसे ज़्यादा वही टिका, जिसने उनके दिल को छुआ था।"
+        },
+        {
+          "id": "anotar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "recuerdoDelDia"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "इसलिए इस भरोसे पर न रहें कि आपको याद रहेगा: लिख लें। यहाँ आज की किसी बात से आज़माएँ: क्या हुआ, किसके साथ और कहाँ। तीन लाइनें काफ़ी हैं।"
+        },
+        {
+          "id": "escribo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tituloApp",
+              "textoApp",
+              "animoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "इसीलिए हर रात मैं अपनी डायरी में लिखता हूँ: दिन का शीर्षक, क्या हुआ, और एक छोटा चेहरा कि मुझे कैसा लगा।"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "हम कब से यादें सँभालते हैं?",
+      "respuesta": "हमेशा से, पर एक मशहूर डायरी 1660 में सैमुअल पेपिस की है, और पहली फ़ोटो लगभग 1826 में नीसफ़ोर न्येप्स ने ली।",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग दो। हम कब से यादें सँभालते हैं?"
+        },
+        {
+          "id": "pepys",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1660",
+            "clave": "pepys"
+          },
+          "lamina": [
+            "pepys",
+            "londres"
+          ],
+          "destacada": true,
+          "texto": "1660 में, लंदन के एक सरकारी अफ़सर सैमुअल पेपिस ने एक डायरी शुरू की और नौ साल तक लगभग रोज़ उसे लिखा। उन्हीं की बदौलत हम जानते हैं कि लंदन की भीषण आग को लोगों ने कैसे झेला: उन्होंने ख़ुद अपनी वाइन और पार्मेज़ान चीज़ बचाने के लिए बगीचे में गाड़ दी थी।"
+        },
+        {
+          "id": "niepce",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1826",
+            "clave": "niepce"
+          },
+          "lamina": [
+            "niepce",
+            "camaraAntigua"
+          ],
+          "texto": "और लगभग 1826 में, फ़्रांस के नीसफ़ोर न्येप्स ने वह फ़ोटो ली जो आज बची सबसे पुरानी फ़ोटो है: उनकी खिड़की से दिखता नज़ारा। एक ही तस्वीर के लिए घंटों का एक्सपोज़र लगा।"
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diario",
+              "album",
+              "telefono"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "celularFotos"
+          ],
+          "texto": "आज हम साल में हज़ारों फ़ोटो लेते हैं और शायद ही कभी उन्हें दोबारा देखते हैं। सँभालना अब मुफ़्त है; मुश्किल यह है कि हर याद के साथ उसकी कहानी हो।"
+        },
+        {
+          "id": "calendario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diaApp",
+              "colorApp",
+              "mesApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "मेरे कैलेंडर में, याद वाले हर दिन पर मेरे मूड का रंग चढ़ जाता है: एक नज़र में दिख जाता है कि मेरा महीना कैसा गया।"
+        }
+      ]
+    },
+    {
+      "id": "fieles",
+      "titulo": "क्या आपकी याददाश्त सच्ची है?",
+      "respuesta": "नहीं: हर बार याद करते हुए आप उसे दोबारा गढ़ते हैं और अनजाने में बदल देते हैं, इसलिए उसी दिन लिख लें।",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग तीन। क्या आपकी याददाश्त सच्ची है?"
+        },
+        {
+          "id": "loftus",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "palabra"
+          },
+          "lamina": [
+            "choque",
+            "testigo"
+          ],
+          "destacada": true,
+          "texto": "1974 में, एलिज़ाबेथ लॉफ़्टस और जॉन पामर ने छात्रों को एक कार दुर्घटना का वीडियो दिखाया। कुछ से पूछा गया कि जब गाड़ियाँ छू गईं, तब वे कितनी तेज़ थीं; दूसरों से, कि जब वे भिड़ गईं। “भिड़ गईं” सुनने वालों ने ज़्यादा रफ़्तार बताई, और एक हफ़्ते बाद कई लोगों को टूटा काँच याद था, जो वहाँ था ही नहीं।"
+        },
+        {
+          "id": "talarico",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "talarico"
+          },
+          "lamina": [
+            "noticiasTele",
+            "periodico"
+          ],
+          "texto": "और ऐसा सिर्फ़ छोटी बातों के साथ नहीं होता। 2003 में, जेनिफ़र टालारिको और डेविड रुबिन ने ग्यारह सितंबर के हमलों के बारे में छात्रों की यादों पर नज़र रखी। महीनों में वे उतनी ही बदलीं जितनी किसी आम दिन की यादें… पर छात्रों को फिर भी पक्का यक़ीन था कि उन्हें सब बिल्कुल ठीक याद है।"
+        },
+        {
+          "id": "mismoDia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "reconstruye",
+              "mismoDia",
+              "detalles"
+            ]
+          },
+          "lamina": [
+            "escribirCafe",
+            "notas"
+          ],
+          "meme": "seguro",
+          "texto": "जब भी आप कुछ याद करते हैं, उसे फिर से जोड़ते हैं, और रास्ते में बदलाव घुस आते हैं। इसलिए उसे उसी दिन लिखें, बारीकियों के साथ: आपने क्या देखा, आपसे क्या कहा गया, आपने क्या महसूस किया।"
+        },
+        {
+          "id": "dia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocaApp",
+              "intactoApp",
+              "fechaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "और जब मैं किसी दिन पर लौटना चाहता हूँ, तो कैलेंडर में उसे छूता हूँ और वह वहीं होता है, ठीक वैसा जैसा मैंने उस रात लिखा था।"
+        }
+      ]
+    },
+    {
+      "id": "quedan",
+      "titulo": "कौन-सी यादें टिकती हैं?",
+      "respuesta": "पहली बार वाली: इसीलिए दस से तीस की उम्र ज़्यादा याद रहती है; तो किसी भी उम्र में ख़ुद को पहली बार के अनुभव दें।",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग चार। कौन-सी यादें टिकती हैं?"
+        },
+        {
+          "id": "rubin",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "joroba"
+          },
+          "lamina": [
+            "graduacion",
+            "primerAuto"
+          ],
+          "destacada": true,
+          "texto": "1986 में, डेविड रुबिन और उनकी टीम ने बुज़ुर्गों से उनकी सबसे जीवंत यादें पूछीं। ज़्यादातर हाल के सालों की नहीं थीं, बल्कि दस से तीस साल की उम्र के बीच की थीं। उन्होंने इसे यादों का कूबड़ कहा।"
+        },
+        {
+          "id": "primeras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "primerTrabajo",
+              "primerViaje",
+              "primerAmor"
+            ]
+          },
+          "lamina": [
+            "primerDia",
+            "mudanza"
+          ],
+          "texto": "यह पहली बार की उम्र है: पहली नौकरी, अकेले पहला सफ़र, पहला प्यार। नई चीज़ मन में छप जाती है; जो दोहराया जाता है, वह बाक़ी सब में घुल जाता है।"
+        },
+        {
+          "id": "nuevas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "primerasVeces"
+          },
+          "lamina": [
+            "clase",
+            "caminoNuevo"
+          ],
+          "meme": "rutina",
+          "texto": "अच्छी ख़बर यह है: आप किसी भी उम्र में पहली बार के पल बना सकते हैं। एक नया रास्ता, एक रेसिपी, एक क्लास। इस महीने के अपने पल यहाँ चुनें।"
+        },
+        {
+          "id": "fotosApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fotoApp",
+              "grandeApp",
+              "historiaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "और हर याद में मैं उसकी फ़ोटो रखता हूँ; एक टैप से उन्हें बड़ा देखता हूँ, उस कहानी के साथ जो वे सुनाती हैं।"
+        }
+      ]
+    },
+    {
+      "id": "despertar",
+      "titulo": "याद को क्या जगाता है?",
+      "respuesta": "इंद्रियों के सुराग़, ख़ासकर गंध: अपनी यादों के साथ कोई गाना, कोई चीज़ या कोई महक सँभालें।",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग पाँच। याद को क्या जगाता है?"
+        },
+        {
+          "id": "herz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "sentidos"
+          },
+          "lamina": [
+            "cafeAroma",
+            "pan"
+          ],
+          "destacada": true,
+          "texto": "2004 में, रेचल हर्ज़ ने देखने, सुनने और सूँघने से यादें जगाने की कोशिश की। किसी गंध से लौटी यादें ज़्यादा भावुक थीं और आपको ज़्यादा दूर ले जाती थीं, मानो आप फिर से वहीं हों।"
+        },
+        {
+          "id": "pistasSentidos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "olor",
+              "cancion",
+              "objeto"
+            ]
+          },
+          "lamina": [
+            "vinilo",
+            "cajaRecuerdos"
+          ],
+          "texto": "इसीलिए कोई पुराना गाना या किसी रसोई की ख़ुशबू आपको बरसों पीछे ले जाती है। इसका फ़ायदा उठाएँ: किसी याद के साथ लिखें कि क्या बज रहा था, कैसी महक थी, आपके हाथ में क्या था।"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoAnecdotario"
+          },
+          "lamina": "pulgar",
+          "texto": "अगर आपको यह गाइड पसंद आ रही है, तो पसंद करें, सदस्यता लें ताकि अगली गाइड न छूटे, और शेयर करें उस इंसान के साथ जिसके साथ आपकी सबसे अच्छी यादें हैं।"
+        },
+        {
+          "id": "caja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "boleto",
+              "playlist",
+              "frasco"
+            ]
+          },
+          "lamina": [
+            "boletos",
+            "audifonos"
+          ],
+          "meme": "cancion",
+          "texto": "और छोटी-छोटी चीज़ें सँभालकर रखें: एक टिकट, एक पोस्टकार्ड, उस गर्मी के गानों की लिस्ट। ये वे चाबियाँ हैं जो यादें खोलती हैं।"
+        },
+        {
+          "id": "animo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "caritasApp",
+              "animoDiaApp",
+              "sentirApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "हर याद पर मैं एक छोटे चेहरे से बताता हूँ कि मुझे कैसा लगा: ख़ुश, शांत, थका हुआ… और ऐसे मुझे यह भी याद रहता है कि मैंने क्या महसूस किया।"
+        }
+      ]
+    },
+    {
+      "id": "feliz",
+      "titulo": "क्या याद करना आपको ख़ुश करता है?",
+      "respuesta": "हाँ: रोज़ कुछ मिनट अच्छी यादें फिर से जीने से मूड बेहतर होता है, और समय के साथ बुरा, अच्छे से जल्दी फीका पड़ता है।",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग छह। क्या याद करना आपको ख़ुश करता है?"
+        },
+        {
+          "id": "bryant",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "revivir"
+          },
+          "lamina": [
+            "sonrisa",
+            "atardecer"
+          ],
+          "destacada": true,
+          "texto": "2005 में, फ़्रेड ब्रायंट और उनकी टीम ने छात्रों से कहा कि वे एक हफ़्ते तक, दिन में दो बार, दस मिनट किसी अच्छी याद को फिर से जिएँ। आख़िर में वे उन लोगों से ज़्यादा ख़ुश थे जिन्होंने ऐसा नहीं किया, ख़ासकर वे जो उसे बारीकी से कल्पना में देखते थे।"
+        },
+        {
+          "id": "walker",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "walker"
+          },
+          "lamina": [
+            "lluvia",
+            "solSale"
+          ],
+          "texto": "और समय भी मदद करता है: 2003 में, रिचर्ड वॉकर और उनकी टीम ने पाया कि बुरी यादों में जो हम महसूस करते हैं, वह अच्छी यादों से जल्दी फीका पड़ता है। सालों के साथ याददाश्त और नरम हो जाती है।"
+        },
+        {
+          "id": "releer",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "malDia",
+              "releer",
+              "detalle"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "sofa"
+          ],
+          "meme": "releer",
+          "texto": "तो अपनी अच्छी यादें हाथ के पास रखें। किसी बुरे दिन, आराम से कोई एक दोबारा पढ़ें और फिर से उसकी कल्पना करें: आप कहाँ थे, कौन हँस रहा था, कैसी महक थी।"
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "listaApp",
+              "masApp",
+              "releoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "और जब मेरा दिन बुरा होता है, मैं अपनी डायरी खोलता हूँ और अपनी यादों में नीचे जाता हूँ, जब तक कोई अच्छी याद न मिल जाए।"
+        }
+      ]
+    },
+    {
+      "id": "contar",
+      "titulo": "अपनी कहानियाँ क्यों सुनाएँ?",
+      "respuesta": "क्योंकि यादें बाँटना हमें जोड़ता है: जो बच्चे अपने परिवार की कहानियाँ जानते हैं, वे ख़ुद पर ज़्यादा भरोसा करते हैं।",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग सात। अपनी कहानियाँ क्यों सुनाएँ?"
+        },
+        {
+          "id": "fivush",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "familia"
+          },
+          "lamina": [
+            "abuela",
+            "cenaFamilia"
+          ],
+          "destacada": true,
+          "texto": "अमेरिका में, मार्शल ड्यूक और रॉबिन फ़िवुश ने बच्चों से उनके परिवार के बारे में बीस सवाल पूछे: उनके माता-पिता कहाँ मिले, उनके दादा-दादी कहाँ बड़े हुए। जो ज़्यादा कहानियाँ जानते थे, उनमें ख़ुद पर ज़्यादा भरोसा था और वे मुश्किलों से बेहतर उबरते थे।"
+        },
+        {
+          "id": "subibaja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "subidas",
+              "bajadas",
+              "seguimos"
+            ]
+          },
+          "lamina": [
+            "fotoFamilia",
+            "manos"
+          ],
+          "texto": "सबसे ज़्यादा मदद उन कहानियों से मिली जिनमें उतार-चढ़ाव थे: “हमने सब खो दिया, पर हम फिर खड़े हुए।” ऐसी कहानियाँ सुनने वाले को बताती हैं कि वह किसी बड़ी चीज़ का हिस्सा है।"
+        },
+        {
+          "id": "cuenta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cena",
+              "pregunta",
+              "graba"
+            ]
+          },
+          "lamina": [
+            "conversacion",
+            "grabarVoz"
+          ],
+          "texto": "तो खाने पर अपनी कहानियाँ सुनाएँ, जब तक हो सके अपने बड़ों से उनकी कहानियाँ पूछें, और उन्हें सँभाल लें: जो सुनाया नहीं जाता, वह खो जाता है।"
+        },
+        {
+          "id": "anio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuentaApp",
+              "anioApp",
+              "llenaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "महीने बीतते हुए मैं अपने कैलेंडर में देखता हूँ कि कितने दिन याद वाले हैं, और मेरा साल सुनाने लायक कहानियों से भरता जाता है।"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "आगे कैसे बढ़ें? आगे बढ़ने का आपका प्लान",
+      "respuesta": "हर रात तीन लाइनें लिखें, फ़ोटो और पहली बार के पल जोड़ें, और हर महीने अपनी यादें दोबारा पढ़कर किसी को एक सुनाएँ।",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "भाग आठ। आगे कैसे बढ़ें? आगे बढ़ने का आपका प्लान।"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planAnecdotario"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "इस हफ़्ते, हर रात तीन लाइनें लिखें: क्या हुआ, किसके साथ, और आपको कैसा लगा।"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "foto",
+              "primeraVez",
+              "olorCancion"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "caminoNuevo"
+          ],
+          "destacada": true,
+          "texto": "पहले महीने, हर याद में एक फ़ोटो जोड़ें और हर हफ़्ते ख़ुद को एक पहली बार का अनुभव दें।"
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "relee",
+              "cuenta",
+              "copia"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "cenaFamilia"
+          ],
+          "texto": "और हर महीने: अपनी यादें दोबारा पढ़ें, किसी अपने को एक सुनाएँ, और जो सबसे ज़रूरी है उसकी कॉपी सँभालें।"
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "calendarioFin",
+              "diaFin",
+              "fotosFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "और अगर समझ न आए कि कहाँ से शुरू करें, तो ऐप में मेरी डायरी देखें: उसमें पूरे एक साल की यादें हैं।"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "संक्षेप में: लिखें कि क्या हुआ, किसके साथ और कहाँ; उसी दिन लिखें; ख़ुद को पहली बार के अनुभव दें; अपनी इंद्रियों के सुराग़ सँभालें; और अपनी कहानियाँ सुनाएँ।"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS के डायरी कमरे में आप हर दिन एक याद लिखते हैं, कैलेंडर में अपना मूड देखते हैं, और अपनी फ़ोटो उनकी कहानी के साथ सँभालते हैं। आप यह ख़ुद कर सकते हैं, या AI की मदद से। आज ही अपना मन का घर मुफ़्त में बनाएँ: लिंक डिस्क्रिप्शन में है। और अगर कोई गाइड छूट गई हो, तो वहाँ सारी गाइड भी हैं।",
+    "boton": "डायरी खोलें",
+    "lamina": "app-plan",
+    "anclas": {
+      "recuerdo": "हर दिन एक याद",
+      "calendario": "कैलेंडर में",
+      "fotos": "अपनी फ़ोटो"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "wagenaar-1986",
+      "texto": "Wagenaar W. A. My memory: a study of autobiographical memory over six years. Cognitive Psychology 18(2), 225-252 (1986).",
+      "url": "https://doi.org/10.1016/0010-0285(86)90013-7"
+    },
+    {
+      "id": "pepys",
+      "texto": "सैमुअल पेपिस की डायरी (1660-1669)। विकिपीडिया।",
+      "url": "https://en.wikipedia.org/wiki/Samuel_Pepys"
+    },
+    {
+      "id": "niepce",
+      "texto": "ल ग्रा में खिड़की से दिखता नज़ारा, नीसफ़ोर न्येप्स (लगभग 1826)। विकिपीडिया।",
+      "url": "https://en.wikipedia.org/wiki/View_from_the_Window_at_Le_Gras"
+    },
+    {
+      "id": "loftus-1974",
+      "texto": "Loftus E. F., Palmer J. C. Reconstruction of automobile destruction: an example of the interaction between language and memory. Journal of Verbal Learning and Verbal Behavior 13(5), 585-589 (1974).",
+      "url": "https://doi.org/10.1016/S0022-5371(74)80011-3"
+    },
+    {
+      "id": "talarico-2003",
+      "texto": "Talarico J. M., Rubin D. C. Confidence, not consistency, characterizes flashbulb memories. Psychological Science 14(5), 455-461 (2003).",
+      "url": "https://doi.org/10.1111/1467-9280.02453"
+    },
+    {
+      "id": "rubin-1986",
+      "texto": "Rubin D. C., Wetzler S. E., Nebes R. D. Autobiographical memory across the lifespan. संकलन: Rubin D. C. (ed.), Autobiographical Memory. Cambridge University Press (1986).",
+      "url": "https://en.wikipedia.org/wiki/Reminiscence_bump"
+    },
+    {
+      "id": "herz-2004",
+      "texto": "Herz R. S. A naturalistic analysis of autobiographical memories triggered by olfactory, visual and auditory stimuli. Chemical Senses 29(3), 217-224 (2004).",
+      "url": "https://doi.org/10.1093/chemse/bjh025"
+    },
+    {
+      "id": "bryant-2005",
+      "texto": "Bryant F. B., Smart C. M., King S. P. Using the past to enhance the present: boosting happiness through positive reminiscence. Journal of Happiness Studies 6(3), 227-260 (2005).",
+      "url": "https://doi.org/10.1007/s10902-005-3889-4"
+    },
+    {
+      "id": "walker-2003",
+      "texto": "Walker W. R., Skowronski J. J., Thompson C. P. Life is pleasant, and memory helps to keep it that way! Review of General Psychology 7(2), 203-210 (2003).",
+      "url": "https://doi.org/10.1037/1089-2680.7.2.203"
+    },
+    {
+      "id": "duke-2008",
+      "texto": "Duke M. P., Lazarus A., Fivush R. Knowledge of family history as a clinically useful index of psychological well-being and prognosis: a brief report. Psychotherapy: Theory, Research, Practice, Training 45(2), 268-272 (2008).",
+      "url": "https://doi.org/10.1037/0033-3204.45.2.268"
+    }
+  ]
+}

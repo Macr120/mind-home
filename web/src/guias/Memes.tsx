@@ -132,6 +132,10 @@ export const MEMES: Record<string, DefMeme> = {
   final: { formato: 'drake', poses: ['rechaza', 'aprueba'], sonido: 'nice' },
   nombres: { formato: 'arribaAbajo', poses: ['relajado', 'confundido'], sonido: 'jeje-boy' },
   porSiAcaso: { formato: 'arribaAbajo', poses: ['orgulloso', 'cansado'], sonido: 'bruh' },
+  // Anecdotario (las poses son del osito marinero, el narrador; «olvido» y «releer» son los de Idiomas y Aprender, con sus textos propios).
+  seguro: { formato: 'unico', poses: ['orgulloso'], sonido: 'jeje-boy' },
+  rutina: { formato: 'arribaAbajo', poses: ['cansado', 'confundido'], sonido: 'bruh' },
+  cancion: { formato: 'arribaAbajo', poses: ['contento', 'relajado'], sonido: 'wow' },
 }
 
 export function Meme({ id, tema, t }: { id: string; tema: string; t: T }) {

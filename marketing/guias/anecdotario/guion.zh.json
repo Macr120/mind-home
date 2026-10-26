@@ -1,0 +1,745 @@
+{
+  "idioma": "zh",
+  "tema": "anecdotario",
+  "plantillaId": "anecdotario",
+  "numero": 22,
+  "nombre": "回忆本",
+  "pregunta": "怎样留住你最美好的回忆？",
+  "corta": "怎样留住你的回忆？",
+  "subtitulo": "为什么我们几乎忘掉经历过的一切，我们从什么时候开始保存回忆，你的记忆可靠吗，哪些回忆会留下来，什么能唤醒回忆，回忆会让你快乐吗，为什么要讲出你的故事，以及继续下去的计划。",
+  "aviso": "本指南仅提供一般性信息。文中引用的研究测量的是特定人群的记忆和情绪；你的结果可能不同。",
+  "partes": [
+    {
+      "id": "olvido",
+      "titulo": "为什么我们几乎什么都会忘？",
+      "respuesta": "因为没有线索，回忆就会消失：每天记下发生了什么、和谁、在哪里，多年后也能想起来。",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "怎样留住你最美好的回忆？这一周经历的事，几年后你几乎都会忘掉。而那些还记得的，也会被你的大脑慢慢改写。如果能把它原原本本地留住呢？今天你会用数据看清楚，还会带走一个继续下去的计划。"
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "对了，这是我在MindHaOS里的家，今天它要起航了：它是一艘船。我是船上的水手小熊，这是我的回忆本：我每天都在这里留下一段回忆。"
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第一部分。为什么我们几乎什么都会忘？"
+        },
+        {
+          "id": "wagenaar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1986",
+            "clave": "wagenaar"
+          },
+          "lamina": [
+            "diarioEscribir",
+            "calendarioViejo"
+          ],
+          "destacada": true,
+          "texto": "荷兰心理学家威廉·瓦格纳尔连续六年，每天记下自己身上发生的事：什么事、和谁、在哪里、什么时候。记了大约两千四百件事之后，他拿自己做测试，并在1986年发表了结果。"
+        },
+        {
+          "id": "pistas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "quien",
+              "donde"
+            ]
+          },
+          "lamina": [
+            "fotoVieja",
+            "pensativo"
+          ],
+          "meme": "olvido",
+          "texto": "只有一条线索时，他几乎想不起来；几条线索放在一起，连以为早就忘掉的事也能找回来。什么事、和谁、在哪里都是好线索，最差的是日期。而记得最牢的，是那些让他动容的事。"
+        },
+        {
+          "id": "anotar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "recuerdoDelDia"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "所以别指望自己会记得：写下来。在这里用今天的事试试：发生了什么、和谁、在哪里。三行就够了。"
+        },
+        {
+          "id": "escribo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tituloApp",
+              "textoApp",
+              "animoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "所以我每天晚上都会在回忆本里写下：一个今日标题、发生了什么，再加一个表示心情的小表情。"
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "我们从什么时候开始保存回忆？",
+      "respuesta": "一直都在保存：著名的有1660年佩皮斯的日记，而第一张照片诞生于1826年前后，出自尼埃普斯。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第二部分。我们从什么时候开始保存回忆？"
+        },
+        {
+          "id": "pepys",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1660",
+            "clave": "pepys"
+          },
+          "lamina": [
+            "pepys",
+            "londres"
+          ],
+          "destacada": true,
+          "texto": "1660年，伦敦的一位官员塞缪尔·佩皮斯开始写日记，九年里几乎天天都写。多亏了他，我们才知道伦敦大火时人们是怎么过的：他还亲手把自己的葡萄酒和帕玛森奶酪埋进花园里保住。"
+        },
+        {
+          "id": "niepce",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1826",
+            "clave": "niepce"
+          },
+          "lamina": [
+            "niepce",
+            "camaraAntigua"
+          ],
+          "texto": "到了1826年前后，法国人尼塞福尔·尼埃普斯拍下了现存最古老的照片：从他窗口望出去的景色。仅仅一张照片，就要曝光好几个小时。"
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diario",
+              "album",
+              "telefono"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "celularFotos"
+          ],
+          "texto": "如今我们一年拍上千张照片，却几乎从不回头看。保存已经不花钱了；难的是让一段回忆有它的故事。"
+        },
+        {
+          "id": "calendario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diaApp",
+              "colorApp",
+              "mesApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在我的日历上，每个有回忆记录的日子都会涂上我心情的颜色：一眼就能看出这个月过得怎么样。"
+        }
+      ]
+    },
+    {
+      "id": "fieles",
+      "titulo": "你的记忆可靠吗？",
+      "respuesta": "不可靠：每次回想，你都会重新拼一遍，不知不觉就改了，所以当天就写下来。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第三部分。你的记忆可靠吗？"
+        },
+        {
+          "id": "loftus",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "palabra"
+          },
+          "lamina": [
+            "choque",
+            "testigo"
+          ],
+          "destacada": true,
+          "texto": "1974年，伊丽莎白·洛夫特斯和约翰·帕尔默给学生看了一段车祸视频。他们问一部分人，两辆车「碰到」的时候开得多快；问另一部分人，「撞毁」的时候开得多快。听到「撞毁」的人估计的车速更快，一周后，很多人还记得根本不存在的碎玻璃。"
+        },
+        {
+          "id": "talarico",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "talarico"
+          },
+          "lamina": [
+            "noticiasTele",
+            "periodico"
+          ],
+          "texto": "不只是小事会这样。2003年，詹妮弗·塔拉里科和戴维·鲁宾追踪了学生们对九一一事件的记忆。几个月后，这些记忆变化得和普通日子的记忆一样多……可他们依然确信自己记得清清楚楚。"
+        },
+        {
+          "id": "mismoDia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "reconstruye",
+              "mismoDia",
+              "detalles"
+            ]
+          },
+          "lamina": [
+            "escribirCafe",
+            "notas"
+          ],
+          "meme": "seguro",
+          "texto": "每次你回想一件事，都会把它重新拼起来，路上就混进了改动。所以要当天写下来，写得细一点：你看到的、别人对你说的、你感受到的。"
+        },
+        {
+          "id": "dia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocaApp",
+              "intactoApp",
+              "fechaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "当我想回到某一天，就在日历上点一下那天，它就在那里，和那晚我写下的一模一样。"
+        }
+      ]
+    },
+    {
+      "id": "quedan",
+      "titulo": "哪些回忆会留下来？",
+      "respuesta": "是那些“第一次”：所以我们对十到三十岁记得最多；不管几岁，都送自己一些第一次吧。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第四部分。哪些回忆会留下来？"
+        },
+        {
+          "id": "rubin",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "joroba"
+          },
+          "lamina": [
+            "graduacion",
+            "primerAuto"
+          ],
+          "destacada": true,
+          "texto": "1986年，戴维·鲁宾和他的团队请老年人说出自己最鲜明的回忆。大多数不是来自最近几年，而是来自十岁到三十岁之间。他们把这叫作回忆隆起，也就是回忆的驼峰。"
+        },
+        {
+          "id": "primeras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "primerTrabajo",
+              "primerViaje",
+              "primerAmor"
+            ]
+          },
+          "lamina": [
+            "primerDia",
+            "mudanza"
+          ],
+          "texto": "那正是充满第一次的年纪：第一份工作、第一次独自旅行、初恋。新的东西会刻进记忆；重复的东西，会和其他一切混在一起。"
+        },
+        {
+          "id": "nuevas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "primerasVeces"
+          },
+          "lamina": [
+            "clase",
+            "caminoNuevo"
+          ],
+          "meme": "rutina",
+          "texto": "好消息是：不管几岁，你都能创造第一次。一条新路、一道新菜、一堂新课。在这里选好你这个月的第一次吧。"
+        },
+        {
+          "id": "fotosApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fotoApp",
+              "grandeApp",
+              "historiaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "我会在每段回忆里存上照片；点一下就能放大看，旁边还有它们讲述的故事。"
+        }
+      ]
+    },
+    {
+      "id": "despertar",
+      "titulo": "什么能唤醒回忆？",
+      "respuesta": "感官的线索，尤其是气味：在你的回忆旁边，留下一首歌、一件物品或一种味道。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第五部分。什么能唤醒回忆？"
+        },
+        {
+          "id": "herz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "sentidos"
+          },
+          "lamina": [
+            "cafeAroma",
+            "pan"
+          ],
+          "destacada": true,
+          "texto": "2004年，雷切尔·赫兹试着用视觉、听觉和嗅觉来唤醒回忆。由气味唤起的回忆更动情，也更能把人带回去，就像又站在了那里。"
+        },
+        {
+          "id": "pistasSentidos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "olor",
+              "cancion",
+              "objeto"
+            ]
+          },
+          "lamina": [
+            "vinilo",
+            "cajaRecuerdos"
+          ],
+          "texto": "所以一首老歌、一阵厨房的香味，就能把你带回好多年前。好好利用这一点：在一段回忆旁边，记下当时放着什么歌、闻到什么味道、手里拿着什么。"
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoAnecdotario"
+          },
+          "lamina": "pulgar",
+          "texto": "如果你喜欢这份指南，请点赞，订阅，免得错过下一期，再分享给那个和你一起拥有最美好回忆的人。"
+        },
+        {
+          "id": "caja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "boleto",
+              "playlist",
+              "frasco"
+            ]
+          },
+          "lamina": [
+            "boletos",
+            "audifonos"
+          ],
+          "meme": "cancion",
+          "texto": "还要留下一些小东西：一张票根、一张明信片、那个夏天的歌单。它们都是打开回忆的钥匙。"
+        },
+        {
+          "id": "animo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "caritasApp",
+              "animoDiaApp",
+              "sentirApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "我给每段回忆都配上一个表情，记下当时的心情：开心、平静、累了……这样我也能记住当时的感受。"
+        }
+      ]
+    },
+    {
+      "id": "feliz",
+      "titulo": "回忆会让你快乐吗？",
+      "respuesta": "会：每天花几分钟重温美好回忆能提升心情，而且随着时间，坏的感受比好的消退得更快。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第六部分。回忆会让你快乐吗？"
+        },
+        {
+          "id": "bryant",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "revivir"
+          },
+          "lamina": [
+            "sonrisa",
+            "atardecer"
+          ],
+          "destacada": true,
+          "texto": "2005年，弗雷德·布莱恩特和他的团队请学生连续一周、每天两次、每次十分钟重温一段美好回忆。一周后，他们比没这么做的人更快乐，尤其是那些把细节想象得很清楚的人。"
+        },
+        {
+          "id": "walker",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "walker"
+          },
+          "lamina": [
+            "lluvia",
+            "solSale"
+          ],
+          "texto": "时间也会帮忙：2003年，理查德·沃克和他的团队发现，坏回忆里的感受比好回忆里的消退得更快。随着岁月，记忆会变得更温柔。"
+        },
+        {
+          "id": "releer",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "malDia",
+              "releer",
+              "detalle"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "sofa"
+          ],
+          "meme": "releer",
+          "texto": "所以，把美好的回忆放在手边。心情不好的时候，慢慢重读一段，再把它想象一遍：你在哪里、谁在笑、闻到了什么。"
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "listaApp",
+              "masApp",
+              "releoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "每当我心情不好，就打开我的回忆本，往下翻，直到找到一段美好的回忆。"
+        }
+      ]
+    },
+    {
+      "id": "contar",
+      "titulo": "为什么要讲出你的故事？",
+      "respuesta": "因为分享回忆让我们更亲近：了解家族故事的孩子，对自己更有信心。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第七部分。为什么要讲出你的故事？"
+        },
+        {
+          "id": "fivush",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "familia"
+          },
+          "lamina": [
+            "abuela",
+            "cenaFamilia"
+          ],
+          "destacada": true,
+          "texto": "在美国，马歇尔·杜克和罗宾·菲伍什问了孩子们二十个关于家里的问题：爸妈是在哪里认识的，祖父母是在哪里长大的。知道故事越多的孩子，越有自信，遇到困难也恢复得更好。"
+        },
+        {
+          "id": "subibaja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "subidas",
+              "bajadas",
+              "seguimos"
+            ]
+          },
+          "lamina": [
+            "fotoFamilia",
+            "manos"
+          ],
+          "texto": "最有帮助的，是那些有起有落的故事：「我们曾经一无所有，但还是挺过来了」。它们告诉听的人，自己属于一个更大的整体。"
+        },
+        {
+          "id": "cuenta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cena",
+              "pregunta",
+              "graba"
+            ]
+          },
+          "lamina": [
+            "conversacion",
+            "grabarVoz"
+          ],
+          "texto": "所以，在晚饭时讲讲你的故事，趁还来得及问问长辈们的故事，再把它们保存下来：没被讲出来的，就会消失。"
+        },
+        {
+          "id": "anio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuentaApp",
+              "anioApp",
+              "llenaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "在日历上一个月一个月翻过去，我能看到有多少天有回忆记录，我的一年也慢慢装满了可以讲的故事。"
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "接下来怎么做？你的继续计划",
+      "respuesta": "每晚写三行，加上照片和第一次，每个月重读回忆，再讲一段给别人听。",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "第八部分。接下来怎么做？你的继续计划。"
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planAnecdotario"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "这一周，每晚写三行：发生了什么、和谁在一起、心情怎么样。"
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "foto",
+              "primeraVez",
+              "olorCancion"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "caminoNuevo"
+          ],
+          "destacada": true,
+          "texto": "第一个月，给每段回忆加一张照片，每周送自己一个第一次。"
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "relee",
+              "cuenta",
+              "copia"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "cenaFamilia"
+          ],
+          "texto": "之后每个月：重读你的回忆，讲一段给你爱的人听，再把最重要的内容备份一份。"
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "calendarioFin",
+              "diaFin",
+              "fotosFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "如果你不知道从哪里开始，就去应用里看看我的回忆本：里面有整整一年的回忆。"
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "总结一下：记下发生了什么、和谁、在哪里；当天就写；送自己一些第一次；留下感官的线索；还有，讲出你的故事。"
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "在MindHaOS的回忆本里，你每天写下一段回忆，在日历上看到你的心情，把照片和它们的故事一起保存。你可以自己来，也可以请AI帮忙。今天就免费搭建你的心灵之家。链接在视频简介里。如果你错过了哪一期指南，那里也全都有。",
+    "boton": "打开回忆本",
+    "lamina": "app-plan",
+    "anclas": {
+      "recuerdo": "每天写下一段回忆",
+      "calendario": "在日历上",
+      "fotos": "把照片"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "wagenaar-1986",
+      "texto": "Wagenaar W. A. My memory: a study of autobiographical memory over six years. Cognitive Psychology 18(2), 225-252 (1986).",
+      "url": "https://doi.org/10.1016/0010-0285(86)90013-7"
+    },
+    {
+      "id": "pepys",
+      "texto": "塞缪尔·佩皮斯的日记（1660-1669）。维基百科。",
+      "url": "https://en.wikipedia.org/wiki/Samuel_Pepys"
+    },
+    {
+      "id": "niepce",
+      "texto": "尼塞福尔·尼埃普斯的《勒格拉窗外景色》（约1826年）。维基百科。",
+      "url": "https://en.wikipedia.org/wiki/View_from_the_Window_at_Le_Gras"
+    },
+    {
+      "id": "loftus-1974",
+      "texto": "Loftus E. F., Palmer J. C. Reconstruction of automobile destruction: an example of the interaction between language and memory. Journal of Verbal Learning and Verbal Behavior 13(5), 585-589 (1974).",
+      "url": "https://doi.org/10.1016/S0022-5371(74)80011-3"
+    },
+    {
+      "id": "talarico-2003",
+      "texto": "Talarico J. M., Rubin D. C. Confidence, not consistency, characterizes flashbulb memories. Psychological Science 14(5), 455-461 (2003).",
+      "url": "https://doi.org/10.1111/1467-9280.02453"
+    },
+    {
+      "id": "rubin-1986",
+      "texto": "Rubin D. C., Wetzler S. E., Nebes R. D. Autobiographical memory across the lifespan. 收录于 Rubin D. C. (ed.), Autobiographical Memory. Cambridge University Press (1986).",
+      "url": "https://en.wikipedia.org/wiki/Reminiscence_bump"
+    },
+    {
+      "id": "herz-2004",
+      "texto": "Herz R. S. A naturalistic analysis of autobiographical memories triggered by olfactory, visual and auditory stimuli. Chemical Senses 29(3), 217-224 (2004).",
+      "url": "https://doi.org/10.1093/chemse/bjh025"
+    },
+    {
+      "id": "bryant-2005",
+      "texto": "Bryant F. B., Smart C. M., King S. P. Using the past to enhance the present: boosting happiness through positive reminiscence. Journal of Happiness Studies 6(3), 227-260 (2005).",
+      "url": "https://doi.org/10.1007/s10902-005-3889-4"
+    },
+    {
+      "id": "walker-2003",
+      "texto": "Walker W. R., Skowronski J. J., Thompson C. P. Life is pleasant, and memory helps to keep it that way! Review of General Psychology 7(2), 203-210 (2003).",
+      "url": "https://doi.org/10.1037/1089-2680.7.2.203"
+    },
+    {
+      "id": "duke-2008",
+      "texto": "Duke M. P., Lazarus A., Fivush R. Knowledge of family history as a clinically useful index of psychological well-being and prognosis: a brief report. Psychotherapy: Theory, Research, Practice, Training 45(2), 268-272 (2008).",
+      "url": "https://doi.org/10.1037/0033-3204.45.2.268"
+    }
+  ]
+}

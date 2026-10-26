@@ -7562,6 +7562,7 @@ export const EN: Dict = {
   'guia.ideas.titulo': "How can you have better ideas?",
   'guia.viajes.titulo': "How can you travel better?",
   'guia.archivos.titulo': "How can you organize your mind?",
+  'guia.anecdotario.titulo': "How can you keep your best memories?",
   'guia.noticias.titulo': "In search of truth and beauty: journalism and content",
   'guia.matematicas.titulo': "What is the language of the universe?",
   // Esenciales (corren en la casa real y recorren los menús de cada app)

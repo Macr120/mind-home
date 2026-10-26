@@ -1,0 +1,745 @@
+{
+  "idioma": "en",
+  "tema": "anecdotario",
+  "plantillaId": "anecdotario",
+  "numero": 22,
+  "nombre": "Journal",
+  "pregunta": "How can you keep your best memories?",
+  "corta": "How to keep your memories?",
+  "subtitulo": "Why we forget almost everything we live through, since when we keep memories, whether your memory is faithful, which memories stay, what awakens a memory, whether remembering makes you happy, why you should tell your stories, and a plan to keep going.",
+  "aviso": "This guide is general information. The studies cited measure the memory and mood of specific groups of people; your results may vary.",
+  "partes": [
+    {
+      "id": "olvido",
+      "titulo": "Why do we forget almost everything?",
+      "respuesta": "Because without cues, memories fade: write down each day what happened, with whom and where, and you’ll get them back years later.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "How can you keep your best memories? Of everything you live through this week, in a few years you’ll forget almost all of it. And what you do remember, your mind will keep changing. What if you could keep it just as it was? Today you’ll see it with data, and you’ll leave with a plan to keep going."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "By the way, this is my house in MindHaOS, and today it sets sail: it’s a ship. I’m the sailor bear on board, and this is my journal: here I keep one memory from every day."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part one. Why do we forget almost everything?"
+        },
+        {
+          "id": "wagenaar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1986",
+            "clave": "wagenaar"
+          },
+          "lamina": [
+            "diarioEscribir",
+            "calendarioViejo"
+          ],
+          "destacada": true,
+          "texto": "For six years, Dutch psychologist Willem Wagenaar wrote down what happened to him every day: what, who, where and when. With about two thousand four hundred events on record, he put himself to the test, and in 1986 he published what he found."
+        },
+        {
+          "id": "pistas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "quien",
+              "donde"
+            ]
+          },
+          "lamina": [
+            "fotoVieja",
+            "pensativo"
+          ],
+          "meme": "olvido",
+          "texto": "With a single cue he remembered little; with several together, he recovered events he thought were lost. What, who and where were good cues; the worst was the date. And what stuck the most was whatever had moved him."
+        },
+        {
+          "id": "anotar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "recuerdoDelDia"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "So don’t trust that you’ll remember: write it down. Try it here with something from today: what happened, with whom and where. Three lines are enough."
+        },
+        {
+          "id": "escribo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tituloApp",
+              "textoApp",
+              "animoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "That’s why every night I write in my journal: a title for the day, what happened, and a little face showing how I felt."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Since when have we kept memories?",
+      "respuesta": "Forever, but a famous diary is Samuel Pepys’s from 1660, and the first photo came around 1826 with Nicéphore Niépce.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part two. Since when have we kept memories?"
+        },
+        {
+          "id": "pepys",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1660",
+            "clave": "pepys"
+          },
+          "lamina": [
+            "pepys",
+            "londres"
+          ],
+          "destacada": true,
+          "texto": "In 1660, a London official, Samuel Pepys, started a diary and wrote in it almost every day for nine years. Thanks to him, we know what the Great Fire of London was like: he buried his wine and his Parmesan cheese in the garden to save them."
+        },
+        {
+          "id": "niepce",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1826",
+            "clave": "niepce"
+          },
+          "lamina": [
+            "niepce",
+            "camaraAntigua"
+          ],
+          "texto": "And around 1826, the Frenchman Nicéphore Niépce took the oldest surviving photograph: the view from his window. He needed hours of exposure for a single image."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diario",
+              "album",
+              "telefono"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "celularFotos"
+          ],
+          "texto": "Today we take thousands of photos a year and almost never look at them again. Saving costs nothing anymore; the hard part is giving a memory its story."
+        },
+        {
+          "id": "calendario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diaApp",
+              "colorApp",
+              "mesApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In my calendar, every day with a memory is painted the color of my mood: at a glance, I see how my month went."
+        }
+      ]
+    },
+    {
+      "id": "fieles",
+      "titulo": "Is your memory faithful?",
+      "respuesta": "No: every time you remember, you rebuild it and change it without noticing, so write it down the same day.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part three. Is your memory faithful?"
+        },
+        {
+          "id": "loftus",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "palabra"
+          },
+          "lamina": [
+            "choque",
+            "testigo"
+          ],
+          "destacada": true,
+          "texto": "In 1974, Elizabeth Loftus and John Palmer showed students a video of a car crash. Some were asked how fast the cars were going when they contacted each other; others, when they smashed. The “smashed” group guessed higher speeds, and a week later many remembered broken glass that was never there."
+        },
+        {
+          "id": "talarico",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "talarico"
+          },
+          "lamina": [
+            "noticiasTele",
+            "periodico"
+          ],
+          "texto": "And it’s not just small things. In 2003, Jennifer Talarico and David Rubin followed students’ memories of September 11. Over the months they changed as much as memories of any ordinary day… but the students stayed sure they remembered it perfectly."
+        },
+        {
+          "id": "mismoDia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "reconstruye",
+              "mismoDia",
+              "detalles"
+            ]
+          },
+          "lamina": [
+            "escribirCafe",
+            "notas"
+          ],
+          "meme": "seguro",
+          "texto": "Every time you remember something, you put it back together, and changes slip in along the way. So write it down the same day, with details: what you saw, what you were told, what you felt."
+        },
+        {
+          "id": "dia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocaApp",
+              "intactoApp",
+              "fechaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "And when I want to go back to a day, I tap it in the calendar and there it is, just as I wrote it that night."
+        }
+      ]
+    },
+    {
+      "id": "quedan",
+      "titulo": "Which memories stay?",
+      "respuesta": "First times: that’s why we remember more from ages ten to thirty, so give yourself first times at any age.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part four. Which memories stay?"
+        },
+        {
+          "id": "rubin",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "joroba"
+          },
+          "lamina": [
+            "graduacion",
+            "primerAuto"
+          ],
+          "destacada": true,
+          "texto": "In 1986, David Rubin and his team asked older adults for their most vivid memories. Most didn’t come from recent years, but from between ages ten and thirty. They called it the reminiscence bump."
+        },
+        {
+          "id": "primeras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "primerTrabajo",
+              "primerViaje",
+              "primerAmor"
+            ]
+          },
+          "lamina": [
+            "primerDia",
+            "mudanza"
+          ],
+          "texto": "It’s the age of first times: the first job, the first trip on your own, the first love. What’s new gets recorded; what repeats blends into everything else."
+        },
+        {
+          "id": "nuevas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "primerasVeces"
+          },
+          "lamina": [
+            "clase",
+            "caminoNuevo"
+          ],
+          "meme": "rutina",
+          "texto": "The good news: you can create first times at any age. A new route, a recipe, a class. Pick yours for this month right here."
+        },
+        {
+          "id": "fotosApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fotoApp",
+              "grandeApp",
+              "historiaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "And in each memory I keep its photos; with one tap I see them big, next to the story they tell."
+        }
+      ]
+    },
+    {
+      "id": "despertar",
+      "titulo": "What awakens a memory?",
+      "respuesta": "Cues from the senses, especially smells: keep a song, an object or a scent alongside your memories.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part five. What awakens a memory?"
+        },
+        {
+          "id": "herz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "sentidos"
+          },
+          "lamina": [
+            "cafeAroma",
+            "pan"
+          ],
+          "destacada": true,
+          "texto": "In 2004, Rachel Herz tried awakening memories through sight, sound and smell. The memories brought back by a smell were more emotional and carried you away more, as if you were right back there."
+        },
+        {
+          "id": "pistasSentidos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "olor",
+              "cancion",
+              "objeto"
+            ]
+          },
+          "lamina": [
+            "vinilo",
+            "cajaRecuerdos"
+          ],
+          "texto": "That’s why an old song or the smell of a kitchen gives you back whole years. Use that in your favor: next to a memory, write down what was playing, what it smelled like, what you had in your hand."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoAnecdotario"
+          },
+          "lamina": "pulgar",
+          "texto": "If you’re enjoying the guide, hit like, subscribe so you don’t miss the next one, and share it with that person you have your best memories with."
+        },
+        {
+          "id": "caja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "boleto",
+              "playlist",
+              "frasco"
+            ]
+          },
+          "lamina": [
+            "boletos",
+            "audifonos"
+          ],
+          "meme": "cancion",
+          "texto": "And keep small objects: a ticket, a postcard, a playlist from that summer. They’re keys that unlock memories."
+        },
+        {
+          "id": "animo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "caritasApp",
+              "animoDiaApp",
+              "sentirApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "For each memory, I add how I felt with a little face: happy, calm, tired… and that way I also remember what I felt."
+        }
+      ]
+    },
+    {
+      "id": "feliz",
+      "titulo": "Does remembering make you happy?",
+      "respuesta": "Yes: reliving good memories for a few minutes a day lifts your mood, and over time the bad fades faster than the good.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part six. Does remembering make you happy?"
+        },
+        {
+          "id": "bryant",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "revivir"
+          },
+          "lamina": [
+            "sonrisa",
+            "atardecer"
+          ],
+          "destacada": true,
+          "texto": "In 2005, Fred Bryant and his team asked students to relive a good memory for ten minutes, twice a day, for a week. By the end they felt happier than those who didn’t, especially the ones who imagined it in detail."
+        },
+        {
+          "id": "walker",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "walker"
+          },
+          "lamina": [
+            "lluvia",
+            "solSale"
+          ],
+          "texto": "And time helps: in 2003, Richard Walker and his team found that the feelings in bad memories fade faster than those in good ones. Over the years, memory becomes kinder."
+        },
+        {
+          "id": "releer",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "malDia",
+              "releer",
+              "detalle"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "sofa"
+          ],
+          "meme": "releer",
+          "texto": "So keep your good memories close at hand. On a bad day, reread one slowly and imagine it again: where you were, who was laughing, what it smelled like."
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "listaApp",
+              "masApp",
+              "releoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "And when I have a bad day, I open my journal and scroll through my memories until I find a good one."
+        }
+      ]
+    },
+    {
+      "id": "contar",
+      "titulo": "Why tell your stories?",
+      "respuesta": "Because sharing memories brings us together: kids who know their family’s stories feel more confident in themselves.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part seven. Why tell your stories?"
+        },
+        {
+          "id": "fivush",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "familia"
+          },
+          "lamina": [
+            "abuela",
+            "cenaFamilia"
+          ],
+          "destacada": true,
+          "texto": "In the United States, Marshall Duke and Robyn Fivush asked children twenty questions about their family: where their parents met, where their grandparents grew up. The ones who knew more stories had more self-confidence and bounced back better from problems."
+        },
+        {
+          "id": "subibaja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "subidas",
+              "bajadas",
+              "seguimos"
+            ]
+          },
+          "lamina": [
+            "fotoFamilia",
+            "manos"
+          ],
+          "texto": "What helped most were stories with ups and downs: “we lost everything, but we pulled through.” They tell whoever hears them that they belong to something bigger."
+        },
+        {
+          "id": "cuenta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cena",
+              "pregunta",
+              "graba"
+            ]
+          },
+          "lamina": [
+            "conversacion",
+            "grabarVoz"
+          ],
+          "texto": "So tell your stories at dinner, ask your elders for theirs while you can, and save them: what isn’t told gets lost."
+        },
+        {
+          "id": "anio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuentaApp",
+              "anioApp",
+              "llenaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "As the months go by in my calendar, I see how many days have a memory, and my year keeps filling up with stories to tell."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "What’s next? Your plan to keep going",
+      "respuesta": "Write three lines every night, add photos and first times, and each month reread your memories and tell one to someone.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Part eight. What’s next? Your plan to keep going."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planAnecdotario"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "This week, every night, write three lines: what happened, with whom, and how you felt."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "foto",
+              "primeraVez",
+              "olorCancion"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "caminoNuevo"
+          ],
+          "destacada": true,
+          "texto": "In the first month, add a photo to every memory and give yourself a first time every week."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "relee",
+              "cuenta",
+              "copia"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "cenaFamilia"
+          ],
+          "texto": "And every month: reread your memories, tell one to someone you love, and keep a backup of what matters most to you."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "calendarioFin",
+              "diaFin",
+              "fotosFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "And if you don’t know where to start, check out my journal in the app: it has a whole year of memories."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "In short: write down what happened, with whom and where; write it the same day; give yourself first times; keep the cues from your senses; and tell your stories."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "In the Journal on MindHaOS, you write one memory every day, see your mood on the calendar, and keep your photos with their story. You can do it yourself, or with help from AI. Build your mental house for free today: the link is in the description. And if you missed a guide, they’re all there too.",
+    "boton": "Open Journal",
+    "lamina": "app-plan",
+    "anclas": {
+      "recuerdo": "one memory every day",
+      "calendario": "the calendar",
+      "fotos": "your photos"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "wagenaar-1986",
+      "texto": "Wagenaar W. A. My memory: a study of autobiographical memory over six years. Cognitive Psychology 18(2), 225-252 (1986).",
+      "url": "https://doi.org/10.1016/0010-0285(86)90013-7"
+    },
+    {
+      "id": "pepys",
+      "texto": "The diary of Samuel Pepys (1660-1669). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Samuel_Pepys"
+    },
+    {
+      "id": "niepce",
+      "texto": "View from the Window at Le Gras, by Nicéphore Niépce (circa 1826). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/View_from_the_Window_at_Le_Gras"
+    },
+    {
+      "id": "loftus-1974",
+      "texto": "Loftus E. F., Palmer J. C. Reconstruction of automobile destruction: an example of the interaction between language and memory. Journal of Verbal Learning and Verbal Behavior 13(5), 585-589 (1974).",
+      "url": "https://doi.org/10.1016/S0022-5371(74)80011-3"
+    },
+    {
+      "id": "talarico-2003",
+      "texto": "Talarico J. M., Rubin D. C. Confidence, not consistency, characterizes flashbulb memories. Psychological Science 14(5), 455-461 (2003).",
+      "url": "https://doi.org/10.1111/1467-9280.02453"
+    },
+    {
+      "id": "rubin-1986",
+      "texto": "Rubin D. C., Wetzler S. E., Nebes R. D. Autobiographical memory across the lifespan. In Rubin D. C. (ed.), Autobiographical Memory. Cambridge University Press (1986).",
+      "url": "https://en.wikipedia.org/wiki/Reminiscence_bump"
+    },
+    {
+      "id": "herz-2004",
+      "texto": "Herz R. S. A naturalistic analysis of autobiographical memories triggered by olfactory, visual and auditory stimuli. Chemical Senses 29(3), 217-224 (2004).",
+      "url": "https://doi.org/10.1093/chemse/bjh025"
+    },
+    {
+      "id": "bryant-2005",
+      "texto": "Bryant F. B., Smart C. M., King S. P. Using the past to enhance the present: boosting happiness through positive reminiscence. Journal of Happiness Studies 6(3), 227-260 (2005).",
+      "url": "https://doi.org/10.1007/s10902-005-3889-4"
+    },
+    {
+      "id": "walker-2003",
+      "texto": "Walker W. R., Skowronski J. J., Thompson C. P. Life is pleasant, and memory helps to keep it that way! Review of General Psychology 7(2), 203-210 (2003).",
+      "url": "https://doi.org/10.1037/1089-2680.7.2.203"
+    },
+    {
+      "id": "duke-2008",
+      "texto": "Duke M. P., Lazarus A., Fivush R. Knowledge of family history as a clinically useful index of psychological well-being and prognosis: a brief report. Psychotherapy: Theory, Research, Practice, Training 45(2), 268-272 (2008).",
+      "url": "https://doi.org/10.1037/0033-3204.45.2.268"
+    }
+  ]
+}

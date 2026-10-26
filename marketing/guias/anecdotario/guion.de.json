@@ -1,0 +1,745 @@
+{
+  "idioma": "de",
+  "tema": "anecdotario",
+  "plantillaId": "anecdotario",
+  "numero": 22,
+  "nombre": "Erinnerungsbuch",
+  "pregunta": "Wie bewahrst du deine schönsten Erinnerungen auf?",
+  "corta": "Wie bewahrst du Erinnerungen auf?",
+  "subtitulo": "Warum wir fast alles vergessen, was wir erleben, seit wann wir Erinnerungen aufbewahren, ob dein Gedächtnis treu ist, welche Erinnerungen bleiben, was eine Erinnerung weckt, ob Erinnern glücklich macht, warum du deine Geschichten erzählen solltest, und ein Plan zum Weitermachen.",
+  "aviso": "Dieser Leitfaden ist informativ und allgemein. Die zitierten Studien messen Gedächtnis und Stimmung bestimmter Gruppen von Menschen; deine Ergebnisse können abweichen.",
+  "partes": [
+    {
+      "id": "olvido",
+      "titulo": "Warum vergessen wir fast alles?",
+      "respuesta": "Weil Erinnerungen ohne Hinweise verblassen: Schreib jeden Tag auf, was passiert ist, mit wem und wo, dann findest du sie noch Jahre später wieder.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Wie bewahrst du deine schönsten Erinnerungen auf? Von dem, was du diese Woche erlebst, wirst du in ein paar Jahren fast alles vergessen. Und was du noch weißt, verändert dein Kopf nach und nach. Was, wenn du es so festhalten könntest, wie es war? Heute siehst du es mit Daten, und du gehst mit einem Plan zum Weitermachen."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Übrigens, das ist mein Haus in MindHaOS, und heute sticht es in See: Es ist ein Schiff. Ich bin der Seemannsteddy an Bord, und das ist mein Erinnerungsbuch: Hier bewahre ich eine Erinnerung von jedem Tag auf."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil eins. Warum vergessen wir fast alles?"
+        },
+        {
+          "id": "wagenaar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1986",
+            "clave": "wagenaar"
+          },
+          "lamina": [
+            "diarioEscribir",
+            "calendarioViejo"
+          ],
+          "destacada": true,
+          "texto": "Sechs Jahre lang schrieb der niederländische Psychologe Willem Wagenaar jeden Tag auf, was ihm passierte: was, mit wem, wo und wann. Mit rund zweitausendvierhundert notierten Ereignissen testete er sich selbst, und 1986 veröffentlichte er, was er herausfand."
+        },
+        {
+          "id": "pistas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "quien",
+              "donde"
+            ]
+          },
+          "lamina": [
+            "fotoVieja",
+            "pensativo"
+          ],
+          "meme": "olvido",
+          "texto": "Mit nur einem Hinweis erinnerte er sich an wenig; mit mehreren zusammen holte er Ereignisse zurück, die er für verloren hielt. Was, wer und wo waren gute Hinweise; der schlechteste war das Datum. Und am besten blieb, was ihn bewegt hatte."
+        },
+        {
+          "id": "anotar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "recuerdoDelDia"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "Verlass dich also nicht darauf, dass du es dir merkst: Schreib es auf. Probier es hier mit etwas von heute: was passiert ist, mit wem und wo. Drei Zeilen reichen."
+        },
+        {
+          "id": "escribo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tituloApp",
+              "textoApp",
+              "animoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Deshalb schreibe ich jeden Abend in mein Erinnerungsbuch: einen Titel des Tages, was passiert ist, und einen Smiley dafür, wie ich mich gefühlt habe."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Seit wann bewahren wir Erinnerungen auf?",
+      "respuesta": "Schon immer, aber ein berühmtes Tagebuch ist das von Samuel Pepys ab 1660, und das erste Foto kam um 1826 mit Nicéphore Niépce.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil zwei. Seit wann bewahren wir Erinnerungen auf?"
+        },
+        {
+          "id": "pepys",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1660",
+            "clave": "pepys"
+          },
+          "lamina": [
+            "pepys",
+            "londres"
+          ],
+          "destacada": true,
+          "texto": "1660 begann ein Londoner Beamter, Samuel Pepys, ein Tagebuch und schrieb es neun Jahre lang fast täglich. Dank ihm wissen wir, wie man den großen Brand von London erlebte: Er selbst vergrub seinen Wein und seinen Parmesan im Garten, um sie zu retten."
+        },
+        {
+          "id": "niepce",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1826",
+            "clave": "niepce"
+          },
+          "lamina": [
+            "niepce",
+            "camaraAntigua"
+          ],
+          "texto": "Und um 1826 machte der Franzose Nicéphore Niépce das älteste erhaltene Foto: den Blick aus seinem Fenster. Für ein einziges Bild brauchte er stundenlange Belichtung."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diario",
+              "album",
+              "telefono"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "celularFotos"
+          ],
+          "texto": "Heute machen wir Tausende Fotos im Jahr und schauen sie uns fast nie wieder an. Aufbewahren kostet nichts mehr; schwierig ist, dass eine Erinnerung ihre Geschichte bekommt."
+        },
+        {
+          "id": "calendario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diaApp",
+              "colorApp",
+              "mesApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In meinem Kalender färbt sich jeder Tag mit Erinnerung in der Farbe meiner Stimmung: Auf einen Blick sehe ich, wie mein Monat war."
+        }
+      ]
+    },
+    {
+      "id": "fieles",
+      "titulo": "Ist dein Gedächtnis treu?",
+      "respuesta": "Nein: Jedes Mal, wenn du dich erinnerst, baust du es neu zusammen und veränderst es unbemerkt, also schreib es noch am selben Tag auf.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil drei. Ist dein Gedächtnis treu?"
+        },
+        {
+          "id": "loftus",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "palabra"
+          },
+          "lamina": [
+            "choque",
+            "testigo"
+          ],
+          "destacada": true,
+          "texto": "1974 zeigten Elizabeth Loftus und John Palmer Studierenden das Video eines Unfalls. Die einen fragten sie, wie schnell die Autos fuhren, als sie sich berührten; die anderen, als sie ineinanderkrachten. Wer „ineinanderkrachten“ hörte, schätzte mehr Tempo, und eine Woche später erinnerten sich viele an Glasscherben, die es nie gab."
+        },
+        {
+          "id": "talarico",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "talarico"
+          },
+          "lamina": [
+            "noticiasTele",
+            "periodico"
+          ],
+          "texto": "Und das passiert nicht nur bei Kleinigkeiten. 2003 verfolgten Jennifer Talarico und David Rubin die Erinnerungen von Studierenden an den elften September. Über die Monate veränderten sie sich so stark wie die an einen ganz normalen Tag… aber die Studierenden blieben sicher, sich perfekt zu erinnern."
+        },
+        {
+          "id": "mismoDia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "reconstruye",
+              "mismoDia",
+              "detalles"
+            ]
+          },
+          "lamina": [
+            "escribirCafe",
+            "notas"
+          ],
+          "meme": "seguro",
+          "texto": "Jedes Mal, wenn du dich an etwas erinnerst, setzt du es neu zusammen, und dabei schleichen sich Änderungen ein. Schreib es deshalb noch am selben Tag auf, mit Details: was du gesehen hast, was man dir gesagt hat, was du gefühlt hast."
+        },
+        {
+          "id": "dia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocaApp",
+              "intactoApp",
+              "fechaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Und wenn ich zu einem Tag zurückwill, tippe ich ihn im Kalender an, und da ist er, genau so, wie ich ihn an jenem Abend geschrieben habe."
+        }
+      ]
+    },
+    {
+      "id": "quedan",
+      "titulo": "Welche Erinnerungen bleiben?",
+      "respuesta": "Die ersten Male: Darum erinnern wir uns am meisten an die Zeit zwischen zehn und dreißig, also schenk dir erste Male in jedem Alter.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil vier. Welche Erinnerungen bleiben?"
+        },
+        {
+          "id": "rubin",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "joroba"
+          },
+          "lamina": [
+            "graduacion",
+            "primerAuto"
+          ],
+          "destacada": true,
+          "texto": "1986 baten David Rubin und sein Team ältere Menschen um ihre lebendigsten Erinnerungen. Die meisten stammten nicht aus den letzten Jahren, sondern aus der Zeit zwischen zehn und dreißig. Sie nannten es den Erinnerungshügel."
+        },
+        {
+          "id": "primeras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "primerTrabajo",
+              "primerViaje",
+              "primerAmor"
+            ]
+          },
+          "lamina": [
+            "primerDia",
+            "mudanza"
+          ],
+          "texto": "Es ist das Alter der ersten Male: der erste Job, die erste Reise allein, die erste Liebe. Neues prägt sich ein; was sich wiederholt, verschwimmt mit allem anderen."
+        },
+        {
+          "id": "nuevas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "primerasVeces"
+          },
+          "lamina": [
+            "clase",
+            "caminoNuevo"
+          ],
+          "meme": "rutina",
+          "texto": "Die gute Nachricht: Du kannst dir erste Male in jedem Alter schaffen. Ein neuer Weg, ein Rezept, ein Kurs. Wähl hier deine für diesen Monat."
+        },
+        {
+          "id": "fotosApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fotoApp",
+              "grandeApp",
+              "historiaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Und in jeder Erinnerung bewahre ich ihre Fotos auf; mit einem Tippen sehe ich sie groß, zusammen mit der Geschichte, die sie erzählen."
+        }
+      ]
+    },
+    {
+      "id": "despertar",
+      "titulo": "Was weckt eine Erinnerung?",
+      "respuesta": "Hinweise der Sinne, vor allem Gerüche: Bewahre zu deinen Erinnerungen ein Lied, einen Gegenstand oder einen Duft auf.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil fünf. Was weckt eine Erinnerung?"
+        },
+        {
+          "id": "herz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "sentidos"
+          },
+          "lamina": [
+            "cafeAroma",
+            "pan"
+          ],
+          "destacada": true,
+          "texto": "2004 testete Rachel Herz, wie Sehen, Hören und Riechen Erinnerungen wecken. Erinnerungen, die ein Geruch weckte, waren emotionaler und trugen einen stärker zurück, als wäre man wieder dort."
+        },
+        {
+          "id": "pistasSentidos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "olor",
+              "cancion",
+              "objeto"
+            ]
+          },
+          "lamina": [
+            "vinilo",
+            "cajaRecuerdos"
+          ],
+          "texto": "Darum bringen dich ein altes Lied oder der Duft einer Küche ganze Jahre zurück. Nutz das für dich: Schreib zu einer Erinnerung auf, was lief, wie es roch, was du in der Hand hattest."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoAnecdotario"
+          },
+          "lamina": "pulgar",
+          "texto": "Wenn dir der Leitfaden gefällt, klick auf Mag ich, auf Abonnieren, damit du den nächsten nicht verpasst, und auf Teilen, für die Person, mit der du die schönsten Erinnerungen hast."
+        },
+        {
+          "id": "caja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "boleto",
+              "playlist",
+              "frasco"
+            ]
+          },
+          "lamina": [
+            "boletos",
+            "audifonos"
+          ],
+          "meme": "cancion",
+          "texto": "Und bewahre kleine Dinge auf: eine Eintrittskarte, eine Postkarte, eine Playlist von jenem Sommer. Sie sind Schlüssel, die Erinnerungen öffnen."
+        },
+        {
+          "id": "animo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "caritasApp",
+              "animoDiaApp",
+              "sentirApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Zu jeder Erinnerung setze ich einen Smiley, wie ich mich gefühlt habe: glücklich, ruhig, müde… und so erinnere ich mich auch daran, was ich gefühlt habe."
+        }
+      ]
+    },
+    {
+      "id": "feliz",
+      "titulo": "Macht Erinnern glücklich?",
+      "respuesta": "Ja: Ein paar Minuten am Tag schöne Erinnerungen wiederzuerleben hebt die Stimmung, und mit der Zeit verblasst das Schlechte schneller als das Gute.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil sechs. Macht Erinnern glücklich?"
+        },
+        {
+          "id": "bryant",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "revivir"
+          },
+          "lamina": [
+            "sonrisa",
+            "atardecer"
+          ],
+          "destacada": true,
+          "texto": "2005 baten Fred Bryant und sein Team Studierende, eine Woche lang zweimal am Tag zehn Minuten eine schöne Erinnerung wiederzuerleben. Am Ende fühlten sie sich glücklicher als die, die es nicht taten, vor allem jene, die sie sich ganz genau vorstellten."
+        },
+        {
+          "id": "walker",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "walker"
+          },
+          "lamina": [
+            "lluvia",
+            "solSale"
+          ],
+          "texto": "Und die Zeit hilft: 2003 sahen Richard Walker und sein Team, dass das Gefühl schlechter Erinnerungen schneller verblasst als das der guten. Das Gedächtnis wird mit den Jahren freundlicher."
+        },
+        {
+          "id": "releer",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "malDia",
+              "releer",
+              "detalle"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "sofa"
+          ],
+          "meme": "releer",
+          "texto": "Halte deine schönen Erinnerungen also griffbereit. Lies an einem schlechten Tag in Ruhe eine davon und stell sie dir wieder vor: wo du warst, wer gelacht hat, wie es roch."
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "listaApp",
+              "masApp",
+              "releoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Und wenn ich einen schlechten Tag habe, öffne ich mein Erinnerungsbuch und scrolle durch meine Erinnerungen, bis ich eine schöne finde."
+        }
+      ]
+    },
+    {
+      "id": "contar",
+      "titulo": "Warum solltest du deine Geschichten erzählen?",
+      "respuesta": "Weil geteilte Erinnerungen verbinden: Kinder, die die Geschichten ihrer Familie kennen, haben mehr Selbstvertrauen.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil sieben. Warum solltest du deine Geschichten erzählen?"
+        },
+        {
+          "id": "fivush",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "familia"
+          },
+          "lamina": [
+            "abuela",
+            "cenaFamilia"
+          ],
+          "destacada": true,
+          "texto": "In den Vereinigten Staaten stellten Marshall Duke und Robyn Fivush Kindern zwanzig Fragen über ihre Familie: wo sich ihre Eltern kennengelernt haben, wo ihre Großeltern aufgewachsen sind. Wer mehr Geschichten kannte, hatte mehr Selbstvertrauen und erholte sich besser von Problemen."
+        },
+        {
+          "id": "subibaja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "subidas",
+              "bajadas",
+              "seguimos"
+            ]
+          },
+          "lamina": [
+            "fotoFamilia",
+            "manos"
+          ],
+          "texto": "Am meisten halfen Geschichten mit Höhen und Tiefen: „Wir haben alles verloren, aber wir haben es geschafft.“ Sie sagen denen, die zuhören, dass sie zu etwas Größerem gehören."
+        },
+        {
+          "id": "cuenta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cena",
+              "pregunta",
+              "graba"
+            ]
+          },
+          "lamina": [
+            "conversacion",
+            "grabarVoz"
+          ],
+          "texto": "Erzähl also deine Geschichten beim Abendessen, frag die Älteren nach ihren, solange du kannst, und bewahre sie auf: Was nicht erzählt wird, geht verloren."
+        },
+        {
+          "id": "anio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuentaApp",
+              "anioApp",
+              "llenaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Wenn die Monate in meinem Kalender vergehen, sehe ich, wie viele Tage eine Erinnerung haben, und mein Jahr füllt sich mit Geschichten zum Erzählen."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Wie geht es weiter? Dein Plan zum Weitermachen",
+      "respuesta": "Schreib jeden Abend drei Zeilen, füge Fotos und erste Male hinzu, und lies jeden Monat deine Erinnerungen und erzähl jemandem eine davon.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Teil acht. Wie geht es weiter? Dein Plan zum Weitermachen."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planAnecdotario"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "Schreib diese Woche jeden Abend drei Zeilen: was passiert ist, mit wem und wie du dich gefühlt hast."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "foto",
+              "primeraVez",
+              "olorCancion"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "caminoNuevo"
+          ],
+          "destacada": true,
+          "texto": "Im ersten Monat füg jeder Erinnerung ein Foto hinzu und schenk dir jede Woche ein erstes Mal."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "relee",
+              "cuenta",
+              "copia"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "cenaFamilia"
+          ],
+          "texto": "Und jeden Monat: Lies deine Erinnerungen, erzähl einem lieben Menschen eine davon und sichere, was dir am wichtigsten ist."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "calendarioFin",
+              "diaFin",
+              "fotosFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Und wenn du nicht weißt, wo du anfangen sollst, schau dir mein Erinnerungsbuch in der App an: Es hat ein ganzes Jahr voller Erinnerungen."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Kurz gesagt: Schreib auf, was passiert ist, mit wem und wo; schreib es noch am selben Tag; schenk dir erste Male; bewahre die Hinweise deiner Sinne auf; und erzähl deine Geschichten."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Im Erinnerungsbuch von MindHaOS schreibst du jeden Tag eine Erinnerung, siehst deine Stimmung im Kalender und bewahrst deine Fotos mit ihrer Geschichte auf. Du kannst es selbst machen, oder mit Hilfe der KI. Bau dir heute kostenlos dein mentales Haus: Der Link ist in der Beschreibung. Und falls du einen Leitfaden verpasst hast: Dort findest du auch alle.",
+    "boton": "Erinnerungsbuch öffnen",
+    "lamina": "app-plan",
+    "anclas": {
+      "recuerdo": "jeden Tag eine Erinnerung",
+      "calendario": "im Kalender",
+      "fotos": "deine Fotos"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "wagenaar-1986",
+      "texto": "Wagenaar W. A. My memory: a study of autobiographical memory over six years. Cognitive Psychology 18(2), 225-252 (1986).",
+      "url": "https://doi.org/10.1016/0010-0285(86)90013-7"
+    },
+    {
+      "id": "pepys",
+      "texto": "Das Tagebuch von Samuel Pepys (1660-1669). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Samuel_Pepys"
+    },
+    {
+      "id": "niepce",
+      "texto": "Blick aus dem Fenster in Le Gras, von Nicéphore Niépce (um 1826). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/View_from_the_Window_at_Le_Gras"
+    },
+    {
+      "id": "loftus-1974",
+      "texto": "Loftus E. F., Palmer J. C. Reconstruction of automobile destruction: an example of the interaction between language and memory. Journal of Verbal Learning and Verbal Behavior 13(5), 585-589 (1974).",
+      "url": "https://doi.org/10.1016/S0022-5371(74)80011-3"
+    },
+    {
+      "id": "talarico-2003",
+      "texto": "Talarico J. M., Rubin D. C. Confidence, not consistency, characterizes flashbulb memories. Psychological Science 14(5), 455-461 (2003).",
+      "url": "https://doi.org/10.1111/1467-9280.02453"
+    },
+    {
+      "id": "rubin-1986",
+      "texto": "Rubin D. C., Wetzler S. E., Nebes R. D. Autobiographical memory across the lifespan. In Rubin D. C. (Hrsg.), Autobiographical Memory. Cambridge University Press (1986).",
+      "url": "https://en.wikipedia.org/wiki/Reminiscence_bump"
+    },
+    {
+      "id": "herz-2004",
+      "texto": "Herz R. S. A naturalistic analysis of autobiographical memories triggered by olfactory, visual and auditory stimuli. Chemical Senses 29(3), 217-224 (2004).",
+      "url": "https://doi.org/10.1093/chemse/bjh025"
+    },
+    {
+      "id": "bryant-2005",
+      "texto": "Bryant F. B., Smart C. M., King S. P. Using the past to enhance the present: boosting happiness through positive reminiscence. Journal of Happiness Studies 6(3), 227-260 (2005).",
+      "url": "https://doi.org/10.1007/s10902-005-3889-4"
+    },
+    {
+      "id": "walker-2003",
+      "texto": "Walker W. R., Skowronski J. J., Thompson C. P. Life is pleasant, and memory helps to keep it that way! Review of General Psychology 7(2), 203-210 (2003).",
+      "url": "https://doi.org/10.1037/1089-2680.7.2.203"
+    },
+    {
+      "id": "duke-2008",
+      "texto": "Duke M. P., Lazarus A., Fivush R. Knowledge of family history as a clinically useful index of psychological well-being and prognosis: a brief report. Psychotherapy: Theory, Research, Practice, Training 45(2), 268-272 (2008).",
+      "url": "https://doi.org/10.1037/0033-3204.45.2.268"
+    }
+  ]
+}

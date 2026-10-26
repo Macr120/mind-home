@@ -7511,6 +7511,7 @@ export const ID: Dict = {
   'guia.ideas.titulo': "Bagaimana cara punya ide yang lebih baik?",
   'guia.viajes.titulo': "Bagaimana bepergian dengan lebih baik?",
   'guia.archivos.titulo': "Bagaimana mengatur pikiranmu?",
+  'guia.anecdotario.titulo': "Bagaimana menyimpan kenangan terbaikmu?",
   'guia.noticias.titulo': "Mencari kebenaran dan keindahan: jurnalisme dan konten",
   'guia.matematicas.titulo': "Apa bahasa alam semesta?",
   'tut.esencial.titulo': 'Yang Penting',

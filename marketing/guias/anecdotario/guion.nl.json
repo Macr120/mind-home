@@ -1,0 +1,745 @@
+{
+  "idioma": "nl",
+  "tema": "anecdotario",
+  "plantillaId": "anecdotario",
+  "numero": 22,
+  "nombre": "Dagboek",
+  "pregunta": "Hoe bewaar je je mooiste herinneringen?",
+  "corta": "Hoe bewaar je je herinneringen?",
+  "subtitulo": "Waarom we bijna alles vergeten wat we meemaken, sinds wanneer we herinneringen bewaren, of je geheugen betrouwbaar is, welke herinneringen blijven, wat een herinnering wakker maakt, of herinneren je gelukkig maakt, waarom je je verhalen moet vertellen en een plan om door te gaan.",
+  "aviso": "Deze gids is informatief en algemeen. De genoemde onderzoeken meten het geheugen en de stemming van specifieke groepen mensen; jouw resultaten kunnen verschillen.",
+  "partes": [
+    {
+      "id": "olvido",
+      "titulo": "Waarom vergeten we bijna alles?",
+      "respuesta": "Omdat herinneringen zonder aanwijzingen vervagen: schrijf elke dag op wat er gebeurde, met wie en waar, dan vind je ze jaren later nog terug.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Hoe bewaar je je mooiste herinneringen? Van wat je deze week meemaakt, ben je over een paar jaar bijna alles vergeten. En wat je nog wel weet, verandert je hoofd beetje bij beetje. Wat als je het kon bewaren zoals het was? Vandaag zie je het met data, en ga je weg met een plan om door te gaan."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Trouwens, dit is mijn huis in MindHaOS, en vandaag kiest het het ruime sop: het is een schip. Ik ben de teddybeer-matroos aan boord, en dit is mijn dagboek: hier bewaar ik een herinnering van elke dag."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel één. Waarom vergeten we bijna alles?"
+        },
+        {
+          "id": "wagenaar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1986",
+            "clave": "wagenaar"
+          },
+          "lamina": [
+            "diarioEscribir",
+            "calendarioViejo"
+          ],
+          "destacada": true,
+          "texto": "Zes jaar lang schreef de Nederlandse psycholoog Willem Wagenaar elke dag op wat hem overkwam: wat, met wie, waar en wanneer. Met zo’n tweeduizendvierhonderd genoteerde gebeurtenissen testte hij zichzelf, en in 1986 publiceerde hij wat hij ontdekte."
+        },
+        {
+          "id": "pistas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "quien",
+              "donde"
+            ]
+          },
+          "lamina": [
+            "fotoVieja",
+            "pensativo"
+          ],
+          "meme": "olvido",
+          "texto": "Met één aanwijzing herinnerde hij zich weinig; met meerdere samen haalde hij gebeurtenissen terug die hij kwijt dacht te zijn. Wat, wie en waar waren goede aanwijzingen; de slechtste was de datum. En wat het best bleef hangen, was wat hem had geraakt."
+        },
+        {
+          "id": "anotar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "recuerdoDelDia"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "Vertrouw er dus niet op dat je het onthoudt: schrijf het op. Probeer het hier met iets van vandaag: wat er gebeurde, met wie en waar. Drie regels zijn genoeg."
+        },
+        {
+          "id": "escribo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tituloApp",
+              "textoApp",
+              "animoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Daarom schrijf ik elke avond in mijn dagboek: een titel van de dag, wat er gebeurde en een smiley met hoe ik me voelde."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Sinds wanneer bewaren we herinneringen?",
+      "respuesta": "Altijd al, maar een beroemd dagboek is dat van Samuel Pepys uit 1660, en de eerste foto kwam rond 1826 met Nicéphore Niépce.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel twee. Sinds wanneer bewaren we herinneringen?"
+        },
+        {
+          "id": "pepys",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1660",
+            "clave": "pepys"
+          },
+          "lamina": [
+            "pepys",
+            "londres"
+          ],
+          "destacada": true,
+          "texto": "In 1660 begon een Londense ambtenaar, Samuel Pepys, een dagboek en hij schreef er negen jaar lang bijna dagelijks in. Dankzij hem weten we hoe de grote brand van Londen werd beleefd: hij begroef zelf zijn wijn en zijn Parmezaanse kaas in de tuin om ze te redden."
+        },
+        {
+          "id": "niepce",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1826",
+            "clave": "niepce"
+          },
+          "lamina": [
+            "niepce",
+            "camaraAntigua"
+          ],
+          "texto": "En rond 1826 maakte de Fransman Nicéphore Niépce de oudste bewaarde foto: het uitzicht vanuit zijn raam. Hij had uren belichting nodig voor één enkel beeld."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diario",
+              "album",
+              "telefono"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "celularFotos"
+          ],
+          "texto": "Nu maken we duizenden foto’s per jaar en kijken we ze bijna nooit meer terug. Bewaren kost niets meer; het moeilijke is dat een herinnering haar verhaal krijgt."
+        },
+        {
+          "id": "calendario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diaApp",
+              "colorApp",
+              "mesApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "In mijn kalender kleurt elke dag met een herinnering in de kleur van mijn stemming: in één oogopslag zie ik hoe mijn maand was."
+        }
+      ]
+    },
+    {
+      "id": "fieles",
+      "titulo": "Is je geheugen betrouwbaar?",
+      "respuesta": "Nee: elke keer dat je iets herinnert, bouw je het opnieuw op en verander je het ongemerkt, dus schrijf het dezelfde dag op.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel drie. Is je geheugen betrouwbaar?"
+        },
+        {
+          "id": "loftus",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "palabra"
+          },
+          "lamina": [
+            "choque",
+            "testigo"
+          ],
+          "destacada": true,
+          "texto": "In 1974 lieten Elizabeth Loftus en John Palmer studenten de video van een ongeluk zien. Aan de ene groep vroegen ze hoe hard de auto’s reden toen ze elkaar raakten; aan de andere, toen ze elkaar ramden. Wie ‘ramden’ hoorde, schatte de snelheid hoger, en een week later herinnerden velen zich glasscherven die er nooit waren."
+        },
+        {
+          "id": "talarico",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "talarico"
+          },
+          "lamina": [
+            "noticiasTele",
+            "periodico"
+          ],
+          "texto": "En het gebeurt niet alleen met kleine dingen. In 2003 volgden Jennifer Talarico en David Rubin de herinneringen van studenten aan elf september. In de loop van de maanden veranderden die net zoveel als die aan een gewone dag… maar de studenten bleven zeker dat ze het zich perfect herinnerden."
+        },
+        {
+          "id": "mismoDia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "reconstruye",
+              "mismoDia",
+              "detalles"
+            ]
+          },
+          "lamina": [
+            "escribirCafe",
+            "notas"
+          ],
+          "meme": "seguro",
+          "texto": "Elke keer dat je je iets herinnert, zet je het opnieuw in elkaar, en onderweg sluipen er veranderingen in. Schrijf het daarom dezelfde dag op, met details: wat je zag, wat er tegen je gezegd werd, wat je voelde."
+        },
+        {
+          "id": "dia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocaApp",
+              "intactoApp",
+              "fechaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En als ik terug wil naar een dag, tik ik die aan in de kalender en daar is hij, precies zoals ik hem die avond schreef."
+        }
+      ]
+    },
+    {
+      "id": "quedan",
+      "titulo": "Welke herinneringen blijven?",
+      "respuesta": "De eerste keren: daarom onthouden we het meest van ons tiende tot ons dertigste, dus gun jezelf eerste keren op elke leeftijd.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vier. Welke herinneringen blijven?"
+        },
+        {
+          "id": "rubin",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "joroba"
+          },
+          "lamina": [
+            "graduacion",
+            "primerAuto"
+          ],
+          "destacada": true,
+          "texto": "In 1986 vroegen David Rubin en zijn team oudere mensen naar hun levendigste herinneringen. De meeste kwamen niet uit de laatste jaren, maar uit de tijd tussen tien en dertig jaar. Ze noemden het de herinneringsbult."
+        },
+        {
+          "id": "primeras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "primerTrabajo",
+              "primerViaje",
+              "primerAmor"
+            ]
+          },
+          "lamina": [
+            "primerDia",
+            "mudanza"
+          ],
+          "texto": "Het is de leeftijd van de eerste keren: de eerste baan, de eerste reis alleen, de eerste liefde. Nieuwe dingen blijven hangen; wat zich herhaalt, smelt samen met al de rest."
+        },
+        {
+          "id": "nuevas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "primerasVeces"
+          },
+          "lamina": [
+            "clase",
+            "caminoNuevo"
+          ],
+          "meme": "rutina",
+          "texto": "Het goede nieuws: je kunt op elke leeftijd eerste keren maken. Een nieuwe route, een recept, een cursus. Kies hier de jouwe voor deze maand."
+        },
+        {
+          "id": "fotosApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fotoApp",
+              "grandeApp",
+              "historiaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En bij elke herinnering bewaar ik haar foto’s; met één tik zie ik ze groot, samen met het verhaal dat ze vertellen."
+        }
+      ]
+    },
+    {
+      "id": "despertar",
+      "titulo": "Wat maakt een herinnering wakker?",
+      "respuesta": "Aanwijzingen van de zintuigen, vooral geuren: bewaar bij je herinneringen een liedje, een voorwerp of een geur.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel vijf. Wat maakt een herinnering wakker?"
+        },
+        {
+          "id": "herz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "sentidos"
+          },
+          "lamina": [
+            "cafeAroma",
+            "pan"
+          ],
+          "destacada": true,
+          "texto": "In 2004 testte Rachel Herz hoe zien, horen en ruiken herinneringen wakker maken. Herinneringen die een geur opriep, waren emotioneler en namen je sterker mee terug, alsof je er weer was."
+        },
+        {
+          "id": "pistasSentidos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "olor",
+              "cancion",
+              "objeto"
+            ]
+          },
+          "lamina": [
+            "vinilo",
+            "cajaRecuerdos"
+          ],
+          "texto": "Daarom brengen een oud liedje of de geur van een keuken je hele jaren terug. Gebruik dat in je voordeel: schrijf bij een herinnering op wat er speelde, hoe het rook, wat je in je hand had."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoAnecdotario"
+          },
+          "lamina": "pulgar",
+          "texto": "Als je de gids leuk vindt, klik dan op Vind ik leuk, op Abonneren zodat je de volgende niet mist, en op Delen, voor die ene persoon met wie je de mooiste herinneringen hebt."
+        },
+        {
+          "id": "caja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "boleto",
+              "playlist",
+              "frasco"
+            ]
+          },
+          "lamina": [
+            "boletos",
+            "audifonos"
+          ],
+          "meme": "cancion",
+          "texto": "En bewaar kleine dingen: een kaartje, een ansichtkaart, een playlist van die zomer. Het zijn sleutels die herinneringen openen."
+        },
+        {
+          "id": "animo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "caritasApp",
+              "animoDiaApp",
+              "sentirApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bij elke herinnering zet ik met een smiley hoe ik me voelde: blij, rustig, moe… en zo onthoud ik ook wat ik voelde."
+        }
+      ]
+    },
+    {
+      "id": "feliz",
+      "titulo": "Maakt herinneren je gelukkig?",
+      "respuesta": "Ja: een paar minuten per dag mooie herinneringen herbeleven verbetert je stemming, en na verloop van tijd vervaagt het slechte sneller dan het goede.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zes. Maakt herinneren je gelukkig?"
+        },
+        {
+          "id": "bryant",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "revivir"
+          },
+          "lamina": [
+            "sonrisa",
+            "atardecer"
+          ],
+          "destacada": true,
+          "texto": "In 2005 vroegen Fred Bryant en zijn team studenten om een week lang twee keer per dag tien minuten een mooie herinnering te herbeleven. Aan het eind voelden ze zich gelukkiger dan wie het niet deed, vooral wie het zich tot in detail voorstelde."
+        },
+        {
+          "id": "walker",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "walker"
+          },
+          "lamina": [
+            "lluvia",
+            "solSale"
+          ],
+          "texto": "En de tijd helpt: in 2003 zagen Richard Walker en zijn team dat wat we voelen bij slechte herinneringen sneller vervaagt dan bij goede. Het geheugen wordt met de jaren milder."
+        },
+        {
+          "id": "releer",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "malDia",
+              "releer",
+              "detalle"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "sofa"
+          ],
+          "meme": "releer",
+          "texto": "Houd je mooie herinneringen dus bij de hand. Lees er op een slechte dag rustig een terug en stel je het opnieuw voor: waar je was, wie er lachte, hoe het rook."
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "listaApp",
+              "masApp",
+              "releoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En als ik een slechte dag heb, open ik mijn dagboek en scrol ik door mijn herinneringen tot ik een mooie vind."
+        }
+      ]
+    },
+    {
+      "id": "contar",
+      "titulo": "Waarom je verhalen vertellen?",
+      "respuesta": "Omdat gedeelde herinneringen verbinden: kinderen die de verhalen van hun familie kennen, hebben meer zelfvertrouwen.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel zeven. Waarom je verhalen vertellen?"
+        },
+        {
+          "id": "fivush",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "familia"
+          },
+          "lamina": [
+            "abuela",
+            "cenaFamilia"
+          ],
+          "destacada": true,
+          "texto": "In de Verenigde Staten stelden Marshall Duke en Robyn Fivush kinderen twintig vragen over hun familie: waar hun ouders elkaar leerden kennen, waar hun grootouders opgroeiden. Wie meer verhalen kende, had meer zelfvertrouwen en herstelde beter van problemen."
+        },
+        {
+          "id": "subibaja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "subidas",
+              "bajadas",
+              "seguimos"
+            ]
+          },
+          "lamina": [
+            "fotoFamilia",
+            "manos"
+          ],
+          "texto": "Vooral verhalen met ups en downs hielpen: ‘we raakten alles kwijt, maar we zijn erbovenop gekomen’. Ze vertellen wie luistert dat hij bij iets groters hoort."
+        },
+        {
+          "id": "cuenta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cena",
+              "pregunta",
+              "graba"
+            ]
+          },
+          "lamina": [
+            "conversacion",
+            "grabarVoz"
+          ],
+          "texto": "Vertel dus je verhalen aan tafel, vraag naar die van je ouders en grootouders zolang het kan, en bewaar ze: wat niet verteld wordt, gaat verloren."
+        },
+        {
+          "id": "anio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuentaApp",
+              "anioApp",
+              "llenaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Als de maanden voorbijgaan in mijn kalender, zie ik hoeveel dagen een herinnering hebben, en mijn jaar vult zich met verhalen om te vertellen."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Hoe ga je verder? Jouw plan om door te gaan",
+      "respuesta": "Schrijf elke avond drie regels, voeg foto’s en eerste keren toe, en lees elke maand je herinneringen terug en vertel er een aan iemand.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Deel acht. Hoe ga je verder? Jouw plan om door te gaan."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planAnecdotario"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "Schrijf deze week elke avond drie regels: wat er gebeurde, met wie en hoe je je voelde."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "foto",
+              "primeraVez",
+              "olorCancion"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "caminoNuevo"
+          ],
+          "destacada": true,
+          "texto": "Voeg de eerste maand bij elke herinnering een foto toe en gun jezelf elke week een eerste keer."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "relee",
+              "cuenta",
+              "copia"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "cenaFamilia"
+          ],
+          "texto": "En elke maand: lees je herinneringen terug, vertel er een aan iemand van wie je houdt en maak een kopie van wat je het belangrijkst vindt."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "calendarioFin",
+              "diaFin",
+              "fotosFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "En als je niet weet waar je moet beginnen, kijk dan naar mijn dagboek in de app: er staat een heel jaar aan herinneringen in."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Kortom: schrijf op wat er gebeurde, met wie en waar; schrijf het dezelfde dag op; gun jezelf eerste keren; bewaar de aanwijzingen van je zintuigen; en vertel je verhalen."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "In het Dagboek van MindHaOS schrijf je elke dag een herinnering, zie je je stemming in de kalender en bewaar je je foto’s met hun verhaal. Je kunt het zelf doen, of met hulp van AI. Bouw vandaag gratis je mentale huis: de link staat in de beschrijving. En als je een gids hebt gemist, daar staan ze ook allemaal.",
+    "boton": "Dagboek openen",
+    "lamina": "app-plan",
+    "anclas": {
+      "recuerdo": "elke dag een herinnering",
+      "calendario": "in de kalender",
+      "fotos": "je foto’s"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "wagenaar-1986",
+      "texto": "Wagenaar W. A. My memory: a study of autobiographical memory over six years. Cognitive Psychology 18(2), 225-252 (1986).",
+      "url": "https://doi.org/10.1016/0010-0285(86)90013-7"
+    },
+    {
+      "id": "pepys",
+      "texto": "Het dagboek van Samuel Pepys (1660-1669). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Samuel_Pepys"
+    },
+    {
+      "id": "niepce",
+      "texto": "Uitzicht vanuit het raam in Le Gras, van Nicéphore Niépce (rond 1826). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/View_from_the_Window_at_Le_Gras"
+    },
+    {
+      "id": "loftus-1974",
+      "texto": "Loftus E. F., Palmer J. C. Reconstruction of automobile destruction: an example of the interaction between language and memory. Journal of Verbal Learning and Verbal Behavior 13(5), 585-589 (1974).",
+      "url": "https://doi.org/10.1016/S0022-5371(74)80011-3"
+    },
+    {
+      "id": "talarico-2003",
+      "texto": "Talarico J. M., Rubin D. C. Confidence, not consistency, characterizes flashbulb memories. Psychological Science 14(5), 455-461 (2003).",
+      "url": "https://doi.org/10.1111/1467-9280.02453"
+    },
+    {
+      "id": "rubin-1986",
+      "texto": "Rubin D. C., Wetzler S. E., Nebes R. D. Autobiographical memory across the lifespan. In Rubin D. C. (red.), Autobiographical Memory. Cambridge University Press (1986).",
+      "url": "https://en.wikipedia.org/wiki/Reminiscence_bump"
+    },
+    {
+      "id": "herz-2004",
+      "texto": "Herz R. S. A naturalistic analysis of autobiographical memories triggered by olfactory, visual and auditory stimuli. Chemical Senses 29(3), 217-224 (2004).",
+      "url": "https://doi.org/10.1093/chemse/bjh025"
+    },
+    {
+      "id": "bryant-2005",
+      "texto": "Bryant F. B., Smart C. M., King S. P. Using the past to enhance the present: boosting happiness through positive reminiscence. Journal of Happiness Studies 6(3), 227-260 (2005).",
+      "url": "https://doi.org/10.1007/s10902-005-3889-4"
+    },
+    {
+      "id": "walker-2003",
+      "texto": "Walker W. R., Skowronski J. J., Thompson C. P. Life is pleasant, and memory helps to keep it that way! Review of General Psychology 7(2), 203-210 (2003).",
+      "url": "https://doi.org/10.1037/1089-2680.7.2.203"
+    },
+    {
+      "id": "duke-2008",
+      "texto": "Duke M. P., Lazarus A., Fivush R. Knowledge of family history as a clinically useful index of psychological well-being and prognosis: a brief report. Psychotherapy: Theory, Research, Practice, Training 45(2), 268-272 (2008).",
+      "url": "https://doi.org/10.1037/0033-3204.45.2.268"
+    }
+  ]
+}

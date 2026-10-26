@@ -1,0 +1,745 @@
+{
+  "idioma": "id",
+  "tema": "anecdotario",
+  "plantillaId": "anecdotario",
+  "numero": 22,
+  "nombre": "Buku Kenangan",
+  "pregunta": "Bagaimana menyimpan kenangan terbaikmu?",
+  "corta": "Bagaimana menyimpan kenanganmu?",
+  "subtitulo": "Kenapa kita melupakan hampir semua yang kita alami, sejak kapan kita menyimpan kenangan, apakah ingatanmu setia, kenangan mana yang bertahan, apa yang membangkitkan kenangan, apakah mengenang membuatmu bahagia, kenapa menceritakan kisahmu, dan rencana untuk melanjutkan.",
+  "aviso": "Panduan ini bersifat informatif dan umum. Studi yang dikutip mengukur ingatan dan suasana hati kelompok orang tertentu; hasilmu bisa berbeda.",
+  "partes": [
+    {
+      "id": "olvido",
+      "titulo": "Kenapa kita melupakan hampir semuanya?",
+      "respuesta": "Karena tanpa petunjuk kenangan terhapus: catat setiap hari apa yang terjadi, dengan siapa, dan di mana, agar bisa kamu ingat lagi bertahun-tahun kemudian.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Bagaimana menyimpan kenangan terbaikmu? Dari yang kamu alami minggu ini, beberapa tahun lagi hampir semuanya akan kamu lupakan. Dan yang masih kamu ingat, pelan-pelan akan diubah oleh pikiranmu. Bagaimana kalau kamu bisa menyimpannya persis seperti kejadiannya? Hari ini kamu akan melihatnya dengan data, dan pulang membawa rencana untuk melanjutkan."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Omong-omong, ini rumahku di MindHaOS, dan hari ini ia berlayar: jadi sebuah kapal. Aku beruang teddy pelaut di atas kapal ini, dan ini Buku Kenanganku: di sini kusimpan satu kenangan dari setiap hari."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian satu. Kenapa kita melupakan hampir semuanya?"
+        },
+        {
+          "id": "wagenaar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1986",
+            "clave": "wagenaar"
+          },
+          "lamina": [
+            "diarioEscribir",
+            "calendarioViejo"
+          ],
+          "destacada": true,
+          "texto": "Selama enam tahun, psikolog Belanda Willem Wagenaar mencatat setiap hari apa yang dialaminya: apa, dengan siapa, di mana, dan kapan. Dengan sekitar dua ribu empat ratus kejadian tercatat, ia menguji dirinya sendiri, dan pada 1986 ia menerbitkan temuannya."
+        },
+        {
+          "id": "pistas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "quien",
+              "donde"
+            ]
+          },
+          "lamina": [
+            "fotoVieja",
+            "pensativo"
+          ],
+          "meme": "olvido",
+          "texto": "Dengan satu petunjuk saja, ia hanya ingat sedikit; dengan beberapa sekaligus, ia bisa memanggil kembali kejadian yang dikiranya sudah hilang. Apa, siapa, dan di mana adalah petunjuk yang bagus; yang terburuk adalah tanggal. Dan yang paling melekat adalah yang menyentuh perasaannya."
+        },
+        {
+          "id": "anotar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "recuerdoDelDia"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "Jadi jangan mengandalkan bahwa kamu akan ingat: catat. Coba di sini dengan sesuatu dari hari ini: apa yang terjadi, dengan siapa, dan di mana. Tiga baris sudah cukup."
+        },
+        {
+          "id": "escribo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tituloApp",
+              "textoApp",
+              "animoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Karena itu setiap malam aku menulis di Buku Kenanganku: judul hari ini, apa yang terjadi, dan wajah kecil yang menunjukkan perasaanku."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Sejak kapan kita menyimpan kenangan?",
+      "respuesta": "Sejak dulu, tapi salah satu buku harian terkenal adalah milik Samuel Pepys pada 1660, dan foto pertama muncul sekitar 1826 lewat Nicéphore Niépce.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian dua. Sejak kapan kita menyimpan kenangan?"
+        },
+        {
+          "id": "pepys",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1660",
+            "clave": "pepys"
+          },
+          "lamina": [
+            "pepys",
+            "londres"
+          ],
+          "destacada": true,
+          "texto": "Pada 1660, seorang pegawai pemerintah di London, Samuel Pepys, mulai menulis buku harian dan mengisinya hampir setiap hari selama sembilan tahun. Berkat dia, kita tahu bagaimana orang menjalani Kebakaran Besar London: ia sendiri mengubur anggur dan keju parmesannya di kebun untuk menyelamatkannya."
+        },
+        {
+          "id": "niepce",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1826",
+            "clave": "niepce"
+          },
+          "lamina": [
+            "niepce",
+            "camaraAntigua"
+          ],
+          "texto": "Dan sekitar 1826, orang Prancis Nicéphore Niépce mengambil foto tertua yang masih ada: pemandangan dari jendelanya. Ia butuh berjam-jam pencahayaan untuk satu gambar saja."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diario",
+              "album",
+              "telefono"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "celularFotos"
+          ],
+          "texto": "Hari ini kita memotret ribuan foto setahun dan hampir tak pernah melihatnya lagi. Menyimpan sudah tidak ada biayanya; yang sulit adalah membuat sebuah kenangan punya ceritanya."
+        },
+        {
+          "id": "calendario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diaApp",
+              "colorApp",
+              "mesApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Di kalenderku, setiap hari dengan kenangan diwarnai sesuai suasana hatiku: sekali lihat, aku tahu bagaimana bulanku."
+        }
+      ]
+    },
+    {
+      "id": "fieles",
+      "titulo": "Apakah ingatanmu setia?",
+      "respuesta": "Tidak: setiap kali mengingat, kamu menyusunnya ulang dan mengubahnya tanpa sadar, jadi tulislah di hari yang sama.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tiga. Apakah ingatanmu setia?"
+        },
+        {
+          "id": "loftus",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "palabra"
+          },
+          "lamina": [
+            "choque",
+            "testigo"
+          ],
+          "destacada": true,
+          "texto": "Pada 1974, Elizabeth Loftus dan John Palmer memperlihatkan video tabrakan mobil kepada mahasiswa. Sebagian ditanya seberapa cepat mobilnya saat bersenggolan; yang lain, saat bertabrakan. Yang mendengar «bertabrakan» menaksir kecepatan lebih tinggi, dan seminggu kemudian banyak yang ingat pecahan kaca yang tidak pernah ada."
+        },
+        {
+          "id": "talarico",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "talarico"
+          },
+          "lamina": [
+            "noticiasTele",
+            "periodico"
+          ],
+          "texto": "Dan ini bukan hanya soal hal kecil. Pada 2003, Jennifer Talarico dan David Rubin mengikuti ingatan mahasiswa tentang peristiwa sebelas September. Seiring bulan berlalu, ingatan itu berubah sebanyak ingatan tentang hari biasa… tapi mereka tetap yakin mengingatnya dengan sempurna."
+        },
+        {
+          "id": "mismoDia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "reconstruye",
+              "mismoDia",
+              "detalles"
+            ]
+          },
+          "lamina": [
+            "escribirCafe",
+            "notas"
+          ],
+          "meme": "seguro",
+          "texto": "Setiap kali kamu mengingat sesuatu, kamu menyusunnya lagi, dan di tengah jalan perubahan ikut menyelinap. Karena itu tulislah di hari yang sama, dengan detail: apa yang kamu lihat, apa yang dikatakan padamu, apa yang kamu rasakan."
+        },
+        {
+          "id": "dia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocaApp",
+              "intactoApp",
+              "fechaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dan saat aku ingin kembali ke suatu hari, aku menyentuhnya di kalender dan ia ada di sana, persis seperti yang kutulis malam itu."
+        }
+      ]
+    },
+    {
+      "id": "quedan",
+      "titulo": "Kenangan mana yang bertahan?",
+      "respuesta": "Pengalaman pertama: karena itu kita paling ingat usia sepuluh sampai tiga puluh, jadi berikan dirimu pengalaman pertama di usia berapa pun.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian empat. Kenangan mana yang bertahan?"
+        },
+        {
+          "id": "rubin",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "joroba"
+          },
+          "lamina": [
+            "graduacion",
+            "primerAuto"
+          ],
+          "destacada": true,
+          "texto": "Pada 1986, David Rubin dan timnya meminta orang lanjut usia menceritakan kenangan paling hidup mereka. Sebagian besar bukan dari tahun-tahun terakhir, melainkan dari usia sepuluh sampai tiga puluh. Mereka menyebutnya punuk kenangan."
+        },
+        {
+          "id": "primeras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "primerTrabajo",
+              "primerViaje",
+              "primerAmor"
+            ]
+          },
+          "lamina": [
+            "primerDia",
+            "mudanza"
+          ],
+          "texto": "Itulah usia pengalaman pertama: pekerjaan pertama, perjalanan pertama sendirian, cinta pertama. Yang baru terekam; yang berulang melebur dengan semua yang lain."
+        },
+        {
+          "id": "nuevas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "primerasVeces"
+          },
+          "lamina": [
+            "clase",
+            "caminoNuevo"
+          ],
+          "meme": "rutina",
+          "texto": "Kabar baiknya: kamu bisa menciptakan pengalaman pertama di usia berapa pun. Jalan baru, resep baru, kelas baru. Pilih di sini milikmu untuk bulan ini."
+        },
+        {
+          "id": "fotosApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fotoApp",
+              "grandeApp",
+              "historiaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dan di setiap kenangan kusimpan fotonya; sekali sentuh, aku melihatnya dalam ukuran besar, bersama cerita yang dibawanya."
+        }
+      ]
+    },
+    {
+      "id": "despertar",
+      "titulo": "Apa yang membangkitkan kenangan?",
+      "respuesta": "Petunjuk dari indra, terutama bau: simpan bersama kenanganmu sebuah lagu, benda, atau aroma.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian lima. Apa yang membangkitkan kenangan?"
+        },
+        {
+          "id": "herz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "sentidos"
+          },
+          "lamina": [
+            "cafeAroma",
+            "pan"
+          ],
+          "destacada": true,
+          "texto": "Pada 2004, Rachel Herz mencoba membangkitkan kenangan lewat penglihatan, pendengaran, dan penciuman. Kenangan yang dibawa oleh bau lebih emosional dan lebih membawamu pergi, seolah kamu kembali ke sana."
+        },
+        {
+          "id": "pistasSentidos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "olor",
+              "cancion",
+              "objeto"
+            ]
+          },
+          "lamina": [
+            "vinilo",
+            "cajaRecuerdos"
+          ],
+          "texto": "Karena itu lagu lama atau aroma sebuah dapur bisa membawamu kembali bertahun-tahun. Manfaatkan itu: di samping kenangan, catat lagu apa yang diputar, baunya seperti apa, apa yang ada di tanganmu."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoAnecdotario"
+          },
+          "lamina": "pulgar",
+          "texto": "Kalau kamu suka panduan ini, tekan Suka, Subscribe supaya tidak ketinggalan panduan berikutnya, dan Bagikan ke orang yang punya kenangan terbaik bersamamu."
+        },
+        {
+          "id": "caja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "boleto",
+              "playlist",
+              "frasco"
+            ]
+          },
+          "lamina": [
+            "boletos",
+            "audifonos"
+          ],
+          "meme": "cancion",
+          "texto": "Dan simpan benda-benda kecil: tiket, kartu pos, daftar lagu musim panas itu. Semua itu kunci yang membuka kenangan."
+        },
+        {
+          "id": "animo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "caritasApp",
+              "animoDiaApp",
+              "sentirApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Di setiap kenangan kutandai perasaanku dengan wajah kecil: senang, tenang, lelah… jadi aku juga ingat apa yang kurasakan."
+        }
+      ]
+    },
+    {
+      "id": "feliz",
+      "titulo": "Apakah mengenang membuatmu bahagia?",
+      "respuesta": "Ya: menghidupkan lagi kenangan indah beberapa menit sehari mengangkat suasana hati, dan seiring waktu yang buruk memudar lebih cepat daripada yang baik.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian enam. Apakah mengenang membuatmu bahagia?"
+        },
+        {
+          "id": "bryant",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "revivir"
+          },
+          "lamina": [
+            "sonrisa",
+            "atardecer"
+          ],
+          "destacada": true,
+          "texto": "Pada 2005, Fred Bryant dan timnya meminta mahasiswa menghidupkan lagi satu kenangan indah selama sepuluh menit, dua kali sehari, selama seminggu. Di akhir, mereka lebih bahagia daripada yang tidak melakukannya, terutama yang membayangkannya dengan detail."
+        },
+        {
+          "id": "walker",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "walker"
+          },
+          "lamina": [
+            "lluvia",
+            "solSale"
+          ],
+          "texto": "Dan waktu ikut membantu: pada 2003, Richard Walker dan timnya menemukan bahwa perasaan dalam kenangan buruk memudar lebih cepat daripada dalam kenangan baik. Seiring tahun, ingatan menjadi lebih ramah."
+        },
+        {
+          "id": "releer",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "malDia",
+              "releer",
+              "detalle"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "sofa"
+          ],
+          "meme": "releer",
+          "texto": "Jadi simpan kenangan indahmu dekat-dekat. Di hari yang buruk, baca ulang satu dengan tenang dan bayangkan lagi: di mana kamu, siapa yang tertawa, bau apa yang tercium."
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "listaApp",
+              "masApp",
+              "releoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dan kalau hariku sedang buruk, aku membuka Buku Kenanganku dan menggulir kenangan-kenanganku sampai menemukan yang indah."
+        }
+      ]
+    },
+    {
+      "id": "contar",
+      "titulo": "Kenapa menceritakan kisahmu?",
+      "respuesta": "Karena berbagi kenangan menyatukan kita: anak yang tahu kisah keluarganya lebih percaya diri.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian tujuh. Kenapa menceritakan kisahmu?"
+        },
+        {
+          "id": "fivush",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "familia"
+          },
+          "lamina": [
+            "abuela",
+            "cenaFamilia"
+          ],
+          "destacada": true,
+          "texto": "Di Amerika Serikat, Marshall Duke dan Robyn Fivush mengajukan dua puluh pertanyaan kepada anak-anak tentang keluarga mereka: di mana orang tua mereka bertemu, di mana kakek-nenek mereka tumbuh. Yang tahu lebih banyak kisah lebih percaya diri dan lebih cepat bangkit dari masalah."
+        },
+        {
+          "id": "subibaja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "subidas",
+              "bajadas",
+              "seguimos"
+            ]
+          },
+          "lamina": [
+            "fotoFamilia",
+            "manos"
+          ],
+          "texto": "Yang paling membantu adalah kisah yang naik turun: «kita kehilangan segalanya, tapi kita bangkit lagi». Kisah seperti itu memberi tahu pendengarnya bahwa ia bagian dari sesuatu yang lebih besar."
+        },
+        {
+          "id": "cuenta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cena",
+              "pregunta",
+              "graba"
+            ]
+          },
+          "lamina": [
+            "conversacion",
+            "grabarVoz"
+          ],
+          "texto": "Jadi ceritakan kisahmu saat makan malam, tanyakan kisah orang-orang tua di keluargamu selagi bisa, dan simpanlah: yang tidak diceritakan, akan hilang."
+        },
+        {
+          "id": "anio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuentaApp",
+              "anioApp",
+              "llenaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Seiring bulan berlalu, di kalenderku aku melihat berapa hari dengan kenangan, dan tahunku terisi cerita untuk dibagikan."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Bagaimana selanjutnya? Rencanamu untuk melanjutkan",
+      "respuesta": "Tulis tiga baris setiap malam, tambahkan foto dan pengalaman pertama, dan setiap bulan baca ulang kenanganmu lalu ceritakan satu ke seseorang.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Bagian delapan. Bagaimana selanjutnya? Rencanamu untuk melanjutkan."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planAnecdotario"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "Minggu ini, setiap malam tulis tiga baris: apa yang terjadi, dengan siapa, dan bagaimana perasaanmu."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "foto",
+              "primeraVez",
+              "olorCancion"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "caminoNuevo"
+          ],
+          "destacada": true,
+          "texto": "Di bulan pertama, tambahkan satu foto ke setiap kenangan dan berikan dirimu satu pengalaman pertama setiap minggu."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "relee",
+              "cuenta",
+              "copia"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "cenaFamilia"
+          ],
+          "texto": "Dan setiap bulan: baca ulang kenanganmu, ceritakan satu ke orang yang kamu sayangi, dan simpan salinan dari yang paling penting bagimu."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "calendarioFin",
+              "diaFin",
+              "fotosFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dan kalau kamu tidak tahu harus mulai dari mana, lihat Buku Kenanganku di aplikasi: isinya kenangan selama setahun penuh."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Ringkasnya: catat apa yang terjadi, dengan siapa, dan di mana; tulis di hari yang sama; berikan dirimu pengalaman pertama; simpan petunjuk dari indramu; dan ceritakan kisahmu."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "Di Buku Kenangan MindHaOS kamu menulis satu kenangan setiap hari, melihat suasana hatimu di kalender, dan menyimpan fotomu bersama ceritanya. Kamu bisa melakukannya sendiri, atau dengan bantuan AI. Bangun rumah pikiranmu gratis hari ini: tautannya ada di deskripsi. Dan kalau kamu ketinggalan panduan mana pun, semuanya juga ada di sana.",
+    "boton": "Buka Buku Kenangan",
+    "lamina": "app-plan",
+    "anclas": {
+      "recuerdo": "satu kenangan setiap hari",
+      "calendario": "di kalender",
+      "fotos": "fotomu"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "wagenaar-1986",
+      "texto": "Wagenaar W. A. My memory: a study of autobiographical memory over six years. Cognitive Psychology 18(2), 225-252 (1986).",
+      "url": "https://doi.org/10.1016/0010-0285(86)90013-7"
+    },
+    {
+      "id": "pepys",
+      "texto": "Buku harian Samuel Pepys (1660-1669). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Samuel_Pepys"
+    },
+    {
+      "id": "niepce",
+      "texto": "Pemandangan dari jendela di Le Gras, karya Nicéphore Niépce (sekitar 1826). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/View_from_the_Window_at_Le_Gras"
+    },
+    {
+      "id": "loftus-1974",
+      "texto": "Loftus E. F., Palmer J. C. Reconstruction of automobile destruction: an example of the interaction between language and memory. Journal of Verbal Learning and Verbal Behavior 13(5), 585-589 (1974).",
+      "url": "https://doi.org/10.1016/S0022-5371(74)80011-3"
+    },
+    {
+      "id": "talarico-2003",
+      "texto": "Talarico J. M., Rubin D. C. Confidence, not consistency, characterizes flashbulb memories. Psychological Science 14(5), 455-461 (2003).",
+      "url": "https://doi.org/10.1111/1467-9280.02453"
+    },
+    {
+      "id": "rubin-1986",
+      "texto": "Rubin D. C., Wetzler S. E., Nebes R. D. Autobiographical memory across the lifespan. Dalam Rubin D. C. (ed.), Autobiographical Memory. Cambridge University Press (1986).",
+      "url": "https://en.wikipedia.org/wiki/Reminiscence_bump"
+    },
+    {
+      "id": "herz-2004",
+      "texto": "Herz R. S. A naturalistic analysis of autobiographical memories triggered by olfactory, visual and auditory stimuli. Chemical Senses 29(3), 217-224 (2004).",
+      "url": "https://doi.org/10.1093/chemse/bjh025"
+    },
+    {
+      "id": "bryant-2005",
+      "texto": "Bryant F. B., Smart C. M., King S. P. Using the past to enhance the present: boosting happiness through positive reminiscence. Journal of Happiness Studies 6(3), 227-260 (2005).",
+      "url": "https://doi.org/10.1007/s10902-005-3889-4"
+    },
+    {
+      "id": "walker-2003",
+      "texto": "Walker W. R., Skowronski J. J., Thompson C. P. Life is pleasant, and memory helps to keep it that way! Review of General Psychology 7(2), 203-210 (2003).",
+      "url": "https://doi.org/10.1037/1089-2680.7.2.203"
+    },
+    {
+      "id": "duke-2008",
+      "texto": "Duke M. P., Lazarus A., Fivush R. Knowledge of family history as a clinically useful index of psychological well-being and prognosis: a brief report. Psychotherapy: Theory, Research, Practice, Training 45(2), 268-272 (2008).",
+      "url": "https://doi.org/10.1037/0033-3204.45.2.268"
+    }
+  ]
+}

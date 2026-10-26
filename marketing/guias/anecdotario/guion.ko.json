@@ -1,0 +1,745 @@
+{
+  "idioma": "ko",
+  "tema": "anecdotario",
+  "plantillaId": "anecdotario",
+  "numero": 22,
+  "nombre": "추억 노트",
+  "pregunta": "가장 좋은 추억을 어떻게 간직할까요?",
+  "corta": "추억을 어떻게 간직할까요?",
+  "subtitulo": "왜 우리는 겪은 일을 거의 다 잊을까, 언제부터 추억을 남겨 왔을까, 내 기억은 정확할까, 어떤 추억이 남을까, 무엇이 추억을 깨울까, 추억하면 행복해질까, 왜 내 이야기를 들려줘야 할까, 그리고 이어 가기 위한 계획.",
+  "aviso": "이 가이드는 일반적인 정보를 담고 있어요. 소개하는 연구는 특정 집단의 기억과 기분을 측정한 것이라, 결과는 사람마다 다를 수 있어요.",
+  "partes": [
+    {
+      "id": "olvido",
+      "titulo": "왜 우리는 거의 다 잊을까요?",
+      "respuesta": "단서가 없으면 기억은 지워져요. 매일 무엇을, 누구와, 어디서 했는지 적으면 몇 년 뒤에도 떠올릴 수 있어요.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "가장 좋은 추억을 어떻게 간직할까요? 이번 주에 겪은 일도, 몇 년 뒤면 거의 다 잊어버려요. 그리고 기억나는 것도, 머릿속에서 조금씩 바뀌어 가요. 있었던 그대로 간직할 수 있다면요? 오늘은 데이터로 확인하고, 이어 가기 위한 계획까지 챙겨 가게 될 거예요."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "그런데 여기는 MindHaOS에 있는 제 집이에요. 오늘은 출항해요. 네, 배예요. 저는 이 배의 선원 곰 인형이고, 이건 제 추억 노트예요. 여기에 하루에 하나씩 추억을 남겨요."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "1부. 왜 우리는 거의 다 잊을까요?"
+        },
+        {
+          "id": "wagenaar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1986",
+            "clave": "wagenaar"
+          },
+          "lamina": [
+            "diarioEscribir",
+            "calendarioViejo"
+          ],
+          "destacada": true,
+          "texto": "네덜란드의 심리학자 빌렘 바게나르는 6년 동안 매일 있었던 일을 적었어요. 무엇을, 누구와, 어디서, 언제. 약 2,400개의 사건을 기록해 스스로를 시험했고, 1986년에 그 결과를 발표했어요."
+        },
+        {
+          "id": "pistas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "quien",
+              "donde"
+            ]
+          },
+          "lamina": [
+            "fotoVieja",
+            "pensativo"
+          ],
+          "meme": "olvido",
+          "texto": "단서가 하나뿐이면 거의 기억하지 못했어요. 하지만 여러 개를 합치면, 잃어버린 줄 알았던 일도 되살아났어요. 무엇을, 누구와, 어디서는 좋은 단서였고, 가장 약한 건 날짜였어요. 그리고 가장 오래 남은 건 마음을 움직인 일이었죠."
+        },
+        {
+          "id": "anotar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "recuerdoDelDia"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "그러니 기억할 거라고 믿지 말고, 적으세요. 여기서 오늘 있었던 일로 해 보세요. 무슨 일이 있었는지, 누구와, 어디서. 세 줄이면 충분해요."
+        },
+        {
+          "id": "escribo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tituloApp",
+              "textoApp",
+              "animoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "그래서 저는 매일 밤 추억 노트에 적어요. 오늘의 제목, 있었던 일, 그리고 기분을 담은 얼굴 하나."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "우리는 언제부터 추억을 남겼을까요?",
+      "respuesta": "아주 오래전부터예요. 유명한 건 1660년 새뮤얼 피프스의 일기, 첫 사진은 1826년쯤 니엡스가 찍었어요.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "2부. 우리는 언제부터 추억을 남겼을까요?"
+        },
+        {
+          "id": "pepys",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1660",
+            "clave": "pepys"
+          },
+          "lamina": [
+            "pepys",
+            "londres"
+          ],
+          "destacada": true,
+          "texto": "1660년, 런던의 관리 새뮤얼 피프스는 일기를 쓰기 시작해 9년 동안 거의 매일 썼어요. 덕분에 런던 대화재가 어땠는지 알 수 있죠. 그는 와인과 파르메산 치즈를 지키려고 직접 정원에 묻었대요."
+        },
+        {
+          "id": "niepce",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1826",
+            "clave": "niepce"
+          },
+          "lamina": [
+            "niepce",
+            "camaraAntigua"
+          ],
+          "texto": "그리고 1826년쯤, 프랑스의 니세포르 니엡스가 지금까지 남아 있는 가장 오래된 사진을 찍었어요. 자기 창문에서 본 풍경이에요. 사진 한 장에 몇 시간의 노출이 필요했어요."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diario",
+              "album",
+              "telefono"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "celularFotos"
+          ],
+          "texto": "요즘은 1년에 사진을 수천 장 찍지만, 다시 보는 일은 거의 없어요. 저장하는 데는 이제 돈이 들지 않아요. 어려운 건 추억에 이야기를 담는 거예요."
+        },
+        {
+          "id": "calendario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diaApp",
+              "colorApp",
+              "mesApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "제 캘린더에서는 추억이 있는 날이 그날 기분의 색으로 칠해져요. 한눈에 한 달이 어땠는지 보여요."
+        }
+      ]
+    },
+    {
+      "id": "fieles",
+      "titulo": "내 기억은 정확할까요?",
+      "respuesta": "아니요. 떠올릴 때마다 다시 짜 맞추며 모르게 바꾸니, 그날 바로 적어 두세요.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "3부. 내 기억은 정확할까요?"
+        },
+        {
+          "id": "loftus",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "palabra"
+          },
+          "lamina": [
+            "choque",
+            "testigo"
+          ],
+          "destacada": true,
+          "texto": "1974년, 엘리자베스 로프터스와 존 파머는 학생들에게 자동차 사고 영상을 보여 줬어요. 어떤 학생들에게는 차들이 「부딪쳤을」 때 얼마나 빨랐는지 묻고, 다른 학생들에게는 「박살 났을」 때라고 물었어요. 「박살 났을」이라고 들은 학생들은 속도를 더 높게 봤고, 일주일 뒤에는 많은 학생이 있지도 않았던 깨진 유리를 기억했어요."
+        },
+        {
+          "id": "talarico",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "talarico"
+          },
+          "lamina": [
+            "noticiasTele",
+            "periodico"
+          ],
+          "texto": "작은 일에서만 그런 게 아니에요. 2003년, 제니퍼 탈라리코와 데이비드 루빈은 학생들이 9·11 테러를 어떻게 기억하는지 추적했어요. 몇 달이 지나자 그 기억은 평범한 날의 기억만큼 바뀌었어요… 그런데도 학생들은 완벽하게 기억한다고 확신했죠."
+        },
+        {
+          "id": "mismoDia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "reconstruye",
+              "mismoDia",
+              "detalles"
+            ]
+          },
+          "lamina": [
+            "escribirCafe",
+            "notas"
+          ],
+          "meme": "seguro",
+          "texto": "무언가를 떠올릴 때마다 우리는 그 기억을 다시 짜 맞추고, 그 과정에서 변화가 끼어들어요. 그러니 그날 바로, 자세히 적으세요. 본 것, 들은 말, 느낀 것."
+        },
+        {
+          "id": "dia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocaApp",
+              "intactoApp",
+              "fechaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "어떤 날로 돌아가고 싶을 때는 캘린더에서 그날을 누르면, 그날 밤 적은 그대로 거기 있어요."
+        }
+      ]
+    },
+    {
+      "id": "quedan",
+      "titulo": "어떤 추억이 남을까요?",
+      "respuesta": "처음 겪는 일이에요. 그래서 10살부터 30살 사이를 많이 기억하죠. 몇 살이든 처음을 선물하세요.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "4부. 어떤 추억이 남을까요?"
+        },
+        {
+          "id": "rubin",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "joroba"
+          },
+          "lamina": [
+            "graduacion",
+            "primerAuto"
+          ],
+          "destacada": true,
+          "texto": "1986년, 데이비드 루빈과 연구진은 노인들에게 가장 생생한 기억을 물었어요. 대부분은 최근이 아니라 10살에서 30살 사이의 일이었어요. 연구진은 이걸 회상 절정, 추억의 혹이라고 불렀어요."
+        },
+        {
+          "id": "primeras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "primerTrabajo",
+              "primerViaje",
+              "primerAmor"
+            ]
+          },
+          "lamina": [
+            "primerDia",
+            "mudanza"
+          ],
+          "texto": "바로 처음이 가득한 나이예요. 첫 직장, 첫 혼자 여행, 첫사랑. 새로운 건 새겨지고, 반복되는 건 다른 모든 것과 섞여 버려요."
+        },
+        {
+          "id": "nuevas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "primerasVeces"
+          },
+          "lamina": [
+            "clase",
+            "caminoNuevo"
+          ],
+          "meme": "rutina",
+          "texto": "좋은 소식은, 처음은 몇 살이든 만들 수 있다는 거예요. 새로운 길, 새로운 요리, 새로운 수업. 여기서 이번 달의 처음을 골라 보세요."
+        },
+        {
+          "id": "fotosApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fotoApp",
+              "grandeApp",
+              "historiaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "그리고 추억마다 사진을 남겨요. 한 번 누르면 크게 볼 수 있고, 사진이 들려주는 이야기도 함께 있어요."
+        }
+      ]
+    },
+    {
+      "id": "despertar",
+      "titulo": "무엇이 추억을 깨울까요?",
+      "respuesta": "감각의 단서, 특히 냄새예요. 추억 옆에 노래나 물건, 향기를 함께 남겨 두세요.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "5부. 무엇이 추억을 깨울까요?"
+        },
+        {
+          "id": "herz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "sentidos"
+          },
+          "lamina": [
+            "cafeAroma",
+            "pan"
+          ],
+          "destacada": true,
+          "texto": "2004년, 레이첼 허즈는 보는 것, 듣는 것, 냄새로 추억을 깨워 봤어요. 냄새가 불러온 추억은 더 감정이 짙었고, 마치 그곳에 다시 서 있는 것처럼 느끼게 했어요."
+        },
+        {
+          "id": "pistasSentidos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "olor",
+              "cancion",
+              "objeto"
+            ]
+          },
+          "lamina": [
+            "vinilo",
+            "cajaRecuerdos"
+          ],
+          "texto": "그래서 옛 노래나 부엌 냄새 하나에 몇 년 전으로 돌아가는 거예요. 이걸 잘 활용하세요. 추억 옆에 무슨 노래가 흘렀는지, 어떤 냄새였는지, 손에 뭘 들고 있었는지 적어 두세요."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoAnecdotario"
+          },
+          "lamina": "pulgar",
+          "texto": "이 가이드가 마음에 든다면 좋아요를 누르고, 다음 편을 놓치지 않게 구독하고, 가장 좋은 추억을 함께 만든 그 사람에게 공유해 주세요."
+        },
+        {
+          "id": "caja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "boleto",
+              "playlist",
+              "frasco"
+            ]
+          },
+          "lamina": [
+            "boletos",
+            "audifonos"
+          ],
+          "meme": "cancion",
+          "texto": "그리고 작은 물건도 간직하세요. 표 한 장, 엽서, 그해 여름의 플레이리스트. 추억을 여는 열쇠들이에요."
+        },
+        {
+          "id": "animo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "caritasApp",
+              "animoDiaApp",
+              "sentirApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "저는 추억마다 얼굴로 기분을 붙여요. 행복, 평온, 피곤… 그러면 그때 느낀 마음도 기억나요."
+        }
+      ]
+    },
+    {
+      "id": "feliz",
+      "titulo": "추억하면 행복해질까요?",
+      "respuesta": "네. 좋은 추억을 하루 몇 분 떠올리면 기분이 좋아지고, 나쁜 감정은 좋은 감정보다 빨리 옅어져요.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "6부. 추억하면 행복해질까요?"
+        },
+        {
+          "id": "bryant",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "revivir"
+          },
+          "lamina": [
+            "sonrisa",
+            "atardecer"
+          ],
+          "destacada": true,
+          "texto": "2005년, 프레드 브라이언트와 연구진은 학생들에게 일주일 동안 하루 두 번, 10분씩 좋은 추억을 다시 떠올리게 했어요. 그 결과 하지 않은 학생들보다 더 행복해졌고, 특히 자세히 그려 본 학생들이 그랬어요."
+        },
+        {
+          "id": "walker",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "walker"
+          },
+          "lamina": [
+            "lluvia",
+            "solSale"
+          ],
+          "texto": "그리고 시간도 도와줘요. 2003년, 리처드 워커와 연구진은 나쁜 추억의 감정이 좋은 추억의 감정보다 더 빨리 옅어진다는 걸 발견했어요. 기억은 세월이 흐를수록 더 너그러워져요."
+        },
+        {
+          "id": "releer",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "malDia",
+              "releer",
+              "detalle"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "sofa"
+          ],
+          "meme": "releer",
+          "texto": "그러니 좋은 추억을 가까이 두세요. 힘든 날에는 하나를 천천히 다시 읽고, 다시 그려 보세요. 어디에 있었는지, 누가 웃고 있었는지, 어떤 냄새가 났는지."
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "listaApp",
+              "masApp",
+              "releoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "그리고 힘든 날이면 저는 추억 노트를 열고, 좋은 추억이 나올 때까지 내려 봐요."
+        }
+      ]
+    },
+    {
+      "id": "contar",
+      "titulo": "왜 내 이야기를 들려줘야 할까요?",
+      "respuesta": "추억을 나누면 가까워지고, 가족 이야기를 아는 아이들은 스스로에게 더 자신감을 가져요.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "7부. 왜 내 이야기를 들려줘야 할까요?"
+        },
+        {
+          "id": "fivush",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "familia"
+          },
+          "lamina": [
+            "abuela",
+            "cenaFamilia"
+          ],
+          "destacada": true,
+          "texto": "미국에서 마셜 듀크와 로빈 피버시는 아이들에게 가족에 관한 20가지 질문을 했어요. 부모님은 어디서 만났는지, 조부모님은 어디서 자랐는지. 이야기를 많이 아는 아이일수록 자신감이 더 컸고, 어려움에서도 더 잘 회복했어요."
+        },
+        {
+          "id": "subibaja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "subidas",
+              "bajadas",
+              "seguimos"
+            ]
+          },
+          "lamina": [
+            "fotoFamilia",
+            "manos"
+          ],
+          "texto": "특히 도움이 된 건 오르막과 내리막이 있는 이야기였어요. 「다 잃었지만, 다시 일어섰어.」 이런 이야기는 듣는 사람에게 더 큰 무언가에 속해 있다고 말해 줘요."
+        },
+        {
+          "id": "cuenta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cena",
+              "pregunta",
+              "graba"
+            ]
+          },
+          "lamina": [
+            "conversacion",
+            "grabarVoz"
+          ],
+          "texto": "그러니 저녁 식탁에서 내 이야기를 들려주고, 어르신들의 이야기는 들을 수 있을 때 물어보고, 간직하세요. 이야기하지 않은 건 사라져요."
+        },
+        {
+          "id": "anio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuentaApp",
+              "anioApp",
+              "llenaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "캘린더에서 달을 넘기면 추억이 있는 날이 얼마나 되는지 보이고, 제 한 해가 들려줄 이야기로 채워져 가요."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "어떻게 이어 갈까요? 이어 가기 위한 계획",
+      "respuesta": "매일 밤 세 줄을 쓰고, 사진과 처음을 더하고, 매달 추억을 다시 읽고 누군가에게 하나 들려주세요.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "8부. 어떻게 이어 갈까요? 이어 가기 위한 계획."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planAnecdotario"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "이번 주에는 매일 밤 세 줄을 쓰세요. 무슨 일이 있었는지, 누구와 함께였는지, 기분이 어땠는지."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "foto",
+              "primeraVez",
+              "olorCancion"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "caminoNuevo"
+          ],
+          "destacada": true,
+          "texto": "첫 달에는 추억마다 사진을 한 장 더하고, 매주 나에게 처음 하나를 선물하세요."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "relee",
+              "cuenta",
+              "copia"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "cenaFamilia"
+          ],
+          "texto": "그리고 매달, 추억을 다시 읽고, 소중한 사람에게 하나를 들려주고, 가장 중요한 건 사본을 남겨 두세요."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "calendarioFin",
+              "diaFin",
+              "fotosFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "어디서부터 시작할지 모르겠다면, 앱에서 제 추억 노트를 보세요. 꼬박 1년 치 추억이 들어 있어요."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "정리하면, 무엇을, 누구와, 어디서 했는지 적고, 그날 바로 쓰고, 나에게 처음을 선물하고, 감각의 단서를 남기고, 내 이야기를 들려주세요."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS의 추억 노트에서는 매일 추억 하나를 적고, 캘린더에서 내 기분을 보고, 사진을 그 이야기와 함께 간직할 수 있어요. 직접 해도 되고, AI의 도움을 받아도 돼요. 오늘 무료로 나만의 마음의 집을 지어 보세요. 링크는 설명란에 있어요. 그리고 놓친 가이드가 있다면, 거기에 전부 있어요.",
+    "boton": "추억 노트 열기",
+    "lamina": "app-plan",
+    "anclas": {
+      "recuerdo": "매일 추억 하나",
+      "calendario": "캘린더에서",
+      "fotos": "사진을"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "wagenaar-1986",
+      "texto": "Wagenaar W. A. My memory: a study of autobiographical memory over six years. Cognitive Psychology 18(2), 225-252 (1986).",
+      "url": "https://doi.org/10.1016/0010-0285(86)90013-7"
+    },
+    {
+      "id": "pepys",
+      "texto": "새뮤얼 피프스의 일기 (1660-1669). 위키백과.",
+      "url": "https://en.wikipedia.org/wiki/Samuel_Pepys"
+    },
+    {
+      "id": "niepce",
+      "texto": "니세포르 니엡스의 「르 그라의 창에서 본 풍경」 (1826년경). 위키백과.",
+      "url": "https://en.wikipedia.org/wiki/View_from_the_Window_at_Le_Gras"
+    },
+    {
+      "id": "loftus-1974",
+      "texto": "Loftus E. F., Palmer J. C. Reconstruction of automobile destruction: an example of the interaction between language and memory. Journal of Verbal Learning and Verbal Behavior 13(5), 585-589 (1974).",
+      "url": "https://doi.org/10.1016/S0022-5371(74)80011-3"
+    },
+    {
+      "id": "talarico-2003",
+      "texto": "Talarico J. M., Rubin D. C. Confidence, not consistency, characterizes flashbulb memories. Psychological Science 14(5), 455-461 (2003).",
+      "url": "https://doi.org/10.1111/1467-9280.02453"
+    },
+    {
+      "id": "rubin-1986",
+      "texto": "Rubin D. C., Wetzler S. E., Nebes R. D. Autobiographical memory across the lifespan. 수록: Rubin D. C. (ed.), Autobiographical Memory. Cambridge University Press (1986).",
+      "url": "https://en.wikipedia.org/wiki/Reminiscence_bump"
+    },
+    {
+      "id": "herz-2004",
+      "texto": "Herz R. S. A naturalistic analysis of autobiographical memories triggered by olfactory, visual and auditory stimuli. Chemical Senses 29(3), 217-224 (2004).",
+      "url": "https://doi.org/10.1093/chemse/bjh025"
+    },
+    {
+      "id": "bryant-2005",
+      "texto": "Bryant F. B., Smart C. M., King S. P. Using the past to enhance the present: boosting happiness through positive reminiscence. Journal of Happiness Studies 6(3), 227-260 (2005).",
+      "url": "https://doi.org/10.1007/s10902-005-3889-4"
+    },
+    {
+      "id": "walker-2003",
+      "texto": "Walker W. R., Skowronski J. J., Thompson C. P. Life is pleasant, and memory helps to keep it that way! Review of General Psychology 7(2), 203-210 (2003).",
+      "url": "https://doi.org/10.1037/1089-2680.7.2.203"
+    },
+    {
+      "id": "duke-2008",
+      "texto": "Duke M. P., Lazarus A., Fivush R. Knowledge of family history as a clinically useful index of psychological well-being and prognosis: a brief report. Psychotherapy: Theory, Research, Practice, Training 45(2), 268-272 (2008).",
+      "url": "https://doi.org/10.1037/0033-3204.45.2.268"
+    }
+  ]
+}

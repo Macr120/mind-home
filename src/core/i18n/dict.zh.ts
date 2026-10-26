@@ -7148,6 +7148,7 @@ export const ZH: Dict = {
   'guia.ideas.titulo': "怎样才能有更好的点子？",
   'guia.viajes.titulo': "怎样更好地旅行？",
   'guia.archivos.titulo': "怎样整理你的头脑？",
+  'guia.anecdotario.titulo': "怎样留住你最美好的回忆？",
   'guia.noticias.titulo': "追寻真与美：新闻与内容",
   'guia.matematicas.titulo': "宇宙的语言是什么？",
   'tut.esencial.titulo': '基础导览',

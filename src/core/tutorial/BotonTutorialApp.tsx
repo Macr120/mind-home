@@ -37,6 +37,7 @@ const GUIAS: Record<string, { tema: string; clave: string; es: string }> = {
   ideas: { tema: 'ideas', clave: 'guia.ideas.titulo', es: '¿Cómo tener mejores ideas?' },
   sala: { tema: 'viajes', clave: 'guia.viajes.titulo', es: '¿Cómo viajar mejor?' },
   archivos: { tema: 'archivos', clave: 'guia.archivos.titulo', es: '¿Cómo organizar tu mente?' },
+  anecdotario: { tema: 'anecdotario', clave: 'guia.anecdotario.titulo', es: '¿Cómo guardar tus mejores recuerdos?' },
   computo: { tema: 'matematicas', clave: 'guia.matematicas.titulo', es: '¿Cuál es el lenguaje del universo?' },
 }
 

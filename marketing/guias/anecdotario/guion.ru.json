@@ -1,0 +1,745 @@
+{
+  "idioma": "ru",
+  "tema": "anecdotario",
+  "plantillaId": "anecdotario",
+  "numero": 22,
+  "nombre": "Дневник",
+  "pregunta": "Как сохранить свои лучшие воспоминания?",
+  "corta": "Как сохранить воспоминания?",
+  "subtitulo": "Почему мы забываем почти всё, что переживаем, с каких пор мы храним воспоминания, верна ли твоя память, какие воспоминания остаются, что пробуждает воспоминание, делают ли воспоминания счастливее, зачем рассказывать свои истории и план на будущее.",
+  "aviso": "Это руководство носит информационный и общий характер. Приведённые исследования измеряют память и настроение конкретных групп людей; твои результаты могут отличаться.",
+  "partes": [
+    {
+      "id": "olvido",
+      "titulo": "Почему мы забываем почти всё?",
+      "respuesta": "Потому что без подсказок воспоминания стираются: каждый день записывай, что случилось, с кем и где, и вернёшь их через годы.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Как сохранить свои лучшие воспоминания? Из того, что ты переживаешь на этой неделе, через несколько лет ты забудешь почти всё. А то, что запомнишь, твой разум будет понемногу менять. А что, если сохранить это таким, каким оно было? Сегодня ты увидишь это на данных и уйдёшь с планом на будущее."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Кстати, это мой дом в MindHaOS, и сегодня он выходит в море: это корабль. Я мишка-моряк на борту, а это мой дневник: здесь я храню по одному воспоминанию за каждый день."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть первая. Почему мы забываем почти всё?"
+        },
+        {
+          "id": "wagenaar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1986",
+            "clave": "wagenaar"
+          },
+          "lamina": [
+            "diarioEscribir",
+            "calendarioViejo"
+          ],
+          "destacada": true,
+          "texto": "Шесть лет голландский психолог Виллем Вагенаар каждый день записывал, что с ним происходило: что, с кем, где и когда. Записав около двух тысяч четырёхсот событий, он проверил самого себя, а в 1986 году опубликовал, что обнаружил."
+        },
+        {
+          "id": "pistas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "quien",
+              "donde"
+            ]
+          },
+          "lamina": [
+            "fotoVieja",
+            "pensativo"
+          ],
+          "meme": "olvido",
+          "texto": "С одной подсказкой он вспоминал мало; с несколькими сразу возвращал события, которые считал потерянными. Что, кто и где были хорошими подсказками; хуже всего была дата. А дольше всего оставалось то, что его тронуло."
+        },
+        {
+          "id": "anotar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "recuerdoDelDia"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "Так что не надейся, что запомнишь: записывай. Попробуй здесь с чем-нибудь из сегодняшнего дня: что случилось, с кем и где. Трёх строк хватит."
+        },
+        {
+          "id": "escribo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tituloApp",
+              "textoApp",
+              "animoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Поэтому каждый вечер я пишу в своём дневнике: название дня, что произошло, и рожицу с тем, как я себя чувствовал."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "С каких пор мы храним воспоминания?",
+      "respuesta": "С давних времён: знаменит дневник Сэмюэла Пеписа 1660 года, а первое фото около 1826 года сделал Нисефор Ньепс.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть вторая. С каких пор мы храним воспоминания?"
+        },
+        {
+          "id": "pepys",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1660",
+            "clave": "pepys"
+          },
+          "lamina": [
+            "pepys",
+            "londres"
+          ],
+          "destacada": true,
+          "texto": "В 1660 году лондонский чиновник Сэмюэл Пепис начал дневник и вёл его почти каждый день девять лет. Благодаря ему мы знаем, как пережили Великий лондонский пожар: он сам закопал в саду своё вино и сыр пармезан, чтобы их спасти."
+        },
+        {
+          "id": "niepce",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1826",
+            "clave": "niepce"
+          },
+          "lamina": [
+            "niepce",
+            "camaraAntigua"
+          ],
+          "texto": "А около 1826 года француз Нисефор Ньепс сделал самую старую сохранившуюся фотографию: вид из своего окна. На один снимок ему понадобились часы выдержки."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diario",
+              "album",
+              "telefono"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "celularFotos"
+          ],
+          "texto": "Сегодня мы делаем тысячи фото в год и почти никогда их не пересматриваем. Хранить больше ничего не стоит; трудно другое — чтобы у воспоминания была своя история."
+        },
+        {
+          "id": "calendario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diaApp",
+              "colorApp",
+              "mesApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "В моём календаре каждый день с воспоминанием окрашивается в цвет моего настроения: одним взглядом я вижу, каким был мой месяц."
+        }
+      ]
+    },
+    {
+      "id": "fieles",
+      "titulo": "Верна ли твоя память?",
+      "respuesta": "Нет: каждый раз, вспоминая, ты собираешь воспоминание заново и незаметно меняешь его, так что записывай в тот же день.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть третья. Верна ли твоя память?"
+        },
+        {
+          "id": "loftus",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "palabra"
+          },
+          "lamina": [
+            "choque",
+            "testigo"
+          ],
+          "destacada": true,
+          "texto": "В 1974 году Элизабет Лофтус и Джон Палмер показали студентам видео аварии. Одних спросили, с какой скоростью ехали машины, когда соприкоснулись; других — когда врезались. Те, кого спросили про «врезались», называли скорость выше, а через неделю многие помнили разбитое стекло, которого не было."
+        },
+        {
+          "id": "talarico",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "talarico"
+          },
+          "lamina": [
+            "noticiasTele",
+            "periodico"
+          ],
+          "texto": "И это бывает не только с мелочами. В 2003 году Дженнифер Таларико и Дэвид Рубин следили за воспоминаниями студентов об одиннадцатом сентября. С месяцами они менялись так же, как воспоминания о самом обычном дне… но студенты по-прежнему были уверены, что помнят всё идеально."
+        },
+        {
+          "id": "mismoDia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "reconstruye",
+              "mismoDia",
+              "detalles"
+            ]
+          },
+          "lamina": [
+            "escribirCafe",
+            "notas"
+          ],
+          "meme": "seguro",
+          "texto": "Каждый раз, когда ты что-то вспоминаешь, ты собираешь это заново, и по дороге вкрадываются изменения. Поэтому записывай в тот же день, с деталями: что ты видел, что тебе сказали, что ты почувствовал."
+        },
+        {
+          "id": "dia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocaApp",
+              "intactoApp",
+              "fechaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "А когда я хочу вернуться к какому-то дню, я нажимаю на него в календаре, и вот он, ровно таким, каким я его записал тем вечером."
+        }
+      ]
+    },
+    {
+      "id": "quedan",
+      "titulo": "Какие воспоминания остаются?",
+      "respuesta": "Первые разы: поэтому больше всего мы помним с десяти до тридцати лет, так что дари себе первые разы в любом возрасте.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть четвёртая. Какие воспоминания остаются?"
+        },
+        {
+          "id": "rubin",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "joroba"
+          },
+          "lamina": [
+            "graduacion",
+            "primerAuto"
+          ],
+          "destacada": true,
+          "texto": "В 1986 году Дэвид Рубин и его команда попросили пожилых людей назвать самые яркие воспоминания. Большинство было не из последних лет, а из возраста от десяти до тридцати. Это назвали пиком воспоминаний."
+        },
+        {
+          "id": "primeras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "primerTrabajo",
+              "primerViaje",
+              "primerAmor"
+            ]
+          },
+          "lamina": [
+            "primerDia",
+            "mudanza"
+          ],
+          "texto": "Это возраст первых разов: первая работа, первое путешествие в одиночку, первая любовь. Новое запоминается; то, что повторяется, сливается со всем остальным."
+        },
+        {
+          "id": "nuevas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "primerasVeces"
+          },
+          "lamina": [
+            "clase",
+            "caminoNuevo"
+          ],
+          "meme": "rutina",
+          "texto": "Хорошая новость: первые разы можно создавать в любом возрасте. Новая дорога, рецепт, занятие. Выбери здесь свои на этот месяц."
+        },
+        {
+          "id": "fotosApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fotoApp",
+              "grandeApp",
+              "historiaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "А в каждом воспоминании я храню его фото; одним касанием открываю их крупно, рядом с историей, которую они рассказывают."
+        }
+      ]
+    },
+    {
+      "id": "despertar",
+      "titulo": "Что пробуждает воспоминание?",
+      "respuesta": "Подсказки органов чувств, особенно запахи: храни рядом с воспоминаниями песню, вещь или аромат.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть пятая. Что пробуждает воспоминание?"
+        },
+        {
+          "id": "herz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "sentidos"
+          },
+          "lamina": [
+            "cafeAroma",
+            "pan"
+          ],
+          "destacada": true,
+          "texto": "В 2004 году Рэйчел Херц проверила, как пробуждать воспоминания через зрение, слух и обоняние. Воспоминания, вызванные запахом, были эмоциональнее и сильнее переносили назад, будто ты снова там."
+        },
+        {
+          "id": "pistasSentidos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "olor",
+              "cancion",
+              "objeto"
+            ]
+          },
+          "lamina": [
+            "vinilo",
+            "cajaRecuerdos"
+          ],
+          "texto": "Поэтому старая песня или запах чьей-то кухни возвращают тебе целые годы. Используй это: рядом с воспоминанием запиши, что звучало, чем пахло, что было у тебя в руках."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoAnecdotario"
+          },
+          "lamina": "pulgar",
+          "texto": "Если тебе нравится это руководство, нажми «Нравится», «Подписаться», чтобы не пропустить следующее, и «Поделиться» — с тем человеком, с которым у тебя лучшие воспоминания."
+        },
+        {
+          "id": "caja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "boleto",
+              "playlist",
+              "frasco"
+            ]
+          },
+          "lamina": [
+            "boletos",
+            "audifonos"
+          ],
+          "meme": "cancion",
+          "texto": "И храни маленькие вещи: билет, открытку, список песен того лета. Это ключи, которые открывают воспоминания."
+        },
+        {
+          "id": "animo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "caritasApp",
+              "animoDiaApp",
+              "sentirApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "К каждому воспоминанию я добавляю рожицу с тем, как себя чувствовал: счастлив, спокоен, устал… и так я помню и то, что чувствовал."
+        }
+      ]
+    },
+    {
+      "id": "feliz",
+      "titulo": "Делают ли воспоминания счастливее?",
+      "respuesta": "Да: несколько минут в день заново переживать хорошие воспоминания поднимает настроение, а плохое со временем блекнет быстрее хорошего.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть шестая. Делают ли воспоминания счастливее?"
+        },
+        {
+          "id": "bryant",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "revivir"
+          },
+          "lamina": [
+            "sonrisa",
+            "atardecer"
+          ],
+          "destacada": true,
+          "texto": "В 2005 году Фред Брайант и его команда попросили студентов неделю, дважды в день по десять минут, заново переживать хорошее воспоминание. В конце они чувствовали себя счастливее тех, кто этого не делал, особенно те, кто представлял всё в деталях."
+        },
+        {
+          "id": "walker",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "walker"
+          },
+          "lamina": [
+            "lluvia",
+            "solSale"
+          ],
+          "texto": "И время помогает: в 2003 году Ричард Уокер и его команда увидели, что чувства от плохих воспоминаний блекнут быстрее, чем от хороших. С годами память становится добрее."
+        },
+        {
+          "id": "releer",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "malDia",
+              "releer",
+              "detalle"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "sofa"
+          ],
+          "meme": "releer",
+          "texto": "Так что держи хорошие воспоминания под рукой. В плохой день спокойно перечитай одно и представь его снова: где ты был, кто смеялся, чем пахло."
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "listaApp",
+              "masApp",
+              "releoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "А когда у меня плохой день, я открываю свой дневник и листаю воспоминания, пока не найду хорошее."
+        }
+      ]
+    },
+    {
+      "id": "contar",
+      "titulo": "Зачем рассказывать свои истории?",
+      "respuesta": "Потому что общие воспоминания сближают: дети, которые знают историю своей семьи, увереннее в себе.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть седьмая. Зачем рассказывать свои истории?"
+        },
+        {
+          "id": "fivush",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "familia"
+          },
+          "lamina": [
+            "abuela",
+            "cenaFamilia"
+          ],
+          "destacada": true,
+          "texto": "В Соединённых Штатах Маршалл Дьюк и Робин Фивуш задали детям двадцать вопросов о семье: где познакомились их родители, где выросли бабушки и дедушки. Те, кто знал больше историй, были увереннее в себе и лучше справлялись с трудностями."
+        },
+        {
+          "id": "subibaja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "subidas",
+              "bajadas",
+              "seguimos"
+            ]
+          },
+          "lamina": [
+            "fotoFamilia",
+            "manos"
+          ],
+          "texto": "Больше всего помогали истории со взлётами и падениями: «мы потеряли всё, но выкарабкались». Они говорят тому, кто слушает, что он часть чего-то большего."
+        },
+        {
+          "id": "cuenta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cena",
+              "pregunta",
+              "graba"
+            ]
+          },
+          "lamina": [
+            "conversacion",
+            "grabarVoz"
+          ],
+          "texto": "Так что рассказывай свои истории за ужином, расспрашивай старших, пока можешь, и сохраняй их: то, что не рассказано, теряется."
+        },
+        {
+          "id": "anio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuentaApp",
+              "anioApp",
+              "llenaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "С каждым месяцем я вижу в календаре, сколько дней с воспоминаниями, и мой год наполняется историями, которые можно рассказать."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Как продолжать? Твой план на будущее",
+      "respuesta": "Пиши каждый вечер три строки, добавляй фото и первые разы, а раз в месяц перечитывай воспоминания и рассказывай одно кому-нибудь.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Часть восьмая. Как продолжать? Твой план на будущее."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planAnecdotario"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "На этой неделе каждый вечер пиши три строки: что случилось, с кем и как ты себя чувствовал."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "foto",
+              "primeraVez",
+              "olorCancion"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "caminoNuevo"
+          ],
+          "destacada": true,
+          "texto": "В первый месяц добавь фото к каждому воспоминанию и каждую неделю дари себе какой-нибудь первый раз."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "relee",
+              "cuenta",
+              "copia"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "cenaFamilia"
+          ],
+          "texto": "А каждый месяц: перечитывай свои воспоминания, расскажи одно близкому человеку и сделай копию самого важного."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "calendarioFin",
+              "diaFin",
+              "fotosFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "А если не знаешь, с чего начать, загляни в мой дневник в приложении: там целый год воспоминаний."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Итак: записывай, что случилось, с кем и где; делай это в тот же день; дари себе первые разы; храни подсказки органов чувств; и рассказывай свои истории."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "В «Дневнике» MindHaOS ты записываешь по одному воспоминанию в день, видишь своё настроение в календаре и хранишь свои фото с их историей. Ты можешь делать это сам или с помощью ИИ. Построй свой мысленный дом бесплатно уже сегодня: ссылка в описании. А если ты пропустил какое-то руководство, там же есть все.",
+    "boton": "Открыть Дневник",
+    "lamina": "app-plan",
+    "anclas": {
+      "recuerdo": "по одному воспоминанию в день",
+      "calendario": "в календаре",
+      "fotos": "свои фото"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "wagenaar-1986",
+      "texto": "Wagenaar W. A. My memory: a study of autobiographical memory over six years. Cognitive Psychology 18(2), 225-252 (1986).",
+      "url": "https://doi.org/10.1016/0010-0285(86)90013-7"
+    },
+    {
+      "id": "pepys",
+      "texto": "Дневник Сэмюэла Пеписа (1660-1669). Википедия.",
+      "url": "https://en.wikipedia.org/wiki/Samuel_Pepys"
+    },
+    {
+      "id": "niepce",
+      "texto": "Вид из окна в Ле Гра, Нисефор Ньепс (около 1826). Википедия.",
+      "url": "https://en.wikipedia.org/wiki/View_from_the_Window_at_Le_Gras"
+    },
+    {
+      "id": "loftus-1974",
+      "texto": "Loftus E. F., Palmer J. C. Reconstruction of automobile destruction: an example of the interaction between language and memory. Journal of Verbal Learning and Verbal Behavior 13(5), 585-589 (1974).",
+      "url": "https://doi.org/10.1016/S0022-5371(74)80011-3"
+    },
+    {
+      "id": "talarico-2003",
+      "texto": "Talarico J. M., Rubin D. C. Confidence, not consistency, characterizes flashbulb memories. Psychological Science 14(5), 455-461 (2003).",
+      "url": "https://doi.org/10.1111/1467-9280.02453"
+    },
+    {
+      "id": "rubin-1986",
+      "texto": "Rubin D. C., Wetzler S. E., Nebes R. D. Autobiographical memory across the lifespan. В кн.: Rubin D. C. (ред.), Autobiographical Memory. Cambridge University Press (1986).",
+      "url": "https://en.wikipedia.org/wiki/Reminiscence_bump"
+    },
+    {
+      "id": "herz-2004",
+      "texto": "Herz R. S. A naturalistic analysis of autobiographical memories triggered by olfactory, visual and auditory stimuli. Chemical Senses 29(3), 217-224 (2004).",
+      "url": "https://doi.org/10.1093/chemse/bjh025"
+    },
+    {
+      "id": "bryant-2005",
+      "texto": "Bryant F. B., Smart C. M., King S. P. Using the past to enhance the present: boosting happiness through positive reminiscence. Journal of Happiness Studies 6(3), 227-260 (2005).",
+      "url": "https://doi.org/10.1007/s10902-005-3889-4"
+    },
+    {
+      "id": "walker-2003",
+      "texto": "Walker W. R., Skowronski J. J., Thompson C. P. Life is pleasant, and memory helps to keep it that way! Review of General Psychology 7(2), 203-210 (2003).",
+      "url": "https://doi.org/10.1037/1089-2680.7.2.203"
+    },
+    {
+      "id": "duke-2008",
+      "texto": "Duke M. P., Lazarus A., Fivush R. Knowledge of family history as a clinically useful index of psychological well-being and prognosis: a brief report. Psychotherapy: Theory, Research, Practice, Training 45(2), 268-272 (2008).",
+      "url": "https://doi.org/10.1037/0033-3204.45.2.268"
+    }
+  ]
+}

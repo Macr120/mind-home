@@ -1,0 +1,745 @@
+{
+  "idioma": "tr",
+  "tema": "anecdotario",
+  "plantillaId": "anecdotario",
+  "numero": 22,
+  "nombre": "Anı Defteri",
+  "pregunta": "En güzel anılarını nasıl saklarsın?",
+  "corta": "Anılarını nasıl saklarsın?",
+  "subtitulo": "Yaşadıklarımızın neredeyse hepsini neden unuttuğumuz, anıları ne zamandan beri sakladığımız, belleğinin sadık olup olmadığı, hangi anıların kaldığı, bir anıyı neyin uyandırdığı, hatırlamanın seni mutlu edip etmediği, hikâyelerini neden anlatman gerektiği ve devam etmek için bir plan.",
+  "aviso": "Bu rehber bilgilendirme amaçlı ve geneldir. Alıntılanan çalışmalar belirli insan gruplarının belleğini ve ruh hâlini ölçer; senin sonuçların farklı olabilir.",
+  "partes": [
+    {
+      "id": "olvido",
+      "titulo": "Neden neredeyse her şeyi unuturuz?",
+      "respuesta": "Çünkü ipucu olmadan anılar silinir: her gün ne olduğunu, kiminle ve nerede olduğunu yaz, yıllar sonra geri bulursun.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "En güzel anılarını nasıl saklarsın? Bu hafta yaşadıklarının neredeyse hepsini birkaç yıl içinde unutacaksın. Hatırladıklarını da zihnin yavaş yavaş değiştirecek. Peki ya onları olduğu gibi saklayabilseydin? Bugün bunu verilerle göreceksin ve devam etmek için bir planla ayrılacaksın."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Bu arada, burası MindHaOS’taki evim ve bugün denize açılıyor: bir gemi oldu. Ben de gemideki denizci ayıcığım, bu da benim anı defterim: burada her günden bir anı saklıyorum."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Birinci bölüm. Neden neredeyse her şeyi unuturuz?"
+        },
+        {
+          "id": "wagenaar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1986",
+            "clave": "wagenaar"
+          },
+          "lamina": [
+            "diarioEscribir",
+            "calendarioViejo"
+          ],
+          "destacada": true,
+          "texto": "Hollandalı psikolog Willem Wagenaar altı yıl boyunca her gün başına geleni yazdı: ne, kiminle, nerede ve ne zaman. Yaklaşık iki bin dört yüz olay biriktirince kendini sınadı ve 1986’da bulduklarını yayımladı."
+        },
+        {
+          "id": "pistas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "quien",
+              "donde"
+            ]
+          },
+          "lamina": [
+            "fotoVieja",
+            "pensativo"
+          ],
+          "meme": "olvido",
+          "texto": "Tek bir ipucuyla az şey hatırlıyordu; birkaçı bir aradayken kaybolduğunu sandığı olayları geri getiriyordu. Ne, kim ve nerede iyi ipuçlarıydı; en kötüsü tarihti. En çok aklında kalan da onu duygulandıran şeylerdi."
+        },
+        {
+          "id": "anotar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "recuerdoDelDia"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "Yani hatırlayacağına güvenme: yaz. Burada bugünden bir şeyle dene: ne oldu, kiminle ve nerede. Üç satır yeter."
+        },
+        {
+          "id": "escribo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tituloApp",
+              "textoApp",
+              "animoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bu yüzden her akşam anı defterime yazıyorum: günün başlığını, ne olduğunu ve nasıl hissettiğimi gösteren bir surat."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Anıları ne zamandan beri saklıyoruz?",
+      "respuesta": "Çok eskiden beri; ünlü bir günlük, Samuel Pepys’in 1660’ta başladığı günlüktür, ilk fotoğrafı da 1826 civarında Nicéphore Niépce çekti.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "İkinci bölüm. Anıları ne zamandan beri saklıyoruz?"
+        },
+        {
+          "id": "pepys",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1660",
+            "clave": "pepys"
+          },
+          "lamina": [
+            "pepys",
+            "londres"
+          ],
+          "destacada": true,
+          "texto": "1660’ta Londralı bir memur, Samuel Pepys, bir günlük tutmaya başladı ve dokuz yıl boyunca neredeyse her gün yazdı. Onun sayesinde Büyük Londra Yangını’nın nasıl yaşandığını biliyoruz: şarabını ve parmesan peynirini kurtarmak için bahçeye kendisi gömdü."
+        },
+        {
+          "id": "niepce",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1826",
+            "clave": "niepce"
+          },
+          "lamina": [
+            "niepce",
+            "camaraAntigua"
+          ],
+          "texto": "1826 civarında da Fransız Nicéphore Niépce günümüze ulaşan en eski fotoğrafı çekti: penceresinden görünen manzara. Tek bir görüntü için saatlerce pozlama gerekti."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diario",
+              "album",
+              "telefono"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "celularFotos"
+          ],
+          "texto": "Bugün yılda binlerce fotoğraf çekiyoruz ve neredeyse hiç dönüp bakmıyoruz. Saklamak artık bedava; zor olan, bir anının kendi hikâyesi olması."
+        },
+        {
+          "id": "calendario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diaApp",
+              "colorApp",
+              "mesApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Takvimimde anılı her gün ruh halimin rengine boyanıyor: ayımın nasıl geçtiğini tek bakışta görüyorum."
+        }
+      ]
+    },
+    {
+      "id": "fieles",
+      "titulo": "Belleğin sadık mı?",
+      "respuesta": "Hayır: her hatırladığında anıyı yeniden kurar ve farkında olmadan değiştirirsin, o yüzden aynı gün yaz.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Üçüncü bölüm. Belleğin sadık mı?"
+        },
+        {
+          "id": "loftus",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "palabra"
+          },
+          "lamina": [
+            "choque",
+            "testigo"
+          ],
+          "destacada": true,
+          "texto": "1974’te Elizabeth Loftus ve John Palmer öğrencilere bir kaza videosu izletti. Bazılarına arabalar birbirine değdiğinde ne kadar hızlı gittiklerini, diğerlerine çarpıştıklarında ne kadar hızlı gittiklerini sordular. “Çarpıştı” diye sorulanlar daha yüksek hız tahmin etti ve bir hafta sonra birçoğu hiç olmayan kırık camları hatırladı."
+        },
+        {
+          "id": "talarico",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "talarico"
+          },
+          "lamina": [
+            "noticiasTele",
+            "periodico"
+          ],
+          "texto": "Bu sadece küçük şeylerde olmuyor. 2003’te Jennifer Talarico ve David Rubin öğrencilerin 11 Eylül anılarını takip etti. Aylar geçtikçe sıradan bir günün anıları kadar değiştiler… ama öğrenciler hâlâ her şeyi kusursuz hatırladıklarından emindi."
+        },
+        {
+          "id": "mismoDia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "reconstruye",
+              "mismoDia",
+              "detalles"
+            ]
+          },
+          "lamina": [
+            "escribirCafe",
+            "notas"
+          ],
+          "meme": "seguro",
+          "texto": "Bir şeyi her hatırladığında onu yeniden kurarsın ve bu sırada araya değişiklikler girer. Bu yüzden aynı gün, ayrıntılarıyla yaz: ne gördüğünü, sana ne söylendiğini, ne hissettiğini."
+        },
+        {
+          "id": "dia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocaApp",
+              "intactoApp",
+              "fechaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Bir güne geri dönmek istediğimde takvimde ona dokunuyorum ve işte orada, o akşam yazdığım gibi duruyor."
+        }
+      ]
+    },
+    {
+      "id": "quedan",
+      "titulo": "Hangi anılar kalır?",
+      "respuesta": "İlkler: bu yüzden en çok on ile otuz yaş arasını hatırlarız; o halde her yaşta kendine yeni ilkler hediye et.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Dördüncü bölüm. Hangi anılar kalır?"
+        },
+        {
+          "id": "rubin",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "joroba"
+          },
+          "lamina": [
+            "graduacion",
+            "primerAuto"
+          ],
+          "destacada": true,
+          "texto": "1986’da David Rubin ve ekibi yaşlı insanlardan en canlı anılarını istedi. Çoğu son yıllardan değil, on ile otuz yaş arasından geliyordu. Buna anı tümseği adını verdiler."
+        },
+        {
+          "id": "primeras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "primerTrabajo",
+              "primerViaje",
+              "primerAmor"
+            ]
+          },
+          "lamina": [
+            "primerDia",
+            "mudanza"
+          ],
+          "texto": "Bu, ilklerin yaşıdır: ilk iş, tek başına ilk yolculuk, ilk aşk. Yeni olan kazınır; tekrar eden her şey birbirine karışır."
+        },
+        {
+          "id": "nuevas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "primerasVeces"
+          },
+          "lamina": [
+            "clase",
+            "caminoNuevo"
+          ],
+          "meme": "rutina",
+          "texto": "İyi haber şu: her yaşta yeni ilkler yaratabilirsin. Yeni bir yol, bir tarif, bir kurs. Bu ay için kendininkileri burada seç."
+        },
+        {
+          "id": "fotosApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fotoApp",
+              "grandeApp",
+              "historiaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Her anıda fotoğraflarını da saklıyorum; tek dokunuşla onları büyük görüyorum, anlattıkları hikâyenin yanında."
+        }
+      ]
+    },
+    {
+      "id": "despertar",
+      "titulo": "Bir anıyı ne uyandırır?",
+      "respuesta": "Duyuların ipuçları, özellikle kokular: anılarının yanına bir şarkı, bir eşya ya da bir koku sakla.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Beşinci bölüm. Bir anıyı ne uyandırır?"
+        },
+        {
+          "id": "herz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "sentidos"
+          },
+          "lamina": [
+            "cafeAroma",
+            "pan"
+          ],
+          "destacada": true,
+          "texto": "2004’te Rachel Herz anıları görme, işitme ve koku ile uyandırmayı denedi. Bir kokunun getirdiği anılar daha duygusaldı ve insanı daha çok o ana taşıyordu, sanki yeniden oradaymışsın gibi."
+        },
+        {
+          "id": "pistasSentidos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "olor",
+              "cancion",
+              "objeto"
+            ]
+          },
+          "lamina": [
+            "vinilo",
+            "cajaRecuerdos"
+          ],
+          "texto": "Bu yüzden eski bir şarkı ya da bir mutfağın kokusu sana koca yılları geri getirir. Bunu lehine kullan: bir anının yanına ne çaldığını, neyin koktuğunu, elinde ne olduğunu yaz."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoAnecdotario"
+          },
+          "lamina": "pulgar",
+          "texto": "Bu rehberi beğeniyorsan Beğen’e bas, bir sonrakini kaçırmamak için Abone ol ve en güzel anılarını paylaştığın o kişiyle Paylaş."
+        },
+        {
+          "id": "caja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "boleto",
+              "playlist",
+              "frasco"
+            ]
+          },
+          "lamina": [
+            "boletos",
+            "audifonos"
+          ],
+          "meme": "cancion",
+          "texto": "Küçük eşyaları da sakla: bir bilet, bir kartpostal, o yazın şarkı listesi. Bunlar anıları açan anahtarlardır."
+        },
+        {
+          "id": "animo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "caritasApp",
+              "animoDiaApp",
+              "sentirApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Her anıya nasıl hissettiğimi bir suratla ekliyorum: mutlu, sakin, yorgun… böylece ne hissettiğimi de hatırlıyorum."
+        }
+      ]
+    },
+    {
+      "id": "feliz",
+      "titulo": "Hatırlamak seni mutlu eder mi?",
+      "respuesta": "Evet: güzel anıları günde birkaç dakika yeniden yaşamak moralini yükseltir ve zamanla kötü olan iyiden daha hızlı söner.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Altıncı bölüm. Hatırlamak seni mutlu eder mi?"
+        },
+        {
+          "id": "bryant",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "revivir"
+          },
+          "lamina": [
+            "sonrisa",
+            "atardecer"
+          ],
+          "destacada": true,
+          "texto": "2005’te Fred Bryant ve ekibi öğrencilerden bir hafta boyunca, günde iki kez on dakika, güzel bir anıyı yeniden yaşamalarını istedi. Sonunda bunu yapmayanlardan daha mutlu hissediyorlardı, özellikle de anıyı ayrıntılarıyla hayal edenler."
+        },
+        {
+          "id": "walker",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "walker"
+          },
+          "lamina": [
+            "lluvia",
+            "solSale"
+          ],
+          "texto": "Zaman da yardım eder: 2003’te Richard Walker ve ekibi, kötü anılarda hissettiklerimizin iyi anılardakinden daha hızlı söndüğünü gördü. Bellek yıllar geçtikçe daha şefkatli olur."
+        },
+        {
+          "id": "releer",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "malDia",
+              "releer",
+              "detalle"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "sofa"
+          ],
+          "meme": "releer",
+          "texto": "O yüzden güzel anılarını el altında tut. Kötü bir günde birini sakin sakin yeniden oku ve tekrar hayal et: neredeydin, kim gülüyordu, ne kokuyordu."
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "listaApp",
+              "masApp",
+              "releoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Kötü bir gün geçirdiğimde anı defterimi açıyorum ve güzel bir tane bulana kadar anılarımda aşağı iniyorum."
+        }
+      ]
+    },
+    {
+      "id": "contar",
+      "titulo": "Hikâyelerini neden anlatmalısın?",
+      "respuesta": "Çünkü anıları paylaşmak bizi birbirimize bağlar: ailesinin hikâyelerini bilen çocuklar kendilerine daha çok güvenir.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Yedinci bölüm. Hikâyelerini neden anlatmalısın?"
+        },
+        {
+          "id": "fivush",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "familia"
+          },
+          "lamina": [
+            "abuela",
+            "cenaFamilia"
+          ],
+          "destacada": true,
+          "texto": "Amerika Birleşik Devletleri’nde Marshall Duke ve Robyn Fivush çocuklara aileleri hakkında yirmi soru sordu: anne babaları nerede tanışmış, büyükanne ve büyükbabaları nerede büyümüş. Daha çok hikâye bilenler kendilerine daha çok güveniyor ve sorunlardan daha iyi toparlanıyordu."
+        },
+        {
+          "id": "subibaja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "subidas",
+              "bajadas",
+              "seguimos"
+            ]
+          },
+          "lamina": [
+            "fotoFamilia",
+            "manos"
+          ],
+          "texto": "En çok da inişli çıkışlı hikâyeler yardım ediyordu: “her şeyimizi kaybettik ama yine de toparlandık.” Bu hikâyeler dinleyene daha büyük bir şeyin parçası olduğunu söyler."
+        },
+        {
+          "id": "cuenta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cena",
+              "pregunta",
+              "graba"
+            ]
+          },
+          "lamina": [
+            "conversacion",
+            "grabarVoz"
+          ],
+          "texto": "O yüzden hikâyelerini akşam yemeğinde anlat, büyüklerinin hikâyelerini fırsat varken sor ve sakla: anlatılmayan kaybolur."
+        },
+        {
+          "id": "anio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuentaApp",
+              "anioApp",
+              "llenaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Aylar geçtikçe takvimimde kaç günün anılı olduğunu görüyorum ve yılım anlatacak hikâyelerle doluyor."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Nasıl devam etmeli? Devam etmek için planın",
+      "respuesta": "Her akşam üç satır yaz, fotoğraf ve ilkler ekle, her ay da anılarını yeniden okuyup birini birine anlat.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Sekizinci bölüm. Nasıl devam etmeli? Devam etmek için planın."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planAnecdotario"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "Bu hafta her akşam üç satır yaz: ne oldu, kiminle ve nasıl hissettin."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "foto",
+              "primeraVez",
+              "olorCancion"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "caminoNuevo"
+          ],
+          "destacada": true,
+          "texto": "İlk ay her anıya bir fotoğraf ekle ve her hafta kendine bir ilk hediye et."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "relee",
+              "cuenta",
+              "copia"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "cenaFamilia"
+          ],
+          "texto": "Ve her ay: anılarını yeniden oku, sevdiğin birine bir tanesini anlat ve senin için en önemli olanların yedeğini al."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "calendarioFin",
+              "diaFin",
+              "fotosFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Nereden başlayacağını bilmiyorsan uygulamadaki anı defterime bak: içinde koca bir yılın anıları var."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Özetle: ne olduğunu, kiminle ve nerede olduğunu yaz; aynı gün yaz; kendine ilkler hediye et; duyularının ipuçlarını sakla; ve hikâyelerini anlat."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "MindHaOS’un Anı Defteri’nde her gün bir anı yazarsın, ruh halini takvimde görürsün ve fotoğraflarını hikâyeleriyle saklarsın. Bunu kendi başına ya da yapay zekânın yardımıyla yapabilirsin. Zihinsel evini bugün ücretsiz kur: bağlantı açıklamada. Bir rehberi kaçırdıysan, hepsi de orada.",
+    "boton": "Anı Defteri’ni aç",
+    "lamina": "app-plan",
+    "anclas": {
+      "recuerdo": "her gün bir anı",
+      "calendario": "takvimde",
+      "fotos": "fotoğraflarını"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "wagenaar-1986",
+      "texto": "Wagenaar W. A. My memory: a study of autobiographical memory over six years. Cognitive Psychology 18(2), 225-252 (1986).",
+      "url": "https://doi.org/10.1016/0010-0285(86)90013-7"
+    },
+    {
+      "id": "pepys",
+      "texto": "Samuel Pepys’in günlüğü (1660-1669). Vikipedi.",
+      "url": "https://en.wikipedia.org/wiki/Samuel_Pepys"
+    },
+    {
+      "id": "niepce",
+      "texto": "Le Gras’taki pencereden görünüm, Nicéphore Niépce (1826 civarı). Vikipedi.",
+      "url": "https://en.wikipedia.org/wiki/View_from_the_Window_at_Le_Gras"
+    },
+    {
+      "id": "loftus-1974",
+      "texto": "Loftus E. F., Palmer J. C. Reconstruction of automobile destruction: an example of the interaction between language and memory. Journal of Verbal Learning and Verbal Behavior 13(5), 585-589 (1974).",
+      "url": "https://doi.org/10.1016/S0022-5371(74)80011-3"
+    },
+    {
+      "id": "talarico-2003",
+      "texto": "Talarico J. M., Rubin D. C. Confidence, not consistency, characterizes flashbulb memories. Psychological Science 14(5), 455-461 (2003).",
+      "url": "https://doi.org/10.1111/1467-9280.02453"
+    },
+    {
+      "id": "rubin-1986",
+      "texto": "Rubin D. C., Wetzler S. E., Nebes R. D. Autobiographical memory across the lifespan. Rubin D. C. (ed.), Autobiographical Memory içinde. Cambridge University Press (1986).",
+      "url": "https://en.wikipedia.org/wiki/Reminiscence_bump"
+    },
+    {
+      "id": "herz-2004",
+      "texto": "Herz R. S. A naturalistic analysis of autobiographical memories triggered by olfactory, visual and auditory stimuli. Chemical Senses 29(3), 217-224 (2004).",
+      "url": "https://doi.org/10.1093/chemse/bjh025"
+    },
+    {
+      "id": "bryant-2005",
+      "texto": "Bryant F. B., Smart C. M., King S. P. Using the past to enhance the present: boosting happiness through positive reminiscence. Journal of Happiness Studies 6(3), 227-260 (2005).",
+      "url": "https://doi.org/10.1007/s10902-005-3889-4"
+    },
+    {
+      "id": "walker-2003",
+      "texto": "Walker W. R., Skowronski J. J., Thompson C. P. Life is pleasant, and memory helps to keep it that way! Review of General Psychology 7(2), 203-210 (2003).",
+      "url": "https://doi.org/10.1037/1089-2680.7.2.203"
+    },
+    {
+      "id": "duke-2008",
+      "texto": "Duke M. P., Lazarus A., Fivush R. Knowledge of family history as a clinically useful index of psychological well-being and prognosis: a brief report. Psychotherapy: Theory, Research, Practice, Training 45(2), 268-272 (2008).",
+      "url": "https://doi.org/10.1037/0033-3204.45.2.268"
+    }
+  ]
+}

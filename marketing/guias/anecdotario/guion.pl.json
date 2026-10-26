@@ -1,0 +1,745 @@
+{
+  "idioma": "pl",
+  "tema": "anecdotario",
+  "plantillaId": "anecdotario",
+  "numero": 22,
+  "nombre": "Dziennik wspomnień",
+  "pregunta": "Jak zachować swoje najlepsze wspomnienia?",
+  "corta": "Jak zachować wspomnienia?",
+  "subtitulo": "Dlaczego zapominamy prawie wszystko, co przeżywamy, od kiedy przechowujemy wspomnienia, czy twoja pamięć jest wierna, które wspomnienia zostają, co budzi wspomnienie, czy wspominanie daje szczęście, dlaczego warto opowiadać swoje historie i plan na ciąg dalszy.",
+  "aviso": "Ten przewodnik ma charakter informacyjny i ogólny. Cytowane badania mierzą pamięć i nastrój konkretnych grup ludzi; twoje wyniki mogą być inne.",
+  "partes": [
+    {
+      "id": "olvido",
+      "titulo": "Dlaczego zapominamy prawie wszystko?",
+      "respuesta": "Bo bez wskazówek wspomnienia się zacierają: zapisuj codziennie, co się stało, z kim i gdzie, a odzyskasz je po latach.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "Jak zachować swoje najlepsze wspomnienia? Z tego, co przeżywasz w tym tygodniu, za kilka lat zapomnisz prawie wszystko. A to, co zapamiętasz, twój umysł będzie po cichu zmieniał. A gdyby dało się to zachować dokładnie tak, jak było? Dziś zobaczysz to na danych i wyjdziesz z planem na ciąg dalszy."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "Przy okazji, to mój dom w MindHaOS, a dziś wypływa w morze: jest statkiem. Ja jestem misiem marynarzem na pokładzie, a to mój dziennik wspomnień: zapisuję tu jedno wspomnienie z każdego dnia."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część pierwsza. Dlaczego zapominamy prawie wszystko?"
+        },
+        {
+          "id": "wagenaar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1986",
+            "clave": "wagenaar"
+          },
+          "lamina": [
+            "diarioEscribir",
+            "calendarioViejo"
+          ],
+          "destacada": true,
+          "texto": "Przez sześć lat holenderski psycholog Willem Wagenaar codziennie zapisywał, co mu się przydarzyło: co, z kim, gdzie i kiedy. Mając około dwóch tysięcy czterystu zapisanych zdarzeń, sprawdził sam siebie, a w 1986 roku opublikował, co odkrył."
+        },
+        {
+          "id": "pistas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "quien",
+              "donde"
+            ]
+          },
+          "lamina": [
+            "fotoVieja",
+            "pensativo"
+          ],
+          "meme": "olvido",
+          "texto": "Z jedną wskazówką pamiętał niewiele; z kilkoma naraz odzyskiwał zdarzenia, które uważał za stracone. Co, kto i gdzie były dobrymi wskazówkami; najgorsza była data. A najdłużej zostawało to, co go poruszyło."
+        },
+        {
+          "id": "anotar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "recuerdoDelDia"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "Więc nie licz na to, że zapamiętasz: zapisuj. Spróbuj tutaj z czymś z dzisiaj: co się stało, z kim i gdzie. Wystarczą trzy linijki."
+        },
+        {
+          "id": "escribo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tituloApp",
+              "textoApp",
+              "animoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Dlatego co wieczór piszę w moim dzienniku wspomnień: tytuł dnia, co się wydarzyło, i buźkę z tym, jak się czułem."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "Od kiedy przechowujemy wspomnienia?",
+      "respuesta": "Od zawsze, ale słynny jest dziennik Samuela Pepysa z 1660 roku, a pierwsze zdjęcie zrobił około 1826 roku Nicéphore Niépce.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część druga. Od kiedy przechowujemy wspomnienia?"
+        },
+        {
+          "id": "pepys",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1660",
+            "clave": "pepys"
+          },
+          "lamina": [
+            "pepys",
+            "londres"
+          ],
+          "destacada": true,
+          "texto": "W 1660 roku londyński urzędnik Samuel Pepys zaczął pisać dziennik i prowadził go niemal codziennie przez dziewięć lat. Dzięki niemu wiemy, jak przeżywano wielki pożar Londynu: sam zakopał w ogrodzie swoje wino i parmezan, żeby je ocalić."
+        },
+        {
+          "id": "niepce",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1826",
+            "clave": "niepce"
+          },
+          "lamina": [
+            "niepce",
+            "camaraAntigua"
+          ],
+          "texto": "A około 1826 roku Francuz Nicéphore Niépce zrobił najstarsze zachowane zdjęcie: widok ze swojego okna. Na jeden obraz potrzebował wielu godzin naświetlania."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diario",
+              "album",
+              "telefono"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "celularFotos"
+          ],
+          "texto": "Dziś robimy tysiące zdjęć rocznie i prawie nigdy do nich nie wracamy. Przechowywanie nic już nie kosztuje; trudniej sprawić, by wspomnienie miało swoją historię."
+        },
+        {
+          "id": "calendario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diaApp",
+              "colorApp",
+              "mesApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "W moim kalendarzu każdy dzień ze wspomnieniem maluje się kolorem mojego nastroju: jednym spojrzeniem widzę, jak minął mi miesiąc."
+        }
+      ]
+    },
+    {
+      "id": "fieles",
+      "titulo": "Czy twoja pamięć jest wierna?",
+      "respuesta": "Nie: za każdym razem, gdy wspominasz, odtwarzasz wspomnienie i nieświadomie je zmieniasz, więc zapisz je tego samego dnia.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część trzecia. Czy twoja pamięć jest wierna?"
+        },
+        {
+          "id": "loftus",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "palabra"
+          },
+          "lamina": [
+            "choque",
+            "testigo"
+          ],
+          "destacada": true,
+          "texto": "W 1974 roku Elizabeth Loftus i John Palmer pokazali studentom film z wypadku. Jednych zapytali, jak szybko jechały auta, kiedy się zetknęły; innych, kiedy się roztrzaskały. Ci od „roztrzaskały” szacowali większą prędkość, a tydzień później wielu pamiętało potłuczone szkło, którego nigdy nie było."
+        },
+        {
+          "id": "talarico",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "talarico"
+          },
+          "lamina": [
+            "noticiasTele",
+            "periodico"
+          ],
+          "texto": "I nie dotyczy to tylko drobiazgów. W 2003 roku Jennifer Talarico i David Rubin śledzili wspomnienia studentów z jedenastego września. Z miesiącami zmieniały się tak samo jak wspomnienia ze zwykłego dnia… ale oni wciąż byli pewni, że pamiętają wszystko idealnie."
+        },
+        {
+          "id": "mismoDia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "reconstruye",
+              "mismoDia",
+              "detalles"
+            ]
+          },
+          "lamina": [
+            "escribirCafe",
+            "notas"
+          ],
+          "meme": "seguro",
+          "texto": "Za każdym razem, gdy coś wspominasz, składasz to od nowa, a po drodze wkradają się zmiany. Dlatego zapisz to tego samego dnia, ze szczegółami: co widziałeś, co ci powiedziano, co czułeś."
+        },
+        {
+          "id": "dia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocaApp",
+              "intactoApp",
+              "fechaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "A kiedy chcę wrócić do jakiegoś dnia, dotykam go w kalendarzu i oto jest, dokładnie tak, jak go opisałem tamtego wieczoru."
+        }
+      ]
+    },
+    {
+      "id": "quedan",
+      "titulo": "Które wspomnienia zostają?",
+      "respuesta": "Pierwsze razy: dlatego najwięcej pamiętamy z wieku od dziesięciu do trzydziestu lat, więc funduj sobie pierwsze razy w każdym wieku.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część czwarta. Które wspomnienia zostają?"
+        },
+        {
+          "id": "rubin",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "joroba"
+          },
+          "lamina": [
+            "graduacion",
+            "primerAuto"
+          ],
+          "destacada": true,
+          "texto": "W 1986 roku David Rubin i jego zespół poprosili starszych ludzi o ich najżywsze wspomnienia. Większość nie pochodziła z ostatnich lat, tylko z wieku od dziesięciu do trzydziestu lat. Nazwali to garbem wspomnień."
+        },
+        {
+          "id": "primeras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "primerTrabajo",
+              "primerViaje",
+              "primerAmor"
+            ]
+          },
+          "lamina": [
+            "primerDia",
+            "mudanza"
+          ],
+          "texto": "To wiek pierwszych razów: pierwsza praca, pierwsza samodzielna podróż, pierwsza miłość. Nowe się zapisuje; to, co się powtarza, zlewa się z całą resztą."
+        },
+        {
+          "id": "nuevas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "primerasVeces"
+          },
+          "lamina": [
+            "clase",
+            "caminoNuevo"
+          ],
+          "meme": "rutina",
+          "texto": "Dobra wiadomość: pierwsze razy możesz tworzyć w każdym wieku. Nowa droga, nowy przepis, nowe zajęcia. Wybierz tutaj swoje na ten miesiąc."
+        },
+        {
+          "id": "fotosApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fotoApp",
+              "grandeApp",
+              "historiaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "A w każdym wspomnieniu trzymam jego zdjęcia; jednym dotknięciem oglądam je w dużym formacie, razem z historią, którą opowiadają."
+        }
+      ]
+    },
+    {
+      "id": "despertar",
+      "titulo": "Co budzi wspomnienie?",
+      "respuesta": "Wskazówki zmysłów, zwłaszcza zapachy: przechowuj obok wspomnień piosenkę, przedmiot albo zapach.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część piąta. Co budzi wspomnienie?"
+        },
+        {
+          "id": "herz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "sentidos"
+          },
+          "lamina": [
+            "cafeAroma",
+            "pan"
+          ],
+          "destacada": true,
+          "texto": "W 2004 roku Rachel Herz sprawdziła, jak budzą się wspomnienia przez wzrok, słuch i węch. Wspomnienia przywołane zapachem były bardziej emocjonalne i mocniej przenosiły w czasie, jakbyś znów tam był."
+        },
+        {
+          "id": "pistasSentidos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "olor",
+              "cancion",
+              "objeto"
+            ]
+          },
+          "lamina": [
+            "vinilo",
+            "cajaRecuerdos"
+          ],
+          "texto": "Dlatego stara piosenka albo zapach jakiejś kuchni oddają ci całe lata. Wykorzystaj to: obok wspomnienia zapisz, co grało, czym pachniało, co trzymałeś w ręce."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoAnecdotario"
+          },
+          "lamina": "pulgar",
+          "texto": "Jeśli ten przewodnik ci się podoba, kliknij „Podoba mi się”, „Subskrybuj”, żeby nie przegapić następnego, i „Udostępnij” go osobie, z którą masz najlepsze wspomnienia."
+        },
+        {
+          "id": "caja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "boleto",
+              "playlist",
+              "frasco"
+            ]
+          },
+          "lamina": [
+            "boletos",
+            "audifonos"
+          ],
+          "meme": "cancion",
+          "texto": "I zachowuj drobne przedmioty: bilet, pocztówkę, listę piosenek z tamtego lata. To klucze, które otwierają wspomnienia."
+        },
+        {
+          "id": "animo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "caritasApp",
+              "animoDiaApp",
+              "sentirApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Do każdego wspomnienia dodaję buźkę z tym, jak się czułem: szczęśliwy, spokojny, zmęczony… i tak pamiętam też, co czułem."
+        }
+      ]
+    },
+    {
+      "id": "feliz",
+      "titulo": "Czy wspominanie daje szczęście?",
+      "respuesta": "Tak: przeżywanie dobrych wspomnień przez kilka minut dziennie poprawia nastrój, a z czasem złe blednie szybciej niż dobre.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część szósta. Czy wspominanie daje szczęście?"
+        },
+        {
+          "id": "bryant",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "revivir"
+          },
+          "lamina": [
+            "sonrisa",
+            "atardecer"
+          ],
+          "destacada": true,
+          "texto": "W 2005 roku Fred Bryant i jego zespół poprosili studentów, by przez tydzień, dwa razy dziennie, przez dziesięć minut na nowo przeżywali dobre wspomnienie. Na koniec czuli się szczęśliwsi niż ci, którzy tego nie robili, zwłaszcza ci, którzy wyobrażali je sobie ze szczegółami."
+        },
+        {
+          "id": "walker",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "walker"
+          },
+          "lamina": [
+            "lluvia",
+            "solSale"
+          ],
+          "texto": "A czas pomaga: w 2003 roku Richard Walker i jego zespół zauważyli, że to, co czujemy przy złych wspomnieniach, blednie szybciej niż przy dobrych. Pamięć z latami staje się łagodniejsza."
+        },
+        {
+          "id": "releer",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "malDia",
+              "releer",
+              "detalle"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "sofa"
+          ],
+          "meme": "releer",
+          "texto": "Miej więc swoje dobre wspomnienia pod ręką. W gorszy dzień przeczytaj jedno spokojnie i wyobraź je sobie na nowo: gdzie byłeś, kto się śmiał, czym pachniało."
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "listaApp",
+              "masApp",
+              "releoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "A kiedy mam gorszy dzień, otwieram mój dziennik wspomnień i przewijam wspomnienia, aż znajdę jakieś dobre."
+        }
+      ]
+    },
+    {
+      "id": "contar",
+      "titulo": "Dlaczego warto opowiadać swoje historie?",
+      "respuesta": "Bo dzielenie się wspomnieniami nas łączy: dzieci, które znają historie swojej rodziny, są bardziej pewne siebie.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część siódma. Dlaczego warto opowiadać swoje historie?"
+        },
+        {
+          "id": "fivush",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "familia"
+          },
+          "lamina": [
+            "abuela",
+            "cenaFamilia"
+          ],
+          "destacada": true,
+          "texto": "W Stanach Zjednoczonych Marshall Duke i Robyn Fivush zadali dzieciom dwadzieścia pytań o ich rodzinę: gdzie poznali się ich rodzice, gdzie dorastali dziadkowie. Te, które znały więcej historii, miały więcej pewności siebie i lepiej podnosiły się po problemach."
+        },
+        {
+          "id": "subibaja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "subidas",
+              "bajadas",
+              "seguimos"
+            ]
+          },
+          "lamina": [
+            "fotoFamilia",
+            "manos"
+          ],
+          "texto": "Najbardziej pomagały historie ze wzlotami i upadkami: „straciliśmy wszystko, ale wyszliśmy na prostą”. Mówią temu, kto ich słucha, że należy do czegoś większego."
+        },
+        {
+          "id": "cuenta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cena",
+              "pregunta",
+              "graba"
+            ]
+          },
+          "lamina": [
+            "conversacion",
+            "grabarVoz"
+          ],
+          "texto": "Opowiadaj więc swoje historie przy kolacji, pytaj starszych o ich historie, póki możesz, i zachowuj je: to, czego się nie opowiada, ginie."
+        },
+        {
+          "id": "anio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuentaApp",
+              "anioApp",
+              "llenaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "Gdy mijają miesiące, widzę w kalendarzu, ile dni ma wspomnienie, a mój rok wypełnia się historiami do opowiedzenia."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "Jak iść dalej? Twój plan na ciąg dalszy",
+      "respuesta": "Pisz co wieczór trzy linijki, dodawaj zdjęcia i pierwsze razy, a co miesiąc czytaj swoje wspomnienia i opowiedz komuś jedno z nich.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "Część ósma. Jak iść dalej? Twój plan na ciąg dalszy."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planAnecdotario"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "W tym tygodniu co wieczór napisz trzy linijki: co się stało, z kim i jak się czułeś."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "foto",
+              "primeraVez",
+              "olorCancion"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "caminoNuevo"
+          ],
+          "destacada": true,
+          "texto": "W pierwszym miesiącu dodaj zdjęcie do każdego wspomnienia i co tydzień zafunduj sobie jakiś pierwszy raz."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "relee",
+              "cuenta",
+              "copia"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "cenaFamilia"
+          ],
+          "texto": "A co miesiąc: przeczytaj swoje wspomnienia, opowiedz jedno komuś bliskiemu i zrób kopię tego, co jest dla ciebie najważniejsze."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "calendarioFin",
+              "diaFin",
+              "fotosFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "A jeśli nie wiesz, od czego zacząć, zajrzyj do mojego dziennika wspomnień w aplikacji: jest w nim cały rok wspomnień."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "Podsumowując: zapisuj, co się stało, z kim i gdzie; rób to tego samego dnia; funduj sobie pierwsze razy; zachowuj wskazówki zmysłów; i opowiadaj swoje historie."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "W Dzienniku wspomnień MindHaOS zapisujesz jedno wspomnienie każdego dnia, widzisz swój nastrój w kalendarzu i przechowujesz swoje zdjęcia z ich historią. Możesz to robić sam albo z pomocą AI. Zbuduj swój mentalny dom za darmo już dziś: link jest w opisie. A jeśli przegapiłeś któryś przewodnik, tam też są wszystkie.",
+    "boton": "Otwórz Dziennik wspomnień",
+    "lamina": "app-plan",
+    "anclas": {
+      "recuerdo": "jedno wspomnienie każdego dnia",
+      "calendario": "w kalendarzu",
+      "fotos": "swoje zdjęcia"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "wagenaar-1986",
+      "texto": "Wagenaar W. A. My memory: a study of autobiographical memory over six years. Cognitive Psychology 18(2), 225-252 (1986).",
+      "url": "https://doi.org/10.1016/0010-0285(86)90013-7"
+    },
+    {
+      "id": "pepys",
+      "texto": "Dziennik Samuela Pepysa (1660-1669). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/Samuel_Pepys"
+    },
+    {
+      "id": "niepce",
+      "texto": "Widok z okna w Le Gras, Nicéphore Niépce (ok. 1826). Wikipedia.",
+      "url": "https://en.wikipedia.org/wiki/View_from_the_Window_at_Le_Gras"
+    },
+    {
+      "id": "loftus-1974",
+      "texto": "Loftus E. F., Palmer J. C. Reconstruction of automobile destruction: an example of the interaction between language and memory. Journal of Verbal Learning and Verbal Behavior 13(5), 585-589 (1974).",
+      "url": "https://doi.org/10.1016/S0022-5371(74)80011-3"
+    },
+    {
+      "id": "talarico-2003",
+      "texto": "Talarico J. M., Rubin D. C. Confidence, not consistency, characterizes flashbulb memories. Psychological Science 14(5), 455-461 (2003).",
+      "url": "https://doi.org/10.1111/1467-9280.02453"
+    },
+    {
+      "id": "rubin-1986",
+      "texto": "Rubin D. C., Wetzler S. E., Nebes R. D. Autobiographical memory across the lifespan. W: Rubin D. C. (red.), Autobiographical Memory. Cambridge University Press (1986).",
+      "url": "https://en.wikipedia.org/wiki/Reminiscence_bump"
+    },
+    {
+      "id": "herz-2004",
+      "texto": "Herz R. S. A naturalistic analysis of autobiographical memories triggered by olfactory, visual and auditory stimuli. Chemical Senses 29(3), 217-224 (2004).",
+      "url": "https://doi.org/10.1093/chemse/bjh025"
+    },
+    {
+      "id": "bryant-2005",
+      "texto": "Bryant F. B., Smart C. M., King S. P. Using the past to enhance the present: boosting happiness through positive reminiscence. Journal of Happiness Studies 6(3), 227-260 (2005).",
+      "url": "https://doi.org/10.1007/s10902-005-3889-4"
+    },
+    {
+      "id": "walker-2003",
+      "texto": "Walker W. R., Skowronski J. J., Thompson C. P. Life is pleasant, and memory helps to keep it that way! Review of General Psychology 7(2), 203-210 (2003).",
+      "url": "https://doi.org/10.1037/1089-2680.7.2.203"
+    },
+    {
+      "id": "duke-2008",
+      "texto": "Duke M. P., Lazarus A., Fivush R. Knowledge of family history as a clinically useful index of psychological well-being and prognosis: a brief report. Psychotherapy: Theory, Research, Practice, Training 45(2), 268-272 (2008).",
+      "url": "https://doi.org/10.1037/0033-3204.45.2.268"
+    }
+  ]
+}

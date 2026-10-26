@@ -7464,6 +7464,7 @@ export const PL: Dict = {
   'guia.ideas.titulo': "Jak mieć lepsze pomysły?",
   'guia.viajes.titulo': "Jak lepiej podróżować?",
   'guia.archivos.titulo': "Jak uporządkować swój umysł?",
+  'guia.anecdotario.titulo': "Jak zachować swoje najlepsze wspomnienia?",
   'guia.noticias.titulo': "W poszukiwaniu prawdy i piękna: dziennikarstwo i treści",
   'guia.matematicas.titulo': "Jaki jest język wszechświata?",
   'tut.esencial.titulo': 'Najważniejsze',

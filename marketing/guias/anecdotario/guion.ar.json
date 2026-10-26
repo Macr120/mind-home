@@ -1,0 +1,745 @@
+{
+  "idioma": "ar",
+  "tema": "anecdotario",
+  "plantillaId": "anecdotario",
+  "numero": 22,
+  "nombre": "دفتر الذكريات",
+  "pregunta": "كيف تحفظ أجمل ذكرياتك؟",
+  "corta": "كيف تحفظ ذكرياتك؟",
+  "subtitulo": "لماذا ننسى كل ما نعيشه تقريبًا، ومنذ متى نحفظ الذكريات، وهل ذاكرتك أمينة، وأي الذكريات تبقى، وما الذي يوقظ الذكرى، وهل التذكّر يسعدك، ولماذا تروي حكاياتك، وخطة للاستمرار.",
+  "aviso": "هذا الدليل معلوماتي وعام. الدراسات المذكورة تقيس ذاكرة ومزاج مجموعات محددة من الناس، وقد تختلف نتائجك.",
+  "partes": [
+    {
+      "id": "olvido",
+      "titulo": "لماذا ننسى كل شيء تقريبًا؟",
+      "respuesta": "لأن الذكريات تُمحى بلا مفاتيح: دوّن كل يوم ماذا حدث، ومع من، وأين، وستستعيدها بعد سنوات.",
+      "lineas": [
+        {
+          "id": "gancho",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "titulo"
+          },
+          "enCasa": true,
+          "texto": "كيف تحفظ أجمل ذكرياتك؟ مما تعيشه هذا الأسبوع، ستنسى بعد سنوات قليلة كل شيء تقريبًا. وما تتذكّره منه، سيغيّره عقلك شيئًا فشيئًا. ماذا لو استطعت أن تحفظه كما كان؟ اليوم ستراه بالأرقام، وستخرج بخطة للاستمرار."
+        },
+        {
+          "id": "mencion-inicio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "fondo"
+          },
+          "mencion": true,
+          "enCasa": true,
+          "texto": "بالمناسبة، هذا بيتي في MindHaOS، واليوم يُبحر: إنه سفينة. وأنا الدبدوب البحّار على متنها، وهذا دفتر ذكرياتي: هنا أحفظ ذكرى من كل يوم."
+        },
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الأول. لماذا ننسى كل شيء تقريبًا؟"
+        },
+        {
+          "id": "wagenaar",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1986",
+            "clave": "wagenaar"
+          },
+          "lamina": [
+            "diarioEscribir",
+            "calendarioViejo"
+          ],
+          "destacada": true,
+          "texto": "طوال ست سنوات، دوّن عالم النفس الهولندي ويليم واغنار كل يوم ما يحدث له: ماذا، ومع من، وأين، ومتى. ومع نحو ألفين وأربعمئة حدث مدوَّن، اختبر نفسه بنفسه، وفي عام 1986 نشر ما وجده."
+        },
+        {
+          "id": "pistas",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "que",
+              "quien",
+              "donde"
+            ]
+          },
+          "lamina": [
+            "fotoVieja",
+            "pensativo"
+          ],
+          "meme": "olvido",
+          "texto": "بمفتاح واحد كان يتذكّر القليل؛ وبعدة مفاتيح معًا، كان يستعيد أحداثًا ظنّ أنها ضاعت. ماذا ومن وأين كانت مفاتيح جيدة؛ وأسوأها التاريخ. وأكثر ما بقي هو ما هزّ مشاعره."
+        },
+        {
+          "id": "anotar",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "recuerdoDelDia"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "لذلك لا تعتمد على أنك ستتذكّر: دوِّن. جرّبه هنا بشيء من اليوم: ماذا حدث، ومع من، وأين. ثلاثة أسطر تكفي."
+        },
+        {
+          "id": "escribo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tituloApp",
+              "textoApp",
+              "animoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "لهذا أكتب كل ليلة في دفتر ذكرياتي: عنوان اليوم، وما حدث، ووجهًا صغيرًا يقول كيف شعرت."
+        }
+      ]
+    },
+    {
+      "id": "historia",
+      "titulo": "منذ متى نحفظ الذكريات؟",
+      "respuesta": "منذ القدم، لكن من أشهر اليوميات يوميات صموئيل بيبس عام 1660، وجاءت أول صورة نحو 1826 مع نيسيفور نييبس.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثاني. منذ متى نحفظ الذكريات؟"
+        },
+        {
+          "id": "pepys",
+          "escena": "habla",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1660",
+            "clave": "pepys"
+          },
+          "lamina": [
+            "pepys",
+            "londres"
+          ],
+          "destacada": true,
+          "texto": "في عام 1660، بدأ موظف في لندن اسمه صموئيل بيبس يكتب يوميات، وظلّ يكتبها كل يوم تقريبًا تسع سنوات. وبفضله نعرف كيف عاش الناس حريق لندن الكبير: هو نفسه دفن نبيذه وجبنة البارميزان في الحديقة لينقذهما."
+        },
+        {
+          "id": "niepce",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "1826",
+            "clave": "niepce"
+          },
+          "lamina": [
+            "niepce",
+            "camaraAntigua"
+          ],
+          "texto": "ونحو عام 1826، التقط الفرنسي نيسيفور نييبس أقدم صورة باقية: المنظر من نافذته. واحتاج إلى ساعات من التعريض لصورة واحدة."
+        },
+        {
+          "id": "hoy",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diario",
+              "album",
+              "telefono"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "celularFotos"
+          ],
+          "texto": "اليوم نلتقط آلاف الصور كل عام ونادرًا ما نعود إليها. الحفظ لم يعد يكلّف شيئًا؛ الصعب أن تكون للذكرى حكايتها."
+        },
+        {
+          "id": "calendario",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "diaApp",
+              "colorApp",
+              "mesApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "في تقويمي، كل يوم فيه ذكرى يتلوّن بلون مزاجي: بنظرة واحدة أرى كيف مرّ شهري."
+        }
+      ]
+    },
+    {
+      "id": "fieles",
+      "titulo": "هل ذاكرتك أمينة؟",
+      "respuesta": "لا: كلما تذكّرت شيئًا أعدت بناءه وغيّرته دون أن تدري، فاكتبه في اليوم نفسه.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثالث. هل ذاكرتك أمينة؟"
+        },
+        {
+          "id": "loftus",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "palabra"
+          },
+          "lamina": [
+            "choque",
+            "testigo"
+          ],
+          "destacada": true,
+          "texto": "في عام 1974، عرضت إليزابيث لوفتس وجون بالمر على طلاب فيديو حادث سيارات. سألوا بعضهم عن سرعة السيارتين حين تلامستا، وسألوا آخرين عن سرعتهما حين تحطّمتا. فقدّر أصحاب «تحطّمتا» سرعة أعلى، وبعد أسبوع تذكّر كثيرون منهم زجاجًا مكسورًا لم يكن موجودًا."
+        },
+        {
+          "id": "talarico",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "talarico"
+          },
+          "lamina": [
+            "noticiasTele",
+            "periodico"
+          ],
+          "texto": "ولا يحدث ذلك مع الصغائر فقط. في عام 2003، تابعت جينيفر تالاريكو وديفيد روبن ذكريات طلاب عن أحداث الحادي عشر من سبتمبر. ومع الشهور تغيّرت بقدر ما تتغيّر ذكريات أي يوم عادي… لكنهم ظلّوا واثقين أنهم يتذكّرونها تمامًا."
+        },
+        {
+          "id": "mismoDia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "reconstruye",
+              "mismoDia",
+              "detalles"
+            ]
+          },
+          "lamina": [
+            "escribirCafe",
+            "notas"
+          ],
+          "meme": "seguro",
+          "texto": "كلما تذكّرت شيئًا، تعيد تركيبه، وفي الطريق تتسلّل التغييرات. لذلك اكتبه في اليوم نفسه، بالتفاصيل: ما رأيت، وما قيل لك، وما شعرت به."
+        },
+        {
+          "id": "dia",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "tocaApp",
+              "intactoApp",
+              "fechaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "وحين أريد العودة إلى يوم ما، ألمسه في التقويم فأجده هناك، كما كتبته تلك الليلة."
+        }
+      ]
+    },
+    {
+      "id": "quedan",
+      "titulo": "أي الذكريات تبقى؟",
+      "respuesta": "المرّات الأولى: لذلك نتذكّر أكثر من العاشرة إلى الثلاثين، فامنح نفسك مرّات أولى في أي عمر.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الرابع. أي الذكريات تبقى؟"
+        },
+        {
+          "id": "rubin",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "joroba"
+          },
+          "lamina": [
+            "graduacion",
+            "primerAuto"
+          ],
+          "destacada": true,
+          "texto": "في عام 1986، طلب ديفيد روبن وفريقه من كبار السن أوضح ذكرياتهم. معظمها لم يأتِ من السنوات الأخيرة، بل من بين العاشرة والثلاثين. وسمّوها حدبة الذكريات."
+        },
+        {
+          "id": "primeras",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "primerTrabajo",
+              "primerViaje",
+              "primerAmor"
+            ]
+          },
+          "lamina": [
+            "primerDia",
+            "mudanza"
+          ],
+          "texto": "إنه عمر المرّات الأولى: أول عمل، وأول سفر وحدك، وأول حب. الجديد يُحفر في الذاكرة؛ والمتكرّر يذوب مع كل ما سواه."
+        },
+        {
+          "id": "nuevas",
+          "escena": "senala",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "primerasVeces"
+          },
+          "lamina": [
+            "clase",
+            "caminoNuevo"
+          ],
+          "meme": "rutina",
+          "texto": "والخبر الجيد: يمكنك أن تصنع مرّات أولى في أي عمر. طريق جديد، أو وصفة، أو درس. اختر هنا مرّاتك الأولى لهذا الشهر."
+        },
+        {
+          "id": "fotosApp",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "fotoApp",
+              "grandeApp",
+              "historiaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "وفي كل ذكرى أحفظ صورها؛ وبلمسة أراها كبيرة، بجانب الحكاية التي ترويها."
+        }
+      ]
+    },
+    {
+      "id": "despertar",
+      "titulo": "ما الذي يوقظ الذكرى؟",
+      "respuesta": "مفاتيح الحواس، وخاصة الروائح: احفظ مع ذكرياتك أغنية أو شيئًا أو رائحة.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الخامس. ما الذي يوقظ الذكرى؟"
+        },
+        {
+          "id": "herz",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "sentidos"
+          },
+          "lamina": [
+            "cafeAroma",
+            "pan"
+          ],
+          "destacada": true,
+          "texto": "في عام 2004، جرّبت راشيل هيرتز إيقاظ الذكريات بالبصر والسمع والشم. فكانت الذكريات التي تجلبها رائحة أكثر عاطفة وأقدر على نقلك، كأنك عدت إلى هناك."
+        },
+        {
+          "id": "pistasSentidos",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "olor",
+              "cancion",
+              "objeto"
+            ]
+          },
+          "lamina": [
+            "vinilo",
+            "cajaRecuerdos"
+          ],
+          "texto": "لهذا تعيدك أغنية قديمة أو رائحة مطبخ سنوات كاملة إلى الوراء. استفد من ذلك: بجانب الذكرى، دوِّن ماذا كان يُسمَع، وبماذا كانت الرائحة، وماذا كان في يدك."
+        },
+        {
+          "id": "apoyo",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "herramienta",
+            "herramienta": "apoyoAnecdotario"
+          },
+          "lamina": "pulgar",
+          "texto": "إن كان هذا الدليل يعجبك، فاضغط «أعجبني»، و«اشتراك» حتى لا يفوتك الدليل القادم، و«مشاركة» مع ذلك الشخص الذي تجمعك به أجمل الذكريات."
+        },
+        {
+          "id": "caja",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "boleto",
+              "playlist",
+              "frasco"
+            ]
+          },
+          "lamina": [
+            "boletos",
+            "audifonos"
+          ],
+          "meme": "cancion",
+          "texto": "واحتفظ بأشياء صغيرة: تذكرة، أو بطاقة بريدية، أو قائمة أغاني ذلك الصيف. إنها مفاتيح تفتح الذكريات."
+        },
+        {
+          "id": "animo",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "caritasApp",
+              "animoDiaApp",
+              "sentirApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "لكل ذكرى أضع كيف شعرت بوجه صغير: سعيد، هادئ، متعب… وهكذا أتذكّر أيضًا ما شعرت به."
+        }
+      ]
+    },
+    {
+      "id": "feliz",
+      "titulo": "هل التذكّر يسعدك؟",
+      "respuesta": "نعم: استعادة الذكريات الجميلة دقائق كل يوم ترفع المزاج، ومع الوقت يخبو السيئ أسرع من الجميل.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السادس. هل التذكّر يسعدك؟"
+        },
+        {
+          "id": "bryant",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "revivir"
+          },
+          "lamina": [
+            "sonrisa",
+            "atardecer"
+          ],
+          "destacada": true,
+          "texto": "في عام 2005، طلب فريد براينت وفريقه من طلاب أن يستعيدوا ذكرى جميلة عشر دقائق، مرتين في اليوم، طوال أسبوع. وفي النهاية شعروا بسعادة أكبر ممن لم يفعلوا، خاصة من تخيّلها بالتفاصيل."
+        },
+        {
+          "id": "walker",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "dato",
+            "cifra": "2003",
+            "clave": "walker"
+          },
+          "lamina": [
+            "lluvia",
+            "solSale"
+          ],
+          "texto": "والوقت يساعد: في عام 2003، وجد ريتشارد ووكر وفريقه أن ما نشعر به في الذكريات السيئة يخبو أسرع مما نشعر به في الجميلة. فالذاكرة تصبح ألطف مع السنين."
+        },
+        {
+          "id": "releer",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "malDia",
+              "releer",
+              "detalle"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "sofa"
+          ],
+          "meme": "releer",
+          "texto": "لذلك أبقِ ذكرياتك الجميلة في متناول يدك. في يوم سيئ، أعد قراءة واحدة بهدوء وتخيّلها من جديد: أين كنت، ومن كان يضحك، وبماذا كانت الرائحة."
+        },
+        {
+          "id": "lista",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "listaApp",
+              "masApp",
+              "releoApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "وحين يكون يومي سيئًا، أفتح دفتر ذكرياتي وأنزل بين ذكرياتي حتى أجد واحدة جميلة."
+        }
+      ]
+    },
+    {
+      "id": "contar",
+      "titulo": "لماذا تروي حكاياتك؟",
+      "respuesta": "لأن مشاركة الذكريات تجمعنا: الأطفال الذين يعرفون حكايات عائلتهم أكثر ثقة بأنفسهم.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء السابع. لماذا تروي حكاياتك؟"
+        },
+        {
+          "id": "fivush",
+          "escena": "habla",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "familia"
+          },
+          "lamina": [
+            "abuela",
+            "cenaFamilia"
+          ],
+          "destacada": true,
+          "texto": "في الولايات المتحدة، طرح مارشال ديوك وروبن فيفوش على أطفال عشرين سؤالًا عن عائلاتهم: أين تعارف آباؤهم، وأين نشأ أجدادهم. ومن عرفوا حكايات أكثر كانوا أكثر ثقة بأنفسهم وأقدر على تجاوز المشكلات."
+        },
+        {
+          "id": "subibaja",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "subidas",
+              "bajadas",
+              "seguimos"
+            ]
+          },
+          "lamina": [
+            "fotoFamilia",
+            "manos"
+          ],
+          "texto": "وأكثر ما ساعد الحكايات التي فيها صعود وهبوط: «خسرنا كل شيء، لكننا نهضنا من جديد». فهي تقول لمن يسمعها إنه جزء من شيء أكبر."
+        },
+        {
+          "id": "cuenta",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cena",
+              "pregunta",
+              "graba"
+            ]
+          },
+          "lamina": [
+            "conversacion",
+            "grabarVoz"
+          ],
+          "texto": "فاروِ حكاياتك على العشاء، واسأل كبارك عن حكاياتهم ما دمت تستطيع، واحفظها: ما لا يُروى، يضيع."
+        },
+        {
+          "id": "anio",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "cuentaApp",
+              "anioApp",
+              "llenaApp"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "ومع مرور الشهور في تقويمي أرى كم يومًا فيه ذكرى، وتمتلئ سنتي بحكايات تُروى."
+        }
+      ]
+    },
+    {
+      "id": "continuar",
+      "titulo": "كيف تستمر؟ خطتك للاستمرار",
+      "respuesta": "اكتب ثلاثة أسطر كل ليلة، وأضف صورًا ومرّات أولى، وكل شهر أعد قراءة ذكرياتك واروِ واحدة لأحد.",
+      "lineas": [
+        {
+          "id": "titulo",
+          "escena": "habla",
+          "visual": {
+            "tipo": "encabezado"
+          },
+          "plano": "cuerpo",
+          "texto": "الجزء الثامن. كيف تستمر؟ خطتك للاستمرار."
+        },
+        {
+          "id": "semana1",
+          "escena": "senala",
+          "visual": {
+            "tipo": "grafica",
+            "grafica": "planAnecdotario"
+          },
+          "lamina": [
+            "libretaNoche",
+            "lampara"
+          ],
+          "texto": "هذا الأسبوع، اكتب كل ليلة ثلاثة أسطر: ماذا حدث، ومع من، وكيف شعرت."
+        },
+        {
+          "id": "mes1",
+          "escena": "habla",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "foto",
+              "primeraVez",
+              "olorCancion"
+            ]
+          },
+          "lamina": [
+            "albumFotos",
+            "caminoNuevo"
+          ],
+          "destacada": true,
+          "texto": "في الشهر الأول، أضف صورة لكل ذكرى، وامنح نفسك مرّة أولى كل أسبوع."
+        },
+        {
+          "id": "cadaMes",
+          "escena": "pensando",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "relee",
+              "cuenta",
+              "copia"
+            ]
+          },
+          "lamina": [
+            "leerDiario",
+            "cenaFamilia"
+          ],
+          "texto": "وكل شهر: أعد قراءة ذكرياتك، واروِ واحدة لشخص تحبه، واحفظ نسخة مما يهمك أكثر."
+        },
+        {
+          "id": "ejemplos",
+          "escena": "senala",
+          "visual": {
+            "tipo": "pasos",
+            "claves": [
+              "calendarioFin",
+              "diaFin",
+              "fotosFin"
+            ]
+          },
+          "lamina": "app-plan",
+          "enCasa": true,
+          "texto": "وإن لم تعرف من أين تبدأ، فانظر إلى دفتر ذكرياتي في التطبيق: فيه سنة كاملة من الذكريات."
+        },
+        {
+          "id": "resumen",
+          "escena": "saluda",
+          "visual": {
+            "tipo": "lista",
+            "claves": [
+              "resumen1",
+              "resumen2",
+              "resumen3",
+              "resumen4",
+              "resumen5"
+            ]
+          },
+          "lamina": "cumbre",
+          "texto": "باختصار: دوِّن ماذا حدث، ومع من، وأين؛ واكتبه في اليوم نفسه؛ وامنح نفسك مرّات أولى؛ واحفظ مفاتيح حواسك؛ واروِ حكاياتك."
+        }
+      ]
+    }
+  ],
+  "cierre": {
+    "id": "cuarto",
+    "mencion": true,
+    "escena": "saluda",
+    "texto": "في دفتر الذكريات على MindHaOS تكتب ذكرى كل يوم، وترى مزاجك في التقويم، وتحفظ صورك مع حكايتها. يمكنك أن تفعل ذلك بنفسك، أو بمساعدة الذكاء الاصطناعي. ابنِ بيتك الذهني مجانًا اليوم: الرابط في الوصف. وإن فاتك أي دليل، فستجدها كلها هناك أيضًا.",
+    "boton": "افتح دفتر الذكريات",
+    "lamina": "app-plan",
+    "anclas": {
+      "recuerdo": "ذكرى كل يوم",
+      "calendario": "في التقويم",
+      "fotos": "صورك"
+    }
+  },
+  "fuentes": [
+    {
+      "id": "wagenaar-1986",
+      "texto": "Wagenaar W. A. My memory: a study of autobiographical memory over six years. Cognitive Psychology 18(2), 225-252 (1986).",
+      "url": "https://doi.org/10.1016/0010-0285(86)90013-7"
+    },
+    {
+      "id": "pepys",
+      "texto": "يوميات صموئيل بيبس (1660-1669). ويكيبيديا.",
+      "url": "https://en.wikipedia.org/wiki/Samuel_Pepys"
+    },
+    {
+      "id": "niepce",
+      "texto": "المنظر من النافذة في لو غرا، لنيسيفور نييبس (نحو 1826). ويكيبيديا.",
+      "url": "https://en.wikipedia.org/wiki/View_from_the_Window_at_Le_Gras"
+    },
+    {
+      "id": "loftus-1974",
+      "texto": "Loftus E. F., Palmer J. C. Reconstruction of automobile destruction: an example of the interaction between language and memory. Journal of Verbal Learning and Verbal Behavior 13(5), 585-589 (1974).",
+      "url": "https://doi.org/10.1016/S0022-5371(74)80011-3"
+    },
+    {
+      "id": "talarico-2003",
+      "texto": "Talarico J. M., Rubin D. C. Confidence, not consistency, characterizes flashbulb memories. Psychological Science 14(5), 455-461 (2003).",
+      "url": "https://doi.org/10.1111/1467-9280.02453"
+    },
+    {
+      "id": "rubin-1986",
+      "texto": "Rubin D. C., Wetzler S. E., Nebes R. D. Autobiographical memory across the lifespan. في: Rubin D. C. (ed.), Autobiographical Memory. Cambridge University Press (1986).",
+      "url": "https://en.wikipedia.org/wiki/Reminiscence_bump"
+    },
+    {
+      "id": "herz-2004",
+      "texto": "Herz R. S. A naturalistic analysis of autobiographical memories triggered by olfactory, visual and auditory stimuli. Chemical Senses 29(3), 217-224 (2004).",
+      "url": "https://doi.org/10.1093/chemse/bjh025"
+    },
+    {
+      "id": "bryant-2005",
+      "texto": "Bryant F. B., Smart C. M., King S. P. Using the past to enhance the present: boosting happiness through positive reminiscence. Journal of Happiness Studies 6(3), 227-260 (2005).",
+      "url": "https://doi.org/10.1007/s10902-005-3889-4"
+    },
+    {
+      "id": "walker-2003",
+      "texto": "Walker W. R., Skowronski J. J., Thompson C. P. Life is pleasant, and memory helps to keep it that way! Review of General Psychology 7(2), 203-210 (2003).",
+      "url": "https://doi.org/10.1037/1089-2680.7.2.203"
+    },
+    {
+      "id": "duke-2008",
+      "texto": "Duke M. P., Lazarus A., Fivush R. Knowledge of family history as a clinically useful index of psychological well-being and prognosis: a brief report. Psychotherapy: Theory, Research, Practice, Training 45(2), 268-272 (2008).",
+      "url": "https://doi.org/10.1037/0033-3204.45.2.268"
+    }
+  ]
+}

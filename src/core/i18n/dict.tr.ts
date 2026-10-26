@@ -7447,6 +7447,7 @@ export const TR: Dict = {
   'guia.ideas.titulo': "Daha iyi fikirler nasıl bulunur?",
   'guia.viajes.titulo': "Nasıl daha iyi seyahat edersin?",
   'guia.archivos.titulo': "Zihnini nasıl düzenlersin?",
+  'guia.anecdotario.titulo': "En güzel anılarını nasıl saklarsın?",
   'guia.noticias.titulo': "Gerçeğin ve güzelliğin peşinde: gazetecilik ve içerik",
   'guia.matematicas.titulo': "Evrenin dili nedir?",
   'tut.esencial.titulo': 'Temel Bilgiler',
