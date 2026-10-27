@@ -78,14 +78,19 @@ function tituloYT(t) {
   return corto.slice(0, corto.lastIndexOf(' ') > 60 ? corto.lastIndexOf(' ') : undefined).trimEnd() + '…'
 }
 
-/** La descripción admite 5000 BYTES (no caracteres): sobran en ja/zh/hi. Se quitan fuentes del final. */
+/**
+ * La descripción admite 5000 BYTES (no caracteres): sobran en ja/zh/hi. Se quitan
+ * fuentes del final, pero los hashtags del último párrafo se conservan.
+ */
 function descripcionYT(d) {
   if (bytes(d) <= 5000) return d
-  const lineas = d.split('\n')
-  while (lineas.length > 1 && bytes(lineas.join('\n')) > 4990) lineas.pop()
+  const hashtags = d.match(/\n\n(#[^\n]+)\s*$/)?.[1] ?? ''
+  const cola = hashtags ? '\n\n' + hashtags : ''
+  const lineas = (hashtags ? d.slice(0, d.lastIndexOf(hashtags)) : d).trimEnd().split('\n')
+  while (lineas.length > 1 && bytes(lineas.join('\n') + cola) > 4990) lineas.pop()
   let r = lineas.join('\n').trimEnd()
-  while (bytes(r) > 5000) r = [...r].slice(0, -1).join('')
-  return r
+  while (bytes(r + cola) > 5000) r = [...r].slice(0, -1).join('')
+  return r + cola
 }
 
 function textoPara(red, v) {
@@ -250,8 +255,8 @@ try {
     }
     const rutaLote = nombreLote(item, red)
     const lote = item.extra
-      ? { carpeta: item.extra.carpeta, archivo: item.extra.archivo, aspecto: item.extra.aspecto ?? '9:16', redes: [red], textos }
-      : { carpeta: path.join(raiz, item.guia), archivo: `{id}/${item.archivo}`, aspecto: '1:1', redes: [red], textos }
+      ? { carpeta: item.extra.carpeta, archivo: item.extra.archivo, aspecto: item.extra.aspecto ?? '9:16', redes: [red], textos, cuentas: cal.cuentas }
+      : { carpeta: path.join(raiz, item.guia), archivo: `{id}/${item.archivo}`, aspecto: '1:1', redes: [red], textos, cuentas: cal.cuentas }
     writeFileSync(rutaLote, JSON.stringify(lote, null, 2) + '\n', 'utf8')
 
     log(`\n── ${red} · ${item.guia} ${item.archivo} · ${Object.keys(textos).join(',')}`)

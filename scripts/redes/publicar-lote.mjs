@@ -19,7 +19,7 @@
  *     "privacidad": { "youtube": "unlisted", "tiktok": "PUBLIC_TO_EVERYONE" },
  *     "publicar_en": "2026-10-20T15:00:00-06:00",        ← opcional: YouTube y Facebook
  *     "textos": { "es": { "titulo": "…", "descripcion": "…", "hashtags": ["MindHaOS"] } },
- *     "cuentas": { "tiktok:pt": "MindHaOS.pt" }          ← opcional: forzar la cuenta por nombre
+ *     "cuentas": { "tiktok:pt": "MindHaOS.pt" }          ← opcional: forzar la cuenta por nombre (o por ranura, un número)
  *   }
  * Solo se publican los idiomas que tengan texto en `textos` y archivo en la carpeta.
  *
@@ -201,7 +201,7 @@ function metaDe(red, texto, duracion, idioma) {
   }
 }
 
-const { mapa } = await mapaCuentas()
+const { cuentas, mapa } = await mapaCuentas()
 const trabajos = []
 const avisos = []
 for (const idioma of idiomas) {
@@ -219,7 +219,10 @@ for (const idioma of idiomas) {
     const clave = `${red}:${idioma}`
     if (!args.includes('--repetir') && registro[clave]?.estado === 'publicado') continue
     const forzada = lote.cuentas?.[clave]
-    const candidatas = forzada ? [...mapa.values()].flat().filter((c) => c.plataforma === red && c.nombre === forzada) : mapa.get(clave) ?? []
+    // Un número es la ranura: sirve cuando dos cuentas comparten el nombre visible.
+    const candidatas = forzada !== undefined
+      ? cuentas.filter((c) => c.plataforma === red && (typeof forzada === 'number' ? c.ranura === forzada : c.nombre === forzada))
+      : mapa.get(clave) ?? []
     if (candidatas.length !== 1) {
       avisos.push(`${clave}: ${candidatas.length ? `${candidatas.length} cuentas posibles (${candidatas.map((c) => c.nombre).join(', ')}); fija una en «cuentas»` : 'sin cuenta conectada'}`)
       continue

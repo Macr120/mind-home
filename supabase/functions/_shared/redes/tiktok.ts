@@ -107,6 +107,8 @@ export async function perfilTikTok(token: string): Promise<{ open_id: string; no
 
 export interface InfoCreador {
   nickname: string
+  /** El @ de la cuenta: distingue dos cuentas con el mismo nombre visible. */
+  usuario: string | null
   avatar: string | null
   privacidad: string[]
   comentarios: boolean
@@ -120,6 +122,7 @@ export async function infoCreador(token: string): Promise<InfoCreador> {
   const d = await llamar(token, '/post/publish/creator_info/query/', {})
   return {
     nickname: String(d.creator_nickname ?? d.creator_username ?? ''),
+    usuario: typeof d.creator_username === 'string' ? d.creator_username : null,
     avatar: typeof d.creator_avatar_url === 'string' ? d.creator_avatar_url : null,
     privacidad: Array.isArray(d.privacy_level_options) ? d.privacy_level_options.map(String) : [],
     comentarios: d.comment_disabled !== true,
