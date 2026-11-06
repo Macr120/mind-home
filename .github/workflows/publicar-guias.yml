@@ -14,6 +14,10 @@ on:
         description: 'Publicar de verdad (si no, solo ensayo)'
         type: boolean
         default: false
+      reloj:
+        description: 'Corrida de reloj (el Worker de scripts/redes/reloj): cuenta como la de cada hora'
+        type: boolean
+        default: false
 
 # Una corrida a la vez: una subida larga no se pisa con la de la hora siguiente.
 concurrency:
@@ -38,7 +42,9 @@ jobs:
       RCLONE_CONFIG_R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
       RCLONE_CONFIG_R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
       VIDEOS_URL: https://media.mindhaos.com/guias-video
-      MODO: ${{ (github.event_name == 'schedule' || inputs.publicar) && '--publicar' || '' }}
+      # La de cada hora llega por el horario de GitHub o por el Worker reloj (más puntual).
+      DE_RELOJ: ${{ (github.event_name == 'schedule' || inputs.reloj) && '1' || '' }}
+      MODO: ${{ (github.event_name == 'schedule' || inputs.reloj || inputs.publicar) && '--publicar' || '' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -69,7 +75,7 @@ jobs:
           [ -f "$CAL" ] || { echo "Todavía no hay calendario en R2."; exit 0; }
           # La hora a hora arranca solo con el aviso `nube-activa` en la carpeta del calendario
           # (lo pone el cambio de la PC a la nube): así nunca publican las dos a la vez.
-          if [ "$GITHUB_EVENT_NAME" = schedule ] && [ ! -f "$VIDEOS_RAIZ/Publicacion guias/nube-activa" ]; then
+          if [ -n "$DE_RELOJ" ] && [ ! -f "$VIDEOS_RAIZ/Publicacion guias/nube-activa" ]; then
             echo "La nube aún no publica sola (falta nube-activa)."; exit 0
           fi
           node scripts/redes/publicar-guias.mjs "$CAL" $MODO >> "$LOG" 2>&1 || echo "publicar-guias terminó con error (ver tarea.log)"

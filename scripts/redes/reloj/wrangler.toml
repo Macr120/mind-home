@@ -1,0 +1,11 @@
+# Reloj de la publicación de guías: el horario de GitHub Actions se salta corridas,
+# así que este Worker dispara el workflow cada hora (cron de Cloudflare, puntual).
+# Desplegar: npx wrangler deploy -c scripts/redes/reloj/wrangler.toml
+# Token: npx wrangler secret put GITHUB_TOKEN -c scripts/redes/reloj/wrangler.toml
+name = "mindhaos-reloj-guias"
+main = "index.js"
+compatibility_date = "2026-10-01"
+workers_dev = false
+
+[triggers]
+crons = ["7 * * * *"]
