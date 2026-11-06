@@ -64,6 +64,22 @@ const CABECERAS = {
   'x-redes-script': requiere('REDES_SCRIPT_CLAVE'),
 }
 
+/**
+ * En la nube (GitHub Actions, ver `nube.mjs`) los videos viven en R2 y no en el disco:
+ * la corrida deja archivos VACÍOS con su nombre, para que la fila se arme igual, y cada
+ * uno se baja de `VIDEOS_URL` (el espejo público de la carpeta `VIDEOS_RAIZ`) justo
+ * antes de publicarlo. Instagram y Facebook lo bajan directo de ahí.
+ */
+const VIDEOS_URL = process.env.VIDEOS_URL?.replace(/\/$/, '')
+const urlDeVideo = (archivo) =>
+  `${VIDEOS_URL}/${path.relative(process.env.VIDEOS_RAIZ, archivo).split(path.sep).map(encodeURIComponent).join('/')}`
+async function asegurarVideo(archivo) {
+  if (!VIDEOS_URL || statSync(archivo).size > 0) return
+  const resp = await pedir(urlDeVideo(archivo), {}, 600_000)
+  if (!resp.ok) throw new Error(`No se pudo bajar el video de R2 (HTTP ${resp.status}).`)
+  writeFileSync(archivo, Buffer.from(await resp.arrayBuffer()))
+}
+
 const args = process.argv.slice(2)
 const opcion = (n) => args.find((a) => a.startsWith(`--${n}=`))?.split('=')[1]
 const espera = (ms) => new Promise((r) => setTimeout(r, ms))
@@ -374,15 +390,21 @@ async function instagramPorUrl(t, meta) {
   })
 }
 
-/** Sube el MP4 a R2, deja que la red lo baje (`iniciar` → función de estado) y, ya publicado, lo borra de R2. */
+/**
+ * Sube el MP4 a R2, deja que la red lo baje (`iniciar` → función de estado) y, ya publicado,
+ * lo borra de R2. En la nube el video ya está en R2: se usa esa copia y ahí se queda.
+ */
 async function porUrl(t, iniciar) {
-  const huella = createHash('sha256').update(readFileSync(t.archivo)).digest('hex').slice(0, 10)
-  const claveR2 = `redes/${t.red}/${t.idioma}/${path.basename(t.archivo, '.mp4')}-${huella}.mp4`
   const npx = process.platform === 'win32' ? ['cmd', ['/c', 'npx']] : ['npx', []]
   const r2 = (...a) => execFileSync(npx[0], [...npx[1], 'wrangler', 'r2', 'object', ...a, '--remote'], { cwd: RAIZ, stdio: 'ignore' })
-  console.log('    subiendo a media.mindhaos.com…')
-  r2('put', `mindhaos-media/${claveR2}`, '--file', t.archivo, '--content-type', 'video/mp4')
-  const estado = await iniciar(`https://media.mindhaos.com/${claveR2}`)
+  let claveR2 = null
+  if (!VIDEOS_URL) {
+    const huella = createHash('sha256').update(readFileSync(t.archivo)).digest('hex').slice(0, 10)
+    claveR2 = `redes/${t.red}/${t.idioma}/${path.basename(t.archivo, '.mp4')}-${huella}.mp4`
+    console.log('    subiendo a media.mindhaos.com…')
+    r2('put', `mindhaos-media/${claveR2}`, '--file', t.archivo, '--content-type', 'video/mp4')
+  }
+  const estado = await iniciar(claveR2 ? `https://media.mindhaos.com/${claveR2}` : urlDeVideo(t.archivo))
   const tope = Date.now() + 20 * 60_000
   while (Date.now() < tope) {
     await espera(15_000)
@@ -390,7 +412,7 @@ async function porUrl(t, iniciar) {
     if (e.estado === 'fallo') throw new Error(e.motivo || 'La red no pudo procesar el video.')
     if (e.estado === 'publicado') {
       try {
-        r2('delete', `mindhaos-media/${claveR2}`)
+        if (claveR2) r2('delete', `mindhaos-media/${claveR2}`)
       } catch {
         // Si no se borra solo ocupa espacio en R2; el video ya está publicado.
       }
@@ -408,6 +430,13 @@ for (const t of trabajos) {
     await espera(esperaMin * 60_000)
   }
   anterior = t.idioma
+  try {
+    await asegurarVideo(t.archivo)
+  } catch (e) {
+    // Sin anotarlo como fallo: un tropiezo con R2 se reintenta en la siguiente corrida.
+    console.error(`  ✗ ${t.red} ${t.idioma}: ${e.message}`)
+    continue
+  }
   if (!duraciones.has(t.archivo)) duraciones.set(t.archivo, duracionDe(t.archivo))
   const tamano = statSync(t.archivo).size
   console.log(`→ ${t.red} ${t.idioma} en ${t.cuenta.nombre}`)

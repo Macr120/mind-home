@@ -1,0 +1,82 @@
+# Publica las guías de video cada hora en YouTube, Facebook, Instagram y TikTok
+# (scripts/redes/publicar-guias.mjs), sin depender de que la PC esté prendida.
+# El estado (calendario y registros) vive en el bucket privado `mindhaos-publicacion`
+# y los videos en `mindhaos-media/guias-video`: ver scripts/redes/nube.mjs.
+# La bitácora detallada queda en R2 (tarea.log), no en el log público de Actions.
+name: Publicar guías
+
+on:
+  schedule:
+    - cron: '7 * * * *'
+  workflow_dispatch:
+    inputs:
+      publicar:
+        description: 'Publicar de verdad (si no, solo ensayo)'
+        type: boolean
+        default: false
+
+# Una corrida a la vez: una subida larga no se pisa con la de la hora siguiente.
+concurrency:
+  group: publicar-guias
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      TZ: America/Mexico_City
+      VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+      VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+      REDES_SCRIPT_CLAVE: ${{ secrets.REDES_SCRIPT_CLAVE }}
+      RCLONE_CONFIG_R2_TYPE: s3
+      RCLONE_CONFIG_R2_PROVIDER: Cloudflare
+      RCLONE_CONFIG_R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      RCLONE_CONFIG_R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      RCLONE_CONFIG_R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+      VIDEOS_URL: https://media.mindhaos.com/guias-video
+      MODO: ${{ (github.event_name == 'schedule' || inputs.publicar) && '--publicar' || '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: scripts/redes
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Herramientas (rclone y ffprobe)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends rclone ffmpeg > /dev/null
+
+      - name: Traer el estado y la lista de videos
+        run: |
+          D="$HOME/escritorio"
+          echo "VIDEOS_RAIZ=$D" >> "$GITHUB_ENV"
+          rclone copy r2:mindhaos-publicacion/escritorio "$D" --s3-no-check-bucket --exclude .en-curso
+          # Un archivo vacío por video: la fila se arma igual y cada uno se baja al publicarlo.
+          rclone lsf -R --files-only r2:mindhaos-media/guias-video | while IFS= read -r f; do
+            mkdir -p "$D/$(dirname "$f")"
+            : > "$D/$f"
+          done
+
+      - name: Publicar
+        run: |
+          CAL="$VIDEOS_RAIZ/Publicacion guias/calendario.json"
+          LOG="$VIDEOS_RAIZ/Publicacion guias/tarea.log"
+          [ -f "$CAL" ] || { echo "Todavía no hay calendario en R2."; exit 0; }
+          # La hora a hora arranca solo con el aviso `nube-activa` en la carpeta del calendario
+          # (lo pone el cambio de la PC a la nube): así nunca publican las dos a la vez.
+          if [ "$GITHUB_EVENT_NAME" = schedule ] && [ ! -f "$VIDEOS_RAIZ/Publicacion guias/nube-activa" ]; then
+            echo "La nube aún no publica sola (falta nube-activa)."; exit 0
+          fi
+          node scripts/redes/publicar-guias.mjs "$CAL" $MODO >> "$LOG" 2>&1 || echo "publicar-guias terminó con error (ver tarea.log)"
+          if [ -n "$MODO" ]; then node scripts/redes/vistas.mjs "$CAL" --diario > /dev/null 2>> "$LOG" || true; fi
+
+      - name: Guardar el estado
+        if: always()
+        run: |
+          [ -d "$VIDEOS_RAIZ/Publicacion guias" ] || exit 0
+          rclone copy "$VIDEOS_RAIZ/Publicacion guias" "r2:mindhaos-publicacion/escritorio/Publicacion guias" --s3-no-check-bucket --exclude .en-curso

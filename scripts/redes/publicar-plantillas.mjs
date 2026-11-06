@@ -162,7 +162,9 @@ function urlPublica(guia, idioma, archivo) {
   const claveR2 = `guias/${tema}/plantillas/${idioma}/${archivo.replace(/^plantilla-|\.jpg$/g, '')}-${huella}.jpg`
   if (!registro.subidas[claveR2]) {
     const npx = process.platform === 'win32' ? ['cmd', ['/c', 'npx']] : ['npx', []]
-    execFileSync(npx[0], [...npx[1], 'wrangler', 'r2', 'object', 'put', `mindhaos-media/${claveR2}`, '--file', local, '--content-type', 'image/jpeg', '--cache-control', 'public, max-age=31536000, immutable', '--remote'], { cwd: RAIZ, stdio: 'ignore' })
+    // En la nube (GitHub Actions, ver nube.mjs) se sube con rclone y la llave S3 de R2.
+    if (process.env.RCLONE_CONFIG_R2_TYPE) execFileSync('rclone', ['copyto', local, `r2:mindhaos-media/${claveR2}`, '--s3-no-check-bucket', '--header-upload', 'Cache-Control: public, max-age=31536000, immutable'], { stdio: 'ignore' })
+    else execFileSync(npx[0], [...npx[1], 'wrangler', 'r2', 'object', 'put', `mindhaos-media/${claveR2}`, '--file', local, '--content-type', 'image/jpeg', '--cache-control', 'public, max-age=31536000, immutable', '--remote'], { cwd: RAIZ, stdio: 'ignore' })
     registro.subidas[claveR2] = new Date().toISOString()
     guardar()
   }
@@ -186,10 +188,15 @@ for (const t of tareas) {
     registro.publicadas[k] = { estado: 'publicado', cuenta: cuenta.nombre, id: r.id, url: r.url, fotos: urls.length, fecha: new Date().toISOString() }
     log(`✓ ${k} (${urls.length} fotos) → ${r.url ?? r.id}${r.privado ? ' (privado)' : ''}`)
   } catch (e) {
-    // Si se cortó la conexión, la red pudo publicarlo igual: se mira lo último de la cuenta antes de darlo por fallido.
-    const hecho = await llamar({ accion: 'estadisticas', plataforma: t.red, ranura: cuenta.ranura, recientes: true })
-      .then(({ recientes }) => recientes.find((m) => new Date(m.timestamp ?? m.created_time).getTime() >= inicio - 60_000 && (t.red === 'facebook' || m.media_type === 'CAROUSEL_ALBUM')))
-      .catch(() => null)
+    // Si se cortó la conexión, la red pudo publicarlo igual: se mira lo último de la cuenta antes de darlo
+    // por fallido. Instagram lo publica hasta ~30 s DESPUÉS del error, así que se vuelve a mirar unas veces.
+    let hecho = null
+    for (let intento = 0; intento < 4 && !hecho; intento++) {
+      if (intento) await new Promise((r) => setTimeout(r, 30_000))
+      hecho = await llamar({ accion: 'estadisticas', plataforma: t.red, ranura: cuenta.ranura, recientes: true })
+        .then(({ recientes }) => recientes.find((m) => new Date(m.timestamp ?? m.created_time).getTime() >= inicio - 60_000 && (t.red === 'facebook' || m.media_type === 'CAROUSEL_ALBUM')))
+        .catch(() => null)
+    }
     if (hecho) {
       registro.publicadas[k] = { estado: 'publicado', cuenta: cuenta.nombre, id: hecho.id, url: hecho.permalink ?? hecho.permalink_url, fotos: archivos.length, fecha: new Date().toISOString() }
       log(`✓ ${k} (salió pese al error «${e.message}») → ${hecho.permalink ?? hecho.permalink_url ?? hecho.id}`)

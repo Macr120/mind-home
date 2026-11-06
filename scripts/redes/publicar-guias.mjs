@@ -170,9 +170,13 @@ const ahora = new Date()
 const tareas = new Map() // `${guia}|${archivo}|${red}` → { item, red, idiomas }
 const resumen = []
 for (const grupo of cal.grupos) {
-  const fila = filaDesde(grupo.inicio)
+  const filaGrupo = filaDesde(grupo.inicio)
   for (const red of cal.redes) {
     for (const idioma of grupo.idiomas) {
+      // `inicioPor` («red:idioma» → guía) cambia la guía de arranque de una sola cuenta,
+      // p. ej. cuando la red rechaza siempre el mismo video y la fila se atora.
+      const inicioPropio = cal.inicioPor?.[`${red}:${idioma}`]
+      const fila = inicioPropio ? filaDesde(inicioPropio) : filaGrupo
       const h = cal.horarios?.[idioma] ?? {}
       const zona = h.zona ?? 'America/Mexico_City'
       const horas = h.horas ?? [h.hora ?? 19]
@@ -185,6 +189,7 @@ for (const grupo of cal.grupos) {
       let deHoy = 0
       let fallaHoy = false
       const pendientes = []
+      const atorados = []
       for (const item of fila) {
         if (item.completo && cal.soloPartes?.includes(red)) continue
         if (item.fotos && !REDES_FOTOS.includes(red)) continue
@@ -196,9 +201,13 @@ for (const grupo of cal.grupos) {
         } else {
           // Un fallo de hoy espera a mañana: reintentar cada hora gasta el tope diario de la red.
           if (r?.estado === 'fallo' && delDia) fallaHoy = true
-          pendientes.push(item)
+          // TikTok repite «internal» con ciertos videos día tras día: esos pasan al final de la fila
+          // para que no atoren la cuenta (los demás fallos se reintentan en su lugar).
+          if (r?.estado === 'fallo' && !delDia && r.motivo === 'internal') atorados.push(item)
+          else pendientes.push(item)
         }
       }
+      pendientes.push(...atorados)
       const toca = fallaHoy ? [] : pendientes.slice(0, Math.max(0, permitidas - deHoy))
       for (const item of toca) {
         const k = `${item.guia}|${item.archivo}|${red}`
