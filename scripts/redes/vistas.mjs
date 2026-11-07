@@ -12,7 +12,7 @@
  * Instagram: me gusta y comentarios (sus reproducciones piden un permiso que la
  * app no tiene). TikTok no devuelve nada: su permiso es solo de publicar.
  */
-import { appendFileSync, existsSync, readdirSync, readFileSync } from 'node:fs'
+import { appendFileSync, existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -77,14 +77,27 @@ const { cuentas } = await llamar({ accion: 'cuentas' })
 const ranuraDe = (red, nombre) => cuentas.find((c) => c.plataforma === red && c.nombre === nombre)?.ranura
 const seguidores = { youtube: {}, facebook: {}, instagram: {} } // red → idioma → seguidores
 
+// Desde la nube (GitHub Actions) YouTube a veces contesta con «confirma que no eres un bot» y la
+// página no trae el conteo: se reintenta una vez y, si no, vale la última lectura de ese video
+// (las vistas nunca bajan). Se guarda en vistas-youtube.json, junto al calendario.
+const RUTA_YT = path.join(dirCal, 'vistas-youtube.json')
+const ultimasYT = existsSync(RUTA_YT) ? JSON.parse(readFileSync(RUTA_YT, 'utf8')) : {}
 for (const p of publicadas.filter((x) => x.red === 'youtube')) {
-  const html = await fetch(`https://www.youtube.com/watch?v=${p.id}&hl=en`, { headers: { 'Accept-Language': 'en-US', 'User-Agent': 'Mozilla/5.0' } })
-    .then((r) => r.text())
-    .catch(() => '')
-  p.vistas = Number(html.match(/"viewCount":"(\d+)"/)?.[1] ?? NaN)
+  let html = ''
+  for (let intento = 0; intento < 2 && !html.includes('"viewCount"'); intento++) {
+    if (intento) await new Promise((r) => setTimeout(r, 3000))
+    html = await fetch(`https://www.youtube.com/watch?v=${p.id}&hl=en`, { headers: { 'Accept-Language': 'en-US', 'User-Agent': 'Mozilla/5.0' } })
+      .then((r) => r.text())
+      .catch(() => '')
+  }
+  const leidas = Number(html.match(/"viewCount":"(\d+)"/)?.[1] ?? NaN)
+  p.vistas = Math.max(Number.isFinite(leidas) ? leidas : -1, ultimasYT[p.id] ?? -1)
+  if (p.vistas < 0) p.vistas = NaN
+  else ultimasYT[p.id] = p.vistas
   const canal = html.match(/"channelId":"(UC[\w-]+)"/)?.[1]
   if (canal && !(p.idioma in seguidores.youtube)) seguidores.youtube[p.idioma] = canal
 }
+writeFileSync(RUTA_YT, JSON.stringify(ultimasYT))
 // Suscriptores: en la página del canal («12 subscribers», «1.2K subscribers»); con 0, YouTube no pone la línea.
 for (const [idioma, canal] of Object.entries(seguidores.youtube)) {
   const html = await fetch(`https://www.youtube.com/channel/${canal}?hl=en`, { headers: { 'Accept-Language': 'en-US', 'User-Agent': 'Mozilla/5.0' } })

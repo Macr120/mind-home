@@ -199,12 +199,17 @@ for (const grupo of cal.grupos) {
           hechos++
           if (delDia) deHoy++
         } else {
-          // Un fallo de hoy espera a mañana: reintentar cada hora gasta el tope diario de la red.
-          if (r?.estado === 'fallo' && delDia) fallaHoy = true
           // TikTok repite «internal» con ciertos videos día tras día: esos pasan al final de la fila
-          // para que no atoren la cuenta (los demás fallos se reintentan en su lugar).
-          if (r?.estado === 'fallo' && !delDia && r.motivo === 'internal') atorados.push(item)
-          else pendientes.push(item)
+          // para que no atoren la cuenta. Si fue hoy gasta su horario, pero el siguiente horario
+          // del día ya prueba con otro video en vez de perder el día entero.
+          if (r?.estado === 'fallo' && r.motivo === 'internal') {
+            if (delDia) deHoy++
+            atorados.push(item)
+            continue
+          }
+          // Los demás fallos de hoy esperan a mañana: reintentar cada hora gasta el tope diario de la red.
+          if (r?.estado === 'fallo' && delDia) fallaHoy = true
+          pendientes.push(item)
         }
       }
       pendientes.push(...atorados)
