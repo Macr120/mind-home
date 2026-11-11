@@ -54,8 +54,20 @@ jobs:
         with:
           node-version: 24
 
+      # Binarios sueltos en vez de apt: el 11 nov 2026 los espejos de Ubuntu no resolvían DNS,
+      # apt reintentó ~50 min y tumbó tres corridas seguidas.
       - name: Herramientas (rclone y ffprobe)
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends rclone ffmpeg > /dev/null
+        timeout-minutes: 10
+        run: |
+          mkdir -p "$HOME/bin"; echo "$HOME/bin" >> "$GITHUB_PATH"
+          if ! command -v rclone > /dev/null; then
+            curl -fsSL --retry 5 --retry-all-errors -o /tmp/rclone.zip https://downloads.rclone.org/rclone-current-linux-amd64.zip
+            unzip -qj /tmp/rclone.zip '*/rclone' -d "$HOME/bin"
+          fi
+          if ! command -v ffprobe > /dev/null; then
+            curl -fsSL --retry 5 --retry-all-errors https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz | tar -xJ -C /tmp
+            cp /tmp/ffmpeg-master-latest-linux64-gpl/bin/ffprobe "$HOME/bin/"
+          fi
 
       - name: Traer el estado y la lista de videos
         run: |
