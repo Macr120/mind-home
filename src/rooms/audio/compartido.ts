@@ -19,6 +19,7 @@ import {
   BPM_MAX,
   BPM_MIN,
   CARPETAS_INSTRUMENTOS,
+  COMPASES_TIEMPO,
   MAESTRO_DEFAULT,
   MAX_CLIPS_POR_PISTA,
   MAX_COMPASES,
@@ -56,7 +57,7 @@ export interface SnapshotAudio {
   v: typeof SNAPSHOT_AUDIO_V
   proyecto: Pick<
     ProyectoAudio,
-    'nombre' | 'bpm' | 'compases' | 'pulsos' | 'swing' | 'volumenMaestro' | 'vivo' | 'pistas' | 'cancion' | 'letra' | 'estilo'
+    'nombre' | 'bpm' | 'compases' | 'compas' | 'pulsos' | 'swing' | 'volumenMaestro' | 'vivo' | 'pistas' | 'cancion' | 'letra' | 'estilo'
   >
 }
 
@@ -67,6 +68,7 @@ export function proyectarSnapshot(p: ProyectoAudio): SnapshotAudio {
       nombre: p.nombre,
       bpm: p.bpm,
       compases: p.compases,
+      compas: p.compas,
       pulsos: p.pulsos,
       swing: p.swing,
       volumenMaestro: p.volumenMaestro,
@@ -211,6 +213,7 @@ export function leerSnapshot(bruto: unknown): Partial<ProyectoAudio> | null {
     bpm: Math.round(num(p.bpm, BPM_MIN, BPM_MAX, 100)),
     compases: Math.round(num(p.compases, 1, MAX_COMPASES, 4)),
     pulsos: [2, 4, 8, 16].includes(p.pulsos as number) ? (p.pulsos as number) : 4,
+    ...(typeof p.compas === 'string' && (COMPASES_TIEMPO as readonly string[]).includes(p.compas) ? { compas: p.compas } : {}),
     swing: num(p.swing, 0, 60, 0),
     volumenMaestro: num(p.volumenMaestro, 0, 1, MAESTRO_DEFAULT),
     vivo: leerVivo(p.vivo),

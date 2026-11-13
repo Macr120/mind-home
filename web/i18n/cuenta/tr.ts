@@ -56,7 +56,6 @@ export const TEXTOS: Record<string, string> = {
   'mi.estado.fuePro':
     'Aboneliğin bitti: uygulama cihazlarında yerel modda duruyor. Yenile, aylık krediler ve eşitleme bıraktığın gibi geri gelsin.',
   'mi.estado.pruebaVencida': 'Denemen bitti: evin ve verilerin seninle kalıyor. Yapay zekâ, eşitleme ve buluta devam etmek için abone ol.',
-  'mi.estado.gratis': 'Evin ücretsiz ve verilerin cihazında yaşıyor. Yapay zekâ, eşitleme ve bulut abonelikle gelir.',
   'mi.disponibles': 'Kullanılabilir kredi: {n}',
   'mi.abrirApp': 'Uygulamayı tarayıcıda aç',
   'mi.salir': 'Çıkış yap',
@@ -87,4 +86,12 @@ export const TEXTOS: Record<string, string> = {
   'cuenta.err.cupon-canjeado': 'Bu kupon bu hesapta zaten kullanıldı.',
   'cuenta.err.cupon-invalido': 'Böyle bir kupon yok ya da artık kullanılamıyor.',
   'cuenta.err.generico': 'İşlem tamamlanamadı. Tekrar dene.',
+  'mi.estado.gratis': 'Evinin kilidi açık ve verilerin cihazında duruyor. Yapay zekâ, senkronizasyon ve bulut abonelikle gelir.',
+  'mi.estado.sinCasa': 'Evini uygulamada kurabilirsin ama kilidini açana kadar kaydedilmez: bir hafta yapay zekâ içeren tek seferlik bir ödeme. Abonelik de kilidini açar.',
+  'casa.titulo': 'Zihin evin',
+  'casa.pagoUnico': 'tek seferlik ödeme',
+  'casa.b1': 'Evin ve içinde yaptığın her şey, sonsuza dek kayıtlı',
+  'casa.b2': 'Bir hafta yapay zekâ dahil',
+  'casa.b3': 'Arkadaşlarınla ziyaretler, oyunlar ve mesajlar',
+  'casa.cta': 'Evimin kilidini aç',
 }

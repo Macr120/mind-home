@@ -1,7 +1,7 @@
 import type { ProyectoAudio } from '../../core/data/db'
 import { tGlobal } from '../../core/i18n/useT'
 import { elegir } from '../../core/state/confirmarStore'
-import { FX_DEFAULT, MAESTRO_DEFAULT, PASOS_POR_COMPAS, segPorPaso } from './constantes'
+import { FX_DEFAULT, MAESTRO_DEFAULT, pasosCompas, segPorPaso } from './constantes'
 import { crearBusMaestro, crearCadenaPista, crearRetornos } from './efectos'
 import { tocarNota } from './instrumentos'
 
@@ -33,7 +33,7 @@ export async function renderizarBuffer(
         (mc, c) => Math.max(mc, c.inicio + c.duracionSeg / spb),
         x.notas.reduce((mm, n) => Math.max(mm, n[0] + n[1]), m),
       ),
-    p.compases * PASOS_POR_COMPAS,
+    p.compases * pasosCompas(p),
   )
   const hayCola = sonables.some((x) => (x.efectos?.reverb ?? 0) > 0.01 || (x.efectos?.delay ?? 0) > 0.01)
   const dur = pasosReales * spb + (hayCola ? 3.5 : 1.5)
@@ -110,7 +110,11 @@ export async function renderizarWav(p: ProyectoAudio, buffersClips?: ReadonlyMap
  * `import()` junto con mediabunny para no pesar en el arranque.
  */
 export async function renderizarMp3(p: ProyectoAudio, buffersClips?: ReadonlyMap<number, AudioBuffer>): Promise<Blob> {
-  const buf = await renderizarBuffer(p, buffersClips)
+  return mp3DesdeBuffer(await renderizarBuffer(p, buffersClips))
+}
+
+/** AudioBuffer → `audio/mpeg` (192 kbps). */
+export async function mp3DesdeBuffer(buf: AudioBuffer): Promise<Blob> {
   const [{ Output, Mp3OutputFormat, BufferTarget, AudioBufferSource, canEncodeAudio }, { registerMp3Encoder }] =
     await Promise.all([import('mediabunny'), import('@mediabunny/mp3-encoder')])
   if (!(await canEncodeAudio('mp3'))) registerMp3Encoder()

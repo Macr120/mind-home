@@ -226,8 +226,9 @@ export function TituloSeccion({
   children?: ReactNode
 }) {
   return (
-    <div className="flex items-center justify-between gap-2">
-      <p className="text-sm font-semibold text-white/85">
+    // Si no caben en una fila, los botones bajan de renglón en vez de partir el título.
+    <div className="flex flex-wrap items-center justify-between gap-2">
+      <p className="max-w-full shrink-0 text-sm font-semibold text-white/85">
         <Icono nombre={icono} /> {titulo}
       </p>
       {children}

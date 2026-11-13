@@ -26,7 +26,7 @@ export function BarraProbar({ enFlujo = false }: { enFlujo?: boolean }) {
         onClick={() => salirProbar()}
         className="text-[11px] font-bold text-white/85"
       >
-        {t('probar.barra.crear', 'Crear mi cuenta')}
+        {t('probar.barra.crear', 'Guardar mi casa')}
       </button>
     </div>
   )

@@ -19,6 +19,7 @@
 import { preflight, json, corsDe } from '../_shared/cors.ts'
 import { clienteUsuario, clienteAdmin, usuarioDe } from '../_shared/auth.ts'
 import { dentroDeLimite } from '../_shared/limite.ts'
+import { cubiertaPorPase } from '../_shared/pase.ts'
 import { COSTO_FIJO, costoTtsGeminiUsd } from '../_shared/costoUsd.ts'
 
 /** Corta el intento para que entre el respaldo en vez de colgarse esperando. */
@@ -75,13 +76,14 @@ function vozDe(prov: ProvVoz, voz: string): string {
   return VOCES[prov].includes(voz) ? voz : VOCES[prov][0]
 }
 
-async function porOpenAI(texto: string, voz: string): Promise<Audio> {
+/** `velocidad` (0.7–1.5): el doblaje del Studio la usa para encajar en el hueco de la frase original. */
+async function porOpenAI(texto: string, voz: string, velocidad = 1): Promise<Audio> {
   const key = Deno.env.get('OPENAI_API_KEY') ?? ''
   if (!key) throw new Error('sin clave')
   const resp = await fetch('https://api.openai.com/v1/audio/speech', {
     method: 'POST',
     headers: { Authorization: `Bearer ${key}`, 'content-type': 'application/json' },
-    body: JSON.stringify({ model: 'tts-1', voice: vozDe('openai', voz), input: texto }),
+    body: JSON.stringify({ model: 'tts-1', voice: vozDe('openai', voz), input: texto, ...(velocidad !== 1 ? { speed: velocidad } : {}) }),
     signal: AbortSignal.timeout(TIMEOUT_MS),
   })
   if (!resp.ok) throw new Error(`http ${resp.status}`)
@@ -151,7 +153,8 @@ async function porGemini(texto: string, voz: string): Promise<Audio> {
   }
 }
 
-const ADAPTADORES: Record<ProvVoz, (texto: string, voz: string) => Promise<Audio>> = {
+// Gemini no tiene velocidad: la ignora.
+const ADAPTADORES: Record<ProvVoz, (texto: string, voz: string, velocidad?: number) => Promise<Audio>> = {
   openai: porOpenAI,
   gemini: porGemini,
 }
@@ -180,8 +183,13 @@ Deno.serve(async (req) => {
   let voz = VOCES.openai[0]
   /** Proveedor preferido del usuario; el otro queda de respaldo. */
   let preferido: ProvVoz | null = null
+  /** Pase de un paquete del Studio de video (ver `_shared/pase.ts`). */
+  let pase: unknown = null
+  let velocidad = 1
   try {
-    const body = (await req.json()) as { texto?: unknown; voz?: unknown; prov?: unknown }
+    const body = (await req.json()) as { texto?: unknown; voz?: unknown; prov?: unknown; pase?: unknown; velocidad?: unknown }
+    pase = body.pase ?? null
+    if (typeof body.velocidad === 'number' && Number.isFinite(body.velocidad)) velocidad = Math.max(0.7, Math.min(1.5, body.velocidad))
     texto = typeof body.texto === 'string' ? body.texto.trim() : ''
     // La voz se valida contra el proveedor que acabe sirviendo, no aquí: un
     // respaldo cambia de juego de voces a mitad de la cadena.
@@ -193,10 +201,14 @@ Deno.serve(async (req) => {
   if (!texto) return json({ error: 'peticion-invalida', mensaje: 'Sin texto.' }, 400, cors)
   texto = recortar(texto, MAX_TEXTO)
 
-  const { data: cuota, error: errCuota } = await admin.rpc('consumir_cuota_ia', {
-    p_uid: usuario.id,
-    p_tipo: 'tts',
-  })
+  // Dentro de un paquete del Studio (ia-paquete) la llamada ya está pagada: no se cobra otra vez.
+  const cubierta = await cubiertaPorPase(admin, usuario.id, pase, 'tts')
+  const { data: cuota, error: errCuota } = cubierta
+    ? { data: { permitido: true, reserva: null, usadas: null, limite: null, extra: null, costo: 0 }, error: null }
+    : await admin.rpc('consumir_cuota_ia', {
+        p_uid: usuario.id,
+        p_tipo: 'tts',
+      })
   if (errCuota) {
     return json({ error: 'proveedor', mensaje: 'No se pudo verificar la cuota.' }, 502, cors)
   }
@@ -213,7 +225,7 @@ Deno.serve(async (req) => {
   const fallos: string[] = []
   for (const id of cadena) {
     try {
-      audio = await ADAPTADORES[id](texto, voz)
+      audio = await ADAPTADORES[id](texto, voz, velocidad)
       proveedor = id
       break
     } catch (e) {
@@ -223,7 +235,7 @@ Deno.serve(async (req) => {
 
   if (!audio) {
     // La reserva emitida al cobrar es lo que autoriza la devolución (un solo uso).
-    await admin.rpc('devolver_cuota_ia', { p_uid: usuario.id, p_tipo: 'tts', p_reserva: cuota.reserva })
+    if (cuota.reserva) await admin.rpc('devolver_cuota_ia', { p_uid: usuario.id, p_tipo: 'tts', p_reserva: cuota.reserva })
     console.error(`ia-tts: cadena agotada — ${fallos.join(' | ')}`)
     return json({ error: 'proveedor', mensaje: 'El proveedor de voz no respondió.' }, 502, cors)
   }
@@ -254,12 +266,15 @@ Deno.serve(async (req) => {
       base64: bytesABase64(audio.bytes),
       mime: audio.mime,
       proveedor,
-      uso: {
-        usadas: cuota.usadas,
-        limite: cuota.limite,
-        extra: cuota.extra ?? 0,
-        costo: cuota.costo,
-      },
+      // Con pase no hay cobro nuevo: el medidor no cambia.
+      uso: cubierta
+        ? null
+        : {
+            usadas: cuota.usadas,
+            limite: cuota.limite,
+            extra: cuota.extra ?? 0,
+            costo: cuota.costo,
+          },
     },
     200,
     cors,

@@ -3,7 +3,7 @@ import { vibrar } from '../../core/audio/vibrar'
 import type { ClipVideo, MedioVideo } from '../../core/data/db'
 import { capturarPointer, conPulsacionLarga, frenarScrollTactil } from '../../core/ui/comun/arrastre'
 import { IMAN_PX, MAX_ESCENA, MIN_CLIP } from './constantes'
-import { clipsDe, fin, huecoDe, imantar, medioIdDe, puntosIman, tieneMedioTemporal } from './modelo'
+import { clipsDe, fin, huecoDe, imantar, medioIdDe, puntosIman, tieneMedioTemporal, velocidadDe } from './modelo'
 import { sonidoFabrica } from './sonidos'
 
 /**
@@ -29,17 +29,18 @@ function limitesRecorte(
   const fn = fin(clip)
   const h = huecoDe(clips, clip)
   const desde = clip.desde ?? 0
+  const vel = velocidadDe(clip)
   const temporal = tieneMedioTemporal(clip)
   const bucle = clip.pista === 'musica' && clip.bucle
   const durMedio =
     medio?.duracion ?? (clip.pista === 'sfx' && clip.fuente.tipo === 'fabrica' ? sonidoFabrica(clip.fuente.clave)?.duracion : undefined)
   if (lado === 'ini') {
     return {
-      min: Math.max(h.min, temporal && !bucle ? ini - desde : 0, clip.pista === 'video' ? fn - MAX_ESCENA : 0),
+      min: Math.max(h.min, temporal && !bucle ? ini - desde / vel : 0, clip.pista === 'video' ? fn - MAX_ESCENA : 0),
       max: fn - MIN_CLIP,
     }
   }
-  const topeMedio = temporal && durMedio && !bucle ? ini + (durMedio - desde) : Infinity
+  const topeMedio = temporal && durMedio && !bucle ? ini + (durMedio - desde) / vel : Infinity
   return { min: ini + MIN_CLIP, max: Math.min(h.max, topeMedio, clip.pista === 'video' ? ini + MAX_ESCENA : Infinity) }
 }
 

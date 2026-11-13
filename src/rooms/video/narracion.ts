@@ -24,12 +24,13 @@ export interface AudioNarracion {
 export async function generarAudioNarracion(
   texto: string,
   voz: string | undefined,
-  opts: { envolvente?: boolean } = {},
+  /** `lang`: idioma de la voz del dispositivo (BCP-47); ausente = el de la app. Al doblar a otro idioma, el destino. */
+  opts: { envolvente?: boolean; lang?: string; velocidad?: number } = {},
 ): Promise<AudioNarracion> {
   const frase = texto.trim().slice(0, 1000)
   const blob = usaDispositivo(voz)
-    ? await sintetizarArchivo(quitarEmojis(frase).trim(), voz && esVozDispositivo(voz) ? nombreVozDispositivo(voz) : undefined, langVoz())
-    : await generarVozIA(frase, voz)
+    ? await sintetizarArchivo(quitarEmojis(frase).trim(), voz && esVozDispositivo(voz) ? nombreVozDispositivo(voz) : undefined, opts.lang ?? langVoz())
+    : await generarVozIA(frase, voz, { velocidad: opts.velocidad })
   return registrarAudio(blob, `${tGlobal('video.escena.narracion', 'Narración')}: ${frase.slice(0, 40)}`, 'tts', opts)
 }
 

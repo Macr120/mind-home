@@ -387,6 +387,11 @@ async function estadisticas(admin: SupabaseClient, uid: string, cuerpo: Record<s
     const ruta = plataforma === 'instagram' ? `/${cuenta.cuenta_id}/media?fields=id,media_type,timestamp,permalink&limit=10` : `/${cuenta.cuenta_id}/posts?fields=id,created_time,permalink_url&limit=10`
     return { recientes: (await graph(ruta, cuenta.access_token)).data ?? [] }
   }
+  // `seguidores`: los de la Página o la cuenta de Instagram, para el contador diario.
+  if (cuerpo.seguidores === true) {
+    const campos = plataforma === 'instagram' ? 'followers_count,media_count' : 'followers_count,fan_count'
+    return { cuenta: await graph(`/${cuenta.cuenta_id}?fields=${campos}`, cuenta.access_token) }
+  }
   const campos =
     plataforma === 'instagram'
       ? ['like_count,comments_count,media_type']

@@ -56,7 +56,6 @@ export const TEXTOS: Record<string, string> = {
   'mi.estado.fuePro':
     'Langgananmu berakhir: aplikasinya tetap di perangkatmu dalam mode lokal. Perpanjang, dan kredit bulanan serta sinkronisasi kembali persis seperti kamu tinggalkan.',
   'mi.estado.pruebaVencida': 'Uji cobamu sudah berakhir: rumah dan datamu tetap bersamamu. Berlanggananlah untuk terus memakai AI, sinkronisasi, dan cloud.',
-  'mi.estado.gratis': 'Rumahmu gratis dan datamu tinggal di perangkatmu. AI, sinkronisasi, dan cloud datang bersama langganan.',
   'mi.disponibles': 'Kredit tersedia: {n}',
   'mi.abrirApp': 'Buka aplikasinya di browser',
   'mi.salir': 'Keluar',
@@ -88,4 +87,12 @@ export const TEXTOS: Record<string, string> = {
   'cuenta.err.cupon-canjeado': 'Kupon ini sudah ditukarkan di akun ini.',
   'cuenta.err.cupon-invalido': 'Kupon itu tidak ada atau sudah tidak tersedia.',
   'cuenta.err.generico': 'Tindakan tidak bisa diselesaikan. Coba lagi.',
+  'mi.estado.gratis': 'Rumahmu sudah terbuka dan datamu ada di perangkatmu. AI, sinkronisasi, dan cloud ada di langganan.',
+  'mi.estado.sinCasa': 'Kamu bisa membangun rumahmu di aplikasi, tetapi tidak tersimpan sampai kamu membukanya: pembayaran sekali yang sudah termasuk seminggu AI. Langganan juga membukanya.',
+  'casa.titulo': 'Rumah pikiranmu',
+  'casa.pagoUnico': 'bayar sekali',
+  'casa.b1': 'Rumahmu dan semua yang kamu lakukan di dalamnya, tersimpan selamanya',
+  'casa.b2': 'Termasuk seminggu AI',
+  'casa.b3': 'Kunjungan, game, dan pesan dengan teman-temanmu',
+  'casa.cta': 'Buka rumahku',
 }

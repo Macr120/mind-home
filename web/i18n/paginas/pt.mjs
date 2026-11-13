@@ -12,8 +12,8 @@ export const TEXTOS = {
   'tema.boton': 'Modo claro ou escuro',
 
   'meta.titulo': 'MindHaOS — Sua mente, em uma casa 3D',
-  'meta.desc': 'Organize seus hábitos, metas, finanças, refeições e mais numa casa isométrica 3D onde cada cômodo é um app. Grátis com a sua conta; a IA, a sincronização e a nuvem, a partir de 7 USD por mês.',
-  'og.desc': 'Sua vida, numa casa 3D: hábitos, metas, finanças, refeições e mais. Grátis com a sua conta; a IA e a sincronização, a partir de 7 USD por mês.',
+  'meta.desc': 'Organize seus hábitos, metas, finanças, refeições e mais numa casa isométrica 3D onde cada cômodo é um app. Construa grátis; guarde com um pagamento único e acrescente a IA quando quiser.',
+  'og.desc': 'Sua vida, numa casa 3D: hábitos, metas, finanças, refeições e mais. Construa grátis e guarde com um pagamento único.',
 
   'hero.h1': 'Sua mente,<br />em uma casa 3D',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -39,7 +39,7 @@ export const TEXTOS = {
     'seja totalmente à mão ou com ajuda da IA. E todos estão integrados a um calendário, a um sistema de missões diárias e às suas metas pessoais, sincronizados no seu celular e no seu computador.',
   'hero.cta': 'Baixar o app',
   'hero.probar': 'Experimente criar sua MindHaOS grátis',
-  'hero.nota': 'A MindHaOS (Casa Mental OS) é grátis com a sua conta e funciona sem conexão. A IA, a sincronização e a nuvem vêm com a assinatura — e se você deixar, não perde nada.',
+  'hero.nota': 'Construa sua MindHaOS (Casa Mental OS) grátis e sem conta. Para guardá-la, um pagamento único que inclui uma semana de IA; depois, a IA, a sincronização e a nuvem vêm com a assinatura — e se você deixar, não perde nada.',
   'hero.video': 'Aqui vai seu vídeo ou capturas da MindHaOS (Casa Mental OS)',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -67,8 +67,8 @@ export const TEXTOS = {
   'car.todo.t': 'Tudo em um, de verdade',
   'car.todo.p':
     'Um app em vez de vinte: comida, dinheiro, descanso, estudo, hábitos e metas sob o mesmo teto — e conversando entre si, que é justamente o que nenhum app solto consegue fazer.',
-  'car.nocaduca.t': 'Grátis, e não caduca',
-  'car.nocaduca.p': 'Sua MindHaOS é grátis com a sua conta, e é sua. Os apps de assinatura se apagam assim que você para de pagar; aqui a assinatura só traz a IA, a sincronização e a nuvem: se você deixar, conserva a MindHaOS inteira e todos os seus dados no seu dispositivo.',
+  'car.nocaduca.t': 'Você paga uma vez, e não caduca',
+  'car.nocaduca.p': 'Sua MindHaOS se paga uma única vez e é sua. Os apps de assinatura se apagam assim que você para de pagar; aqui a assinatura só traz a IA, a sincronização e a nuvem: se você deixar, conserva a MindHaOS inteira e todos os seus dados no seu dispositivo.',
   'car.nuevas.t': 'Atualizações novas',
   'car.nuevas.p': 'A MindHaOS continua crescendo: cômodos, apps e melhorias que chegam sem pagar de novo.',
   'car.1.t': 'Cômodos que são apps',
@@ -123,14 +123,15 @@ export const TEXTOS = {
     'Aqui você expande novas habilidades, mantém o controle dos seus recursos e coloca a tecnologia a seu favor. Contra o consumismo inconsciente do formato curto. Contra a deterioração cognitiva que deixam os hábitos de consumo impostos pelas grandes corporações.',
   'mani.cierre': 'A mesma dopamina. Desta vez, para a sua vida real.',
 
-  'precio.h2': 'Sua MindHaOS é grátis; a IA, a sincronização e a nuvem, por assinatura',
-  'precio.probar.nombre': 'Experimente',
-  'precio.probar.cifra': 'Grátis',
-  'precio.probar.1': 'Sua própria MindHaOS com todos os apps, e seus dados no seu dispositivo',
-  'precio.probar.2': 'Caixa de mensagens, partidas e espaços compartilhados com seus amigos',
-  'precio.probar.3': 'Experimente sem conta; crie sua conta grátis para guardá-la',
-  'precio.probar.cta': 'Testar o app',
-  'precio.probar.pie': 'Sem cartão e sem data de validade.',
+  'precio.h2': 'Construa grátis, guarde com um pagamento único; a IA, por assinatura',
+  'precio.probar.nombre': 'Sua casa',
+  'precio.probar.cifra': '5 USD',
+  'precio.probar.pagoUnico': 'pagamento único',
+  'precio.probar.1': 'Construa grátis e sem conta, com todos os apps',
+  'precio.probar.2': 'Guarde-a para sempre, com uma semana de IA incluída',
+  'precio.probar.3': 'Caixa de mensagens, partidas e espaços compartilhados com seus amigos',
+  'precio.probar.cta': 'Experimentar grátis',
+  'precio.probar.pie': 'Sem assinatura: paga-se uma vez, aqui ou dentro do app.',
   'precio.app.nombre': 'Assinatura',
   'precio.app.cifra': 'a partir de 7 USD',
   'precio.app.pagoUnico': 'por mês',
@@ -165,7 +166,7 @@ export const TEXTOS = {
   'creditos.cta': 'Ver os níveis',
 
   'desc.h2': 'Baixar o app',
-  'desc.sub': 'Baixe grátis e entre com a sua conta: sua MindHaOS aparece em qualquer dispositivo, incluindo o navegador. A assinatura é feita dentro do app ou aqui na web.',
+  'desc.sub': 'Baixe grátis, construa sua casa e entre com a sua conta: sua MindHaOS aparece em qualquer dispositivo, incluindo o navegador. O pagamento único e a assinatura são feitos dentro do app ou aqui na web.',
   'desc.pronto': 'Em breve',
   'desc.android': 'Grátis no Google Play.',
   'desc.android.cta': 'Baixar para Android',
@@ -177,10 +178,15 @@ export const TEXTOS = {
   'desc.web.cta': 'Abrir o app',
   'desc.windows': 'Grátis na Microsoft Store.',
   'desc.windows.cta': 'Baixar para Windows',
+  // ── Página de las tiendas (web/download.html) ──
+  'bajar.titulo': "Baixe o MindHaOS",
+  'bajar.sub': "Grátis no seu celular, no computador ou no navegador. Entre com sua conta e sua casa vai com você para todo lado.",
+  'bajar.abriendo': "Abrindo a loja…",
+  'bajar.ios.cta': "Baixar para iPhone e Mac",
 
   'faq.h2': 'Perguntas frequentes',
-  'faq.1.q': 'O app é grátis?',
-  'faq.1.a': 'Sim. Você cria sua conta e sua MindHaOS é sua, com todos os apps, sem pagar nada. Só se paga a assinatura se você quiser a IA, a sincronização entre dispositivos e a nuvem; ela é feita aqui, na <a href="/cuenta">sua conta</a>, ou dentro do app de Android e iPhone, e vale em todos os seus dispositivos.',
+  'faq.1.q': 'Quanto custa?',
+  'faq.1.a': 'Construir sua casa é grátis e sem conta, mas ela não é guardada. Para guardá-la você paga uma única vez (5 USD), com uma semana de IA incluída e as visitas e jogos com seus amigos. A assinatura é só para a IA, a sincronização entre dispositivos e a nuvem; ela é feita aqui, na <a href="/cuenta">sua conta</a>, ou dentro do app, e vale em todos os seus dispositivos.',
   'faq.2.q': 'O que a assinatura inclui?',
   'faq.2.a': 'Três níveis: o Nível 1, por 7 USD por mês, traz 700 créditos de IA e 10 GB de nuvem; o Nível 2, por 14 USD, 1400 créditos e 30 GB; e o Nível 3, por 20 USD, 2100 créditos e 100 GB. Os três incluem a sincronização entre todos os seus dispositivos. Sem fidelidade: você sobe, desce ou cancela quando quiser.',
   'faq.3.q': 'O que posso fazer sem assinar?',
@@ -275,7 +281,7 @@ export const TEXTOS = {
 
   'term.titulo': 'Termos de serviço',
   'term.servicio.h': 'O serviço',
-  'term.servicio.p': 'MindHaOS é um app de organização pessoal. O teste sem conta e o app com conta são gratuitos. As funções recorrentes (créditos de IA, sincronização e nuvem) são contratadas como assinatura, aqui na web ou dentro do app; todas as versões são clientes dessa mesma conta.',
+  'term.servicio.p': 'MindHaOS é um app de organização pessoal. O teste sem conta é gratuito e não guarda as alterações; guardar a casa exige uma conta e um pagamento único. As funções recorrentes (créditos de IA, sincronização e nuvem) são contratadas como assinatura, aqui na web ou dentro do app; todas as versões são clientes dessa mesma conta.',
   'term.local.h': 'Modo local',
   'term.local.p': 'Com a sua conta, todas as funções offline do app são usadas sem custo. Os dados são guardados no seu dispositivo, e o backup deles é responsabilidade sua (Configurações → Backup de dados).',
   'term.precio.h': 'Assinatura e preço',

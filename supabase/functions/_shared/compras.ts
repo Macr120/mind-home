@@ -48,17 +48,19 @@ export const CREDITOS: Record<string, number> = {
 }
 
 /**
- * Pago único que desbloquea la app para siempre e incluye el «primer mes»:
- * 30 días de plan 'trial' (pool de 700 créditos + sync) sin tarjeta ni
- * suscripción (20260815000001). One-time SIN entitlement, como las recargas.
+ * Pago único que desbloquea la casa para siempre (5 USD en todos los mercados desde el
+ * 11-nov-2026) e incluye una «semana de IA»: 7 días de plan 'trial' con 175
+ * créditos (20261111000001) sin tarjeta ni suscripción. One-time SIN
+ * entitlement, como las recargas. `_v7` es el de la web (`_v6`, a 5.99, nunca se vendió); Play y Apple cambian el
+ * precio sobre `_v4`.
  *
  * Es una LISTA porque en RevenueCat el precio de un producto es INMUTABLE: cada
  * cambio de precio obliga a crear otro producto. Los ids viejos se conservan
  * para seguir honrando una compra en vuelo. Espejo de `UNLOCK_PRODUCTOS` en
  * src/core/cuenta/productos.ts.
  */
-export const UNLOCK_PRODUCTOS = ['unlock_casa_v5', 'unlock_casa_v4', 'unlock_casa_v3', 'unlock_casa_v2', 'unlock_casa']
-export const TRIAL_DIAS = 30
+export const UNLOCK_PRODUCTOS = ['unlock_casa_v7', 'unlock_casa_v6', 'unlock_casa_v5', 'unlock_casa_v4', 'unlock_casa_v3', 'unlock_casa_v2', 'unlock_casa']
+export const TRIAL_DIAS = 7
 
 /** En Apple el id de producto es único en TODO el App Store: lleva el bundle. */
 const BUNDLE = 'com.macr120.mindhome.'
@@ -100,6 +102,8 @@ export async function aplicarSuscripcion(
       plan_expira: expiraMs > 0 ? new Date(expiraMs).toISOString() : null,
       fue_pro: true,
       nivel,
+      // Suscribirse también desbloquea la casa, y para siempre.
+      unlock: true,
       // Vuelve a tener plan: se para el reloj de la purga de la nube.
       sin_plan_desde: null,
     })
@@ -108,8 +112,8 @@ export async function aplicarSuscripcion(
 }
 
 /**
- * El pago único de la casa. `unlock = true` se aplica SIEMPRE (idempotente); el
- * trial de 30 días solo la primera vez que el flag cambia y solo si el perfil
+ * El pago único de la casa. `unlock = true` se aplica SIEMPRE (idempotente); la
+ * semana de IA solo la primera vez que el flag cambia y solo si el perfil
  * sigue en 'local' (no degradar a un Pro que además compró el unlock). Así un
  * reintento tras un update fallido sí completa el alta, y uno tras un alta
  * exitosa no re-extiende el trial.

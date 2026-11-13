@@ -12,8 +12,8 @@ export const TEXTOS = {
   'tema.boton': 'Light or dark mode',
 
   'meta.titulo': 'MindHaOS — Your mind, in a 3D house',
-  'meta.desc': 'Organise your habits, goals, finances, meals and more in an isometric 3D house where every room is an app. Free with your account; AI, sync and the cloud from USD 7 a month.',
-  'og.desc': 'Your life, in a 3D house: habits, goals, finances, meals and more. Free with your account; AI and sync from USD 7 a month.',
+  'meta.desc': 'Organise your habits, goals, finances, meals and more in an isometric 3D house where every room is an app. Build it for free; keep it with a one-time payment and add AI whenever you like.',
+  'og.desc': 'Your life, in a 3D house: habits, goals, finances, meals and more. Build it for free and keep it with a one-time payment.',
 
   'hero.h1': 'Your mind,<br />in a 3D house',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -39,7 +39,7 @@ export const TEXTOS = {
     'either entirely by hand or with the AI helping. And they all run on one calendar, one daily mission list and your own personal goals, synced on your phone and your computer.',
   'hero.cta': 'Get the app',
   'hero.probar': 'Try building your MindHaOS for free',
-  'hero.nota': 'MindHaOS is free with your account and works offline. AI, sync and the cloud come with the subscription — and if you drop it, you lose nothing.',
+  'hero.nota': 'Build your MindHaOS for free, no account needed. To keep it, a one-time payment that includes a week of AI; after that, AI, sync and the cloud come with the subscription — and if you drop it, you lose nothing.',
   'hero.video': 'Your video or screenshots of your MindHaOS go here',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -67,8 +67,8 @@ export const TEXTOS = {
   'car.todo.t': 'All in one, for real',
   'car.todo.p':
     'One app instead of twenty: food, money, sleep, study, habits and goals under the same roof — and talking to each other, which is exactly what no separate app can do.',
-  'car.nocaduca.t': 'Free, and it doesn’t expire',
-  'car.nocaduca.p': 'Your MindHaOS is free with your account, and it’s yours. Subscription apps switch off as soon as you stop paying; here the subscription only brings AI, sync and the cloud: if you drop it, you keep your whole MindHaOS and all your data on your device.',
+  'car.nocaduca.t': 'Pay once, and it doesn’t expire',
+  'car.nocaduca.p': 'Your MindHaOS is paid for once and it’s yours. Subscription apps switch off as soon as you stop paying; here the subscription only brings AI, sync and the cloud: if you drop it, you keep your whole MindHaOS and all your data on your device.',
   'car.nuevas.t': 'New updates',
   'car.nuevas.p': 'Your MindHaOS keeps growing: rooms, apps and improvements that arrive without paying again.',
   'car.1.t': 'Rooms that are apps',
@@ -124,14 +124,15 @@ export const TEXTOS = {
     'Here you grow new skills, keep control of your resources and put technology on your side. Against the mindless consumption of short-form content. Against the cognitive decay left behind by the consumption habits that big corporations impose on us.',
   'mani.cierre': 'The same dopamine. This time, for your real life.',
 
-  'precio.h2': 'Your MindHaOS is free; AI, sync and the cloud come by subscription',
-  'precio.probar.nombre': 'Try it',
-  'precio.probar.cifra': 'Free',
-  'precio.probar.1': 'Your own MindHaOS with every app, and your data on your device',
-  'precio.probar.2': 'Mailbox, games and shared spaces with your friends',
-  'precio.probar.3': 'Try it without an account; create your free account to keep it',
-  'precio.probar.cta': 'Try the app',
-  'precio.probar.pie': 'No card and no expiry date.',
+  'precio.h2': 'Build it for free, keep it with a one-time payment; AI by subscription',
+  'precio.probar.nombre': 'Your house',
+  'precio.probar.cifra': '5 USD',
+  'precio.probar.pagoUnico': 'one-time payment',
+  'precio.probar.1': 'Build it for free, no account needed, with every app',
+  'precio.probar.2': 'Keep it forever, with a week of AI included',
+  'precio.probar.3': 'Mailbox, games and shared spaces with your friends',
+  'precio.probar.cta': 'Try it free',
+  'precio.probar.pie': 'No subscription: you pay once, here or inside the app.',
   'precio.app.nombre': 'Subscription',
   'precio.app.cifra': 'from USD 7',
   'precio.app.pagoUnico': 'a month',
@@ -166,7 +167,7 @@ export const TEXTOS = {
   'creditos.cta': 'See the tiers',
 
   'desc.h2': 'Get the app',
-  'desc.sub': 'Download it for free and sign in with your account: your MindHaOS shows up on any device, including the browser. Subscribe inside the app or here on the web.',
+  'desc.sub': 'Download it for free, build your house and sign in with your account: your MindHaOS shows up on any device, including the browser. The one-time payment and the subscription are available inside the app or here on the web.',
   'desc.pronto': 'Coming soon',
   'desc.android': 'Free on Google Play.',
   'desc.android.cta': 'Download for Android',
@@ -178,10 +179,15 @@ export const TEXTOS = {
   'desc.web.cta': 'Open the app',
   'desc.windows': 'Free on Microsoft Store.',
   'desc.windows.cta': 'Download for Windows',
+  // ── Página de las tiendas (web/download.html) ──
+  'bajar.titulo': "Get MindHaOS",
+  'bajar.sub': "Free on your phone, your computer or the browser. Sign in and your house follows you everywhere.",
+  'bajar.abriendo': "Opening the store…",
+  'bajar.ios.cta': "Download for iPhone and Mac",
 
   'faq.h2': 'Frequently asked questions',
-  'faq.1.q': 'Is the app free?',
-  'faq.1.a': 'Yes. You create your account and your MindHaOS is yours, with every app, without paying anything. You only pay for the subscription if you want AI, sync across devices and the cloud; subscribe here, in <a href="/cuenta">your account</a>, or inside the Android and iPhone app, and it works on all your devices.',
+  'faq.1.q': 'How much does it cost?',
+  'faq.1.a': 'Building your house is free and needs no account, but it isn’t saved. To keep it you pay once (5 USD), with a week of AI included plus visits and games with your friends. The subscription is only for AI, sync across devices and the cloud; subscribe here, in <a href="/cuenta">your account</a>, or inside the app, and it works on all your devices.',
   'faq.2.q': 'What does the subscription include?',
   'faq.2.a': 'Three tiers: Tier 1, at USD 7 a month, brings 700 AI credits and 10 GB of cloud; Tier 2, at USD 14, 1400 credits and 30 GB; and Tier 3, at USD 20, 2100 credits and 100 GB. All three include sync across all your devices. No commitment: upgrade, downgrade or cancel whenever you like.',
   'faq.3.q': 'What can I do without subscribing?',
@@ -276,7 +282,7 @@ export const TEXTOS = {
 
   'term.titulo': 'Terms of service',
   'term.servicio.h': 'The service',
-  'term.servicio.p': 'MindHaOS is a personal organisation app. The trial without an account and the app with an account are free. The recurring features (AI credits, sync and the cloud) are taken out as a subscription, here on the web or inside the app; every version is a client of that same account.',
+  'term.servicio.p': 'MindHaOS is a personal organisation app. The trial without an account is free and doesn’t save changes; keeping the house requires an account and a one-time payment. The recurring features (AI credits, sync and the cloud) are taken out as a subscription, here on the web or inside the app; every version is a client of that same account.',
   'term.local.h': 'Local mode',
   'term.local.p': 'With your account, all the app’s offline features are free to use. Data is stored on your device, and backing it up is your responsibility (Settings → Data backup).',
   'term.precio.h': 'Subscription and price',

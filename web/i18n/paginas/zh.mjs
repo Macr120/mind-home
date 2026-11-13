@@ -12,8 +12,8 @@ export const TEXTOS = {
   'tema.boton': '浅色或深色模式',
 
   'meta.titulo': 'MindHaOS — 你的心智，装进一座 3D 房子',
-  'meta.desc': '在一座等距视角的 3D 房子里整理你的习惯、目标、财务、饮食等等，每个房间都是一个应用。有账户即可免费使用；AI、同步和云端，每月 7 美元起。',
-  'og.desc': '你的生活，装进一座 3D 房子：习惯、目标、财务、饮食等等。有账户即可免费使用；AI 和同步，每月 7 美元起。',
+  'meta.desc': '在一座等距视角的 3D 房子里整理你的习惯、目标、财务、饮食等等，每个房间都是一个应用。免费搭建；一次性付费即可保存，AI 随时可以加上。',
+  'og.desc': '你的生活，装进一座 3D 房子：习惯、目标、财务、饮食等等。免费搭建，一次性付费即可保存。',
 
   'hero.h1': '你的心智，<br />装进一座 3D 房子',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -38,7 +38,7 @@ export const TEXTOS = {
   'hero.sub.4': '，全部手动，或者让 AI 帮你。所有应用都接到同一个日历、每日任务和你的个人目标上，手机和电脑同步。',
   'hero.cta': '下载应用',
   'hero.probar': '免费体验打造你的 MindHaOS',
-  'hero.nota': 'MindHaOS（心灵之家 OS）有账户即可免费使用，离线也能用。AI、同步和云端随订阅提供——就算停订，你也不会失去任何东西。',
+  'hero.nota': '免费搭建你的 MindHaOS（心灵之家 OS），无需账户。想要保存，只需一次性付费，含一周 AI；之后，AI、同步和云端随订阅提供——就算停订，你也不会失去任何东西。',
   'hero.video': '这里放你的视频或 MindHaOS（心灵之家 OS）的截图',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -63,8 +63,8 @@ export const TEXTOS = {
   // Las tres primeras tarjetas: el argumento de compra.
   'car.todo.t': '真正的全部合一',
   'car.todo.p': '一个应用，而不是二十个：吃饭、钱、睡眠、学习、习惯和目标都在同一个屋檐下，而且彼此相通——这正是任何单独的应用都做不到的。',
-  'car.nocaduca.t': '免费，而且不会过期',
-  'car.nocaduca.p': '有账户，你的 MindHaOS 就免费，而且归你所有。订阅制应用一停止付费就会关闭；而这里的订阅只带来 AI、同步和云端：停订后，整个 MindHaOS 和你的所有数据都留在你的设备上。',
+  'car.nocaduca.t': '只付一次，而且不会过期',
+  'car.nocaduca.p': '你的 MindHaOS 只需付费一次，就永远归你所有。订阅制应用一停止付费就会关闭；而这里的订阅只带来 AI、同步和云端：停订后，整个 MindHaOS 和你的所有数据都留在你的设备上。',
   'car.nuevas.t': '持续更新',
   'car.nuevas.p': 'MindHaOS 会继续长大：新的房间、新的应用和改进，都不用再付一次钱。',
   'car.1.t': '房间就是应用',
@@ -110,14 +110,15 @@ export const TEXTOS = {
   'mani.p2': '在这里你拓展新的能力，掌握自己的资源，让技术站在你这边。对抗短视频里那种无意识的消费。对抗大公司强加的消费习惯留下的认知退化。',
   'mani.cierre': '同样的多巴胺。这一次，给你真实的人生。',
 
-  'precio.h2': '你的 MindHaOS 免费；AI、同步和云端按订阅提供',
-  'precio.probar.nombre': '先试试',
-  'precio.probar.cifra': '免费',
-  'precio.probar.1': '属于你自己的 MindHaOS，包含所有应用，数据存在你的设备上',
-  'precio.probar.2': '与朋友共享的信箱、对局和共享空间',
-  'precio.probar.3': '无需账户即可试用；免费创建账户即可保存',
-  'precio.probar.cta': '试用应用',
-  'precio.probar.pie': '不用银行卡，也没有到期日。',
+  'precio.h2': '免费搭建，一次性付费保存；AI 按订阅提供',
+  'precio.probar.nombre': '你的房子',
+  'precio.probar.cifra': '5 USD',
+  'precio.probar.pagoUnico': '一次性付费',
+  'precio.probar.1': '免费搭建，无需账户，包含所有应用',
+  'precio.probar.2': '永久保存，含一周 AI',
+  'precio.probar.3': '与朋友共享的信箱、对局和共享空间',
+  'precio.probar.cta': '免费试用',
+  'precio.probar.pie': '无需订阅：只付一次，在这里或在应用里都可以。',
   'precio.app.nombre': '订阅',
   'precio.app.cifra': '7 美元起',
   'precio.app.pagoUnico': '每月',
@@ -152,7 +153,7 @@ export const TEXTOS = {
   'creditos.cta': '查看档位',
 
   'desc.h2': '下载应用',
-  'desc.sub': '免费下载，用你的账户登录：你的 MindHaOS 会出现在任何设备上，包括浏览器。订阅可以在应用里或在这个网页上开通。',
+  'desc.sub': '免费下载，搭建你的房子，再用你的账户登录：你的 MindHaOS 会出现在任何设备上，包括浏览器。一次性付费和订阅都可以在应用里或在这个网页上开通。',
   'desc.pronto': '即将推出',
   'desc.android': '在 Google Play 免费下载。',
   'desc.android.cta': '下载 Android 版',
@@ -163,10 +164,15 @@ export const TEXTOS = {
   'desc.web.cta': '打开应用',
   'desc.windows': '在 Microsoft Store 免费下载。',
   'desc.windows.cta': '下载 Windows 版',
+  // ── Página de las tiendas (web/download.html) ──
+  'bajar.titulo': "下载 MindHaOS",
+  'bajar.sub': "手机、电脑或浏览器上免费使用。登录账号，你的房子随你到任何地方。",
+  'bajar.abriendo': "正在打开应用商店…",
+  'bajar.ios.cta': "下载 iPhone 和 Mac 版",
 
   'faq.h2': '常见问题',
-  'faq.1.q': '应用免费吗？',
-  'faq.1.a': '是的。创建账户后，包含所有应用的 MindHaOS 就归你所有，一分钱都不用付。只有当你想要 AI、跨设备同步和云端时才需要订阅；可以在这里的<a href="/cuenta">你的账户</a>里开通，也可以在 Android 和 iPhone 应用里开通，所有设备通用。',
+  'faq.1.q': '要花多少钱？',
+  'faq.1.a': '搭建房子免费，也不需要账户，但不会被保存。想要保存，只需付费一次（5 USD），含一周 AI，以及和朋友的互访与游戏。订阅只用于 AI、跨设备同步和云端；可以在这里的<a href="/cuenta">你的账户</a>里开通，也可以在应用里开通，所有设备通用。',
   'faq.2.q': '订阅包含什么？',
   'faq.2.a': '三个档位：第 1 档每月 7 美元，含 700 点 AI 额度和 10 GB 云端；第 2 档 14 美元，含 1400 点和 30 GB；第 3 档 20 美元，含 2100 点和 100 GB。三档都包含你所有设备之间的同步。没有约束期：随时升档、降档或取消。',
   'faq.3.q': '不订阅能做什么？',
@@ -261,7 +267,7 @@ export const TEXTOS = {
 
   'term.titulo': '服务条款',
   'term.servicio.h': '服务',
-  'term.servicio.p': 'MindHaOS 是一款个人整理应用。免账户试用和有账户的应用都是免费的。周期性功能（AI 额度、同步和云端）以订阅方式开通，可在这个网页或应用里办理；所有版本都是同一个账户的客户端。',
+  'term.servicio.p': 'MindHaOS 是一款个人整理应用。免账户试用是免费的，但不会保存更改；保存房子需要账户和一次性付费。周期性功能（AI 额度、同步和云端）以订阅方式开通，可在这个网页或应用里办理；所有版本都是同一个账户的客户端。',
   'term.local.h': '本地模式',
   'term.local.p': '有账户时，应用的所有离线功能都可免费使用。数据保存在你的设备上，备份由你自己负责（设置 → 数据备份）。',
   'term.precio.h': '订阅与价格',

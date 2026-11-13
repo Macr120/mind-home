@@ -18,6 +18,7 @@ interface CancionDatos {
   nombre: string
   bpm: number
   compases: number
+  compas?: string
   pulsos?: number
   swing?: number
   volumenMaestro?: number
@@ -45,6 +46,7 @@ export async function empaquetarCancion(p: ProyectoAudio): Promise<Paquete | nul
     nombre: p.nombre,
     bpm: p.bpm,
     compases: p.compases,
+    ...(p.compas ? { compas: p.compas } : {}),
     ...(p.pulsos ? { pulsos: p.pulsos } : {}),
     ...(p.swing ? { swing: p.swing } : {}),
     ...(p.volumenMaestro != null ? { volumenMaestro: p.volumenMaestro } : {}),
@@ -75,6 +77,7 @@ function proyectoDe(d: CancionDatos, ahora: string): Omit<ProyectoAudio, 'id'> {
     nombre: d.nombre,
     bpm: Number(d.bpm) || 120,
     compases: Number(d.compases) || 4,
+    ...(typeof d.compas === 'string' ? { compas: d.compas } : {}),
     ...(d.pulsos ? { pulsos: d.pulsos } : {}),
     ...(d.swing ? { swing: d.swing } : {}),
     ...(d.volumenMaestro != null ? { volumenMaestro: d.volumenMaestro } : {}),

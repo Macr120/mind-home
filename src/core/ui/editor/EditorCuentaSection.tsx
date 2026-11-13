@@ -991,7 +991,7 @@ function EnlaceCreditos() {
  * with mechanisms other than In-App Purchase» (rechazo de la 1.0, 13-sep-2026,
  * 3.1.1), y la misma regla rige en Google Play Payments.
  */
-function FilaCupon() {
+export function FilaCupon() {
   const t = useT()
   const canjearCupon = useSesion((s) => s.canjearCupon)
   const [abierto, setAbierto] = useState(false)

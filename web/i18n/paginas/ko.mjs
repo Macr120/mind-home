@@ -12,8 +12,8 @@ export const TEXTOS = {
   'tema.boton': '밝은 모드 또는 어두운 모드',
 
   'meta.titulo': 'MindHaOS — 당신의 마음을, 3D 집 한 채에',
-  'meta.desc': '습관, 목표, 재정, 식사 등을 방 하나하나가 앱인 3D 아이소메트릭 집에서 정리하세요. 계정만 있으면 무료, AI·동기화·클라우드는 월 7 USD부터.',
-  'og.desc': '당신의 삶을 3D 집에: 습관, 목표, 재정, 식사 등. 계정만 있으면 무료, AI와 동기화는 월 7 USD부터.',
+  'meta.desc': '습관, 목표, 재정, 식사 등을 방 하나하나가 앱인 3D 아이소메트릭 집에서 정리하세요. 짓는 건 무료, 한 번 결제로 저장하고 AI는 원할 때 더하세요.',
+  'og.desc': '당신의 삶을 3D 집에: 습관, 목표, 재정, 식사 등. 짓는 건 무료, 한 번 결제로 저장하세요.',
 
   'hero.h1': '당신의 마음을,<br />3D 집 한 채에',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -38,7 +38,7 @@ export const TEXTOS = {
   'hero.sub.4': ' — 이런 것들을 보관하고, 계획하고, 만들어요. 손으로도 AI와 함께도. 모든 앱은 하나의 달력과 매일의 미션, 당신의 목표에 이어져 있고 휴대폰과 컴퓨터에서 동기화돼요.',
   'hero.cta': '앱 내려받기',
   'hero.probar': '내 MindHaOS 만들기 무료 체험',
-  'hero.nota': 'MindHaOS(마음의 집 OS)는 계정만 있으면 무료이고 오프라인에서도 작동해요. AI, 동기화, 클라우드는 구독에 포함돼요 — 구독을 그만둬도 잃는 건 없어요.',
+  'hero.nota': 'MindHaOS(마음의 집 OS)는 계정 없이 무료로 지을 수 있어요. 저장하려면 AI 1주일이 포함된 한 번 결제, 그 뒤 AI, 동기화, 클라우드는 구독에 포함돼요 — 구독을 그만둬도 잃는 건 없어요.',
   'hero.video': '여기에 영상이나 MindHaOS(마음의 집 OS) 스크린샷이 들어갑니다',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -63,8 +63,8 @@ export const TEXTOS = {
   // Las tres primeras tarjetas: el argumento de compra.
   'car.todo.t': '진짜 올인원',
   'car.todo.p': '앱 스무 개 대신 하나예요. 식사, 돈, 수면, 공부, 습관, 목표가 한 지붕 아래에서 서로 이어져요. 따로 떨어진 앱들은 못 하는 일이에요.',
-  'car.nocaduca.t': '무료이고, 만료되지 않아요',
-  'car.nocaduca.p': '당신의 MindHaOS는 계정만 있으면 무료이고, 당신의 것이에요. 구독형 앱은 결제를 멈추는 순간 꺼지지만, 여기서 구독이 주는 건 AI, 동기화, 클라우드뿐이에요. 그만둬도 MindHaOS 전체와 모든 데이터가 기기에 그대로 남아요.',
+  'car.nocaduca.t': '한 번 결제하면, 만료되지 않아요',
+  'car.nocaduca.p': '당신의 MindHaOS는 한 번만 결제하면 당신의 것이에요. 구독형 앱은 결제를 멈추는 순간 꺼지지만, 여기서 구독이 주는 건 AI, 동기화, 클라우드뿐이에요. 그만둬도 MindHaOS 전체와 모든 데이터가 기기에 그대로 남아요.',
   'car.nuevas.t': '새로운 업데이트',
   'car.nuevas.p': 'MindHaOS는 계속 자라요. 방도, 앱도, 개선도 추가 결제 없이 도착해요.',
   'car.1.t': '앱이 되는 방들',
@@ -113,14 +113,15 @@ export const TEXTOS = {
   'mani.p2': '여기서 새로운 능력을 키우고, 자기 자원을 관리하고, 기술을 당신 편으로 만들어요. 짧은 영상의 무의식적인 소비에 맞서서. 거대 기업이 밀어붙인 소비 습관이 남기는 인지 저하에 맞서서.',
   'mani.cierre': '같은 도파민을, 이번엔 진짜 당신의 삶에.',
 
-  'precio.h2': 'MindHaOS는 무료, AI·동기화·클라우드는 구독으로',
-  'precio.probar.nombre': '해보기',
-  'precio.probar.cifra': '무료',
-  'precio.probar.1': '모든 앱이 담긴 나만의 MindHaOS, 데이터는 내 기기에',
-  'precio.probar.2': '친구들과 함께하는 우편함, 대전, 공유 공간',
-  'precio.probar.3': '계정 없이 체험하고, 저장하려면 무료 계정을 만드세요',
-  'precio.probar.cta': '앱 해보기',
-  'precio.probar.pie': '카드도 만료일도 없어요.',
+  'precio.h2': '짓는 건 무료, 저장은 한 번 결제로, AI는 구독으로',
+  'precio.probar.nombre': '나의 집',
+  'precio.probar.cifra': '5 USD',
+  'precio.probar.pagoUnico': '1회 결제',
+  'precio.probar.1': '계정 없이 무료로 짓기, 모든 앱 포함',
+  'precio.probar.2': '영원히 저장, AI 1주일 포함',
+  'precio.probar.3': '친구들과 함께하는 우편함, 대전, 공유 공간',
+  'precio.probar.cta': '무료로 해보기',
+  'precio.probar.pie': '구독 없이 한 번만 결제해요. 여기서도, 앱 안에서도.',
   'precio.app.nombre': '구독',
   'precio.app.cifra': '7 USD부터',
   'precio.app.pagoUnico': '매월',
@@ -155,7 +156,7 @@ export const TEXTOS = {
   'creditos.cta': '등급 보기',
 
   'desc.h2': '앱 내려받기',
-  'desc.sub': '무료로 내려받고 계정으로 로그인하세요. 브라우저를 포함해 어떤 기기에서든 당신의 MindHaOS가 나타나요. 구독은 앱 안에서나 여기 웹에서 가입할 수 있어요.',
+  'desc.sub': '무료로 내려받아 집을 짓고 계정으로 로그인하세요. 브라우저를 포함해 어떤 기기에서든 당신의 MindHaOS가 나타나요. 1회 결제와 구독은 앱 안에서나 여기 웹에서 할 수 있어요.',
   'desc.pronto': '곧 출시',
   'desc.android': 'Google Play에서 무료.',
   'desc.android.cta': 'Android용 다운로드',
@@ -166,10 +167,15 @@ export const TEXTOS = {
   'desc.web.cta': '앱 열기',
   'desc.windows': 'Microsoft Store에서 무료.',
   'desc.windows.cta': 'Windows용 다운로드',
+  // ── Página de las tiendas (web/download.html) ──
+  'bajar.titulo': "MindHaOS 다운로드",
+  'bajar.sub': "휴대폰, 컴퓨터, 브라우저에서 무료. 로그인하면 내 집이 어디든 함께합니다.",
+  'bajar.abriendo': "스토어를 여는 중…",
+  'bajar.ios.cta': "iPhone 및 Mac용 다운로드",
 
   'faq.h2': '자주 묻는 질문',
-  'faq.1.q': '앱은 무료인가요?',
-  'faq.1.a': '네. 계정을 만들면 모든 앱이 담긴 MindHaOS가 당신의 것이 되고, 돈은 한 푼도 들지 않아요. AI, 기기 간 동기화, 클라우드를 원할 때만 구독료를 내면 돼요. 여기 <a href="/cuenta">내 계정</a>에서, 또는 Android와 iPhone 앱 안에서 가입할 수 있고, 모든 기기에서 쓸 수 있어요.',
+  'faq.1.q': '가격은 얼마인가요?',
+  'faq.1.a': '집을 짓는 건 무료이고 계정도 필요 없지만, 저장되지는 않아요. 저장하려면 한 번만 결제하면 돼요(5 USD). AI 1주일과 친구들과의 방문·게임이 포함돼요. 구독은 AI, 기기 간 동기화, 클라우드만을 위한 거예요. 여기 <a href="/cuenta">내 계정</a>에서, 또는 앱 안에서 가입할 수 있고, 모든 기기에서 쓸 수 있어요.',
   'faq.2.q': '구독에는 무엇이 포함되나요?',
   'faq.2.a': '세 가지 등급이 있어요. 등급 1은 월 7 USD에 AI 크레딧 700과 클라우드 10GB, 등급 2는 14 USD에 1400 크레딧과 30GB, 등급 3은 20 USD에 2100 크레딧과 100GB예요. 세 등급 모두 모든 기기 간 동기화가 포함돼요. 약정은 없고, 언제든 올리고, 내리고, 해지할 수 있어요.',
   'faq.3.q': '구독하지 않으면 무엇을 할 수 있나요?',
@@ -264,7 +270,7 @@ export const TEXTOS = {
 
   'term.titulo': '서비스 이용약관',
   'term.servicio.h': '서비스',
-  'term.servicio.p': 'MindHaOS는 개인 정리용 앱입니다. 계정 없는 체험과 계정으로 쓰는 앱은 모두 무료입니다. 반복 기능(AI 크레딧, 동기화, 클라우드)은 이 웹이나 앱 안에서 구독으로 가입하며, 모든 버전은 같은 계정의 클라이언트입니다.',
+  'term.servicio.p': 'MindHaOS는 개인 정리용 앱입니다. 계정 없는 체험은 무료이며 변경 사항이 저장되지 않습니다. 집을 저장하려면 계정과 1회 결제가 필요합니다. 반복 기능(AI 크레딧, 동기화, 클라우드)은 이 웹이나 앱 안에서 구독으로 가입하며, 모든 버전은 같은 계정의 클라이언트입니다.',
   'term.local.h': '로컬 모드',
   'term.local.p': '계정이 있으면 앱의 모든 오프라인 기능을 무료로 사용합니다. 데이터는 기기에 저장되며, 그 백업은 사용자 책임입니다(설정 → 데이터 백업).',
   'term.precio.h': '구독과 가격',

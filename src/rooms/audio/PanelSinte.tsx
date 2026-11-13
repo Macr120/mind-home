@@ -46,6 +46,7 @@ export function PanelSinte({
   vivo,
   octava,
   compases,
+  pasosPorCompas,
   fuerza,
   swing,
   volumenMaestro,
@@ -66,6 +67,8 @@ export function PanelSinte({
   vivo: AjustesVivo | undefined
   octava: number
   compases: number
+  /** Semicorcheas por compás del proyecto (16 en 4/4, 12 en 3/4 y 6/8…). */
+  pasosPorCompas: number
   /** Velocidad de lo que se toca/pinta en la batería (60 | 100 | 127). */
   fuerza: number
   /** % de swing del proyecto (0..60). */
@@ -165,7 +168,7 @@ export function PanelSinte({
   const rellenar = (cada: number) => {
     const resto = pista.notas.filter((n) => n[2] !== golpeSel)
     const nuevas: NotaAudio[] = []
-    for (let p = 0; p < compases * PASOS_POR_COMPAS; p += cada) nuevas.push([p, 1, golpeSel, fuerza])
+    for (let p = 0; p < compases * pasosPorCompas; p += cada) nuevas.push([p, 1, golpeSel, fuerza])
     onNotas(ordenar([...resto, ...nuevas]))
   }
   const aplicarPatron = async (golpes: [number, number, number][]) => {
@@ -177,16 +180,24 @@ export function PanelSinte({
       })
       if (!si) return
     }
+    // Los patrones son de un compás de 4/4 (16 pasos): en compases más cortos se
+    // recortan y en los más largos (5/4, 12/8) se repiten hasta llenarlo.
     const notas: NotaAudio[] = []
-    for (let c = 0; c < compases; c++) for (const [paso, tono, vel] of golpes) notas.push([c * PASOS_POR_COMPAS + paso, 1, tono, vel])
+    for (let c = 0; c < compases; c++) {
+      for (let o = 0; o < pasosPorCompas; o += PASOS_POR_COMPAS) {
+        for (const [paso, tono, vel] of golpes) {
+          if (o + paso < pasosPorCompas) notas.push([c * pasosPorCompas + o + paso, 1, tono, vel])
+        }
+      }
+    }
     onNotas(ordenar(notas))
     setModal(null)
   }
   const duplicarCompas = () => {
-    const base = pista.notas.filter((n) => n[0] < PASOS_POR_COMPAS)
+    const base = pista.notas.filter((n) => n[0] < pasosPorCompas)
     if (base.length === 0) return
     const notas: NotaAudio[] = []
-    for (let c = 0; c < compases; c++) for (const n of base) notas.push([c * PASOS_POR_COMPAS + n[0], n[1], n[2], n[3]])
+    for (let c = 0; c < compases; c++) for (const n of base) notas.push([c * pasosPorCompas + n[0], n[1], n[2], n[3]])
     onNotas(ordenar(notas))
     setModal(null)
   }

@@ -12,8 +12,8 @@ export const TEXTOS = {
   'tema.boton': 'Tryb jasny lub ciemny',
 
   'meta.titulo': 'MindHaOS — Twój umysł w domu 3D',
-  'meta.desc': 'Uporządkuj nawyki, cele, finanse, posiłki i nie tylko w izometrycznym domu 3D, w którym każdy pokój to aplikacja. Za darmo z kontem; SI, synchronizacja i chmura od 7 USD miesięcznie.',
-  'og.desc': 'Twoje życie w domu 3D: nawyki, cele, finanse, posiłki i nie tylko. Za darmo z kontem; SI i synchronizacja od 7 USD miesięcznie.',
+  'meta.desc': 'Uporządkuj nawyki, cele, finanse, posiłki i nie tylko w izometrycznym domu 3D, w którym każdy pokój to aplikacja. Zbuduj go za darmo; zachowaj go dzięki jednorazowej płatności i dodaj SI, kiedy zechcesz.',
+  'og.desc': 'Twoje życie w domu 3D: nawyki, cele, finanse, posiłki i nie tylko. Zbuduj go za darmo i zachowaj dzięki jednorazowej płatności.',
 
   'hero.h1': 'Twój umysł<br />w domu 3D',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -39,7 +39,7 @@ export const TEXTOS = {
     'całkiem ręcznie albo z pomocą SI. Wszystkie łączy jeden kalendarz, system codziennych misji i twoje osobiste cele — zsynchronizowane w telefonie i na komputerze.',
   'hero.cta': 'Pobierz aplikację',
   'hero.probar': 'Wypróbuj za darmo: zbuduj swój MindHaOS',
-  'hero.nota': 'MindHaOS (Dom Umysłu OS) jest darmowy z kontem i działa bez połączenia. SI, synchronizacja i chmura są w abonamencie — a jeśli zrezygnujesz, niczego nie tracisz.',
+  'hero.nota': 'Zbuduj swój MindHaOS (Dom Umysłu OS) za darmo i bez konta. Aby go zachować, jednorazowa płatność z tygodniem SI w zestawie; potem SI, synchronizacja i chmura są w abonamencie — a jeśli zrezygnujesz, niczego nie tracisz.',
   'hero.video': 'Tutaj trafi twój film albo zrzuty ekranu MindHaOS (Dom Umysłu OS)',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -67,8 +67,8 @@ export const TEXTOS = {
   'car.todo.t': 'Naprawdę wszystko w jednym',
   'car.todo.p':
     'Jedna aplikacja zamiast dwudziestu: jedzenie, pieniądze, sen, nauka, nawyki i cele pod jednym dachem — i połączone ze sobą, czego osobne aplikacje nie potrafią.',
-  'car.nocaduca.t': 'Za darmo i bez daty ważności',
-  'car.nocaduca.p': 'Twój MindHaOS jest darmowy z kontem i należy do ciebie. Aplikacje z abonamentem gasną, gdy tylko przestajesz płacić; tutaj abonament daje tylko SI, synchronizację i chmurę: jeśli zrezygnujesz, zachowujesz cały MindHaOS i wszystkie dane na swoim urządzeniu.',
+  'car.nocaduca.t': 'Płacisz raz i bez daty ważności',
+  'car.nocaduca.p': 'Za twój MindHaOS płacisz tylko raz i należy do ciebie. Aplikacje z abonamentem gasną, gdy tylko przestajesz płacić; tutaj abonament daje tylko SI, synchronizację i chmurę: jeśli zrezygnujesz, zachowujesz cały MindHaOS i wszystkie dane na swoim urządzeniu.',
   'car.nuevas.t': 'Nowe aktualizacje',
   'car.nuevas.p': 'MindHaOS wciąż rośnie: pokoje, aplikacje i ulepszenia przychodzą bez kolejnej opłaty.',
   'car.1.t': 'Pokoje, które są aplikacjami',
@@ -124,14 +124,15 @@ export const TEXTOS = {
     'Tutaj rozwijasz nowe umiejętności, panujesz nad swoimi zasobami i ustawiasz technologię po swojej stronie. Przeciwko bezrefleksyjnej konsumpcji krótkich formatów. Przeciwko poznawczemu wyniszczeniu, które zostawiają nawyki konsumpcji narzucone przez wielkie korporacje.',
   'mani.cierre': 'Ta sama dopamina. Tym razem dla twojego prawdziwego życia.',
 
-  'precio.h2': 'Twój MindHaOS jest darmowy; SI, synchronizacja i chmura w abonamencie',
-  'precio.probar.nombre': 'Wypróbuj ją',
-  'precio.probar.cifra': 'Za darmo',
-  'precio.probar.1': 'Twój własny MindHaOS ze wszystkimi aplikacjami, a dane na twoim urządzeniu',
-  'precio.probar.2': 'Skrzynka, rozgrywki i wspólne przestrzenie z przyjaciółmi',
-  'precio.probar.3': 'Wypróbuj bez konta; załóż darmowe konto, aby go zachować',
-  'precio.probar.cta': 'Wypróbuj aplikację',
-  'precio.probar.pie': 'Bez karty i bez daty ważności.',
+  'precio.h2': 'Zbuduj za darmo, zachowaj dzięki jednorazowej płatności; SI w abonamencie',
+  'precio.probar.nombre': 'Twój dom',
+  'precio.probar.cifra': '5 USD',
+  'precio.probar.pagoUnico': 'jednorazowa płatność',
+  'precio.probar.1': 'Zbuduj go za darmo i bez konta, ze wszystkimi aplikacjami',
+  'precio.probar.2': 'Zachowaj go na zawsze, z tygodniem SI w zestawie',
+  'precio.probar.3': 'Skrzynka, rozgrywki i wspólne przestrzenie z przyjaciółmi',
+  'precio.probar.cta': 'Wypróbuj za darmo',
+  'precio.probar.pie': 'Bez abonamentu: płacisz raz, tutaj albo w aplikacji.',
   'precio.app.nombre': 'Abonament',
   'precio.app.cifra': 'od 7 USD',
   'precio.app.pagoUnico': 'miesięcznie',
@@ -166,7 +167,7 @@ export const TEXTOS = {
   'creditos.cta': 'Zobacz poziomy',
 
   'desc.h2': 'Pobierz aplikację',
-  'desc.sub': 'Pobierz za darmo i zaloguj się na swoje konto: twój MindHaOS pojawi się na każdym urządzeniu, także w przeglądarce. Abonament wykupisz w aplikacji albo tutaj, w sieci.',
+  'desc.sub': 'Pobierz za darmo, zbuduj swój dom i zaloguj się na swoje konto: twój MindHaOS pojawi się na każdym urządzeniu, także w przeglądarce. Jednorazową płatność i abonament wykupisz w aplikacji albo tutaj, w sieci.',
   'desc.pronto': 'Wkrótce',
   'desc.android': 'Za darmo w Google Play.',
   'desc.android.cta': 'Pobierz na Android',
@@ -177,10 +178,15 @@ export const TEXTOS = {
   'desc.web.cta': 'Otwórz aplikację',
   'desc.windows': 'Za darmo w Microsoft Store.',
   'desc.windows.cta': 'Pobierz na Windows',
+  // ── Página de las tiendas (web/download.html) ──
+  'bajar.titulo': "Pobierz MindHaOS",
+  'bajar.sub': "Za darmo na telefonie, komputerze lub w przeglądarce. Zaloguj się, a twój dom pójdzie z tobą wszędzie.",
+  'bajar.abriendo': "Otwieranie sklepu…",
+  'bajar.ios.cta': "Pobierz na iPhone’a i Maca",
 
   'faq.h2': 'Częste pytania',
-  'faq.1.q': 'Czy aplikacja jest darmowa?',
-  'faq.1.a': 'Tak. Zakładasz konto i twój MindHaOS należy do ciebie, ze wszystkimi aplikacjami, bez żadnych opłat. Płacisz tylko za abonament, jeśli chcesz SI, synchronizację między urządzeniami i chmurę; wykupisz go tutaj, na <a href="/cuenta">swoim koncie</a>, albo w aplikacji na Androida i iPhone\'a, i działa na wszystkich twoich urządzeniach.',
+  'faq.1.q': 'Ile to kosztuje?',
+  'faq.1.a': 'Budowanie domu jest darmowe i nie wymaga konta, ale dom nie zostaje zapisany. Aby go zachować, płacisz tylko raz (5 USD), z tygodniem SI w zestawie oraz odwiedzinami i grami z przyjaciółmi. Abonament jest tylko na SI, synchronizację między urządzeniami i chmurę; wykupisz go tutaj, na <a href="/cuenta">swoim koncie</a>, albo w aplikacji, i działa na wszystkich twoich urządzeniach.',
   'faq.2.q': 'Co obejmuje abonament?',
   'faq.2.a': 'Trzy poziomy: Poziom 1 za 7 USD miesięcznie daje 700 kredytów SI i 10 GB chmury; Poziom 2, za 14 USD, 1400 kredytów i 30 GB; a Poziom 3, za 20 USD, 2100 kredytów i 100 GB. Wszystkie trzy obejmują synchronizację między wszystkimi twoimi urządzeniami. Bez zobowiązań: podnosisz, obniżasz albo anulujesz, kiedy chcesz.',
   'faq.3.q': 'Co mogę robić bez abonamentu?',
@@ -275,7 +281,7 @@ export const TEXTOS = {
 
   'term.titulo': 'Regulamin usługi',
   'term.servicio.h': 'Usługa',
-  'term.servicio.p': 'MindHaOS to aplikacja do osobistej organizacji. Próba bez konta i aplikacja z kontem są bezpłatne. Funkcje cykliczne (kredyty SI, synchronizacja i chmura) wykupuje się jako abonament, tutaj w sieci lub w aplikacji; wszystkie wersje są klientami tego samego konta.',
+  'term.servicio.p': 'MindHaOS to aplikacja do osobistej organizacji. Próba bez konta jest bezpłatna i nie zapisuje zmian; zachowanie domu wymaga konta i jednorazowej płatności. Funkcje cykliczne (kredyty SI, synchronizacja i chmura) wykupuje się jako abonament, tutaj w sieci lub w aplikacji; wszystkie wersje są klientami tego samego konta.',
   'term.local.h': 'Tryb lokalny',
   'term.local.p': 'Z kontem wszystkie funkcje offline aplikacji są bezpłatne. Dane są zapisywane na twoim urządzeniu, a za ich kopię zapasową odpowiadasz ty (Ustawienia → Kopia zapasowa danych).',
   'term.precio.h': 'Abonament i cena',

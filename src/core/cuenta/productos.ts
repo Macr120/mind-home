@@ -23,7 +23,7 @@
  * que es quien de verdad concede el plan; aquí solo se pinta y se compra.
  */
 
-export type Clase = 'nivel'
+export type Clase = 'unlock' | 'nivel'
 
 export interface Producto {
   /** Identificador del PAQUETE en RevenueCat: el mismo en web, Play y App Store. */
@@ -36,11 +36,11 @@ export interface Producto {
    */
   productos: string[]
   clase: Clase
-  /** Nivel de la suscripción (1, 2 o 3). */
+  /** Nivel de la suscripción (1, 2 o 3); 0 en el pago único. */
   nivel: number
-  /** Créditos que da cada mes. */
+  /** Créditos que da cada mes; 0 en el pago único. */
   creditos: number
-  periodo: 'mes'
+  periodo: 'mes' | null
 }
 
 /** En Apple el id de producto es único en TODO el App Store: lleva el bundle. */
@@ -65,7 +65,23 @@ const NIVELES: Producto[] = [1, 2, 3].map((n) => ({
   periodo: 'mes' as const,
 }))
 
-export const CATALOGO: Producto[] = NIVELES
+/**
+ * El pago único de la casa (11-nov-2026: 5 USD en todos los mercados): guarda la casa,
+ * abre lo social e incluye una semana de IA (plan `trial` de 7 días con 175
+ * créditos, lo concede el webhook). `_v7` es el de la web (precio inmutable en
+ * RevenueCat; `_v6` a 5.99 se creó y nunca se vendió); en Play y en Apple el id sigue siendo `_v4` con el precio nuevo.
+ * Los viejos se conservan para reconocer al que ya compró.
+ */
+const UNLOCK: Producto = {
+  paquete: 'unlock',
+  productos: ['unlock_casa_v7', 'unlock_casa_v6', 'unlock_casa_v5', 'unlock_casa_v4', 'unlock_casa_v3', 'unlock_casa_v2', 'unlock_casa'],
+  clase: 'unlock',
+  nivel: 0,
+  creditos: 0,
+  periodo: null,
+}
+
+export const CATALOGO: Producto[] = [UNLOCK, ...NIVELES]
 
 /**
  * Normaliza un id de producto tal como lo devuelve la tienda:

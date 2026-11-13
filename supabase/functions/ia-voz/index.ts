@@ -15,6 +15,7 @@ import { preflight, json, corsDe } from '../_shared/cors.ts'
 import { clienteUsuario, clienteAdmin, usuarioDe } from '../_shared/auth.ts'
 import { dentroDeLimite } from '../_shared/limite.ts'
 import { COSTO_FIJO } from '../_shared/costoUsd.ts'
+import { cubiertaPorPase } from '../_shared/pase.ts'
 
 /** Corta el intento para que entre el respaldo en vez de colgarse esperando. */
 const TIMEOUT_MS = 30_000
@@ -43,13 +44,24 @@ function base64ABytes(b64: string): Uint8Array {
   return bytes
 }
 
-async function porOpenAI(bytes: Uint8Array, mime: string, idioma?: string): Promise<string> {
+/** Una palabra con su tiempo (segundos desde el inicio del audio). */
+type Palabra = { p: string; i: number; f: number }
+
+/**
+ * Whisper. Con `palabras` pide `verbose_json` con tiempos por palabra (el
+ * Studio de video los usa para subtítulos exactos y karaoke); mismo precio.
+ */
+async function porOpenAI(bytes: Uint8Array, mime: string, idioma?: string, palabras = false): Promise<{ texto: string; palabras?: Palabra[] }> {
   const key = Deno.env.get('OPENAI_API_KEY') ?? ''
   if (!key) throw new Error('sin clave')
   const fd = new FormData()
   fd.append('model', 'whisper-1')
   fd.append('file', new File([bytes], `dictado.${MIMES_AUDIO[mime]}`, { type: mime }))
   if (idioma) fd.append('language', idioma)
+  if (palabras) {
+    fd.append('response_format', 'verbose_json')
+    fd.append('timestamp_granularities[]', 'word')
+  }
   const resp = await fetch('https://api.openai.com/v1/audio/transcriptions', {
     method: 'POST',
     headers: { Authorization: `Bearer ${key}` },
@@ -57,9 +69,14 @@ async function porOpenAI(bytes: Uint8Array, mime: string, idioma?: string): Prom
     signal: AbortSignal.timeout(TIMEOUT_MS),
   })
   if (!resp.ok) throw new Error(`http ${resp.status}`)
-  const data = (await resp.json()) as { text?: string }
+  const data = (await resp.json()) as { text?: string; words?: { word?: string; start?: number; end?: number }[] }
   if (typeof data.text !== 'string') throw new Error('sin texto')
-  return data.text
+  const lista = palabras && Array.isArray(data.words)
+    ? data.words
+        .filter((w) => typeof w.word === 'string' && typeof w.start === 'number' && typeof w.end === 'number')
+        .map((w) => ({ p: w.word!.trim(), i: Math.round(w.start! * 100) / 100, f: Math.round(w.end! * 100) / 100 }))
+    : undefined
+  return { texto: data.text, palabras: lista }
 }
 
 /**
@@ -117,13 +134,21 @@ Deno.serve(async (req) => {
   let idioma: string | undefined
   /** Proveedor preferido del usuario (fila «Voz» del panel de IA en Créditos). */
   let preferido: ProvVoz | null = null
+  /** Pase de un paquete del Studio de video (ver `_shared/pase.ts`). */
+  let pase: unknown = null
+  /** Tiempos por palabra (solo Whisper los da). */
+  let conPalabras = false
   try {
     const body = (await req.json()) as {
       audioBase64?: unknown
       mime?: unknown
       idioma?: unknown
       prov?: unknown
+      pase?: unknown
+      palabras?: unknown
     }
+    pase = body.pase ?? null
+    conPalabras = body.palabras === true
     audioBase64 = typeof body.audioBase64 === 'string' ? body.audioBase64 : ''
     mime = typeof body.mime === 'string' ? body.mime : ''
     idioma = typeof body.idioma === 'string' && body.idioma ? body.idioma : undefined
@@ -139,10 +164,14 @@ Deno.serve(async (req) => {
     return json({ error: 'peticion-invalida', mensaje: 'Formato de audio no soportado.' }, 400, cors)
   }
 
-  const { data: cuota, error: errCuota } = await admin.rpc('consumir_cuota_ia', {
-    p_uid: usuario.id,
-    p_tipo: 'voz',
-  })
+  // Dentro de un paquete del Studio (ia-paquete) la llamada ya está pagada: no se cobra otra vez.
+  const cubierta = await cubiertaPorPase(admin, usuario.id, pase, 'voz')
+  const { data: cuota, error: errCuota } = cubierta
+    ? { data: { permitido: true, reserva: null, usadas: null, limite: null, extra: null, costo: 0 }, error: null }
+    : await admin.rpc('consumir_cuota_ia', {
+        p_uid: usuario.id,
+        p_tipo: 'voz',
+      })
   if (errCuota) {
     return json({ error: 'proveedor', mensaje: 'No se pudo verificar la cuota.' }, 502, cors)
   }
@@ -153,16 +182,19 @@ Deno.serve(async (req) => {
     return json({ error: 'cuota-agotada', mensaje: 'Te quedaste sin créditos de IA.' }, 429, cors)
   }
 
-  const cadena: ProvVoz[] = preferido === 'gemini' ? ['gemini', 'openai'] : ['openai', 'gemini']
+  // Con tiempos por palabra va Whisper primero (Gemini no los da y queda de respaldo, sin ellos).
+  const cadena: ProvVoz[] = preferido === 'gemini' && !conPalabras ? ['gemini', 'openai'] : ['openai', 'gemini']
   let texto: string | null = null
+  let palabras: Palabra[] | undefined
   let proveedor: ProvVoz = 'openai'
   const fallos: string[] = []
   for (const id of cadena) {
     try {
-      texto =
-        id === 'openai'
-          ? await porOpenAI(base64ABytes(audioBase64), mime, idioma)
-          : await porGemini(audioBase64, mime, idioma)
+      if (id === 'openai') {
+        const r = await porOpenAI(base64ABytes(audioBase64), mime, idioma, conPalabras)
+        texto = r.texto
+        palabras = r.palabras
+      } else texto = await porGemini(audioBase64, mime, idioma)
       proveedor = id
       break
     } catch (e) {
@@ -172,7 +204,7 @@ Deno.serve(async (req) => {
 
   if (texto === null) {
     // La reserva emitida al cobrar es lo que autoriza la devolución (un solo uso).
-    await admin.rpc('devolver_cuota_ia', { p_uid: usuario.id, p_tipo: 'voz', p_reserva: cuota.reserva })
+    if (cuota.reserva) await admin.rpc('devolver_cuota_ia', { p_uid: usuario.id, p_tipo: 'voz', p_reserva: cuota.reserva })
     console.error(`ia-voz: cadena agotada — ${fallos.join(' | ')}`)
     return json({ error: 'proveedor', mensaje: 'El proveedor de voz no respondió.' }, 502, cors)
   }
@@ -201,13 +233,17 @@ Deno.serve(async (req) => {
   return json(
     {
       texto,
+      ...(palabras ? { palabras } : {}),
       proveedor,
-      uso: {
-        usadas: cuota.usadas,
-        limite: cuota.limite,
-        extra: cuota.extra ?? 0,
-        costo: cuota.costo,
-      },
+      // Con pase no hay cobro nuevo: el medidor no cambia.
+      uso: cubierta
+        ? null
+        : {
+            usadas: cuota.usadas,
+            limite: cuota.limite,
+            extra: cuota.extra ?? 0,
+            costo: cuota.costo,
+          },
     },
     200,
     cors,

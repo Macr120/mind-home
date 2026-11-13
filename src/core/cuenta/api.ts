@@ -170,7 +170,9 @@ export interface RespuestaChatCuenta {
 }
 
 /** Refleja en el store el medidor que acaba de devolver el servidor. */
-function refrescarMedidor(uso: UsoCuenta): void {
+function refrescarMedidor(uso: UsoCuenta | null | undefined): void {
+  // Una llamada cubierta por un paquete (ia-paquete) no cobra: no trae medidor.
+  if (!uso) return
   const previo = useSesion.getState().usoIA
   useSesion.setState({
     creditosExtra: uso.extra,
@@ -190,8 +192,20 @@ export async function tokenSesion(): Promise<string> {
   return token
 }
 
+/**
+ * Pase de un paquete del Studio de video (`ia-paquete`): mientras está puesto,
+ * las llamadas a estas funciones lo llevan y el servidor no las vuelve a cobrar
+ * (hasta los topes del paquete; lo que no cubre se cobra normal).
+ */
+let paseActivo: string | null = null
+const FUNCIONES_CON_PASE = new Set(['ia-chat', 'ia-voz', 'ia-tts'])
+export function usarPaseIA(pase: string | null): void {
+  paseActivo = pase
+}
+
 async function llamarFuncion<T>(nombre: string, cuerpo: unknown): Promise<T> {
   const token = await tokenSesion()
+  if (paseActivo && FUNCIONES_CON_PASE.has(nombre)) cuerpo = { ...(cuerpo as object), pase: paseActivo }
 
   let resp: Response
   try {
@@ -315,11 +329,53 @@ export async function iaVozCuenta(audioBase64: string, mime: string, idioma?: st
   return r.texto
 }
 
-/** Voz con IA vía `ia-tts` (OpenAI). Alternativa a `speechSynthesis` nativo. */
-export async function iaTtsCuenta(texto: string, voz?: string): Promise<{ base64: string; mime: string }> {
+/** Lo que devuelve `ia-paquete` al comprar: el pase y las reservas (para devolver lo no usado). */
+export interface PaqueteIA {
+  pase: string
+  reservas: string[]
+  creditos: number
+}
+
+/** Cobra de una vez `tramos` × la tarifa de `op` (ver `supabase/functions/ia-paquete`). */
+export async function comprarPaqueteIA(op: string, tramos: number): Promise<PaqueteIA> {
+  const r = await llamarFuncion<PaqueteIA & { uso: UsoCuenta }>('ia-paquete', { accion: 'comprar', op, tramos })
+  refrescarMedidor(r.uso)
+  return { pase: r.pase, reservas: r.reservas, creditos: r.creditos }
+}
+
+/** Reintegra los tramos no usados del paquete (una vez); devuelve los créditos reintegrados. */
+export async function devolverPaqueteIA(p: PaqueteIA, usados: number): Promise<number> {
+  const r = await llamarFuncion<{ devueltos: number }>('ia-paquete', { accion: 'devolver', pase: p.pase, usados, reservas: p.reservas })
+  void useSesion.getState().refrescarUso()
+  return r.devueltos
+}
+
+/** Una palabra transcrita con su tiempo (segundos desde el inicio del audio). */
+export interface PalabraTranscrita {
+  p: string
+  i: number
+  f: number
+}
+
+/** Como `iaVozCuenta`, con los tiempos de cada palabra (Whisper; si responde el respaldo, vienen sin ellos). */
+export async function iaVozCuentaTiempos(audioBase64: string, mime: string, idioma?: string): Promise<{ texto: string; palabras?: PalabraTranscrita[] }> {
+  const r = await llamarFuncion<{ texto: string; palabras?: PalabraTranscrita[]; uso: UsoCuenta }>('ia-voz', {
+    audioBase64,
+    mime,
+    idioma,
+    palabras: true,
+    prov: getProvVozCuenta() ?? undefined,
+  })
+  refrescarMedidor(r.uso)
+  return { texto: r.texto, palabras: r.palabras }
+}
+
+/** Voz con IA vía `ia-tts` (OpenAI). Alternativa a `speechSynthesis` nativo. `velocidad` 0.7–1.5 (solo OpenAI). */
+export async function iaTtsCuenta(texto: string, voz?: string, velocidad?: number): Promise<{ base64: string; mime: string }> {
   const r = await llamarFuncion<{ base64: string; mime: string; uso: UsoCuenta }>('ia-tts', {
     texto,
     voz,
+    ...(velocidad && velocidad !== 1 ? { velocidad } : {}),
     prov: getProvVozCuenta() ?? undefined,
   })
   refrescarMedidor(r.uso)

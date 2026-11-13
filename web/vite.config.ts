@@ -18,7 +18,7 @@ const raiz = path.resolve(carpeta, '..')
  * igual en local que en producción.
  */
 function urlsLimpias(): Plugin {
-  const paginas = new Set(['cuenta', 'privacidad', 'terminos', 'soporte', 'mascara', 'descarga', 'guias'])
+  const paginas = new Set(['cuenta', 'privacidad', 'terminos', 'soporte', 'mascara', 'descarga', 'download', 'guias'])
   return {
     name: 'mph-urls-limpias',
     configureServer(server) {
@@ -83,6 +83,8 @@ export default defineConfig({
         soporte: path.resolve(carpeta, 'soporte.html'),
         mascara: path.resolve(carpeta, 'mascara.html'),
         descarga: path.resolve(carpeta, 'descarga.html'),
+        // Las tiendas, para el enlace de los perfiles de las redes (/download).
+        download: path.resolve(carpeta, 'download.html'),
         // La portada de las guías (/guias) y cada guía (/guias/<tema>).
         guias: path.resolve(carpeta, 'guias.html'),
         ...Object.fromEntries(readdirSync(path.join(carpeta, 'guias')).filter((f) => f.endsWith('.html')).map((f) => [`guias/${f.slice(0, -5)}`, path.resolve(carpeta, 'guias', f)])),

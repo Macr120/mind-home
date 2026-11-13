@@ -495,12 +495,15 @@ export const useSesion = create<SesionState>((set, get) => ({
 }))
 
 /**
- * El uid de la sesión, para arrancar lo social (buzón, espacios). Desde el
- * 5-oct-2026 lo social es gratis con cuenta (`public.pago()` = tiene perfil,
- * migración 20261005000001); antes exigía haber comprado la casa.
+ * El uid si la cuenta pagó algo (unlock, plan vigente o ilimitada); si no, null.
+ * Espejo de `public.pago()` (migración 20261111000001): sin compra el servidor
+ * rechaza lo social, así que el buzón y los espacios ni arrancan. Es también lo
+ * que abre la casa guardada en `PuertaCuenta`.
  */
-export function uidConPago(s: Pick<SesionState, 'usuario'>): string | null {
-  return s.usuario?.id ?? null
+export function uidConPago(s: Pick<SesionState, 'usuario' | 'unlock' | 'ilimitado' | 'plan' | 'planExpira'>): string | null {
+  if (!s.usuario) return null
+  const planVigente = s.plan !== 'local' && (!s.planExpira || new Date(s.planExpira).getTime() > Date.now())
+  return s.unlock || s.ilimitado || planVigente ? s.usuario.id : null
 }
 
 /**

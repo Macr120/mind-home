@@ -41,6 +41,15 @@ export function entrarProbar(): void {
   })()
 }
 
+/**
+ * Vuelve a la prueba SIN borrarla: es la salida de quien tiene cuenta pero aún
+ * no desbloqueó la casa (`PuertaCuenta`), que sigue construyendo donde lo dejó.
+ */
+export function continuarProbar(): void {
+  localStorage.setItem(LS_PROBAR, '1')
+  location.reload()
+}
+
 /** La BD de prueba se conserva (caché de reentrada); solo se apaga el modo. */
 export function salirProbar(): void {
   localStorage.setItem(LS_PROBAR, '0')

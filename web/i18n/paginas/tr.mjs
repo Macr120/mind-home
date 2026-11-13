@@ -12,8 +12,8 @@ export const TEXTOS = {
   'tema.boton': 'Açık ya da koyu mod',
 
   'meta.titulo': 'MindHaOS — Zihnin, bir 3D evde',
-  'meta.desc': 'Alışkanlıklarını, hedeflerini, finansını, öğünlerini ve daha fazlasını her odası bir uygulama olan izometrik bir 3D evde düzenle. Hesabınla ücretsiz; yapay zekâ, eşitleme ve bulut ayda 7 USD\'den başlayan fiyatlarla.',
-  'og.desc': 'Hayatın, bir 3D evde: alışkanlıklar, hedefler, finans, öğünler ve daha fazlası. Hesabınla ücretsiz; yapay zekâ ve eşitleme ayda 7 USD\'den başlayan fiyatlarla.',
+  'meta.desc': 'Alışkanlıklarını, hedeflerini, finansını, öğünlerini ve daha fazlasını her odası bir uygulama olan izometrik bir 3D evde düzenle. Ücretsiz kur; tek seferlik bir ödemeyle sakla ve yapay zekâyı istediğin zaman ekle.',
+  'og.desc': 'Hayatın, bir 3D evde: alışkanlıklar, hedefler, finans, öğünler ve daha fazlası. Ücretsiz kur, tek seferlik bir ödemeyle sakla.',
 
   'hero.h1': 'Zihnin,<br />bir 3D evde',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -39,7 +39,7 @@ export const TEXTOS = {
     'arşivler, planlar ya da sıfırdan yaratırsın — tamamen elle ya da yapay zekânın yardımıyla. Hepsi tek bir takvime, günlük görevlere ve kişisel hedeflerine bağlı; telefonunda ve bilgisayarında eşitlenir.',
   'hero.cta': 'Uygulamayı indir',
   'hero.probar': 'MindHaOS\'unu kurmayı ücretsiz dene',
-  'hero.nota': 'MindHaOS (Zihin Evi OS) hesabınla ücretsizdir ve çevrimdışı çalışır. Yapay zekâ, eşitleme ve bulut abonelikle gelir — bıraksan bile hiçbir şey kaybetmezsin.',
+  'hero.nota': 'MindHaOS (Zihin Evi OS) evini ücretsiz ve hesapsız kur. Saklamak için bir haftalık yapay zekâ içeren tek seferlik bir ödeme; sonrasında yapay zekâ, eşitleme ve bulut abonelikle gelir — bıraksan bile hiçbir şey kaybetmezsin.',
   'hero.video': 'Buraya videon ya da MindHaOS\'un (Zihin Evi OS) ekran görüntüleri gelir',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -67,8 +67,8 @@ export const TEXTOS = {
   'car.todo.t': 'Gerçekten hepsi bir arada',
   'car.todo.p':
     'Yirmi uygulama yerine bir tane: yemek, para, uyku, çalışma, alışkanlıklar ve hedefler aynı çatı altında — üstelik birbirleriyle konuşarak, ki bunu ayrı uygulamalar yapamaz.',
-  'car.nocaduca.t': 'Ücretsiz ve süresi dolmaz',
-  'car.nocaduca.p': 'MindHaOS\'un hesabınla ücretsizdir ve senindir. Abonelikli uygulamalar ödemeyi kestiğin anda kapanır; burada abonelik yalnızca yapay zekâyı, eşitlemeyi ve bulutu getirir: bıraksan bile MindHaOS\'un tamamı ve cihazındaki tüm verilerin sende kalır.',
+  'car.nocaduca.t': 'Bir kez ödersin ve süresi dolmaz',
+  'car.nocaduca.p': 'MindHaOS\'un için yalnızca bir kez ödersin ve o senindir. Abonelikli uygulamalar ödemeyi kestiğin anda kapanır; burada abonelik yalnızca yapay zekâyı, eşitlemeyi ve bulutu getirir: bıraksan bile MindHaOS\'un tamamı ve cihazındaki tüm verilerin sende kalır.',
   'car.nuevas.t': 'Yeni güncellemeler',
   'car.nuevas.p': 'MindHaOS büyümeye devam ediyor: odalar, uygulamalar ve iyileştirmeler yeniden ödeme yapmadan geliyor.',
   'car.1.t': 'Uygulama olan odalar',
@@ -123,14 +123,15 @@ export const TEXTOS = {
     'Burada yeni beceriler geliştirir, kaynaklarını kontrol altında tutar ve teknolojiyi kendi lehine çevirirsin. Kısa formatın bilinçsiz tüketimine karşı. Büyük şirketlerin dayattığı tüketim alışkanlıklarının bıraktığı bilişsel çöküşe karşı.',
   'mani.cierre': 'Aynı dopamin. Bu kez gerçek hayatın için.',
 
-  'precio.h2': 'MindHaOS\'un ücretsiz; yapay zekâ, eşitleme ve bulut abonelikle',
-  'precio.probar.nombre': 'Bir dene',
-  'precio.probar.cifra': 'Ücretsiz',
-  'precio.probar.1': 'Bütün uygulamalarıyla kendi MindHaOS\'un, verilerin de cihazında',
-  'precio.probar.2': 'Arkadaşlarınla posta kutusu, oyunlar ve ortak alanlar',
-  'precio.probar.3': 'Hesapsız dene; kaydetmek için ücretsiz hesabını oluştur',
-  'precio.probar.cta': 'Uygulamayı dene',
-  'precio.probar.pie': 'Kart yok, son kullanma tarihi yok.',
+  'precio.h2': 'Ücretsiz kur, tek seferlik bir ödemeyle sakla; yapay zekâ abonelikle',
+  'precio.probar.nombre': 'Senin evin',
+  'precio.probar.cifra': '5 USD',
+  'precio.probar.pagoUnico': 'tek seferlik ödeme',
+  'precio.probar.1': 'Bütün uygulamalarıyla ücretsiz ve hesapsız kur',
+  'precio.probar.2': 'Bir haftalık yapay zekâ dahil, sonsuza dek sakla',
+  'precio.probar.3': 'Arkadaşlarınla posta kutusu, oyunlar ve ortak alanlar',
+  'precio.probar.cta': 'Ücretsiz dene',
+  'precio.probar.pie': 'Abonelik yok: bir kez ödenir, burada ya da uygulamanın içinden.',
   'precio.app.nombre': 'Abonelik',
   'precio.app.cifra': '7 USD\'den başlayan',
   'precio.app.pagoUnico': 'aylık',
@@ -165,7 +166,7 @@ export const TEXTOS = {
   'creditos.cta': 'Katmanları gör',
 
   'desc.h2': 'Uygulamayı indir',
-  'desc.sub': 'Ücretsiz indir ve hesabınla giriş yap: MindHaOS\'un tarayıcı dahil her cihazda karşına çıkar. Abonelik uygulamanın içinden ya da burada, web\'de alınır.',
+  'desc.sub': 'Ücretsiz indir, evini kur ve hesabınla giriş yap: MindHaOS\'un tarayıcı dahil her cihazda karşına çıkar. Tek seferlik ödeme ve abonelik uygulamanın içinden ya da burada, web\'de alınır.',
   'desc.pronto': 'Çok yakında',
   'desc.android': 'Google Play\'de ücretsiz.',
   'desc.android.cta': 'Android için indir',
@@ -176,10 +177,15 @@ export const TEXTOS = {
   'desc.web.cta': 'Uygulamayı aç',
   'desc.windows': 'Microsoft Store\'da ücretsiz.',
   'desc.windows.cta': 'Windows için indir',
+  // ── Página de las tiendas (web/download.html) ──
+  'bajar.titulo': "MindHaOS'u indir",
+  'bajar.sub': "Telefonunda, bilgisayarında veya tarayıcında ücretsiz. Giriş yap, evin seninle her yere gelsin.",
+  'bajar.abriendo': "Mağaza açılıyor…",
+  'bajar.ios.cta': "iPhone ve Mac için indir",
 
   'faq.h2': 'Sık sorulan sorular',
-  'faq.1.q': 'Uygulama ücretsiz mi?',
-  'faq.1.a': 'Evet. Hesabını oluşturursun ve MindHaOS\'un bütün uygulamalarıyla senindir, hiçbir şey ödemeden. Yalnızca yapay zekâ, cihazlar arası eşitleme ve bulut istersen abonelik ödersin; buradan, <a href="/cuenta">hesabından</a> ya da Android ve iPhone uygulamasının içinden alınır ve tüm cihazlarında geçerlidir.',
+  'faq.1.q': 'Ne kadar tutar?',
+  'faq.1.a': 'Evini kurmak ücretsizdir ve hesap gerektirmez, ama kaydedilmez. Saklamak için yalnızca bir kez ödersin (5 USD); buna bir haftalık yapay zekâ ile arkadaşlarınla ziyaretler ve oyunlar dahildir. Abonelik yalnızca yapay zekâ, cihazlar arası eşitleme ve bulut içindir; buradan, <a href="/cuenta">hesabından</a> ya da uygulamanın içinden alınır ve tüm cihazlarında geçerlidir.',
   'faq.2.q': 'Abonelik neleri kapsar?',
   'faq.2.a': 'Üç katman: Katman 1 ayda 7 USD karşılığında 700 yapay zekâ kredisi ve 10 GB bulut getirir; Katman 2, 14 USD\'ye 1400 kredi ve 30 GB; Katman 3 ise 20 USD\'ye 2100 kredi ve 100 GB. Üçü de tüm cihazların arasında eşitlemeyi içerir. Taahhüt yok: istediğin zaman yükseltir, düşürür ya da iptal edersin.',
   'faq.3.q': 'Abone olmadan neler yapabilirim?',
@@ -274,7 +280,7 @@ export const TEXTOS = {
 
   'term.titulo': 'Hizmet koşulları',
   'term.servicio.h': 'Hizmet',
-  'term.servicio.p': 'MindHaOS kişisel bir düzenleme uygulamasıdır. Hesapsız deneme ve hesaplı uygulama ücretsizdir. Yinelenen işlevler (yapay zekâ kredileri, eşitleme ve bulut) burada web\'de ya da uygulamanın içinden abonelik olarak alınır; tüm sürümler aynı hesabın istemcileridir.',
+  'term.servicio.p': 'MindHaOS kişisel bir düzenleme uygulamasıdır. Hesapsız deneme ücretsizdir ve değişiklikleri kaydetmez; evi saklamak için bir hesap ve tek seferlik bir ödeme gerekir. Yinelenen işlevler (yapay zekâ kredileri, eşitleme ve bulut) burada web\'de ya da uygulamanın içinden abonelik olarak alınır; tüm sürümler aynı hesabın istemcileridir.',
   'term.local.h': 'Yerel mod',
   'term.local.p': 'Hesabınla uygulamanın tüm çevrimdışı işlevleri ücretsiz kullanılır. Veriler cihazında saklanır ve yedeklenmesi senin sorumluluğundadır (Ayarlar → Veri yedekleme).',
   'term.precio.h': 'Abonelik ve fiyat',

@@ -27,7 +27,7 @@ import {
   MAX_COMPASES,
   MAX_NOTAS_PISTA,
   MAX_PISTAS,
-  PASOS_POR_COMPAS,
+  pasosCompas,
   esInstrumentoBateria,
   nuevaPistaId,
   nuevoClipId,
@@ -198,7 +198,7 @@ export function EditorProyecto({
       nombre: p.nombre,
       bpm: p.bpm,
       compases: p.compases,
-      pulsos: p.pulsos,
+      compas: p.compas,
       swing: p.swing,
       volumenMaestro: p.volumenMaestro,
       vivo: p.vivo,
@@ -641,7 +641,7 @@ export function EditorProyecto({
     if (ancla) {
       grabacionRef.current = crearGrabacion(ancla, {
         cuantizar,
-        totalPasos: proyecto.compases * PASOS_POR_COMPAS,
+        totalPasos: proyecto.compases * pasosCompas(proyecto),
       })
     }
   }
@@ -696,7 +696,7 @@ export function EditorProyecto({
           const finPaso = clip.inicio + clip.duracionSeg / segPorPaso(prev.bpm)
           return {
             ...prev,
-            compases: Math.max(prev.compases, Math.min(MAX_COMPASES, Math.ceil(finPaso / PASOS_POR_COMPAS))),
+            compases: Math.max(prev.compases, Math.min(MAX_COMPASES, Math.ceil(finPaso / pasosCompas(prev)))),
             pistas: prev.pistas.map((x) => (x.pistaId === idPista ? { ...x, clips: [...(x.clips ?? []), clip] } : x)),
           }
         })
@@ -759,21 +759,23 @@ export function EditorProyecto({
           instrumento: pistaViva.instrumento,
           bpm: p.bpm,
           compases: iaCompases,
+          compas: p.compas,
         })
       } else {
         const ultimo = previas.reduce((m, n) => Math.max(m, n[0] + n[1]), 0)
-        const desde = Math.ceil(ultimo / PASOS_POR_COMPAS) * PASOS_POR_COMPAS
+        const desde = Math.ceil(ultimo / pasosCompas(proyecto)) * pasosCompas(proyecto)
         const nuevas = await continuarNotas({
           notas: previas,
           instrumento: pistaViva.instrumento,
           bpm: p.bpm,
           desde,
           compases: iaCompases,
+          compas: p.compas,
         })
         notas = fusionarNotas(previas, nuevas, MAX_NOTAS_PISTA)
       }
       const idPista = pistaViva.pistaId
-      const compasesMin = Math.ceil(notas.reduce((m, n) => Math.max(m, n[0] + n[1]), 0) / PASOS_POR_COMPAS)
+      const compasesMin = Math.ceil(notas.reduce((m, n) => Math.max(m, n[0] + n[1]), 0) / pasosCompas(proyecto))
       setIaAplicada(previas)
       mutar((prev) => ({
         ...prev,
@@ -907,7 +909,7 @@ export function EditorProyecto({
   const cambiarNotas = (notas: NotaAudio[]) => {
     const idPista = pista.pistaId
     const fin = notas.reduce((m, n) => Math.max(m, n[0] + n[1]), 0)
-    const minimos = Math.min(MAX_COMPASES, Math.ceil(fin / PASOS_POR_COMPAS))
+    const minimos = Math.min(MAX_COMPASES, Math.ceil(fin / pasosCompas(proyecto)))
     mutar((p) => ({
       ...p,
       compases: Math.max(p.compases, minimos),
@@ -943,7 +945,7 @@ export function EditorProyecto({
       const finPaso = posInicio + (n * g.duracionSeg) / spb
       return {
         ...p,
-        compases: Math.max(p.compases, Math.min(MAX_COMPASES, Math.ceil(finPaso / PASOS_POR_COMPAS))),
+        compases: Math.max(p.compases, Math.min(MAX_COMPASES, Math.ceil(finPaso / pasosCompas(p)))),
         pistas: p.pistas.map((x) => (x.pistaId === idPista ? { ...x, clips: [...(x.clips ?? []), ...nuevos] } : x)),
       }
     })
@@ -985,11 +987,18 @@ export function EditorProyecto({
         }
         bpm={proyecto.bpm}
         compases={proyecto.compases}
-        pulsos={proyecto.pulsos ?? 4}
+        compas={proyecto.compas ?? '4/4'}
         posInicio={posInicio}
         onBpm={(bpm) => mutar((p) => ({ ...p, bpm }))}
         onCompases={(compases) => mutar((p) => ({ ...p, compases }))}
-        onPulsos={(pulsos) => mutar((p) => ({ ...p, pulsos }))}
+        // Cambiar el compás conserva la DURACIÓN: los compases se recalculan para que ninguna nota quede fuera.
+        onCompas={(compas) =>
+          mutar((p) => ({
+            ...p,
+            compas,
+            compases: Math.max(1, Math.min(MAX_COMPASES, Math.ceil((p.compases * pasosCompas(p)) / pasosCompas({ compas })))),
+          }))
+        }
         onRegresar={regresar}
         metronomo={metronomo}
         onMetronomo={() => {
@@ -1000,7 +1009,7 @@ export function EditorProyecto({
         onLoopActivo={() => {
           setLoopActivo((v) => {
             const activo = !v
-            if (activo && !loop) setLoop({ inicio: 0, fin: Math.min(proyecto.compases, 2) * PASOS_POR_COMPAS })
+            if (activo && !loop) setLoop({ inicio: 0, fin: Math.min(proyecto.compases, 2) * pasosCompas(proyecto) })
             return activo
           })
         }}
@@ -1040,8 +1049,10 @@ export function EditorProyecto({
       )}
 
       {/* El timeline integra las pistas: una sola tarjeta con la columna de pistas a la IZQUIERDA y el roll a la derecha.
-          Expandido, la columna también se pliega: todo el ancho para el roll. */}
-      <div className="flex min-h-0 flex-1 overflow-hidden rounded-xl border border-white/10 bg-black/30">
+          Expandido, la columna también se pliega: todo el ancho para el roll.
+          En pantallas bajas (móvil) la barra y el sinte se comían el alto: con
+          un mínimo, el editor hace scroll en vez de aplastar el timeline. */}
+      <div className="flex min-h-64 flex-1 overflow-hidden rounded-xl border border-white/10 bg-black/30">
         {!rollExpandido && (
           <Pistas
             bloqueado={sinTurno}
@@ -1138,6 +1149,7 @@ export function EditorProyecto({
               vivo={proyecto.vivo}
               octava={octava}
               compases={proyecto.compases}
+              pasosPorCompas={pasosCompas(proyecto)}
               fuerza={fuerza}
               onFuerza={setFuerza}
               swing={proyecto.swing ?? 0}

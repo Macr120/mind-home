@@ -266,11 +266,16 @@ export async function obtenerNiveles(): Promise<OfertaPro[]> {
   const vistos = new Set<number>()
   const niveles: OfertaPro[] = []
   for (const oferta of todas) {
-    if (vistos.has(oferta.nivel)) continue
+    if (oferta.clase !== 'nivel' || vistos.has(oferta.nivel)) continue
     vistos.add(oferta.nivel)
     niveles.push(oferta)
   }
   return niveles.sort((a, b) => a.nivel - b.nivel)
+}
+
+/** El pago único de la casa (con su semana de IA); null si no está a la venta. */
+export async function obtenerUnlock(): Promise<OfertaPro | null> {
+  return (await ofertas()).find((o) => o.clase === 'unlock') ?? null
 }
 
 /**
@@ -369,10 +374,16 @@ function celebrarPro(restaurada: boolean): void {
   useCelebracion.getState().encolar({ tipo: 'suscripcion', nivel: Math.max(1, nivel || 1), restaurada })
 }
 
+/** Compra la casa: se espera a ver el unlock (y con él, la semana de IA). */
+export async function comprarUnlock(oferta: OfertaPro): Promise<boolean> {
+  await pasarPorCaja(oferta)
+  return aterrizar(oferta, () => useSesion.getState().unlock)
+}
+
 /**
  * «Restaurar compras»: Apple lo EXIGE en cualquier app con pagos, y sirve para
  * quien reinstala o estrena teléfono. Devuelve true si tras restaurar la
- * cuenta tiene un plan.
+ * cuenta tiene algo (la casa o un plan).
  */
 export async function restaurarCompras(): Promise<boolean> {
   const usuario = useSesion.getState().usuario
@@ -382,7 +393,7 @@ export async function restaurarCompras(): Promise<boolean> {
   await confirmarCompra('restaurar')
   const ok = await esperarPerfil(() => useSesion.getState().plan !== 'local', 5)
   if (ok) celebrarPro(true)
-  return ok
+  return ok || useSesion.getState().unlock
 }
 
 /** ¿Esta plataforma canjea códigos de tienda? (iOS y Android con pagos) */

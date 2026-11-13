@@ -79,7 +79,9 @@ export function Knob({
           else if (e.key === 'ArrowDown' || e.key === 'ArrowLeft') onCommit(Math.max(min, valor - paso))
         }}
       >
-        <path d={arco} fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth={5} strokeLinecap="round" />
+        {/* El aro de fondo va por `currentColor` + `text-white/15`: un blanco fijo
+            en el atributo no lo remapea el modo claro y desaparecía sobre el panel. */}
+        <path d={arco} fill="none" stroke="currentColor" className="text-white/15" strokeWidth={5} strokeLinecap="round" />
         <path
           d={arco}
           pathLength={100}

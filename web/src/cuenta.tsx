@@ -2,8 +2,9 @@
  * Portal de cuenta de la web pública (dominio.com/cuenta): registro, login,
  * suscripción (RevenueCat Web Billing), gestión y borrado de cuenta.
  *
- * La casa es gratis con cuenta; aquí se vende la suscripción (tres niveles) por
- * la caja directa, sin comisión de tienda (ver `src/core/edicion.ts`). Es la
+ * Aquí se venden el desbloqueo de la casa (pago único con una semana de IA,
+ * 11-nov-2026) y la suscripción (tres niveles) por la caja directa, sin
+ * comisión de tienda (ver `src/core/edicion.ts`). Windows también paga aquí. Es la
  * misma compra que hace la app de Android o iOS in-app: cuelga de la cuenta,
  * así que lo pagado aquí vale en todos los dispositivos.
  *
@@ -23,7 +24,9 @@ import { iniciarSesion, mensajeCuenta, useSesion } from '../../src/core/cuenta/s
 import {
   hayPagos,
   obtenerNiveles,
+  obtenerUnlock,
   comprar,
+  comprarUnlock,
   cambiarNivel,
   CompraCancelada,
   urlGestion,
@@ -442,6 +445,7 @@ function MiCuenta() {
   const fuePro = useSesion((s) => s.fuePro)
   const usoIA = useSesion((s) => s.usoIA)
   const creditosExtra = useSesion((s) => s.creditosExtra)
+  const unlock = useSesion((s) => s.unlock)
   const salir = useSesion((s) => s.salir)
 
   // El trial (cupones de testers): vigente se comporta como Pro (pool + sync).
@@ -519,10 +523,15 @@ function MiCuenta() {
                       'mi.estado.pruebaVencida',
                       'Tu prueba terminó: tu casa y tus datos siguen contigo. Suscríbete para seguir con la IA, la sincronización y la nube.',
                     )
-                  : t(
-                      'mi.estado.gratis',
-                      'Tu casa es gratis y tus datos viven en tu dispositivo. La IA, la sincronización y la nube vienen con la suscripción.',
-                    )}
+                  : unlock
+                    ? t(
+                        'mi.estado.gratis',
+                        'Tu casa está desbloqueada y tus datos viven en tu dispositivo. La IA, la sincronización y la nube vienen con la suscripción.',
+                      )
+                    : t(
+                        'mi.estado.sinCasa',
+                        'Puedes construir tu casa en la app, pero no se guarda hasta que la desbloquees: un pago único que incluye una semana de IA. La suscripción también la desbloquea.',
+                      )}
             </p>
             {creditosExtra > 0 && (
               <p className="text-[11px] text-white/45">
@@ -530,8 +539,9 @@ function MiCuenta() {
               </p>
             )}
           </Panel>
-          {/* Sin plan, la suscripción es lo único que se vende: las tarjetas
-              salen siempre, y debajo el cupón de los testers. */}
+          {/* Sin plan: primero la casa (si falta), luego la suscripción, y debajo
+              el cupón de los testers. */}
+          {!unlock && <Casa />}
           <Tarifas titulo={fuePro ? t('tar.renovar', 'Renovar suscripción') : t('tar.suscribir', 'Suscribirme')} />
           <Cupon />
         </>
@@ -550,6 +560,65 @@ function MiCuenta() {
         </button>
       </Panel>
     </>
+  )
+}
+
+/**
+ * El desbloqueo de la casa: pago único con una semana de IA. La cifra la manda
+ * RevenueCat (5 USD); al aterrizar el webhook el panel desaparece.
+ */
+function Casa() {
+  const [oferta, setOferta] = useState<OfertaPro | null>(null)
+  const [error, setError] = useState<string | null>(null)
+  const [ocupado, setOcupado] = useState(false)
+
+  useEffect(() => {
+    let vivo = true
+    obtenerUnlock()
+      .then((o) => {
+        if (vivo) setOferta(o)
+      })
+      .catch(() => {
+        if (vivo) setError(t('tar.errorPrecios', 'No se pudieron cargar los precios. Recarga la página.'))
+      })
+    return () => {
+      vivo = false
+    }
+  }, [])
+
+  const alComprar = async () => {
+    if (ocupado || !oferta) return
+    setOcupado(true)
+    setError(null)
+    try {
+      const ok = await comprarUnlock(oferta)
+      if (!ok) setError(t('tar.errorCambio', 'El cambio no se completó. Recarga la página en unos segundos.'))
+    } catch (e) {
+      if (e instanceof CompraCancelada) return
+      setError(e instanceof Error ? e.message : String(e))
+    } finally {
+      setOcupado(false)
+    }
+  }
+
+  if (!hayPagos()) return null
+  return (
+    <Panel>
+      <h2 className="text-sm font-bold text-white/90">{t('casa.titulo', 'Tu casa mental')}</h2>
+      <p className="text-2xl font-black text-white/95">
+        {oferta?.precio ?? '···'}
+        <span className="text-sm font-semibold text-white/50">{` ${t('casa.pagoUnico', 'pago único')}`}</span>
+      </p>
+      <ul className="space-y-1 text-xs text-white/65">
+        <li>✓ {t('casa.b1', 'Tu casa y todo lo que hagas en ella, guardado para siempre')}</li>
+        <li>✓ {t('casa.b2', 'Una semana de IA incluida')}</li>
+        <li>✓ {t('casa.b3', 'Visitas, juegos y mensajes con tus amigos')}</li>
+      </ul>
+      <button type="button" onClick={() => void alComprar()} disabled={ocupado || !oferta} className={botonPrincipal}>
+        {ocupado ? t('comun.procesando', 'Procesando…') : t('casa.cta', 'Desbloquear mi casa')}
+      </button>
+      {error && <p className="text-xs text-red-400/90">{error}</p>}
+    </Panel>
   )
 }
 

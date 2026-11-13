@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import type { AjustesVivo, ClipAudio, NotaAudio, PistaAudio, ProyectoAudio } from '../../core/data/db'
 import { useT } from '../../core/i18n/useT'
+import { useBaseClara } from '../../core/ui/useBaseUI'
 import { Icono } from '../../core/ui/iconos/Icono'
 import {
   ALTO_CARRIL,
@@ -9,7 +10,8 @@ import {
   esInstrumentoBateria,
   MAX_COMPASES,
   PALETA_PISTAS,
-  PASOS_POR_COMPAS,
+  pasosCompas,
+  pasosPulso,
   TONO_ALTO,
   TONO_BAJO,
   TONOS_BATERIA,
@@ -92,6 +94,13 @@ type Modo =
 /** Alto del área de clips de una pista de audio (sin filas: un solo carril). */
 const ALTO_AREA_AUDIO = 112
 
+/** `#rrggbb` mezclado con negro en la fracción `f` (los colores de pista en modo claro). */
+function oscurecer(hex: string, f: number): string {
+  const n = parseInt(hex.slice(1), 16)
+  const c = (desp: number) => Math.round(((n >> desp) & 255) * (1 - f))
+  return `rgb(${c(16)},${c(8)},${c(0)})`
+}
+
 export function PianoRoll({
   bloqueado,
   proyecto,
@@ -141,6 +150,7 @@ export function PianoRoll({
   onLoop: (loop: { inicio: number; fin: number } | null) => void
 }) {
   const t = useT()
+  const claro = useBaseClara()
   const [zoom, setZoom] = useState(1)
   const [partitura, setPartitura] = useState(false)
   const estado = useSyncExternalStore(transporteStore.subscribe, transporteStore.getSnapshot)
@@ -166,7 +176,10 @@ export function PianoRoll({
   const medioDiat = MEDIO_DIAT * zoom
   const margenPartitura = MARGEN_PARTITURA * zoom
   const altoPartitura = (DIAT_MAX - DIAT_MIN) * medioDiat + margenPartitura * 2
-  const totalPasos = proyecto.compases * PASOS_POR_COMPAS
+  /** Pasos por compás y por pulso del compás del proyecto (4/4 = 16 y 4; 6/8 = 12 y 6…). */
+  const PC = pasosCompas(proyecto)
+  const PULSO = pasosPulso(proyecto)
+  const totalPasos = proyecto.compases * PC
   /** Donde termina la vista de composición (regla + carriles) y empieza el roll. */
   const topeRoll = REGLA + proyecto.pistas.length * ALTO_CARRIL
   /** Partitura solo para pistas melódicas (la batería tiene su secuenciador). */
@@ -187,7 +200,7 @@ export function PianoRoll({
       Expandido, la vista de teclas pierde el piano del borde: todo el ancho para las notas. */
   const G = modoPartitura ? GUTTER_PARTITURA : expandido && !modoTab && !esBateria && !esAudio ? 0 : GUTTER
   /** Hasta dónde se puede desplazar/escribir (la canción crece sola al editar). */
-  const pasosLibres = MAX_COMPASES * PASOS_POR_COMPAS
+  const pasosLibres = MAX_COMPASES * PC
   const armadura = modoPartitura && escala ? armaduraDe(escala) : 0
   const gradosAlterados = new Set((armadura > 0 ? ORDEN_SOSTENIDOS : ORDEN_BEMOLES).slice(0, Math.abs(armadura)))
   /** Grado donde se DIBUJA la nota: en tonalidades con bemoles el sostenido se
@@ -216,6 +229,15 @@ export function PianoRoll({
     if (!ctx) return
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
     ctx.clearRect(0, 0, W, H)
+    // En claro el lienzo cae sobre el panel claro: la tinta pasa a pizarra (un
+    // poco más opaca, el gris sobre blanco se lee menos que el blanco sobre
+    // negro) y los colores de pista se oscurecen para no lavarse.
+    const tinta = (a: number) => (claro ? `rgba(15,23,42,${Math.min(1, a * 1.4)})` : `rgba(255,255,255,${a})`)
+    const colorPista = (i: number) => {
+      const c = PALETA_PISTAS[i % PALETA_PISTAS.length]
+      return claro ? oscurecer(c, 0.4) : c
+    }
+    const marcaFuerte = claro ? '#0f172a' : '#f8fafc'
 
     // Clamp del scroll: hasta el tope de la canción posible (no el actual — se
     // puede pasear y escribir a la derecha; los compases crecen al editar).
@@ -236,15 +258,15 @@ export function PianoRoll({
     const pasoFin = Math.min(pasosLibres, Math.ceil((sx + W - G) / anchoPaso))
     if (modoPartitura) {
       // Líneas de compás (en partitura la rejilla fina sobra) y pentagramas.
-      for (let p = Math.ceil(pasoIni / PASOS_POR_COMPAS) * PASOS_POR_COMPAS; p <= pasoFin; p += PASOS_POR_COMPAS) {
+      for (let p = Math.ceil(pasoIni / PC) * PC; p <= pasoFin; p += PC) {
         const x = G + p * anchoPaso - sx
-        ctx.strokeStyle = 'rgba(255,255,255,0.22)'
+        ctx.strokeStyle = tinta(0.22)
         ctx.beginPath()
         ctx.moveTo(x, Math.max(topeRoll, yDiat(46)))
         ctx.lineTo(x, Math.min(H, yDiat(24)))
         ctx.stroke()
       }
-      ctx.strokeStyle = 'rgba(255,255,255,0.45)'
+      ctx.strokeStyle = tinta(0.45)
       for (const linea of LINEAS_PENTAGRAMA) {
         const y = yDiat(linea)
         if (y < topeRoll + 1 || y > H) continue
@@ -255,15 +277,15 @@ export function PianoRoll({
       }
     } else if (modoTab && cuerdas) {
       // Tablatura: líneas de compás + una línea por cuerda.
-      for (let p = Math.ceil(pasoIni / PASOS_POR_COMPAS) * PASOS_POR_COMPAS; p <= pasoFin; p += PASOS_POR_COMPAS) {
+      for (let p = Math.ceil(pasoIni / PC) * PC; p <= pasoFin; p += PC) {
         const x = G + p * anchoPaso - sx
-        ctx.strokeStyle = 'rgba(255,255,255,0.22)'
+        ctx.strokeStyle = tinta(0.22)
         ctx.beginPath()
         ctx.moveTo(x, yCuerda(cuerdas.length - 1) - espacioCuerda / 2)
         ctx.lineTo(x, yCuerda(0) + espacioCuerda / 2)
         ctx.stroke()
       }
-      ctx.strokeStyle = 'rgba(255,255,255,0.4)'
+      ctx.strokeStyle = tinta(0.4)
       for (let i = 0; i < cuerdas.length; i++) {
         const y = yCuerda(i)
         if (y < topeRoll + 1 || y > H) continue
@@ -274,9 +296,9 @@ export function PianoRoll({
       }
     } else if (esAudio) {
       // Pista de audio: sin filas — solo las líneas de compás bajo los clips.
-      for (let p = Math.ceil(pasoIni / PASOS_POR_COMPAS) * PASOS_POR_COMPAS; p <= pasoFin; p += PASOS_POR_COMPAS) {
+      for (let p = Math.ceil(pasoIni / PC) * PC; p <= pasoFin; p += PC) {
         const x = G + p * anchoPaso - sx
-        ctx.strokeStyle = 'rgba(255,255,255,0.22)'
+        ctx.strokeStyle = tinta(0.22)
         ctx.beginPath()
         ctx.moveTo(x, topeRoll)
         ctx.lineTo(x, H)
@@ -289,17 +311,17 @@ export function PianoRoll({
         for (let p = pasoIni; p < pasoFin; p++) {
           const x = G + p * anchoPaso - sx
           ctx.fillStyle =
-            p % PASOS_POR_COMPAS === 0
-              ? 'rgba(255,255,255,0.07)'
-              : p % 4 === 0
-                ? 'rgba(255,255,255,0.05)'
-                : 'rgba(255,255,255,0.028)'
+            p % PC === 0
+              ? tinta(0.07)
+              : p % PULSO === 0
+                ? tinta(0.05)
+                : tinta(0.028)
           ctx.fillRect(x + 1, y + 2, anchoPaso - 2, altoFila - 4)
         }
       }
-      for (let p = Math.ceil(pasoIni / PASOS_POR_COMPAS) * PASOS_POR_COMPAS; p <= pasoFin; p += PASOS_POR_COMPAS) {
+      for (let p = Math.ceil(pasoIni / PC) * PC; p <= pasoFin; p += PC) {
         const x = G + p * anchoPaso - sx
-        ctx.strokeStyle = 'rgba(255,255,255,0.25)'
+        ctx.strokeStyle = tinta(0.25)
         ctx.beginPath()
         ctx.moveTo(x, topeRoll)
         ctx.lineTo(x, H)
@@ -311,16 +333,16 @@ export function PianoRoll({
         const tono = tonoDe(f)
         const y = topeRoll + f * altoFila - sy
         const negra = tono != null && NEGRAS.has(((tono % 12) + 12) % 12)
-        ctx.fillStyle = negra ? 'rgba(0,0,0,0.35)' : f % 2 === 0 ? 'rgba(255,255,255,0.025)' : 'rgba(255,255,255,0.045)'
+        ctx.fillStyle = negra ? (claro ? tinta(0.07) : 'rgba(0,0,0,0.35)') : f % 2 === 0 ? tinta(claro ? 0.015 : 0.025) : tinta(claro ? 0.035 : 0.045)
         ctx.fillRect(G, y, W - G, altoFila)
       }
 
       // Rejilla vertical: fina por paso, media por negra, fuerte por compás.
       for (let p = pasoIni; p <= pasoFin; p++) {
         const x = G + p * anchoPaso - sx
-        const compas = p % PASOS_POR_COMPAS === 0
-        const negra4 = p % 4 === 0
-        ctx.strokeStyle = compas ? 'rgba(255,255,255,0.28)' : negra4 ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.05)'
+        const compas = p % PC === 0
+        const negra4 = p % PULSO === 0
+        ctx.strokeStyle = compas ? tinta(0.28) : negra4 ? tinta(0.12) : tinta(0.05)
         ctx.beginPath()
         ctx.moveTo(x, topeRoll)
         ctx.lineTo(x, H)
@@ -329,23 +351,23 @@ export function PianoRoll({
     }
 
     // Regla: fondo, bucle y números de compás.
-    ctx.fillStyle = 'rgba(255,255,255,0.06)'
+    ctx.fillStyle = tinta(0.06)
     ctx.fillRect(0, 0, W, REGLA)
     if (loop) {
       ctx.fillStyle = 'rgba(250,204,21,0.25)'
       ctx.fillRect(G + loop.inicio * anchoPaso - sx, 0, (loop.fin - loop.inicio) * anchoPaso, REGLA)
     }
-    ctx.fillStyle = 'rgba(255,255,255,0.6)'
+    ctx.fillStyle = tinta(0.6)
     ctx.font = '10px system-ui'
     ctx.textBaseline = 'middle'
     for (let c = 0; c <= MAX_COMPASES; c++) {
-      const x = G + c * PASOS_POR_COMPAS * anchoPaso - sx
+      const x = G + c * PC * anchoPaso - sx
       if (x < G - 20 || x > W) continue
       ctx.fillText(String(c + 1), x + 3, REGLA / 2)
     }
     // Marcador de arranque (triángulo).
     const xIni = G + posInicio * anchoPaso - sx
-    ctx.fillStyle = '#f8fafc'
+    ctx.fillStyle = marcaFuerte
     ctx.beginPath()
     ctx.moveTo(xIni - 5, 2)
     ctx.lineTo(xIni + 5, 2)
@@ -427,9 +449,9 @@ export function PianoRoll({
         ctx.fillRect(x, y - 1, w, 2)
         ctx.globalAlpha = alpha
         const adicionales = lineasAdicionalesDe(diat)
-        ctx.strokeStyle = 'rgba(255,255,255,0.4)'
+        ctx.strokeStyle = tinta(0.4)
         let xAnterior: number | undefined
-        for (const tramo of figurasDe(nota[0], nota[1])) {
+        for (const tramo of figurasDe(nota[0], nota[1], PC)) {
           const xt = G + tramo.paso * anchoPaso - sx + rx
           if (xt - rx > W + margen) break
           for (const l of adicionales) {
@@ -450,16 +472,16 @@ export function PianoRoll({
       ctx.font = `${Math.round(7 + 3 * zoom)}px system-ui`
       for (const s of simbolos) ctx.fillText(s.texto, s.x, s.y)
       if (conSilencios) {
-        const desde = Math.floor(pasoIni / PASOS_POR_COMPAS) * PASOS_POR_COMPAS
-        const hasta = Math.min(totalPasos, Math.ceil(pasoFin / PASOS_POR_COMPAS) * PASOS_POR_COMPAS)
+        const desde = Math.floor(pasoIni / PC) * PC
+        const hasta = Math.min(totalPasos, Math.ceil(pasoFin / PC) * PC)
         ctx.globalAlpha = alpha * 0.8
         ctx.fillStyle = color
-        for (const s of silenciosDe(notas, desde, hasta)) {
+        for (const s of silenciosDe(notas, desde, hasta, PC)) {
           const x = G + s.paso * anchoPaso - sx + 2
           if (x < G - 24 || x > W) continue
           // En el pentagrama donde vive la voz en ese compás (el de sol si hay duda).
-          const c0 = Math.floor(s.paso / PASOS_POR_COMPAS) * PASOS_POR_COMPAS
-          const enCompas = notas.filter((n) => n[0] < c0 + PASOS_POR_COMPAS && n[0] + n[1] > c0)
+          const c0 = Math.floor(s.paso / PC) * PC
+          const enCompas = notas.filter((n) => n[0] < c0 + PC && n[0] + n[1] > c0)
           const centro = enCompas.length > 0 && enCompas.every((n) => diatDe(n[2]) < 35) ? CENTRO_FA : CENTRO_SOL
           // Redonda y blanca cuelgan/reposan en el espacio de encima de la línea central.
           dibujarSilencio(ctx, x, yDiat(s.pasos >= 8 ? centro + 1 : centro), medioDiat, s.glifo)
@@ -470,7 +492,7 @@ export function PianoRoll({
     // Clips de la pista de audio activa: bloque redondeado con su onda (o «!» sin blob).
     const pintarClips = () => {
       const clips = trabajoClips.current ?? pista.clips ?? []
-      const color = PALETA_PISTAS[colorIdx % PALETA_PISTAS.length]
+      const color = colorPista(colorIdx)
       const yBloque = topeRoll + 12 - sy
       const alto = ALTO_AREA_AUDIO - 24
       ctx.font = '10px system-ui'
@@ -479,7 +501,7 @@ export function PianoRoll({
         const w = Math.max(6, (clip.duracionSeg / spbProyecto) * anchoPaso)
         if (x + w < G || x > W) continue
         const picos = picosClips?.get(clip.grabacionId)
-        ctx.globalAlpha = 0.16
+        ctx.globalAlpha = claro ? 0.12 : 0.16
         ctx.fillStyle = color
         ctx.beginPath()
         ctx.roundRect(x, yBloque, w, alto, 6)
@@ -496,15 +518,21 @@ export function PianoRoll({
         } else if (picos && picos.length > 0) {
           ctx.fillStyle = color
           const cy = yBloque + alto / 2
+          // Una barra por pico, del ancho de su tramo (con 1 px de aire): con
+          // pocos picos en un clip largo, las rayas de 1 px no se leían como onda.
+          const tramo = (w - 4) / picos.length
+          const ancho = Math.max(1, tramo - 1)
           for (let i = 0; i < picos.length; i++) {
-            const xi = x + 2 + ((w - 4) * i) / picos.length
-            if (xi < G || xi > W) continue
+            const xi = x + 2 + tramo * i
+            if (xi + ancho < G || xi > W) continue
             const h = Math.max(1, picos[i] * (alto - 12))
-            ctx.fillRect(xi, cy - h / 2, 1, h)
+            ctx.fillRect(xi, cy - h / 2, ancho, h)
           }
         }
-        ctx.fillStyle = 'rgba(255,255,255,0.85)'
+        ctx.fillStyle = tinta(0.85)
+        ctx.font = 'bold 10px system-ui'
         ctx.fillText(clip.nombre, Math.max(G + 4, x + 6), yBloque + 9)
+        ctx.font = '10px system-ui'
       }
     }
     // En tablatura solo la pista activa (los fantasmas confundirían los trastes);
@@ -514,15 +542,15 @@ export function PianoRoll({
         const otra = proyecto.pistas[i]
         // Solo las pistas del mismo mundo: melódicas entre sí, batería con batería.
         if (otra.pistaId === pista.pistaId || esInstrumentoBateria(otra.instrumento) !== esBateria) continue
-        if (modoPartitura) pintarPartitura(otra.notas, PALETA_PISTAS[i % PALETA_PISTAS.length], 0.28, false)
-        else pintarNotas(otra.notas, PALETA_PISTAS[i % PALETA_PISTAS.length], 0.28, true)
+        if (modoPartitura) pintarPartitura(otra.notas, colorPista(i), 0.28, false)
+        else pintarNotas(otra.notas, colorPista(i), 0.28, true)
       }
     }
     const activas = trabajo.current ?? pista.notas
     if (esAudio) pintarClips()
-    else if (modoPartitura) pintarPartitura(activas, PALETA_PISTAS[colorIdx % PALETA_PISTAS.length], 1, true)
-    else if (modoTab) pintarTab(activas, PALETA_PISTAS[colorIdx % PALETA_PISTAS.length])
-    else pintarNotas(activas, PALETA_PISTAS[colorIdx % PALETA_PISTAS.length], 1, false)
+    else if (modoPartitura) pintarPartitura(activas, colorPista(colorIdx), 1, true)
+    else if (modoTab) pintarTab(activas, colorPista(colorIdx))
+    else pintarNotas(activas, colorPista(colorIdx), 1, false)
 
     // Gutter: claves + armadura (partitura), teclas o etiquetas de batería.
     // En partitura/tablatura va SIN fondo propio (clearRect deja el fondo de la
@@ -531,14 +559,15 @@ export function PianoRoll({
       if (modoPartitura || modoTab) {
         ctx.clearRect(0, topeRoll, G, H - topeRoll)
       } else {
-        ctx.fillStyle = '#12141a'
+        ctx.clearRect(0, topeRoll, G, H - topeRoll)
+        ctx.fillStyle = claro ? tinta(0.09) : '#12141a'
         ctx.fillRect(0, topeRoll, G, H - topeRoll)
       }
     }
     ctx.font = '9px system-ui'
     if (modoPartitura) {
       // Las líneas siguen POR el gutter: el pentagrama toca la clave.
-      ctx.strokeStyle = 'rgba(255,255,255,0.45)'
+      ctx.strokeStyle = tinta(0.45)
       for (const linea of LINEAS_PENTAGRAMA) {
         const y = yDiat(linea)
         if (y < topeRoll + 1 || y > H) continue
@@ -547,7 +576,7 @@ export function PianoRoll({
         ctx.lineTo(G, y + 0.5)
         ctx.stroke()
       }
-      ctx.fillStyle = 'rgba(255,255,255,0.85)'
+      ctx.fillStyle = tinta(0.85)
       ctx.font = `${Math.round(Math.min(44, 30 * zoom))}px serif`
       ctx.fillText('𝄞', 4, yDiat(41))
       ctx.font = `${Math.round(Math.min(36, 24 * zoom))}px serif`
@@ -565,7 +594,7 @@ export function PianoRoll({
       }
     } else if (modoTab && cuerdas) {
       // Las líneas de cuerda cruzan el gutter y cada una lleva su nota al aire.
-      ctx.strokeStyle = 'rgba(255,255,255,0.4)'
+      ctx.strokeStyle = tinta(0.4)
       for (let i = 0; i < cuerdas.length; i++) {
         const y = yCuerda(i)
         if (y < topeRoll + 1 || y > H) continue
@@ -575,7 +604,7 @@ export function PianoRoll({
         ctx.stroke()
       }
       const NOMBRES_CLASE = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
-      ctx.fillStyle = 'rgba(255,255,255,0.8)'
+      ctx.fillStyle = tinta(0.8)
       ctx.font = '10px system-ui'
       for (let i = 0; i < cuerdas.length; i++) {
         const y = yCuerda(i)
@@ -588,14 +617,14 @@ export function PianoRoll({
         if (tono == null) continue
         const y = topeRoll + f * altoFila - sy
         if (esBateria) {
-          ctx.fillStyle = 'rgba(255,255,255,0.7)'
+          ctx.fillStyle = tinta(0.7)
           const nombres: Record<number, string> = {
             36: 'Kick', 38: 'Snare', 42: 'Hat', 46: 'Open', 39: 'Clap', 41: 'Tom L', 48: 'Tom H', 49: 'Crash',
           }
           ctx.fillText(nombres[tono] ?? '', 4, y + altoFila / 2)
         } else {
           const semitono = ((tono % 12) + 12) % 12
-          ctx.fillStyle = NEGRAS.has(semitono) ? 'rgba(0,0,0,0.55)' : 'rgba(255,255,255,0.85)'
+          ctx.fillStyle = NEGRAS.has(semitono) ? 'rgba(0,0,0,0.55)' : tinta(0.85)
           ctx.fillRect(0, y + 0.5, G - 4, altoFila - 1)
           if (semitono === 0) {
             ctx.fillStyle = '#111'
@@ -606,12 +635,13 @@ export function PianoRoll({
     }
 
     // ─── Carriles de la composición: la miniatura de CADA pista bajo la regla ─
-    ctx.fillStyle = '#101318'
+    ctx.clearRect(0, REGLA, W, topeRoll - REGLA)
+    ctx.fillStyle = claro ? tinta(0.06) : '#101318'
     ctx.fillRect(0, REGLA, W, topeRoll - REGLA)
-    for (let p = Math.ceil(pasoIni / 4) * 4; p <= pasoFin; p += 4) {
+    for (let p = Math.ceil(pasoIni / PULSO) * PULSO; p <= pasoFin; p += PULSO) {
       // Solo negras y compases: en miniatura la rejilla fina es ruido.
       const x = G + p * anchoPaso - sx
-      ctx.strokeStyle = p % PASOS_POR_COMPAS === 0 ? 'rgba(255,255,255,0.18)' : 'rgba(255,255,255,0.05)'
+      ctx.strokeStyle = p % PC === 0 ? tinta(0.18) : tinta(0.05)
       ctx.beginPath()
       ctx.moveTo(x, REGLA)
       ctx.lineTo(x, topeRoll)
@@ -620,10 +650,10 @@ export function PianoRoll({
     for (let i = 0; i < proyecto.pistas.length; i++) {
       const carril = proyecto.pistas[i]
       const y0 = REGLA + i * ALTO_CARRIL
-      const color = PALETA_PISTAS[i % PALETA_PISTAS.length]
+      const color = colorPista(i)
       const esActiva = carril.pistaId === pista.pistaId
       if (esActiva) {
-        ctx.fillStyle = 'rgba(255,255,255,0.07)'
+        ctx.fillStyle = tinta(0.07)
         ctx.fillRect(0, y0, W, ALTO_CARRIL)
       }
       // Banda de color de la pista en la franja del gutter.
@@ -656,7 +686,7 @@ export function PianoRoll({
         }
       }
       ctx.globalAlpha = 1
-      ctx.strokeStyle = 'rgba(255,255,255,0.12)'
+      ctx.strokeStyle = tinta(0.12)
       ctx.beginPath()
       ctx.moveTo(0, y0 + ALTO_CARRIL - 0.5)
       ctx.lineTo(W, y0 + ALTO_CARRIL - 0.5)
@@ -667,7 +697,7 @@ export function PianoRoll({
     // ahí: los compases crecen solos al soltar la nota).
     const xFin = G + totalPasos * anchoPaso - sx
     if (xFin < W) {
-      ctx.fillStyle = 'rgba(0,0,0,0.3)'
+      ctx.fillStyle = claro ? tinta(0.06) : 'rgba(0,0,0,0.3)'
       ctx.fillRect(Math.max(G, xFin), REGLA, W - Math.max(G, xFin), H - REGLA)
     }
 
@@ -675,7 +705,7 @@ export function PianoRoll({
     if (estado !== 'parado') {
       const x = G + posicion() * anchoPaso - sx
       if (x >= G && x <= W) {
-        ctx.strokeStyle = '#f8fafc'
+        ctx.strokeStyle = marcaFuerte
         ctx.lineWidth = 1.5
         ctx.beginPath()
         ctx.moveTo(x, 0)
@@ -701,7 +731,7 @@ export function PianoRoll({
     ro.observe(cont)
     return () => ro.disconnect()
     // eslint-disable-next-line react-hooks/exhaustive-deps -- redibujo imperativo
-  }, [version, zoom, partitura, expandido, pista.pistaId, proyecto.compases, loop, posInicio, estado, esBateria])
+  }, [version, zoom, partitura, expandido, pista.pistaId, proyecto.compases, loop, posInicio, estado, esBateria, claro])
 
   useEffect(() => {
     if (estado === 'parado') return
@@ -832,9 +862,9 @@ export function PianoRoll({
       if (!m.movido && Math.abs(cx - m.x0) < 8) return
       m.movido = true
       const paso = Math.max(0, Math.min(totalPasos, (cx - G + scroll.current.x) / anchoPaso))
-      const c0 = Math.floor(Math.min(m.paso0, paso) / PASOS_POR_COMPAS)
-      const c1 = Math.floor(Math.max(m.paso0, paso) / PASOS_POR_COMPAS)
-      onLoop({ inicio: c0 * PASOS_POR_COMPAS, fin: Math.min(totalPasos, (c1 + 1) * PASOS_POR_COMPAS) })
+      const c0 = Math.floor(Math.min(m.paso0, paso) / PC)
+      const c1 = Math.floor(Math.max(m.paso0, paso) / PC)
+      onLoop({ inicio: c0 * PC, fin: Math.min(totalPasos, (c1 + 1) * PC) })
       return
     }
     // Mover/estirar la nota sobre la copia de trabajo (se comete al soltar).

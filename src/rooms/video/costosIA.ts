@@ -47,4 +47,68 @@ export const OP_TRADUCIR: OperacionIA = {
   partes: [{ op: 'texto' }],
 }
 
-export const OPERACIONES_IA: OperacionIA[] = [OP_GUION, OP_NARRACION, OP_FONDO, OP_TITULOS, OP_TRADUCIR]
+/*
+ * Las tres del video ya grabado se cobran con un PAQUETE (`ia-paquete`): un
+ * precio por duración, todo incluido; lo no usado se devuelve. Ver
+ * `rooms/video/paqueteVideo.ts` (el badge de cada botón calcula el total).
+ */
+
+export const OP_EDITAR_VIDEO: OperacionIA = {
+  id: 'video.editar',
+  clave: 'ia.op.video.editar',
+  es: 'Editar el video con IA: subtítulos, cortes, títulos y efectos',
+  dondeClave: 'ia.donde.video.editor',
+  dondeEs: 'Editor de video · botón ✨',
+  partes: [{ op: 'voz', veces: 'n' }],
+  lote: true,
+  notaClave: 'ia.op.video.escuchar.nota',
+  notaEs: '1 crédito por cada 25 s de video, todo incluido; lo que no se use se devuelve.',
+}
+
+export const OP_CLIPEAR: OperacionIA = {
+  id: 'video.clipear',
+  clave: 'ia.op.video.clipear',
+  es: 'Clipear los momentos más importantes de un video',
+  dondeClave: 'ia.donde.video.editor',
+  dondeEs: 'Editor de video · botón ✨',
+  partes: [{ op: 'voz', veces: 'n' }],
+  lote: true,
+  notaClave: 'ia.op.video.escuchar.nota',
+  notaEs: '1 crédito por cada 25 s de video, todo incluido; lo que no se use se devuelve.',
+}
+
+export const OP_TRADUCIR_VIDEO: OperacionIA = {
+  id: 'video.traducirVideo',
+  clave: 'ia.op.video.traducirVideo',
+  es: 'Traducir el video: voz nueva y subtítulos en otro idioma',
+  dondeClave: 'ia.donde.video.editor',
+  dondeEs: 'Editor de video · botón ✨',
+  partes: [{ op: 'voz', veces: 'n' }],
+  lote: true,
+  notaClave: 'ia.op.video.traducirVideo.nota',
+  notaEs: '1 crédito por cada 25 s de video, todo incluido; 3 si la voz nueva es IA.',
+}
+
+export const OP_TRADUCIR_TEXTOS: OperacionIA = {
+  id: 'video.traducirTextos',
+  clave: 'ia.op.video.traducirTextos',
+  es: 'Traducir los textos del video: títulos, guiones y avatares',
+  dondeClave: 'ia.donde.video.editor',
+  dondeEs: 'Editor de video · botón ✨',
+  partes: [{ op: 'texto', veces: 'n' }],
+  lote: true,
+  notaClave: 'ia.op.video.traducirTextos.nota',
+  notaEs: '1 crédito por cada 20 textos; rehacer una voz IA, 3.',
+}
+
+export const OPERACIONES_IA: OperacionIA[] = [
+  OP_GUION,
+  OP_NARRACION,
+  OP_FONDO,
+  OP_TITULOS,
+  OP_TRADUCIR,
+  OP_EDITAR_VIDEO,
+  OP_CLIPEAR,
+  OP_TRADUCIR_VIDEO,
+  OP_TRADUCIR_TEXTOS,
+]

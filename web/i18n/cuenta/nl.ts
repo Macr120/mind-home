@@ -56,7 +56,6 @@ export const TEXTOS: Record<string, string> = {
   'mi.estado.fuePro':
     'Je abonnement is afgelopen: de app blijft op je apparaten in lokale modus. Hervat het en de maandcredits en de synchronisatie komen terug zoals je ze achterliet.',
   'mi.estado.pruebaVencida': 'Je proefperiode is afgelopen: je huis en je gegevens blijven bij je. Neem een abonnement om door te gaan met AI, synchronisatie en cloud.',
-  'mi.estado.gratis': 'Je huis is gratis en je gegevens staan op je apparaat. AI, synchronisatie en cloud zitten in het abonnement.',
   'mi.disponibles': 'Beschikbare credits: {n}',
   'mi.abrirApp': 'De app in de browser openen',
   'mi.salir': 'Uitloggen',
@@ -87,4 +86,12 @@ export const TEXTOS: Record<string, string> = {
   'cuenta.err.cupon-canjeado': 'Deze coupon is al verzilverd op dit account.',
   'cuenta.err.cupon-invalido': 'Die coupon bestaat niet of is niet meer beschikbaar.',
   'cuenta.err.generico': 'De actie kon niet worden voltooid. Probeer het opnieuw.',
+  'mi.estado.gratis': 'Je huis is ontgrendeld en je gegevens staan op je apparaat. AI, synchronisatie en de cloud horen bij het abonnement.',
+  'mi.estado.sinCasa': 'Je kunt je huis in de app bouwen, maar het wordt pas opgeslagen als je het ontgrendelt: een eenmalige betaling met een week AI. Het abonnement ontgrendelt het ook.',
+  'casa.titulo': 'Jouw mentale huis',
+  'casa.pagoUnico': 'eenmalige betaling',
+  'casa.b1': 'Je huis en alles wat je erin doet, voor altijd opgeslagen',
+  'casa.b2': 'Een week AI inbegrepen',
+  'casa.b3': 'Bezoeken, spellen en berichten met je vrienden',
+  'casa.cta': 'Mijn huis ontgrendelen',
 }

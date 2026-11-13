@@ -6,6 +6,11 @@
 # el client secret. El 302 conserva `?code=…&state=…`.
 /oauth/redes https://bzwiexwvpimlellfprip.supabase.co/functions/v1/redes-oauth/callback 302
 
+# La página de las tiendas se publicó un día como /descargar y quedó en /download
+# (en inglés: la ven los perfiles de las redes en los 16 idiomas). Los enlaces viejos siguen sirviendo.
+/descargar /download 301
+/:idioma/descargar /:idioma/download 301
+
 # La portada del dominio es la APP: mismo flujo que el teléfono y el escritorio
 # (idioma → entrar/probar → casa). La landing ya no sale en la raíz —lo que
 # contaba vive en el recorrido «¿Qué es MPH?» dentro de la app— pero sigue

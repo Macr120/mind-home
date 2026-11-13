@@ -6,7 +6,7 @@ import type { InstrumentoAudio, PistaAudio, ProyectoAudio } from '../../core/dat
 import { grabacionesAudioRepo } from '../../core/data/repository'
 import { datosIdioma } from '../../core/i18n/idiomas'
 import { idiomaActual, tGlobal } from '../../core/i18n/useT'
-import { MAX_COMPASES, PASOS_POR_COMPAS, nuevaPistaId, nuevoClipId, segPorPaso } from './constantes'
+import { MAX_COMPASES, nuevaPistaId, nuevoClipId, pasosCompas, segPorPaso } from './constantes'
 import { calcularPicos } from './grabadorClip'
 import * as motor from './motor'
 
@@ -76,7 +76,7 @@ function estructura(letra: string, totalSeg: number, segSeccion: number): string
 
 /** El prompt de Lyria a partir del proyecto. */
 export function promptLyria(p: ProyectoAudio, estilo: string, conVoz: boolean): string {
-  const totalSeg = p.compases * PASOS_POR_COMPAS * segPorPaso(p.bpm)
+  const totalSeg = p.compases * pasosCompas(p) * segPorPaso(p.bpm)
   const instrumentos = [
     ...new Set(p.pistas.filter((x) => x.tipo !== 'audio').map((x) => INSTR_EN[x.instrumento])),
   ].filter(Boolean)
@@ -86,7 +86,7 @@ export function promptLyria(p: ProyectoAudio, estilo: string, conVoz: boolean): 
     lineas.push(
       'Lead vocalist sings these exact lyrics, in their original language, with backing vocals in the choruses:',
       '',
-      estructura(p.letra, totalSeg, 8 * PASOS_POR_COMPAS * segPorPaso(p.bpm)),
+      estructura(p.letra, totalSeg, 8 * pasosCompas(p) * segPorPaso(p.bpm)),
     )
   } else if (conVoz) {
     // Sin letra en el proyecto: Lyria la escribe en el idioma de la interfaz.
@@ -206,7 +206,7 @@ export async function producirConLyria(prompt: string, nombreCancion: string, co
  */
 export function conVersionProducida(p: ProyectoAudio, pista: PistaAudio): ProyectoAudio {
   const dur = pista.clips?.[0]?.duracionSeg ?? 0
-  const compasesAudio = Math.ceil(dur / segPorPaso(p.bpm) / PASOS_POR_COMPAS)
+  const compasesAudio = Math.ceil(dur / segPorPaso(p.bpm) / pasosCompas(p))
   return {
     ...p,
     compases: Math.max(p.compases, Math.min(MAX_COMPASES, compasesAudio)),

@@ -1,4 +1,4 @@
-import { usarViaCuenta, iaVozCuenta, ErrorIA } from '../cuenta/api'
+import { usarViaCuenta, iaVozCuenta, iaVozCuentaTiempos, ErrorIA, type PalabraTranscrita } from '../cuenta/api'
 import { esperarSesion } from '../cuenta/sesionStore'
 import { getIaKey, proveedorVoz } from '../chat/ia'
 import { blobABase64 } from '../imagenIA'
@@ -120,4 +120,39 @@ export async function transcribir(blob: Blob, idioma?: string, duracionSeg?: num
   if (typeof data.text !== 'string') throw new Error(tGlobal('chat.voz.sinTexto', '{proveedor} no devolvió texto', { proveedor: 'OpenAI' }))
   if (duracionSeg) useGastoByok.getState().sumar('voz', costoVoz(duracionSeg))
   return data.text
+}
+
+/**
+ * Como `transcribir`, con el tiempo de cada palabra cuando el proveedor lo da
+ * (Whisper, por la cuenta o con clave de OpenAI). Gemini no: vuelve sin ellos y
+ * quien llama los reparte a ojo. Mismo precio que `transcribir`.
+ */
+export async function transcribirConTiempos(
+  blob: Blob,
+  idioma?: string,
+  duracionSeg?: number,
+): Promise<{ texto: string; palabras?: PalabraTranscrita[] }> {
+  await exigirTransporteVoz()
+  const mime = blob.type || 'audio/webm'
+  if (usarViaCuenta()) return iaVozCuentaTiempos(await blobABase64(blob), mime, idioma)
+  if (proveedorVoz() !== 'chatgpt') return { texto: await transcribir(blob, idioma, duracionSeg) }
+  const fd = new FormData()
+  fd.append('model', 'whisper-1')
+  fd.append('file', new File([blob], `dictado.${EXT_POR_MIME[mime] ?? 'webm'}`, { type: mime }))
+  if (idioma) fd.append('language', idioma)
+  fd.append('response_format', 'verbose_json')
+  fd.append('timestamp_granularities[]', 'word')
+  const res = await fetch('https://api.openai.com/v1/audio/transcriptions', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${getIaKey('chatgpt')}` },
+    body: fd,
+  })
+  if (!res.ok) throw new Error(`OpenAI ${res.status}: ${(await res.text()).slice(0, 200)}`)
+  const data = (await res.json()) as { text?: string; words?: { word?: string; start?: number; end?: number }[] }
+  if (typeof data.text !== 'string') throw new Error(tGlobal('chat.voz.sinTexto', '{proveedor} no devolvió texto', { proveedor: 'OpenAI' }))
+  if (duracionSeg) useGastoByok.getState().sumar('voz', costoVoz(duracionSeg))
+  const palabras = (data.words ?? [])
+    .filter((w) => typeof w.word === 'string' && typeof w.start === 'number' && typeof w.end === 'number')
+    .map((w) => ({ p: w.word!.trim(), i: w.start!, f: w.end! }))
+  return { texto: data.text, palabras: palabras.length ? palabras : undefined }
 }

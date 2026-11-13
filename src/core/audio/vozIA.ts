@@ -57,11 +57,11 @@ function duck(bajar: boolean) {
   g.gain.setTargetAtTime(bajar ? volumen * 0.25 : volumen, ctx.currentTime, 0.2)
 }
 
-async function ttsOpenAI(texto: string, voz: string, key: string): Promise<Blob> {
+async function ttsOpenAI(texto: string, voz: string, key: string, velocidad = 1): Promise<Blob> {
   const res = await fetch('https://api.openai.com/v1/audio/speech', {
     method: 'POST',
     headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ model: 'tts-1', voice: voz, input: texto }),
+    body: JSON.stringify({ model: 'tts-1', voice: voz, input: texto, ...(velocidad !== 1 ? { speed: velocidad } : {}) }),
   })
   if (!res.ok) throw new Error(`OpenAI ${res.status}: ${(await res.text()).slice(0, 200)}`)
   useGastoByok.getState().sumar('tts', costoTts(texto.length))
@@ -169,12 +169,14 @@ async function guardarVoz(clave: string, blob: Blob): Promise<void> {
  * Pide el audio al proveedor resuelto y devuelve el BLOB sin reproducirlo (la
  * narración del Studio de video lo guarda como medio). Lanza si falla.
  */
-export async function generarVozIA(texto: string, voz?: string): Promise<Blob> {
+export async function generarVozIA(texto: string, voz?: string, opciones: { velocidad?: number } = {}): Promise<Blob> {
   const limpio = quitarEmojis(texto).trim()
   if (!limpio) throw new Error('sin texto')
   const voces = vocesIaDisponibles()
   const v = voz && voces.includes(voz) ? voz : voces[0]
-  const via = usarViaCuenta() ? 'cuenta' : (proveedorVoz() ?? '')
+  // Velocidad (0.7–1.5; solo OpenAI): el doblaje del Studio encaja la frase en su hueco.
+  const velocidad = Math.max(0.7, Math.min(1.5, opciones.velocidad ?? 1))
+  const via = `${usarViaCuenta() ? 'cuenta' : (proveedorVoz() ?? '')}${velocidad !== 1 ? `@${velocidad.toFixed(2)}` : ''}`
   const clave = limpio.length <= CACHE_VOZ_CHARS && typeof caches !== 'undefined' ? await claveVoz(limpio, v, via) : null
   const previa = clave ? await vozGuardada(clave) : null
   if (previa) return previa
@@ -182,13 +184,13 @@ export async function generarVozIA(texto: string, voz?: string): Promise<Blob> {
   if (usarViaCuenta()) {
     // El mime lo dice el proxy: OpenAI devuelve mp3 y Gemini un WAV armado
     // allá desde su PCM crudo. Fijarlo aquí dejaba mudo al respaldo.
-    const r = await iaTtsCuenta(limpio, v)
+    const r = await iaTtsCuenta(limpio, v, velocidad)
     blob = base64ABlob(r.base64, r.mime || 'audio/mpeg')
   } else {
     const provId = proveedorVoz()
     if (!provId) throw new Error('sin proveedor de voz')
     const key = getIaKey(provId)
-    blob = await (provId === 'chatgpt' ? ttsOpenAI(limpio, v, key) : ttsGemini(limpio, v, key))
+    blob = await (provId === 'chatgpt' ? ttsOpenAI(limpio, v, key, velocidad) : ttsGemini(limpio, v, key))
   }
   if (clave) void guardarVoz(clave, blob)
   return blob

@@ -4236,9 +4236,11 @@ export interface ProyectoAudio {
   nombre: string
   /** 40..240 */
   bpm: number
-  /** Compases de 4/4 (1..32). */
+  /** Número de compases (del `compas` del proyecto; 1..64). */
   compases: number
-  /** Pulsaciones del metrónomo por compás (2 | 4 | 8 | 16, default 4). */
+  /** Compás de tiempo ('3/4', '6/8'…, ver `COMPASES_TIEMPO`); ausente = 4/4. NO se indexa. */
+  compas?: string
+  /** Heredado: pulsaciones del metrónomo en 4/4. Ya no se usa; manda `compas`. */
   pulsos?: number
   /** Swing/groove: % (0..60) que se retrasan las semicorcheas débiles al sonar. */
   swing?: number
@@ -4302,6 +4304,8 @@ export interface TextoEscena {
   caja?: boolean
   /** Animación de ENTRADA; ausente = 'ninguna'. */
   animacion?: AnimacionTexto
+  /** Color de las palabras resaltadas (karaoke y palabras clave de `ClipTexto`); ausente = sin resaltado. */
+  resaltado?: string
   /** Ventana (segundos dentro de la escena) en que se ve; ausentes = toda la escena. */
   desde?: number
   hasta?: number
@@ -4422,7 +4426,20 @@ export interface ClipPrincipal extends ClipBase {
   ajuste?: 'cubrir' | 'encajar'
   /** Ausente = corte. En el primer clip solo tiene efecto 'fundido' (desde negro). */
   transicion?: Transicion
+  /** Movimiento de cámara DENTRO del clip (zoom lento, golpe de zoom, paneo); ausente = quieto. */
+  movimiento?: MovimientoClip
+  /** Ajuste fino de color, cada uno de −1 a 1 (0 = sin cambio); se suma al `filtro`. */
+  color?: { brillo?: number; contraste?: number; saturacion?: number }
+  /** Velocidad (0.25–4; ausente = 1): el clip dura `tramo del medio / velocidad`. Solo video. */
+  velocidad?: number
+  /** Reencuadre: centro (0–1 del cuadro original) que sigue el encuadre, por segundo DEL MEDIO (sobrevive a dividir). */
+  seguir?: { t: number; x: number; y: number }[]
+  /** Tramos en que alguien habla, en segundos DEL MEDIO (del análisis): la música con `agachar` baja ahí. */
+  voz?: [number, number][]
+  /** Limpieza del audio propio (quita retumbe y siseo, empareja el volumen); misma cadena que el filtro de voz 'limpia'. */
+  limpiarVoz?: boolean
 }
+export type MovimientoClip = 'zoomIn' | 'zoomOut' | 'punch' | 'panIzq' | 'panDer'
 /** Imagen o color a pantalla completa DEBAJO del video principal. */
 export interface ClipFondo extends ClipBase {
   pista: 'fondo'
@@ -4436,6 +4453,10 @@ export interface ClipImagen extends ClipBase {
   encuadre: Encuadre
   /** 0–1. */
   opacidad: number
+  /** Llena su encuadre recortando (imagen de apoyo a pantalla completa, con fundido); ausente = cabe entera. */
+  cubrir?: boolean
+  /** Movimiento dentro del clip (zoom lento, paneo…), como en la principal; solo con `cubrir`. */
+  movimiento?: MovimientoClip
 }
 export interface ClipTexto extends ClipBase {
   pista: 'texto'
@@ -4443,6 +4464,10 @@ export interface ClipTexto extends ClipBase {
   /** Subtítulo generado desde una narración: se regenera en bloque (ver `deClipId`). */
   origen?: 'narracion'
   deClipId?: string
+  /** Karaoke: segundo (dentro del clip) en que empieza cada palabra de `contenido`; la que suena va en `texto.resaltado`. */
+  tiempos?: number[]
+  /** Índices de palabras de `contenido` que van siempre en `texto.resaltado` (palabras clave). */
+  claves?: number[]
 }
 /**
  * Quién habla en el video: una voz IA con personaje (sus líneas van a la pista
@@ -4459,7 +4484,7 @@ export interface NarradorVideo {
   asistenteId?: string
 }
 /** Filtro de voz de una narración o de un avatar (los efectos viven en `rooms/video/filtrosVoz`); la unión va en línea, como `aspecto`. */
-export type FiltroVoz = 'ardilla' | 'grave' | 'robot' | 'eco' | 'radio' | 'cueva'
+export type FiltroVoz = 'limpia' | 'ardilla' | 'grave' | 'robot' | 'eco' | 'radio' | 'cueva'
 export interface ClipVoz extends ClipBase {
   pista: 'voz'
   /** Audio TTS o importado; ausente = solo guion (aún sin voz). */
@@ -4478,6 +4503,8 @@ export interface ClipMusica extends ClipBase {
   medioId: number
   volumen: number
   bucle: boolean
+  /** Baja sola mientras alguien habla (narraciones, avatares y la voz del video principal) y entra/sale con fundido. */
+  agachar?: boolean
 }
 export interface ClipSfx extends ClipBase {
   pista: 'sfx'

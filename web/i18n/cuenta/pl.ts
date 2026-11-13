@@ -56,7 +56,6 @@ export const TEXTOS: Record<string, string> = {
   'mi.estado.fuePro':
     'Twój abonament się skończył: aplikacja zostaje na twoich urządzeniach w trybie lokalnym. Wznów go, a miesięczne kredyty i synchronizacja wrócą takie, jakie zostawiłeś.',
   'mi.estado.pruebaVencida': 'Twój okres próbny się skończył: dom i dane zostają z tobą. Wykup abonament, aby dalej korzystać z SI, synchronizacji i chmury.',
-  'mi.estado.gratis': 'Twój dom jest darmowy, a dane mieszkają na twoim urządzeniu. SI, synchronizacja i chmura są w abonamencie.',
   'mi.disponibles': 'Dostępne kredyty: {n}',
   'mi.abrirApp': 'Otwórz aplikację w przeglądarce',
   'mi.salir': 'Wyloguj się',
@@ -87,4 +86,12 @@ export const TEXTOS: Record<string, string> = {
   'cuenta.err.cupon-canjeado': 'Ten kupon został już zrealizowany na tym koncie.',
   'cuenta.err.cupon-invalido': 'Ten kupon nie istnieje lub nie jest już dostępny.',
   'cuenta.err.generico': 'Nie udało się wykonać operacji. Spróbuj ponownie.',
+  'mi.estado.gratis': 'Twój dom jest odblokowany, a dane są na twoim urządzeniu. AI, synchronizacja i chmura są w subskrypcji.',
+  'mi.estado.sinCasa': 'Możesz budować dom w aplikacji, ale nie zapisze się, dopóki go nie odblokujesz: jednorazowa płatność z tygodniem AI. Subskrypcja też go odblokowuje.',
+  'casa.titulo': 'Twój dom myśli',
+  'casa.pagoUnico': 'płatność jednorazowa',
+  'casa.b1': 'Twój dom i wszystko, co w nim robisz, zapisane na zawsze',
+  'casa.b2': 'Tydzień AI w cenie',
+  'casa.b3': 'Odwiedziny, gry i wiadomości ze znajomymi',
+  'casa.cta': 'Odblokuj mój dom',
 }

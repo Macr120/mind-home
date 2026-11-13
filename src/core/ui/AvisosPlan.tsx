@@ -194,12 +194,12 @@ function AvisoSesion() {
   return (
     <Marco>
       <h2 className="text-sm font-bold text-white/90">
-        {t('probar.aviso.titulo', 'Inicia sesión para que se guarden tus cambios')}
+        {t('probar.aviso.titulo', 'Desbloquea tu casa para que se guarden tus cambios')}
       </h2>
       <p className="text-xs leading-snug text-white/60">
         {t(
           'probar.aviso.cuerpo',
-          'Estás probando la app sin cuenta: puedes editarlo todo, pero nada cuenta como guardado. Con tu cuenta, tus cambios se guardan y podrás usar la IA y la sincronización — lo que hiciste en la prueba se recupera.',
+          'Estás en modo prueba: puedes construir y editarlo todo, pero nada se guarda. Con tu cuenta y el pago único de tu casa, tus cambios se guardan, juegas con tus amigos y tienes una semana de IA. Lo que hiciste en la prueba se recupera.',
         )}
       </p>
       <div className="space-y-1.5 pt-1">
@@ -208,7 +208,7 @@ function AvisoSesion() {
           onClick={() => salirProbar()}
           className="ui-accent-bg block w-full rounded-md px-2 py-1.5 text-center text-xs font-bold"
         >
-          {t('probar.aviso.crear', 'Crear mi cuenta o iniciar sesión')}
+          {t('probar.aviso.crear', 'Guardar mi casa')}
         </button>
         <button
           type="button"
@@ -258,7 +258,7 @@ function CuotaAgotada() {
   const renueva = new Date(Date.UTC(ahora.getUTCFullYear(), ahora.getUTCMonth() + 1, 1))
 
   // Sin cuenta (modo probar, o una sesión que se cerró): lo que falta primero
-  // es registrarse, que es gratis. El formulario va aquí mismo — mandar al
+  // es registrarse. El formulario va aquí mismo — mandar al
   // usuario a buscarlo por los menús es perder la única vez que le importa.
   // `haySesionProbable()` evita acusar de «no tienes cuenta» a quien la tiene y
   // aún está hidratando.
@@ -266,12 +266,12 @@ function CuotaAgotada() {
     return (
       <Marco>
         <h2 className="text-sm font-bold text-white/90">
-          {t('plan.suscribete.tituloSinCuenta', 'Crea tu cuenta gratis')}
+          {t('plan.suscribete.tituloSinCuenta', 'Crea tu cuenta')}
         </h2>
         <p className="text-xs leading-snug text-white/60">
           {t(
             'plan.suscribete.sinCuenta',
-            'Tu casa es gratis con una cuenta. La IA, la sincronización y la nube vienen con la suscripción, y se abonan a tu cuenta.',
+            'Con tu cuenta y el pago único de tu casa, tus cambios se guardan. La IA, la sincronización y la nube vienen con la suscripción, y se abonan a tu cuenta.',
           )}
         </p>
         {/* En el modo probar no se inicia sesión DENTRO (quedaría sesión viva
@@ -282,7 +282,7 @@ function CuotaAgotada() {
             onClick={() => salirProbar()}
             className="ui-accent-bg block w-full rounded-md px-2 py-1.5 text-center text-xs font-bold"
           >
-            {t('probar.aviso.crear', 'Crear mi cuenta o iniciar sesión')}
+            {t('probar.aviso.crear', 'Guardar mi casa')}
           </button>
         ) : (
           <FormularioAcceso inicial="registrar" />
@@ -356,7 +356,7 @@ function CuotaAgotada() {
         )
       : t(
           'plan.suscribete.cuerpo',
-          'Tu casa es gratis. La IA, la sincronización y la nube vienen con la suscripción: elige un nivel.',
+          'La IA, la sincronización y la nube vienen con la suscripción: elige un nivel.',
         )
 
   // La tabla de lo que cuesta cada cosa vive en Configuraciones › «IA: activar

@@ -4,6 +4,7 @@ import { intencionApp, tabInicial } from '../../core/state/intencionApp'
 import { usePelicula } from '../../core/state/peliculaStore'
 import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { PestanasCarpeta, type ItemPestana } from '../_shared/PestanasCarpeta'
+import { ClipearMomentos } from './ClipearMomentos'
 import { COLOR } from './constantes'
 import { Editor } from './Editor'
 import { ejemploAnimacion3d } from './ejemplos'
@@ -43,8 +44,35 @@ export function VideoApp() {
     void sembrarPromo()
   }, [idioma])
 
+  // «Clipear momentos importantes» (desde la lista o desde el editor): cada clip es un proyecto nuevo.
+  const [clipear, setClipear] = useState<{ medioId?: number } | null>(null)
+  /** El proyecto abierto viene de «Clipear → Editar con IA»: el editor abre esa IA al cargar. */
+  const [iaAlAbrir, setIaAlAbrir] = useState(false)
+  const modalClipear = clipear && (
+    <ClipearMomentos
+      medioInicial={clipear.medioId}
+      onCerrar={() => setClipear(null)}
+      onAbrir={(id, conIA) => {
+        setClipear(null)
+        setIaAlAbrir(conIA)
+        setAbierto(id)
+      }}
+    />
+  )
+
   if (abierto != null) {
-    return <Editor id={abierto} alCerrar={() => setAbierto(null)} />
+    return (
+      <>
+        <Editor
+          key={abierto}
+          id={abierto}
+          alCerrar={() => setAbierto(null)}
+          onClipear={(medioId) => setClipear({ medioId })}
+          editarIAAlAbrir={iaAlAbrir}
+        />
+        {modalClipear}
+      </>
+    )
   }
 
   return (
@@ -54,7 +82,15 @@ export function VideoApp() {
       </div>
       {tab === 'videos' ? (
         <>
-          <ProyectosTab escenario="video" onAbrir={setAbierto} />
+          <ProyectosTab
+            escenario="video"
+            onAbrir={(id) => {
+              setIaAlAbrir(false)
+              setAbierto(id)
+            }}
+            onClipear={() => setClipear({})}
+          />
+          {modalClipear}
           {/* Al pie de la lista. Aquí y no en ProyectosTab: esa la carga también el Modo película. */}
           <div className="mx-auto w-full max-w-2xl shrink-0 empty:hidden">
             <BarraEjemplo paquete={ejemploVideo} />

@@ -40,6 +40,7 @@
 import { preflight, json, corsDe } from '../_shared/cors.ts'
 import { clienteUsuario, clienteAdmin, usuarioDe } from '../_shared/auth.ts'
 import { dentroDeLimite } from '../_shared/limite.ts'
+import { cubiertaPorPase } from '../_shared/pase.ts'
 import { costoTokensUsd } from '../_shared/costoUsd.ts'
 
 /**
@@ -301,6 +302,8 @@ interface BodyIn {
   rapidas?: boolean
   /** La petición es igual para cualquiera (efemérides, ficha de una obra): ver `ia_respuestas`. */
   compartible?: boolean
+  /** Pase de un paquete del Studio de video (ver `_shared/pase.ts`): la llamada ya está pagada. */
+  pase?: string
   /**
    * Juegos de la sala (Pregúntale a 100 personas, Dilemas morales): preguntas
    * sí/no directas a Jev, sin modelo de texto ni crédito. Va sin `mensajes`.
@@ -950,10 +953,14 @@ Deno.serve(async (req) => {
     }
   }
 
-  const { data: cuota, error: errCuota } = await admin.rpc('consumir_cuota_ia', {
-    p_uid: usuario.id,
-    p_tipo: op,
-  })
+  // Dentro de un paquete del Studio (ia-paquete) la llamada ya está pagada: no se cobra otra vez.
+  const cubierta = await cubiertaPorPase(admin, usuario.id, body.pase, op)
+  const { data: cuota, error: errCuota } = cubierta
+    ? { data: { permitido: true, reserva: null, usadas: null, limite: null, extra: null, costo: 0 }, error: null }
+    : await admin.rpc('consumir_cuota_ia', {
+        p_uid: usuario.id,
+        p_tipo: op,
+      })
   if (errCuota) {
     return json({ error: 'proveedor', mensaje: 'No se pudo verificar la cuota.' }, 502, cors)
   }
@@ -1016,7 +1023,7 @@ Deno.serve(async (req) => {
 
   if (!salida) {
     // La reserva emitida al cobrar es lo que autoriza la devolución (un solo uso).
-    await admin.rpc('devolver_cuota_ia', { p_uid: usuario.id, p_tipo: op, p_reserva: cuota.reserva })
+    if (cuota.reserva) await admin.rpc('devolver_cuota_ia', { p_uid: usuario.id, p_tipo: op, p_reserva: cuota.reserva })
     console.error(`ia-chat: cadena agotada — ${fallos.join(' | ')}`)
     if (fallos.at(-1) === 'anthropic: rechazo') {
       return json({ error: 'rechazo', mensaje: 'La IA no quiso responder a esta petición.' }, 422, cors)
@@ -1128,14 +1135,17 @@ Deno.serve(async (req) => {
       llamadas: salida.llamadas,
       proveedor,
       ms,
-      uso: {
-        entrada: salida.entrada,
-        salida: salida.salida,
-        usadas: cuota.usadas,
-        limite: cuota.limite,
-        extra: cuota.extra ?? 0,
-        costo: cuota.costo ?? 1,
-      },
+      // Con pase no hay cobro nuevo: el medidor no cambia.
+      uso: cubierta
+        ? null
+        : {
+            entrada: salida.entrada,
+            salida: salida.salida,
+            usadas: cuota.usadas,
+            limite: cuota.limite,
+            extra: cuota.extra ?? 0,
+            costo: cuota.costo ?? 1,
+          },
     },
     200,
     cors,

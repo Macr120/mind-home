@@ -1,6 +1,6 @@
 import { conversarIA, extraerJSON } from '../../core/chat/ia'
 import type { InstrumentoAudio, NotaAudio } from '../../core/data/db'
-import { MAX_COMPASES_IA, MAX_NOTAS_IA, PASOS_POR_COMPAS, TONOS_BATERIA, esInstrumentoBateria } from './constantes'
+import { MAX_COMPASES_IA, MAX_NOTAS_IA, TONOS_BATERIA, esInstrumentoBateria, pasosCompas } from './constantes'
 
 /**
  * Composición con IA del Studio de audio. Lanza con el motivo real (la UI lo
@@ -8,8 +8,9 @@ import { MAX_COMPASES_IA, MAX_NOTAS_IA, PASOS_POR_COMPAS, TONOS_BATERIA, esInstr
  * `rooms/ideas/ia.ts`. Los topes se aplican EN CÓDIGO, no solo en el prompt.
  */
 
-function system(instrumento: InstrumentoAudio, bpm: number, compases: number): string {
-  const total = compases * PASOS_POR_COMPAS
+function system(instrumento: InstrumentoAudio, bpm: number, compases: number, compas = '4/4'): string {
+  const pc = pasosCompas({ compas })
+  const total = compases * pc
   const rango =
     esInstrumentoBateria(instrumento)
       ? 'tono SOLO uno de: 36 (bombo), 38 (caja), 42 (hi-hat cerrado), 46 (hi-hat abierto), 39 (palmada), 41 (tom grave), 48 (tom agudo), 49 (platillo); duracion siempre 1'
@@ -17,8 +18,8 @@ function system(instrumento: InstrumentoAudio, bpm: number, compases: number): s
         ? 'tono: entero MIDI 28..55; duracion: entero 1..16'
         : 'tono: entero MIDI 48..84; duracion: entero 1..16'
   return [
-    `Eres un compositor MIDI. Compón para el instrumento «${instrumento}» a ${bpm} BPM, compás 4/4, ${compases} ${compases === 1 ? 'compás' : 'compases'}.`,
-    `La rejilla es la semicorchea: ${PASOS_POR_COMPAS} pasos por compás (${total} en total).`,
+    `Eres un compositor MIDI. Compón para el instrumento «${instrumento}» a ${bpm} BPM, compás ${compas}, ${compases} ${compases === 1 ? 'compás' : 'compases'}.`,
+    `La rejilla es la semicorchea: ${pc} pasos por compás (${total} en total); acentúa los tiempos fuertes de ese compás.`,
     'Responde ÚNICAMENTE con un objeto JSON, sin texto ni markdown alrededor, con esta forma:',
     '{"notas":[[inicio,duracion,tono,velocidad],...]}',
     `inicio: entero 0..${total - 1}; ${rango}; velocidad: entero 40..127.`,
@@ -76,13 +77,15 @@ export async function generarNotas(opts: {
   instrumento: InstrumentoAudio
   bpm: number
   compases: number
+  /** Compás del proyecto ('4/4' si falta). */
+  compas?: string
 }): Promise<NotaAudio[]> {
   const compases = Math.max(1, Math.min(MAX_COMPASES_IA, opts.compases))
   return pedir(
-    system(opts.instrumento, opts.bpm, compases),
+    system(opts.instrumento, opts.bpm, compases, opts.compas),
     opts.descripcion,
     opts.instrumento,
-    compases * PASOS_POR_COMPAS,
+    compases * pasosCompas(opts),
   )
 }
 
@@ -93,15 +96,16 @@ export async function continuarNotas(opts: {
   bpm: number
   desde: number
   compases: number
+  compas?: string
 }): Promise<NotaAudio[]> {
   const compases = Math.max(1, Math.min(MAX_COMPASES_IA, opts.compases))
-  const totalPasos = opts.desde + compases * PASOS_POR_COMPAS
+  const totalPasos = opts.desde + compases * pasosCompas(opts)
   const contexto = opts.notas
     .slice(-48)
     .map((n) => `[${n[0]},${n[1]},${n[2]},${n[3]}]`)
     .join(',')
   const texto = `Estas son las últimas notas ya escritas (mismo formato): [${contexto}]. Continúa la música desde el paso ${opts.desde} (inicio >= ${opts.desde}), siguiendo su estilo.`
-  const sys = system(opts.instrumento, opts.bpm, Math.ceil(totalPasos / PASOS_POR_COMPAS)).replace(
+  const sys = system(opts.instrumento, opts.bpm, Math.ceil(totalPasos / pasosCompas(opts)), opts.compas).replace(
     `inicio: entero 0..`,
     `inicio: entero ${opts.desde}..`,
   )

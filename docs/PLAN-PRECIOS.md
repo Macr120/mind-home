@@ -1,4 +1,29 @@
-# Tres niveles y la casa gratis — 5-oct-2026 (VIGENTE)
+# La casa de pago único y la IA por suscripción — 11-nov-2026 (VIGENTE)
+
+Decisión de Marco tras analizar Muse (Meta): MindHaOS se posiciona como una
+plantilla/juego de productividad («casa mental»), no como un agente de IA.
+
+- **Gratis**: construir la casa en el modo probar (sin cuenta, BD paralela), pero
+  **no se guarda**.
+- **Desbloqueo** (pago único): **5 USD en todos los mercados**. Guarda la casa
+  para siempre, abre lo social (buzón, partidas, espacios, con los topes diarios) e
+  incluye **una semana de IA**: plan `trial` de 7 días con **175 créditos**.
+  Producto: `unlock_casa_v7` en la web (`_v6` a 5.99 se creó y no se usa) (RC Billing, precio inmutable) y
+  `unlock_casa_v4` con precio nuevo en Play y Apple; paquete `unlock`.
+- **Suscripción**: los mismos tres niveles (7/14/20 USD) para la IA, el sync y la
+  nube. Suscribirse también desbloquea la casa (`aplicarSuscripcion` pone `unlock`).
+- **Regalo**: toda cuenta que existía el 11-nov-2026 queda con `unlock = true`.
+- Servidor: migración `20261111000001_casa_de_pago.sql` (`pago()` vuelve a exigir
+  unlock o plan; trial = 175 créditos) y `TRIAL_DIAS = 7` en `_shared/compras.ts`.
+- Cliente: `PuertaCuenta` = cuenta → desbloqueo (`PantallaTienda`, rescatada de
+  `PuertaUnlock`); «Seguir construyendo sin guardar» vuelve a la prueba sin
+  borrarla (`continuarProbar`) y al pagar `RecuperarPrueba` la pasa a la casa.
+- **Orden de despliegue**: primero la migración y las funciones (si no, el cliente
+  nuevo cerraría la puerta a las cuentas de hoy, que aún no tienen `unlock`).
+
+---
+
+# (Histórico) Tres niveles y la casa gratis — 5-oct-2026
 
 Decisión de Marco: simplificar a **solo 3 productos** y subir el margen (+1 USD
 al Nivel 1, +2 a los otros). Fuera el pago único de la casa, el anual y la

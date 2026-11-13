@@ -40,7 +40,47 @@ export type ProyectoAbierto = ProyectoVideo & { clips: ClipVideo[] }
 export type DuracionMedio = (medioId: number) => number | undefined
 
 export const fin = (c: ClipVideo) => c.inicio + c.duracion
+
+/** Velocidad de un clip (solo los de la principal la tienen; el resto, 1). */
+export const velocidadDe = (c: ClipVideo): number => (c.pista === 'video' ? Math.max(0.25, Math.min(4, c.velocidad ?? 1)) : 1)
+/** Segundo DEL MEDIO que suena `tRel` segundos después del inicio del clip (con su velocidad). */
+export const tiempoMedio = (c: ClipVideo, tRel: number): number => (c.desde ?? 0) + tRel * velocidadDe(c)
 export const redondear = (s: number) => Math.round(s * 100) / 100
+
+/** A cuánto baja la música con `agachar` mientras alguien habla, y cuánto tarda en bajar y en volver. */
+const NIVEL_AGACHADO = 0.3
+const ATAQUE_S = 0.25
+const SUELTA_S = 0.6
+
+/**
+ * Factor (0–1) del volumen de una música con `agachar` en el segundo `t`: baja
+ * bajo cualquier voz (narraciones, avatares con audio y los tramos con voz del
+ * video principal, que viven en segundos del medio y sobreviven a cortar y
+ * mover) y entra/sale con fundido. Función pura del tiempo: preview y export
+ * suenan igual. Sin `agachar`, 1.
+ */
+export function factorMusica(clips: ClipVideo[], m: ClipMusica, t: number): number {
+  if (!m.agachar) return 1
+  const fundido = Math.max(0, Math.min(1, (t - m.inicio) / 1, (fin(m) - t) / 2))
+  const cerca = (a: number, b: number) => (t >= a && t <= b ? 1 : t < a ? Math.max(0, 1 - (a - t) / ATAQUE_S) : Math.max(0, 1 - (t - b) / SUELTA_S))
+  let voz = 0
+  for (const c of clips) {
+    if (voz >= 1) break
+    if (t < c.inicio - ATAQUE_S || t > fin(c) + SUELTA_S) continue
+    if (c.pista === 'voz' || c.pista === 'avatar') {
+      if (c.medioId != null || (c.pista === 'voz' && c.texto?.trim())) voz = Math.max(voz, cerca(c.inicio, fin(c)))
+    } else if (c.pista === 'video' && c.voz?.length && c.volumen > 0.05) {
+      const vel = velocidadDe(c)
+      const d = c.desde ?? 0
+      for (const [a, b] of c.voz) {
+        const x = Math.max(c.inicio, c.inicio + (a - d) / vel)
+        const y = Math.min(fin(c), c.inicio + (b - d) / vel)
+        if (y > x) voz = Math.max(voz, cerca(x, y))
+      }
+    }
+  }
+  return fundido * (1 - (1 - NIVEL_AGACHADO) * voz)
+}
 
 export function clipsDe<P extends PistaId>(clips: ClipVideo[], pista: P): ClipDe<P>[] {
   return (clips.filter((c) => c.pista === pista) as ClipDe<P>[]).sort((a, b) => a.inicio - b.inicio)
@@ -336,7 +376,8 @@ export function dividirClip(clips: ClipVideo[], id: string, t: number): ClipVide
     id: nuevoClipId(),
     inicio: redondear(c.inicio + corte),
     duracion: redondear(c.duracion - corte),
-    desde: tieneMedioTemporal(c) ? redondear((c.desde ?? 0) + corte) : c.desde,
+    // Con velocidad, `corte` segundos de línea son `corte × velocidad` del medio.
+    desde: tieneMedioTemporal(c) ? redondear(tiempoMedio(c, corte)) : c.desde,
   }
   if (b.pista === 'video') delete b.transicion // la entrada de B es corte
   const i = clips.indexOf(c)
@@ -372,22 +413,23 @@ export function recortarClip(
   if (!c) return clips
   const temporal = tieneMedioTemporal(c)
   const desde = c.desde ?? 0
+  const vel = velocidadDe(c)
   const bucle = c.pista === 'musica' && c.bucle
   const hueco = huecoDe(clips, c)
   let nuevo: ClipVideo
   if (lado === 'ini') {
-    const minDelta = Math.max(hueco.min - c.inicio, temporal && !bucle ? -desde : -Infinity, -c.inicio)
+    const minDelta = Math.max(hueco.min - c.inicio, temporal && !bucle ? -desde / vel : -Infinity, -c.inicio)
     const delta = Math.max(minDelta, Math.min(c.duracion - MIN_CLIP, borde - c.inicio))
     nuevo = {
       ...c,
       inicio: redondear(c.inicio + delta),
       duracion: redondear(c.duracion - delta),
-      desde: temporal ? redondear(Math.max(0, desde + delta)) : c.desde,
+      desde: temporal ? redondear(Math.max(0, desde + delta * vel)) : c.desde,
     }
   } else {
     const tope = Math.min(
       hueco.max - c.inicio,
-      temporal && durMedio && !bucle ? durMedio - desde : Infinity,
+      temporal && durMedio && !bucle ? (durMedio - desde) / vel : Infinity,
       c.pista === 'video' ? MAX_ESCENA : Infinity,
     )
     nuevo = { ...c, duracion: redondear(Math.max(MIN_CLIP, Math.min(tope, borde - c.inicio))) }

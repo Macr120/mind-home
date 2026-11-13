@@ -1,7 +1,7 @@
 import { contextoAudio, desbloquearAudio } from '../../core/audio/motor'
 import type { EfectosPista, InstrumentoAudio, NotaAudio, ProyectoAudio, SintePista } from '../../core/data/db'
 import { leerTomaDeClip } from '../../core/data/repository'
-import { FX_DEFAULT, MAESTRO_DEFAULT, MAX_NOTAS_POR_PASO, MAX_VOCES_VIVAS, PASOS_POR_COMPAS, segPorPaso } from './constantes'
+import { FX_DEFAULT, MAESTRO_DEFAULT, MAX_NOTAS_POR_PASO, MAX_VOCES_VIVAS, pasosCompas, pasosPulso, segPorPaso } from './constantes'
 import { crearBusMaestro, crearCadenaPista, crearRetornos, type BusMaestro, type CadenaPista, type Retornos } from './efectos'
 import { iniciarVoz, tocarNota, type VozViva } from './instrumentos'
 
@@ -322,7 +322,8 @@ function tick() {
     anclaPaso = paso
     anclaT = proximaT
   }
-  const totalPasos = proyecto.compases * PASOS_POR_COMPAS
+  const pc = pasosCompas(proyecto)
+  const totalPasos = proyecto.compases * pc
   while (proximaT < ctx.currentTime + LOOKAHEAD_S) {
     if (paso >= 0 && estadoActual === 'cuenta') setEstado('grabando')
     if (loopActivo && paso >= loopActivo.fin) {
@@ -347,9 +348,9 @@ function tick() {
       }
       return
     }
-    const cadaPasos = Math.max(1, Math.round(PASOS_POR_COMPAS / (proyecto.pulsos ?? 4)))
+    const cadaPasos = pasosPulso(proyecto)
     if (conMetronomo && ((paso % cadaPasos) + cadaPasos) % cadaPasos === 0) {
-      click(ctx, proximaT, ((paso % PASOS_POR_COMPAS) + PASOS_POR_COMPAS) % PASOS_POR_COMPAS === 0)
+      click(ctx, proximaT, ((paso % pc) + pc) % pc === 0)
     }
     if (paso >= 0) {
       for (const pista of proyecto.pistas) {
@@ -400,10 +401,11 @@ function tickPrevia() {
   const ctx = contextoAudio()
   if (!ctx || !proyecto) return
   const spb = segPorPaso(proyecto.bpm)
-  const cadaPasos = Math.max(1, Math.round(PASOS_POR_COMPAS / (proyecto.pulsos ?? 4)))
+  const cadaPasos = pasosPulso(proyecto)
+  const pc = pasosCompas(proyecto)
   if (previaProximaT < ctx.currentTime - 0.5) previaProximaT = ctx.currentTime + 0.05
   while (previaProximaT < ctx.currentTime + LOOKAHEAD_S) {
-    if (previaPaso % cadaPasos === 0) click(ctx, previaProximaT, previaPaso % PASOS_POR_COMPAS === 0)
+    if (previaPaso % cadaPasos === 0) click(ctx, previaProximaT, previaPaso % pc === 0)
     previaProximaT += spb
     previaPaso++
   }
@@ -438,7 +440,7 @@ export function reproducir(opts: OpcionesPlay = {}): void {
   ultimoTonoRoll.clear()
   loopActivo = opts.loop ?? null
   conMetronomo = !!opts.metronomo || !!opts.grabar
-  paso = opts.grabar ? -PASOS_POR_COMPAS : Math.max(0, Math.floor(opts.desde ?? 0))
+  paso = opts.grabar ? -pasosCompas(proyecto) : Math.max(0, Math.floor(opts.desde ?? 0))
   proximaT = ctx.currentTime + 0.08
   anclaPaso = paso
   anclaT = proximaT

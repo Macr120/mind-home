@@ -1,3 +1,4 @@
+import { MOVIMIENTOS, SeccionImagen } from './SeccionImagen'
 import { useState, type ReactNode } from 'react'
 import type { ClipAvatar, ClipVideo, ClipVoz, EsquinaAvatar, MedioVideo } from '../../core/data/db'
 import { muestraRostro } from '../../core/house/apariencia'
@@ -39,6 +40,10 @@ export interface AccionesPanel {
   onDuplicar: () => void
   onDividir: () => void
   onBorrar: () => void
+  /** Velocidad del clip principal (reajusta su duración para conservar el tramo del medio). */
+  onVelocidad: (v: number) => void
+  /** Reencuadre siguiendo la cara: lo activa (busca la cara) o lo quita. */
+  onSeguirCara: () => Promise<void>
 }
 
 /**
@@ -173,8 +178,19 @@ export function PanelClip({
             </Campo>
             <RejillaTransiciones valor={clip.transicion} esPrimero={esPrimero} onCambiar={(transicion) => acciones.onCambiar({ transicion })} />
             <SeccionFiltro filtro={clip.filtro} onCambiar={(filtro) => acciones.onCambiar({ filtro })} />
+            <SeccionImagen
+              clip={clip}
+              onCambiar={(patch) => acciones.onCambiar(patch)}
+              onVelocidad={acciones.onVelocidad}
+              onSeguirCara={acciones.onSeguirCara}
+            />
             {clip.fuente.tipo === 'video' && (
-              <Deslizador etiqueta={t('video.escena.volumen', 'Volumen del clip')} valor={clip.volumen} onCambiar={(volumen) => acciones.onCambiar({ volumen })} />
+              <div className="flex flex-wrap items-end gap-3">
+                <Deslizador etiqueta={t('video.escena.volumen', 'Volumen del clip')} valor={clip.volumen} onCambiar={(volumen) => acciones.onCambiar({ volumen })} />
+                <Chip activo={!!clip.limpiarVoz} onClick={() => acciones.onCambiar({ limpiarVoz: clip.limpiarVoz ? undefined : true })}>
+                  {t('video.editarIA.op.limpiarVoz', 'Limpiar la voz')}
+                </Chip>
+              </div>
             )}
           </>
         )
@@ -220,6 +236,30 @@ export function PanelClip({
                 </BotonSecundario>
               </div>
             </Campo>
+            <Chip
+              activo={!!clip.cubrir}
+              onClick={() =>
+                acciones.onCambiar(
+                  clip.cubrir
+                    ? { cubrir: undefined, movimiento: undefined, encuadre: encuadrePorEsquina('infDer', 'M', medio, lienzo) }
+                    : { cubrir: true, movimiento: 'zoomIn', encuadre: { x: 0, y: 0, ancho: 1, alto: 1 } },
+                )
+              }
+            >
+              {t('video.imagen.completa', 'Pantalla completa (imagen de apoyo)')}
+            </Chip>
+            {clip.cubrir ? (
+              <Campo etiqueta={t('video.movimiento.titulo', 'Movimiento')}>
+                <div className="flex flex-wrap gap-1.5">
+                  {MOVIMIENTOS.map((m) => (
+                    <Chip key={m.clave} activo={(clip.movimiento ?? null) === m.id} onClick={() => acciones.onCambiar({ movimiento: m.id ?? undefined })}>
+                      {t(m.clave, m.es)}
+                    </Chip>
+                  ))}
+                </div>
+              </Campo>
+            ) : (
+              <>
             <Campo etiqueta={t('video.avatar.esquina', 'Esquina')}>
               <div className="flex flex-wrap gap-1.5">
                 {ESQUINAS.map((e) => (
@@ -238,6 +278,8 @@ export function PanelClip({
                 ))}
               </div>
             </Campo>
+              </>
+            )}
             <Deslizador etiqueta={t('video.panel.opacidad', 'Opacidad')} valor={clip.opacidad} onCambiar={(opacidad) => acciones.onCambiar({ opacidad })} />
           </>
         )
@@ -385,6 +427,9 @@ export function PanelClip({
               <Deslizador etiqueta={t('video.musica.volumen', 'Volumen')} valor={clip.volumen} onCambiar={(volumen) => acciones.onCambiar({ volumen })} />
               <Chip activo={clip.bucle} onClick={() => acciones.onCambiar({ bucle: !clip.bucle })}>
                 {t('video.panel.bucle', 'Repetir en bucle')}
+              </Chip>
+              <Chip activo={!!clip.agachar} onClick={() => acciones.onCambiar({ agachar: clip.agachar ? undefined : true })}>
+                {t('video.musica.agachar', 'Bajar cuando alguien habla')}
               </Chip>
             </div>
           </>

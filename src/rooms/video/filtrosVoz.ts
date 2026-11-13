@@ -1,8 +1,8 @@
 import type { FiltroVoz } from '../../core/data/db'
 
 /**
- * Filtros de voz de la narración y de las tomas de micrófono: seis efectos
- * populares como cadenas de nodos ESTÁNDAR de Web Audio (sin worklets), así la
+ * Filtros de voz de la narración y de las tomas de micrófono: siete efectos
+ * (la limpieza y seis populares) como cadenas de nodos ESTÁNDAR de Web Audio (sin worklets), así la
  * misma topología suena igual en el preview (contexto vivo, `motor.ts`) y en
  * el export (el grafo que alimenta al grabador, `exportar.ts`). Se aplican al
  * audio del clip —grabado, importado o TTS generado—; la lectura en vivo del
@@ -12,6 +12,7 @@ import type { FiltroVoz } from '../../core/data/db'
  */
 
 export const FILTROS_VOZ: readonly { id: FiltroVoz; claveNombre: string; es: string }[] = [
+  { id: 'limpia', claveNombre: 'video.filtroVoz.limpia', es: 'Limpia' },
   { id: 'ardilla', claveNombre: 'video.filtroVoz.ardilla', es: 'Ardilla' },
   { id: 'grave', claveNombre: 'video.filtroVoz.grave', es: 'Grave' },
   { id: 'robot', claveNombre: 'video.filtroVoz.robot', es: 'Robot' },
@@ -29,6 +30,8 @@ export interface CadenaVoz {
 
 export function crearFiltroVoz(ctx: BaseAudioContext, id: FiltroVoz): CadenaVoz {
   switch (id) {
+    case 'limpia':
+      return limpia(ctx)
     case 'ardilla':
       return cambioDeTono(ctx, 1)
     case 'grave':
@@ -186,6 +189,49 @@ function radio(ctx: BaseAudioContext): CadenaVoz {
   pasoBajo.connect(saturacion)
   saturacion.connect(salida)
   return { entrada, salida, desconectar: () => desconectarTodo([entrada, salida, pasoAlto, pasoBajo, saturacion]) }
+}
+
+// ─── Limpia: la voz más clara y pareja ───────────────────────────────────────
+
+/**
+ * Limpieza de voz con nodos estándar (sin IA y sin worklets): fuera el retumbe
+ * y los golpes graves (paso alto 90 Hz), menos «barro» (−3 dB en 250 Hz), más
+ * presencia (+3 dB en 3,5 kHz), menos siseo (paso bajo 11 kHz) y un compresor
+ * que empareja lo que se dice bajo y alto, con ganancia de compensación.
+ */
+function limpia(ctx: BaseAudioContext): CadenaVoz {
+  const { entrada, salida } = puertos(ctx)
+  const pasoAlto = ctx.createBiquadFilter()
+  pasoAlto.type = 'highpass'
+  pasoAlto.frequency.value = 90
+  pasoAlto.Q.value = 0.7
+  const barro = ctx.createBiquadFilter()
+  barro.type = 'peaking'
+  barro.frequency.value = 250
+  barro.Q.value = 1
+  barro.gain.value = -3
+  const presencia = ctx.createBiquadFilter()
+  presencia.type = 'peaking'
+  presencia.frequency.value = 3500
+  presencia.Q.value = 0.9
+  presencia.gain.value = 3
+  const pasoBajo = ctx.createBiquadFilter()
+  pasoBajo.type = 'lowpass'
+  pasoBajo.frequency.value = 11000
+  const compresor = ctx.createDynamicsCompressor()
+  compresor.threshold.value = -26
+  compresor.knee.value = 8
+  compresor.ratio.value = 3.5
+  compresor.attack.value = 0.005
+  compresor.release.value = 0.2
+  salida.gain.value = 1.5
+  entrada.connect(pasoAlto)
+  pasoAlto.connect(barro)
+  barro.connect(presencia)
+  presencia.connect(pasoBajo)
+  pasoBajo.connect(compresor)
+  compresor.connect(salida)
+  return { entrada, salida, desconectar: () => desconectarTodo([entrada, salida, pasoAlto, barro, presencia, pasoBajo, compresor]) }
 }
 
 // ─── Cueva: reverberación por convolución ────────────────────────────────────

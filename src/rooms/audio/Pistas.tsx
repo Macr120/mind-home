@@ -98,7 +98,9 @@ export function Pistas({
                   <Icono nombre="microfono" />
                 </span>
               )}
-              <span className="truncate text-xs font-semibold">{pista.nombre}</span>
+              <span className="truncate text-xs font-semibold" title={pista.nombre}>
+                {pista.nombre}
+              </span>
             </button>
             <button
               type="button"
@@ -132,9 +134,10 @@ export function Pistas({
           <button
             type="button"
             onClick={onAgregar}
-            className="min-w-0 flex-1 px-2 py-1 text-xs text-white/50 transition hover:bg-white/5 hover:text-white/80"
+            // En idiomas largos («Spur hinzufügen») el rótulo parte renglón: icono y texto centrados, sin cortarse.
+            className="flex min-w-0 flex-1 items-center justify-center gap-1 break-words px-2 py-1 text-center text-xs leading-tight text-white/50 transition hover:bg-white/5 hover:text-white/80"
           >
-            <Icono nombre="agregar" /> {t('audio.pistas.agregar', 'Añadir pista')}
+            <Icono nombre="agregar" /> <span className="min-w-0">{t('audio.pistas.agregar', 'Añadir pista')}</span>
           </button>
           <button
             type="button"

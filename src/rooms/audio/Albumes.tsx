@@ -16,6 +16,7 @@ import {
   MAX_COMPASES,
   PALETA_PISTAS,
   PASOS_POR_COMPAS,
+  pasosCompas,
   nuevaPistaId,
   segPorPaso,
 } from './constantes'
@@ -47,8 +48,8 @@ const NUEVO_ALBUM = '__nuevo__'
 /** Canciones de fábrica: viven en sus carpetas fijas, no sueltas en la raíz. */
 const esDeFabrica = (p: ProyectoAudio) => !!p.cancion && (p.cancion.startsWith('sem-') || p.cancion.startsWith('vib-'))
 
-const duracionCorta = (bpm: number, compases: number) => {
-  const s = compases * PASOS_POR_COMPAS * segPorPaso(bpm)
+const duracionCorta = (bpm: number, compases: number, pasosPorCompas = PASOS_POR_COMPAS) => {
+  const s = compases * pasosPorCompas * segPorPaso(bpm)
   return `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`
 }
 
@@ -536,9 +537,9 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
                 <Icono nombre="companeros" />
               </span>
             )}
-            <span className="min-w-0 truncate">{nombre}</span>
+            <span className="line-clamp-2 min-w-0 break-words">{nombre}</span>
           </span>
-          <span className="block truncate text-xs text-white/45">{meta}</span>
+          <span className="block break-words text-xs text-white/45">{meta}</span>
         </button>
         <div className="mt-1.5 flex items-center gap-1.5">
           <button
@@ -610,7 +611,7 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
   }
 
   const metaProyecto = (p: ProyectoAudio) =>
-    `${t('audio.lista.meta', '{bpm} BPM · {pistas} pistas', { bpm: p.bpm, pistas: p.pistas.length })} · ${duracionCorta(p.bpm, p.compases)}`
+    `${t('audio.lista.meta', '{bpm} BPM · {pistas} pistas', { bpm: p.bpm, pistas: p.pistas.length })} · ${duracionCorta(p.bpm, p.compases, pasosCompas(p))}`
 
   /** Tarjeta-carpeta de un álbum: collage con las portadas de sus canciones. */
   const tarjetaAlbum = (nombre: string, canciones: ProyectoAudio[]) =>
@@ -638,9 +639,9 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
           })}
         </div>
         <span className="mt-1.5 flex items-center gap-1 text-sm font-semibold">
-          <Icono nombre="carpeta" /> <span className="min-w-0 truncate">{nombre}</span>
+          <Icono nombre="carpeta" /> <span className="line-clamp-2 min-w-0 break-words">{nombre}</span>
         </span>
-        <span className="block truncate text-xs text-white/45">
+        <span className="block break-words text-xs text-white/45">
           {t('audio.lista.nCanciones', '{n} canciones', { n: total })}
         </span>
       </button>
@@ -726,8 +727,8 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
                 clave,
                 etiquetaVibe(m.id),
                 fila
-                  ? `${t('audio.lista.tuVersion', 'Tu versión')} · ${duracionCorta(p.bpm, p.compases)}`
-                  : `${p.bpm} BPM · ${duracionCorta(p.bpm, p.compases)}`,
+                  ? `${t('audio.lista.tuVersion', 'Tu versión')} · ${duracionCorta(p.bpm, p.compases, pasosCompas(p))}`
+                  : `${p.bpm} BPM · ${duracionCorta(p.bpm, p.compases, pasosCompas(p))}`,
                 p,
                 () => void alternarPlay(clave, p),
                 () => void abrirVibe(m.id),
@@ -892,7 +893,7 @@ export function Albumes({ onAbrir }: { onAbrir: (id: number) => void }) {
  * notas (un color por pista, como los carriles del roll). Sin notas, el piano.
  */
 export function Portada({ proyecto, sonando }: { proyecto: ProyectoAudio; sonando: boolean }) {
-  const totalPasos = Math.max(1, proyecto.compases * PASOS_POR_COMPAS)
+  const totalPasos = Math.max(1, proyecto.compases * pasosCompas(proyecto))
   const carriles = proyecto.pistas
     .map((p, i) => ({ notas: p.notas, color: PALETA_PISTAS[i % PALETA_PISTAS.length] }))
     .filter((c) => c.notas.length > 0)

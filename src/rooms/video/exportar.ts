@@ -158,7 +158,11 @@ export async function exportarVideo(
   for (const c of proyecto.clips) {
     if (c.pista === 'video' && c.fuente.tipo === 'video') {
       const f = pool.de(c.fuente.medioId)
-      if (f?.tipo === 'video') elementos.add(f.el)
+      if (f?.tipo === 'video') {
+        elementos.add(f.el)
+        // Un mismo `<video>` sirve a todos los clips de su medio: con uno que limpie, se limpia entero.
+        if (c.limpiarVoz) filtroDe.set(f.el, 'limpia')
+      }
     } else if (esClipAudio(c)) {
       const el = pool.audioDe(c)
       if (!el) continue

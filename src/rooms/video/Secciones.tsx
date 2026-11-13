@@ -166,7 +166,7 @@ export function SeccionFiltroVoz({ filtro, onCambiar }: { filtro?: FiltroVoz; on
  * lo respeta (OpenAI da 3:2 para 16:9 y algunos modelos devuelven un cuadrado):
  * el fondo se guarda ya con la forma del cuadro. Devuelve el blob y sus medidas.
  */
-async function recortarAAspecto(blob: Blob, aspecto: AspectoVideo): Promise<{ blob: Blob; ancho: number; alto: number }> {
+export async function recortarAAspecto(blob: Blob, aspecto: AspectoVideo): Promise<{ blob: Blob; ancho: number; alto: number }> {
   const bmp = await createImageBitmap(blob)
   const [a, b] = aspecto.split(':').map(Number)
   const objetivo = a / b

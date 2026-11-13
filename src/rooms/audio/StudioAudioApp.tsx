@@ -25,7 +25,7 @@ export function StudioAudioApp() {
   // El editor abierto ocupa el cuarto entero (las pestañas estorbarían al timeline).
   if (abierto != null) {
     return (
-      <div className="h-full">
+      <div className="h-full overflow-y-auto">
         <EditorProyecto id={abierto} alCerrar={() => setAbierto(null)} />
       </div>
     )

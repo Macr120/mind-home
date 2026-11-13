@@ -38,13 +38,16 @@ const PULSO = 4
 
 export type Tramo = { paso: number; figura: Figura }
 
-/** Figuras con las que se escribe una nota; a partir de la segunda van ligadas. */
-export function figurasDe(paso: number, duracion: number): Tramo[] {
+/**
+ * Figuras con las que se escribe una nota; a partir de la segunda van ligadas.
+ * `pasosPorCompas`: dónde caen las barras (la figura no cruza el compás).
+ */
+export function figurasDe(paso: number, duracion: number, pasosPorCompas = PASOS_POR_COMPAS): Tramo[] {
   const tramos: Tramo[] = []
   let p = Math.max(0, paso)
   let resta = Math.max(1, Math.round(duracion))
   while (resta > 0) {
-    let enCompas = Math.min(resta, PASOS_POR_COMPAS - (p % PASOS_POR_COMPAS))
+    let enCompas = Math.min(resta, pasosPorCompas - (p % pasosPorCompas))
     while (enCompas > 0) {
       const figura = FIGURAS.find((f) => f.pasos <= enCompas) ?? FIGURAS[FIGURAS.length - 1]
       tramos.push({ paso: p, figura })
@@ -72,7 +75,7 @@ export type Silencio = { paso: number; pasos: number; glifo: string }
  * hueco de la segunda semicorchea al pulso siguiente es corchea + negra, no
  * una negra a destiempo).
  */
-export function silenciosDe(notas: NotaAudio[], desde: number, hasta: number): Silencio[] {
+export function silenciosDe(notas: NotaAudio[], desde: number, hasta: number, pasosPorCompas = PASOS_POR_COMPAS): Silencio[] {
   const ocupados = notas.map((n) => [n[0], n[0] + n[1]] as const).sort((a, b) => a[0] - b[0])
   const huecos: [number, number][] = []
   let libre = desde
@@ -86,7 +89,7 @@ export function silenciosDe(notas: NotaAudio[], desde: number, hasta: number): S
   for (const [a, b] of huecos) {
     let p = a
     while (p < b) {
-      const finCompas = Math.min(b, (Math.floor(p / PASOS_POR_COMPAS) + 1) * PASOS_POR_COMPAS)
+      const finCompas = Math.min(b, (Math.floor(p / pasosPorCompas) + 1) * pasosPorCompas)
       const [pasos, glifo] = SILENCIOS.find(([v]) => v <= finCompas - p && p % v === 0) ?? SILENCIOS[SILENCIOS.length - 1]
       out.push({ paso: p, pasos, glifo })
       p += pasos

@@ -8,10 +8,13 @@ import {
   duracionTotal,
   esClipAudio,
   esClipNarracion,
+  factorMusica,
   fin,
   medioIdDe,
   principalEn,
   silenciada,
+  tiempoMedio,
+  velocidadDe,
   vozEfectiva,
   type ProyectoAbierto,
 } from './modelo'
@@ -204,7 +207,9 @@ export class MotorVideo {
   }
 
   private volumenEfectivo(c: ClipAudio | { pista: 'video'; volumen: number }): number {
-    return Math.min(1, Math.max(0, c.volumen * (this.proyecto.volumenPistas?.[c.pista] ?? 1) * this.ganancia))
+    // La música con `agachar` baja bajo la voz (y entra/sale con fundido).
+    const agachado = c.pista === 'musica' ? factorMusica(this.proyecto.clips, c, this.tActual) : 1
+    return Math.min(1, Math.max(0, c.volumen * agachado * (this.proyecto.volumenPistas?.[c.pista] ?? 1) * this.ganancia))
   }
 
   private fijarVolumen(el: HTMLMediaElement, v: number) {
@@ -265,9 +270,20 @@ export class MotorVideo {
    * Sin filtro nunca, el elemento sigue plano, como siempre.
    */
   private aplicarFiltroVoz(c: ClipAudio, el: HTMLAudioElement) {
+    this.cadenaEn(c.id, el, c.pista === 'voz' || c.pista === 'avatar' ? c.filtroVoz : undefined)
+  }
+
+  /** Cadena de filtro de un elemento (`clave` = id del clip, o `medio:<id>` para el `<video>` principal). */
+  private cadenaEn(clave: string, el: HTMLMediaElement, deseado: FiltroVoz | undefined) {
     if (!this.filtrosVoz) return
-    const deseado = c.pista === 'voz' || c.pista === 'avatar' ? c.filtroVoz : undefined
-    let entrada = this.filtros.get(c.id)
+    let entrada = this.filtros.get(clave)
+    // El pool pudo rehacer el elemento: la entrada vieja ya no lo representa.
+    if (entrada && entrada.fuente.mediaElement !== el) {
+      entrada.cadena?.desconectar()
+      entrada.fuente.disconnect()
+      this.filtros.delete(clave)
+      entrada = undefined
+    }
     if (!entrada) {
       if (!deseado) return
       const ctx = contextoAudio()
@@ -278,7 +294,7 @@ export class MotorVideo {
       } catch {
         return // el elemento ya estaba atado a otro grafo: sin filtro
       }
-      this.filtros.set(c.id, entrada)
+      this.filtros.set(clave, entrada)
     } else if (entrada.id === deseado) return
     const ctx = entrada.fuente.context
     entrada.cadena?.desconectar()
@@ -331,22 +347,25 @@ export class MotorVideo {
   /** El `<video>` del clip principal (y el del saliente, prolongado y mudo, durante la transición). */
   private sincronizarPrincipal() {
     const pos = principalEn(this.proyecto.clips, this.tActual)
-    const activos = new Map<number, { objetivo: number; volumen: number }>()
+    const activos = new Map<number, { objetivo: number; volumen: number; velocidad: number; limpia?: boolean }>()
     if (pos) {
       const f = pos.clip.fuente
       if (f.tipo === 'video') {
         const volumen = silenciada(this.proyecto, 'video') ? 0 : this.volumenEfectivo(pos.clip)
-        activos.set(f.medioId, { objetivo: (pos.clip.desde ?? 0) + pos.tLocal, volumen })
+        // Con velocidad, el medio avanza `velocidad` segundos por segundo de línea.
+        activos.set(f.medioId, { objetivo: tiempoMedio(pos.clip, pos.tLocal), volumen, velocidad: velocidadDe(pos.clip), limpia: pos.clip.limpiarVoz })
       }
       const s = pos.saliente
       if (s && s.fuente.tipo === 'video' && !activos.has(s.fuente.medioId)) {
-        activos.set(s.fuente.medioId, { objetivo: (s.desde ?? 0) + s.duracion + pos.tLocal, volumen: 0 })
+        activos.set(s.fuente.medioId, { objetivo: tiempoMedio(s, s.duracion + pos.tLocal), volumen: 0, velocidad: velocidadDe(s) })
       }
     }
-    for (const [medioId, { objetivo, volumen }] of activos) {
+    for (const [medioId, { objetivo, volumen, velocidad, limpia }] of activos) {
       const fu = this.pool.de(medioId)
       if (fu?.tipo !== 'video') continue
       const el = fu.el
+      if (volumen > 0) this.cadenaEn(`medio:${medioId}`, el, limpia ? 'limpia' : undefined)
+      if (el.playbackRate !== velocidad) el.playbackRate = velocidad
       if (!this.reproduciendo) {
         if (Math.abs(el.currentTime - objetivo) > 0.05) el.currentTime = objetivo
         if (!el.paused) el.pause()

@@ -71,7 +71,6 @@ export const TEXTOS: Record<string, string> = {
   'mi.gratis': 'Free',
   'mi.pruebaHasta': 'Your trial ends on {f}.',
   'mi.estado.pruebaVencida': 'Your trial is over: your house and your data stay with you. Subscribe to keep AI, sync and the cloud.',
-  'mi.estado.gratis': 'Your house is free and your data lives on your device. AI, sync and the cloud come with the subscription.',
 
   'cupon.titulo': 'I have a coupon',
   'cupon.desc': 'Have a code?',
@@ -100,4 +99,12 @@ export const TEXTOS: Record<string, string> = {
   'cuenta.err.cupon-canjeado': 'This coupon has already been redeemed on this account.',
   'cuenta.err.cupon-invalido': 'That coupon doesn’t exist or is no longer available.',
   'cuenta.err.generico': 'We couldn’t complete that. Try again.',
+  'mi.estado.gratis': 'Your house is unlocked and your data lives on your device. AI, sync and the cloud come with the subscription.',
+  'mi.estado.sinCasa': 'You can build your house in the app, but it isn’t saved until you unlock it: a one-time payment that includes a week of AI. The subscription unlocks it too.',
+  'casa.titulo': 'Your mind house',
+  'casa.pagoUnico': 'one-time payment',
+  'casa.b1': 'Your house and everything you do in it, saved forever',
+  'casa.b2': 'A week of AI included',
+  'casa.b3': 'Visits, games and messages with your friends',
+  'casa.cta': 'Unlock my house',
 }

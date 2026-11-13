@@ -2,6 +2,7 @@ import { abrirAppOPlantilla } from '../../core/abrirApp'
 import type {
   CamaraPelicula,
   ClipAvatar,
+  MovimientoClip,
   ClipFondo,
   ClipImagen,
   ClipMusica,
@@ -244,7 +245,7 @@ const PLANOS: ReadonlySet<string> = new Set(['busto', 'cuerpo'])
 const POSICIONES_TEXTO: ReadonlySet<string> = new Set(['arriba', 'centro', 'abajo'])
 const FUENTES_TEXTO: ReadonlySet<string> = new Set(['sans', 'serif', 'mono', 'display'])
 const ANIMACIONES_TEXTO: ReadonlySet<string> = new Set(['ninguna', 'fundido', 'subir', 'maquina'])
-const FILTROS_VOZ_VALIDOS: ReadonlySet<string> = new Set(['ardilla', 'grave', 'robot', 'eco', 'radio', 'cueva'])
+const FILTROS_VOZ_VALIDOS: ReadonlySet<string> = new Set(['limpia', 'ardilla', 'grave', 'robot', 'eco', 'radio', 'cueva'])
 const VISTAS_CAMARA: ReadonlySet<string> = new Set(['iso', 'tercera', 'primera'])
 const EFECTOS_CAMARA: ReadonlySet<string> = new Set(['fijo', 'zoomIn', 'zoomOut', 'panIzq', 'panDer', 'orbita', 'picado', 'contrapicado', 'seguir'])
 const EMOCIONES: ReadonlySet<string> = new Set(['felicidad', 'enojo', 'sorpresa', 'aprobacion', 'gusto', 'tristeza'])
@@ -320,7 +321,49 @@ function leerEstiloTexto(v: unknown): EstiloTexto {
     ...(fuente ? { fuente } : {}),
     ...(x?.caja === true ? { caja: true } : {}),
     ...(animacion ? { animacion } : {}),
+    ...(typeof x?.resaltado === 'string' ? { resaltado: color(x.resaltado, '#ffd400') } : {}),
   }
+}
+
+const MOVIMIENTOS = new Set<MovimientoClip>(['zoomIn', 'zoomOut', 'punch', 'panIzq', 'panDer'])
+
+/** Movimiento, color, velocidad y reencuadre de un clip principal remoto (todo opcional y acotado). */
+function leerImagenPrincipal(c: Record<string, unknown>): Pick<ClipPrincipal, 'movimiento' | 'color' | 'velocidad' | 'seguir' | 'voz' | 'limpiarVoz'> {
+  const salida: Pick<ClipPrincipal, 'movimiento' | 'color' | 'velocidad' | 'seguir' | 'voz' | 'limpiarVoz'> = {}
+  if (c.limpiarVoz === true) salida.limpiarVoz = true
+  if (Array.isArray(c.voz)) {
+    const voz = c.voz
+      .slice(0, 2000)
+      .filter((x): x is [number, number] => Array.isArray(x) && typeof x[0] === 'number' && typeof x[1] === 'number' && Number.isFinite(x[0]) && x[1] > x[0])
+      .map(([a, b]): [number, number] => [Math.max(0, a), Math.min(1e5, b)])
+    if (voz.length) salida.voz = voz
+  }
+  if (typeof c.movimiento === 'string' && MOVIMIENTOS.has(c.movimiento as MovimientoClip)) salida.movimiento = c.movimiento as MovimientoClip
+  const col = objeto(c.color)
+  if (col) {
+    const brillo = numOpc(col.brillo, -1, 1)
+    const contraste = numOpc(col.contraste, -1, 1)
+    const saturacion = numOpc(col.saturacion, -1, 1)
+    if (brillo != null || contraste != null || saturacion != null) salida.color = { brillo, contraste, saturacion }
+  }
+  const velocidad = numOpc(c.velocidad, 0.25, 4)
+  if (velocidad != null && velocidad !== 1) salida.velocidad = velocidad
+  if (Array.isArray(c.seguir)) {
+    const seguir = c.seguir
+      .slice(0, 2000)
+      .map(objeto)
+      .filter((x): x is Record<string, unknown> => !!x)
+      .map((x) => ({ t: num(x.t, 0, 1e5, 0), x: num(x.x, 0, 1, 0.5), y: num(x.y, 0, 1, 0.5) }))
+    if (seguir.length) salida.seguir = seguir
+  }
+  return salida
+}
+
+/** Lista de números (karaoke: tiempos o índices de palabras), acotada; undefined si no es una lista. */
+function numeros(v: unknown, max: number, tope: number): number[] | undefined {
+  if (!Array.isArray(v)) return undefined
+  const lista = v.slice(0, max).filter((n): n is number => typeof n === 'number' && Number.isFinite(n) && n >= 0 && n <= tope)
+  return lista.length ? lista : undefined
 }
 
 function leerEscenaActor(v: unknown): EscenaActor | undefined {
@@ -373,6 +416,7 @@ function leerClip(bruto: unknown): ClipRemoto | null {
         volumen: num(c.volumen, 0, 1, 1),
         ...(c.ajuste === 'encajar' ? { ajuste: 'encajar' as const } : {}),
         ...(transicion ? { transicion } : {}),
+        ...leerImagenPrincipal(c),
       }
     }
     case 'fondo':
@@ -383,7 +427,15 @@ function leerClip(bruto: unknown): ClipRemoto | null {
         ...(typeof c.filtro === 'string' && FILTROS_VALIDOS.has(c.filtro) ? { filtro: c.filtro as FiltroEscena } : {}),
       }
     case 'imagen':
-      return { ...base, pista, ...(medioRef ? { medioRef } : {}), encuadre: leerEncuadre(c.encuadre), opacidad: num(c.opacidad, 0, 1, 1) }
+      return {
+        ...base,
+        pista,
+        ...(medioRef ? { medioRef } : {}),
+        encuadre: leerEncuadre(c.encuadre),
+        opacidad: num(c.opacidad, 0, 1, 1),
+        ...(c.cubrir === true ? { cubrir: true } : {}),
+        ...(typeof c.movimiento === 'string' && MOVIMIENTOS.has(c.movimiento as MovimientoClip) ? { movimiento: c.movimiento as MovimientoClip } : {}),
+      }
     case 'texto': {
       const deClipId = textoOpc(c.deClipId, 40)
       return {
@@ -392,6 +444,8 @@ function leerClip(bruto: unknown): ClipRemoto | null {
         texto: leerEstiloTexto(c.texto),
         ...(c.origen === 'narracion' ? { origen: 'narracion' as const } : {}),
         ...(deClipId ? { deClipId } : {}),
+        ...(numeros(c.tiempos, 80, 3600) ? { tiempos: numeros(c.tiempos, 80, 3600) } : {}),
+        ...(numeros(c.claves, 80, 200) ? { claves: numeros(c.claves, 80, 200) } : {}),
       }
     }
     case 'voz': {
@@ -411,7 +465,7 @@ function leerClip(bruto: unknown): ClipRemoto | null {
       }
     }
     case 'musica':
-      return { ...base, pista, ...(medioRef ? { medioRef } : {}), volumen: num(c.volumen, 0, 1, 1), bucle: c.bucle === true }
+      return { ...base, pista, ...(medioRef ? { medioRef } : {}), volumen: num(c.volumen, 0, 1, 1), bucle: c.bucle === true, ...(c.agachar === true ? { agachar: true } : {}) }
     case 'sfx': {
       const f = objeto(c.fuente)
       const clave = f && f.tipo === 'fabrica' ? textoOpc(f.clave, 40) : undefined

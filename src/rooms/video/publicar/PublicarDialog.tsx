@@ -3,6 +3,7 @@ import { proyectosVideoRepo } from '../../../core/data/repository'
 import { abrirEnlace } from '../../../core/enlaces'
 import { localeActual, useT } from '../../../core/i18n/useT'
 import { opcionesPublicacion } from '../../../core/redes/api'
+import { idiomaDeCuenta, proximaHoraPico } from '../../../core/redes/idiomaCuenta'
 import { useRedes } from '../../../core/redes/redesStore'
 import { mensajeErrorRedes } from '../../../core/redes/errores'
 import { NOMBRE_RED, type AvisosRedes, type CuentaRed, type MetaPublicacion, type OpcionesTikTok, type Plataforma } from '../../../core/redes/tipos'
@@ -15,6 +16,7 @@ import { duracionTotal, type ProyectoAbierto } from '../modelo'
 import { FormularioFacebook, FormularioInstagram, validarFacebook, validarInstagram } from './FormularioMeta'
 import { FormularioTikTok, validarTikTok } from './FormularioTikTok'
 import { FormularioYouTube, validarYouTube } from './FormularioYouTube'
+import { Interruptor } from './Interruptor'
 import { PasoCuenta } from './PasoCuenta'
 import { ProgresoTrabajo } from './ProgresoTrabajo'
 import { Resultado } from './Resultado'
@@ -103,6 +105,10 @@ export function PublicarDialog({
   const aspecto = proyecto.aspecto
   const duracion = duracionTotal(proyecto.clips)
   const mp4 = soportaMp4()
+  // Con una cuenta por idioma: su país manda la hora pico, los hashtags y el idioma que se declara.
+  const idioma = deRed.length > 1 && cuentaOk ? idiomaDeCuenta(cuentaOk) : null
+  const programable = plataforma === 'youtube' || plataforma === 'facebook'
+  const [programar, setProgramar] = useState(false)
 
   // Un trabajo de ESTE proyecto y red que siga vivo (el usuario cerró y volvió): se retoma donde va.
   const trabajoPropio = trabajo && trabajo.proyectoId === proyecto.id && trabajo.plataforma === plataforma ? trabajo : null
@@ -179,7 +185,12 @@ export function PublicarDialog({
       ranura,
       blob: archivo.blob,
       mime: archivo.mime,
-      meta: construirMeta(form, cuentaOk, aspecto, duracion),
+      meta: {
+        ...construirMeta(form, cuentaOk, aspecto, duracion),
+        ...(idioma ? { idioma: idioma.youtube } : {}),
+        // Se calcula al lanzar, no al abrir: el export puede haber tardado.
+        ...(idioma && programable && programar ? { publicar_en: proximaHoraPico(idioma).toISOString() } : {}),
+      },
       titulo: tituloDe(form),
       destinoNombre: cuentaOk?.nombre,
       textos: {
@@ -238,6 +249,25 @@ export function PublicarDialog({
     lanzar(archivo)
   }
 
+  /** Los hashtags del idioma de la cuenta, al final del texto que esa red muestra. */
+  const anadirHashtags = () => {
+    if (!idioma) return
+    const con = (s: string) => (s.includes(idioma.hashtags) ? s : `${s.trimEnd()}${s.trim() ? '\n\n' : ''}${idioma.hashtags}`)
+    switch (form.plataforma) {
+      case 'youtube':
+        return setForm({ plataforma: 'youtube', meta: { ...form.meta, descripcion: con(form.meta.descripcion) } })
+      case 'facebook':
+        return setForm({ plataforma: 'facebook', meta: { ...form.meta, descripcion: con(form.meta.descripcion) } })
+      case 'instagram':
+        return setForm({ plataforma: 'instagram', meta: { ...form.meta, caption: con(form.meta.caption) } })
+      case 'tiktok':
+        return setForm({ plataforma: 'tiktok', meta: { ...form.meta, titulo: con(form.meta.titulo) } })
+    }
+  }
+  const pico = idioma ? proximaHoraPico(idioma) : null
+  const horaDe = (d: Date, zona?: string) =>
+    d.toLocaleString(localeActual(), { weekday: 'short', hour: '2-digit', minute: '2-digit', ...(zona ? { timeZone: zona } : {}) })
+
   const cancelarSubida = async () => {
     const si = await confirmar({
       titulo: t('video.publicar.trabajo.cancelar', 'Cancelar'),
@@ -275,6 +305,24 @@ export function PublicarDialog({
                 ))}
               </select>
             </Campo>
+          )}
+          {idioma && pico && (
+            <div className="space-y-2 rounded-md border border-white/10 bg-white/5 p-2 text-[11px] leading-snug text-white/65">
+              <p>
+                {t('video.publicar.idioma.pico', 'Hora pico en el país de esta cuenta: {alla} allá ({aqui} en tu hora).', {
+                  alla: horaDe(pico, idioma.zona),
+                  aqui: horaDe(pico),
+                })}
+              </p>
+              <button type="button" onClick={anadirHashtags} className="underline">
+                {t('video.publicar.idioma.hashtags', 'Añadir hashtags en su idioma')}
+              </button>
+              {programable ? (
+                <Interruptor activo={programar} onCambio={setProgramar} etiqueta={t('video.publicar.idioma.programar', 'Programar para esa hora')} />
+              ) : (
+                <p>{t('video.publicar.idioma.sinProgramar', '{red} no deja programar desde aquí: publica cerca de esa hora.', { red })}</p>
+              )}
+            </div>
           )}
           {ultima && (
             <p className="text-[11px] text-white/45">

@@ -12,8 +12,8 @@ export const TEXTOS = {
   'tema.boton': 'Heller oder dunkler Modus',
 
   'meta.titulo': 'MindHaOS — Dein Geist, in einem 3D-Haus',
-  'meta.desc': 'Organisiere Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr in einem isometrischen 3D-Haus, in dem jeder Raum eine App ist. Gratis mit deinem Konto; KI, Sync und Cloud ab 7 USD im Monat.',
-  'og.desc': 'Dein Leben in einem 3D-Haus: Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr. Gratis mit deinem Konto; KI und Sync ab 7 USD im Monat.',
+  'meta.desc': 'Organisiere Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr in einem isometrischen 3D-Haus, in dem jeder Raum eine App ist. Bau es gratis; behalte es mit einer Einmalzahlung und nimm KI dazu, wann du willst.',
+  'og.desc': 'Dein Leben in einem 3D-Haus: Gewohnheiten, Ziele, Finanzen, Mahlzeiten und mehr. Bau es gratis und behalte es mit einer Einmalzahlung.',
 
   'hero.h1': 'Dein Geist,<br />in einem 3D-Haus',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -39,7 +39,7 @@ export const TEXTOS = {
     'zu archivieren, zu planen oder neu zu erschaffen — ganz von Hand oder mit Hilfe der KI. Und alle hängen an einem Kalender, an täglichen Missionen und an deinen persönlichen Zielen, synchron auf Handy und Computer.',
   'hero.cta': 'App herunterladen',
   'hero.probar': 'Bau dein MindHaOS – gratis ausprobieren',
-  'hero.nota': 'Das MindHaOS (Gedankenhaus OS) ist mit deinem Konto gratis und läuft offline. KI, Sync und Cloud kommen mit dem Abo — und wenn du es sein lässt, verlierst du nichts.',
+  'hero.nota': 'Bau dein MindHaOS (Gedankenhaus OS) gratis und ohne Konto. Um es zu behalten, eine Einmalzahlung inklusive einer Woche KI; danach kommen KI, Sync und Cloud mit dem Abo — und wenn du es sein lässt, verlierst du nichts.',
   'hero.video': 'Hier kommt dein Video oder deine Screenshots vom MindHaOS (Gedankenhaus OS) hin',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -67,8 +67,8 @@ export const TEXTOS = {
   'car.todo.t': 'Alles in einem, wirklich',
   'car.todo.p':
     'Eine App statt zwanzig: Essen, Geld, Schlaf, Lernen, Gewohnheiten und Ziele unter einem Dach — und miteinander verbunden, was genau das ist, was keine einzelne App kann.',
-  'car.nocaduca.t': 'Gratis, und es läuft nicht ab',
-  'car.nocaduca.p': 'Dein MindHaOS ist mit deinem Konto gratis, und es gehört dir. Abo-Apps gehen aus, sobald du aufhörst zu zahlen; hier bringt das Abo nur KI, Sync und Cloud: Wenn du es sein lässt, behältst du dein ganzes MindHaOS und alle deine Daten auf deinem Gerät.',
+  'car.nocaduca.t': 'Einmal zahlen, und es läuft nicht ab',
+  'car.nocaduca.p': 'Dein MindHaOS bezahlst du ein einziges Mal, und es gehört dir. Abo-Apps gehen aus, sobald du aufhörst zu zahlen; hier bringt das Abo nur KI, Sync und Cloud: Wenn du es sein lässt, behältst du dein ganzes MindHaOS und alle deine Daten auf deinem Gerät.',
   'car.nuevas.t': 'Neue Updates',
   'car.nuevas.p': 'Das MindHaOS wächst weiter: Räume, Apps und Verbesserungen, die kommen, ohne dass du erneut zahlst.',
   'car.1.t': 'Räume, die Apps sind',
@@ -126,14 +126,15 @@ export const TEXTOS = {
     'Hier baust du neue Fähigkeiten aus, behältst deine Ressourcen im Griff und stellst die Technik auf deine Seite. Gegen den unbewussten Konsum von Kurzformaten. Gegen den kognitiven Verfall, den die Konsumgewohnheiten hinterlassen, die uns die großen Konzerne aufdrängen.',
   'mani.cierre': 'Dasselbe Dopamin. Diesmal für dein echtes Leben.',
 
-  'precio.h2': 'Dein MindHaOS ist gratis; KI, Sync und Cloud gibt es im Abo',
-  'precio.probar.nombre': 'Probier sie aus',
-  'precio.probar.cifra': 'Kostenlos',
-  'precio.probar.1': 'Dein eigenes MindHaOS mit allen Apps, und deine Daten auf deinem Gerät',
-  'precio.probar.2': 'Postfach, Partien und geteilte Räume mit deinen Freunden',
-  'precio.probar.3': 'Probier es ohne Konto aus; leg dein kostenloses Konto an, um es zu behalten',
-  'precio.probar.cta': 'App testen',
-  'precio.probar.pie': 'Ohne Karte und ohne Ablaufdatum.',
+  'precio.h2': 'Gratis bauen, mit einer Einmalzahlung behalten; KI gibt es im Abo',
+  'precio.probar.nombre': 'Dein Haus',
+  'precio.probar.cifra': '5 USD',
+  'precio.probar.pagoUnico': 'Einmalzahlung',
+  'precio.probar.1': 'Bau es gratis und ohne Konto, mit allen Apps',
+  'precio.probar.2': 'Behalte es für immer, mit einer Woche KI inklusive',
+  'precio.probar.3': 'Postfach, Partien und geteilte Räume mit deinen Freunden',
+  'precio.probar.cta': 'Gratis testen',
+  'precio.probar.pie': 'Kein Abo: Du zahlst einmal, hier oder in der App.',
   'precio.app.nombre': 'Abo',
   'precio.app.cifra': 'ab 7 USD',
   'precio.app.pagoUnico': 'im Monat',
@@ -168,7 +169,7 @@ export const TEXTOS = {
   'creditos.cta': 'Stufen ansehen',
 
   'desc.h2': 'App herunterladen',
-  'desc.sub': 'Lade sie gratis herunter und melde dich mit deinem Konto an: Dein MindHaOS erscheint auf jedem Gerät, auch im Browser. Das Abo schließt du in der App oder hier im Web ab.',
+  'desc.sub': 'Lade sie gratis herunter, bau dein Haus und melde dich mit deinem Konto an: Dein MindHaOS erscheint auf jedem Gerät, auch im Browser. Die Einmalzahlung und das Abo schließt du in der App oder hier im Web ab.',
   'desc.pronto': 'Demnächst',
   'desc.android': 'Gratis bei Google Play.',
   'desc.android.cta': 'Für Android herunterladen',
@@ -180,10 +181,15 @@ export const TEXTOS = {
   'desc.web.cta': 'App öffnen',
   'desc.windows': 'Gratis im Microsoft Store.',
   'desc.windows.cta': 'Für Windows herunterladen',
+  // ── Página de las tiendas (web/download.html) ──
+  'bajar.titulo': "MindHaOS herunterladen",
+  'bajar.sub': "Kostenlos auf deinem Handy, Computer oder im Browser. Melde dich an und dein Haus begleitet dich überallhin.",
+  'bajar.abriendo': "Store wird geöffnet…",
+  'bajar.ios.cta': "Für iPhone und Mac herunterladen",
 
   'faq.h2': 'Häufige Fragen',
-  'faq.1.q': 'Ist die App gratis?',
-  'faq.1.a': 'Ja. Du legst dein Konto an, und dein MindHaOS gehört dir, mit allen Apps, ohne etwas zu zahlen. Bezahlt wird nur das Abo, wenn du KI, Sync zwischen Geräten und die Cloud willst; du schließt es hier ab, in <a href="/cuenta">deinem Konto</a>, oder in der App für Android und iPhone, und es gilt auf all deinen Geräten.',
+  'faq.1.q': 'Was kostet es?',
+  'faq.1.a': 'Dein Haus zu bauen ist gratis und geht ohne Konto, aber es wird nicht gespeichert. Um es zu behalten, zahlst du ein einziges Mal (5 USD), inklusive einer Woche KI sowie Besuchen und Spielen mit deinen Freunden. Das Abo ist nur für KI, Sync zwischen Geräten und die Cloud; du schließt es hier ab, in <a href="/cuenta">deinem Konto</a>, oder in der App, und es gilt auf all deinen Geräten.',
   'faq.2.q': 'Was ist im Abo enthalten?',
   'faq.2.a': 'Drei Stufen: Stufe 1 für 7 USD im Monat bringt 700 KI-Credits und 10 GB Cloud; Stufe 2 für 14 USD 1400 Credits und 30 GB; und Stufe 3 für 20 USD 2100 Credits und 100 GB. Alle drei enthalten Sync zwischen all deinen Geräten. Ohne Mindestlaufzeit: hoch- oder herunterstufen oder kündigen, wann du willst.',
   'faq.3.q': 'Was kann ich ohne Abo machen?',
@@ -279,7 +285,7 @@ export const TEXTOS = {
 
   'term.titulo': 'Nutzungsbedingungen',
   'term.servicio.h': 'Der Dienst',
-  'term.servicio.p': 'MindHaOS ist eine App zur persönlichen Organisation. Der Test ohne Konto und die App mit Konto sind kostenlos. Die wiederkehrenden Funktionen (KI-Credits, Sync und Cloud) werden als Abo abgeschlossen, hier im Web oder in der App; alle Versionen sind Clients desselben Kontos.',
+  'term.servicio.p': 'MindHaOS ist eine App zur persönlichen Organisation. Der Test ohne Konto ist kostenlos und speichert keine Änderungen; um das Haus zu behalten, sind ein Konto und eine Einmalzahlung nötig. Die wiederkehrenden Funktionen (KI-Credits, Sync und Cloud) werden als Abo abgeschlossen, hier im Web oder in der App; alle Versionen sind Clients desselben Kontos.',
   'term.local.h': 'Lokaler Modus',
   'term.local.p': 'Mit deinem Konto sind alle Offline-Funktionen der App kostenlos nutzbar. Die Daten werden auf deinem Gerät gespeichert, und ihre Sicherung liegt in deiner Verantwortung (Einstellungen → Datensicherung).',
   'term.precio.h': 'Abo und Preis',

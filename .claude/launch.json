@@ -49,6 +49,12 @@
       "runtimeArgs": ["run", "dev:web"],
       "port": 5174,
       "autoPort": true
+    },
+    {
+      "name": "mind-home-web-dist",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["vite", "preview", "--config", "web/vite.config.ts", "--port", "4174"],
+      "port": 4174
     }
   ]
 }

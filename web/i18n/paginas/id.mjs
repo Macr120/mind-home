@@ -12,8 +12,8 @@ export const TEXTOS = {
   'tema.boton': 'Mode terang atau gelap',
 
   'meta.titulo': 'MindHaOS — Pikiranmu, dalam sebuah rumah 3D',
-  'meta.desc': 'Atur kebiasaan, tujuan, keuangan, makanan, dan lainnya di rumah isometrik 3D yang setiap ruangnya adalah aplikasi. Gratis dengan akunmu; AI, sinkronisasi, dan cloud mulai 7 USD per bulan.',
-  'og.desc': 'Hidupmu, di rumah 3D: kebiasaan, tujuan, keuangan, makanan, dan lainnya. Gratis dengan akunmu; AI dan sinkronisasi mulai 7 USD per bulan.',
+  'meta.desc': 'Atur kebiasaan, tujuan, keuangan, makanan, dan lainnya di rumah isometrik 3D yang setiap ruangnya adalah aplikasi. Bangun gratis; simpan dengan sekali bayar dan tambahkan AI kapan pun kamu mau.',
+  'og.desc': 'Hidupmu, di rumah 3D: kebiasaan, tujuan, keuangan, makanan, dan lainnya. Bangun gratis dan simpan dengan sekali bayar.',
 
   'hero.h1': 'Pikiranmu,<br />dalam sebuah rumah 3D',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -39,7 +39,7 @@ export const TEXTOS = {
     'sepenuhnya manual atau dibantu AI. Dan semuanya terhubung ke satu kalender, satu sistem misi harian, dan target pribadimu — tersinkron di ponsel dan komputermu.',
   'hero.cta': 'Unduh aplikasinya',
   'hero.probar': 'Coba bangun MindHaOS-mu gratis',
-  'hero.nota': 'MindHaOS (Rumah Pikiran OS) gratis dengan akunmu dan berjalan tanpa koneksi. AI, sinkronisasi, dan cloud datang bersama langganan — dan kalau kamu berhenti, kamu tidak kehilangan apa pun.',
+  'hero.nota': 'Bangun MindHaOS-mu (Rumah Pikiran OS) gratis dan tanpa akun. Untuk menyimpannya, sekali bayar yang sudah termasuk seminggu AI; setelah itu, AI, sinkronisasi, dan cloud datang bersama langganan — dan kalau kamu berhenti, kamu tidak kehilangan apa pun.',
   'hero.video': 'Di sini videomu atau tangkapan layar MindHaOS (Rumah Pikiran OS)',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -67,8 +67,8 @@ export const TEXTOS = {
   'car.todo.t': 'Benar-benar semua dalam satu',
   'car.todo.p':
     'Satu aplikasi, bukan dua puluh: makan, uang, tidur, belajar, kebiasaan, dan target di bawah satu atap — dan saling terhubung, hal yang tak bisa dilakukan aplikasi terpisah.',
-  'car.nocaduca.t': 'Gratis, dan tidak kedaluwarsa',
-  'car.nocaduca.p': 'MindHaOS-mu gratis dengan akunmu, dan milikmu. Aplikasi berlangganan mati begitu kamu berhenti membayar; di sini langganan hanya membawa AI, sinkronisasi, dan cloud: kalau kamu berhenti, MindHaOS-mu tetap utuh beserta semua datamu di perangkatmu.',
+  'car.nocaduca.t': 'Bayar sekali, dan tidak kedaluwarsa',
+  'car.nocaduca.p': 'MindHaOS-mu dibayar sekali saja dan jadi milikmu. Aplikasi berlangganan mati begitu kamu berhenti membayar; di sini langganan hanya membawa AI, sinkronisasi, dan cloud: kalau kamu berhenti, MindHaOS-mu tetap utuh beserta semua datamu di perangkatmu.',
   'car.nuevas.t': 'Pembaruan baru',
   'car.nuevas.p': 'MindHaOS terus tumbuh: ruangan, aplikasi, dan perbaikan yang datang tanpa bayar lagi.',
   'car.1.t': 'Ruangan yang berupa aplikasi',
@@ -123,14 +123,15 @@ export const TEXTOS = {
     'Di sini kamu menumbuhkan kemampuan baru, memegang kendali atas sumber dayamu, dan menaruh teknologi di pihakmu. Melawan konsumsi tak sadar format pendek. Melawan kemerosotan kognitif yang ditinggalkan kebiasaan konsumsi yang dipaksakan korporasi besar.',
   'mani.cierre': 'Dopamin yang sama. Kali ini untuk hidupmu yang nyata.',
 
-  'precio.h2': 'MindHaOS-mu gratis; AI, sinkronisasi, dan cloud lewat langganan',
-  'precio.probar.nombre': 'Cobalah',
-  'precio.probar.cifra': 'Gratis',
-  'precio.probar.1': 'MindHaOS-mu sendiri dengan semua aplikasi, dan datamu di perangkatmu',
-  'precio.probar.2': 'Kotak surat, permainan, dan ruang bersama dengan teman-temanmu',
-  'precio.probar.3': 'Coba tanpa akun; buat akun gratis untuk menyimpannya',
-  'precio.probar.cta': 'Coba aplikasinya',
-  'precio.probar.pie': 'Tanpa kartu dan tanpa tanggal kedaluwarsa.',
+  'precio.h2': 'Bangun gratis, simpan dengan sekali bayar; AI lewat langganan',
+  'precio.probar.nombre': 'Rumahmu',
+  'precio.probar.cifra': '5 USD',
+  'precio.probar.pagoUnico': 'sekali bayar',
+  'precio.probar.1': 'Bangun gratis dan tanpa akun, dengan semua aplikasi',
+  'precio.probar.2': 'Simpan selamanya, sudah termasuk seminggu AI',
+  'precio.probar.3': 'Kotak surat, permainan, dan ruang bersama dengan teman-temanmu',
+  'precio.probar.cta': 'Coba gratis',
+  'precio.probar.pie': 'Tanpa langganan: bayar sekali, di sini atau di dalam aplikasi.',
   'precio.app.nombre': 'Langganan',
   'precio.app.cifra': 'mulai 7 USD',
   'precio.app.pagoUnico': 'per bulan',
@@ -165,7 +166,7 @@ export const TEXTOS = {
   'creditos.cta': 'Lihat tingkatnya',
 
   'desc.h2': 'Unduh aplikasinya',
-  'desc.sub': 'Unduh gratis dan masuk dengan akunmu: MindHaOS-mu muncul di perangkat mana pun, termasuk peramban. Langganan diambil di dalam aplikasi atau di sini di web.',
+  'desc.sub': 'Unduh gratis, bangun rumahmu, dan masuk dengan akunmu: MindHaOS-mu muncul di perangkat mana pun, termasuk peramban. Pembayaran sekali bayar dan langganan bisa diambil di dalam aplikasi atau di sini di web.',
   'desc.pronto': 'Segera hadir',
   'desc.android': 'Gratis di Google Play.',
   'desc.android.cta': 'Unduh untuk Android',
@@ -177,10 +178,15 @@ export const TEXTOS = {
   'desc.web.cta': 'Buka aplikasinya',
   'desc.windows': 'Gratis di Microsoft Store.',
   'desc.windows.cta': 'Unduh untuk Windows',
+  // ── Página de las tiendas (web/download.html) ──
+  'bajar.titulo': "Unduh MindHaOS",
+  'bajar.sub': "Gratis di ponsel, komputer, atau browser. Masuk dengan akunmu dan rumahmu ikut ke mana pun.",
+  'bajar.abriendo': "Membuka toko…",
+  'bajar.ios.cta': "Unduh untuk iPhone dan Mac",
 
   'faq.h2': 'Pertanyaan yang sering diajukan',
-  'faq.1.q': 'Apakah aplikasinya gratis?',
-  'faq.1.a': 'Ya. Kamu membuat akun dan MindHaOS-mu jadi milikmu, dengan semua aplikasinya, tanpa membayar apa pun. Kamu hanya membayar langganan kalau ingin AI, sinkronisasi antarperangkat, dan cloud; bisa diambil di sini, di <a href="/cuenta">akunmu</a>, atau di dalam aplikasi Android dan iPhone, dan berlaku di semua perangkatmu.',
+  'faq.1.q': 'Berapa harganya?',
+  'faq.1.a': 'Membangun rumahmu gratis dan tanpa akun, tetapi tidak tersimpan. Untuk menyimpannya kamu bayar sekali saja (5 USD), sudah termasuk seminggu AI serta kunjungan dan permainan dengan teman-temanmu. Langganan hanya untuk AI, sinkronisasi antarperangkat, dan cloud; bisa diambil di sini, di <a href="/cuenta">akunmu</a>, atau di dalam aplikasi, dan berlaku di semua perangkatmu.',
   'faq.2.q': 'Apa saja isi langganannya?',
   'faq.2.a': 'Tiga tingkat: Tingkat 1 seharga 7 USD per bulan memberi 700 kredit AI dan 10 GB cloud; Tingkat 2, seharga 14 USD, 1400 kredit dan 30 GB; dan Tingkat 3, seharga 20 USD, 2100 kredit dan 100 GB. Ketiganya termasuk sinkronisasi di semua perangkatmu. Tanpa ikatan: naik, turun, atau berhenti kapan saja.',
   'faq.3.q': 'Apa yang bisa kulakukan tanpa berlangganan?',
@@ -275,7 +281,7 @@ export const TEXTOS = {
 
   'term.titulo': 'Ketentuan layanan',
   'term.servicio.h': 'Layanannya',
-  'term.servicio.p': 'MindHaOS adalah aplikasi pengaturan pribadi. Uji coba tanpa akun dan aplikasi dengan akun gratis. Fungsi berulang (kredit AI, sinkronisasi, dan cloud) diambil sebagai langganan, di sini di web atau di dalam aplikasi; semua versi adalah klien dari akun yang sama.',
+  'term.servicio.p': 'MindHaOS adalah aplikasi pengaturan pribadi. Uji coba tanpa akun gratis dan tidak menyimpan perubahan; menyimpan rumah memerlukan akun dan sekali bayar. Fungsi berulang (kredit AI, sinkronisasi, dan cloud) diambil sebagai langganan, di sini di web atau di dalam aplikasi; semua versi adalah klien dari akun yang sama.',
   'term.local.h': 'Mode lokal',
   'term.local.p': 'Dengan akunmu, semua fungsi offline aplikasi bisa dipakai tanpa biaya. Data disimpan di perangkatmu, dan pencadangannya menjadi tanggung jawabmu (Pengaturan → Cadangan data).',
   'term.precio.h': 'Langganan dan harga',

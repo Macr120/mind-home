@@ -3,7 +3,7 @@ import type { NotaAudio, ProyectoAudio } from '../../core/data/db'
 import { proyectosAudioRepo } from '../../core/data/repository'
 import type { MoodMusica } from '../../core/state/ajustesStore'
 import { desplegar, validarPlan } from './cancionIA'
-import { FX_DEFAULT, MAESTRO_DEFAULT, PASOS_POR_COMPAS, segPorPaso } from './constantes'
+import { FX_DEFAULT, MAESTRO_DEFAULT, pasosCompas, segPorPaso } from './constantes'
 import { crearBusMaestro, crearCadenaPista, crearRetornos } from './efectos'
 import { tocarNota } from './instrumentos'
 
@@ -355,7 +355,7 @@ export function proyectoAmbiente(mood: MoodMusica): ProyectoAudio {
 }
 
 /** Lo que suena para un vibe: la versión editada del usuario o la receta. */
-async function cancionDe(mood: MoodMusica): Promise<ProyectoAudio> {
+export async function cancionDe(mood: MoodMusica): Promise<ProyectoAudio> {
   const propia = (await proyectosAudioRepo.list()).find((p) => p.cancion === `vib-${mood}` && !p.oculto)
   if (!propia) return proyectoAmbiente(mood)
   // Respeta el mute/solo del editor; las pistas de micrófono no viajan aquí.
@@ -511,7 +511,7 @@ function arrancar(mood: MoodMusica, p: ProyectoAudio, ctx: AudioContext, maestro
     instrumentos: p.pistas,
     spb,
     swingSeg: ((p.swing ?? 0) / 100) * spb,
-    totalPasos: p.compases * PASOS_POR_COMPAS,
+    totalPasos: p.compases * pasosCompas(p),
     paso: 0,
     proximaT: ctx.currentTime + 0.1,
     timer: null,

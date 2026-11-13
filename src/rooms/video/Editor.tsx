@@ -88,6 +88,14 @@ import {
   TAMANOS_AVATAR,
 } from './constantes'
 import { OP_GUION, OP_TITULOS, OP_TRADUCIR } from './costosIA'
+import { EditarConIA } from './EditarConIA'
+import { creditosEscucha } from './analisis'
+import { clipEntero } from './ClipearMomentos'
+import { TraducirVideo } from './TraducirVideo'
+import { TraducirTextos } from './TraducirTextos'
+import { CambiosPorChat } from './CambiosPorChat'
+import { seguirCara, tramoMedio } from './reencuadre'
+import { creditosPaquete } from './paqueteVideo'
 import { avisoSinSoporte, capturarEscena3d, exportarVideo, firmaExport, mimeExport, type ExportListo } from './exportar'
 import { crearPool, type PoolFuentes } from './fuentes'
 import { blobDeMedio, mapaUidsDe, remapearMedios } from './nube'
@@ -133,6 +141,7 @@ import {
   moverClip,
   narradorDe,
   normalizar,
+  velocidadDe,
   permiteSolape,
   recortarClip,
   reordenarPrincipal,
@@ -201,7 +210,21 @@ const SNAPSHOT_MS = 6000
  * reloj y el proyecto se publican en `peliculaFrame` para el Director 3D, y el
  * export captura la escena viva.
  */
-export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerrar: () => void; pelicula?: boolean }) {
+export function Editor({
+  id,
+  alCerrar,
+  pelicula = false,
+  onClipear,
+  editarIAAlAbrir = false,
+}: {
+  id: number
+  alCerrar: () => void
+  pelicula?: boolean
+  /** «Clipear momentos importantes» (lo abre VideoApp: los clips son proyectos nuevos); `medioId` = el video a proponer. */
+  onClipear?: (medioId?: number) => void
+  /** Abre «Editar video con IA» en cuanto carga (el clip recién creado desde «Clipear»). */
+  editarIAAlAbrir?: boolean
+}) {
   const t = useT()
   const [proyecto, setProyecto] = useState<ProyectoAbierto | null>(null)
   const mediosCargados = mediosVideoRepo.useAll()
@@ -211,6 +234,10 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
   const [seleccion, setSeleccionEstado] = useState<string | null>(null)
   const [reproduciendo, setReproduciendo] = useState(false)
   const [panelIA, setPanelIA] = useState(false)
+  const [editarIA, setEditarIA] = useState(false)
+  const [traducirVideoAbierto, setTraducirVideoAbierto] = useState(false)
+  const [traducirTextosAbierto, setTraducirTextosAbierto] = useState(false)
+  const [chatAbierto, setChatAbierto] = useState(false)
   const [iaTexto, setIaTexto] = useState('')
   const [iaOcupado, setIaOcupado] = useState(false)
   const [iaError, setIaError] = useState('')
@@ -650,6 +677,13 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
   // El `~` marca un medio aún sin blob (en la nube): al llegar, el pool se rehace.
   const firmaMedios = medios.map((m) => `${m.id}${m.blob ? '' : '~'}`).join(',')
   const cargado = proyecto != null
+  // Recién creado desde «Clipear»: «Editar video con IA» se abre solo, una vez.
+  const iaAlAbrirHecho = useRef(false)
+  useEffect(() => {
+    if (!cargado || !editarIAAlAbrir || iaAlAbrirHecho.current) return
+    iaAlAbrirHecho.current = true
+    setEditarIA(true)
+  }, [cargado, editarIAAlAbrir])
   const aspecto = proyecto?.aspecto ?? '16:9'
   const calidad = proyecto?.calidad ?? CALIDAD_DEFECTO
   // El lienzo de la composición: la calidad elegida con el aspecto, o en el modo película la pantalla (encuadres del PIP y avatar incluidos).
@@ -1613,6 +1647,9 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
 
   const clipSel = proyecto.clips.find((c) => c.id === seleccion) ?? null
   const principales = clipsDe(proyecto.clips, 'video')
+  // El video más largo de la principal: el que «Clipear» propone (y del que cuenta los créditos).
+  const fuenteLarga = [...principales].sort((a, b) => b.duracion - a.duracion).find((c) => c.fuente.tipo === 'video')?.fuente
+  const medioLargo = fuenteLarga?.tipo === 'video' ? (medios.find((m) => m.id === fuenteLarga.medioId) as MedioConId | undefined) : undefined
   const nPrincipales = principales.length
   const clipTransicion = transicionSel ? (principales.find((c) => c.id === transicionSel) ?? null) : null
   // Para la etiqueta «generado con IA» de TikTok: imágenes IA o voces sintéticas en el proyecto.
@@ -1829,7 +1866,12 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
           )}
         </>
       ) : (
-        <div className="flex shrink-0 items-center gap-2" data-tut="video.editor.cabecera">
+        <div
+          // En pantalla completa el editor tapa la barra de la app y el menú flotante (☰) queda encima de esta
+          // esquina: se le deja el mismo hueco que le reserva RoomOverlay, o «Volver» queda escondido.
+          className={`flex shrink-0 items-center gap-2 ${pantallaCompleta ? 'ps-28 sm:ps-52' : ''}`}
+          data-tut="video.editor.cabecera"
+        >
           {/* Cabecera del editor normal */}
           <BotonSecundario pequeno onClick={cerrarEditor} data-tut="video.editor.volver">
             <Icono nombre="volver" /> <span className="hidden sm:inline">{t('video.editor.volver', 'Volver')}</span>
@@ -2168,6 +2210,27 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
                 onTraducir: () => {
                   if (clipSel) setTraducir(clipSel.id)
                 },
+                onVelocidad: (v) => {
+                  if (!clipSel || clipSel.pista !== 'video') return
+                  // Mismo tramo del medio a otra velocidad: la duración en la línea cambia (sin pasarse del medio).
+                  const f = clipSel.fuente
+                  const durMedio = f.tipo === 'video' ? mediosRef.current.find((m) => m.id === f.medioId)?.duracion : undefined
+                  let dur = (clipSel.duracion * velocidadDe(clipSel)) / v
+                  if (durMedio) dur = Math.min(dur, (durMedio - (clipSel.desde ?? 0)) / v)
+                  cambiarClip(clipSel.id, { velocidad: v === 1 ? undefined : v, duracion: Math.max(MIN_CLIP, Math.round(dur * 100) / 100) })
+                },
+                onSeguirCara: async () => {
+                  if (!clipSel || clipSel.pista !== 'video' || clipSel.fuente.tipo !== 'video') return
+                  if (clipSel.seguir) {
+                    cambiarClip(clipSel.id, { seguir: undefined })
+                    return
+                  }
+                  const [a, b] = tramoMedio(clipSel)
+                  const puntos = await seguirCara(clipSel.fuente.medioId, a, b)
+                  if (puntos === null) mostrarAviso(t('video.reencuadre.sinDetector', 'No se pudo cargar el detector de caras en este dispositivo.'))
+                  else if (!puntos.length) mostrarAviso(t('video.reencuadre.sinCara', 'No se encontró ninguna cara en este clip.'))
+                  else cambiarClip(clipSel.id, { seguir: puntos })
+                },
                 onDuplicar: () => {
                   if (clipSel) duplicar(clipSel.id)
                 },
@@ -2359,6 +2422,48 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
         />
       )}
 
+      {chatAbierto && (
+        <CambiosPorChat clips={proyecto.clips} onAplicar={(clips) => mutar((p) => ({ ...p, clips }))} onCerrar={() => setChatAbierto(false)} />
+      )}
+
+      {traducirTextosAbierto && (
+        <TraducirTextos
+          proyecto={proyecto}
+          medios={medios}
+          onAplicar={(clips) => mutar((p) => ({ ...p, clips }))}
+          onRehacerVoces={async (ids) => {
+            for (const clipId of ids) await narrarClip(clipId)
+          }}
+          onCerrar={() => setTraducirTextosAbierto(false)}
+        />
+      )}
+
+      {traducirVideoAbierto && (
+        <TraducirVideo
+          proyecto={proyecto}
+          medios={medios}
+          clipSeleccionado={seleccion}
+          onAplicar={(clips) => {
+            mutar((p) => ({ ...p, clips }))
+            seek(0)
+          }}
+          onCerrar={() => setTraducirVideoAbierto(false)}
+        />
+      )}
+
+      {editarIA && (
+        <EditarConIA
+          proyecto={proyecto}
+          medios={medios}
+          onAplicar={(clips) => {
+            mutar((p) => ({ ...p, clips }))
+            seleccionar(null)
+            seek(0)
+          }}
+          onCerrar={() => setEditarIA(false)}
+        />
+      )}
+
       {/* IA de guion */}
       {panelIA && (
         <Modal titulo={t('video.ia.titulo', 'Guion con IA')} onCerrar={() => setPanelIA(false)}>
@@ -2373,6 +2478,59 @@ export function Editor({ id, alCerrar, pelicula = false }: { id: number; alCerra
           </Campo>
           {iaError && <p className="text-xs text-red-400">{iaError}</p>}
           <div className="grid grid-cols-1 gap-2">
+            {!pelicula && (
+              <>
+                <BotonSecundario
+                  disabled={iaOcupado || !principales.some((c) => c.fuente.tipo === 'video')}
+                  onClick={() => {
+                    setPanelIA(false)
+                    setEditarIA(true)
+                  }}
+                >
+                  <Icono nombre="brillo" /> {t('video.editarIA.titulo', 'Editar video con IA')}{' '}
+                  <Creditos n={creditosPaquete('video.editar', creditosEscucha(principales, medios))} />
+                </BotonSecundario>
+                <BotonSecundario
+                  disabled={iaOcupado || !principales.some((c) => c.fuente.tipo === 'video')}
+                  onClick={() => {
+                    setPanelIA(false)
+                    setTraducirVideoAbierto(true)
+                  }}
+                >
+                  <Icono nombre="idiomas" /> {t('video.traducirVideo.boton2', 'Traducir video: voz y subtítulos')}
+                </BotonSecundario>
+                {onClipear && (
+                  <BotonSecundario
+                    disabled={iaOcupado}
+                    onClick={() => {
+                      setPanelIA(false)
+                      onClipear(medioLargo?.id)
+                    }}
+                  >
+                    <Icono nombre="tijeras" /> {t('video.clipear.titulo', 'Clipear momentos importantes')}{' '}
+                    <Creditos n={creditosPaquete('video.clipear', medioLargo ? creditosEscucha([clipEntero(medioLargo)], medios) : 0)} />
+                  </BotonSecundario>
+                )}
+              </>
+            )}
+            <BotonSecundario
+              disabled={iaOcupado || !proyecto.clips.some((c) => (c.pista === 'texto' && c.origen !== 'narracion') || ((c.pista === 'voz' || c.pista === 'avatar') && c.texto?.trim()))}
+              onClick={() => {
+                setPanelIA(false)
+                setTraducirTextosAbierto(true)
+              }}
+            >
+              <Icono nombre="letra" /> {t('video.traducirTextos.boton', 'Traducir textos: títulos y guiones')}
+            </BotonSecundario>
+            <BotonSecundario
+              disabled={iaOcupado || proyecto.clips.length === 0}
+              onClick={() => {
+                setPanelIA(false)
+                setChatAbierto(true)
+              }}
+            >
+              <Icono nombre="chat" /> {t('video.chat.titulo', 'Pedir cambios por chat')} <Creditos n={1} />
+            </BotonSecundario>
             <BotonSecundario disabled={iaOcupado || !iaTexto.trim()} onClick={() => void correrGuion()}>
               {iaOcupado ? <Spinner pequeno /> : <Icono nombre="brillo" />}{' '}
               {nPrincipales > 0 ? t('video.ia.rehacer', 'Rehacer el guion') : t('video.ia.generar', 'Generar el guion')}{' '}

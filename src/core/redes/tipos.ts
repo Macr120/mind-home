@@ -67,6 +67,10 @@ export interface MetaPublicacion {
   privacidad?: string
   aspecto: '16:9' | '9:16' | '1:1'
   duracion_seg: number
+  /** ISO: publicar a esa hora en vez de al momento (solo YouTube y Facebook lo admiten). */
+  publicar_en?: string
+  /** Idioma del video (BCP-47); YouTube lo usa para recomendarlo a quien habla ese idioma. */
+  idioma?: string
   youtube?: { categoryId?: string; madeForKids: boolean }
   tiktok?: {
     disable_comment: boolean

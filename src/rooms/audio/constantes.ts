@@ -8,8 +8,38 @@ export const COLOR_FABRICA = '#e879f9'
  */
 export const COLOR = `var(--ui-app, ${COLOR_FABRICA})`
 
-/** Rejilla: 16 pasos de semicorchea por compás de 4/4 (fijo en v1). */
+/**
+ * Rejilla: un paso = una semicorchea; un compás de 4/4 son 16. Las notas se
+ * guardan en pasos absolutos, así que el compás del proyecto (`compas`) solo
+ * decide dónde caen las barras, la numeración y el metrónomo: lo que se genera
+ * (IA, ejemplos, vibes) sigue en 4/4 y usa esta constante.
+ */
 export const PASOS_POR_COMPAS = 16
+
+/** Compases que ofrece el editor: simples en x/4, compuestos (6/8, 9/8, 12/8) e irregulares (5/4, 7/8). */
+export const COMPASES_TIEMPO = ['2/4', '3/4', '4/4', '5/4', '6/8', '7/8', '9/8', '12/8'] as const
+
+const partesCompas = (c?: string): [number, number] => {
+  if (!c || !(COMPASES_TIEMPO as readonly string[]).includes(c)) return [4, 4]
+  const [n, d] = c.split('/').map(Number)
+  return [n, d]
+}
+
+/** Semicorcheas por compás del proyecto (4/4 = 16, 3/4 = 12, 6/8 = 12, 7/8 = 14, 12/8 = 24…). */
+export function pasosCompas(p?: { compas?: string } | null): number {
+  const [n, d] = partesCompas(p?.compas)
+  return n * (16 / d)
+}
+
+/**
+ * Cada cuántos pasos marca el metrónomo: la negra en x/4, la negra con
+ * puntillo en los compuestos (6/8, 9/8, 12/8) y la corchea en 7/8.
+ */
+export function pasosPulso(p?: { compas?: string } | null): number {
+  const [n, d] = partesCompas(p?.compas)
+  if (d === 4) return 4
+  return n % 3 === 0 ? 6 : 2
+}
 
 export const MAX_PISTAS = 8
 // 64 desde que las canciones de Aprender son proyectos (un .mid real rebasa 32).

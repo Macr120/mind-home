@@ -12,8 +12,8 @@ export const TEXTOS = {
   'tema.boton': 'Lichte of donkere modus',
 
   'meta.titulo': 'MindHaOS — Je geest, in een 3D-huis',
-  'meta.desc': 'Organiseer je gewoontes, doelen, financiën, maaltijden en meer in een isometrisch 3D-huis waarin elke kamer een app is. Gratis met je account; AI, synchronisatie en cloud vanaf 7 USD per maand.',
-  'og.desc': 'Je leven, in een 3D-huis: gewoontes, doelen, financiën, maaltijden en meer. Gratis met je account; AI en synchronisatie vanaf 7 USD per maand.',
+  'meta.desc': 'Organiseer je gewoontes, doelen, financiën, maaltijden en meer in een isometrisch 3D-huis waarin elke kamer een app is. Bouw het gratis; bewaar het met een eenmalige betaling en voeg AI toe wanneer je wilt.',
+  'og.desc': 'Je leven, in een 3D-huis: gewoontes, doelen, financiën, maaltijden en meer. Bouw het gratis en bewaar het met een eenmalige betaling.',
 
   'hero.h1': 'Je geest,<br />in een 3D-huis',
   // La frase de la portada, con TRES huecos que rotan solos y a la vez: la
@@ -39,7 +39,7 @@ export const TEXTOS = {
     'te bewaren, te plannen of te maken — helemaal met de hand of met hulp van de AI. En alle apps hangen aan één kalender, aan dagelijkse missies en aan je eigen doelen, gesynchroniseerd op je telefoon en je computer.',
   'hero.cta': 'De app downloaden',
   'hero.probar': 'Probeer gratis je MindHaOS te bouwen',
-  'hero.nota': 'MindHaOS (Huis van de Geest OS) is gratis met je account en werkt offline. AI, synchronisatie en cloud zitten in het abonnement — en als je stopt, verlies je niets.',
+  'hero.nota': 'Bouw je MindHaOS (Huis van de Geest OS) gratis en zonder account. Om het te bewaren: een eenmalige betaling met een week AI inbegrepen; daarna zitten AI, synchronisatie en cloud in het abonnement — en als je stopt, verlies je niets.',
   'hero.video': 'Hier komt je video of komen je schermafbeeldingen van het MindHaOS (Mentaal Huis OS)',
 
   // Lo que trae la casa, en cifras (el número lo pone el HTML).
@@ -67,8 +67,8 @@ export const TEXTOS = {
   'car.todo.t': 'Echt alles in één',
   'car.todo.p':
     'Eén app in plaats van twintig: eten, geld, slaap, studie, gewoontes en doelen onder hetzelfde dak — en met elkaar verbonden, wat losse apps nooit kunnen.',
-  'car.nocaduca.t': 'Gratis, en verloopt niet',
-  'car.nocaduca.p': 'Je MindHaOS is gratis met je account, en van jou. Abonnementsapps gaan uit zodra je stopt met betalen; hier brengt het abonnement alleen AI, synchronisatie en cloud: stop je, dan houd je je hele MindHaOS en al je gegevens op je apparaat.',
+  'car.nocaduca.t': 'Eén keer betalen, en het verloopt niet',
+  'car.nocaduca.p': 'Je MindHaOS betaal je één keer en is van jou. Abonnementsapps gaan uit zodra je stopt met betalen; hier brengt het abonnement alleen AI, synchronisatie en cloud: stop je, dan houd je je hele MindHaOS en al je gegevens op je apparaat.',
   'car.nuevas.t': 'Nieuwe updates',
   'car.nuevas.p': 'Het MindHaOS blijft groeien: kamers, apps en verbeteringen die binnenkomen zonder opnieuw te betalen.',
   'car.1.t': 'Kamers die apps zijn',
@@ -124,14 +124,15 @@ export const TEXTOS = {
     'Hier bouw je nieuwe vaardigheden op, houd je grip op je middelen en zet je de technologie aan jouw kant. Tegen de onbewuste consumptie van korte video. Tegen het cognitieve verval dat de consumptiegewoontes achterlaten die de grote bedrijven ons opleggen.',
   'mani.cierre': 'Dezelfde dopamine. Deze keer voor je echte leven.',
 
-  'precio.h2': 'Je MindHaOS is gratis; AI, synchronisatie en cloud met een abonnement',
-  'precio.probar.nombre': 'Probeer haar',
-  'precio.probar.cifra': 'Gratis',
-  'precio.probar.1': 'Je eigen MindHaOS met alle apps, en je gegevens op je apparaat',
-  'precio.probar.2': 'Postvak, spellen en gedeelde ruimtes met je vrienden',
-  'precio.probar.3': 'Probeer zonder account; maak gratis je account aan om hem te bewaren',
-  'precio.probar.cta': 'De app proberen',
-  'precio.probar.pie': 'Zonder kaart en zonder vervaldatum.',
+  'precio.h2': 'Gratis bouwen, bewaren met een eenmalige betaling; AI met een abonnement',
+  'precio.probar.nombre': 'Je huis',
+  'precio.probar.cifra': '5 USD',
+  'precio.probar.pagoUnico': 'eenmalige betaling',
+  'precio.probar.1': 'Bouw het gratis en zonder account, met alle apps',
+  'precio.probar.2': 'Bewaar het voor altijd, met een week AI inbegrepen',
+  'precio.probar.3': 'Postvak, spellen en gedeelde ruimtes met je vrienden',
+  'precio.probar.cta': 'Gratis proberen',
+  'precio.probar.pie': 'Geen abonnement: je betaalt één keer, hier of in de app.',
   'precio.app.nombre': 'Abonnement',
   'precio.app.cifra': 'vanaf 7 USD',
   'precio.app.pagoUnico': 'per maand',
@@ -166,7 +167,7 @@ export const TEXTOS = {
   'creditos.cta': 'De niveaus bekijken',
 
   'desc.h2': 'De app downloaden',
-  'desc.sub': 'Download gratis en log in met je account: je MindHaOS verschijnt op elk apparaat, ook in de browser. Het abonnement neem je af in de app of hier op het web.',
+  'desc.sub': 'Download gratis, bouw je huis en log in met je account: je MindHaOS verschijnt op elk apparaat, ook in de browser. De eenmalige betaling en het abonnement regel je in de app of hier op het web.',
   'desc.pronto': 'Binnenkort',
   'desc.android': 'Gratis in Google Play.',
   'desc.android.cta': 'Downloaden voor Android',
@@ -178,10 +179,15 @@ export const TEXTOS = {
   'desc.web.cta': 'De app openen',
   'desc.windows': 'Gratis in de Microsoft Store.',
   'desc.windows.cta': 'Downloaden voor Windows',
+  // ── Página de las tiendas (web/download.html) ──
+  'bajar.titulo': "Download MindHaOS",
+  'bajar.sub': "Gratis op je telefoon, computer of in de browser. Log in en je huis gaat overal met je mee.",
+  'bajar.abriendo': "Winkel wordt geopend…",
+  'bajar.ios.cta': "Downloaden voor iPhone en Mac",
 
   'faq.h2': 'Veelgestelde vragen',
-  'faq.1.q': 'Is de app gratis?',
-  'faq.1.a': 'Ja. Je maakt je account aan en je MindHaOS is van jou, met alle apps, zonder iets te betalen. Je betaalt alleen voor het abonnement als je AI, synchronisatie tussen apparaten en de cloud wilt; je neemt het hier af, in <a href="/cuenta">je account</a>, of in de app voor Android en iPhone, en het geldt op al je apparaten.',
+  'faq.1.q': 'Wat kost het?',
+  'faq.1.a': 'Je huis bouwen is gratis en kan zonder account, maar het wordt niet bewaard. Om het te bewaren betaal je één keer (5 USD), met een week AI inbegrepen plus bezoekjes en spellen met je vrienden. Het abonnement is alleen voor AI, synchronisatie tussen apparaten en de cloud; je neemt het hier af, in <a href="/cuenta">je account</a>, of in de app, en het geldt op al je apparaten.',
   'faq.2.q': 'Wat zit er in het abonnement?',
   'faq.2.a': 'Drie niveaus: Niveau 1 voor 7 USD per maand geeft 700 AI-credits en 10 GB cloud; Niveau 2, voor 14 USD, 1400 credits en 30 GB; en Niveau 3, voor 20 USD, 2100 credits en 100 GB. Alle drie bevatten synchronisatie tussen al je apparaten. Zonder binding: je gaat omhoog, omlaag of zegt op wanneer je wilt.',
   'faq.3.q': 'Wat kan ik doen zonder abonnement?',
@@ -276,7 +282,7 @@ export const TEXTOS = {
 
   'term.titulo': 'Servicevoorwaarden',
   'term.servicio.h': 'De dienst',
-  'term.servicio.p': 'MindHaOS is een app voor persoonlijke organisatie. De proefversie zonder account en de app met account zijn gratis. De terugkerende functies (AI-credits, synchronisatie en cloud) neem je af als abonnement, hier op het web of in de app; alle versies zijn clients van datzelfde account.',
+  'term.servicio.p': 'MindHaOS is een app voor persoonlijke organisatie. De proefversie zonder account is gratis en bewaart geen wijzigingen; om het huis te bewaren zijn een account en een eenmalige betaling nodig. De terugkerende functies (AI-credits, synchronisatie en cloud) neem je af als abonnement, hier op het web of in de app; alle versies zijn clients van datzelfde account.',
   'term.local.h': 'Lokale modus',
   'term.local.p': 'Met je account gebruik je alle offline functies van de app zonder kosten. De gegevens worden op je apparaat opgeslagen, en de back-up ervan is jouw verantwoordelijkheid (Instellingen → Back-up van gegevens).',
   'term.precio.h': 'Abonnement en prijs',

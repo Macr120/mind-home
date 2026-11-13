@@ -125,3 +125,92 @@ export function generarSubtitulos(clips: ClipVideo[], origen: ClipVoz | ClipAvat
   }
   return normalizar([...resto, ...nuevos])
 }
+
+/** `deClipId` de los subtítulos sacados de la transcripción del video (IA): se rehacen en bloque al volver a editar. */
+export const ID_TRANSCRIPCION = 'transcripcion'
+
+/** Estilo por defecto de los subtítulos de la transcripción: más grandes que los de una narración. */
+export const SUBTITULO_TRANSCRIPCION: EstiloTexto = { ...SUBTITULO_DEFECTO, tamano: 'M', fuente: 'display' }
+
+/**
+ * Subtítulos desde frases con tiempo (la transcripción del audio del video, ya
+ * en segundos del proyecto): cada frase se parte en trozos legibles y se
+ * reparte sobre su propia ventana.
+ */
+export function subtitulosDeFrases(
+  frases: { inicio: number; fin: number; texto: string }[],
+  estilo: EstiloTexto = SUBTITULO_TRANSCRIPCION,
+): ClipTexto[] {
+  const salida: ClipTexto[] = []
+  for (const f of frases) {
+    const dur = f.fin - f.inicio
+    if (dur < 0.3 || !f.texto.trim()) continue
+    for (const s of repartirTiempos(partirFrases(f.texto), dur, Math.min(MIN_SUBTITULO, dur))) {
+      if (s.duracion < 0.2) continue
+      salida.push({
+        id: nuevoClipId(),
+        pista: 'texto',
+        inicio: redondear(f.inicio + s.desde),
+        duracion: redondear(s.duracion),
+        texto: { ...estilo, contenido: s.texto },
+        origen: 'narracion',
+        deClipId: ID_TRANSCRIPCION,
+      })
+    }
+  }
+  return salida
+}
+
+/** Palabra normalizada para comparar (minúsculas, sin puntuación alrededor). */
+export const normalizarPalabra = (p: string) => p.toLowerCase().replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '')
+
+/**
+ * Subtítulos desde palabras con tiempo exacto: grupos cortos (pausa, punto o
+ * ~32 letras) con el inicio de cada palabra en `tiempos` para el karaoke. Las
+ * `destacadas` (palabra normalizada → emoji o '') van en `claves` y, si traen
+ * emoji, lo llevan pegado (sin espacio: no descuadra el karaoke).
+ */
+export function subtitulosDePalabras(
+  palabras: { p: string; i: number; f: number }[],
+  estilo: EstiloTexto,
+  destacadas: Map<string, string> = new Map(),
+): ClipTexto[] {
+  const grupos: { p: string; i: number; f: number }[][] = []
+  let actual: { p: string; i: number; f: number }[] = []
+  for (const w of palabras) {
+    const previa = actual[actual.length - 1]
+    const largo = actual.reduce((s, x) => s + x.p.length + 1, 0)
+    if (previa && (w.i - previa.f > 0.5 || /[.!?…]$/.test(previa.p) || largo + w.p.length > 32 || actual.length >= 7)) {
+      grupos.push(actual)
+      actual = []
+    }
+    actual.push(w)
+  }
+  if (actual.length) grupos.push(actual)
+  const salida: ClipTexto[] = []
+  grupos.forEach((g, k) => {
+    const inicio = g[0].i
+    const siguiente = grupos[k + 1]?.[0].i ?? Infinity
+    const final = Math.min(siguiente, g[g.length - 1].f + 0.25)
+    if (final - inicio < 0.2) return
+    const claves: number[] = []
+    const textos = g.map((w, j) => {
+      const emoji = destacadas.get(normalizarPalabra(w.p))
+      if (emoji == null) return w.p
+      claves.push(j)
+      return emoji ? `${w.p}${emoji}` : w.p
+    })
+    salida.push({
+      id: nuevoClipId(),
+      pista: 'texto',
+      inicio: redondear(inicio),
+      duracion: redondear(final - inicio),
+      texto: { ...estilo, contenido: textos.join(' ') },
+      origen: 'narracion',
+      deClipId: ID_TRANSCRIPCION,
+      tiempos: g.map((w) => redondear(w.i - inicio)),
+      ...(claves.length ? { claves } : {}),
+    })
+  })
+  return salida
+}

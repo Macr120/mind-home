@@ -4,12 +4,12 @@ import { useArrastre } from '../../core/ui/comun/arrastre'
 import { reordenar } from '../../core/ui/editor/editorSecciones'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { BotonPrimario, Spinner } from '../_shared/ui'
-import { BPM_MAX, BPM_MIN, COLOR, MAX_COMPASES, PASOS_POR_COMPAS, segPorPaso } from './constantes'
+import { BPM_MAX, BPM_MIN, COLOR, COMPASES_TIEMPO, MAX_COMPASES, pasosCompas, pasosPulso, segPorPaso } from './constantes'
 import { alternarPreviaMetronomo, posicion, previaStore, transporteStore } from './motor'
 
 /**
  * Barra de transporte en tres grupos plegables — «Transporte» (regresar, stop,
- * grabar, contador), «Ritmo» (bucle, cuantizar, BPM, compases, pulsos) y
+ * grabar, contador), «Ritmo» (bucle, cuantizar, BPM, compases, compás de tiempo) y
  * «Extras» (deshacer/rehacer, practicar, MIDI, WAV, IA) — para que en angosto
  * la barra no se desborde. Los dos primeros arrancan con su botón principal
  * SIEMPRE a la vista (play/pausa y metrónomo) y, aparte, el chevron que los
@@ -44,11 +44,11 @@ export function Transporte({
   sinTurno,
   bpm,
   compases,
-  pulsos,
+  compas,
   posInicio,
   onBpm,
   onCompases,
-  onPulsos,
+  onCompas,
   onRegresar,
   metronomo,
   onMetronomo,
@@ -83,13 +83,13 @@ export function Transporte({
   sinTurno?: boolean
   bpm: number
   compases: number
-  /** Pulsaciones del metrónomo por compás (2 | 4 | 8 | 16). */
-  pulsos: number
+  /** Compás de tiempo ('4/4', '6/8'…). */
+  compas: string
   /** Paso donde arrancará el play (el contador lo muestra estando parado). */
   posInicio: number
   onBpm: (v: number) => void
   onCompases: (v: number) => void
-  onPulsos: (v: number) => void
+  onCompas: (v: string) => void
   /** Regresar el transporte al compás 1. */
   onRegresar: () => void
   metronomo: boolean
@@ -254,7 +254,7 @@ export function Transporte({
             >
               <Icono nombre="grabar" />
             </button>
-            <Indicador bpm={bpm} posInicio={posInicio} />
+            <Indicador bpm={bpm} compas={compas} posInicio={posInicio} />
           </>
         )}
       </>
@@ -311,30 +311,30 @@ export function Transporte({
               />
             </label>
             <label className="flex items-center gap-1 text-xs text-white/50">
-              {t('audio.transporte.pulsos', 'Pulsos')}
+              {t('audio.transporte.compas', 'Compás')}
               <select
-                value={pulsos}
+                value={compas}
                 disabled={sinTurno}
-                aria-label={t('audio.transporte.pulsosLargo', 'Pulsaciones por compás')}
-                title={t('audio.transporte.pulsosLargo', 'Pulsaciones por compás')}
-                onChange={(e) => onPulsos(Number(e.target.value))}
+                aria-label={t('audio.transporte.compasLargo', 'Compás de tiempo (pulsos por compás / figura del pulso)')}
+                title={t('audio.transporte.compasLargo', 'Compás de tiempo (pulsos por compás / figura del pulso)')}
+                onChange={(e) => onCompas(e.target.value)}
                 className="rounded-lg border border-white/10 bg-black/30 px-1.5 py-1 text-sm text-white outline-none disabled:opacity-40"
               >
-                {[2, 4, 8, 16].map((n) => (
-                  <option key={n} value={n}>
-                    {n}
+                {COMPASES_TIEMPO.map((c) => (
+                  <option key={c} value={c}>
+                    {c}
                   </option>
                 ))}
               </select>
             </label>
-            {/* El compás en notación tradicional: N pulsos de 1/N en un compás entero. */}
+            {/* El compás en notación tradicional: numerador sobre denominador. */}
             <span
               title={t('audio.transporte.compasTradicional', 'Compás en notación tradicional')}
               aria-label={t('audio.transporte.compasTradicional', 'Compás en notación tradicional')}
               className="flex flex-col items-center px-0.5 font-mono text-[10px] leading-tight text-white/70"
             >
-              <span>{pulsos}</span>
-              <span className="border-t border-white/50 px-0.5">{pulsos}</span>
+              <span>{compas.split('/')[0]}</span>
+              <span className="border-t border-white/50 px-0.5">{compas.split('/')[1]}</span>
             </span>
           </>
         )}
@@ -456,7 +456,7 @@ export function Transporte({
  * Contador de posición y tiempo (`compás.pulso · m:ss.d`), aislado: su tick de
  * 100 ms mientras suena solo re-renderiza este span, no la barra entera.
  */
-function Indicador({ bpm, posInicio }: { bpm: number; posInicio: number }) {
+function Indicador({ bpm, compas, posInicio }: { bpm: number; compas: string; posInicio: number }) {
   const t = useT()
   const estado = useSyncExternalStore(transporteStore.subscribe, transporteStore.getSnapshot)
   const [, setTic] = useState(0)
@@ -466,8 +466,9 @@ function Indicador({ bpm, posInicio }: { bpm: number; posInicio: number }) {
     return () => window.clearInterval(id)
   }, [estado])
   const paso = estado === 'parado' ? posInicio : Math.max(0, posicion())
-  const compas = Math.floor(paso / PASOS_POR_COMPAS) + 1
-  const beat = Math.floor((paso % PASOS_POR_COMPAS) / 4) + 1
+  const pc = pasosCompas({ compas })
+  const nCompas = Math.floor(paso / pc) + 1
+  const beat = Math.floor((paso % pc) / pasosPulso({ compas })) + 1
   const seg = paso * segPorPaso(bpm)
   const reloj = `${Math.floor(seg / 60)}:${String(Math.floor(seg % 60)).padStart(2, '0')}.${Math.floor((seg * 10) % 10)}`
   return (
@@ -475,7 +476,7 @@ function Indicador({ bpm, posInicio }: { bpm: number; posInicio: number }) {
       title={t('audio.transporte.tiempo', 'Compás.pulso · tiempo')}
       className="min-w-24 text-center font-mono text-xs tabular-nums text-white/60"
     >
-      {compas}.{beat} · {reloj}
+      {nCompas}.{beat} · {reloj}
     </span>
   )
 }

@@ -4,7 +4,7 @@ import { mediosVideoRepo, proyectosVideoRepo, VACIO } from '../../core/data/repo
 import { localeActual, tGlobal, useT } from '../../core/i18n/useT'
 import { pedirTexto } from '../../core/state/confirmarStore'
 import { Icono } from '../../core/ui/iconos/Icono'
-import { BotonBorrar, BotonPrimario, Vacio } from '../_shared/ui'
+import { BotonBorrar, BotonPrimario, BotonSecundario, Vacio } from '../_shared/ui'
 import { COLOR } from './constantes'
 import { clipsDe, duracionTotal, migrarProyecto } from './modelo'
 import { InsigniasPublicacion } from './publicar/InsigniasPublicacion'
@@ -57,7 +57,16 @@ const fmtDur = (seg: number) => {
  * que se abren en el mapa. Rejilla de portadas (estilo TikTok/Instagram): la
  * miniatura del primer clip con formato y duración encima, y debajo el nombre.
  */
-export function ProyectosTab({ escenario, onAbrir }: { escenario: 'video' | '3d'; onAbrir: (id: number) => void }) {
+export function ProyectosTab({
+  escenario,
+  onAbrir,
+  onClipear,
+}: {
+  escenario: 'video' | '3d'
+  onAbrir: (id: number) => void
+  /** «Clipear momentos importantes» de un video largo (solo la lista de videos). */
+  onClipear?: () => void
+}) {
   const t = useT()
   const todos = proyectosVideoRepo.useAll() ?? VACIO
   const medios = mediosVideoRepo.useAll() ?? (VACIO as MedioVideo[])
@@ -95,13 +104,25 @@ export function ProyectosTab({ escenario, onAbrir }: { escenario: 'video' | '3d'
           }
           cta={{ texto: nuevo, onClick: () => void crear() }}
         />
+        {onClipear && (
+          <div className="mt-2 flex justify-center">
+            <BotonSecundario pequeno onClick={onClipear}>
+              <Icono nombre="tijeras" /> {t('video.clipear.titulo', 'Clipear momentos importantes')}
+            </BotonSecundario>
+          </div>
+        )}
       </div>
     )
   }
 
   return (
     <div className="ui-ancho mx-auto w-full max-w-2xl space-y-3">
-      <div className="flex justify-end">
+      <div className="flex flex-wrap justify-end gap-2">
+        {onClipear && (
+          <BotonSecundario pequeno onClick={onClipear}>
+            <Icono nombre="tijeras" /> {t('video.clipear.titulo', 'Clipear momentos importantes')}
+          </BotonSecundario>
+        )}
         <BotonPrimario type="button" pequeno app={COLOR} onClick={() => void crear()}>
           <Icono nombre="agregar" /> {nuevo}
         </BotonPrimario>
