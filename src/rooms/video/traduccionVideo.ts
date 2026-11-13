@@ -3,9 +3,9 @@ import { conversarIA, extraerJSON } from '../../core/chat/ia'
 import { ErrorIA } from '../../core/cuenta/api'
 import type { ClipPrincipal, ClipTexto, ClipVideo, ClipVoz, EstiloTexto, ProyectoVideo } from '../../core/data/db'
 import type { DatosIdioma } from '../../core/i18n/idiomas'
-import { tramosDe, type AnalisisLinea, type FraseVideo } from './analisis'
+import { tramosDeClips, type AnalisisLinea, type FraseVideo } from './analisis'
 import { MIN_CLIP, nuevoClipId } from './constantes'
-import { fin, normalizar, redondear, velocidadDe } from './modelo'
+import { fin, normalizar, redondear } from './modelo'
 import { mediosVideoRepo } from '../../core/data/repository'
 import { generarAudioNarracion } from './narracion'
 import type { OpPaquete } from './paqueteVideo'
@@ -79,8 +79,7 @@ export interface OpcionesTraduccion {
 }
 
 /** Tramos de 25 s que se traducen (los de los clips de video del alcance). */
-export const tramosTraduccion = (alcance: ClipPrincipal[]) =>
-  alcance.filter((c) => c.fuente.tipo === 'video').reduce((s, c) => s + tramosDe(c.duracion * velocidadDe(c)), 0)
+export const tramosTraduccion = (alcance: ClipPrincipal[]) => tramosDeClips(alcance)
 
 /** El paquete: con voz IA, 3 créditos por tramo; sin doblaje o con la voz del dispositivo, 1. */
 export const opTraduccion = (voz: string | null): OpPaquete =>

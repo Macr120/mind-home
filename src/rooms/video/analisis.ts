@@ -106,10 +106,13 @@ interface Escuchado {
   bloques: FraseVideo[]
   palabras: PalabraVideo[]
 }
-const escuchado = new Map<number, (Escuchado & { desde: number; hasta: number })[]>()
+/** `pasada` = escuchado a medias (un tramo falló): sirve en ESTA pasada, no para reutilizar gratis. */
+const escuchado = new Map<number, (Escuchado & { desde: number; hasta: number; pasada?: boolean })[]>()
 
-function yaEscuchado(medioId: number, desde: number, hasta: number): Escuchado | null {
-  const e = escuchado.get(medioId)?.find((x) => x.desde <= desde + 0.05 && x.hasta >= hasta - 0.05)
+function yaEscuchado(medioId: number, desde: number, hasta: number, aunAMedias = false): Escuchado | null {
+  const lista = escuchado.get(medioId) ?? []
+  // El más reciente primero: lo de esta pasada manda sobre uno viejo que lo cubra.
+  const e = [...lista].reverse().find((x) => (aunAMedias || !x.pasada) && x.desde <= desde + 0.05 && x.hasta >= hasta - 0.05)
   const dentro = (f: FraseVideo) => f.fin > desde && f.inicio < hasta
   return e ? { frases: e.frases.filter(dentro), bloques: e.bloques.filter(dentro), palabras: e.palabras.filter((w) => w.f > desde && w.i < hasta) } : null
 }
@@ -120,12 +123,49 @@ function yaEscuchado(medioId: number, desde: number, hasta: number): Escuchado |
  * así que el cobro real puede quedar por debajo, nunca por encima.
  */
 export function creditosEscucha(principal: ClipPrincipal[], medios: MedioVideo[]): number {
-  return videosDe(principal, medios).reduce((s, c) => {
-    const desde = c.desde ?? 0
+  return rangosDeEscucha(videosDe(principal, medios)).reduce((s, r) => (yaEscuchado(r.medioId, r.desde, r.hasta) ? s : s + tramosDe(r.hasta - r.desde)), 0)
+}
+
+/** Tramos de 25 s de los clips de video (sin descontar lo escuchado): los que cobra traducir. */
+export const tramosDeClips = (clips: ClipPrincipal[]): number =>
+  rangosDeEscucha(clips.filter((c): c is ClipVideoReal => c.fuente.tipo === 'video')).reduce((s, r) => s + tramosDe(r.hasta - r.desde), 0)
+
+interface RangoEscucha {
+  medioId: number
+  desde: number
+  hasta: number
+}
+
+/**
+ * Lo que se escucha, en segundos DEL MEDIO: los trozos de un mismo video se
+ * juntan cuando así no cuesta más (un video partido en 12 clips de 4 s son 2
+ * tramos, no 12). Dos trozos se unen si se pisan o si el rango unido no pasa
+ * de los tramos que costarían por separado (el hueco cortado se escucha gratis).
+ */
+function rangosDeEscucha(videos: ClipVideoReal[]): RangoEscucha[] {
+  const porMedio = new Map<number, [number, number][]>()
+  for (const c of videos) {
+    const d = c.desde ?? 0
     // Se escucha el tramo DEL MEDIO (con velocidad, más o menos que lo que dura en la línea).
-    const span = c.duracion * velocidadDe(c)
-    return yaEscuchado(c.fuente.medioId, desde, desde + span) ? s : s + tramosDe(span)
-  }, 0)
+    const lista = porMedio.get(c.fuente.medioId) ?? []
+    lista.push([d, d + c.duracion * velocidadDe(c)])
+    porMedio.set(c.fuente.medioId, lista)
+  }
+  const salida: RangoEscucha[] = []
+  for (const [medioId, rs] of porMedio) {
+    rs.sort((x, y) => x[0] - y[0])
+    let [a, b] = rs[0]
+    for (const [x, y] of rs.slice(1)) {
+      const nb = Math.max(b, y)
+      if (x <= b + 0.05 || tramosDe(nb - a) <= tramosDe(b - a) + tramosDe(y - x)) b = nb
+      else {
+        salida.push({ medioId, desde: a, hasta: b })
+        ;[a, b] = [x, y]
+      }
+    }
+    salida.push({ medioId, desde: a, hasta: b })
+  }
+  return salida
 }
 
 async function blobDe(medioId: number): Promise<Blob | null> {
@@ -558,31 +598,32 @@ export async function analizarLinea(
   const duracion = principal.reduce((m, c) => Math.max(m, fin(c)), 0)
   const videos = videosDe(principal, medios)
 
-  // 1) Audio: energía y tramos de cobro por clip (lo ya escuchado no se vuelve a pedir).
+  // 1) Audio: energía por clip y tramos de cobro por RANGO del medio (lo ya escuchado no se vuelve a pedir).
   const energia = new Array<number>(Math.ceil(duracion)).fill(0)
   const trabajos: {
-    clip: ClipVideoReal
+    medioId: number
     audio: AudioMedio
     desde: number
     hasta: number
     previas: Escuchado | null
     tramos: Tramo[]
   }[] = []
+  for (const r of rangosDeEscucha(videos)) {
+    const audio = await audioDe(r.medioId)
+    if (!audio) continue
+    const previas = yaEscuchado(r.medioId, r.desde, r.hasta)
+    const tramos = previas || opciones.transcribirVoz === false ? [] : tramosCobro(audio, r.desde, r.hasta)
+    trabajos.push({ medioId: r.medioId, audio, desde: r.desde, hasta: r.hasta, previas, tramos })
+  }
   for (const clip of videos) {
     const audio = await audioDe(clip.fuente.medioId)
     if (!audio) continue
-    const desde = clip.desde ?? 0
-    const vel = velocidadDe(clip)
-    const hasta = desde + clip.duracion * vel
     for (let s = Math.floor(clip.inicio); s < Math.min(energia.length, Math.ceil(fin(clip))); s++) {
       const w0 = Math.floor(tiempoMedio(clip, s - clip.inicio) / VENTANA)
       let m = 0
       for (let w = w0; w < w0 + 1 / VENTANA && w < audio.rms.length; w++) m = Math.max(m, audio.rms[w])
       energia[s] = Math.max(energia[s], m)
     }
-    const previas = yaEscuchado(clip.fuente.medioId, desde, hasta)
-    const tramos = previas || opciones.transcribirVoz === false ? [] : tramosCobro(audio, desde, hasta)
-    trabajos.push({ clip, audio, desde, hasta, previas, tramos })
   }
   let pico = 0.0001
   for (const e of energia) pico = Math.max(pico, e)
@@ -623,26 +664,31 @@ export async function analizarLinea(
   const palabras: PalabraVideo[] = []
   const silencios: [number, number][] = []
   for (const tb of trabajos) {
-    let delMedio = tb.previas
-    if (!delMedio) {
-      // Con tiempos por palabra, las frases salen exactas; si no (respaldo sin ellos), a ojo por duración.
-      const oir = (tr: Tramo) => textos.get(tr)
-      delMedio = {
-        frases: tb.tramos.flatMap((tr) => {
-          const o = oir(tr)
-          return o?.palabras ? frasesDePalabras(o.palabras) : repartirPalabras(o?.texto ?? '', tr.voz)
-        }),
-        bloques: tb.tramos.filter((tr) => oir(tr)?.texto).map((tr) => ({ inicio: tr.inicio, fin: tr.fin, texto: oir(tr)!.texto })),
-        palabras: tb.tramos.flatMap((tr) => oir(tr)?.palabras ?? []),
-      }
-      // Solo se recuerda lo escuchado entero (un tramo fallido se reintenta la próxima vez).
-      if (opciones.transcribirVoz !== false && tb.tramos.every((tr) => textos.has(tr))) {
-        const lista = escuchado.get(tb.clip.fuente.medioId) ?? []
-        lista.push({ desde: tb.desde, hasta: tb.hasta, ...delMedio })
-        escuchado.set(tb.clip.fuente.medioId, lista)
-      }
+    if (tb.previas) continue
+    // Con tiempos por palabra, las frases salen exactas; si no (respaldo sin ellos), a ojo por duración.
+    const oir = (tr: Tramo) => textos.get(tr)
+    const delMedio: Escuchado = {
+      frases: tb.tramos.flatMap((tr) => {
+        const o = oir(tr)
+        return o?.palabras ? frasesDePalabras(o.palabras) : repartirPalabras(o?.texto ?? '', tr.voz)
+      }),
+      bloques: tb.tramos.filter((tr) => oir(tr)?.texto).map((tr) => ({ inicio: tr.inicio, fin: tr.fin, texto: oir(tr)!.texto })),
+      palabras: tb.tramos.flatMap((tr) => oir(tr)?.palabras ?? []),
     }
-    const aLinea = (t: number) => redondear(tb.clip.inicio + (t - tb.desde) / velocidadDe(tb.clip))
+    // Se guarda para esta pasada; solo lo escuchado ENTERO se reutiliza gratis después
+    // (un tramo fallido se vuelve a pedir la próxima vez).
+    const completo = opciones.transcribirVoz !== false && tb.tramos.every((tr) => textos.has(tr))
+    const lista = escuchado.get(tb.medioId) ?? []
+    lista.push({ desde: tb.desde, hasta: tb.hasta, ...delMedio, ...(completo ? {} : { pasada: true }) })
+    escuchado.set(tb.medioId, lista)
+  }
+  // Cada clip toma lo suyo de lo escuchado de su medio y lo pasa a la línea.
+  for (const clip of videos) {
+    const desde0 = clip.desde ?? 0
+    const tb = { desde: desde0, hasta: desde0 + clip.duracion * velocidadDe(clip) }
+    const delMedio = yaEscuchado(clip.fuente.medioId, tb.desde, tb.hasta, true)
+    if (!delMedio) continue
+    const aLinea = (t: number) => redondear(clip.inicio + (t - tb.desde) / velocidadDe(clip))
     const enLinea = (f: FraseVideo) => ({ inicio: aLinea(Math.max(f.inicio, tb.desde)), fin: aLinea(Math.min(f.fin, tb.hasta)), texto: f.texto })
     bloques.push(...delMedio.bloques.map(enLinea))
     palabras.push(
@@ -679,6 +725,8 @@ export async function analizarLinea(
     }
   }
 
+  // Lo escuchado a medias ya se usó en esta pasada: fuera, para que la próxima lo vuelva a pedir.
+  for (const [id, lista] of escuchado) escuchado.set(id, lista.filter((x) => !x.pasada))
   frases.sort((a, b) => a.inicio - b.inicio)
   bloques.sort((a, b) => a.inicio - b.inicio)
   return {
